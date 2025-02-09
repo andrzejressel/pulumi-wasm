@@ -128,148 +128,109 @@ pub mod studio {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StudioArgs,
     ) -> StudioResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auth_mode_binding_1 = args.auth_mode.get_output(context);
-        let auth_mode_binding = auth_mode_binding_1.get_inner();
-        let default_s3_location_binding_1 = args.default_s3_location.get_output(context);
-        let default_s3_location_binding = default_s3_location_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let engine_security_group_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auth_mode_binding = args.auth_mode.get_output(context);
+        let default_s3_location_binding = args.default_s3_location.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let engine_security_group_id_binding = args
             .engine_security_group_id
             .get_output(context);
-        let engine_security_group_id_binding = engine_security_group_id_binding_1
-            .get_inner();
-        let idp_auth_url_binding_1 = args.idp_auth_url.get_output(context);
-        let idp_auth_url_binding = idp_auth_url_binding_1.get_inner();
-        let idp_relay_state_parameter_name_binding_1 = args
+        let idp_auth_url_binding = args.idp_auth_url.get_output(context);
+        let idp_relay_state_parameter_name_binding = args
             .idp_relay_state_parameter_name
             .get_output(context);
-        let idp_relay_state_parameter_name_binding = idp_relay_state_parameter_name_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let service_role_binding_1 = args.service_role.get_output(context);
-        let service_role_binding = service_role_binding_1.get_inner();
-        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
-        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_role_binding_1 = args.user_role.get_output(context);
-        let user_role_binding = user_role_binding_1.get_inner();
-        let vpc_id_binding_1 = args.vpc_id.get_output(context);
-        let vpc_id_binding = vpc_id_binding_1.get_inner();
-        let workspace_security_group_id_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let service_role_binding = args.service_role.get_output(context);
+        let subnet_ids_binding = args.subnet_ids.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let user_role_binding = args.user_role.get_output(context);
+        let vpc_id_binding = args.vpc_id.get_output(context);
+        let workspace_security_group_id_binding = args
             .workspace_security_group_id
             .get_output(context);
-        let workspace_security_group_id_binding = workspace_security_group_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:emr/studio:Studio".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authMode".into(),
-                    value: &auth_mode_binding,
+                    value: auth_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultS3Location".into(),
-                    value: &default_s3_location_binding,
+                    value: default_s3_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineSecurityGroupId".into(),
-                    value: &engine_security_group_id_binding,
+                    value: engine_security_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idpAuthUrl".into(),
-                    value: &idp_auth_url_binding,
+                    value: idp_auth_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idpRelayStateParameterName".into(),
-                    value: &idp_relay_state_parameter_name_binding,
+                    value: idp_relay_state_parameter_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRole".into(),
-                    value: &service_role_binding,
+                    value: service_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: &subnet_ids_binding,
+                    value: subnet_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userRole".into(),
-                    value: &user_role_binding,
+                    value: user_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: &vpc_id_binding,
+                    value: vpc_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceSecurityGroupId".into(),
-                    value: &workspace_security_group_id_binding,
+                    value: workspace_security_group_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StudioResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auth_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authMode"),
-            ),
-            default_s3_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultS3Location"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            engine_security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineSecurityGroupId"),
-            ),
-            idp_auth_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idpAuthUrl"),
-            ),
-            idp_relay_state_parameter_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idpRelayStateParameterName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            service_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRole"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
-            user_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userRole"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcId"),
-            ),
-            workspace_security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceSecurityGroupId"),
-            ),
+            arn: o.get_field("arn"),
+            auth_mode: o.get_field("authMode"),
+            default_s3_location: o.get_field("defaultS3Location"),
+            description: o.get_field("description"),
+            engine_security_group_id: o.get_field("engineSecurityGroupId"),
+            idp_auth_url: o.get_field("idpAuthUrl"),
+            idp_relay_state_parameter_name: o.get_field("idpRelayStateParameterName"),
+            name: o.get_field("name"),
+            service_role: o.get_field("serviceRole"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            url: o.get_field("url"),
+            user_role: o.get_field("userRole"),
+            vpc_id: o.get_field("vpcId"),
+            workspace_security_group_id: o.get_field("workspaceSecurityGroupId"),
         }
     }
 }

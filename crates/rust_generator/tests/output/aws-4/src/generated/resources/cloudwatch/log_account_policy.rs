@@ -112,64 +112,52 @@ pub mod log_account_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LogAccountPolicyArgs,
     ) -> LogAccountPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_document_binding_1 = args.policy_document.get_output(context);
-        let policy_document_binding = policy_document_binding_1.get_inner();
-        let policy_name_binding_1 = args.policy_name.get_output(context);
-        let policy_name_binding = policy_name_binding_1.get_inner();
-        let policy_type_binding_1 = args.policy_type.get_output(context);
-        let policy_type_binding = policy_type_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let selection_criteria_binding_1 = args.selection_criteria.get_output(context);
-        let selection_criteria_binding = selection_criteria_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let policy_document_binding = args.policy_document.get_output(context);
+        let policy_name_binding = args.policy_name.get_output(context);
+        let policy_type_binding = args.policy_type.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let selection_criteria_binding = args.selection_criteria.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudwatch/logAccountPolicy:LogAccountPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDocument".into(),
-                    value: &policy_document_binding,
+                    value: policy_document_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyName".into(),
-                    value: &policy_name_binding,
+                    value: policy_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyType".into(),
-                    value: &policy_type_binding,
+                    value: policy_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selectionCriteria".into(),
-                    value: &selection_criteria_binding,
+                    value: selection_criteria_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LogAccountPolicyResult {
-            policy_document: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyDocument"),
-            ),
-            policy_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyName"),
-            ),
-            policy_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyType"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
-            selection_criteria: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selectionCriteria"),
-            ),
+            policy_document: o.get_field("policyDocument"),
+            policy_name: o.get_field("policyName"),
+            policy_type: o.get_field("policyType"),
+            scope: o.get_field("scope"),
+            selection_criteria: o.get_field("selectionCriteria"),
         }
     }
 }

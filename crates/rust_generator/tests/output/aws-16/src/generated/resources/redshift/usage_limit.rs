@@ -86,86 +86,66 @@ pub mod usage_limit {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UsageLimitArgs,
     ) -> UsageLimitResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let amount_binding_1 = args.amount.get_output(context);
-        let amount_binding = amount_binding_1.get_inner();
-        let breach_action_binding_1 = args.breach_action.get_output(context);
-        let breach_action_binding = breach_action_binding_1.get_inner();
-        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
-        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
-        let feature_type_binding_1 = args.feature_type.get_output(context);
-        let feature_type_binding = feature_type_binding_1.get_inner();
-        let limit_type_binding_1 = args.limit_type.get_output(context);
-        let limit_type_binding = limit_type_binding_1.get_inner();
-        let period_binding_1 = args.period.get_output(context);
-        let period_binding = period_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let amount_binding = args.amount.get_output(context);
+        let breach_action_binding = args.breach_action.get_output(context);
+        let cluster_identifier_binding = args.cluster_identifier.get_output(context);
+        let feature_type_binding = args.feature_type.get_output(context);
+        let limit_type_binding = args.limit_type.get_output(context);
+        let period_binding = args.period.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshift/usageLimit:UsageLimit".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amount".into(),
-                    value: &amount_binding,
+                    value: amount_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "breachAction".into(),
-                    value: &breach_action_binding,
+                    value: breach_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: &cluster_identifier_binding,
+                    value: cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featureType".into(),
-                    value: &feature_type_binding,
+                    value: feature_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "limitType".into(),
-                    value: &limit_type_binding,
+                    value: limit_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "period".into(),
-                    value: &period_binding,
+                    value: period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UsageLimitResult {
-            amount: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("amount"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            breach_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("breachAction"),
-            ),
-            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterIdentifier"),
-            ),
-            feature_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("featureType"),
-            ),
-            limit_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("limitType"),
-            ),
-            period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("period"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            amount: o.get_field("amount"),
+            arn: o.get_field("arn"),
+            breach_action: o.get_field("breachAction"),
+            cluster_identifier: o.get_field("clusterIdentifier"),
+            feature_type: o.get_field("featureType"),
+            limit_type: o.get_field("limitType"),
+            period: o.get_field("period"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

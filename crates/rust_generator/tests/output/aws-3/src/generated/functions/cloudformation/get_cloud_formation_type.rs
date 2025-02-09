@@ -58,89 +58,58 @@ pub mod get_cloud_formation_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCloudFormationTypeArgs,
     ) -> GetCloudFormationTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let type_name_binding_1 = args.type_name.get_output(context);
-        let type_name_binding = type_name_binding_1.get_inner();
-        let version_id_binding_1 = args.version_id.get_output(context);
-        let version_id_binding = version_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let type_name_binding = args.type_name.get_output(context);
+        let version_id_binding = args.version_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:cloudformation/getCloudFormationType:getCloudFormationType"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "typeName".into(),
-                    value: &type_name_binding,
+                    value: type_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionId".into(),
-                    value: &version_id_binding,
+                    value: version_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCloudFormationTypeResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            default_version_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultVersionId"),
-            ),
-            deprecated_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deprecatedStatus"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            documentation_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentationUrl"),
-            ),
-            execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionRoleArn"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            is_default_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isDefaultVersion"),
-            ),
-            logging_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingConfigs"),
-            ),
-            provisioning_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisioningType"),
-            ),
-            schema: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schema"),
-            ),
-            source_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceUrl"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            type_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("typeArn"),
-            ),
-            type_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("typeName"),
-            ),
-            version_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionId"),
-            ),
-            visibility: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("visibility"),
-            ),
+            arn: o.get_field("arn"),
+            default_version_id: o.get_field("defaultVersionId"),
+            deprecated_status: o.get_field("deprecatedStatus"),
+            description: o.get_field("description"),
+            documentation_url: o.get_field("documentationUrl"),
+            execution_role_arn: o.get_field("executionRoleArn"),
+            id: o.get_field("id"),
+            is_default_version: o.get_field("isDefaultVersion"),
+            logging_configs: o.get_field("loggingConfigs"),
+            provisioning_type: o.get_field("provisioningType"),
+            schema: o.get_field("schema"),
+            source_url: o.get_field("sourceUrl"),
+            type_: o.get_field("type"),
+            type_arn: o.get_field("typeArn"),
+            type_name: o.get_field("typeName"),
+            version_id: o.get_field("versionId"),
+            visibility: o.get_field("visibility"),
         }
     }
 }

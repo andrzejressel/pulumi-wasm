@@ -40,55 +40,37 @@ pub mod get_zone_dnssec {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetZoneDnssecArgs,
     ) -> GetZoneDnssecResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "cloudflare:index/getZoneDnssec:getZoneDnssec".into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetZoneDnssecResult {
-            algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("algorithm"),
-            ),
-            digest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("digest"),
-            ),
-            digest_algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("digestAlgorithm"),
-            ),
-            digest_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("digestType"),
-            ),
-            ds: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ds")),
-            flags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("flags")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_tag: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyTag"),
-            ),
-            key_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyType"),
-            ),
-            public_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKey"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            algorithm: o.get_field("algorithm"),
+            digest: o.get_field("digest"),
+            digest_algorithm: o.get_field("digestAlgorithm"),
+            digest_type: o.get_field("digestType"),
+            ds: o.get_field("ds"),
+            flags: o.get_field("flags"),
+            id: o.get_field("id"),
+            key_tag: o.get_field("keyTag"),
+            key_type: o.get_field("keyType"),
+            public_key: o.get_field("publicKey"),
+            status: o.get_field("status"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

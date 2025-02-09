@@ -41,59 +41,43 @@ pub mod get_authorizer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAuthorizerArgs,
     ) -> GetAuthorizerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorizer_id_binding_1 = args.authorizer_id.get_output(context);
-        let authorizer_id_binding = authorizer_id_binding_1.get_inner();
-        let rest_api_id_binding_1 = args.rest_api_id.get_output(context);
-        let rest_api_id_binding = rest_api_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authorizer_id_binding = args.authorizer_id.get_output(context);
+        let rest_api_id_binding = args.rest_api_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:apigateway/getAuthorizer:getAuthorizer".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizerId".into(),
-                    value: &authorizer_id_binding,
+                    value: authorizer_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApiId".into(),
-                    value: &rest_api_id_binding,
+                    value: rest_api_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAuthorizerResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            authorizer_credentials: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizerCredentials"),
-            ),
-            authorizer_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizerId"),
-            ),
-            authorizer_result_ttl_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizerResultTtlInSeconds"),
-            ),
-            authorizer_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizerUri"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identity_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identitySource"),
-            ),
-            identity_validation_expression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityValidationExpression"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            provider_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("providerArns"),
-            ),
-            rest_api_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restApiId"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            arn: o.get_field("arn"),
+            authorizer_credentials: o.get_field("authorizerCredentials"),
+            authorizer_id: o.get_field("authorizerId"),
+            authorizer_result_ttl_in_seconds: o
+                .get_field("authorizerResultTtlInSeconds"),
+            authorizer_uri: o.get_field("authorizerUri"),
+            id: o.get_field("id"),
+            identity_source: o.get_field("identitySource"),
+            identity_validation_expression: o.get_field("identityValidationExpression"),
+            name: o.get_field("name"),
+            provider_arns: o.get_field("providerArns"),
+            rest_api_id: o.get_field("restApiId"),
+            type_: o.get_field("type"),
         }
     }
 }

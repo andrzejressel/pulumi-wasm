@@ -37,45 +37,33 @@ pub mod get_folder_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetFolderSettingsArgs,
     ) -> GetFolderSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let folder_binding_1 = args.folder.get_output(context);
-        let folder_binding = folder_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let folder_binding = args.folder.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:logging/getFolderSettings:getFolderSettings".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: &folder_binding,
+                    value: folder_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetFolderSettingsResult {
-            disable_default_sink: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableDefaultSink"),
-            ),
-            folder: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("folder"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyName"),
-            ),
-            kms_service_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsServiceAccountId"),
-            ),
-            logging_service_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingServiceAccountId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            storage_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageLocation"),
-            ),
+            disable_default_sink: o.get_field("disableDefaultSink"),
+            folder: o.get_field("folder"),
+            id: o.get_field("id"),
+            kms_key_name: o.get_field("kmsKeyName"),
+            kms_service_account_id: o.get_field("kmsServiceAccountId"),
+            logging_service_account_id: o.get_field("loggingServiceAccountId"),
+            name: o.get_field("name"),
+            storage_location: o.get_field("storageLocation"),
         }
     }
 }

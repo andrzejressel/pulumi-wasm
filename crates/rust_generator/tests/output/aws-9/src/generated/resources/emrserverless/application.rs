@@ -193,138 +193,104 @@ pub mod application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApplicationArgs,
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let architecture_binding_1 = args.architecture.get_output(context);
-        let architecture_binding = architecture_binding_1.get_inner();
-        let auto_start_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let architecture_binding = args.architecture.get_output(context);
+        let auto_start_configuration_binding = args
             .auto_start_configuration
             .get_output(context);
-        let auto_start_configuration_binding = auto_start_configuration_binding_1
-            .get_inner();
-        let auto_stop_configuration_binding_1 = args
+        let auto_stop_configuration_binding = args
             .auto_stop_configuration
             .get_output(context);
-        let auto_stop_configuration_binding = auto_stop_configuration_binding_1
-            .get_inner();
-        let image_configuration_binding_1 = args.image_configuration.get_output(context);
-        let image_configuration_binding = image_configuration_binding_1.get_inner();
-        let initial_capacities_binding_1 = args.initial_capacities.get_output(context);
-        let initial_capacities_binding = initial_capacities_binding_1.get_inner();
-        let interactive_configuration_binding_1 = args
+        let image_configuration_binding = args.image_configuration.get_output(context);
+        let initial_capacities_binding = args.initial_capacities.get_output(context);
+        let interactive_configuration_binding = args
             .interactive_configuration
             .get_output(context);
-        let interactive_configuration_binding = interactive_configuration_binding_1
-            .get_inner();
-        let maximum_capacity_binding_1 = args.maximum_capacity.get_output(context);
-        let maximum_capacity_binding = maximum_capacity_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_configuration_binding_1 = args
+        let maximum_capacity_binding = args.maximum_capacity.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_configuration_binding = args
             .network_configuration
             .get_output(context);
-        let network_configuration_binding = network_configuration_binding_1.get_inner();
-        let release_label_binding_1 = args.release_label.get_output(context);
-        let release_label_binding = release_label_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let release_label_binding = args.release_label.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:emrserverless/application:Application".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "architecture".into(),
-                    value: &architecture_binding,
+                    value: architecture_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoStartConfiguration".into(),
-                    value: &auto_start_configuration_binding,
+                    value: auto_start_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoStopConfiguration".into(),
-                    value: &auto_stop_configuration_binding,
+                    value: auto_stop_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageConfiguration".into(),
-                    value: &image_configuration_binding,
+                    value: image_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialCapacities".into(),
-                    value: &initial_capacities_binding,
+                    value: initial_capacities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interactiveConfiguration".into(),
-                    value: &interactive_configuration_binding,
+                    value: interactive_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumCapacity".into(),
-                    value: &maximum_capacity_binding,
+                    value: maximum_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfiguration".into(),
-                    value: &network_configuration_binding,
+                    value: network_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseLabel".into(),
-                    value: &release_label_binding,
+                    value: release_label_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApplicationResult {
-            architecture: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("architecture"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_start_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoStartConfiguration"),
-            ),
-            auto_stop_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoStopConfiguration"),
-            ),
-            image_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageConfiguration"),
-            ),
-            initial_capacities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initialCapacities"),
-            ),
-            interactive_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interactiveConfiguration"),
-            ),
-            maximum_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumCapacity"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfiguration"),
-            ),
-            release_label: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseLabel"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            architecture: o.get_field("architecture"),
+            arn: o.get_field("arn"),
+            auto_start_configuration: o.get_field("autoStartConfiguration"),
+            auto_stop_configuration: o.get_field("autoStopConfiguration"),
+            image_configuration: o.get_field("imageConfiguration"),
+            initial_capacities: o.get_field("initialCapacities"),
+            interactive_configuration: o.get_field("interactiveConfiguration"),
+            maximum_capacity: o.get_field("maximumCapacity"),
+            name: o.get_field("name"),
+            network_configuration: o.get_field("networkConfiguration"),
+            release_label: o.get_field("releaseLabel"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
         }
     }
 }

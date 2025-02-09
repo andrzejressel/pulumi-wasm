@@ -77,67 +77,50 @@ pub mod route_calculation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RouteCalculationArgs,
     ) -> RouteCalculationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let calculator_name_binding_1 = args.calculator_name.get_output(context);
-        let calculator_name_binding = calculator_name_binding_1.get_inner();
-        let data_source_binding_1 = args.data_source.get_output(context);
-        let data_source_binding = data_source_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let calculator_name_binding = args.calculator_name.get_output(context);
+        let data_source_binding = args.data_source.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:location/routeCalculation:RouteCalculation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "calculatorName".into(),
-                    value: &calculator_name_binding,
+                    value: calculator_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSource".into(),
-                    value: &data_source_binding,
+                    value: data_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RouteCalculationResult {
-            calculator_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("calculatorArn"),
-            ),
-            calculator_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("calculatorName"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            data_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSource"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            calculator_arn: o.get_field("calculatorArn"),
+            calculator_name: o.get_field("calculatorName"),
+            create_time: o.get_field("createTime"),
+            data_source: o.get_field("dataSource"),
+            description: o.get_field("description"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

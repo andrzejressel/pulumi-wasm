@@ -94,77 +94,61 @@ pub mod function_java_script_udf {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FunctionJavaScriptUDFArgs,
     ) -> FunctionJavaScriptUDFResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let inputs_binding_1 = args.inputs.get_output(context);
-        let inputs_binding = inputs_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let output_binding_1 = args.output.get_output(context);
-        let output_binding = output_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let script_binding_1 = args.script.get_output(context);
-        let script_binding = script_binding_1.get_inner();
-        let stream_analytics_job_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let inputs_binding = args.inputs.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let output_binding = args.output.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let script_binding = args.script.get_output(context);
+        let stream_analytics_job_name_binding = args
             .stream_analytics_job_name
             .get_output(context);
-        let stream_analytics_job_name_binding = stream_analytics_job_name_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputs".into(),
-                    value: &inputs_binding,
+                    value: inputs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "output".into(),
-                    value: &output_binding,
+                    value: output_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "script".into(),
-                    value: &script_binding,
+                    value: script_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobName".into(),
-                    value: &stream_analytics_job_name_binding,
+                    value: stream_analytics_job_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FunctionJavaScriptUDFResult {
-            inputs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputs"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            output: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("output"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            script: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("script"),
-            ),
-            stream_analytics_job_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamAnalyticsJobName"),
-            ),
+            inputs: o.get_field("inputs"),
+            name: o.get_field("name"),
+            output: o.get_field("output"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            script: o.get_field("script"),
+            stream_analytics_job_name: o.get_field("streamAnalyticsJobName"),
         }
     }
 }

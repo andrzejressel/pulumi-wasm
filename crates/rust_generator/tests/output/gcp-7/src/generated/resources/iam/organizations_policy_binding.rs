@@ -168,118 +168,84 @@ pub mod organizations_policy_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OrganizationsPolicyBindingArgs,
     ) -> OrganizationsPolicyBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let condition_binding_1 = args.condition.get_output(context);
-        let condition_binding = condition_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let organization_binding_1 = args.organization.get_output(context);
-        let organization_binding = organization_binding_1.get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let policy_binding_id_binding_1 = args.policy_binding_id.get_output(context);
-        let policy_binding_id_binding = policy_binding_id_binding_1.get_inner();
-        let policy_kind_binding_1 = args.policy_kind.get_output(context);
-        let policy_kind_binding = policy_kind_binding_1.get_inner();
-        let target_binding_1 = args.target.get_output(context);
-        let target_binding = target_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let annotations_binding = args.annotations.get_output(context);
+        let condition_binding = args.condition.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let organization_binding = args.organization.get_output(context);
+        let policy_binding = args.policy.get_output(context);
+        let policy_binding_id_binding = args.policy_binding_id.get_output(context);
+        let policy_kind_binding = args.policy_kind.get_output(context);
+        let target_binding = args.target.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:iam/organizationsPolicyBinding:OrganizationsPolicyBinding"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: &condition_binding,
+                    value: condition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organization".into(),
-                    value: &organization_binding,
+                    value: organization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyBindingId".into(),
-                    value: &policy_binding_id_binding,
+                    value: policy_binding_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyKind".into(),
-                    value: &policy_kind_binding,
+                    value: policy_kind_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "target".into(),
-                    value: &target_binding,
+                    value: target_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OrganizationsPolicyBindingResult {
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            condition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("condition"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            organization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organization"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            policy_binding_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyBindingId"),
-            ),
-            policy_kind: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyKind"),
-            ),
-            policy_uid: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyUid"),
-            ),
-            target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("target"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            annotations: o.get_field("annotations"),
+            condition: o.get_field("condition"),
+            create_time: o.get_field("createTime"),
+            display_name: o.get_field("displayName"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            etag: o.get_field("etag"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            organization: o.get_field("organization"),
+            policy: o.get_field("policy"),
+            policy_binding_id: o.get_field("policyBindingId"),
+            policy_kind: o.get_field("policyKind"),
+            policy_uid: o.get_field("policyUid"),
+            target: o.get_field("target"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

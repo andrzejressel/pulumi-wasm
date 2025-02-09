@@ -33,45 +33,39 @@ pub mod get_virtual_machine_manager_inventory_items {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVirtualMachineManagerInventoryItemsArgs,
     ) -> GetVirtualMachineManagerInventoryItemsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let inventory_type_binding_1 = args.inventory_type.get_output(context);
-        let inventory_type_binding = inventory_type_binding_1.get_inner();
-        let system_center_virtual_machine_manager_server_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let inventory_type_binding = args.inventory_type.get_output(context);
+        let system_center_virtual_machine_manager_server_id_binding = args
             .system_center_virtual_machine_manager_server_id
             .get_output(context);
-        let system_center_virtual_machine_manager_server_id_binding = system_center_virtual_machine_manager_server_id_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:systemcenter/getVirtualMachineManagerInventoryItems:getVirtualMachineManagerInventoryItems"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inventoryType".into(),
-                    value: &inventory_type_binding,
+                    value: inventory_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "systemCenterVirtualMachineManagerServerId".into(),
-                    value: &system_center_virtual_machine_manager_server_id_binding,
+                    value: system_center_virtual_machine_manager_server_id_binding
+                        .get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVirtualMachineManagerInventoryItemsResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            inventory_items: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inventoryItems"),
-            ),
-            inventory_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inventoryType"),
-            ),
-            system_center_virtual_machine_manager_server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("systemCenterVirtualMachineManagerServerId"),
-            ),
+            id: o.get_field("id"),
+            inventory_items: o.get_field("inventoryItems"),
+            inventory_type: o.get_field("inventoryType"),
+            system_center_virtual_machine_manager_server_id: o
+                .get_field("systemCenterVirtualMachineManagerServerId"),
         }
     }
 }

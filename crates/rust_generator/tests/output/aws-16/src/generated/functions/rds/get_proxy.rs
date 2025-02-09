@@ -43,56 +43,38 @@ pub mod get_proxy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetProxyArgs,
     ) -> GetProxyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:rds/getProxy:getProxy".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetProxyResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auths: pulumi_gestalt_rust::__private::into_domain(o.extract_field("auths")),
-            debug_logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("debugLogging"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            engine_family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineFamily"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            idle_client_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleClientTimeout"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            require_tls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requireTls"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcId"),
-            ),
-            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSecurityGroupIds"),
-            ),
-            vpc_subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSubnetIds"),
-            ),
+            arn: o.get_field("arn"),
+            auths: o.get_field("auths"),
+            debug_logging: o.get_field("debugLogging"),
+            endpoint: o.get_field("endpoint"),
+            engine_family: o.get_field("engineFamily"),
+            id: o.get_field("id"),
+            idle_client_timeout: o.get_field("idleClientTimeout"),
+            name: o.get_field("name"),
+            require_tls: o.get_field("requireTls"),
+            role_arn: o.get_field("roleArn"),
+            vpc_id: o.get_field("vpcId"),
+            vpc_security_group_ids: o.get_field("vpcSecurityGroupIds"),
+            vpc_subnet_ids: o.get_field("vpcSubnetIds"),
         }
     }
 }

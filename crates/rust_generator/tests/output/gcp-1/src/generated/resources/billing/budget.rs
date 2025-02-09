@@ -327,85 +327,65 @@ pub mod budget {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BudgetArgs,
     ) -> BudgetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let all_updates_rule_binding_1 = args.all_updates_rule.get_output(context);
-        let all_updates_rule_binding = all_updates_rule_binding_1.get_inner();
-        let amount_binding_1 = args.amount.get_output(context);
-        let amount_binding = amount_binding_1.get_inner();
-        let billing_account_binding_1 = args.billing_account.get_output(context);
-        let billing_account_binding = billing_account_binding_1.get_inner();
-        let budget_filter_binding_1 = args.budget_filter.get_output(context);
-        let budget_filter_binding = budget_filter_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let ownership_scope_binding_1 = args.ownership_scope.get_output(context);
-        let ownership_scope_binding = ownership_scope_binding_1.get_inner();
-        let threshold_rules_binding_1 = args.threshold_rules.get_output(context);
-        let threshold_rules_binding = threshold_rules_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let all_updates_rule_binding = args.all_updates_rule.get_output(context);
+        let amount_binding = args.amount.get_output(context);
+        let billing_account_binding = args.billing_account.get_output(context);
+        let budget_filter_binding = args.budget_filter.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let ownership_scope_binding = args.ownership_scope.get_output(context);
+        let threshold_rules_binding = args.threshold_rules.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:billing/budget:Budget".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allUpdatesRule".into(),
-                    value: &all_updates_rule_binding,
+                    value: all_updates_rule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amount".into(),
-                    value: &amount_binding,
+                    value: amount_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAccount".into(),
-                    value: &billing_account_binding,
+                    value: billing_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "budgetFilter".into(),
-                    value: &budget_filter_binding,
+                    value: budget_filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownershipScope".into(),
-                    value: &ownership_scope_binding,
+                    value: ownership_scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thresholdRules".into(),
-                    value: &threshold_rules_binding,
+                    value: threshold_rules_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BudgetResult {
-            all_updates_rule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allUpdatesRule"),
-            ),
-            amount: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("amount"),
-            ),
-            billing_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingAccount"),
-            ),
-            budget_filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("budgetFilter"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            ownership_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownershipScope"),
-            ),
-            threshold_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thresholdRules"),
-            ),
+            all_updates_rule: o.get_field("allUpdatesRule"),
+            amount: o.get_field("amount"),
+            billing_account: o.get_field("billingAccount"),
+            budget_filter: o.get_field("budgetFilter"),
+            display_name: o.get_field("displayName"),
+            name: o.get_field("name"),
+            ownership_scope: o.get_field("ownershipScope"),
+            threshold_rules: o.get_field("thresholdRules"),
         }
     }
 }

@@ -46,45 +46,36 @@ pub mod deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DeploymentArgs,
     ) -> DeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let service_arn_binding_1 = args.service_arn.get_output(context);
-        let service_arn_binding = service_arn_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let service_arn_binding = args.service_arn.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apprunner/deployment:Deployment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceArn".into(),
-                    value: &service_arn_binding,
+                    value: service_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DeploymentResult {
-            operation_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operationId"),
-            ),
-            service_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceArn"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            operation_id: o.get_field("operationId"),
+            service_arn: o.get_field("serviceArn"),
+            status: o.get_field("status"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

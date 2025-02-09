@@ -129,143 +129,98 @@ pub mod layer_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LayerVersionArgs,
     ) -> LayerVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let code_binding_1 = args.code.get_output(context);
-        let code_binding = code_binding_1.get_inner();
-        let compatible_architectures_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let code_binding = args.code.get_output(context);
+        let compatible_architectures_binding = args
             .compatible_architectures
             .get_output(context);
-        let compatible_architectures_binding = compatible_architectures_binding_1
-            .get_inner();
-        let compatible_runtimes_binding_1 = args.compatible_runtimes.get_output(context);
-        let compatible_runtimes_binding = compatible_runtimes_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let layer_name_binding_1 = args.layer_name.get_output(context);
-        let layer_name_binding = layer_name_binding_1.get_inner();
-        let license_info_binding_1 = args.license_info.get_output(context);
-        let license_info_binding = license_info_binding_1.get_inner();
-        let s3_bucket_binding_1 = args.s3_bucket.get_output(context);
-        let s3_bucket_binding = s3_bucket_binding_1.get_inner();
-        let s3_key_binding_1 = args.s3_key.get_output(context);
-        let s3_key_binding = s3_key_binding_1.get_inner();
-        let s3_object_version_binding_1 = args.s3_object_version.get_output(context);
-        let s3_object_version_binding = s3_object_version_binding_1.get_inner();
-        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
-        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
-        let source_code_hash_binding_1 = args.source_code_hash.get_output(context);
-        let source_code_hash_binding = source_code_hash_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let compatible_runtimes_binding = args.compatible_runtimes.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let layer_name_binding = args.layer_name.get_output(context);
+        let license_info_binding = args.license_info.get_output(context);
+        let s3_bucket_binding = args.s3_bucket.get_output(context);
+        let s3_key_binding = args.s3_key.get_output(context);
+        let s3_object_version_binding = args.s3_object_version.get_output(context);
+        let skip_destroy_binding = args.skip_destroy.get_output(context);
+        let source_code_hash_binding = args.source_code_hash.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lambda/layerVersion:LayerVersion".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "code".into(),
-                    value: &code_binding,
+                    value: code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compatibleArchitectures".into(),
-                    value: &compatible_architectures_binding,
+                    value: compatible_architectures_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compatibleRuntimes".into(),
-                    value: &compatible_runtimes_binding,
+                    value: compatible_runtimes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "layerName".into(),
-                    value: &layer_name_binding,
+                    value: layer_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseInfo".into(),
-                    value: &license_info_binding,
+                    value: license_info_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Bucket".into(),
-                    value: &s3_bucket_binding,
+                    value: s3_bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Key".into(),
-                    value: &s3_key_binding,
+                    value: s3_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3ObjectVersion".into(),
-                    value: &s3_object_version_binding,
+                    value: s3_object_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: &skip_destroy_binding,
+                    value: skip_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceCodeHash".into(),
-                    value: &source_code_hash_binding,
+                    value: source_code_hash_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LayerVersionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            code: pulumi_gestalt_rust::__private::into_domain(o.extract_field("code")),
-            code_sha256: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("codeSha256"),
-            ),
-            compatible_architectures: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compatibleArchitectures"),
-            ),
-            compatible_runtimes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compatibleRuntimes"),
-            ),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            layer_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("layerArn"),
-            ),
-            layer_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("layerName"),
-            ),
-            license_info: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseInfo"),
-            ),
-            s3_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Bucket"),
-            ),
-            s3_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Key"),
-            ),
-            s3_object_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3ObjectVersion"),
-            ),
-            signing_job_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingJobArn"),
-            ),
-            signing_profile_version_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingProfileVersionArn"),
-            ),
-            skip_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipDestroy"),
-            ),
-            source_code_hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceCodeHash"),
-            ),
-            source_code_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceCodeSize"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            arn: o.get_field("arn"),
+            code: o.get_field("code"),
+            code_sha256: o.get_field("codeSha256"),
+            compatible_architectures: o.get_field("compatibleArchitectures"),
+            compatible_runtimes: o.get_field("compatibleRuntimes"),
+            created_date: o.get_field("createdDate"),
+            description: o.get_field("description"),
+            layer_arn: o.get_field("layerArn"),
+            layer_name: o.get_field("layerName"),
+            license_info: o.get_field("licenseInfo"),
+            s3_bucket: o.get_field("s3Bucket"),
+            s3_key: o.get_field("s3Key"),
+            s3_object_version: o.get_field("s3ObjectVersion"),
+            signing_job_arn: o.get_field("signingJobArn"),
+            signing_profile_version_arn: o.get_field("signingProfileVersionArn"),
+            skip_destroy: o.get_field("skipDestroy"),
+            source_code_hash: o.get_field("sourceCodeHash"),
+            source_code_size: o.get_field("sourceCodeSize"),
+            version: o.get_field("version"),
         }
     }
 }

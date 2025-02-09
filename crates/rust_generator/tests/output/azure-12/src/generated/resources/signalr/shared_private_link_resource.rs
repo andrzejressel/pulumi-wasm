@@ -106,68 +106,54 @@ pub mod shared_private_link_resource {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SharedPrivateLinkResourceArgs,
     ) -> SharedPrivateLinkResourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request_message_binding_1 = args.request_message.get_output(context);
-        let request_message_binding = request_message_binding_1.get_inner();
-        let signalr_service_id_binding_1 = args.signalr_service_id.get_output(context);
-        let signalr_service_id_binding = signalr_service_id_binding_1.get_inner();
-        let sub_resource_name_binding_1 = args.sub_resource_name.get_output(context);
-        let sub_resource_name_binding = sub_resource_name_binding_1.get_inner();
-        let target_resource_id_binding_1 = args.target_resource_id.get_output(context);
-        let target_resource_id_binding = target_resource_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let request_message_binding = args.request_message.get_output(context);
+        let signalr_service_id_binding = args.signalr_service_id.get_output(context);
+        let sub_resource_name_binding = args.sub_resource_name.get_output(context);
+        let target_resource_id_binding = args.target_resource_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:signalr/sharedPrivateLinkResource:SharedPrivateLinkResource"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestMessage".into(),
-                    value: &request_message_binding,
+                    value: request_message_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signalrServiceId".into(),
-                    value: &signalr_service_id_binding,
+                    value: signalr_service_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subResourceName".into(),
-                    value: &sub_resource_name_binding,
+                    value: sub_resource_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceId".into(),
-                    value: &target_resource_id_binding,
+                    value: target_resource_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SharedPrivateLinkResourceResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            request_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestMessage"),
-            ),
-            signalr_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signalrServiceId"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            sub_resource_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subResourceName"),
-            ),
-            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetResourceId"),
-            ),
+            name: o.get_field("name"),
+            request_message: o.get_field("requestMessage"),
+            signalr_service_id: o.get_field("signalrServiceId"),
+            status: o.get_field("status"),
+            sub_resource_name: o.get_field("subResourceName"),
+            target_resource_id: o.get_field("targetResourceId"),
         }
     }
 }

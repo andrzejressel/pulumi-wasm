@@ -97,68 +97,51 @@ pub mod key_ring_import_job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KeyRingImportJobArgs,
     ) -> KeyRingImportJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let import_job_id_binding_1 = args.import_job_id.get_output(context);
-        let import_job_id_binding = import_job_id_binding_1.get_inner();
-        let import_method_binding_1 = args.import_method.get_output(context);
-        let import_method_binding = import_method_binding_1.get_inner();
-        let key_ring_binding_1 = args.key_ring.get_output(context);
-        let key_ring_binding = key_ring_binding_1.get_inner();
-        let protection_level_binding_1 = args.protection_level.get_output(context);
-        let protection_level_binding = protection_level_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let import_job_id_binding = args.import_job_id.get_output(context);
+        let import_method_binding = args.import_method.get_output(context);
+        let key_ring_binding = args.key_ring.get_output(context);
+        let protection_level_binding = args.protection_level.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:kms/keyRingImportJob:KeyRingImportJob".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importJobId".into(),
-                    value: &import_job_id_binding,
+                    value: import_job_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importMethod".into(),
-                    value: &import_method_binding,
+                    value: import_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyRing".into(),
-                    value: &key_ring_binding,
+                    value: key_ring_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectionLevel".into(),
-                    value: &protection_level_binding,
+                    value: protection_level_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KeyRingImportJobResult {
-            attestations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attestations"),
-            ),
-            expire_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expireTime"),
-            ),
-            import_job_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importJobId"),
-            ),
-            import_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importMethod"),
-            ),
-            key_ring: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyRing"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            protection_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectionLevel"),
-            ),
-            public_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKeys"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            attestations: o.get_field("attestations"),
+            expire_time: o.get_field("expireTime"),
+            import_job_id: o.get_field("importJobId"),
+            import_method: o.get_field("importMethod"),
+            key_ring: o.get_field("keyRing"),
+            name: o.get_field("name"),
+            protection_level: o.get_field("protectionLevel"),
+            public_keys: o.get_field("publicKeys"),
+            state: o.get_field("state"),
         }
     }
 }

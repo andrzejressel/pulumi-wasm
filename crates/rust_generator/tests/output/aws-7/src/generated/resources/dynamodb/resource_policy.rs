@@ -64,54 +64,44 @@ pub mod resource_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResourcePolicyArgs,
     ) -> ResourcePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let confirm_remove_self_resource_access_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let confirm_remove_self_resource_access_binding = args
             .confirm_remove_self_resource_access
             .get_output(context);
-        let confirm_remove_self_resource_access_binding = confirm_remove_self_resource_access_binding_1
-            .get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let resource_arn_binding_1 = args.resource_arn.get_output(context);
-        let resource_arn_binding = resource_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let policy_binding = args.policy.get_output(context);
+        let resource_arn_binding = args.resource_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:dynamodb/resourcePolicy:ResourcePolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confirmRemoveSelfResourceAccess".into(),
-                    value: &confirm_remove_self_resource_access_binding,
+                    value: confirm_remove_self_resource_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: &resource_arn_binding,
+                    value: resource_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResourcePolicyResult {
-            confirm_remove_self_resource_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("confirmRemoveSelfResourceAccess"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            resource_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceArn"),
-            ),
-            revision_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revisionId"),
-            ),
+            confirm_remove_self_resource_access: o
+                .get_field("confirmRemoveSelfResourceAccess"),
+            policy: o.get_field("policy"),
+            resource_arn: o.get_field("resourceArn"),
+            revision_id: o.get_field("revisionId"),
         }
     }
 }

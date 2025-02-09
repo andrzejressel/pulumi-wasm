@@ -718,198 +718,144 @@ pub mod event_target {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EventTargetArgs,
     ) -> EventTargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let appsync_target_binding_1 = args.appsync_target.get_output(context);
-        let appsync_target_binding = appsync_target_binding_1.get_inner();
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let batch_target_binding_1 = args.batch_target.get_output(context);
-        let batch_target_binding = batch_target_binding_1.get_inner();
-        let dead_letter_config_binding_1 = args.dead_letter_config.get_output(context);
-        let dead_letter_config_binding = dead_letter_config_binding_1.get_inner();
-        let ecs_target_binding_1 = args.ecs_target.get_output(context);
-        let ecs_target_binding = ecs_target_binding_1.get_inner();
-        let event_bus_name_binding_1 = args.event_bus_name.get_output(context);
-        let event_bus_name_binding = event_bus_name_binding_1.get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let http_target_binding_1 = args.http_target.get_output(context);
-        let http_target_binding = http_target_binding_1.get_inner();
-        let input_binding_1 = args.input.get_output(context);
-        let input_binding = input_binding_1.get_inner();
-        let input_path_binding_1 = args.input_path.get_output(context);
-        let input_path_binding = input_path_binding_1.get_inner();
-        let input_transformer_binding_1 = args.input_transformer.get_output(context);
-        let input_transformer_binding = input_transformer_binding_1.get_inner();
-        let kinesis_target_binding_1 = args.kinesis_target.get_output(context);
-        let kinesis_target_binding = kinesis_target_binding_1.get_inner();
-        let redshift_target_binding_1 = args.redshift_target.get_output(context);
-        let redshift_target_binding = redshift_target_binding_1.get_inner();
-        let retry_policy_binding_1 = args.retry_policy.get_output(context);
-        let retry_policy_binding = retry_policy_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let rule_binding_1 = args.rule.get_output(context);
-        let rule_binding = rule_binding_1.get_inner();
-        let run_command_targets_binding_1 = args.run_command_targets.get_output(context);
-        let run_command_targets_binding = run_command_targets_binding_1.get_inner();
-        let sagemaker_pipeline_target_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let appsync_target_binding = args.appsync_target.get_output(context);
+        let arn_binding = args.arn.get_output(context);
+        let batch_target_binding = args.batch_target.get_output(context);
+        let dead_letter_config_binding = args.dead_letter_config.get_output(context);
+        let ecs_target_binding = args.ecs_target.get_output(context);
+        let event_bus_name_binding = args.event_bus_name.get_output(context);
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let http_target_binding = args.http_target.get_output(context);
+        let input_binding = args.input.get_output(context);
+        let input_path_binding = args.input_path.get_output(context);
+        let input_transformer_binding = args.input_transformer.get_output(context);
+        let kinesis_target_binding = args.kinesis_target.get_output(context);
+        let redshift_target_binding = args.redshift_target.get_output(context);
+        let retry_policy_binding = args.retry_policy.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let rule_binding = args.rule.get_output(context);
+        let run_command_targets_binding = args.run_command_targets.get_output(context);
+        let sagemaker_pipeline_target_binding = args
             .sagemaker_pipeline_target
             .get_output(context);
-        let sagemaker_pipeline_target_binding = sagemaker_pipeline_target_binding_1
-            .get_inner();
-        let sqs_target_binding_1 = args.sqs_target.get_output(context);
-        let sqs_target_binding = sqs_target_binding_1.get_inner();
-        let target_id_binding_1 = args.target_id.get_output(context);
-        let target_id_binding = target_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let sqs_target_binding = args.sqs_target.get_output(context);
+        let target_id_binding = args.target_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventTarget:EventTarget".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appsyncTarget".into(),
-                    value: &appsync_target_binding,
+                    value: appsync_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchTarget".into(),
-                    value: &batch_target_binding,
+                    value: batch_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deadLetterConfig".into(),
-                    value: &dead_letter_config_binding,
+                    value: dead_letter_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ecsTarget".into(),
-                    value: &ecs_target_binding,
+                    value: ecs_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventBusName".into(),
-                    value: &event_bus_name_binding,
+                    value: event_bus_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpTarget".into(),
-                    value: &http_target_binding,
+                    value: http_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "input".into(),
-                    value: &input_binding,
+                    value: input_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputPath".into(),
-                    value: &input_path_binding,
+                    value: input_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputTransformer".into(),
-                    value: &input_transformer_binding,
+                    value: input_transformer_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kinesisTarget".into(),
-                    value: &kinesis_target_binding,
+                    value: kinesis_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redshiftTarget".into(),
-                    value: &redshift_target_binding,
+                    value: redshift_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retryPolicy".into(),
-                    value: &retry_policy_binding,
+                    value: retry_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rule".into(),
-                    value: &rule_binding,
+                    value: rule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runCommandTargets".into(),
-                    value: &run_command_targets_binding,
+                    value: run_command_targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sagemakerPipelineTarget".into(),
-                    value: &sagemaker_pipeline_target_binding,
+                    value: sagemaker_pipeline_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqsTarget".into(),
-                    value: &sqs_target_binding,
+                    value: sqs_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetId".into(),
-                    value: &target_id_binding,
+                    value: target_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EventTargetResult {
-            appsync_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appsyncTarget"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            batch_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("batchTarget"),
-            ),
-            dead_letter_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deadLetterConfig"),
-            ),
-            ecs_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ecsTarget"),
-            ),
-            event_bus_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventBusName"),
-            ),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            http_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpTarget"),
-            ),
-            input: pulumi_gestalt_rust::__private::into_domain(o.extract_field("input")),
-            input_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputPath"),
-            ),
-            input_transformer: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputTransformer"),
-            ),
-            kinesis_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kinesisTarget"),
-            ),
-            redshift_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redshiftTarget"),
-            ),
-            retry_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retryPolicy"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            rule: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rule")),
-            run_command_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runCommandTargets"),
-            ),
-            sagemaker_pipeline_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sagemakerPipelineTarget"),
-            ),
-            sqs_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqsTarget"),
-            ),
-            target_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetId"),
-            ),
+            appsync_target: o.get_field("appsyncTarget"),
+            arn: o.get_field("arn"),
+            batch_target: o.get_field("batchTarget"),
+            dead_letter_config: o.get_field("deadLetterConfig"),
+            ecs_target: o.get_field("ecsTarget"),
+            event_bus_name: o.get_field("eventBusName"),
+            force_destroy: o.get_field("forceDestroy"),
+            http_target: o.get_field("httpTarget"),
+            input: o.get_field("input"),
+            input_path: o.get_field("inputPath"),
+            input_transformer: o.get_field("inputTransformer"),
+            kinesis_target: o.get_field("kinesisTarget"),
+            redshift_target: o.get_field("redshiftTarget"),
+            retry_policy: o.get_field("retryPolicy"),
+            role_arn: o.get_field("roleArn"),
+            rule: o.get_field("rule"),
+            run_command_targets: o.get_field("runCommandTargets"),
+            sagemaker_pipeline_target: o.get_field("sagemakerPipelineTarget"),
+            sqs_target: o.get_field("sqsTarget"),
+            target_id: o.get_field("targetId"),
         }
     }
 }

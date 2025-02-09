@@ -133,91 +133,70 @@ pub mod reservation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ReservationArgs,
     ) -> ReservationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscale_binding_1 = args.autoscale.get_output(context);
-        let autoscale_binding = autoscale_binding_1.get_inner();
-        let concurrency_binding_1 = args.concurrency.get_output(context);
-        let concurrency_binding = concurrency_binding_1.get_inner();
-        let edition_binding_1 = args.edition.get_output(context);
-        let edition_binding = edition_binding_1.get_inner();
-        let ignore_idle_slots_binding_1 = args.ignore_idle_slots.get_output(context);
-        let ignore_idle_slots_binding = ignore_idle_slots_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let slot_capacity_binding_1 = args.slot_capacity.get_output(context);
-        let slot_capacity_binding = slot_capacity_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let autoscale_binding = args.autoscale.get_output(context);
+        let concurrency_binding = args.concurrency.get_output(context);
+        let edition_binding = args.edition.get_output(context);
+        let ignore_idle_slots_binding = args.ignore_idle_slots.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let slot_capacity_binding = args.slot_capacity.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:bigquery/reservation:Reservation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscale".into(),
-                    value: &autoscale_binding,
+                    value: autoscale_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "concurrency".into(),
-                    value: &concurrency_binding,
+                    value: concurrency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edition".into(),
-                    value: &edition_binding,
+                    value: edition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreIdleSlots".into(),
-                    value: &ignore_idle_slots_binding,
+                    value: ignore_idle_slots_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slotCapacity".into(),
-                    value: &slot_capacity_binding,
+                    value: slot_capacity_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ReservationResult {
-            autoscale: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscale"),
-            ),
-            concurrency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("concurrency"),
-            ),
-            edition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edition"),
-            ),
-            ignore_idle_slots: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoreIdleSlots"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            slot_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("slotCapacity"),
-            ),
+            autoscale: o.get_field("autoscale"),
+            concurrency: o.get_field("concurrency"),
+            edition: o.get_field("edition"),
+            ignore_idle_slots: o.get_field("ignoreIdleSlots"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            slot_capacity: o.get_field("slotCapacity"),
         }
     }
 }

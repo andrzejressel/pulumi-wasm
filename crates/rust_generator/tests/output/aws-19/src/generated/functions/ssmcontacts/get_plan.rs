@@ -23,32 +23,28 @@ pub mod get_plan {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPlanArgs,
     ) -> GetPlanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let contact_id_binding_1 = args.contact_id.get_output(context);
-        let contact_id_binding = contact_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let contact_id_binding = args.contact_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ssmcontacts/getPlan:getPlan".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactId".into(),
-                    value: &contact_id_binding,
+                    value: contact_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPlanResult {
-            contact_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contactId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            stages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stages"),
-            ),
+            contact_id: o.get_field("contactId"),
+            id: o.get_field("id"),
+            stages: o.get_field("stages"),
         }
     }
 }

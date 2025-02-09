@@ -191,230 +191,158 @@ pub mod network_interface {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkInterfaceArgs,
     ) -> NetworkInterfaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attachments_binding_1 = args.attachments.get_output(context);
-        let attachments_binding = attachments_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enable_primary_ipv6_binding_1 = args.enable_primary_ipv6.get_output(context);
-        let enable_primary_ipv6_binding = enable_primary_ipv6_binding_1.get_inner();
-        let interface_type_binding_1 = args.interface_type.get_output(context);
-        let interface_type_binding = interface_type_binding_1.get_inner();
-        let ipv4_prefix_count_binding_1 = args.ipv4_prefix_count.get_output(context);
-        let ipv4_prefix_count_binding = ipv4_prefix_count_binding_1.get_inner();
-        let ipv4_prefixes_binding_1 = args.ipv4_prefixes.get_output(context);
-        let ipv4_prefixes_binding = ipv4_prefixes_binding_1.get_inner();
-        let ipv6_address_count_binding_1 = args.ipv6_address_count.get_output(context);
-        let ipv6_address_count_binding = ipv6_address_count_binding_1.get_inner();
-        let ipv6_address_list_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attachments_binding = args.attachments.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let enable_primary_ipv6_binding = args.enable_primary_ipv6.get_output(context);
+        let interface_type_binding = args.interface_type.get_output(context);
+        let ipv4_prefix_count_binding = args.ipv4_prefix_count.get_output(context);
+        let ipv4_prefixes_binding = args.ipv4_prefixes.get_output(context);
+        let ipv6_address_count_binding = args.ipv6_address_count.get_output(context);
+        let ipv6_address_list_enabled_binding = args
             .ipv6_address_list_enabled
             .get_output(context);
-        let ipv6_address_list_enabled_binding = ipv6_address_list_enabled_binding_1
-            .get_inner();
-        let ipv6_address_lists_binding_1 = args.ipv6_address_lists.get_output(context);
-        let ipv6_address_lists_binding = ipv6_address_lists_binding_1.get_inner();
-        let ipv6_addresses_binding_1 = args.ipv6_addresses.get_output(context);
-        let ipv6_addresses_binding = ipv6_addresses_binding_1.get_inner();
-        let ipv6_prefix_count_binding_1 = args.ipv6_prefix_count.get_output(context);
-        let ipv6_prefix_count_binding = ipv6_prefix_count_binding_1.get_inner();
-        let ipv6_prefixes_binding_1 = args.ipv6_prefixes.get_output(context);
-        let ipv6_prefixes_binding = ipv6_prefixes_binding_1.get_inner();
-        let private_ip_binding_1 = args.private_ip.get_output(context);
-        let private_ip_binding = private_ip_binding_1.get_inner();
-        let private_ip_list_enabled_binding_1 = args
+        let ipv6_address_lists_binding = args.ipv6_address_lists.get_output(context);
+        let ipv6_addresses_binding = args.ipv6_addresses.get_output(context);
+        let ipv6_prefix_count_binding = args.ipv6_prefix_count.get_output(context);
+        let ipv6_prefixes_binding = args.ipv6_prefixes.get_output(context);
+        let private_ip_binding = args.private_ip.get_output(context);
+        let private_ip_list_enabled_binding = args
             .private_ip_list_enabled
             .get_output(context);
-        let private_ip_list_enabled_binding = private_ip_list_enabled_binding_1
-            .get_inner();
-        let private_ip_lists_binding_1 = args.private_ip_lists.get_output(context);
-        let private_ip_lists_binding = private_ip_lists_binding_1.get_inner();
-        let private_ips_binding_1 = args.private_ips.get_output(context);
-        let private_ips_binding = private_ips_binding_1.get_inner();
-        let private_ips_count_binding_1 = args.private_ips_count.get_output(context);
-        let private_ips_count_binding = private_ips_count_binding_1.get_inner();
-        let security_groups_binding_1 = args.security_groups.get_output(context);
-        let security_groups_binding = security_groups_binding_1.get_inner();
-        let source_dest_check_binding_1 = args.source_dest_check.get_output(context);
-        let source_dest_check_binding = source_dest_check_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let private_ip_lists_binding = args.private_ip_lists.get_output(context);
+        let private_ips_binding = args.private_ips.get_output(context);
+        let private_ips_count_binding = args.private_ips_count.get_output(context);
+        let security_groups_binding = args.security_groups.get_output(context);
+        let source_dest_check_binding = args.source_dest_check.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/networkInterface:NetworkInterface".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachments".into(),
-                    value: &attachments_binding,
+                    value: attachments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enablePrimaryIpv6".into(),
-                    value: &enable_primary_ipv6_binding,
+                    value: enable_primary_ipv6_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interfaceType".into(),
-                    value: &interface_type_binding,
+                    value: interface_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv4PrefixCount".into(),
-                    value: &ipv4_prefix_count_binding,
+                    value: ipv4_prefix_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv4Prefixes".into(),
-                    value: &ipv4_prefixes_binding,
+                    value: ipv4_prefixes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6AddressCount".into(),
-                    value: &ipv6_address_count_binding,
+                    value: ipv6_address_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6AddressListEnabled".into(),
-                    value: &ipv6_address_list_enabled_binding,
+                    value: ipv6_address_list_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6AddressLists".into(),
-                    value: &ipv6_address_lists_binding,
+                    value: ipv6_address_lists_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6Addresses".into(),
-                    value: &ipv6_addresses_binding,
+                    value: ipv6_addresses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6PrefixCount".into(),
-                    value: &ipv6_prefix_count_binding,
+                    value: ipv6_prefix_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6Prefixes".into(),
-                    value: &ipv6_prefixes_binding,
+                    value: ipv6_prefixes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIp".into(),
-                    value: &private_ip_binding,
+                    value: private_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpListEnabled".into(),
-                    value: &private_ip_list_enabled_binding,
+                    value: private_ip_list_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpLists".into(),
-                    value: &private_ip_lists_binding,
+                    value: private_ip_lists_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIps".into(),
-                    value: &private_ips_binding,
+                    value: private_ips_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpsCount".into(),
-                    value: &private_ips_count_binding,
+                    value: private_ips_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroups".into(),
-                    value: &security_groups_binding,
+                    value: security_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDestCheck".into(),
-                    value: &source_dest_check_binding,
+                    value: source_dest_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkInterfaceResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            attachments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachments"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enable_primary_ipv6: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enablePrimaryIpv6"),
-            ),
-            interface_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interfaceType"),
-            ),
-            ipv4_prefix_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv4PrefixCount"),
-            ),
-            ipv4_prefixes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv4Prefixes"),
-            ),
-            ipv6_address_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6AddressCount"),
-            ),
-            ipv6_address_list_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6AddressListEnabled"),
-            ),
-            ipv6_address_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6AddressLists"),
-            ),
-            ipv6_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6Addresses"),
-            ),
-            ipv6_prefix_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6PrefixCount"),
-            ),
-            ipv6_prefixes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6Prefixes"),
-            ),
-            mac_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("macAddress"),
-            ),
-            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostArn"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            private_dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDnsName"),
-            ),
-            private_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIp"),
-            ),
-            private_ip_list_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpListEnabled"),
-            ),
-            private_ip_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpLists"),
-            ),
-            private_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIps"),
-            ),
-            private_ips_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpsCount"),
-            ),
-            security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroups"),
-            ),
-            source_dest_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDestCheck"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            attachments: o.get_field("attachments"),
+            description: o.get_field("description"),
+            enable_primary_ipv6: o.get_field("enablePrimaryIpv6"),
+            interface_type: o.get_field("interfaceType"),
+            ipv4_prefix_count: o.get_field("ipv4PrefixCount"),
+            ipv4_prefixes: o.get_field("ipv4Prefixes"),
+            ipv6_address_count: o.get_field("ipv6AddressCount"),
+            ipv6_address_list_enabled: o.get_field("ipv6AddressListEnabled"),
+            ipv6_address_lists: o.get_field("ipv6AddressLists"),
+            ipv6_addresses: o.get_field("ipv6Addresses"),
+            ipv6_prefix_count: o.get_field("ipv6PrefixCount"),
+            ipv6_prefixes: o.get_field("ipv6Prefixes"),
+            mac_address: o.get_field("macAddress"),
+            outpost_arn: o.get_field("outpostArn"),
+            owner_id: o.get_field("ownerId"),
+            private_dns_name: o.get_field("privateDnsName"),
+            private_ip: o.get_field("privateIp"),
+            private_ip_list_enabled: o.get_field("privateIpListEnabled"),
+            private_ip_lists: o.get_field("privateIpLists"),
+            private_ips: o.get_field("privateIps"),
+            private_ips_count: o.get_field("privateIpsCount"),
+            security_groups: o.get_field("securityGroups"),
+            source_dest_check: o.get_field("sourceDestCheck"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

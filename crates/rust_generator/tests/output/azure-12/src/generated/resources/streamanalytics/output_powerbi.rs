@@ -93,98 +93,76 @@ pub mod output_powerbi {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OutputPowerbiArgs,
     ) -> OutputPowerbiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dataset_binding_1 = args.dataset.get_output(context);
-        let dataset_binding = dataset_binding_1.get_inner();
-        let group_id_binding_1 = args.group_id.get_output(context);
-        let group_id_binding = group_id_binding_1.get_inner();
-        let group_name_binding_1 = args.group_name.get_output(context);
-        let group_name_binding = group_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let stream_analytics_job_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dataset_binding = args.dataset.get_output(context);
+        let group_id_binding = args.group_id.get_output(context);
+        let group_name_binding = args.group_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let stream_analytics_job_id_binding = args
             .stream_analytics_job_id
             .get_output(context);
-        let stream_analytics_job_id_binding = stream_analytics_job_id_binding_1
-            .get_inner();
-        let table_binding_1 = args.table.get_output(context);
-        let table_binding = table_binding_1.get_inner();
-        let token_user_display_name_binding_1 = args
+        let table_binding = args.table.get_output(context);
+        let token_user_display_name_binding = args
             .token_user_display_name
             .get_output(context);
-        let token_user_display_name_binding = token_user_display_name_binding_1
-            .get_inner();
-        let token_user_principal_name_binding_1 = args
+        let token_user_principal_name_binding = args
             .token_user_principal_name
             .get_output(context);
-        let token_user_principal_name_binding = token_user_principal_name_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:streamanalytics/outputPowerbi:OutputPowerbi".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: &dataset_binding,
+                    value: dataset_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupId".into(),
-                    value: &group_id_binding,
+                    value: group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupName".into(),
-                    value: &group_name_binding,
+                    value: group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobId".into(),
-                    value: &stream_analytics_job_id_binding,
+                    value: stream_analytics_job_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "table".into(),
-                    value: &table_binding,
+                    value: table_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenUserDisplayName".into(),
-                    value: &token_user_display_name_binding,
+                    value: token_user_display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenUserPrincipalName".into(),
-                    value: &token_user_principal_name_binding,
+                    value: token_user_principal_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OutputPowerbiResult {
-            dataset: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataset"),
-            ),
-            group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupId"),
-            ),
-            group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            stream_analytics_job_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamAnalyticsJobId"),
-            ),
-            table: pulumi_gestalt_rust::__private::into_domain(o.extract_field("table")),
-            token_user_display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tokenUserDisplayName"),
-            ),
-            token_user_principal_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tokenUserPrincipalName"),
-            ),
+            dataset: o.get_field("dataset"),
+            group_id: o.get_field("groupId"),
+            group_name: o.get_field("groupName"),
+            name: o.get_field("name"),
+            stream_analytics_job_id: o.get_field("streamAnalyticsJobId"),
+            table: o.get_field("table"),
+            token_user_display_name: o.get_field("tokenUserDisplayName"),
+            token_user_principal_name: o.get_field("tokenUserPrincipalName"),
         }
     }
 }

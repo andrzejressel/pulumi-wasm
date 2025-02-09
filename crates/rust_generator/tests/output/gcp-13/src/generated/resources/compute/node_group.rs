@@ -258,125 +258,91 @@ pub mod node_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NodeGroupArgs,
     ) -> NodeGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_policy_binding_1 = args.autoscaling_policy.get_output(context);
-        let autoscaling_policy_binding = autoscaling_policy_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let initial_size_binding_1 = args.initial_size.get_output(context);
-        let initial_size_binding = initial_size_binding_1.get_inner();
-        let maintenance_interval_binding_1 = args
-            .maintenance_interval
-            .get_output(context);
-        let maintenance_interval_binding = maintenance_interval_binding_1.get_inner();
-        let maintenance_policy_binding_1 = args.maintenance_policy.get_output(context);
-        let maintenance_policy_binding = maintenance_policy_binding_1.get_inner();
-        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
-        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let node_template_binding_1 = args.node_template.get_output(context);
-        let node_template_binding = node_template_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let share_settings_binding_1 = args.share_settings.get_output(context);
-        let share_settings_binding = share_settings_binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let autoscaling_policy_binding = args.autoscaling_policy.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let initial_size_binding = args.initial_size.get_output(context);
+        let maintenance_interval_binding = args.maintenance_interval.get_output(context);
+        let maintenance_policy_binding = args.maintenance_policy.get_output(context);
+        let maintenance_window_binding = args.maintenance_window.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let node_template_binding = args.node_template.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let share_settings_binding = args.share_settings.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/nodeGroup:NodeGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingPolicy".into(),
-                    value: &autoscaling_policy_binding,
+                    value: autoscaling_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialSize".into(),
-                    value: &initial_size_binding,
+                    value: initial_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceInterval".into(),
-                    value: &maintenance_interval_binding,
+                    value: maintenance_interval_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenancePolicy".into(),
-                    value: &maintenance_policy_binding,
+                    value: maintenance_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceWindow".into(),
-                    value: &maintenance_window_binding,
+                    value: maintenance_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeTemplate".into(),
-                    value: &node_template_binding,
+                    value: node_template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareSettings".into(),
-                    value: &share_settings_binding,
+                    value: share_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NodeGroupResult {
-            autoscaling_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscalingPolicy"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            initial_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initialSize"),
-            ),
-            maintenance_interval: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceInterval"),
-            ),
-            maintenance_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenancePolicy"),
-            ),
-            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindow"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeTemplate"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            share_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shareSettings"),
-            ),
-            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            autoscaling_policy: o.get_field("autoscalingPolicy"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            initial_size: o.get_field("initialSize"),
+            maintenance_interval: o.get_field("maintenanceInterval"),
+            maintenance_policy: o.get_field("maintenancePolicy"),
+            maintenance_window: o.get_field("maintenanceWindow"),
+            name: o.get_field("name"),
+            node_template: o.get_field("nodeTemplate"),
+            project: o.get_field("project"),
+            self_link: o.get_field("selfLink"),
+            share_settings: o.get_field("shareSettings"),
+            size: o.get_field("size"),
+            zone: o.get_field("zone"),
         }
     }
 }

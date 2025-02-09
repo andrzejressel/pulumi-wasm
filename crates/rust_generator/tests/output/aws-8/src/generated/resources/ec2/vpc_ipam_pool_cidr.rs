@@ -119,61 +119,49 @@ pub mod vpc_ipam_pool_cidr {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcIpamPoolCidrArgs,
     ) -> VpcIpamPoolCidrResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_binding_1 = args.cidr.get_output(context);
-        let cidr_binding = cidr_binding_1.get_inner();
-        let cidr_authorization_context_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cidr_binding = args.cidr.get_output(context);
+        let cidr_authorization_context_binding = args
             .cidr_authorization_context
             .get_output(context);
-        let cidr_authorization_context_binding = cidr_authorization_context_binding_1
-            .get_inner();
-        let ipam_pool_id_binding_1 = args.ipam_pool_id.get_output(context);
-        let ipam_pool_id_binding = ipam_pool_id_binding_1.get_inner();
-        let netmask_length_binding_1 = args.netmask_length.get_output(context);
-        let netmask_length_binding = netmask_length_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ipam_pool_id_binding = args.ipam_pool_id.get_output(context);
+        let netmask_length_binding = args.netmask_length.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidr".into(),
-                    value: &cidr_binding,
+                    value: cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrAuthorizationContext".into(),
-                    value: &cidr_authorization_context_binding,
+                    value: cidr_authorization_context_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamPoolId".into(),
-                    value: &ipam_pool_id_binding,
+                    value: ipam_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "netmaskLength".into(),
-                    value: &netmask_length_binding,
+                    value: netmask_length_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcIpamPoolCidrResult {
-            cidr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidr")),
-            cidr_authorization_context: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrAuthorizationContext"),
-            ),
-            ipam_pool_cidr_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamPoolCidrId"),
-            ),
-            ipam_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamPoolId"),
-            ),
-            netmask_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("netmaskLength"),
-            ),
+            cidr: o.get_field("cidr"),
+            cidr_authorization_context: o.get_field("cidrAuthorizationContext"),
+            ipam_pool_cidr_id: o.get_field("ipamPoolCidrId"),
+            ipam_pool_id: o.get_field("ipamPoolId"),
+            netmask_length: o.get_field("netmaskLength"),
         }
     }
 }

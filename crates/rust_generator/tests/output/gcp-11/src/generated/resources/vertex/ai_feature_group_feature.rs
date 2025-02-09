@@ -182,94 +182,68 @@ pub mod ai_feature_group_feature {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AiFeatureGroupFeatureArgs,
     ) -> AiFeatureGroupFeatureResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let feature_group_binding_1 = args.feature_group.get_output(context);
-        let feature_group_binding = feature_group_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let version_column_name_binding_1 = args.version_column_name.get_output(context);
-        let version_column_name_binding = version_column_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let feature_group_binding = args.feature_group.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let version_column_name_binding = args.version_column_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:vertex/aiFeatureGroupFeature:AiFeatureGroupFeature".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featureGroup".into(),
-                    value: &feature_group_binding,
+                    value: feature_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionColumnName".into(),
-                    value: &version_column_name_binding,
+                    value: version_column_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AiFeatureGroupFeatureResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            feature_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("featureGroup"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            version_column_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionColumnName"),
-            ),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            feature_group: o.get_field("featureGroup"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            region: o.get_field("region"),
+            update_time: o.get_field("updateTime"),
+            version_column_name: o.get_field("versionColumnName"),
         }
     }
 }

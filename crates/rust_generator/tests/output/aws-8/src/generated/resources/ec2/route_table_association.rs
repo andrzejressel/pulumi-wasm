@@ -79,48 +79,40 @@ pub mod route_table_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RouteTableAssociationArgs,
     ) -> RouteTableAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let gateway_id_binding_1 = args.gateway_id.get_output(context);
-        let gateway_id_binding = gateway_id_binding_1.get_inner();
-        let route_table_id_binding_1 = args.route_table_id.get_output(context);
-        let route_table_id_binding = route_table_id_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let gateway_id_binding = args.gateway_id.get_output(context);
+        let route_table_id_binding = args.route_table_id.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/routeTableAssociation:RouteTableAssociation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayId".into(),
-                    value: &gateway_id_binding,
+                    value: gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeTableId".into(),
-                    value: &route_table_id_binding,
+                    value: route_table_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RouteTableAssociationResult {
-            gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayId"),
-            ),
-            route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routeTableId"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
+            gateway_id: o.get_field("gatewayId"),
+            route_table_id: o.get_field("routeTableId"),
+            subnet_id: o.get_field("subnetId"),
         }
     }
 }

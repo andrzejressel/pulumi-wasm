@@ -66,96 +66,64 @@ pub mod get_image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetImageArgs,
     ) -> GetImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let most_recent_binding_1 = args.most_recent.get_output(context);
-        let most_recent_binding = most_recent_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_regex_binding_1 = args.name_regex.get_output(context);
-        let name_regex_binding = name_regex_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let most_recent_binding = args.most_recent.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let name_regex_binding = args.name_regex.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:appstream/getImage:getImage".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mostRecent".into(),
-                    value: &most_recent_binding,
+                    value: most_recent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nameRegex".into(),
-                    value: &name_regex_binding,
+                    value: name_regex_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetImageResult {
-            applications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applications"),
-            ),
-            appstream_agent_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appstreamAgentVersion"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            base_image_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseImageArn"),
-            ),
-            created_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            image_builder_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageBuilderName"),
-            ),
-            image_builder_supported: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageBuilderSupported"),
-            ),
-            image_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imagePermissions"),
-            ),
-            most_recent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mostRecent"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_regex: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nameRegex"),
-            ),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            public_base_image_released_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicBaseImageReleasedDate"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_change_reasons: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateChangeReasons"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            applications: o.get_field("applications"),
+            appstream_agent_version: o.get_field("appstreamAgentVersion"),
+            arn: o.get_field("arn"),
+            base_image_arn: o.get_field("baseImageArn"),
+            created_time: o.get_field("createdTime"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            id: o.get_field("id"),
+            image_builder_name: o.get_field("imageBuilderName"),
+            image_builder_supported: o.get_field("imageBuilderSupported"),
+            image_permissions: o.get_field("imagePermissions"),
+            most_recent: o.get_field("mostRecent"),
+            name: o.get_field("name"),
+            name_regex: o.get_field("nameRegex"),
+            platform: o.get_field("platform"),
+            public_base_image_released_date: o.get_field("publicBaseImageReleasedDate"),
+            state: o.get_field("state"),
+            state_change_reasons: o.get_field("stateChangeReasons"),
+            type_: o.get_field("type"),
         }
     }
 }

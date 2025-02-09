@@ -111,59 +111,48 @@ pub mod network_firewall_policy_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkFirewallPolicyAssociationArgs,
     ) -> NetworkFirewallPolicyAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attachment_target_binding_1 = args.attachment_target.get_output(context);
-        let attachment_target_binding = attachment_target_binding_1.get_inner();
-        let firewall_policy_binding_1 = args.firewall_policy.get_output(context);
-        let firewall_policy_binding = firewall_policy_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attachment_target_binding = args.attachment_target.get_output(context);
+        let firewall_policy_binding = args.firewall_policy.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/networkFirewallPolicyAssociation:NetworkFirewallPolicyAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachmentTarget".into(),
-                    value: &attachment_target_binding,
+                    value: attachment_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallPolicy".into(),
-                    value: &firewall_policy_binding,
+                    value: firewall_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkFirewallPolicyAssociationResult {
-            attachment_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachmentTarget"),
-            ),
-            firewall_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallPolicy"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            short_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shortName"),
-            ),
+            attachment_target: o.get_field("attachmentTarget"),
+            firewall_policy: o.get_field("firewallPolicy"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            short_name: o.get_field("shortName"),
         }
     }
 }

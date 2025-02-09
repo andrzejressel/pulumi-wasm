@@ -142,93 +142,72 @@ pub mod response_plan {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResponsePlanArgs,
     ) -> ResponsePlanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let chat_channels_binding_1 = args.chat_channels.get_output(context);
-        let chat_channels_binding = chat_channels_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let engagements_binding_1 = args.engagements.get_output(context);
-        let engagements_binding = engagements_binding_1.get_inner();
-        let incident_template_binding_1 = args.incident_template.get_output(context);
-        let incident_template_binding = incident_template_binding_1.get_inner();
-        let integration_binding_1 = args.integration.get_output(context);
-        let integration_binding = integration_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let chat_channels_binding = args.chat_channels.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let engagements_binding = args.engagements.get_output(context);
+        let incident_template_binding = args.incident_template.get_output(context);
+        let integration_binding = args.integration.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssmincidents/responsePlan:ResponsePlan".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "chatChannels".into(),
-                    value: &chat_channels_binding,
+                    value: chat_channels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engagements".into(),
-                    value: &engagements_binding,
+                    value: engagements_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "incidentTemplate".into(),
-                    value: &incident_template_binding,
+                    value: incident_template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integration".into(),
-                    value: &integration_binding,
+                    value: integration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResponsePlanResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            chat_channels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("chatChannels"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            engagements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engagements"),
-            ),
-            incident_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("incidentTemplate"),
-            ),
-            integration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("integration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            action: o.get_field("action"),
+            arn: o.get_field("arn"),
+            chat_channels: o.get_field("chatChannels"),
+            display_name: o.get_field("displayName"),
+            engagements: o.get_field("engagements"),
+            incident_template: o.get_field("incidentTemplate"),
+            integration: o.get_field("integration"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

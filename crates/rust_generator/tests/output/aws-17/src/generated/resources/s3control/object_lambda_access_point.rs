@@ -85,49 +85,43 @@ pub mod object_lambda_access_point {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ObjectLambdaAccessPointArgs,
     ) -> ObjectLambdaAccessPointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let configuration_binding_1 = args.configuration.get_output(context);
-        let configuration_binding = configuration_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let configuration_binding = args.configuration.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configuration".into(),
-                    value: &configuration_binding,
+                    value: configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ObjectLambdaAccessPointResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configuration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            account_id: o.get_field("accountId"),
+            alias: o.get_field("alias"),
+            arn: o.get_field("arn"),
+            configuration: o.get_field("configuration"),
+            name: o.get_field("name"),
         }
     }
 }

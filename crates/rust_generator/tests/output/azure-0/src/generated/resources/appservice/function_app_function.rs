@@ -220,99 +220,71 @@ pub mod function_app_function {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FunctionAppFunctionArgs,
     ) -> FunctionAppFunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let config_json_binding_1 = args.config_json.get_output(context);
-        let config_json_binding = config_json_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let files_binding_1 = args.files.get_output(context);
-        let files_binding = files_binding_1.get_inner();
-        let function_app_id_binding_1 = args.function_app_id.get_output(context);
-        let function_app_id_binding = function_app_id_binding_1.get_inner();
-        let language_binding_1 = args.language.get_output(context);
-        let language_binding = language_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let test_data_binding_1 = args.test_data.get_output(context);
-        let test_data_binding = test_data_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let config_json_binding = args.config_json.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let files_binding = args.files.get_output(context);
+        let function_app_id_binding = args.function_app_id.get_output(context);
+        let language_binding = args.language.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let test_data_binding = args.test_data.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appservice/functionAppFunction:FunctionAppFunction".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configJson".into(),
-                    value: &config_json_binding,
+                    value: config_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "files".into(),
-                    value: &files_binding,
+                    value: files_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionAppId".into(),
-                    value: &function_app_id_binding,
+                    value: function_app_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "language".into(),
-                    value: &language_binding,
+                    value: language_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testData".into(),
-                    value: &test_data_binding,
+                    value: test_data_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FunctionAppFunctionResult {
-            config_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configJson"),
-            ),
-            config_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configUrl"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            files: pulumi_gestalt_rust::__private::into_domain(o.extract_field("files")),
-            function_app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionAppId"),
-            ),
-            invocation_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invocationUrl"),
-            ),
-            language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("language"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            script_root_path_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scriptRootPathUrl"),
-            ),
-            script_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scriptUrl"),
-            ),
-            secrets_file_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretsFileUrl"),
-            ),
-            test_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("testData"),
-            ),
-            test_data_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("testDataUrl"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            config_json: o.get_field("configJson"),
+            config_url: o.get_field("configUrl"),
+            enabled: o.get_field("enabled"),
+            files: o.get_field("files"),
+            function_app_id: o.get_field("functionAppId"),
+            invocation_url: o.get_field("invocationUrl"),
+            language: o.get_field("language"),
+            name: o.get_field("name"),
+            script_root_path_url: o.get_field("scriptRootPathUrl"),
+            script_url: o.get_field("scriptUrl"),
+            secrets_file_url: o.get_field("secretsFileUrl"),
+            test_data: o.get_field("testData"),
+            test_data_url: o.get_field("testDataUrl"),
+            url: o.get_field("url"),
         }
     }
 }

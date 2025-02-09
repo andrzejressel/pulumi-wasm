@@ -110,62 +110,48 @@ pub mod mongo_user_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MongoUserDefinitionArgs,
     ) -> MongoUserDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cosmos_mongo_database_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cosmos_mongo_database_id_binding = args
             .cosmos_mongo_database_id
             .get_output(context);
-        let cosmos_mongo_database_id_binding = cosmos_mongo_database_id_binding_1
-            .get_inner();
-        let inherited_role_names_binding_1 = args
-            .inherited_role_names
-            .get_output(context);
-        let inherited_role_names_binding = inherited_role_names_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let username_binding_1 = args.username.get_output(context);
-        let username_binding = username_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let inherited_role_names_binding = args.inherited_role_names.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let username_binding = args.username.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cosmosdb/mongoUserDefinition:MongoUserDefinition".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosMongoDatabaseId".into(),
-                    value: &cosmos_mongo_database_id_binding,
+                    value: cosmos_mongo_database_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inheritedRoleNames".into(),
-                    value: &inherited_role_names_binding,
+                    value: inherited_role_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: &username_binding,
+                    value: username_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MongoUserDefinitionResult {
-            cosmos_mongo_database_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cosmosMongoDatabaseId"),
-            ),
-            inherited_role_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inheritedRoleNames"),
-            ),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
+            cosmos_mongo_database_id: o.get_field("cosmosMongoDatabaseId"),
+            inherited_role_names: o.get_field("inheritedRoleNames"),
+            password: o.get_field("password"),
+            username: o.get_field("username"),
         }
     }
 }

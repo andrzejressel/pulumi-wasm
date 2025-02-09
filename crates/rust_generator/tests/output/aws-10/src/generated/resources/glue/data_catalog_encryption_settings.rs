@@ -68,43 +68,38 @@ pub mod data_catalog_encryption_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataCatalogEncryptionSettingsArgs,
     ) -> DataCatalogEncryptionSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding_1 = args.catalog_id.get_output(context);
-        let catalog_id_binding = catalog_id_binding_1.get_inner();
-        let data_catalog_encryption_settings_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_id_binding = args.catalog_id.get_output(context);
+        let data_catalog_encryption_settings_binding = args
             .data_catalog_encryption_settings
             .get_output(context);
-        let data_catalog_encryption_settings_binding = data_catalog_encryption_settings_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: &catalog_id_binding,
+                    value: catalog_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCatalogEncryptionSettings".into(),
-                    value: &data_catalog_encryption_settings_binding,
+                    value: data_catalog_encryption_settings_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataCatalogEncryptionSettingsResult {
-            catalog_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogId"),
-            ),
-            data_catalog_encryption_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataCatalogEncryptionSettings"),
-            ),
+            catalog_id: o.get_field("catalogId"),
+            data_catalog_encryption_settings: o
+                .get_field("dataCatalogEncryptionSettings"),
         }
     }
 }

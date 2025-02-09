@@ -204,108 +204,78 @@ pub mod worker_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkerPoolArgs,
     ) -> WorkerPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_config_binding_1 = args.network_config.get_output(context);
-        let network_config_binding = network_config_binding_1.get_inner();
-        let private_service_connect_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let annotations_binding = args.annotations.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_config_binding = args.network_config.get_output(context);
+        let private_service_connect_binding = args
             .private_service_connect
             .get_output(context);
-        let private_service_connect_binding = private_service_connect_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let worker_config_binding_1 = args.worker_config.get_output(context);
-        let worker_config_binding = worker_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let project_binding = args.project.get_output(context);
+        let worker_config_binding = args.worker_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:cloudbuild/workerPool:WorkerPool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfig".into(),
-                    value: &network_config_binding,
+                    value: network_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateServiceConnect".into(),
-                    value: &private_service_connect_binding,
+                    value: private_service_connect_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerConfig".into(),
-                    value: &worker_config_binding,
+                    value: worker_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkerPoolResult {
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            delete_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteTime"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfig"),
-            ),
-            private_service_connect: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateServiceConnect"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            worker_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workerConfig"),
-            ),
+            annotations: o.get_field("annotations"),
+            create_time: o.get_field("createTime"),
+            delete_time: o.get_field("deleteTime"),
+            display_name: o.get_field("displayName"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            network_config: o.get_field("networkConfig"),
+            private_service_connect: o.get_field("privateServiceConnect"),
+            project: o.get_field("project"),
+            state: o.get_field("state"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
+            worker_config: o.get_field("workerConfig"),
         }
     }
 }

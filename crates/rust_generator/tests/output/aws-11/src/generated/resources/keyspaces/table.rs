@@ -154,134 +154,98 @@ pub mod table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TableArgs,
     ) -> TableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_specification_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let capacity_specification_binding = args
             .capacity_specification
             .get_output(context);
-        let capacity_specification_binding = capacity_specification_binding_1
-            .get_inner();
-        let client_side_timestamps_binding_1 = args
+        let client_side_timestamps_binding = args
             .client_side_timestamps
             .get_output(context);
-        let client_side_timestamps_binding = client_side_timestamps_binding_1
-            .get_inner();
-        let comment_binding_1 = args.comment.get_output(context);
-        let comment_binding = comment_binding_1.get_inner();
-        let default_time_to_live_binding_1 = args
-            .default_time_to_live
-            .get_output(context);
-        let default_time_to_live_binding = default_time_to_live_binding_1.get_inner();
-        let encryption_specification_binding_1 = args
+        let comment_binding = args.comment.get_output(context);
+        let default_time_to_live_binding = args.default_time_to_live.get_output(context);
+        let encryption_specification_binding = args
             .encryption_specification
             .get_output(context);
-        let encryption_specification_binding = encryption_specification_binding_1
-            .get_inner();
-        let keyspace_name_binding_1 = args.keyspace_name.get_output(context);
-        let keyspace_name_binding = keyspace_name_binding_1.get_inner();
-        let point_in_time_recovery_binding_1 = args
+        let keyspace_name_binding = args.keyspace_name.get_output(context);
+        let point_in_time_recovery_binding = args
             .point_in_time_recovery
             .get_output(context);
-        let point_in_time_recovery_binding = point_in_time_recovery_binding_1
-            .get_inner();
-        let schema_definition_binding_1 = args.schema_definition.get_output(context);
-        let schema_definition_binding = schema_definition_binding_1.get_inner();
-        let table_name_binding_1 = args.table_name.get_output(context);
-        let table_name_binding = table_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let ttl_binding_1 = args.ttl.get_output(context);
-        let ttl_binding = ttl_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let schema_definition_binding = args.schema_definition.get_output(context);
+        let table_name_binding = args.table_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let ttl_binding = args.ttl.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:keyspaces/table:Table".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacitySpecification".into(),
-                    value: &capacity_specification_binding,
+                    value: capacity_specification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientSideTimestamps".into(),
-                    value: &client_side_timestamps_binding,
+                    value: client_side_timestamps_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: &comment_binding,
+                    value: comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTimeToLive".into(),
-                    value: &default_time_to_live_binding,
+                    value: default_time_to_live_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionSpecification".into(),
-                    value: &encryption_specification_binding,
+                    value: encryption_specification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyspaceName".into(),
-                    value: &keyspace_name_binding,
+                    value: keyspace_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pointInTimeRecovery".into(),
-                    value: &point_in_time_recovery_binding,
+                    value: point_in_time_recovery_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaDefinition".into(),
-                    value: &schema_definition_binding,
+                    value: schema_definition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableName".into(),
-                    value: &table_name_binding,
+                    value: table_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: &ttl_binding,
+                    value: ttl_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TableResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            capacity_specification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacitySpecification"),
-            ),
-            client_side_timestamps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientSideTimestamps"),
-            ),
-            comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comment"),
-            ),
-            default_time_to_live: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultTimeToLive"),
-            ),
-            encryption_specification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionSpecification"),
-            ),
-            keyspace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyspaceName"),
-            ),
-            point_in_time_recovery: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pointInTimeRecovery"),
-            ),
-            schema_definition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schemaDefinition"),
-            ),
-            table_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
+            arn: o.get_field("arn"),
+            capacity_specification: o.get_field("capacitySpecification"),
+            client_side_timestamps: o.get_field("clientSideTimestamps"),
+            comment: o.get_field("comment"),
+            default_time_to_live: o.get_field("defaultTimeToLive"),
+            encryption_specification: o.get_field("encryptionSpecification"),
+            keyspace_name: o.get_field("keyspaceName"),
+            point_in_time_recovery: o.get_field("pointInTimeRecovery"),
+            schema_definition: o.get_field("schemaDefinition"),
+            table_name: o.get_field("tableName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            ttl: o.get_field("ttl"),
         }
     }
 }

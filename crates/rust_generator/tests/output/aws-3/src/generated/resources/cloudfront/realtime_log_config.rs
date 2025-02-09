@@ -110,56 +110,47 @@ pub mod realtime_log_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RealtimeLogConfigArgs,
     ) -> RealtimeLogConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_binding_1 = args.endpoint.get_output(context);
-        let endpoint_binding = endpoint_binding_1.get_inner();
-        let fields_binding_1 = args.fields.get_output(context);
-        let fields_binding = fields_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let sampling_rate_binding_1 = args.sampling_rate.get_output(context);
-        let sampling_rate_binding = sampling_rate_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let endpoint_binding = args.endpoint.get_output(context);
+        let fields_binding = args.fields.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let sampling_rate_binding = args.sampling_rate.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudfront/realtimeLogConfig:RealtimeLogConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoint".into(),
-                    value: &endpoint_binding,
+                    value: endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fields".into(),
-                    value: &fields_binding,
+                    value: fields_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "samplingRate".into(),
-                    value: &sampling_rate_binding,
+                    value: sampling_rate_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RealtimeLogConfigResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            fields: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fields"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            sampling_rate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("samplingRate"),
-            ),
+            arn: o.get_field("arn"),
+            endpoint: o.get_field("endpoint"),
+            fields: o.get_field("fields"),
+            name: o.get_field("name"),
+            sampling_rate: o.get_field("samplingRate"),
         }
     }
 }

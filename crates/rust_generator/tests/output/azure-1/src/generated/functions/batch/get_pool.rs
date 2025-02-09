@@ -103,114 +103,62 @@ pub mod get_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPoolArgs,
     ) -> GetPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding_1 = args.account_name.get_output(context);
-        let account_name_binding = account_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_name_binding = args.account_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:batch/getPool:getPool".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: &account_name_binding,
+                    value: account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPoolResult {
-            account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountName"),
-            ),
-            auto_scales: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScales"),
-            ),
-            certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificates"),
-            ),
-            container_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerConfigurations"),
-            ),
-            data_disks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataDisks"),
-            ),
-            disk_encryptions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskEncryptions"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            extensions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extensions"),
-            ),
-            fixed_scales: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fixedScales"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            inter_node_communication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interNodeCommunication"),
-            ),
-            license_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseType"),
-            ),
-            max_tasks_per_node: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxTasksPerNode"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            mounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mounts"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfigurations"),
-            ),
-            node_agent_sku_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeAgentSkuId"),
-            ),
-            node_placements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodePlacements"),
-            ),
-            os_disk_placement: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osDiskPlacement"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            start_tasks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startTasks"),
-            ),
-            storage_image_references: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageImageReferences"),
-            ),
-            task_scheduling_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskSchedulingPolicies"),
-            ),
-            user_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userAccounts"),
-            ),
-            vm_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmSize"),
-            ),
-            windows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("windows"),
-            ),
+            account_name: o.get_field("accountName"),
+            auto_scales: o.get_field("autoScales"),
+            certificates: o.get_field("certificates"),
+            container_configurations: o.get_field("containerConfigurations"),
+            data_disks: o.get_field("dataDisks"),
+            disk_encryptions: o.get_field("diskEncryptions"),
+            display_name: o.get_field("displayName"),
+            extensions: o.get_field("extensions"),
+            fixed_scales: o.get_field("fixedScales"),
+            id: o.get_field("id"),
+            inter_node_communication: o.get_field("interNodeCommunication"),
+            license_type: o.get_field("licenseType"),
+            max_tasks_per_node: o.get_field("maxTasksPerNode"),
+            metadata: o.get_field("metadata"),
+            mounts: o.get_field("mounts"),
+            name: o.get_field("name"),
+            network_configurations: o.get_field("networkConfigurations"),
+            node_agent_sku_id: o.get_field("nodeAgentSkuId"),
+            node_placements: o.get_field("nodePlacements"),
+            os_disk_placement: o.get_field("osDiskPlacement"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            start_tasks: o.get_field("startTasks"),
+            storage_image_references: o.get_field("storageImageReferences"),
+            task_scheduling_policies: o.get_field("taskSchedulingPolicies"),
+            user_accounts: o.get_field("userAccounts"),
+            vm_size: o.get_field("vmSize"),
+            windows: o.get_field("windows"),
         }
     }
 }

@@ -90,69 +90,52 @@ pub mod route {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RouteArgs,
     ) -> RouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_vpn_endpoint_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let client_vpn_endpoint_id_binding = args
             .client_vpn_endpoint_id
             .get_output(context);
-        let client_vpn_endpoint_id_binding = client_vpn_endpoint_id_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let destination_cidr_block_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let destination_cidr_block_binding = args
             .destination_cidr_block
             .get_output(context);
-        let destination_cidr_block_binding = destination_cidr_block_binding_1
-            .get_inner();
-        let target_vpc_subnet_id_binding_1 = args
-            .target_vpc_subnet_id
-            .get_output(context);
-        let target_vpc_subnet_id_binding = target_vpc_subnet_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let target_vpc_subnet_id_binding = args.target_vpc_subnet_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2clientvpn/route:Route".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientVpnEndpointId".into(),
-                    value: &client_vpn_endpoint_id_binding,
+                    value: client_vpn_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationCidrBlock".into(),
-                    value: &destination_cidr_block_binding,
+                    value: destination_cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetVpcSubnetId".into(),
-                    value: &target_vpc_subnet_id_binding,
+                    value: target_vpc_subnet_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RouteResult {
-            client_vpn_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientVpnEndpointId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            destination_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationCidrBlock"),
-            ),
-            origin: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("origin"),
-            ),
-            target_vpc_subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetVpcSubnetId"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            client_vpn_endpoint_id: o.get_field("clientVpnEndpointId"),
+            description: o.get_field("description"),
+            destination_cidr_block: o.get_field("destinationCidrBlock"),
+            origin: o.get_field("origin"),
+            target_vpc_subnet_id: o.get_field("targetVpcSubnetId"),
+            type_: o.get_field("type"),
         }
     }
 }

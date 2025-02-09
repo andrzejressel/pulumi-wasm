@@ -157,191 +157,98 @@ pub mod get_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetInstanceArgs,
     ) -> GetInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let get_password_data_binding_1 = args.get_password_data.get_output(context);
-        let get_password_data_binding = get_password_data_binding_1.get_inner();
-        let get_user_data_binding_1 = args.get_user_data.get_output(context);
-        let get_user_data_binding = get_user_data_binding_1.get_inner();
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let instance_tags_binding_1 = args.instance_tags.get_output(context);
-        let instance_tags_binding = instance_tags_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let get_password_data_binding = args.get_password_data.get_output(context);
+        let get_user_data_binding = args.get_user_data.get_output(context);
+        let instance_id_binding = args.instance_id.get_output(context);
+        let instance_tags_binding = args.instance_tags.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getInstance:getInstance".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "getPasswordData".into(),
-                    value: &get_password_data_binding,
+                    value: get_password_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "getUserData".into(),
-                    value: &get_user_data_binding,
+                    value: get_user_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceTags".into(),
-                    value: &instance_tags_binding,
+                    value: instance_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetInstanceResult {
-            ami: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ami")),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            associate_public_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associatePublicIpAddress"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            credit_specifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creditSpecifications"),
-            ),
-            disable_api_stop: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableApiStop"),
-            ),
-            disable_api_termination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableApiTermination"),
-            ),
-            ebs_block_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsBlockDevices"),
-            ),
-            ebs_optimized: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsOptimized"),
-            ),
-            enclave_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enclaveOptions"),
-            ),
-            ephemeral_block_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ephemeralBlockDevices"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            get_password_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("getPasswordData"),
-            ),
-            get_user_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("getUserData"),
-            ),
-            host_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostId"),
-            ),
-            host_resource_group_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostResourceGroupArn"),
-            ),
-            iam_instance_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamInstanceProfile"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            instance_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceState"),
-            ),
-            instance_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceTags"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            ipv6_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6Addresses"),
-            ),
-            key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyName"),
-            ),
-            launch_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchTime"),
-            ),
-            maintenance_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceOptions"),
-            ),
-            metadata_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadataOptions"),
-            ),
-            monitoring: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoring"),
-            ),
-            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceId"),
-            ),
-            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostArn"),
-            ),
-            password_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("passwordData"),
-            ),
-            placement_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementGroup"),
-            ),
-            placement_partition_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementPartitionNumber"),
-            ),
-            private_dns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDns"),
-            ),
-            private_dns_name_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDnsNameOptions"),
-            ),
-            private_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIp"),
-            ),
-            public_dns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicDns"),
-            ),
-            public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIp"),
-            ),
-            root_block_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootBlockDevices"),
-            ),
-            secondary_private_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryPrivateIps"),
-            ),
-            security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroups"),
-            ),
-            source_dest_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDestCheck"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tenancy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenancy"),
-            ),
-            user_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userData"),
-            ),
-            user_data_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userDataBase64"),
-            ),
-            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSecurityGroupIds"),
-            ),
+            ami: o.get_field("ami"),
+            arn: o.get_field("arn"),
+            associate_public_ip_address: o.get_field("associatePublicIpAddress"),
+            availability_zone: o.get_field("availabilityZone"),
+            credit_specifications: o.get_field("creditSpecifications"),
+            disable_api_stop: o.get_field("disableApiStop"),
+            disable_api_termination: o.get_field("disableApiTermination"),
+            ebs_block_devices: o.get_field("ebsBlockDevices"),
+            ebs_optimized: o.get_field("ebsOptimized"),
+            enclave_options: o.get_field("enclaveOptions"),
+            ephemeral_block_devices: o.get_field("ephemeralBlockDevices"),
+            filters: o.get_field("filters"),
+            get_password_data: o.get_field("getPasswordData"),
+            get_user_data: o.get_field("getUserData"),
+            host_id: o.get_field("hostId"),
+            host_resource_group_arn: o.get_field("hostResourceGroupArn"),
+            iam_instance_profile: o.get_field("iamInstanceProfile"),
+            id: o.get_field("id"),
+            instance_id: o.get_field("instanceId"),
+            instance_state: o.get_field("instanceState"),
+            instance_tags: o.get_field("instanceTags"),
+            instance_type: o.get_field("instanceType"),
+            ipv6_addresses: o.get_field("ipv6Addresses"),
+            key_name: o.get_field("keyName"),
+            launch_time: o.get_field("launchTime"),
+            maintenance_options: o.get_field("maintenanceOptions"),
+            metadata_options: o.get_field("metadataOptions"),
+            monitoring: o.get_field("monitoring"),
+            network_interface_id: o.get_field("networkInterfaceId"),
+            outpost_arn: o.get_field("outpostArn"),
+            password_data: o.get_field("passwordData"),
+            placement_group: o.get_field("placementGroup"),
+            placement_partition_number: o.get_field("placementPartitionNumber"),
+            private_dns: o.get_field("privateDns"),
+            private_dns_name_options: o.get_field("privateDnsNameOptions"),
+            private_ip: o.get_field("privateIp"),
+            public_dns: o.get_field("publicDns"),
+            public_ip: o.get_field("publicIp"),
+            root_block_devices: o.get_field("rootBlockDevices"),
+            secondary_private_ips: o.get_field("secondaryPrivateIps"),
+            security_groups: o.get_field("securityGroups"),
+            source_dest_check: o.get_field("sourceDestCheck"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            tenancy: o.get_field("tenancy"),
+            user_data: o.get_field("userData"),
+            user_data_base64: o.get_field("userDataBase64"),
+            vpc_security_group_ids: o.get_field("vpcSecurityGroupIds"),
         }
     }
 }

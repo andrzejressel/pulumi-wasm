@@ -58,49 +58,38 @@ pub mod image_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ImageVersionArgs,
     ) -> ImageVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let base_image_binding_1 = args.base_image.get_output(context);
-        let base_image_binding = base_image_binding_1.get_inner();
-        let image_name_binding_1 = args.image_name.get_output(context);
-        let image_name_binding = image_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let base_image_binding = args.base_image.get_output(context);
+        let image_name_binding = args.image_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/imageVersion:ImageVersion".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baseImage".into(),
-                    value: &base_image_binding,
+                    value: base_image_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageName".into(),
-                    value: &image_name_binding,
+                    value: image_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ImageVersionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            base_image: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseImage"),
-            ),
-            container_image: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerImage"),
-            ),
-            image_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageArn"),
-            ),
-            image_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageName"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            arn: o.get_field("arn"),
+            base_image: o.get_field("baseImage"),
+            container_image: o.get_field("containerImage"),
+            image_arn: o.get_field("imageArn"),
+            image_name: o.get_field("imageName"),
+            version: o.get_field("version"),
         }
     }
 }

@@ -202,83 +202,66 @@ pub mod managed_storage_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagedStorageAccountArgs,
     ) -> ManagedStorageAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
-        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let regenerate_key_automatically_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let key_vault_id_binding = args.key_vault_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let regenerate_key_automatically_binding = args
             .regenerate_key_automatically
             .get_output(context);
-        let regenerate_key_automatically_binding = regenerate_key_automatically_binding_1
-            .get_inner();
-        let regeneration_period_binding_1 = args.regeneration_period.get_output(context);
-        let regeneration_period_binding = regeneration_period_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let storage_account_key_binding_1 = args.storage_account_key.get_output(context);
-        let storage_account_key_binding = storage_account_key_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let regeneration_period_binding = args.regeneration_period.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let storage_account_key_binding = args.storage_account_key.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:keyvault/managedStorageAccount:ManagedStorageAccount".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: &key_vault_id_binding,
+                    value: key_vault_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regenerateKeyAutomatically".into(),
-                    value: &regenerate_key_automatically_binding,
+                    value: regenerate_key_automatically_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regenerationPeriod".into(),
-                    value: &regeneration_period_binding,
+                    value: regeneration_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountKey".into(),
-                    value: &storage_account_key_binding,
+                    value: storage_account_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagedStorageAccountResult {
-            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            regenerate_key_automatically: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regenerateKeyAutomatically"),
-            ),
-            regeneration_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regenerationPeriod"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
-            storage_account_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountKey"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            key_vault_id: o.get_field("keyVaultId"),
+            name: o.get_field("name"),
+            regenerate_key_automatically: o.get_field("regenerateKeyAutomatically"),
+            regeneration_period: o.get_field("regenerationPeriod"),
+            storage_account_id: o.get_field("storageAccountId"),
+            storage_account_key: o.get_field("storageAccountKey"),
+            tags: o.get_field("tags"),
         }
     }
 }

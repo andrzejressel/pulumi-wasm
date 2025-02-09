@@ -210,155 +210,113 @@ pub mod virtual_network_peering {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VirtualNetworkPeeringArgs,
     ) -> VirtualNetworkPeeringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_forwarded_traffic_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_forwarded_traffic_binding = args
             .allow_forwarded_traffic
             .get_output(context);
-        let allow_forwarded_traffic_binding = allow_forwarded_traffic_binding_1
-            .get_inner();
-        let allow_gateway_transit_binding_1 = args
+        let allow_gateway_transit_binding = args
             .allow_gateway_transit
             .get_output(context);
-        let allow_gateway_transit_binding = allow_gateway_transit_binding_1.get_inner();
-        let allow_virtual_network_access_binding_1 = args
+        let allow_virtual_network_access_binding = args
             .allow_virtual_network_access
             .get_output(context);
-        let allow_virtual_network_access_binding = allow_virtual_network_access_binding_1
-            .get_inner();
-        let local_subnet_names_binding_1 = args.local_subnet_names.get_output(context);
-        let local_subnet_names_binding = local_subnet_names_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let only_ipv6_peering_enabled_binding_1 = args
+        let local_subnet_names_binding = args.local_subnet_names.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let only_ipv6_peering_enabled_binding = args
             .only_ipv6_peering_enabled
             .get_output(context);
-        let only_ipv6_peering_enabled_binding = only_ipv6_peering_enabled_binding_1
-            .get_inner();
-        let peer_complete_virtual_networks_enabled_binding_1 = args
+        let peer_complete_virtual_networks_enabled_binding = args
             .peer_complete_virtual_networks_enabled
             .get_output(context);
-        let peer_complete_virtual_networks_enabled_binding = peer_complete_virtual_networks_enabled_binding_1
-            .get_inner();
-        let remote_subnet_names_binding_1 = args.remote_subnet_names.get_output(context);
-        let remote_subnet_names_binding = remote_subnet_names_binding_1.get_inner();
-        let remote_virtual_network_id_binding_1 = args
+        let remote_subnet_names_binding = args.remote_subnet_names.get_output(context);
+        let remote_virtual_network_id_binding = args
             .remote_virtual_network_id
             .get_output(context);
-        let remote_virtual_network_id_binding = remote_virtual_network_id_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let triggers_binding_1 = args.triggers.get_output(context);
-        let triggers_binding = triggers_binding_1.get_inner();
-        let use_remote_gateways_binding_1 = args.use_remote_gateways.get_output(context);
-        let use_remote_gateways_binding = use_remote_gateways_binding_1.get_inner();
-        let virtual_network_name_binding_1 = args
-            .virtual_network_name
-            .get_output(context);
-        let virtual_network_name_binding = virtual_network_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let triggers_binding = args.triggers.get_output(context);
+        let use_remote_gateways_binding = args.use_remote_gateways.get_output(context);
+        let virtual_network_name_binding = args.virtual_network_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/virtualNetworkPeering:VirtualNetworkPeering".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowForwardedTraffic".into(),
-                    value: &allow_forwarded_traffic_binding,
+                    value: allow_forwarded_traffic_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowGatewayTransit".into(),
-                    value: &allow_gateway_transit_binding,
+                    value: allow_gateway_transit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowVirtualNetworkAccess".into(),
-                    value: &allow_virtual_network_access_binding,
+                    value: allow_virtual_network_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localSubnetNames".into(),
-                    value: &local_subnet_names_binding,
+                    value: local_subnet_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onlyIpv6PeeringEnabled".into(),
-                    value: &only_ipv6_peering_enabled_binding,
+                    value: only_ipv6_peering_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerCompleteVirtualNetworksEnabled".into(),
-                    value: &peer_complete_virtual_networks_enabled_binding,
+                    value: peer_complete_virtual_networks_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteSubnetNames".into(),
-                    value: &remote_subnet_names_binding,
+                    value: remote_subnet_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteVirtualNetworkId".into(),
-                    value: &remote_virtual_network_id_binding,
+                    value: remote_virtual_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggers".into(),
-                    value: &triggers_binding,
+                    value: triggers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useRemoteGateways".into(),
-                    value: &use_remote_gateways_binding,
+                    value: use_remote_gateways_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkName".into(),
-                    value: &virtual_network_name_binding,
+                    value: virtual_network_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VirtualNetworkPeeringResult {
-            allow_forwarded_traffic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowForwardedTraffic"),
-            ),
-            allow_gateway_transit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowGatewayTransit"),
-            ),
-            allow_virtual_network_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowVirtualNetworkAccess"),
-            ),
-            local_subnet_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localSubnetNames"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            only_ipv6_peering_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("onlyIpv6PeeringEnabled"),
-            ),
-            peer_complete_virtual_networks_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerCompleteVirtualNetworksEnabled"),
-            ),
-            remote_subnet_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteSubnetNames"),
-            ),
-            remote_virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteVirtualNetworkId"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            triggers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggers"),
-            ),
-            use_remote_gateways: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useRemoteGateways"),
-            ),
-            virtual_network_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkName"),
-            ),
+            allow_forwarded_traffic: o.get_field("allowForwardedTraffic"),
+            allow_gateway_transit: o.get_field("allowGatewayTransit"),
+            allow_virtual_network_access: o.get_field("allowVirtualNetworkAccess"),
+            local_subnet_names: o.get_field("localSubnetNames"),
+            name: o.get_field("name"),
+            only_ipv6_peering_enabled: o.get_field("onlyIpv6PeeringEnabled"),
+            peer_complete_virtual_networks_enabled: o
+                .get_field("peerCompleteVirtualNetworksEnabled"),
+            remote_subnet_names: o.get_field("remoteSubnetNames"),
+            remote_virtual_network_id: o.get_field("remoteVirtualNetworkId"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            triggers: o.get_field("triggers"),
+            use_remote_gateways: o.get_field("useRemoteGateways"),
+            virtual_network_name: o.get_field("virtualNetworkName"),
         }
     }
 }

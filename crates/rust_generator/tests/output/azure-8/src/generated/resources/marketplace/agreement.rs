@@ -58,50 +58,42 @@ pub mod agreement {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AgreementArgs,
     ) -> AgreementResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let offer_binding_1 = args.offer.get_output(context);
-        let offer_binding = offer_binding_1.get_inner();
-        let plan_binding_1 = args.plan.get_output(context);
-        let plan_binding = plan_binding_1.get_inner();
-        let publisher_binding_1 = args.publisher.get_output(context);
-        let publisher_binding = publisher_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let offer_binding = args.offer.get_output(context);
+        let plan_binding = args.plan.get_output(context);
+        let publisher_binding = args.publisher.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:marketplace/agreement:Agreement".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "offer".into(),
-                    value: &offer_binding,
+                    value: offer_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plan".into(),
-                    value: &plan_binding,
+                    value: plan_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publisher".into(),
-                    value: &publisher_binding,
+                    value: publisher_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AgreementResult {
-            license_text_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseTextLink"),
-            ),
-            offer: pulumi_gestalt_rust::__private::into_domain(o.extract_field("offer")),
-            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
-            privacy_policy_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privacyPolicyLink"),
-            ),
-            publisher: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publisher"),
-            ),
+            license_text_link: o.get_field("licenseTextLink"),
+            offer: o.get_field("offer"),
+            plan: o.get_field("plan"),
+            privacy_policy_link: o.get_field("privacyPolicyLink"),
+            publisher: o.get_field("publisher"),
         }
     }
 }

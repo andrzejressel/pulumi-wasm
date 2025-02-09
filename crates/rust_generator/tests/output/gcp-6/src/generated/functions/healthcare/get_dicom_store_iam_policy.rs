@@ -26,33 +26,29 @@ pub mod get_dicom_store_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDicomStoreIamPolicyArgs,
     ) -> GetDicomStoreIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dicom_store_id_binding_1 = args.dicom_store_id.get_output(context);
-        let dicom_store_id_binding = dicom_store_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dicom_store_id_binding = args.dicom_store_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:healthcare/getDicomStoreIamPolicy:getDicomStoreIamPolicy".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dicomStoreId".into(),
-                    value: &dicom_store_id_binding,
+                    value: dicom_store_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDicomStoreIamPolicyResult {
-            dicom_store_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dicomStoreId"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            policy_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyData"),
-            ),
+            dicom_store_id: o.get_field("dicomStoreId"),
+            etag: o.get_field("etag"),
+            id: o.get_field("id"),
+            policy_data: o.get_field("policyData"),
         }
     }
 }

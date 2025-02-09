@@ -171,107 +171,84 @@ pub mod network_sim_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkSimPolicyArgs,
     ) -> NetworkSimPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_slice_id_binding_1 = args.default_slice_id.get_output(context);
-        let default_slice_id_binding = default_slice_id_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let mobile_network_id_binding_1 = args.mobile_network_id.get_output(context);
-        let mobile_network_id_binding = mobile_network_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let rat_frequency_selection_priority_index_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let default_slice_id_binding = args.default_slice_id.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let mobile_network_id_binding = args.mobile_network_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let rat_frequency_selection_priority_index_binding = args
             .rat_frequency_selection_priority_index
             .get_output(context);
-        let rat_frequency_selection_priority_index_binding = rat_frequency_selection_priority_index_binding_1
-            .get_inner();
-        let registration_timer_in_seconds_binding_1 = args
+        let registration_timer_in_seconds_binding = args
             .registration_timer_in_seconds
             .get_output(context);
-        let registration_timer_in_seconds_binding = registration_timer_in_seconds_binding_1
-            .get_inner();
-        let slices_binding_1 = args.slices.get_output(context);
-        let slices_binding = slices_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_equipment_aggregate_maximum_bit_rate_binding_1 = args
+        let slices_binding = args.slices.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let user_equipment_aggregate_maximum_bit_rate_binding = args
             .user_equipment_aggregate_maximum_bit_rate
             .get_output(context);
-        let user_equipment_aggregate_maximum_bit_rate_binding = user_equipment_aggregate_maximum_bit_rate_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mobile/networkSimPolicy:NetworkSimPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultSliceId".into(),
-                    value: &default_slice_id_binding,
+                    value: default_slice_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkId".into(),
-                    value: &mobile_network_id_binding,
+                    value: mobile_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ratFrequencySelectionPriorityIndex".into(),
-                    value: &rat_frequency_selection_priority_index_binding,
+                    value: rat_frequency_selection_priority_index_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registrationTimerInSeconds".into(),
-                    value: &registration_timer_in_seconds_binding,
+                    value: registration_timer_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slices".into(),
-                    value: &slices_binding,
+                    value: slices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userEquipmentAggregateMaximumBitRate".into(),
-                    value: &user_equipment_aggregate_maximum_bit_rate_binding,
+                    value: user_equipment_aggregate_maximum_bit_rate_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkSimPolicyResult {
-            default_slice_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSliceId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mobile_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mobileNetworkId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            rat_frequency_selection_priority_index: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ratFrequencySelectionPriorityIndex"),
-            ),
-            registration_timer_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registrationTimerInSeconds"),
-            ),
-            slices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("slices"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            user_equipment_aggregate_maximum_bit_rate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userEquipmentAggregateMaximumBitRate"),
-            ),
+            default_slice_id: o.get_field("defaultSliceId"),
+            location: o.get_field("location"),
+            mobile_network_id: o.get_field("mobileNetworkId"),
+            name: o.get_field("name"),
+            rat_frequency_selection_priority_index: o
+                .get_field("ratFrequencySelectionPriorityIndex"),
+            registration_timer_in_seconds: o.get_field("registrationTimerInSeconds"),
+            slices: o.get_field("slices"),
+            tags: o.get_field("tags"),
+            user_equipment_aggregate_maximum_bit_rate: o
+                .get_field("userEquipmentAggregateMaximumBitRate"),
         }
     }
 }

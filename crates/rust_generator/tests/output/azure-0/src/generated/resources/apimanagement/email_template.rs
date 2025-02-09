@@ -98,68 +98,54 @@ pub mod email_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EmailTemplateArgs,
     ) -> EmailTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding_1 = args.api_management_name.get_output(context);
-        let api_management_name_binding = api_management_name_binding_1.get_inner();
-        let body_binding_1 = args.body.get_output(context);
-        let body_binding = body_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let subject_binding_1 = args.subject.get_output(context);
-        let subject_binding = subject_binding_1.get_inner();
-        let template_name_binding_1 = args.template_name.get_output(context);
-        let template_name_binding = template_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_management_name_binding = args.api_management_name.get_output(context);
+        let body_binding = args.body.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let subject_binding = args.subject.get_output(context);
+        let template_name_binding = args.template_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/emailTemplate:EmailTemplate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: &api_management_name_binding,
+                    value: api_management_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "body".into(),
-                    value: &body_binding,
+                    value: body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subject".into(),
-                    value: &subject_binding,
+                    value: subject_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateName".into(),
-                    value: &template_name_binding,
+                    value: template_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EmailTemplateResult {
-            api_management_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementName"),
-            ),
-            body: pulumi_gestalt_rust::__private::into_domain(o.extract_field("body")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            subject: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subject"),
-            ),
-            template_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateName"),
-            ),
-            title: pulumi_gestalt_rust::__private::into_domain(o.extract_field("title")),
+            api_management_name: o.get_field("apiManagementName"),
+            body: o.get_field("body"),
+            description: o.get_field("description"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            subject: o.get_field("subject"),
+            template_name: o.get_field("templateName"),
+            title: o.get_field("title"),
         }
     }
 }

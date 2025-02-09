@@ -154,64 +154,52 @@ pub mod resource_lf_tags {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResourceLfTagsArgs,
     ) -> ResourceLfTagsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding_1 = args.catalog_id.get_output(context);
-        let catalog_id_binding = catalog_id_binding_1.get_inner();
-        let database_binding_1 = args.database.get_output(context);
-        let database_binding = database_binding_1.get_inner();
-        let lf_tags_binding_1 = args.lf_tags.get_output(context);
-        let lf_tags_binding = lf_tags_binding_1.get_inner();
-        let table_binding_1 = args.table.get_output(context);
-        let table_binding = table_binding_1.get_inner();
-        let table_with_columns_binding_1 = args.table_with_columns.get_output(context);
-        let table_with_columns_binding = table_with_columns_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_id_binding = args.catalog_id.get_output(context);
+        let database_binding = args.database.get_output(context);
+        let lf_tags_binding = args.lf_tags.get_output(context);
+        let table_binding = args.table.get_output(context);
+        let table_with_columns_binding = args.table_with_columns.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lakeformation/resourceLfTags:ResourceLfTags".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: &catalog_id_binding,
+                    value: catalog_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "database".into(),
-                    value: &database_binding,
+                    value: database_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lfTags".into(),
-                    value: &lf_tags_binding,
+                    value: lf_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "table".into(),
-                    value: &table_binding,
+                    value: table_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableWithColumns".into(),
-                    value: &table_with_columns_binding,
+                    value: table_with_columns_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResourceLfTagsResult {
-            catalog_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogId"),
-            ),
-            database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("database"),
-            ),
-            lf_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lfTags"),
-            ),
-            table: pulumi_gestalt_rust::__private::into_domain(o.extract_field("table")),
-            table_with_columns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableWithColumns"),
-            ),
+            catalog_id: o.get_field("catalogId"),
+            database: o.get_field("database"),
+            lf_tags: o.get_field("lfTags"),
+            table: o.get_field("table"),
+            table_with_columns: o.get_field("tableWithColumns"),
         }
     }
 }

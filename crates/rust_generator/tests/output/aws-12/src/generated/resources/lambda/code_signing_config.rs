@@ -85,65 +85,50 @@ pub mod code_signing_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CodeSigningConfigArgs,
     ) -> CodeSigningConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowed_publishers_binding_1 = args.allowed_publishers.get_output(context);
-        let allowed_publishers_binding = allowed_publishers_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let policies_binding_1 = args.policies.get_output(context);
-        let policies_binding = policies_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allowed_publishers_binding = args.allowed_publishers.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let policies_binding = args.policies.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lambda/codeSigningConfig:CodeSigningConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedPublishers".into(),
-                    value: &allowed_publishers_binding,
+                    value: allowed_publishers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policies".into(),
-                    value: &policies_binding,
+                    value: policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CodeSigningConfigResult {
-            allowed_publishers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedPublishers"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            config_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            last_modified: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModified"),
-            ),
-            policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policies"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            allowed_publishers: o.get_field("allowedPublishers"),
+            arn: o.get_field("arn"),
+            config_id: o.get_field("configId"),
+            description: o.get_field("description"),
+            last_modified: o.get_field("lastModified"),
+            policies: o.get_field("policies"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

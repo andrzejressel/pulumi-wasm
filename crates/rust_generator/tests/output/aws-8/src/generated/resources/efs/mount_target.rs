@@ -89,78 +89,53 @@ pub mod mount_target {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MountTargetArgs,
     ) -> MountTargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let file_system_id_binding_1 = args.file_system_id.get_output(context);
-        let file_system_id_binding = file_system_id_binding_1.get_inner();
-        let ip_address_binding_1 = args.ip_address.get_output(context);
-        let ip_address_binding = ip_address_binding_1.get_inner();
-        let security_groups_binding_1 = args.security_groups.get_output(context);
-        let security_groups_binding = security_groups_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let file_system_id_binding = args.file_system_id.get_output(context);
+        let ip_address_binding = args.ip_address.get_output(context);
+        let security_groups_binding = args.security_groups.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:efs/mountTarget:MountTarget".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemId".into(),
-                    value: &file_system_id_binding,
+                    value: file_system_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: &ip_address_binding,
+                    value: ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroups".into(),
-                    value: &security_groups_binding,
+                    value: security_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MountTargetResult {
-            availability_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneId"),
-            ),
-            availability_zone_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneName"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            file_system_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemArn"),
-            ),
-            file_system_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemId"),
-            ),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            mount_target_dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mountTargetDnsName"),
-            ),
-            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceId"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroups"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
+            availability_zone_id: o.get_field("availabilityZoneId"),
+            availability_zone_name: o.get_field("availabilityZoneName"),
+            dns_name: o.get_field("dnsName"),
+            file_system_arn: o.get_field("fileSystemArn"),
+            file_system_id: o.get_field("fileSystemId"),
+            ip_address: o.get_field("ipAddress"),
+            mount_target_dns_name: o.get_field("mountTargetDnsName"),
+            network_interface_id: o.get_field("networkInterfaceId"),
+            owner_id: o.get_field("ownerId"),
+            security_groups: o.get_field("securityGroups"),
+            subnet_id: o.get_field("subnetId"),
         }
     }
 }

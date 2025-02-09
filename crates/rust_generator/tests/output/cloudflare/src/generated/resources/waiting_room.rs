@@ -158,201 +158,144 @@ pub mod waiting_room {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WaitingRoomArgs,
     ) -> WaitingRoomResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_routes_binding_1 = args.additional_routes.get_output(context);
-        let additional_routes_binding = additional_routes_binding_1.get_inner();
-        let cookie_suffix_binding_1 = args.cookie_suffix.get_output(context);
-        let cookie_suffix_binding = cookie_suffix_binding_1.get_inner();
-        let custom_page_html_binding_1 = args.custom_page_html.get_output(context);
-        let custom_page_html_binding = custom_page_html_binding_1.get_inner();
-        let default_template_language_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_routes_binding = args.additional_routes.get_output(context);
+        let cookie_suffix_binding = args.cookie_suffix.get_output(context);
+        let custom_page_html_binding = args.custom_page_html.get_output(context);
+        let default_template_language_binding = args
             .default_template_language
             .get_output(context);
-        let default_template_language_binding = default_template_language_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disable_session_renewal_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let disable_session_renewal_binding = args
             .disable_session_renewal
             .get_output(context);
-        let disable_session_renewal_binding = disable_session_renewal_binding_1
-            .get_inner();
-        let enabled_origin_commands_binding_1 = args
+        let enabled_origin_commands_binding = args
             .enabled_origin_commands
             .get_output(context);
-        let enabled_origin_commands_binding = enabled_origin_commands_binding_1
-            .get_inner();
-        let host_binding_1 = args.host.get_output(context);
-        let host_binding = host_binding_1.get_inner();
-        let json_response_enabled_binding_1 = args
+        let host_binding = args.host.get_output(context);
+        let json_response_enabled_binding = args
             .json_response_enabled
             .get_output(context);
-        let json_response_enabled_binding = json_response_enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let new_users_per_minute_binding_1 = args
-            .new_users_per_minute
-            .get_output(context);
-        let new_users_per_minute_binding = new_users_per_minute_binding_1.get_inner();
-        let path_binding_1 = args.path.get_output(context);
-        let path_binding = path_binding_1.get_inner();
-        let queue_all_binding_1 = args.queue_all.get_output(context);
-        let queue_all_binding = queue_all_binding_1.get_inner();
-        let queueing_method_binding_1 = args.queueing_method.get_output(context);
-        let queueing_method_binding = queueing_method_binding_1.get_inner();
-        let queueing_status_code_binding_1 = args
-            .queueing_status_code
-            .get_output(context);
-        let queueing_status_code_binding = queueing_status_code_binding_1.get_inner();
-        let session_duration_binding_1 = args.session_duration.get_output(context);
-        let session_duration_binding = session_duration_binding_1.get_inner();
-        let suspended_binding_1 = args.suspended.get_output(context);
-        let suspended_binding = suspended_binding_1.get_inner();
-        let total_active_users_binding_1 = args.total_active_users.get_output(context);
-        let total_active_users_binding = total_active_users_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let new_users_per_minute_binding = args.new_users_per_minute.get_output(context);
+        let path_binding = args.path.get_output(context);
+        let queue_all_binding = args.queue_all.get_output(context);
+        let queueing_method_binding = args.queueing_method.get_output(context);
+        let queueing_status_code_binding = args.queueing_status_code.get_output(context);
+        let session_duration_binding = args.session_duration.get_output(context);
+        let suspended_binding = args.suspended.get_output(context);
+        let total_active_users_binding = args.total_active_users.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/waitingRoom:WaitingRoom".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalRoutes".into(),
-                    value: &additional_routes_binding,
+                    value: additional_routes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cookieSuffix".into(),
-                    value: &cookie_suffix_binding,
+                    value: cookie_suffix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customPageHtml".into(),
-                    value: &custom_page_html_binding,
+                    value: custom_page_html_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTemplateLanguage".into(),
-                    value: &default_template_language_binding,
+                    value: default_template_language_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableSessionRenewal".into(),
-                    value: &disable_session_renewal_binding,
+                    value: disable_session_renewal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabledOriginCommands".into(),
-                    value: &enabled_origin_commands_binding,
+                    value: enabled_origin_commands_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: &host_binding,
+                    value: host_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jsonResponseEnabled".into(),
-                    value: &json_response_enabled_binding,
+                    value: json_response_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "newUsersPerMinute".into(),
-                    value: &new_users_per_minute_binding,
+                    value: new_users_per_minute_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: &path_binding,
+                    value: path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueAll".into(),
-                    value: &queue_all_binding,
+                    value: queue_all_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueingMethod".into(),
-                    value: &queueing_method_binding,
+                    value: queueing_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueingStatusCode".into(),
-                    value: &queueing_status_code_binding,
+                    value: queueing_status_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionDuration".into(),
-                    value: &session_duration_binding,
+                    value: session_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suspended".into(),
-                    value: &suspended_binding,
+                    value: suspended_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "totalActiveUsers".into(),
-                    value: &total_active_users_binding,
+                    value: total_active_users_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WaitingRoomResult {
-            additional_routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalRoutes"),
-            ),
-            cookie_suffix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cookieSuffix"),
-            ),
-            custom_page_html: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customPageHtml"),
-            ),
-            default_template_language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultTemplateLanguage"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disable_session_renewal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableSessionRenewal"),
-            ),
-            enabled_origin_commands: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabledOriginCommands"),
-            ),
-            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
-            json_response_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jsonResponseEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            new_users_per_minute: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("newUsersPerMinute"),
-            ),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            queue_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueAll"),
-            ),
-            queueing_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueingMethod"),
-            ),
-            queueing_status_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueingStatusCode"),
-            ),
-            session_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionDuration"),
-            ),
-            suspended: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("suspended"),
-            ),
-            total_active_users: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("totalActiveUsers"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            additional_routes: o.get_field("additionalRoutes"),
+            cookie_suffix: o.get_field("cookieSuffix"),
+            custom_page_html: o.get_field("customPageHtml"),
+            default_template_language: o.get_field("defaultTemplateLanguage"),
+            description: o.get_field("description"),
+            disable_session_renewal: o.get_field("disableSessionRenewal"),
+            enabled_origin_commands: o.get_field("enabledOriginCommands"),
+            host: o.get_field("host"),
+            json_response_enabled: o.get_field("jsonResponseEnabled"),
+            name: o.get_field("name"),
+            new_users_per_minute: o.get_field("newUsersPerMinute"),
+            path: o.get_field("path"),
+            queue_all: o.get_field("queueAll"),
+            queueing_method: o.get_field("queueingMethod"),
+            queueing_status_code: o.get_field("queueingStatusCode"),
+            session_duration: o.get_field("sessionDuration"),
+            suspended: o.get_field("suspended"),
+            total_active_users: o.get_field("totalActiveUsers"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

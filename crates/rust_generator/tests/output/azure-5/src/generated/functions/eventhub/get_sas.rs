@@ -25,39 +25,34 @@ pub mod get_sas {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSasArgs,
     ) -> GetSasResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_string_binding_1 = args.connection_string.get_output(context);
-        let connection_string_binding = connection_string_binding_1.get_inner();
-        let expiry_binding_1 = args.expiry.get_output(context);
-        let expiry_binding = expiry_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let connection_string_binding = args.connection_string.get_output(context);
+        let expiry_binding = args.expiry.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:eventhub/getSas:getSas".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionString".into(),
-                    value: &connection_string_binding,
+                    value: connection_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiry".into(),
-                    value: &expiry_binding,
+                    value: expiry_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSasResult {
-            connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionString"),
-            ),
-            expiry: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiry"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            sas: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sas")),
+            connection_string: o.get_field("connectionString"),
+            expiry: o.get_field("expiry"),
+            id: o.get_field("id"),
+            sas: o.get_field("sas"),
         }
     }
 }

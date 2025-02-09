@@ -458,566 +458,403 @@ pub mod container {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ContainerArgs,
     ) -> ContainerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attach_binding_1 = args.attach.get_output(context);
-        let attach_binding = attach_binding_1.get_inner();
-        let capabilities_binding_1 = args.capabilities.get_output(context);
-        let capabilities_binding = capabilities_binding_1.get_inner();
-        let cgroupns_mode_binding_1 = args.cgroupns_mode.get_output(context);
-        let cgroupns_mode_binding = cgroupns_mode_binding_1.get_inner();
-        let command_binding_1 = args.command.get_output(context);
-        let command_binding = command_binding_1.get_inner();
-        let container_read_refresh_timeout_milliseconds_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attach_binding = args.attach.get_output(context);
+        let capabilities_binding = args.capabilities.get_output(context);
+        let cgroupns_mode_binding = args.cgroupns_mode.get_output(context);
+        let command_binding = args.command.get_output(context);
+        let container_read_refresh_timeout_milliseconds_binding = args
             .container_read_refresh_timeout_milliseconds
             .get_output(context);
-        let container_read_refresh_timeout_milliseconds_binding = container_read_refresh_timeout_milliseconds_binding_1
-            .get_inner();
-        let cpu_set_binding_1 = args.cpu_set.get_output(context);
-        let cpu_set_binding = cpu_set_binding_1.get_inner();
-        let cpu_shares_binding_1 = args.cpu_shares.get_output(context);
-        let cpu_shares_binding = cpu_shares_binding_1.get_inner();
-        let destroy_grace_seconds_binding_1 = args
+        let cpu_set_binding = args.cpu_set.get_output(context);
+        let cpu_shares_binding = args.cpu_shares.get_output(context);
+        let destroy_grace_seconds_binding = args
             .destroy_grace_seconds
             .get_output(context);
-        let destroy_grace_seconds_binding = destroy_grace_seconds_binding_1.get_inner();
-        let devices_binding_1 = args.devices.get_output(context);
-        let devices_binding = devices_binding_1.get_inner();
-        let dns_binding_1 = args.dns.get_output(context);
-        let dns_binding = dns_binding_1.get_inner();
-        let dns_opts_binding_1 = args.dns_opts.get_output(context);
-        let dns_opts_binding = dns_opts_binding_1.get_inner();
-        let dns_searches_binding_1 = args.dns_searches.get_output(context);
-        let dns_searches_binding = dns_searches_binding_1.get_inner();
-        let domainname_binding_1 = args.domainname.get_output(context);
-        let domainname_binding = domainname_binding_1.get_inner();
-        let entrypoints_binding_1 = args.entrypoints.get_output(context);
-        let entrypoints_binding = entrypoints_binding_1.get_inner();
-        let envs_binding_1 = args.envs.get_output(context);
-        let envs_binding = envs_binding_1.get_inner();
-        let gpus_binding_1 = args.gpus.get_output(context);
-        let gpus_binding = gpus_binding_1.get_inner();
-        let group_adds_binding_1 = args.group_adds.get_output(context);
-        let group_adds_binding = group_adds_binding_1.get_inner();
-        let healthcheck_binding_1 = args.healthcheck.get_output(context);
-        let healthcheck_binding = healthcheck_binding_1.get_inner();
-        let hostname_binding_1 = args.hostname.get_output(context);
-        let hostname_binding = hostname_binding_1.get_inner();
-        let hosts_binding_1 = args.hosts.get_output(context);
-        let hosts_binding = hosts_binding_1.get_inner();
-        let image_binding_1 = args.image.get_output(context);
-        let image_binding = image_binding_1.get_inner();
-        let init_binding_1 = args.init.get_output(context);
-        let init_binding = init_binding_1.get_inner();
-        let ipc_mode_binding_1 = args.ipc_mode.get_output(context);
-        let ipc_mode_binding = ipc_mode_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let log_driver_binding_1 = args.log_driver.get_output(context);
-        let log_driver_binding = log_driver_binding_1.get_inner();
-        let log_opts_binding_1 = args.log_opts.get_output(context);
-        let log_opts_binding = log_opts_binding_1.get_inner();
-        let logs_binding_1 = args.logs.get_output(context);
-        let logs_binding = logs_binding_1.get_inner();
-        let max_retry_count_binding_1 = args.max_retry_count.get_output(context);
-        let max_retry_count_binding = max_retry_count_binding_1.get_inner();
-        let memory_binding_1 = args.memory.get_output(context);
-        let memory_binding = memory_binding_1.get_inner();
-        let memory_swap_binding_1 = args.memory_swap.get_output(context);
-        let memory_swap_binding = memory_swap_binding_1.get_inner();
-        let mounts_binding_1 = args.mounts.get_output(context);
-        let mounts_binding = mounts_binding_1.get_inner();
-        let must_run_binding_1 = args.must_run.get_output(context);
-        let must_run_binding = must_run_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_mode_binding_1 = args.network_mode.get_output(context);
-        let network_mode_binding = network_mode_binding_1.get_inner();
-        let networks_advanced_binding_1 = args.networks_advanced.get_output(context);
-        let networks_advanced_binding = networks_advanced_binding_1.get_inner();
-        let pid_mode_binding_1 = args.pid_mode.get_output(context);
-        let pid_mode_binding = pid_mode_binding_1.get_inner();
-        let ports_binding_1 = args.ports.get_output(context);
-        let ports_binding = ports_binding_1.get_inner();
-        let privileged_binding_1 = args.privileged.get_output(context);
-        let privileged_binding = privileged_binding_1.get_inner();
-        let publish_all_ports_binding_1 = args.publish_all_ports.get_output(context);
-        let publish_all_ports_binding = publish_all_ports_binding_1.get_inner();
-        let read_only_binding_1 = args.read_only.get_output(context);
-        let read_only_binding = read_only_binding_1.get_inner();
-        let remove_volumes_binding_1 = args.remove_volumes.get_output(context);
-        let remove_volumes_binding = remove_volumes_binding_1.get_inner();
-        let restart_binding_1 = args.restart.get_output(context);
-        let restart_binding = restart_binding_1.get_inner();
-        let rm_binding_1 = args.rm.get_output(context);
-        let rm_binding = rm_binding_1.get_inner();
-        let runtime_binding_1 = args.runtime.get_output(context);
-        let runtime_binding = runtime_binding_1.get_inner();
-        let security_opts_binding_1 = args.security_opts.get_output(context);
-        let security_opts_binding = security_opts_binding_1.get_inner();
-        let shm_size_binding_1 = args.shm_size.get_output(context);
-        let shm_size_binding = shm_size_binding_1.get_inner();
-        let start_binding_1 = args.start.get_output(context);
-        let start_binding = start_binding_1.get_inner();
-        let stdin_open_binding_1 = args.stdin_open.get_output(context);
-        let stdin_open_binding = stdin_open_binding_1.get_inner();
-        let stop_signal_binding_1 = args.stop_signal.get_output(context);
-        let stop_signal_binding = stop_signal_binding_1.get_inner();
-        let stop_timeout_binding_1 = args.stop_timeout.get_output(context);
-        let stop_timeout_binding = stop_timeout_binding_1.get_inner();
-        let storage_opts_binding_1 = args.storage_opts.get_output(context);
-        let storage_opts_binding = storage_opts_binding_1.get_inner();
-        let sysctls_binding_1 = args.sysctls.get_output(context);
-        let sysctls_binding = sysctls_binding_1.get_inner();
-        let tmpfs_binding_1 = args.tmpfs.get_output(context);
-        let tmpfs_binding = tmpfs_binding_1.get_inner();
-        let tty_binding_1 = args.tty.get_output(context);
-        let tty_binding = tty_binding_1.get_inner();
-        let ulimits_binding_1 = args.ulimits.get_output(context);
-        let ulimits_binding = ulimits_binding_1.get_inner();
-        let uploads_binding_1 = args.uploads.get_output(context);
-        let uploads_binding = uploads_binding_1.get_inner();
-        let user_binding_1 = args.user.get_output(context);
-        let user_binding = user_binding_1.get_inner();
-        let userns_mode_binding_1 = args.userns_mode.get_output(context);
-        let userns_mode_binding = userns_mode_binding_1.get_inner();
-        let volumes_binding_1 = args.volumes.get_output(context);
-        let volumes_binding = volumes_binding_1.get_inner();
-        let wait_binding_1 = args.wait.get_output(context);
-        let wait_binding = wait_binding_1.get_inner();
-        let wait_timeout_binding_1 = args.wait_timeout.get_output(context);
-        let wait_timeout_binding = wait_timeout_binding_1.get_inner();
-        let working_dir_binding_1 = args.working_dir.get_output(context);
-        let working_dir_binding = working_dir_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let devices_binding = args.devices.get_output(context);
+        let dns_binding = args.dns.get_output(context);
+        let dns_opts_binding = args.dns_opts.get_output(context);
+        let dns_searches_binding = args.dns_searches.get_output(context);
+        let domainname_binding = args.domainname.get_output(context);
+        let entrypoints_binding = args.entrypoints.get_output(context);
+        let envs_binding = args.envs.get_output(context);
+        let gpus_binding = args.gpus.get_output(context);
+        let group_adds_binding = args.group_adds.get_output(context);
+        let healthcheck_binding = args.healthcheck.get_output(context);
+        let hostname_binding = args.hostname.get_output(context);
+        let hosts_binding = args.hosts.get_output(context);
+        let image_binding = args.image.get_output(context);
+        let init_binding = args.init.get_output(context);
+        let ipc_mode_binding = args.ipc_mode.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let log_driver_binding = args.log_driver.get_output(context);
+        let log_opts_binding = args.log_opts.get_output(context);
+        let logs_binding = args.logs.get_output(context);
+        let max_retry_count_binding = args.max_retry_count.get_output(context);
+        let memory_binding = args.memory.get_output(context);
+        let memory_swap_binding = args.memory_swap.get_output(context);
+        let mounts_binding = args.mounts.get_output(context);
+        let must_run_binding = args.must_run.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_mode_binding = args.network_mode.get_output(context);
+        let networks_advanced_binding = args.networks_advanced.get_output(context);
+        let pid_mode_binding = args.pid_mode.get_output(context);
+        let ports_binding = args.ports.get_output(context);
+        let privileged_binding = args.privileged.get_output(context);
+        let publish_all_ports_binding = args.publish_all_ports.get_output(context);
+        let read_only_binding = args.read_only.get_output(context);
+        let remove_volumes_binding = args.remove_volumes.get_output(context);
+        let restart_binding = args.restart.get_output(context);
+        let rm_binding = args.rm.get_output(context);
+        let runtime_binding = args.runtime.get_output(context);
+        let security_opts_binding = args.security_opts.get_output(context);
+        let shm_size_binding = args.shm_size.get_output(context);
+        let start_binding = args.start.get_output(context);
+        let stdin_open_binding = args.stdin_open.get_output(context);
+        let stop_signal_binding = args.stop_signal.get_output(context);
+        let stop_timeout_binding = args.stop_timeout.get_output(context);
+        let storage_opts_binding = args.storage_opts.get_output(context);
+        let sysctls_binding = args.sysctls.get_output(context);
+        let tmpfs_binding = args.tmpfs.get_output(context);
+        let tty_binding = args.tty.get_output(context);
+        let ulimits_binding = args.ulimits.get_output(context);
+        let uploads_binding = args.uploads.get_output(context);
+        let user_binding = args.user.get_output(context);
+        let userns_mode_binding = args.userns_mode.get_output(context);
+        let volumes_binding = args.volumes.get_output(context);
+        let wait_binding = args.wait.get_output(context);
+        let wait_timeout_binding = args.wait_timeout.get_output(context);
+        let working_dir_binding = args.working_dir.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "docker:index/container:Container".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attach".into(),
-                    value: &attach_binding,
+                    value: attach_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capabilities".into(),
-                    value: &capabilities_binding,
+                    value: capabilities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cgroupnsMode".into(),
-                    value: &cgroupns_mode_binding,
+                    value: cgroupns_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "command".into(),
-                    value: &command_binding,
+                    value: command_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerReadRefreshTimeoutMilliseconds".into(),
-                    value: &container_read_refresh_timeout_milliseconds_binding,
+                    value: container_read_refresh_timeout_milliseconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cpuSet".into(),
-                    value: &cpu_set_binding,
+                    value: cpu_set_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cpuShares".into(),
-                    value: &cpu_shares_binding,
+                    value: cpu_shares_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destroyGraceSeconds".into(),
-                    value: &destroy_grace_seconds_binding,
+                    value: destroy_grace_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "devices".into(),
-                    value: &devices_binding,
+                    value: devices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dns".into(),
-                    value: &dns_binding,
+                    value: dns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsOpts".into(),
-                    value: &dns_opts_binding,
+                    value: dns_opts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsSearches".into(),
-                    value: &dns_searches_binding,
+                    value: dns_searches_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainname".into(),
-                    value: &domainname_binding,
+                    value: domainname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entrypoints".into(),
-                    value: &entrypoints_binding,
+                    value: entrypoints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "envs".into(),
-                    value: &envs_binding,
+                    value: envs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gpus".into(),
-                    value: &gpus_binding,
+                    value: gpus_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupAdds".into(),
-                    value: &group_adds_binding,
+                    value: group_adds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthcheck".into(),
-                    value: &healthcheck_binding,
+                    value: healthcheck_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostname".into(),
-                    value: &hostname_binding,
+                    value: hostname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hosts".into(),
-                    value: &hosts_binding,
+                    value: hosts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "image".into(),
-                    value: &image_binding,
+                    value: image_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "init".into(),
-                    value: &init_binding,
+                    value: init_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipcMode".into(),
-                    value: &ipc_mode_binding,
+                    value: ipc_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logDriver".into(),
-                    value: &log_driver_binding,
+                    value: log_driver_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logOpts".into(),
-                    value: &log_opts_binding,
+                    value: log_opts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logs".into(),
-                    value: &logs_binding,
+                    value: logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxRetryCount".into(),
-                    value: &max_retry_count_binding,
+                    value: max_retry_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memory".into(),
-                    value: &memory_binding,
+                    value: memory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memorySwap".into(),
-                    value: &memory_swap_binding,
+                    value: memory_swap_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mounts".into(),
-                    value: &mounts_binding,
+                    value: mounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mustRun".into(),
-                    value: &must_run_binding,
+                    value: must_run_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkMode".into(),
-                    value: &network_mode_binding,
+                    value: network_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networksAdvanced".into(),
-                    value: &networks_advanced_binding,
+                    value: networks_advanced_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pidMode".into(),
-                    value: &pid_mode_binding,
+                    value: pid_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ports".into(),
-                    value: &ports_binding,
+                    value: ports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privileged".into(),
-                    value: &privileged_binding,
+                    value: privileged_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publishAllPorts".into(),
-                    value: &publish_all_ports_binding,
+                    value: publish_all_ports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readOnly".into(),
-                    value: &read_only_binding,
+                    value: read_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "removeVolumes".into(),
-                    value: &remove_volumes_binding,
+                    value: remove_volumes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restart".into(),
-                    value: &restart_binding,
+                    value: restart_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rm".into(),
-                    value: &rm_binding,
+                    value: rm_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtime".into(),
-                    value: &runtime_binding,
+                    value: runtime_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityOpts".into(),
-                    value: &security_opts_binding,
+                    value: security_opts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shmSize".into(),
-                    value: &shm_size_binding,
+                    value: shm_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "start".into(),
-                    value: &start_binding,
+                    value: start_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stdinOpen".into(),
-                    value: &stdin_open_binding,
+                    value: stdin_open_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stopSignal".into(),
-                    value: &stop_signal_binding,
+                    value: stop_signal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stopTimeout".into(),
-                    value: &stop_timeout_binding,
+                    value: stop_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageOpts".into(),
-                    value: &storage_opts_binding,
+                    value: storage_opts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sysctls".into(),
-                    value: &sysctls_binding,
+                    value: sysctls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tmpfs".into(),
-                    value: &tmpfs_binding,
+                    value: tmpfs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tty".into(),
-                    value: &tty_binding,
+                    value: tty_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ulimits".into(),
-                    value: &ulimits_binding,
+                    value: ulimits_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uploads".into(),
-                    value: &uploads_binding,
+                    value: uploads_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "user".into(),
-                    value: &user_binding,
+                    value: user_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usernsMode".into(),
-                    value: &userns_mode_binding,
+                    value: userns_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumes".into(),
-                    value: &volumes_binding,
+                    value: volumes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "wait".into(),
-                    value: &wait_binding,
+                    value: wait_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitTimeout".into(),
-                    value: &wait_timeout_binding,
+                    value: wait_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workingDir".into(),
-                    value: &working_dir_binding,
+                    value: working_dir_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ContainerResult {
-            attach: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attach"),
-            ),
-            bridge: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bridge"),
-            ),
-            capabilities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capabilities"),
-            ),
-            cgroupns_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cgroupnsMode"),
-            ),
-            command: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("command"),
-            ),
-            container_logs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerLogs"),
-            ),
-            container_read_refresh_timeout_milliseconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerReadRefreshTimeoutMilliseconds"),
-            ),
-            cpu_set: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cpuSet"),
-            ),
-            cpu_shares: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cpuShares"),
-            ),
-            destroy_grace_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destroyGraceSeconds"),
-            ),
-            devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("devices"),
-            ),
-            dns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("dns")),
-            dns_opts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsOpts"),
-            ),
-            dns_searches: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsSearches"),
-            ),
-            domainname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainname"),
-            ),
-            entrypoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entrypoints"),
-            ),
-            envs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("envs")),
-            exit_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exitCode"),
-            ),
-            gpus: pulumi_gestalt_rust::__private::into_domain(o.extract_field("gpus")),
-            group_adds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupAdds"),
-            ),
-            healthcheck: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthcheck"),
-            ),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            hosts: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hosts")),
-            image: pulumi_gestalt_rust::__private::into_domain(o.extract_field("image")),
-            init: pulumi_gestalt_rust::__private::into_domain(o.extract_field("init")),
-            ipc_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipcMode"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            log_driver: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logDriver"),
-            ),
-            log_opts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logOpts"),
-            ),
-            logs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("logs")),
-            max_retry_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxRetryCount"),
-            ),
-            memory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memory"),
-            ),
-            memory_swap: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memorySwap"),
-            ),
-            mounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mounts"),
-            ),
-            must_run: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mustRun"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_datas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkDatas"),
-            ),
-            network_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkMode"),
-            ),
-            networks_advanced: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networksAdvanced"),
-            ),
-            pid_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pidMode"),
-            ),
-            ports: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ports")),
-            privileged: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privileged"),
-            ),
-            publish_all_ports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publishAllPorts"),
-            ),
-            read_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readOnly"),
-            ),
-            remove_volumes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("removeVolumes"),
-            ),
-            restart: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restart"),
-            ),
-            rm: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rm")),
-            runtime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtime"),
-            ),
-            security_opts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityOpts"),
-            ),
-            shm_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shmSize"),
-            ),
-            start: pulumi_gestalt_rust::__private::into_domain(o.extract_field("start")),
-            stdin_open: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stdinOpen"),
-            ),
-            stop_signal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stopSignal"),
-            ),
-            stop_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stopTimeout"),
-            ),
-            storage_opts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageOpts"),
-            ),
-            sysctls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sysctls"),
-            ),
-            tmpfs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tmpfs")),
-            tty: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tty")),
-            ulimits: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ulimits"),
-            ),
-            uploads: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uploads"),
-            ),
-            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
-            userns_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usernsMode"),
-            ),
-            volumes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumes"),
-            ),
-            wait: pulumi_gestalt_rust::__private::into_domain(o.extract_field("wait")),
-            wait_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitTimeout"),
-            ),
-            working_dir: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workingDir"),
-            ),
+            attach: o.get_field("attach"),
+            bridge: o.get_field("bridge"),
+            capabilities: o.get_field("capabilities"),
+            cgroupns_mode: o.get_field("cgroupnsMode"),
+            command: o.get_field("command"),
+            container_logs: o.get_field("containerLogs"),
+            container_read_refresh_timeout_milliseconds: o
+                .get_field("containerReadRefreshTimeoutMilliseconds"),
+            cpu_set: o.get_field("cpuSet"),
+            cpu_shares: o.get_field("cpuShares"),
+            destroy_grace_seconds: o.get_field("destroyGraceSeconds"),
+            devices: o.get_field("devices"),
+            dns: o.get_field("dns"),
+            dns_opts: o.get_field("dnsOpts"),
+            dns_searches: o.get_field("dnsSearches"),
+            domainname: o.get_field("domainname"),
+            entrypoints: o.get_field("entrypoints"),
+            envs: o.get_field("envs"),
+            exit_code: o.get_field("exitCode"),
+            gpus: o.get_field("gpus"),
+            group_adds: o.get_field("groupAdds"),
+            healthcheck: o.get_field("healthcheck"),
+            hostname: o.get_field("hostname"),
+            hosts: o.get_field("hosts"),
+            image: o.get_field("image"),
+            init: o.get_field("init"),
+            ipc_mode: o.get_field("ipcMode"),
+            labels: o.get_field("labels"),
+            log_driver: o.get_field("logDriver"),
+            log_opts: o.get_field("logOpts"),
+            logs: o.get_field("logs"),
+            max_retry_count: o.get_field("maxRetryCount"),
+            memory: o.get_field("memory"),
+            memory_swap: o.get_field("memorySwap"),
+            mounts: o.get_field("mounts"),
+            must_run: o.get_field("mustRun"),
+            name: o.get_field("name"),
+            network_datas: o.get_field("networkDatas"),
+            network_mode: o.get_field("networkMode"),
+            networks_advanced: o.get_field("networksAdvanced"),
+            pid_mode: o.get_field("pidMode"),
+            ports: o.get_field("ports"),
+            privileged: o.get_field("privileged"),
+            publish_all_ports: o.get_field("publishAllPorts"),
+            read_only: o.get_field("readOnly"),
+            remove_volumes: o.get_field("removeVolumes"),
+            restart: o.get_field("restart"),
+            rm: o.get_field("rm"),
+            runtime: o.get_field("runtime"),
+            security_opts: o.get_field("securityOpts"),
+            shm_size: o.get_field("shmSize"),
+            start: o.get_field("start"),
+            stdin_open: o.get_field("stdinOpen"),
+            stop_signal: o.get_field("stopSignal"),
+            stop_timeout: o.get_field("stopTimeout"),
+            storage_opts: o.get_field("storageOpts"),
+            sysctls: o.get_field("sysctls"),
+            tmpfs: o.get_field("tmpfs"),
+            tty: o.get_field("tty"),
+            ulimits: o.get_field("ulimits"),
+            uploads: o.get_field("uploads"),
+            user: o.get_field("user"),
+            userns_mode: o.get_field("usernsMode"),
+            volumes: o.get_field("volumes"),
+            wait: o.get_field("wait"),
+            wait_timeout: o.get_field("waitTimeout"),
+            working_dir: o.get_field("workingDir"),
         }
     }
 }

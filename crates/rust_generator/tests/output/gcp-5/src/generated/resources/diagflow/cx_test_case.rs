@@ -209,81 +209,63 @@ pub mod cx_test_case {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CxTestCaseArgs,
     ) -> CxTestCaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let notes_binding_1 = args.notes.get_output(context);
-        let notes_binding = notes_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let test_case_conversation_turns_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let display_name_binding = args.display_name.get_output(context);
+        let notes_binding = args.notes.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let test_case_conversation_turns_binding = args
             .test_case_conversation_turns
             .get_output(context);
-        let test_case_conversation_turns_binding = test_case_conversation_turns_binding_1
-            .get_inner();
-        let test_config_binding_1 = args.test_config.get_output(context);
-        let test_config_binding = test_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let test_config_binding = args.test_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:diagflow/cxTestCase:CxTestCase".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notes".into(),
-                    value: &notes_binding,
+                    value: notes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testCaseConversationTurns".into(),
-                    value: &test_case_conversation_turns_binding,
+                    value: test_case_conversation_turns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testConfig".into(),
-                    value: &test_config_binding,
+                    value: test_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CxTestCaseResult {
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            last_test_results: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastTestResults"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("notes")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            test_case_conversation_turns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("testCaseConversationTurns"),
-            ),
-            test_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("testConfig"),
-            ),
+            creation_time: o.get_field("creationTime"),
+            display_name: o.get_field("displayName"),
+            last_test_results: o.get_field("lastTestResults"),
+            name: o.get_field("name"),
+            notes: o.get_field("notes"),
+            parent: o.get_field("parent"),
+            tags: o.get_field("tags"),
+            test_case_conversation_turns: o.get_field("testCaseConversationTurns"),
+            test_config: o.get_field("testConfig"),
         }
     }
 }

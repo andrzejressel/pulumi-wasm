@@ -97,128 +97,67 @@ pub mod get_exadata_infrastructure {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetExadataInfrastructureArgs,
     ) -> GetExadataInfrastructureResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:oracle/getExadataInfrastructure:getExadataInfrastructure"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetExadataInfrastructureResult {
-            activated_storage_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activatedStorageCount"),
-            ),
-            additional_storage_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalStorageCount"),
-            ),
-            available_storage_size_in_gbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availableStorageSizeInGbs"),
-            ),
-            compute_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeCount"),
-            ),
-            cpu_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cpuCount"),
-            ),
-            customer_contacts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerContacts"),
-            ),
-            data_storage_size_in_tbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataStorageSizeInTbs"),
-            ),
-            db_node_storage_size_in_gbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbNodeStorageSizeInGbs"),
-            ),
-            db_server_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbServerVersion"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            estimated_patching_times: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("estimatedPatchingTimes"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            last_maintenance_run_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastMaintenanceRunId"),
-            ),
-            lifecycle_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecycleDetails"),
-            ),
-            lifecycle_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecycleState"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maintenance_windows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindows"),
-            ),
-            max_cpu_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxCpuCount"),
-            ),
-            max_data_storage_in_tbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxDataStorageInTbs"),
-            ),
-            max_db_node_storage_size_in_gbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxDbNodeStorageSizeInGbs"),
-            ),
-            max_memory_in_gbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxMemoryInGbs"),
-            ),
-            memory_size_in_gbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memorySizeInGbs"),
-            ),
-            monthly_db_server_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monthlyDbServerVersion"),
-            ),
-            monthly_storage_server_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monthlyStorageServerVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            next_maintenance_run_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextMaintenanceRunId"),
-            ),
-            oci_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ociUrl"),
-            ),
-            ocid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ocid")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            shape: pulumi_gestalt_rust::__private::into_domain(o.extract_field("shape")),
-            storage_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageCount"),
-            ),
-            storage_server_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageServerVersion"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            time_created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeCreated"),
-            ),
-            total_storage_size_in_gbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("totalStorageSizeInGbs"),
-            ),
-            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
+            activated_storage_count: o.get_field("activatedStorageCount"),
+            additional_storage_count: o.get_field("additionalStorageCount"),
+            available_storage_size_in_gbs: o.get_field("availableStorageSizeInGbs"),
+            compute_count: o.get_field("computeCount"),
+            cpu_count: o.get_field("cpuCount"),
+            customer_contacts: o.get_field("customerContacts"),
+            data_storage_size_in_tbs: o.get_field("dataStorageSizeInTbs"),
+            db_node_storage_size_in_gbs: o.get_field("dbNodeStorageSizeInGbs"),
+            db_server_version: o.get_field("dbServerVersion"),
+            display_name: o.get_field("displayName"),
+            estimated_patching_times: o.get_field("estimatedPatchingTimes"),
+            id: o.get_field("id"),
+            last_maintenance_run_id: o.get_field("lastMaintenanceRunId"),
+            lifecycle_details: o.get_field("lifecycleDetails"),
+            lifecycle_state: o.get_field("lifecycleState"),
+            location: o.get_field("location"),
+            maintenance_windows: o.get_field("maintenanceWindows"),
+            max_cpu_count: o.get_field("maxCpuCount"),
+            max_data_storage_in_tbs: o.get_field("maxDataStorageInTbs"),
+            max_db_node_storage_size_in_gbs: o.get_field("maxDbNodeStorageSizeInGbs"),
+            max_memory_in_gbs: o.get_field("maxMemoryInGbs"),
+            memory_size_in_gbs: o.get_field("memorySizeInGbs"),
+            monthly_db_server_version: o.get_field("monthlyDbServerVersion"),
+            monthly_storage_server_version: o.get_field("monthlyStorageServerVersion"),
+            name: o.get_field("name"),
+            next_maintenance_run_id: o.get_field("nextMaintenanceRunId"),
+            oci_url: o.get_field("ociUrl"),
+            ocid: o.get_field("ocid"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            shape: o.get_field("shape"),
+            storage_count: o.get_field("storageCount"),
+            storage_server_version: o.get_field("storageServerVersion"),
+            tags: o.get_field("tags"),
+            time_created: o.get_field("timeCreated"),
+            total_storage_size_in_gbs: o.get_field("totalStorageSizeInGbs"),
+            zones: o.get_field("zones"),
         }
     }
 }

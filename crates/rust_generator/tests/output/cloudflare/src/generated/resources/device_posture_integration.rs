@@ -82,72 +82,59 @@ pub mod device_posture_integration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DevicePostureIntegrationArgs,
     ) -> DevicePostureIntegrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let configs_binding_1 = args.configs.get_output(context);
-        let configs_binding = configs_binding_1.get_inner();
-        let identifier_binding_1 = args.identifier.get_output(context);
-        let identifier_binding = identifier_binding_1.get_inner();
-        let interval_binding_1 = args.interval.get_output(context);
-        let interval_binding = interval_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let configs_binding = args.configs.get_output(context);
+        let identifier_binding = args.identifier.get_output(context);
+        let interval_binding = args.interval.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/devicePostureIntegration:DevicePostureIntegration"
                 .into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configs".into(),
-                    value: &configs_binding,
+                    value: configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identifier".into(),
-                    value: &identifier_binding,
+                    value: identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interval".into(),
-                    value: &interval_binding,
+                    value: interval_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DevicePostureIntegrationResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configs"),
-            ),
-            identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identifier"),
-            ),
-            interval: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interval"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            account_id: o.get_field("accountId"),
+            configs: o.get_field("configs"),
+            identifier: o.get_field("identifier"),
+            interval: o.get_field("interval"),
+            name: o.get_field("name"),
+            type_: o.get_field("type"),
         }
     }
 }

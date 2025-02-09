@@ -117,67 +117,50 @@ pub mod user_pool_ui_customization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserPoolUICustomizationArgs,
     ) -> UserPoolUICustomizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_id_binding_1 = args.client_id.get_output(context);
-        let client_id_binding = client_id_binding_1.get_inner();
-        let css_binding_1 = args.css.get_output(context);
-        let css_binding = css_binding_1.get_inner();
-        let image_file_binding_1 = args.image_file.get_output(context);
-        let image_file_binding = image_file_binding_1.get_inner();
-        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
-        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let client_id_binding = args.client_id.get_output(context);
+        let css_binding = args.css.get_output(context);
+        let image_file_binding = args.image_file.get_output(context);
+        let user_pool_id_binding = args.user_pool_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cognito/userPoolUICustomization:UserPoolUICustomization".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientId".into(),
-                    value: &client_id_binding,
+                    value: client_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "css".into(),
-                    value: &css_binding,
+                    value: css_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageFile".into(),
-                    value: &image_file_binding,
+                    value: image_file_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolId".into(),
-                    value: &user_pool_id_binding,
+                    value: user_pool_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserPoolUICustomizationResult {
-            client_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientId"),
-            ),
-            creation_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationDate"),
-            ),
-            css: pulumi_gestalt_rust::__private::into_domain(o.extract_field("css")),
-            css_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cssVersion"),
-            ),
-            image_file: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageFile"),
-            ),
-            image_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageUrl"),
-            ),
-            last_modified_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedDate"),
-            ),
-            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPoolId"),
-            ),
+            client_id: o.get_field("clientId"),
+            creation_date: o.get_field("creationDate"),
+            css: o.get_field("css"),
+            css_version: o.get_field("cssVersion"),
+            image_file: o.get_field("imageFile"),
+            image_url: o.get_field("imageUrl"),
+            last_modified_date: o.get_field("lastModifiedDate"),
+            user_pool_id: o.get_field("userPoolId"),
         }
     }
 }

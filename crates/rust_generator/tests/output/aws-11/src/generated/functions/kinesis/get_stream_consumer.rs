@@ -31,49 +31,41 @@ pub mod get_stream_consumer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetStreamConsumerArgs,
     ) -> GetStreamConsumerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let stream_arn_binding_1 = args.stream_arn.get_output(context);
-        let stream_arn_binding = stream_arn_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let stream_arn_binding = args.stream_arn.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:kinesis/getStreamConsumer:getStreamConsumer".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamArn".into(),
-                    value: &stream_arn_binding,
+                    value: stream_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetStreamConsumerResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            stream_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamArn"),
-            ),
+            arn: o.get_field("arn"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            status: o.get_field("status"),
+            stream_arn: o.get_field("streamArn"),
         }
     }
 }

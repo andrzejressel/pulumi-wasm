@@ -70,57 +70,46 @@ pub mod directory_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DirectoryConfigArgs,
     ) -> DirectoryConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let directory_name_binding_1 = args.directory_name.get_output(context);
-        let directory_name_binding = directory_name_binding_1.get_inner();
-        let organizational_unit_distinguished_names_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let directory_name_binding = args.directory_name.get_output(context);
+        let organizational_unit_distinguished_names_binding = args
             .organizational_unit_distinguished_names
             .get_output(context);
-        let organizational_unit_distinguished_names_binding = organizational_unit_distinguished_names_binding_1
-            .get_inner();
-        let service_account_credentials_binding_1 = args
+        let service_account_credentials_binding = args
             .service_account_credentials
             .get_output(context);
-        let service_account_credentials_binding = service_account_credentials_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appstream/directoryConfig:DirectoryConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryName".into(),
-                    value: &directory_name_binding,
+                    value: directory_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationalUnitDistinguishedNames".into(),
-                    value: &organizational_unit_distinguished_names_binding,
+                    value: organizational_unit_distinguished_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountCredentials".into(),
-                    value: &service_account_credentials_binding,
+                    value: service_account_credentials_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DirectoryConfigResult {
-            created_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTime"),
-            ),
-            directory_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryName"),
-            ),
-            organizational_unit_distinguished_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organizationalUnitDistinguishedNames"),
-            ),
-            service_account_credentials: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountCredentials"),
-            ),
+            created_time: o.get_field("createdTime"),
+            directory_name: o.get_field("directoryName"),
+            organizational_unit_distinguished_names: o
+                .get_field("organizationalUnitDistinguishedNames"),
+            service_account_credentials: o.get_field("serviceAccountCredentials"),
         }
     }
 }

@@ -510,353 +510,240 @@ pub mod function {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FunctionArgs,
     ) -> FunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let architectures_binding_1 = args.architectures.get_output(context);
-        let architectures_binding = architectures_binding_1.get_inner();
-        let code_binding_1 = args.code.get_output(context);
-        let code_binding = code_binding_1.get_inner();
-        let code_signing_config_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let architectures_binding = args.architectures.get_output(context);
+        let code_binding = args.code.get_output(context);
+        let code_signing_config_arn_binding = args
             .code_signing_config_arn
             .get_output(context);
-        let code_signing_config_arn_binding = code_signing_config_arn_binding_1
-            .get_inner();
-        let dead_letter_config_binding_1 = args.dead_letter_config.get_output(context);
-        let dead_letter_config_binding = dead_letter_config_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let environment_binding_1 = args.environment.get_output(context);
-        let environment_binding = environment_binding_1.get_inner();
-        let ephemeral_storage_binding_1 = args.ephemeral_storage.get_output(context);
-        let ephemeral_storage_binding = ephemeral_storage_binding_1.get_inner();
-        let file_system_config_binding_1 = args.file_system_config.get_output(context);
-        let file_system_config_binding = file_system_config_binding_1.get_inner();
-        let handler_binding_1 = args.handler.get_output(context);
-        let handler_binding = handler_binding_1.get_inner();
-        let image_config_binding_1 = args.image_config.get_output(context);
-        let image_config_binding = image_config_binding_1.get_inner();
-        let image_uri_binding_1 = args.image_uri.get_output(context);
-        let image_uri_binding = image_uri_binding_1.get_inner();
-        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
-        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
-        let layers_binding_1 = args.layers.get_output(context);
-        let layers_binding = layers_binding_1.get_inner();
-        let logging_config_binding_1 = args.logging_config.get_output(context);
-        let logging_config_binding = logging_config_binding_1.get_inner();
-        let memory_size_binding_1 = args.memory_size.get_output(context);
-        let memory_size_binding = memory_size_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let package_type_binding_1 = args.package_type.get_output(context);
-        let package_type_binding = package_type_binding_1.get_inner();
-        let publish_binding_1 = args.publish.get_output(context);
-        let publish_binding = publish_binding_1.get_inner();
-        let replace_security_groups_on_destroy_binding_1 = args
+        let dead_letter_config_binding = args.dead_letter_config.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let environment_binding = args.environment.get_output(context);
+        let ephemeral_storage_binding = args.ephemeral_storage.get_output(context);
+        let file_system_config_binding = args.file_system_config.get_output(context);
+        let handler_binding = args.handler.get_output(context);
+        let image_config_binding = args.image_config.get_output(context);
+        let image_uri_binding = args.image_uri.get_output(context);
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context);
+        let layers_binding = args.layers.get_output(context);
+        let logging_config_binding = args.logging_config.get_output(context);
+        let memory_size_binding = args.memory_size.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let package_type_binding = args.package_type.get_output(context);
+        let publish_binding = args.publish.get_output(context);
+        let replace_security_groups_on_destroy_binding = args
             .replace_security_groups_on_destroy
             .get_output(context);
-        let replace_security_groups_on_destroy_binding = replace_security_groups_on_destroy_binding_1
-            .get_inner();
-        let replacement_security_group_ids_binding_1 = args
+        let replacement_security_group_ids_binding = args
             .replacement_security_group_ids
             .get_output(context);
-        let replacement_security_group_ids_binding = replacement_security_group_ids_binding_1
-            .get_inner();
-        let reserved_concurrent_executions_binding_1 = args
+        let reserved_concurrent_executions_binding = args
             .reserved_concurrent_executions
             .get_output(context);
-        let reserved_concurrent_executions_binding = reserved_concurrent_executions_binding_1
-            .get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let runtime_binding_1 = args.runtime.get_output(context);
-        let runtime_binding = runtime_binding_1.get_inner();
-        let s3_bucket_binding_1 = args.s3_bucket.get_output(context);
-        let s3_bucket_binding = s3_bucket_binding_1.get_inner();
-        let s3_key_binding_1 = args.s3_key.get_output(context);
-        let s3_key_binding = s3_key_binding_1.get_inner();
-        let s3_object_version_binding_1 = args.s3_object_version.get_output(context);
-        let s3_object_version_binding = s3_object_version_binding_1.get_inner();
-        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
-        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
-        let snap_start_binding_1 = args.snap_start.get_output(context);
-        let snap_start_binding = snap_start_binding_1.get_inner();
-        let source_code_hash_binding_1 = args.source_code_hash.get_output(context);
-        let source_code_hash_binding = source_code_hash_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeout_binding_1 = args.timeout.get_output(context);
-        let timeout_binding = timeout_binding_1.get_inner();
-        let tracing_config_binding_1 = args.tracing_config.get_output(context);
-        let tracing_config_binding = tracing_config_binding_1.get_inner();
-        let vpc_config_binding_1 = args.vpc_config.get_output(context);
-        let vpc_config_binding = vpc_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let role_binding = args.role.get_output(context);
+        let runtime_binding = args.runtime.get_output(context);
+        let s3_bucket_binding = args.s3_bucket.get_output(context);
+        let s3_key_binding = args.s3_key.get_output(context);
+        let s3_object_version_binding = args.s3_object_version.get_output(context);
+        let skip_destroy_binding = args.skip_destroy.get_output(context);
+        let snap_start_binding = args.snap_start.get_output(context);
+        let source_code_hash_binding = args.source_code_hash.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeout_binding = args.timeout.get_output(context);
+        let tracing_config_binding = args.tracing_config.get_output(context);
+        let vpc_config_binding = args.vpc_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lambda/function:Function".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "architectures".into(),
-                    value: &architectures_binding,
+                    value: architectures_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "code".into(),
-                    value: &code_binding,
+                    value: code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "codeSigningConfigArn".into(),
-                    value: &code_signing_config_arn_binding,
+                    value: code_signing_config_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deadLetterConfig".into(),
-                    value: &dead_letter_config_binding,
+                    value: dead_letter_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environment".into(),
-                    value: &environment_binding,
+                    value: environment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ephemeralStorage".into(),
-                    value: &ephemeral_storage_binding,
+                    value: ephemeral_storage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemConfig".into(),
-                    value: &file_system_config_binding,
+                    value: file_system_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "handler".into(),
-                    value: &handler_binding,
+                    value: handler_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageConfig".into(),
-                    value: &image_config_binding,
+                    value: image_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageUri".into(),
-                    value: &image_uri_binding,
+                    value: image_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: &kms_key_arn_binding,
+                    value: kms_key_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "layers".into(),
-                    value: &layers_binding,
+                    value: layers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingConfig".into(),
-                    value: &logging_config_binding,
+                    value: logging_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memorySize".into(),
-                    value: &memory_size_binding,
+                    value: memory_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageType".into(),
-                    value: &package_type_binding,
+                    value: package_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publish".into(),
-                    value: &publish_binding,
+                    value: publish_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replaceSecurityGroupsOnDestroy".into(),
-                    value: &replace_security_groups_on_destroy_binding,
+                    value: replace_security_groups_on_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replacementSecurityGroupIds".into(),
-                    value: &replacement_security_group_ids_binding,
+                    value: replacement_security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservedConcurrentExecutions".into(),
-                    value: &reserved_concurrent_executions_binding,
+                    value: reserved_concurrent_executions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtime".into(),
-                    value: &runtime_binding,
+                    value: runtime_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Bucket".into(),
-                    value: &s3_bucket_binding,
+                    value: s3_bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Key".into(),
-                    value: &s3_key_binding,
+                    value: s3_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3ObjectVersion".into(),
-                    value: &s3_object_version_binding,
+                    value: s3_object_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: &skip_destroy_binding,
+                    value: skip_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapStart".into(),
-                    value: &snap_start_binding,
+                    value: snap_start_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceCodeHash".into(),
-                    value: &source_code_hash_binding,
+                    value: source_code_hash_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeout".into(),
-                    value: &timeout_binding,
+                    value: timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tracingConfig".into(),
-                    value: &tracing_config_binding,
+                    value: tracing_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfig".into(),
-                    value: &vpc_config_binding,
+                    value: vpc_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FunctionResult {
-            architectures: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("architectures"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            code: pulumi_gestalt_rust::__private::into_domain(o.extract_field("code")),
-            code_sha256: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("codeSha256"),
-            ),
-            code_signing_config_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("codeSigningConfigArn"),
-            ),
-            dead_letter_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deadLetterConfig"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            environment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environment"),
-            ),
-            ephemeral_storage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ephemeralStorage"),
-            ),
-            file_system_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemConfig"),
-            ),
-            handler: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("handler"),
-            ),
-            image_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageConfig"),
-            ),
-            image_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageUri"),
-            ),
-            invoke_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invokeArn"),
-            ),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            last_modified: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModified"),
-            ),
-            layers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("layers"),
-            ),
-            logging_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingConfig"),
-            ),
-            memory_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memorySize"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            package_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("packageType"),
-            ),
-            publish: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publish"),
-            ),
-            qualified_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qualifiedArn"),
-            ),
-            qualified_invoke_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qualifiedInvokeArn"),
-            ),
-            replace_security_groups_on_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replaceSecurityGroupsOnDestroy"),
-            ),
-            replacement_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replacementSecurityGroupIds"),
-            ),
-            reserved_concurrent_executions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservedConcurrentExecutions"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
-            runtime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtime"),
-            ),
-            s3_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Bucket"),
-            ),
-            s3_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Key"),
-            ),
-            s3_object_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3ObjectVersion"),
-            ),
-            signing_job_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingJobArn"),
-            ),
-            signing_profile_version_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingProfileVersionArn"),
-            ),
-            skip_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipDestroy"),
-            ),
-            snap_start: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapStart"),
-            ),
-            source_code_hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceCodeHash"),
-            ),
-            source_code_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceCodeSize"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeout"),
-            ),
-            tracing_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tracingConfig"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            vpc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfig"),
-            ),
+            architectures: o.get_field("architectures"),
+            arn: o.get_field("arn"),
+            code: o.get_field("code"),
+            code_sha256: o.get_field("codeSha256"),
+            code_signing_config_arn: o.get_field("codeSigningConfigArn"),
+            dead_letter_config: o.get_field("deadLetterConfig"),
+            description: o.get_field("description"),
+            environment: o.get_field("environment"),
+            ephemeral_storage: o.get_field("ephemeralStorage"),
+            file_system_config: o.get_field("fileSystemConfig"),
+            handler: o.get_field("handler"),
+            image_config: o.get_field("imageConfig"),
+            image_uri: o.get_field("imageUri"),
+            invoke_arn: o.get_field("invokeArn"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            last_modified: o.get_field("lastModified"),
+            layers: o.get_field("layers"),
+            logging_config: o.get_field("loggingConfig"),
+            memory_size: o.get_field("memorySize"),
+            name: o.get_field("name"),
+            package_type: o.get_field("packageType"),
+            publish: o.get_field("publish"),
+            qualified_arn: o.get_field("qualifiedArn"),
+            qualified_invoke_arn: o.get_field("qualifiedInvokeArn"),
+            replace_security_groups_on_destroy: o
+                .get_field("replaceSecurityGroupsOnDestroy"),
+            replacement_security_group_ids: o.get_field("replacementSecurityGroupIds"),
+            reserved_concurrent_executions: o.get_field("reservedConcurrentExecutions"),
+            role: o.get_field("role"),
+            runtime: o.get_field("runtime"),
+            s3_bucket: o.get_field("s3Bucket"),
+            s3_key: o.get_field("s3Key"),
+            s3_object_version: o.get_field("s3ObjectVersion"),
+            signing_job_arn: o.get_field("signingJobArn"),
+            signing_profile_version_arn: o.get_field("signingProfileVersionArn"),
+            skip_destroy: o.get_field("skipDestroy"),
+            snap_start: o.get_field("snapStart"),
+            source_code_hash: o.get_field("sourceCodeHash"),
+            source_code_size: o.get_field("sourceCodeSize"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeout: o.get_field("timeout"),
+            tracing_config: o.get_field("tracingConfig"),
+            version: o.get_field("version"),
+            vpc_config: o.get_field("vpcConfig"),
         }
     }
 }

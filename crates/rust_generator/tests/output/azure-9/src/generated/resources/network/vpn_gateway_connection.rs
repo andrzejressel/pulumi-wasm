@@ -154,88 +154,68 @@ pub mod vpn_gateway_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpnGatewayConnectionArgs,
     ) -> VpnGatewayConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let internet_security_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let internet_security_enabled_binding = args
             .internet_security_enabled
             .get_output(context);
-        let internet_security_enabled_binding = internet_security_enabled_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let remote_vpn_site_id_binding_1 = args.remote_vpn_site_id.get_output(context);
-        let remote_vpn_site_id_binding = remote_vpn_site_id_binding_1.get_inner();
-        let routing_binding_1 = args.routing.get_output(context);
-        let routing_binding = routing_binding_1.get_inner();
-        let traffic_selector_policies_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let remote_vpn_site_id_binding = args.remote_vpn_site_id.get_output(context);
+        let routing_binding = args.routing.get_output(context);
+        let traffic_selector_policies_binding = args
             .traffic_selector_policies
             .get_output(context);
-        let traffic_selector_policies_binding = traffic_selector_policies_binding_1
-            .get_inner();
-        let vpn_gateway_id_binding_1 = args.vpn_gateway_id.get_output(context);
-        let vpn_gateway_id_binding = vpn_gateway_id_binding_1.get_inner();
-        let vpn_links_binding_1 = args.vpn_links.get_output(context);
-        let vpn_links_binding = vpn_links_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let vpn_gateway_id_binding = args.vpn_gateway_id.get_output(context);
+        let vpn_links_binding = args.vpn_links.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/vpnGatewayConnection:VpnGatewayConnection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetSecurityEnabled".into(),
-                    value: &internet_security_enabled_binding,
+                    value: internet_security_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteVpnSiteId".into(),
-                    value: &remote_vpn_site_id_binding,
+                    value: remote_vpn_site_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routing".into(),
-                    value: &routing_binding,
+                    value: routing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficSelectorPolicies".into(),
-                    value: &traffic_selector_policies_binding,
+                    value: traffic_selector_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnGatewayId".into(),
-                    value: &vpn_gateway_id_binding,
+                    value: vpn_gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnLinks".into(),
-                    value: &vpn_links_binding,
+                    value: vpn_links_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpnGatewayConnectionResult {
-            internet_security_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internetSecurityEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            remote_vpn_site_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteVpnSiteId"),
-            ),
-            routing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routing"),
-            ),
-            traffic_selector_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficSelectorPolicies"),
-            ),
-            vpn_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnGatewayId"),
-            ),
-            vpn_links: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnLinks"),
-            ),
+            internet_security_enabled: o.get_field("internetSecurityEnabled"),
+            name: o.get_field("name"),
+            remote_vpn_site_id: o.get_field("remoteVpnSiteId"),
+            routing: o.get_field("routing"),
+            traffic_selector_policies: o.get_field("trafficSelectorPolicies"),
+            vpn_gateway_id: o.get_field("vpnGatewayId"),
+            vpn_links: o.get_field("vpnLinks"),
         }
     }
 }

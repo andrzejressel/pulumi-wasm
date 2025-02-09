@@ -66,48 +66,40 @@ pub mod account_static_website {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountStaticWebsiteArgs,
     ) -> AccountStaticWebsiteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let error404_document_binding_1 = args.error404_document.get_output(context);
-        let error404_document_binding = error404_document_binding_1.get_inner();
-        let index_document_binding_1 = args.index_document.get_output(context);
-        let index_document_binding = index_document_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let error404_document_binding = args.error404_document.get_output(context);
+        let index_document_binding = args.index_document.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/accountStaticWebsite:AccountStaticWebsite".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "error404Document".into(),
-                    value: &error404_document_binding,
+                    value: error404_document_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexDocument".into(),
-                    value: &index_document_binding,
+                    value: index_document_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountStaticWebsiteResult {
-            error404_document: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("error404Document"),
-            ),
-            index_document: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("indexDocument"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
+            error404_document: o.get_field("error404Document"),
+            index_document: o.get_field("indexDocument"),
+            storage_account_id: o.get_field("storageAccountId"),
         }
     }
 }

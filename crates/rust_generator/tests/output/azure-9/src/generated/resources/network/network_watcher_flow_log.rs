@@ -159,130 +159,96 @@ pub mod network_watcher_flow_log {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkWatcherFlowLogArgs,
     ) -> NetworkWatcherFlowLogResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_security_group_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let enabled_binding = args.enabled.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_security_group_id_binding = args
             .network_security_group_id
             .get_output(context);
-        let network_security_group_id_binding = network_security_group_id_binding_1
-            .get_inner();
-        let network_watcher_name_binding_1 = args
-            .network_watcher_name
-            .get_output(context);
-        let network_watcher_name_binding = network_watcher_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let retention_policy_binding_1 = args.retention_policy.get_output(context);
-        let retention_policy_binding = retention_policy_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_resource_id_binding_1 = args.target_resource_id.get_output(context);
-        let target_resource_id_binding = target_resource_id_binding_1.get_inner();
-        let traffic_analytics_binding_1 = args.traffic_analytics.get_output(context);
-        let traffic_analytics_binding = traffic_analytics_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let network_watcher_name_binding = args.network_watcher_name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let retention_policy_binding = args.retention_policy.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_resource_id_binding = args.target_resource_id.get_output(context);
+        let traffic_analytics_binding = args.traffic_analytics.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkSecurityGroupId".into(),
-                    value: &network_security_group_id_binding,
+                    value: network_security_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkWatcherName".into(),
-                    value: &network_watcher_name_binding,
+                    value: network_watcher_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPolicy".into(),
-                    value: &retention_policy_binding,
+                    value: retention_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceId".into(),
-                    value: &target_resource_id_binding,
+                    value: target_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficAnalytics".into(),
-                    value: &traffic_analytics_binding,
+                    value: traffic_analytics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkWatcherFlowLogResult {
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkSecurityGroupId"),
-            ),
-            network_watcher_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkWatcherName"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            retention_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionPolicy"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetResourceId"),
-            ),
-            traffic_analytics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficAnalytics"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            enabled: o.get_field("enabled"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            network_security_group_id: o.get_field("networkSecurityGroupId"),
+            network_watcher_name: o.get_field("networkWatcherName"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            retention_policy: o.get_field("retentionPolicy"),
+            storage_account_id: o.get_field("storageAccountId"),
+            tags: o.get_field("tags"),
+            target_resource_id: o.get_field("targetResourceId"),
+            traffic_analytics: o.get_field("trafficAnalytics"),
+            version: o.get_field("version"),
         }
     }
 }

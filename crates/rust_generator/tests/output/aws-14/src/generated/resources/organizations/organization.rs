@@ -88,73 +88,50 @@ pub mod organization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OrganizationArgs,
     ) -> OrganizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_service_access_principals_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_service_access_principals_binding = args
             .aws_service_access_principals
             .get_output(context);
-        let aws_service_access_principals_binding = aws_service_access_principals_binding_1
-            .get_inner();
-        let enabled_policy_types_binding_1 = args
-            .enabled_policy_types
-            .get_output(context);
-        let enabled_policy_types_binding = enabled_policy_types_binding_1.get_inner();
-        let feature_set_binding_1 = args.feature_set.get_output(context);
-        let feature_set_binding = feature_set_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let enabled_policy_types_binding = args.enabled_policy_types.get_output(context);
+        let feature_set_binding = args.feature_set.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:organizations/organization:Organization".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsServiceAccessPrincipals".into(),
-                    value: &aws_service_access_principals_binding,
+                    value: aws_service_access_principals_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabledPolicyTypes".into(),
-                    value: &enabled_policy_types_binding,
+                    value: enabled_policy_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featureSet".into(),
-                    value: &feature_set_binding,
+                    value: feature_set_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OrganizationResult {
-            accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accounts"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_service_access_principals: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsServiceAccessPrincipals"),
-            ),
-            enabled_policy_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabledPolicyTypes"),
-            ),
-            feature_set: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("featureSet"),
-            ),
-            master_account_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterAccountArn"),
-            ),
-            master_account_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterAccountEmail"),
-            ),
-            master_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterAccountId"),
-            ),
-            master_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterAccountName"),
-            ),
-            non_master_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nonMasterAccounts"),
-            ),
-            roots: pulumi_gestalt_rust::__private::into_domain(o.extract_field("roots")),
+            accounts: o.get_field("accounts"),
+            arn: o.get_field("arn"),
+            aws_service_access_principals: o.get_field("awsServiceAccessPrincipals"),
+            enabled_policy_types: o.get_field("enabledPolicyTypes"),
+            feature_set: o.get_field("featureSet"),
+            master_account_arn: o.get_field("masterAccountArn"),
+            master_account_email: o.get_field("masterAccountEmail"),
+            master_account_id: o.get_field("masterAccountId"),
+            master_account_name: o.get_field("masterAccountName"),
+            non_master_accounts: o.get_field("nonMasterAccounts"),
+            roots: o.get_field("roots"),
         }
     }
 }

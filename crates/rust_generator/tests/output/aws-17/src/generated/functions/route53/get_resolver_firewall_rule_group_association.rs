@@ -35,63 +35,43 @@ pub mod get_resolver_firewall_rule_group_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetResolverFirewallRuleGroupAssociationArgs,
     ) -> GetResolverFirewallRuleGroupAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let firewall_rule_group_association_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let firewall_rule_group_association_id_binding = args
             .firewall_rule_group_association_id
             .get_output(context);
-        let firewall_rule_group_association_id_binding = firewall_rule_group_association_id_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallRuleGroupAssociationId".into(),
-                    value: &firewall_rule_group_association_id_binding,
+                    value: firewall_rule_group_association_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetResolverFirewallRuleGroupAssociationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            creator_request_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creatorRequestId"),
-            ),
-            firewall_rule_group_association_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallRuleGroupAssociationId"),
-            ),
-            firewall_rule_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallRuleGroupId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            managed_owner_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedOwnerName"),
-            ),
-            modification_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modificationTime"),
-            ),
-            mutation_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mutationProtection"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusMessage"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            arn: o.get_field("arn"),
+            creation_time: o.get_field("creationTime"),
+            creator_request_id: o.get_field("creatorRequestId"),
+            firewall_rule_group_association_id: o
+                .get_field("firewallRuleGroupAssociationId"),
+            firewall_rule_group_id: o.get_field("firewallRuleGroupId"),
+            id: o.get_field("id"),
+            managed_owner_name: o.get_field("managedOwnerName"),
+            modification_time: o.get_field("modificationTime"),
+            mutation_protection: o.get_field("mutationProtection"),
+            name: o.get_field("name"),
+            priority: o.get_field("priority"),
+            status: o.get_field("status"),
+            status_message: o.get_field("statusMessage"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

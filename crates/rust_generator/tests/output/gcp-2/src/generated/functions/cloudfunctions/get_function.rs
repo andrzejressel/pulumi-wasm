@@ -101,141 +101,71 @@ pub mod get_function {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetFunctionArgs,
     ) -> GetFunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:cloudfunctions/getFunction:getFunction".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetFunctionResult {
-            available_memory_mb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availableMemoryMb"),
-            ),
-            build_environment_variables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("buildEnvironmentVariables"),
-            ),
-            build_service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("buildServiceAccount"),
-            ),
-            build_worker_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("buildWorkerPool"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            docker_registry: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dockerRegistry"),
-            ),
-            docker_repository: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dockerRepository"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            entry_point: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entryPoint"),
-            ),
-            environment_variables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentVariables"),
-            ),
-            event_triggers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventTriggers"),
-            ),
-            https_trigger_security_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsTriggerSecurityLevel"),
-            ),
-            https_trigger_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsTriggerUrl"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ingress_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingressSettings"),
-            ),
-            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyName"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            max_instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxInstances"),
-            ),
-            min_instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minInstances"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            runtime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtime"),
-            ),
-            secret_environment_variables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretEnvironmentVariables"),
-            ),
-            secret_volumes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretVolumes"),
-            ),
-            service_account_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountEmail"),
-            ),
-            source_archive_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceArchiveBucket"),
-            ),
-            source_archive_object: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceArchiveObject"),
-            ),
-            source_repositories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceRepositories"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeout"),
-            ),
-            trigger_http: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggerHttp"),
-            ),
-            version_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionId"),
-            ),
-            vpc_connector: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConnector"),
-            ),
-            vpc_connector_egress_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConnectorEgressSettings"),
-            ),
+            available_memory_mb: o.get_field("availableMemoryMb"),
+            build_environment_variables: o.get_field("buildEnvironmentVariables"),
+            build_service_account: o.get_field("buildServiceAccount"),
+            build_worker_pool: o.get_field("buildWorkerPool"),
+            description: o.get_field("description"),
+            docker_registry: o.get_field("dockerRegistry"),
+            docker_repository: o.get_field("dockerRepository"),
+            effective_labels: o.get_field("effectiveLabels"),
+            entry_point: o.get_field("entryPoint"),
+            environment_variables: o.get_field("environmentVariables"),
+            event_triggers: o.get_field("eventTriggers"),
+            https_trigger_security_level: o.get_field("httpsTriggerSecurityLevel"),
+            https_trigger_url: o.get_field("httpsTriggerUrl"),
+            id: o.get_field("id"),
+            ingress_settings: o.get_field("ingressSettings"),
+            kms_key_name: o.get_field("kmsKeyName"),
+            labels: o.get_field("labels"),
+            max_instances: o.get_field("maxInstances"),
+            min_instances: o.get_field("minInstances"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            region: o.get_field("region"),
+            runtime: o.get_field("runtime"),
+            secret_environment_variables: o.get_field("secretEnvironmentVariables"),
+            secret_volumes: o.get_field("secretVolumes"),
+            service_account_email: o.get_field("serviceAccountEmail"),
+            source_archive_bucket: o.get_field("sourceArchiveBucket"),
+            source_archive_object: o.get_field("sourceArchiveObject"),
+            source_repositories: o.get_field("sourceRepositories"),
+            status: o.get_field("status"),
+            timeout: o.get_field("timeout"),
+            trigger_http: o.get_field("triggerHttp"),
+            version_id: o.get_field("versionId"),
+            vpc_connector: o.get_field("vpcConnector"),
+            vpc_connector_egress_settings: o.get_field("vpcConnectorEgressSettings"),
         }
     }
 }

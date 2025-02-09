@@ -48,50 +48,43 @@ pub mod assignment_dynamic_scope {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AssignmentDynamicScopeArgs,
     ) -> AssignmentDynamicScopeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filter_binding_1 = args.filter.get_output(context);
-        let filter_binding = filter_binding_1.get_inner();
-        let maintenance_configuration_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filter_binding = args.filter.get_output(context);
+        let maintenance_configuration_id_binding = args
             .maintenance_configuration_id
             .get_output(context);
-        let maintenance_configuration_id_binding = maintenance_configuration_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: &filter_binding,
+                    value: filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceConfigurationId".into(),
-                    value: &maintenance_configuration_id_binding,
+                    value: maintenance_configuration_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AssignmentDynamicScopeResult {
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            maintenance_configuration_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceConfigurationId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            filter: o.get_field("filter"),
+            maintenance_configuration_id: o.get_field("maintenanceConfigurationId"),
+            name: o.get_field("name"),
         }
     }
 }

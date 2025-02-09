@@ -115,61 +115,49 @@ pub mod api_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiKeyArgs,
     ) -> ApiKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_insights_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_insights_id_binding = args
             .application_insights_id
             .get_output(context);
-        let application_insights_id_binding = application_insights_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let read_permissions_binding_1 = args.read_permissions.get_output(context);
-        let read_permissions_binding = read_permissions_binding_1.get_inner();
-        let write_permissions_binding_1 = args.write_permissions.get_output(context);
-        let write_permissions_binding = write_permissions_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let read_permissions_binding = args.read_permissions.get_output(context);
+        let write_permissions_binding = args.write_permissions.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appinsights/apiKey:ApiKey".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationInsightsId".into(),
-                    value: &application_insights_id_binding,
+                    value: application_insights_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readPermissions".into(),
-                    value: &read_permissions_binding,
+                    value: read_permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "writePermissions".into(),
-                    value: &write_permissions_binding,
+                    value: write_permissions_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiKeyResult {
-            api_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiKey"),
-            ),
-            application_insights_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationInsightsId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            read_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readPermissions"),
-            ),
-            write_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("writePermissions"),
-            ),
+            api_key: o.get_field("apiKey"),
+            application_insights_id: o.get_field("applicationInsightsId"),
+            name: o.get_field("name"),
+            read_permissions: o.get_field("readPermissions"),
+            write_permissions: o.get_field("writePermissions"),
         }
     }
 }

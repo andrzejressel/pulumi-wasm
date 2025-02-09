@@ -151,67 +151,53 @@ pub mod backup_schedule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BackupScheduleArgs,
     ) -> BackupScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let daily_recurrence_binding_1 = args.daily_recurrence.get_output(context);
-        let daily_recurrence_binding = daily_recurrence_binding_1.get_inner();
-        let database_binding_1 = args.database.get_output(context);
-        let database_binding = database_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let retention_binding_1 = args.retention.get_output(context);
-        let retention_binding = retention_binding_1.get_inner();
-        let weekly_recurrence_binding_1 = args.weekly_recurrence.get_output(context);
-        let weekly_recurrence_binding = weekly_recurrence_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let daily_recurrence_binding = args.daily_recurrence.get_output(context);
+        let database_binding = args.database.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let retention_binding = args.retention.get_output(context);
+        let weekly_recurrence_binding = args.weekly_recurrence.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:firestore/backupSchedule:BackupSchedule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailyRecurrence".into(),
-                    value: &daily_recurrence_binding,
+                    value: daily_recurrence_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "database".into(),
-                    value: &database_binding,
+                    value: database_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retention".into(),
-                    value: &retention_binding,
+                    value: retention_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weeklyRecurrence".into(),
-                    value: &weekly_recurrence_binding,
+                    value: weekly_recurrence_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BackupScheduleResult {
-            daily_recurrence: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dailyRecurrence"),
-            ),
-            database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("database"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            retention: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retention"),
-            ),
-            weekly_recurrence: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("weeklyRecurrence"),
-            ),
+            daily_recurrence: o.get_field("dailyRecurrence"),
+            database: o.get_field("database"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            retention: o.get_field("retention"),
+            weekly_recurrence: o.get_field("weeklyRecurrence"),
         }
     }
 }

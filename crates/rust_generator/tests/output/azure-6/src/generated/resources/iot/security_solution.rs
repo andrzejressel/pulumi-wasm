@@ -147,168 +147,124 @@ pub mod security_solution {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SecuritySolutionArgs,
     ) -> SecuritySolutionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_workspaces_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_workspaces_binding = args
             .additional_workspaces
             .get_output(context);
-        let additional_workspaces_binding = additional_workspaces_binding_1.get_inner();
-        let disabled_data_sources_binding_1 = args
+        let disabled_data_sources_binding = args
             .disabled_data_sources
             .get_output(context);
-        let disabled_data_sources_binding = disabled_data_sources_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let events_to_exports_binding_1 = args.events_to_exports.get_output(context);
-        let events_to_exports_binding = events_to_exports_binding_1.get_inner();
-        let iothub_ids_binding_1 = args.iothub_ids.get_output(context);
-        let iothub_ids_binding = iothub_ids_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let log_analytics_workspace_id_binding_1 = args
+        let display_name_binding = args.display_name.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let events_to_exports_binding = args.events_to_exports.get_output(context);
+        let iothub_ids_binding = args.iothub_ids.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
             .get_output(context);
-        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
-            .get_inner();
-        let log_unmasked_ips_enabled_binding_1 = args
+        let log_unmasked_ips_enabled_binding = args
             .log_unmasked_ips_enabled
             .get_output(context);
-        let log_unmasked_ips_enabled_binding = log_unmasked_ips_enabled_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let query_for_resources_binding_1 = args.query_for_resources.get_output(context);
-        let query_for_resources_binding = query_for_resources_binding_1.get_inner();
-        let query_subscription_ids_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let query_for_resources_binding = args.query_for_resources.get_output(context);
+        let query_subscription_ids_binding = args
             .query_subscription_ids
             .get_output(context);
-        let query_subscription_ids_binding = query_subscription_ids_binding_1
-            .get_inner();
-        let recommendations_enabled_binding_1 = args
+        let recommendations_enabled_binding = args
             .recommendations_enabled
             .get_output(context);
-        let recommendations_enabled_binding = recommendations_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:iot/securitySolution:SecuritySolution".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalWorkspaces".into(),
-                    value: &additional_workspaces_binding,
+                    value: additional_workspaces_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabledDataSources".into(),
-                    value: &disabled_data_sources_binding,
+                    value: disabled_data_sources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventsToExports".into(),
-                    value: &events_to_exports_binding,
+                    value: events_to_exports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubIds".into(),
-                    value: &iothub_ids_binding,
+                    value: iothub_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: &log_analytics_workspace_id_binding,
+                    value: log_analytics_workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logUnmaskedIpsEnabled".into(),
-                    value: &log_unmasked_ips_enabled_binding,
+                    value: log_unmasked_ips_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryForResources".into(),
-                    value: &query_for_resources_binding,
+                    value: query_for_resources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "querySubscriptionIds".into(),
-                    value: &query_subscription_ids_binding,
+                    value: query_subscription_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recommendationsEnabled".into(),
-                    value: &recommendations_enabled_binding,
+                    value: recommendations_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SecuritySolutionResult {
-            additional_workspaces: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalWorkspaces"),
-            ),
-            disabled_data_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabledDataSources"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            events_to_exports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventsToExports"),
-            ),
-            iothub_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iothubIds"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logAnalyticsWorkspaceId"),
-            ),
-            log_unmasked_ips_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logUnmaskedIpsEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            query_for_resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryForResources"),
-            ),
-            query_subscription_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("querySubscriptionIds"),
-            ),
-            recommendations_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recommendationsEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            additional_workspaces: o.get_field("additionalWorkspaces"),
+            disabled_data_sources: o.get_field("disabledDataSources"),
+            display_name: o.get_field("displayName"),
+            enabled: o.get_field("enabled"),
+            events_to_exports: o.get_field("eventsToExports"),
+            iothub_ids: o.get_field("iothubIds"),
+            location: o.get_field("location"),
+            log_analytics_workspace_id: o.get_field("logAnalyticsWorkspaceId"),
+            log_unmasked_ips_enabled: o.get_field("logUnmaskedIpsEnabled"),
+            name: o.get_field("name"),
+            query_for_resources: o.get_field("queryForResources"),
+            query_subscription_ids: o.get_field("querySubscriptionIds"),
+            recommendations_enabled: o.get_field("recommendationsEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
         }
     }
 }

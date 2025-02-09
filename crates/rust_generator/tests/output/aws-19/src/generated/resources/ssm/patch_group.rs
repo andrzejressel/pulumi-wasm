@@ -48,39 +48,34 @@ pub mod patch_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PatchGroupArgs,
     ) -> PatchGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let baseline_id_binding_1 = args.baseline_id.get_output(context);
-        let baseline_id_binding = baseline_id_binding_1.get_inner();
-        let patch_group_binding_1 = args.patch_group.get_output(context);
-        let patch_group_binding = patch_group_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let baseline_id_binding = args.baseline_id.get_output(context);
+        let patch_group_binding = args.patch_group.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssm/patchGroup:PatchGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baselineId".into(),
-                    value: &baseline_id_binding,
+                    value: baseline_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "patchGroup".into(),
-                    value: &patch_group_binding,
+                    value: patch_group_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PatchGroupResult {
-            baseline_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baselineId"),
-            ),
-            patch_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("patchGroup"),
-            ),
+            baseline_id: o.get_field("baselineId"),
+            patch_group: o.get_field("patchGroup"),
         }
     }
 }

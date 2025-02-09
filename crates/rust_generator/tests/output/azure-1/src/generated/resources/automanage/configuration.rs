@@ -170,154 +170,114 @@ pub mod configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConfigurationArgs,
     ) -> ConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let antimalware_binding_1 = args.antimalware.get_output(context);
-        let antimalware_binding = antimalware_binding_1.get_inner();
-        let automation_account_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let antimalware_binding = args.antimalware.get_output(context);
+        let automation_account_enabled_binding = args
             .automation_account_enabled
             .get_output(context);
-        let automation_account_enabled_binding = automation_account_enabled_binding_1
-            .get_inner();
-        let azure_security_baseline_binding_1 = args
+        let azure_security_baseline_binding = args
             .azure_security_baseline
             .get_output(context);
-        let azure_security_baseline_binding = azure_security_baseline_binding_1
-            .get_inner();
-        let backup_binding_1 = args.backup.get_output(context);
-        let backup_binding = backup_binding_1.get_inner();
-        let boot_diagnostics_enabled_binding_1 = args
+        let backup_binding = args.backup.get_output(context);
+        let boot_diagnostics_enabled_binding = args
             .boot_diagnostics_enabled
             .get_output(context);
-        let boot_diagnostics_enabled_binding = boot_diagnostics_enabled_binding_1
-            .get_inner();
-        let defender_for_cloud_enabled_binding_1 = args
+        let defender_for_cloud_enabled_binding = args
             .defender_for_cloud_enabled
             .get_output(context);
-        let defender_for_cloud_enabled_binding = defender_for_cloud_enabled_binding_1
-            .get_inner();
-        let guest_configuration_enabled_binding_1 = args
+        let guest_configuration_enabled_binding = args
             .guest_configuration_enabled
             .get_output(context);
-        let guest_configuration_enabled_binding = guest_configuration_enabled_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let log_analytics_enabled_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let log_analytics_enabled_binding = args
             .log_analytics_enabled
             .get_output(context);
-        let log_analytics_enabled_binding = log_analytics_enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let status_change_alert_enabled_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let status_change_alert_enabled_binding = args
             .status_change_alert_enabled
             .get_output(context);
-        let status_change_alert_enabled_binding = status_change_alert_enabled_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:automanage/configuration:Configuration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "antimalware".into(),
-                    value: &antimalware_binding,
+                    value: antimalware_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationAccountEnabled".into(),
-                    value: &automation_account_enabled_binding,
+                    value: automation_account_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureSecurityBaseline".into(),
-                    value: &azure_security_baseline_binding,
+                    value: azure_security_baseline_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backup".into(),
-                    value: &backup_binding,
+                    value: backup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bootDiagnosticsEnabled".into(),
-                    value: &boot_diagnostics_enabled_binding,
+                    value: boot_diagnostics_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defenderForCloudEnabled".into(),
-                    value: &defender_for_cloud_enabled_binding,
+                    value: defender_for_cloud_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guestConfigurationEnabled".into(),
-                    value: &guest_configuration_enabled_binding,
+                    value: guest_configuration_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsEnabled".into(),
-                    value: &log_analytics_enabled_binding,
+                    value: log_analytics_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statusChangeAlertEnabled".into(),
-                    value: &status_change_alert_enabled_binding,
+                    value: status_change_alert_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConfigurationResult {
-            antimalware: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("antimalware"),
-            ),
-            automation_account_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automationAccountEnabled"),
-            ),
-            azure_security_baseline: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureSecurityBaseline"),
-            ),
-            backup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backup"),
-            ),
-            boot_diagnostics_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootDiagnosticsEnabled"),
-            ),
-            defender_for_cloud_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defenderForCloudEnabled"),
-            ),
-            guest_configuration_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("guestConfigurationEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            log_analytics_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logAnalyticsEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            status_change_alert_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusChangeAlertEnabled"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            antimalware: o.get_field("antimalware"),
+            automation_account_enabled: o.get_field("automationAccountEnabled"),
+            azure_security_baseline: o.get_field("azureSecurityBaseline"),
+            backup: o.get_field("backup"),
+            boot_diagnostics_enabled: o.get_field("bootDiagnosticsEnabled"),
+            defender_for_cloud_enabled: o.get_field("defenderForCloudEnabled"),
+            guest_configuration_enabled: o.get_field("guestConfigurationEnabled"),
+            location: o.get_field("location"),
+            log_analytics_enabled: o.get_field("logAnalyticsEnabled"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            status_change_alert_enabled: o.get_field("statusChangeAlertEnabled"),
+            tags: o.get_field("tags"),
         }
     }
 }

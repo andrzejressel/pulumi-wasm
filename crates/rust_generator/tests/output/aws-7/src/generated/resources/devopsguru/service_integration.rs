@@ -93,54 +93,44 @@ pub mod service_integration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceIntegrationArgs,
     ) -> ServiceIntegrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let kms_server_side_encryption_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let kms_server_side_encryption_binding = args
             .kms_server_side_encryption
             .get_output(context);
-        let kms_server_side_encryption_binding = kms_server_side_encryption_binding_1
-            .get_inner();
-        let logs_anomaly_detection_binding_1 = args
+        let logs_anomaly_detection_binding = args
             .logs_anomaly_detection
             .get_output(context);
-        let logs_anomaly_detection_binding = logs_anomaly_detection_binding_1
-            .get_inner();
-        let ops_center_binding_1 = args.ops_center.get_output(context);
-        let ops_center_binding = ops_center_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ops_center_binding = args.ops_center.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:devopsguru/serviceIntegration:ServiceIntegration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsServerSideEncryption".into(),
-                    value: &kms_server_side_encryption_binding,
+                    value: kms_server_side_encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logsAnomalyDetection".into(),
-                    value: &logs_anomaly_detection_binding,
+                    value: logs_anomaly_detection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "opsCenter".into(),
-                    value: &ops_center_binding,
+                    value: ops_center_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceIntegrationResult {
-            kms_server_side_encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsServerSideEncryption"),
-            ),
-            logs_anomaly_detection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logsAnomalyDetection"),
-            ),
-            ops_center: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("opsCenter"),
-            ),
+            kms_server_side_encryption: o.get_field("kmsServerSideEncryption"),
+            logs_anomaly_detection: o.get_field("logsAnomalyDetection"),
+            ops_center: o.get_field("opsCenter"),
         }
     }
 }

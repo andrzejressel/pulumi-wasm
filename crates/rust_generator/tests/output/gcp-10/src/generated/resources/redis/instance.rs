@@ -545,265 +545,177 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alternative_location_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alternative_location_id_binding = args
             .alternative_location_id
             .get_output(context);
-        let alternative_location_id_binding = alternative_location_id_binding_1
-            .get_inner();
-        let auth_enabled_binding_1 = args.auth_enabled.get_output(context);
-        let auth_enabled_binding = auth_enabled_binding_1.get_inner();
-        let authorized_network_binding_1 = args.authorized_network.get_output(context);
-        let authorized_network_binding = authorized_network_binding_1.get_inner();
-        let connect_mode_binding_1 = args.connect_mode.get_output(context);
-        let connect_mode_binding = connect_mode_binding_1.get_inner();
-        let customer_managed_key_binding_1 = args
-            .customer_managed_key
-            .get_output(context);
-        let customer_managed_key_binding = customer_managed_key_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_id_binding_1 = args.location_id.get_output(context);
-        let location_id_binding = location_id_binding_1.get_inner();
-        let maintenance_policy_binding_1 = args.maintenance_policy.get_output(context);
-        let maintenance_policy_binding = maintenance_policy_binding_1.get_inner();
-        let maintenance_version_binding_1 = args.maintenance_version.get_output(context);
-        let maintenance_version_binding = maintenance_version_binding_1.get_inner();
-        let memory_size_gb_binding_1 = args.memory_size_gb.get_output(context);
-        let memory_size_gb_binding = memory_size_gb_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let persistence_config_binding_1 = args.persistence_config.get_output(context);
-        let persistence_config_binding = persistence_config_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let read_replicas_mode_binding_1 = args.read_replicas_mode.get_output(context);
-        let read_replicas_mode_binding = read_replicas_mode_binding_1.get_inner();
-        let redis_configs_binding_1 = args.redis_configs.get_output(context);
-        let redis_configs_binding = redis_configs_binding_1.get_inner();
-        let redis_version_binding_1 = args.redis_version.get_output(context);
-        let redis_version_binding = redis_version_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let replica_count_binding_1 = args.replica_count.get_output(context);
-        let replica_count_binding = replica_count_binding_1.get_inner();
-        let reserved_ip_range_binding_1 = args.reserved_ip_range.get_output(context);
-        let reserved_ip_range_binding = reserved_ip_range_binding_1.get_inner();
-        let secondary_ip_range_binding_1 = args.secondary_ip_range.get_output(context);
-        let secondary_ip_range_binding = secondary_ip_range_binding_1.get_inner();
-        let tier_binding_1 = args.tier.get_output(context);
-        let tier_binding = tier_binding_1.get_inner();
-        let transit_encryption_mode_binding_1 = args
+        let auth_enabled_binding = args.auth_enabled.get_output(context);
+        let authorized_network_binding = args.authorized_network.get_output(context);
+        let connect_mode_binding = args.connect_mode.get_output(context);
+        let customer_managed_key_binding = args.customer_managed_key.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_id_binding = args.location_id.get_output(context);
+        let maintenance_policy_binding = args.maintenance_policy.get_output(context);
+        let maintenance_version_binding = args.maintenance_version.get_output(context);
+        let memory_size_gb_binding = args.memory_size_gb.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let persistence_config_binding = args.persistence_config.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let read_replicas_mode_binding = args.read_replicas_mode.get_output(context);
+        let redis_configs_binding = args.redis_configs.get_output(context);
+        let redis_version_binding = args.redis_version.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let replica_count_binding = args.replica_count.get_output(context);
+        let reserved_ip_range_binding = args.reserved_ip_range.get_output(context);
+        let secondary_ip_range_binding = args.secondary_ip_range.get_output(context);
+        let tier_binding = args.tier.get_output(context);
+        let transit_encryption_mode_binding = args
             .transit_encryption_mode
             .get_output(context);
-        let transit_encryption_mode_binding = transit_encryption_mode_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:redis/instance:Instance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alternativeLocationId".into(),
-                    value: &alternative_location_id_binding,
+                    value: alternative_location_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authEnabled".into(),
-                    value: &auth_enabled_binding,
+                    value: auth_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedNetwork".into(),
-                    value: &authorized_network_binding,
+                    value: authorized_network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectMode".into(),
-                    value: &connect_mode_binding,
+                    value: connect_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKey".into(),
-                    value: &customer_managed_key_binding,
+                    value: customer_managed_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationId".into(),
-                    value: &location_id_binding,
+                    value: location_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenancePolicy".into(),
-                    value: &maintenance_policy_binding,
+                    value: maintenance_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceVersion".into(),
-                    value: &maintenance_version_binding,
+                    value: maintenance_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memorySizeGb".into(),
-                    value: &memory_size_gb_binding,
+                    value: memory_size_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "persistenceConfig".into(),
-                    value: &persistence_config_binding,
+                    value: persistence_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readReplicasMode".into(),
-                    value: &read_replicas_mode_binding,
+                    value: read_replicas_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redisConfigs".into(),
-                    value: &redis_configs_binding,
+                    value: redis_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redisVersion".into(),
-                    value: &redis_version_binding,
+                    value: redis_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaCount".into(),
-                    value: &replica_count_binding,
+                    value: replica_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservedIpRange".into(),
-                    value: &reserved_ip_range_binding,
+                    value: reserved_ip_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryIpRange".into(),
-                    value: &secondary_ip_range_binding,
+                    value: secondary_ip_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tier".into(),
-                    value: &tier_binding,
+                    value: tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitEncryptionMode".into(),
-                    value: &transit_encryption_mode_binding,
+                    value: transit_encryption_mode_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceResult {
-            alternative_location_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alternativeLocationId"),
-            ),
-            auth_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authEnabled"),
-            ),
-            auth_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authString"),
-            ),
-            authorized_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizedNetwork"),
-            ),
-            connect_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectMode"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            current_location_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("currentLocationId"),
-            ),
-            customer_managed_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerManagedKey"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationId"),
-            ),
-            maintenance_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenancePolicy"),
-            ),
-            maintenance_schedules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceSchedules"),
-            ),
-            maintenance_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceVersion"),
-            ),
-            memory_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memorySizeGb"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nodes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("nodes")),
-            persistence_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("persistenceConfig"),
-            ),
-            persistence_iam_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("persistenceIamIdentity"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            read_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readEndpoint"),
-            ),
-            read_endpoint_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readEndpointPort"),
-            ),
-            read_replicas_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readReplicasMode"),
-            ),
-            redis_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redisConfigs"),
-            ),
-            redis_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redisVersion"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            replica_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaCount"),
-            ),
-            reserved_ip_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservedIpRange"),
-            ),
-            secondary_ip_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryIpRange"),
-            ),
-            server_ca_certs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverCaCerts"),
-            ),
-            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
-            transit_encryption_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitEncryptionMode"),
-            ),
+            alternative_location_id: o.get_field("alternativeLocationId"),
+            auth_enabled: o.get_field("authEnabled"),
+            auth_string: o.get_field("authString"),
+            authorized_network: o.get_field("authorizedNetwork"),
+            connect_mode: o.get_field("connectMode"),
+            create_time: o.get_field("createTime"),
+            current_location_id: o.get_field("currentLocationId"),
+            customer_managed_key: o.get_field("customerManagedKey"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            host: o.get_field("host"),
+            labels: o.get_field("labels"),
+            location_id: o.get_field("locationId"),
+            maintenance_policy: o.get_field("maintenancePolicy"),
+            maintenance_schedules: o.get_field("maintenanceSchedules"),
+            maintenance_version: o.get_field("maintenanceVersion"),
+            memory_size_gb: o.get_field("memorySizeGb"),
+            name: o.get_field("name"),
+            nodes: o.get_field("nodes"),
+            persistence_config: o.get_field("persistenceConfig"),
+            persistence_iam_identity: o.get_field("persistenceIamIdentity"),
+            port: o.get_field("port"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            read_endpoint: o.get_field("readEndpoint"),
+            read_endpoint_port: o.get_field("readEndpointPort"),
+            read_replicas_mode: o.get_field("readReplicasMode"),
+            redis_configs: o.get_field("redisConfigs"),
+            redis_version: o.get_field("redisVersion"),
+            region: o.get_field("region"),
+            replica_count: o.get_field("replicaCount"),
+            reserved_ip_range: o.get_field("reservedIpRange"),
+            secondary_ip_range: o.get_field("secondaryIpRange"),
+            server_ca_certs: o.get_field("serverCaCerts"),
+            tier: o.get_field("tier"),
+            transit_encryption_mode: o.get_field("transitEncryptionMode"),
         }
     }
 }

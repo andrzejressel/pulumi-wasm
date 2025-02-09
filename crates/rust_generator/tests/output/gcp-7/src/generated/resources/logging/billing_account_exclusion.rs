@@ -69,64 +69,52 @@ pub mod billing_account_exclusion {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BillingAccountExclusionArgs,
     ) -> BillingAccountExclusionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let billing_account_binding_1 = args.billing_account.get_output(context);
-        let billing_account_binding = billing_account_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let filter_binding_1 = args.filter.get_output(context);
-        let filter_binding = filter_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let billing_account_binding = args.billing_account.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let disabled_binding = args.disabled.get_output(context);
+        let filter_binding = args.filter.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:logging/billingAccountExclusion:BillingAccountExclusion".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAccount".into(),
-                    value: &billing_account_binding,
+                    value: billing_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: &filter_binding,
+                    value: filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BillingAccountExclusionResult {
-            billing_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingAccount"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            billing_account: o.get_field("billingAccount"),
+            description: o.get_field("description"),
+            disabled: o.get_field("disabled"),
+            filter: o.get_field("filter"),
+            name: o.get_field("name"),
         }
     }
 }

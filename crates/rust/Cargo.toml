@@ -9,14 +9,10 @@ related_crate = "pulumi_gestalt"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-uuid.workspace = true
 anyhow.workspace = true
 serde.workspace = true
 serde_json.workspace = true
-log.workspace = true
-pulumi_gestalt_rust_common.workspace = true
 pulumi_gestalt_wit = { workspace = true, features = ["client"] }
-once_cell.workspace = true
 wit-bindgen.workspace = true
 bon.workspace = true
 pulumi_gestalt_rust_adapter.workspace = true

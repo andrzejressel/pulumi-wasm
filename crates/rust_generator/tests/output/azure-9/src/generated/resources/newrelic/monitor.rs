@@ -156,126 +156,96 @@ pub mod monitor {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MonitorArgs,
     ) -> MonitorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_creation_source_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_creation_source_binding = args
             .account_creation_source
             .get_output(context);
-        let account_creation_source_binding = account_creation_source_binding_1
-            .get_inner();
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let ingestion_key_binding_1 = args.ingestion_key.get_output(context);
-        let ingestion_key_binding = ingestion_key_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let org_creation_source_binding_1 = args.org_creation_source.get_output(context);
-        let org_creation_source_binding = org_creation_source_binding_1.get_inner();
-        let organization_id_binding_1 = args.organization_id.get_output(context);
-        let organization_id_binding = organization_id_binding_1.get_inner();
-        let plan_binding_1 = args.plan.get_output(context);
-        let plan_binding = plan_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let user_binding_1 = args.user.get_output(context);
-        let user_binding = user_binding_1.get_inner();
-        let user_id_binding_1 = args.user_id.get_output(context);
-        let user_id_binding = user_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let account_id_binding = args.account_id.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let ingestion_key_binding = args.ingestion_key.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let org_creation_source_binding = args.org_creation_source.get_output(context);
+        let organization_id_binding = args.organization_id.get_output(context);
+        let plan_binding = args.plan.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let user_binding = args.user.get_output(context);
+        let user_id_binding = args.user_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:newrelic/monitor:Monitor".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountCreationSource".into(),
-                    value: &account_creation_source_binding,
+                    value: account_creation_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingestionKey".into(),
-                    value: &ingestion_key_binding,
+                    value: ingestion_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgCreationSource".into(),
-                    value: &org_creation_source_binding,
+                    value: org_creation_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationId".into(),
-                    value: &organization_id_binding,
+                    value: organization_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plan".into(),
-                    value: &plan_binding,
+                    value: plan_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "user".into(),
-                    value: &user_binding,
+                    value: user_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userId".into(),
-                    value: &user_id_binding,
+                    value: user_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MonitorResult {
-            account_creation_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountCreationSource"),
-            ),
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            ingestion_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingestionKey"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            org_creation_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orgCreationSource"),
-            ),
-            organization_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organizationId"),
-            ),
-            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
-            user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userId"),
-            ),
+            account_creation_source: o.get_field("accountCreationSource"),
+            account_id: o.get_field("accountId"),
+            identity: o.get_field("identity"),
+            ingestion_key: o.get_field("ingestionKey"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            org_creation_source: o.get_field("orgCreationSource"),
+            organization_id: o.get_field("organizationId"),
+            plan: o.get_field("plan"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            user: o.get_field("user"),
+            user_id: o.get_field("userId"),
         }
     }
 }

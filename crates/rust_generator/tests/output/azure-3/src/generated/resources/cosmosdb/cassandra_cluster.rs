@@ -176,162 +176,121 @@ pub mod cassandra_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CassandraClusterArgs,
     ) -> CassandraClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_method_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_method_binding = args
             .authentication_method
             .get_output(context);
-        let authentication_method_binding = authentication_method_binding_1.get_inner();
-        let client_certificate_pems_binding_1 = args
+        let client_certificate_pems_binding = args
             .client_certificate_pems
             .get_output(context);
-        let client_certificate_pems_binding = client_certificate_pems_binding_1
-            .get_inner();
-        let default_admin_password_binding_1 = args
+        let default_admin_password_binding = args
             .default_admin_password
             .get_output(context);
-        let default_admin_password_binding = default_admin_password_binding_1
-            .get_inner();
-        let delegated_management_subnet_id_binding_1 = args
+        let delegated_management_subnet_id_binding = args
             .delegated_management_subnet_id
             .get_output(context);
-        let delegated_management_subnet_id_binding = delegated_management_subnet_id_binding_1
-            .get_inner();
-        let external_gossip_certificate_pems_binding_1 = args
+        let external_gossip_certificate_pems_binding = args
             .external_gossip_certificate_pems
             .get_output(context);
-        let external_gossip_certificate_pems_binding = external_gossip_certificate_pems_binding_1
-            .get_inner();
-        let external_seed_node_ip_addresses_binding_1 = args
+        let external_seed_node_ip_addresses_binding = args
             .external_seed_node_ip_addresses
             .get_output(context);
-        let external_seed_node_ip_addresses_binding = external_seed_node_ip_addresses_binding_1
-            .get_inner();
-        let hours_between_backups_binding_1 = args
+        let hours_between_backups_binding = args
             .hours_between_backups
             .get_output(context);
-        let hours_between_backups_binding = hours_between_backups_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let repair_enabled_binding_1 = args.repair_enabled.get_output(context);
-        let repair_enabled_binding = repair_enabled_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let identity_binding = args.identity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let repair_enabled_binding = args.repair_enabled.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cosmosdb/cassandraCluster:CassandraCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationMethod".into(),
-                    value: &authentication_method_binding,
+                    value: authentication_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificatePems".into(),
-                    value: &client_certificate_pems_binding,
+                    value: client_certificate_pems_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAdminPassword".into(),
-                    value: &default_admin_password_binding,
+                    value: default_admin_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegatedManagementSubnetId".into(),
-                    value: &delegated_management_subnet_id_binding,
+                    value: delegated_management_subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalGossipCertificatePems".into(),
-                    value: &external_gossip_certificate_pems_binding,
+                    value: external_gossip_certificate_pems_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalSeedNodeIpAddresses".into(),
-                    value: &external_seed_node_ip_addresses_binding,
+                    value: external_seed_node_ip_addresses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hoursBetweenBackups".into(),
-                    value: &hours_between_backups_binding,
+                    value: hours_between_backups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repairEnabled".into(),
-                    value: &repair_enabled_binding,
+                    value: repair_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CassandraClusterResult {
-            authentication_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationMethod"),
-            ),
-            client_certificate_pems: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientCertificatePems"),
-            ),
-            default_admin_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultAdminPassword"),
-            ),
-            delegated_management_subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delegatedManagementSubnetId"),
-            ),
-            external_gossip_certificate_pems: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalGossipCertificatePems"),
-            ),
-            external_seed_node_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalSeedNodeIpAddresses"),
-            ),
-            hours_between_backups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hoursBetweenBackups"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            repair_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repairEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            authentication_method: o.get_field("authenticationMethod"),
+            client_certificate_pems: o.get_field("clientCertificatePems"),
+            default_admin_password: o.get_field("defaultAdminPassword"),
+            delegated_management_subnet_id: o.get_field("delegatedManagementSubnetId"),
+            external_gossip_certificate_pems: o
+                .get_field("externalGossipCertificatePems"),
+            external_seed_node_ip_addresses: o.get_field("externalSeedNodeIpAddresses"),
+            hours_between_backups: o.get_field("hoursBetweenBackups"),
+            identity: o.get_field("identity"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            repair_enabled: o.get_field("repairEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
+            version: o.get_field("version"),
         }
     }
 }

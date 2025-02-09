@@ -109,65 +109,51 @@ pub mod detector {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DetectorArgs,
     ) -> DetectorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let datasources_binding_1 = args.datasources.get_output(context);
-        let datasources_binding = datasources_binding_1.get_inner();
-        let enable_binding_1 = args.enable.get_output(context);
-        let enable_binding = enable_binding_1.get_inner();
-        let finding_publishing_frequency_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let datasources_binding = args.datasources.get_output(context);
+        let enable_binding = args.enable.get_output(context);
+        let finding_publishing_frequency_binding = args
             .finding_publishing_frequency
             .get_output(context);
-        let finding_publishing_frequency_binding = finding_publishing_frequency_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:guardduty/detector:Detector".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datasources".into(),
-                    value: &datasources_binding,
+                    value: datasources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enable".into(),
-                    value: &enable_binding,
+                    value: enable_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "findingPublishingFrequency".into(),
-                    value: &finding_publishing_frequency_binding,
+                    value: finding_publishing_frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DetectorResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            datasources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datasources"),
-            ),
-            enable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enable"),
-            ),
-            finding_publishing_frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("findingPublishingFrequency"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            account_id: o.get_field("accountId"),
+            arn: o.get_field("arn"),
+            datasources: o.get_field("datasources"),
+            enable: o.get_field("enable"),
+            finding_publishing_frequency: o.get_field("findingPublishingFrequency"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

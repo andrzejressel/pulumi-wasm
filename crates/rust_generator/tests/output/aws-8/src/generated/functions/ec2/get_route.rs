@@ -79,163 +79,115 @@ pub mod get_route {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRouteArgs,
     ) -> GetRouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let carrier_gateway_id_binding_1 = args.carrier_gateway_id.get_output(context);
-        let carrier_gateway_id_binding = carrier_gateway_id_binding_1.get_inner();
-        let core_network_arn_binding_1 = args.core_network_arn.get_output(context);
-        let core_network_arn_binding = core_network_arn_binding_1.get_inner();
-        let destination_cidr_block_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let carrier_gateway_id_binding = args.carrier_gateway_id.get_output(context);
+        let core_network_arn_binding = args.core_network_arn.get_output(context);
+        let destination_cidr_block_binding = args
             .destination_cidr_block
             .get_output(context);
-        let destination_cidr_block_binding = destination_cidr_block_binding_1
-            .get_inner();
-        let destination_ipv6_cidr_block_binding_1 = args
+        let destination_ipv6_cidr_block_binding = args
             .destination_ipv6_cidr_block
             .get_output(context);
-        let destination_ipv6_cidr_block_binding = destination_ipv6_cidr_block_binding_1
-            .get_inner();
-        let destination_prefix_list_id_binding_1 = args
+        let destination_prefix_list_id_binding = args
             .destination_prefix_list_id
             .get_output(context);
-        let destination_prefix_list_id_binding = destination_prefix_list_id_binding_1
-            .get_inner();
-        let egress_only_gateway_id_binding_1 = args
+        let egress_only_gateway_id_binding = args
             .egress_only_gateway_id
             .get_output(context);
-        let egress_only_gateway_id_binding = egress_only_gateway_id_binding_1
-            .get_inner();
-        let gateway_id_binding_1 = args.gateway_id.get_output(context);
-        let gateway_id_binding = gateway_id_binding_1.get_inner();
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let local_gateway_id_binding_1 = args.local_gateway_id.get_output(context);
-        let local_gateway_id_binding = local_gateway_id_binding_1.get_inner();
-        let nat_gateway_id_binding_1 = args.nat_gateway_id.get_output(context);
-        let nat_gateway_id_binding = nat_gateway_id_binding_1.get_inner();
-        let network_interface_id_binding_1 = args
-            .network_interface_id
-            .get_output(context);
-        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
-        let route_table_id_binding_1 = args.route_table_id.get_output(context);
-        let route_table_id_binding = route_table_id_binding_1.get_inner();
-        let transit_gateway_id_binding_1 = args.transit_gateway_id.get_output(context);
-        let transit_gateway_id_binding = transit_gateway_id_binding_1.get_inner();
-        let vpc_peering_connection_id_binding_1 = args
+        let gateway_id_binding = args.gateway_id.get_output(context);
+        let instance_id_binding = args.instance_id.get_output(context);
+        let local_gateway_id_binding = args.local_gateway_id.get_output(context);
+        let nat_gateway_id_binding = args.nat_gateway_id.get_output(context);
+        let network_interface_id_binding = args.network_interface_id.get_output(context);
+        let route_table_id_binding = args.route_table_id.get_output(context);
+        let transit_gateway_id_binding = args.transit_gateway_id.get_output(context);
+        let vpc_peering_connection_id_binding = args
             .vpc_peering_connection_id
             .get_output(context);
-        let vpc_peering_connection_id_binding = vpc_peering_connection_id_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getRoute:getRoute".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "carrierGatewayId".into(),
-                    value: &carrier_gateway_id_binding,
+                    value: carrier_gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreNetworkArn".into(),
-                    value: &core_network_arn_binding,
+                    value: core_network_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationCidrBlock".into(),
-                    value: &destination_cidr_block_binding,
+                    value: destination_cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationIpv6CidrBlock".into(),
-                    value: &destination_ipv6_cidr_block_binding,
+                    value: destination_ipv6_cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationPrefixListId".into(),
-                    value: &destination_prefix_list_id_binding,
+                    value: destination_prefix_list_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "egressOnlyGatewayId".into(),
-                    value: &egress_only_gateway_id_binding,
+                    value: egress_only_gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayId".into(),
-                    value: &gateway_id_binding,
+                    value: gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localGatewayId".into(),
-                    value: &local_gateway_id_binding,
+                    value: local_gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "natGatewayId".into(),
-                    value: &nat_gateway_id_binding,
+                    value: nat_gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: &network_interface_id_binding,
+                    value: network_interface_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeTableId".into(),
-                    value: &route_table_id_binding,
+                    value: route_table_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayId".into(),
-                    value: &transit_gateway_id_binding,
+                    value: transit_gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcPeeringConnectionId".into(),
-                    value: &vpc_peering_connection_id_binding,
+                    value: vpc_peering_connection_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRouteResult {
-            carrier_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("carrierGatewayId"),
-            ),
-            core_network_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreNetworkArn"),
-            ),
-            destination_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationCidrBlock"),
-            ),
-            destination_ipv6_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationIpv6CidrBlock"),
-            ),
-            destination_prefix_list_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationPrefixListId"),
-            ),
-            egress_only_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("egressOnlyGatewayId"),
-            ),
-            gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            local_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localGatewayId"),
-            ),
-            nat_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("natGatewayId"),
-            ),
-            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceId"),
-            ),
-            route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routeTableId"),
-            ),
-            transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayId"),
-            ),
-            vpc_peering_connection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcPeeringConnectionId"),
-            ),
+            carrier_gateway_id: o.get_field("carrierGatewayId"),
+            core_network_arn: o.get_field("coreNetworkArn"),
+            destination_cidr_block: o.get_field("destinationCidrBlock"),
+            destination_ipv6_cidr_block: o.get_field("destinationIpv6CidrBlock"),
+            destination_prefix_list_id: o.get_field("destinationPrefixListId"),
+            egress_only_gateway_id: o.get_field("egressOnlyGatewayId"),
+            gateway_id: o.get_field("gatewayId"),
+            id: o.get_field("id"),
+            instance_id: o.get_field("instanceId"),
+            local_gateway_id: o.get_field("localGatewayId"),
+            nat_gateway_id: o.get_field("natGatewayId"),
+            network_interface_id: o.get_field("networkInterfaceId"),
+            route_table_id: o.get_field("routeTableId"),
+            transit_gateway_id: o.get_field("transitGatewayId"),
+            vpc_peering_connection_id: o.get_field("vpcPeeringConnectionId"),
         }
     }
 }

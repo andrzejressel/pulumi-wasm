@@ -96,84 +96,64 @@ pub mod identity_provider_aad {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IdentityProviderAadArgs,
     ) -> IdentityProviderAadResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowed_tenants_binding_1 = args.allowed_tenants.get_output(context);
-        let allowed_tenants_binding = allowed_tenants_binding_1.get_inner();
-        let api_management_name_binding_1 = args.api_management_name.get_output(context);
-        let api_management_name_binding = api_management_name_binding_1.get_inner();
-        let client_id_binding_1 = args.client_id.get_output(context);
-        let client_id_binding = client_id_binding_1.get_inner();
-        let client_library_binding_1 = args.client_library.get_output(context);
-        let client_library_binding = client_library_binding_1.get_inner();
-        let client_secret_binding_1 = args.client_secret.get_output(context);
-        let client_secret_binding = client_secret_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let signin_tenant_binding_1 = args.signin_tenant.get_output(context);
-        let signin_tenant_binding = signin_tenant_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allowed_tenants_binding = args.allowed_tenants.get_output(context);
+        let api_management_name_binding = args.api_management_name.get_output(context);
+        let client_id_binding = args.client_id.get_output(context);
+        let client_library_binding = args.client_library.get_output(context);
+        let client_secret_binding = args.client_secret.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let signin_tenant_binding = args.signin_tenant.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/identityProviderAad:IdentityProviderAad".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedTenants".into(),
-                    value: &allowed_tenants_binding,
+                    value: allowed_tenants_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: &api_management_name_binding,
+                    value: api_management_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientId".into(),
-                    value: &client_id_binding,
+                    value: client_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientLibrary".into(),
-                    value: &client_library_binding,
+                    value: client_library_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientSecret".into(),
-                    value: &client_secret_binding,
+                    value: client_secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signinTenant".into(),
-                    value: &signin_tenant_binding,
+                    value: signin_tenant_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IdentityProviderAadResult {
-            allowed_tenants: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedTenants"),
-            ),
-            api_management_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementName"),
-            ),
-            client_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientId"),
-            ),
-            client_library: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientLibrary"),
-            ),
-            client_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientSecret"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            signin_tenant: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signinTenant"),
-            ),
+            allowed_tenants: o.get_field("allowedTenants"),
+            api_management_name: o.get_field("apiManagementName"),
+            client_id: o.get_field("clientId"),
+            client_library: o.get_field("clientLibrary"),
+            client_secret: o.get_field("clientSecret"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            signin_tenant: o.get_field("signinTenant"),
         }
     }
 }

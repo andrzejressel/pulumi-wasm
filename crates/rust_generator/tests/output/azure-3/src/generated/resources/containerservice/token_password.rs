@@ -94,51 +94,42 @@ pub mod token_password {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TokenPasswordArgs,
     ) -> TokenPasswordResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_registry_token_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let container_registry_token_id_binding = args
             .container_registry_token_id
             .get_output(context);
-        let container_registry_token_id_binding = container_registry_token_id_binding_1
-            .get_inner();
-        let password1_binding_1 = args.password1.get_output(context);
-        let password1_binding = password1_binding_1.get_inner();
-        let password2_binding_1 = args.password2.get_output(context);
-        let password2_binding = password2_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let password1_binding = args.password1.get_output(context);
+        let password2_binding = args.password2.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerservice/tokenPassword:TokenPassword".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRegistryTokenId".into(),
-                    value: &container_registry_token_id_binding,
+                    value: container_registry_token_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password1".into(),
-                    value: &password1_binding,
+                    value: password1_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password2".into(),
-                    value: &password2_binding,
+                    value: password2_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TokenPasswordResult {
-            container_registry_token_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerRegistryTokenId"),
-            ),
-            password1: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password1"),
-            ),
-            password2: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password2"),
-            ),
+            container_registry_token_id: o.get_field("containerRegistryTokenId"),
+            password1: o.get_field("password1"),
+            password2: o.get_field("password2"),
         }
     }
 }

@@ -25,43 +25,37 @@ pub mod zero_trust_key_access_key_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ZeroTrustKeyAccessKeyConfigurationArgs,
     ) -> ZeroTrustKeyAccessKeyConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let key_rotation_interval_days_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let key_rotation_interval_days_binding = args
             .key_rotation_interval_days
             .get_output(context);
-        let key_rotation_interval_days_binding = key_rotation_interval_days_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustKeyAccessKeyConfiguration:ZeroTrustKeyAccessKeyConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyRotationIntervalDays".into(),
-                    value: &key_rotation_interval_days_binding,
+                    value: key_rotation_interval_days_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ZeroTrustKeyAccessKeyConfigurationResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            key_rotation_interval_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyRotationIntervalDays"),
-            ),
+            account_id: o.get_field("accountId"),
+            key_rotation_interval_days: o.get_field("keyRotationIntervalDays"),
         }
     }
 }

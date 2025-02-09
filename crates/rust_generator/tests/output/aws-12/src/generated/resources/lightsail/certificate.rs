@@ -78,66 +78,52 @@ pub mod certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CertificateArgs,
     ) -> CertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let subject_alternative_names_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_name_binding = args.domain_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let subject_alternative_names_binding = args
             .subject_alternative_names
             .get_output(context);
-        let subject_alternative_names_binding = subject_alternative_names_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lightsail/certificate:Certificate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subjectAlternativeNames".into(),
-                    value: &subject_alternative_names_binding,
+                    value: subject_alternative_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CertificateResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            domain_validation_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainValidationOptions"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            subject_alternative_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subjectAlternativeNames"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            created_at: o.get_field("createdAt"),
+            domain_name: o.get_field("domainName"),
+            domain_validation_options: o.get_field("domainValidationOptions"),
+            name: o.get_field("name"),
+            subject_alternative_names: o.get_field("subjectAlternativeNames"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

@@ -48,61 +48,42 @@ pub mod get_stack {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetStackArgs,
     ) -> GetStackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:cloudformation/getStack:getStack".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetStackResult {
-            capabilities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capabilities"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disable_rollback: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableRollback"),
-            ),
-            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoleArn"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationArns"),
-            ),
-            outputs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputs"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            template_body: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateBody"),
-            ),
-            timeout_in_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeoutInMinutes"),
-            ),
+            capabilities: o.get_field("capabilities"),
+            description: o.get_field("description"),
+            disable_rollback: o.get_field("disableRollback"),
+            iam_role_arn: o.get_field("iamRoleArn"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            notification_arns: o.get_field("notificationArns"),
+            outputs: o.get_field("outputs"),
+            parameters: o.get_field("parameters"),
+            tags: o.get_field("tags"),
+            template_body: o.get_field("templateBody"),
+            timeout_in_minutes: o.get_field("timeoutInMinutes"),
         }
     }
 }

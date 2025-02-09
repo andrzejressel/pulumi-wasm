@@ -95,74 +95,58 @@ pub mod email_service_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EmailServiceDomainArgs,
     ) -> EmailServiceDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_management_binding_1 = args.domain_management.get_output(context);
-        let domain_management_binding = domain_management_binding_1.get_inner();
-        let email_service_id_binding_1 = args.email_service_id.get_output(context);
-        let email_service_id_binding = email_service_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_engagement_tracking_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_management_binding = args.domain_management.get_output(context);
+        let email_service_id_binding = args.email_service_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let user_engagement_tracking_enabled_binding = args
             .user_engagement_tracking_enabled
             .get_output(context);
-        let user_engagement_tracking_enabled_binding = user_engagement_tracking_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:communication/emailServiceDomain:EmailServiceDomain".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainManagement".into(),
-                    value: &domain_management_binding,
+                    value: domain_management_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailServiceId".into(),
-                    value: &email_service_id_binding,
+                    value: email_service_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userEngagementTrackingEnabled".into(),
-                    value: &user_engagement_tracking_enabled_binding,
+                    value: user_engagement_tracking_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EmailServiceDomainResult {
-            domain_management: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainManagement"),
-            ),
-            email_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailServiceId"),
-            ),
-            from_sender_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fromSenderDomain"),
-            ),
-            mail_from_sender_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mailFromSenderDomain"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            user_engagement_tracking_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userEngagementTrackingEnabled"),
-            ),
-            verification_records: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verificationRecords"),
-            ),
+            domain_management: o.get_field("domainManagement"),
+            email_service_id: o.get_field("emailServiceId"),
+            from_sender_domain: o.get_field("fromSenderDomain"),
+            mail_from_sender_domain: o.get_field("mailFromSenderDomain"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
+            user_engagement_tracking_enabled: o
+                .get_field("userEngagementTrackingEnabled"),
+            verification_records: o.get_field("verificationRecords"),
         }
     }
 }

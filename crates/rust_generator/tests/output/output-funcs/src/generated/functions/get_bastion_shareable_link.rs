@@ -26,40 +26,36 @@ pub mod get_bastion_shareable_link {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBastionShareableLinkArgs,
     ) -> GetBastionShareableLinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bastion_host_name_binding_1 = args.bastion_host_name.get_output(context);
-        let bastion_host_name_binding = bastion_host_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let vms_binding_1 = args.vms.get_output(context);
-        let vms_binding = vms_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bastion_host_name_binding = args.bastion_host_name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let vms_binding = args.vms.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "mypkg::getBastionShareableLink".into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bastionHostName".into(),
-                    value: &bastion_host_name_binding,
+                    value: bastion_host_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vms".into(),
-                    value: &vms_binding,
+                    value: vms_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBastionShareableLinkResult {
-            next_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextLink"),
-            ),
+            next_link: o.get_field("nextLink"),
         }
     }
 }

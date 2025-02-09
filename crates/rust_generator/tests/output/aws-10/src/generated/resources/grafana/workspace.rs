@@ -184,185 +184,130 @@ pub mod workspace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkspaceArgs,
     ) -> WorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_access_type_binding_1 = args.account_access_type.get_output(context);
-        let account_access_type_binding = account_access_type_binding_1.get_inner();
-        let authentication_providers_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_access_type_binding = args.account_access_type.get_output(context);
+        let authentication_providers_binding = args
             .authentication_providers
             .get_output(context);
-        let authentication_providers_binding = authentication_providers_binding_1
-            .get_inner();
-        let configuration_binding_1 = args.configuration.get_output(context);
-        let configuration_binding = configuration_binding_1.get_inner();
-        let data_sources_binding_1 = args.data_sources.get_output(context);
-        let data_sources_binding = data_sources_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let grafana_version_binding_1 = args.grafana_version.get_output(context);
-        let grafana_version_binding = grafana_version_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_access_control_binding_1 = args
+        let configuration_binding = args.configuration.get_output(context);
+        let data_sources_binding = args.data_sources.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let grafana_version_binding = args.grafana_version.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_access_control_binding = args
             .network_access_control
             .get_output(context);
-        let network_access_control_binding = network_access_control_binding_1
-            .get_inner();
-        let notification_destinations_binding_1 = args
+        let notification_destinations_binding = args
             .notification_destinations
             .get_output(context);
-        let notification_destinations_binding = notification_destinations_binding_1
-            .get_inner();
-        let organization_role_name_binding_1 = args
+        let organization_role_name_binding = args
             .organization_role_name
             .get_output(context);
-        let organization_role_name_binding = organization_role_name_binding_1
-            .get_inner();
-        let organizational_units_binding_1 = args
-            .organizational_units
-            .get_output(context);
-        let organizational_units_binding = organizational_units_binding_1.get_inner();
-        let permission_type_binding_1 = args.permission_type.get_output(context);
-        let permission_type_binding = permission_type_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let stack_set_name_binding_1 = args.stack_set_name.get_output(context);
-        let stack_set_name_binding = stack_set_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_configuration_binding_1 = args.vpc_configuration.get_output(context);
-        let vpc_configuration_binding = vpc_configuration_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let organizational_units_binding = args.organizational_units.get_output(context);
+        let permission_type_binding = args.permission_type.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let stack_set_name_binding = args.stack_set_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_configuration_binding = args.vpc_configuration.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:grafana/workspace:Workspace".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountAccessType".into(),
-                    value: &account_access_type_binding,
+                    value: account_access_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationProviders".into(),
-                    value: &authentication_providers_binding,
+                    value: authentication_providers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configuration".into(),
-                    value: &configuration_binding,
+                    value: configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSources".into(),
-                    value: &data_sources_binding,
+                    value: data_sources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grafanaVersion".into(),
-                    value: &grafana_version_binding,
+                    value: grafana_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkAccessControl".into(),
-                    value: &network_access_control_binding,
+                    value: network_access_control_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationDestinations".into(),
-                    value: &notification_destinations_binding,
+                    value: notification_destinations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationRoleName".into(),
-                    value: &organization_role_name_binding,
+                    value: organization_role_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationalUnits".into(),
-                    value: &organizational_units_binding,
+                    value: organizational_units_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionType".into(),
-                    value: &permission_type_binding,
+                    value: permission_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackSetName".into(),
-                    value: &stack_set_name_binding,
+                    value: stack_set_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfiguration".into(),
-                    value: &vpc_configuration_binding,
+                    value: vpc_configuration_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkspaceResult {
-            account_access_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountAccessType"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_providers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationProviders"),
-            ),
-            configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configuration"),
-            ),
-            data_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSources"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            grafana_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grafanaVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_access_control: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkAccessControl"),
-            ),
-            notification_destinations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationDestinations"),
-            ),
-            organization_role_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organizationRoleName"),
-            ),
-            organizational_units: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organizationalUnits"),
-            ),
-            permission_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissionType"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            saml_configuration_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("samlConfigurationStatus"),
-            ),
-            stack_set_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackSetName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfiguration"),
-            ),
+            account_access_type: o.get_field("accountAccessType"),
+            arn: o.get_field("arn"),
+            authentication_providers: o.get_field("authenticationProviders"),
+            configuration: o.get_field("configuration"),
+            data_sources: o.get_field("dataSources"),
+            description: o.get_field("description"),
+            endpoint: o.get_field("endpoint"),
+            grafana_version: o.get_field("grafanaVersion"),
+            name: o.get_field("name"),
+            network_access_control: o.get_field("networkAccessControl"),
+            notification_destinations: o.get_field("notificationDestinations"),
+            organization_role_name: o.get_field("organizationRoleName"),
+            organizational_units: o.get_field("organizationalUnits"),
+            permission_type: o.get_field("permissionType"),
+            role_arn: o.get_field("roleArn"),
+            saml_configuration_status: o.get_field("samlConfigurationStatus"),
+            stack_set_name: o.get_field("stackSetName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_configuration: o.get_field("vpcConfiguration"),
         }
     }
 }

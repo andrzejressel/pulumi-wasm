@@ -311,158 +311,115 @@ pub mod listing {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ListingArgs,
     ) -> ListingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bigquery_dataset_binding_1 = args.bigquery_dataset.get_output(context);
-        let bigquery_dataset_binding = bigquery_dataset_binding_1.get_inner();
-        let categories_binding_1 = args.categories.get_output(context);
-        let categories_binding = categories_binding_1.get_inner();
-        let data_exchange_id_binding_1 = args.data_exchange_id.get_output(context);
-        let data_exchange_id_binding = data_exchange_id_binding_1.get_inner();
-        let data_provider_binding_1 = args.data_provider.get_output(context);
-        let data_provider_binding = data_provider_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let documentation_binding_1 = args.documentation.get_output(context);
-        let documentation_binding = documentation_binding_1.get_inner();
-        let icon_binding_1 = args.icon.get_output(context);
-        let icon_binding = icon_binding_1.get_inner();
-        let listing_id_binding_1 = args.listing_id.get_output(context);
-        let listing_id_binding = listing_id_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let primary_contact_binding_1 = args.primary_contact.get_output(context);
-        let primary_contact_binding = primary_contact_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let publisher_binding_1 = args.publisher.get_output(context);
-        let publisher_binding = publisher_binding_1.get_inner();
-        let request_access_binding_1 = args.request_access.get_output(context);
-        let request_access_binding = request_access_binding_1.get_inner();
-        let restricted_export_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bigquery_dataset_binding = args.bigquery_dataset.get_output(context);
+        let categories_binding = args.categories.get_output(context);
+        let data_exchange_id_binding = args.data_exchange_id.get_output(context);
+        let data_provider_binding = args.data_provider.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let documentation_binding = args.documentation.get_output(context);
+        let icon_binding = args.icon.get_output(context);
+        let listing_id_binding = args.listing_id.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let primary_contact_binding = args.primary_contact.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let publisher_binding = args.publisher.get_output(context);
+        let request_access_binding = args.request_access.get_output(context);
+        let restricted_export_config_binding = args
             .restricted_export_config
             .get_output(context);
-        let restricted_export_config_binding = restricted_export_config_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:bigqueryanalyticshub/listing:Listing".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bigqueryDataset".into(),
-                    value: &bigquery_dataset_binding,
+                    value: bigquery_dataset_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "categories".into(),
-                    value: &categories_binding,
+                    value: categories_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataExchangeId".into(),
-                    value: &data_exchange_id_binding,
+                    value: data_exchange_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataProvider".into(),
-                    value: &data_provider_binding,
+                    value: data_provider_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentation".into(),
-                    value: &documentation_binding,
+                    value: documentation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "icon".into(),
-                    value: &icon_binding,
+                    value: icon_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listingId".into(),
-                    value: &listing_id_binding,
+                    value: listing_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryContact".into(),
-                    value: &primary_contact_binding,
+                    value: primary_contact_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publisher".into(),
-                    value: &publisher_binding,
+                    value: publisher_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestAccess".into(),
-                    value: &request_access_binding,
+                    value: request_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restrictedExportConfig".into(),
-                    value: &restricted_export_config_binding,
+                    value: restricted_export_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ListingResult {
-            bigquery_dataset: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bigqueryDataset"),
-            ),
-            categories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("categories"),
-            ),
-            data_exchange_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataExchangeId"),
-            ),
-            data_provider: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataProvider"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            documentation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentation"),
-            ),
-            icon: pulumi_gestalt_rust::__private::into_domain(o.extract_field("icon")),
-            listing_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listingId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            primary_contact: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryContact"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            publisher: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publisher"),
-            ),
-            request_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestAccess"),
-            ),
-            restricted_export_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restrictedExportConfig"),
-            ),
+            bigquery_dataset: o.get_field("bigqueryDataset"),
+            categories: o.get_field("categories"),
+            data_exchange_id: o.get_field("dataExchangeId"),
+            data_provider: o.get_field("dataProvider"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            documentation: o.get_field("documentation"),
+            icon: o.get_field("icon"),
+            listing_id: o.get_field("listingId"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            primary_contact: o.get_field("primaryContact"),
+            project: o.get_field("project"),
+            publisher: o.get_field("publisher"),
+            request_access: o.get_field("requestAccess"),
+            restricted_export_config: o.get_field("restrictedExportConfig"),
         }
     }
 }

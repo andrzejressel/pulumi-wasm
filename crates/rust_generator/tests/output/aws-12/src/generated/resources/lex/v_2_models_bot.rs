@@ -134,112 +134,86 @@ pub mod v_2_models_bot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: V2modelsBotArgs,
     ) -> V2modelsBotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_privacies_binding_1 = args.data_privacies.get_output(context);
-        let data_privacies_binding = data_privacies_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let idle_session_ttl_in_seconds_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_privacies_binding = args.data_privacies.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let idle_session_ttl_in_seconds_binding = args
             .idle_session_ttl_in_seconds
             .get_output(context);
-        let idle_session_ttl_in_seconds_binding = idle_session_ttl_in_seconds_binding_1
-            .get_inner();
-        let members_binding_1 = args.members.get_output(context);
-        let members_binding = members_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let test_bot_alias_tags_binding_1 = args.test_bot_alias_tags.get_output(context);
-        let test_bot_alias_tags_binding = test_bot_alias_tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let members_binding = args.members.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let test_bot_alias_tags_binding = args.test_bot_alias_tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lex/v2modelsBot:V2modelsBot".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataPrivacies".into(),
-                    value: &data_privacies_binding,
+                    value: data_privacies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleSessionTtlInSeconds".into(),
-                    value: &idle_session_ttl_in_seconds_binding,
+                    value: idle_session_ttl_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "members".into(),
-                    value: &members_binding,
+                    value: members_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testBotAliasTags".into(),
-                    value: &test_bot_alias_tags_binding,
+                    value: test_bot_alias_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         V2modelsBotResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            data_privacies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataPrivacies"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            idle_session_ttl_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleSessionTtlInSeconds"),
-            ),
-            members: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("members"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            test_bot_alias_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("testBotAliasTags"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            arn: o.get_field("arn"),
+            data_privacies: o.get_field("dataPrivacies"),
+            description: o.get_field("description"),
+            idle_session_ttl_in_seconds: o.get_field("idleSessionTtlInSeconds"),
+            members: o.get_field("members"),
+            name: o.get_field("name"),
+            role_arn: o.get_field("roleArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            test_bot_alias_tags: o.get_field("testBotAliasTags"),
+            timeouts: o.get_field("timeouts"),
+            type_: o.get_field("type"),
         }
     }
 }

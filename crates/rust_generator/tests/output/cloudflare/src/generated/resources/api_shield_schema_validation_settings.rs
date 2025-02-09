@@ -53,55 +53,47 @@ pub mod api_shield_schema_validation_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiShieldSchemaValidationSettingsArgs,
     ) -> ApiShieldSchemaValidationSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let validation_default_mitigation_action_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let validation_default_mitigation_action_binding = args
             .validation_default_mitigation_action
             .get_output(context);
-        let validation_default_mitigation_action_binding = validation_default_mitigation_action_binding_1
-            .get_inner();
-        let validation_override_mitigation_action_binding_1 = args
+        let validation_override_mitigation_action_binding = args
             .validation_override_mitigation_action
             .get_output(context);
-        let validation_override_mitigation_action_binding = validation_override_mitigation_action_binding_1
-            .get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/apiShieldSchemaValidationSettings:ApiShieldSchemaValidationSettings"
                 .into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationDefaultMitigationAction".into(),
-                    value: &validation_default_mitigation_action_binding,
+                    value: validation_default_mitigation_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationOverrideMitigationAction".into(),
-                    value: &validation_override_mitigation_action_binding,
+                    value: validation_override_mitigation_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiShieldSchemaValidationSettingsResult {
-            validation_default_mitigation_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationDefaultMitigationAction"),
-            ),
-            validation_override_mitigation_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationOverrideMitigationAction"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            validation_default_mitigation_action: o
+                .get_field("validationDefaultMitigationAction"),
+            validation_override_mitigation_action: o
+                .get_field("validationOverrideMitigationAction"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

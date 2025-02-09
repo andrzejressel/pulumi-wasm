@@ -61,58 +61,47 @@ pub mod random_shuffle {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RandomShuffleArgs,
     ) -> RandomShuffleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let inputs_binding_1 = args.inputs.get_output(context);
-        let inputs_binding = inputs_binding_1.get_inner();
-        let keepers_binding_1 = args.keepers.get_output(context);
-        let keepers_binding = keepers_binding_1.get_inner();
-        let result_count_binding_1 = args.result_count.get_output(context);
-        let result_count_binding = result_count_binding_1.get_inner();
-        let seed_binding_1 = args.seed.get_output(context);
-        let seed_binding = seed_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let inputs_binding = args.inputs.get_output(context);
+        let keepers_binding = args.keepers.get_output(context);
+        let result_count_binding = args.result_count.get_output(context);
+        let seed_binding = args.seed.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "random:index/randomShuffle:RandomShuffle".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputs".into(),
-                    value: &inputs_binding,
+                    value: inputs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepers".into(),
-                    value: &keepers_binding,
+                    value: keepers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resultCount".into(),
-                    value: &result_count_binding,
+                    value: result_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "seed".into(),
-                    value: &seed_binding,
+                    value: seed_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RandomShuffleResult {
-            inputs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputs"),
-            ),
-            keepers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keepers"),
-            ),
-            result_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resultCount"),
-            ),
-            results: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("results"),
-            ),
-            seed: pulumi_gestalt_rust::__private::into_domain(o.extract_field("seed")),
+            inputs: o.get_field("inputs"),
+            keepers: o.get_field("keepers"),
+            result_count: o.get_field("resultCount"),
+            results: o.get_field("results"),
+            seed: o.get_field("seed"),
         }
     }
 }

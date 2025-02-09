@@ -53,30 +53,28 @@ pub mod sdkvoice_global_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SdkvoiceGlobalSettingsArgs,
     ) -> SdkvoiceGlobalSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let voice_connector_binding_1 = args.voice_connector.get_output(context);
-        let voice_connector_binding = voice_connector_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let voice_connector_binding = args.voice_connector.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceConnector".into(),
-                    value: &voice_connector_binding,
+                    value: voice_connector_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SdkvoiceGlobalSettingsResult {
-            voice_connector: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("voiceConnector"),
-            ),
+            voice_connector: o.get_field("voiceConnector"),
         }
     }
 }

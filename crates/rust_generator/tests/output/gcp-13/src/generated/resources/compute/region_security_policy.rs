@@ -222,102 +222,76 @@ pub mod region_security_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegionSecurityPolicyArgs,
     ) -> RegionSecurityPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ddos_protection_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let ddos_protection_config_binding = args
             .ddos_protection_config
             .get_output(context);
-        let ddos_protection_config_binding = ddos_protection_config_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let rules_binding_1 = args.rules.get_output(context);
-        let rules_binding = rules_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let user_defined_fields_binding_1 = args.user_defined_fields.get_output(context);
-        let user_defined_fields_binding = user_defined_fields_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let rules_binding = args.rules.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let user_defined_fields_binding = args.user_defined_fields.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/regionSecurityPolicy:RegionSecurityPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ddosProtectionConfig".into(),
-                    value: &ddos_protection_config_binding,
+                    value: ddos_protection_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: &rules_binding,
+                    value: rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userDefinedFields".into(),
-                    value: &user_defined_fields_binding,
+                    value: user_defined_fields_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegionSecurityPolicyResult {
-            ddos_protection_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ddosProtectionConfig"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fingerprint"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyId"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            self_link_with_policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLinkWithPolicyId"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            user_defined_fields: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userDefinedFields"),
-            ),
+            ddos_protection_config: o.get_field("ddosProtectionConfig"),
+            description: o.get_field("description"),
+            fingerprint: o.get_field("fingerprint"),
+            name: o.get_field("name"),
+            policy_id: o.get_field("policyId"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            rules: o.get_field("rules"),
+            self_link: o.get_field("selfLink"),
+            self_link_with_policy_id: o.get_field("selfLinkWithPolicyId"),
+            type_: o.get_field("type"),
+            user_defined_fields: o.get_field("userDefinedFields"),
         }
     }
 }

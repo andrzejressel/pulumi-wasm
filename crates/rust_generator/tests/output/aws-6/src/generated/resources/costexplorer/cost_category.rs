@@ -117,85 +117,67 @@ pub mod cost_category {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CostCategoryArgs,
     ) -> CostCategoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_value_binding_1 = args.default_value.get_output(context);
-        let default_value_binding = default_value_binding_1.get_inner();
-        let effective_start_binding_1 = args.effective_start.get_output(context);
-        let effective_start_binding = effective_start_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let rule_version_binding_1 = args.rule_version.get_output(context);
-        let rule_version_binding = rule_version_binding_1.get_inner();
-        let rules_binding_1 = args.rules.get_output(context);
-        let rules_binding = rules_binding_1.get_inner();
-        let split_charge_rules_binding_1 = args.split_charge_rules.get_output(context);
-        let split_charge_rules_binding = split_charge_rules_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let default_value_binding = args.default_value.get_output(context);
+        let effective_start_binding = args.effective_start.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let rule_version_binding = args.rule_version.get_output(context);
+        let rules_binding = args.rules.get_output(context);
+        let split_charge_rules_binding = args.split_charge_rules.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:costexplorer/costCategory:CostCategory".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultValue".into(),
-                    value: &default_value_binding,
+                    value: default_value_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "effectiveStart".into(),
-                    value: &effective_start_binding,
+                    value: effective_start_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleVersion".into(),
-                    value: &rule_version_binding,
+                    value: rule_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: &rules_binding,
+                    value: rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "splitChargeRules".into(),
-                    value: &split_charge_rules_binding,
+                    value: split_charge_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CostCategoryResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            default_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultValue"),
-            ),
-            effective_end: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveEnd"),
-            ),
-            effective_start: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveStart"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            rule_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleVersion"),
-            ),
-            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
-            split_charge_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("splitChargeRules"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            default_value: o.get_field("defaultValue"),
+            effective_end: o.get_field("effectiveEnd"),
+            effective_start: o.get_field("effectiveStart"),
+            name: o.get_field("name"),
+            rule_version: o.get_field("ruleVersion"),
+            rules: o.get_field("rules"),
+            split_charge_rules: o.get_field("splitChargeRules"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

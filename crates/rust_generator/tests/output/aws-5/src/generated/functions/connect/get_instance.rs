@@ -53,79 +53,52 @@ pub mod get_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetInstanceArgs,
     ) -> GetInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_alias_binding_1 = args.instance_alias.get_output(context);
-        let instance_alias_binding = instance_alias_binding_1.get_inner();
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let instance_alias_binding = args.instance_alias.get_output(context);
+        let instance_id_binding = args.instance_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:connect/getInstance:getInstance".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceAlias".into(),
-                    value: &instance_alias_binding,
+                    value: instance_alias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetInstanceResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_resolve_best_voices_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoResolveBestVoicesEnabled"),
-            ),
-            contact_flow_logs_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contactFlowLogsEnabled"),
-            ),
-            contact_lens_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contactLensEnabled"),
-            ),
-            created_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTime"),
-            ),
-            early_media_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("earlyMediaEnabled"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identity_management_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityManagementType"),
-            ),
-            inbound_calls_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inboundCallsEnabled"),
-            ),
-            instance_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceAlias"),
-            ),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            multi_party_conference_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiPartyConferenceEnabled"),
-            ),
-            outbound_calls_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outboundCallsEnabled"),
-            ),
-            service_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRole"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            arn: o.get_field("arn"),
+            auto_resolve_best_voices_enabled: o
+                .get_field("autoResolveBestVoicesEnabled"),
+            contact_flow_logs_enabled: o.get_field("contactFlowLogsEnabled"),
+            contact_lens_enabled: o.get_field("contactLensEnabled"),
+            created_time: o.get_field("createdTime"),
+            early_media_enabled: o.get_field("earlyMediaEnabled"),
+            id: o.get_field("id"),
+            identity_management_type: o.get_field("identityManagementType"),
+            inbound_calls_enabled: o.get_field("inboundCallsEnabled"),
+            instance_alias: o.get_field("instanceAlias"),
+            instance_id: o.get_field("instanceId"),
+            multi_party_conference_enabled: o.get_field("multiPartyConferenceEnabled"),
+            outbound_calls_enabled: o.get_field("outboundCallsEnabled"),
+            service_role: o.get_field("serviceRole"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
         }
     }
 }

@@ -449,583 +449,386 @@ pub mod spot_instance_request {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpotInstanceRequestArgs,
     ) -> SpotInstanceRequestResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ami_binding_1 = args.ami.get_output(context);
-        let ami_binding = ami_binding_1.get_inner();
-        let associate_public_ip_address_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let ami_binding = args.ami.get_output(context);
+        let associate_public_ip_address_binding = args
             .associate_public_ip_address
             .get_output(context);
-        let associate_public_ip_address_binding = associate_public_ip_address_binding_1
-            .get_inner();
-        let availability_zone_binding_1 = args.availability_zone.get_output(context);
-        let availability_zone_binding = availability_zone_binding_1.get_inner();
-        let block_duration_minutes_binding_1 = args
+        let availability_zone_binding = args.availability_zone.get_output(context);
+        let block_duration_minutes_binding = args
             .block_duration_minutes
             .get_output(context);
-        let block_duration_minutes_binding = block_duration_minutes_binding_1
-            .get_inner();
-        let capacity_reservation_specification_binding_1 = args
+        let capacity_reservation_specification_binding = args
             .capacity_reservation_specification
             .get_output(context);
-        let capacity_reservation_specification_binding = capacity_reservation_specification_binding_1
-            .get_inner();
-        let cpu_core_count_binding_1 = args.cpu_core_count.get_output(context);
-        let cpu_core_count_binding = cpu_core_count_binding_1.get_inner();
-        let cpu_options_binding_1 = args.cpu_options.get_output(context);
-        let cpu_options_binding = cpu_options_binding_1.get_inner();
-        let cpu_threads_per_core_binding_1 = args
-            .cpu_threads_per_core
-            .get_output(context);
-        let cpu_threads_per_core_binding = cpu_threads_per_core_binding_1.get_inner();
-        let credit_specification_binding_1 = args
-            .credit_specification
-            .get_output(context);
-        let credit_specification_binding = credit_specification_binding_1.get_inner();
-        let disable_api_stop_binding_1 = args.disable_api_stop.get_output(context);
-        let disable_api_stop_binding = disable_api_stop_binding_1.get_inner();
-        let disable_api_termination_binding_1 = args
+        let cpu_core_count_binding = args.cpu_core_count.get_output(context);
+        let cpu_options_binding = args.cpu_options.get_output(context);
+        let cpu_threads_per_core_binding = args.cpu_threads_per_core.get_output(context);
+        let credit_specification_binding = args.credit_specification.get_output(context);
+        let disable_api_stop_binding = args.disable_api_stop.get_output(context);
+        let disable_api_termination_binding = args
             .disable_api_termination
             .get_output(context);
-        let disable_api_termination_binding = disable_api_termination_binding_1
-            .get_inner();
-        let ebs_block_devices_binding_1 = args.ebs_block_devices.get_output(context);
-        let ebs_block_devices_binding = ebs_block_devices_binding_1.get_inner();
-        let ebs_optimized_binding_1 = args.ebs_optimized.get_output(context);
-        let ebs_optimized_binding = ebs_optimized_binding_1.get_inner();
-        let enable_primary_ipv6_binding_1 = args.enable_primary_ipv6.get_output(context);
-        let enable_primary_ipv6_binding = enable_primary_ipv6_binding_1.get_inner();
-        let enclave_options_binding_1 = args.enclave_options.get_output(context);
-        let enclave_options_binding = enclave_options_binding_1.get_inner();
-        let ephemeral_block_devices_binding_1 = args
+        let ebs_block_devices_binding = args.ebs_block_devices.get_output(context);
+        let ebs_optimized_binding = args.ebs_optimized.get_output(context);
+        let enable_primary_ipv6_binding = args.enable_primary_ipv6.get_output(context);
+        let enclave_options_binding = args.enclave_options.get_output(context);
+        let ephemeral_block_devices_binding = args
             .ephemeral_block_devices
             .get_output(context);
-        let ephemeral_block_devices_binding = ephemeral_block_devices_binding_1
-            .get_inner();
-        let get_password_data_binding_1 = args.get_password_data.get_output(context);
-        let get_password_data_binding = get_password_data_binding_1.get_inner();
-        let hibernation_binding_1 = args.hibernation.get_output(context);
-        let hibernation_binding = hibernation_binding_1.get_inner();
-        let host_id_binding_1 = args.host_id.get_output(context);
-        let host_id_binding = host_id_binding_1.get_inner();
-        let host_resource_group_arn_binding_1 = args
+        let get_password_data_binding = args.get_password_data.get_output(context);
+        let hibernation_binding = args.hibernation.get_output(context);
+        let host_id_binding = args.host_id.get_output(context);
+        let host_resource_group_arn_binding = args
             .host_resource_group_arn
             .get_output(context);
-        let host_resource_group_arn_binding = host_resource_group_arn_binding_1
-            .get_inner();
-        let iam_instance_profile_binding_1 = args
-            .iam_instance_profile
-            .get_output(context);
-        let iam_instance_profile_binding = iam_instance_profile_binding_1.get_inner();
-        let instance_initiated_shutdown_behavior_binding_1 = args
+        let iam_instance_profile_binding = args.iam_instance_profile.get_output(context);
+        let instance_initiated_shutdown_behavior_binding = args
             .instance_initiated_shutdown_behavior
             .get_output(context);
-        let instance_initiated_shutdown_behavior_binding = instance_initiated_shutdown_behavior_binding_1
-            .get_inner();
-        let instance_interruption_behavior_binding_1 = args
+        let instance_interruption_behavior_binding = args
             .instance_interruption_behavior
             .get_output(context);
-        let instance_interruption_behavior_binding = instance_interruption_behavior_binding_1
-            .get_inner();
-        let instance_type_binding_1 = args.instance_type.get_output(context);
-        let instance_type_binding = instance_type_binding_1.get_inner();
-        let ipv6_address_count_binding_1 = args.ipv6_address_count.get_output(context);
-        let ipv6_address_count_binding = ipv6_address_count_binding_1.get_inner();
-        let ipv6_addresses_binding_1 = args.ipv6_addresses.get_output(context);
-        let ipv6_addresses_binding = ipv6_addresses_binding_1.get_inner();
-        let key_name_binding_1 = args.key_name.get_output(context);
-        let key_name_binding = key_name_binding_1.get_inner();
-        let launch_group_binding_1 = args.launch_group.get_output(context);
-        let launch_group_binding = launch_group_binding_1.get_inner();
-        let launch_template_binding_1 = args.launch_template.get_output(context);
-        let launch_template_binding = launch_template_binding_1.get_inner();
-        let maintenance_options_binding_1 = args.maintenance_options.get_output(context);
-        let maintenance_options_binding = maintenance_options_binding_1.get_inner();
-        let metadata_options_binding_1 = args.metadata_options.get_output(context);
-        let metadata_options_binding = metadata_options_binding_1.get_inner();
-        let monitoring_binding_1 = args.monitoring.get_output(context);
-        let monitoring_binding = monitoring_binding_1.get_inner();
-        let network_interfaces_binding_1 = args.network_interfaces.get_output(context);
-        let network_interfaces_binding = network_interfaces_binding_1.get_inner();
-        let placement_group_binding_1 = args.placement_group.get_output(context);
-        let placement_group_binding = placement_group_binding_1.get_inner();
-        let placement_partition_number_binding_1 = args
+        let instance_type_binding = args.instance_type.get_output(context);
+        let ipv6_address_count_binding = args.ipv6_address_count.get_output(context);
+        let ipv6_addresses_binding = args.ipv6_addresses.get_output(context);
+        let key_name_binding = args.key_name.get_output(context);
+        let launch_group_binding = args.launch_group.get_output(context);
+        let launch_template_binding = args.launch_template.get_output(context);
+        let maintenance_options_binding = args.maintenance_options.get_output(context);
+        let metadata_options_binding = args.metadata_options.get_output(context);
+        let monitoring_binding = args.monitoring.get_output(context);
+        let network_interfaces_binding = args.network_interfaces.get_output(context);
+        let placement_group_binding = args.placement_group.get_output(context);
+        let placement_partition_number_binding = args
             .placement_partition_number
             .get_output(context);
-        let placement_partition_number_binding = placement_partition_number_binding_1
-            .get_inner();
-        let private_dns_name_options_binding_1 = args
+        let private_dns_name_options_binding = args
             .private_dns_name_options
             .get_output(context);
-        let private_dns_name_options_binding = private_dns_name_options_binding_1
-            .get_inner();
-        let private_ip_binding_1 = args.private_ip.get_output(context);
-        let private_ip_binding = private_ip_binding_1.get_inner();
-        let root_block_device_binding_1 = args.root_block_device.get_output(context);
-        let root_block_device_binding = root_block_device_binding_1.get_inner();
-        let secondary_private_ips_binding_1 = args
+        let private_ip_binding = args.private_ip.get_output(context);
+        let root_block_device_binding = args.root_block_device.get_output(context);
+        let secondary_private_ips_binding = args
             .secondary_private_ips
             .get_output(context);
-        let secondary_private_ips_binding = secondary_private_ips_binding_1.get_inner();
-        let security_groups_binding_1 = args.security_groups.get_output(context);
-        let security_groups_binding = security_groups_binding_1.get_inner();
-        let source_dest_check_binding_1 = args.source_dest_check.get_output(context);
-        let source_dest_check_binding = source_dest_check_binding_1.get_inner();
-        let spot_price_binding_1 = args.spot_price.get_output(context);
-        let spot_price_binding = spot_price_binding_1.get_inner();
-        let spot_type_binding_1 = args.spot_type.get_output(context);
-        let spot_type_binding = spot_type_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tenancy_binding_1 = args.tenancy.get_output(context);
-        let tenancy_binding = tenancy_binding_1.get_inner();
-        let user_data_binding_1 = args.user_data.get_output(context);
-        let user_data_binding = user_data_binding_1.get_inner();
-        let user_data_base64_binding_1 = args.user_data_base64.get_output(context);
-        let user_data_base64_binding = user_data_base64_binding_1.get_inner();
-        let user_data_replace_on_change_binding_1 = args
+        let security_groups_binding = args.security_groups.get_output(context);
+        let source_dest_check_binding = args.source_dest_check.get_output(context);
+        let spot_price_binding = args.spot_price.get_output(context);
+        let spot_type_binding = args.spot_type.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tenancy_binding = args.tenancy.get_output(context);
+        let user_data_binding = args.user_data.get_output(context);
+        let user_data_base64_binding = args.user_data_base64.get_output(context);
+        let user_data_replace_on_change_binding = args
             .user_data_replace_on_change
             .get_output(context);
-        let user_data_replace_on_change_binding = user_data_replace_on_change_binding_1
-            .get_inner();
-        let valid_from_binding_1 = args.valid_from.get_output(context);
-        let valid_from_binding = valid_from_binding_1.get_inner();
-        let valid_until_binding_1 = args.valid_until.get_output(context);
-        let valid_until_binding = valid_until_binding_1.get_inner();
-        let volume_tags_binding_1 = args.volume_tags.get_output(context);
-        let volume_tags_binding = volume_tags_binding_1.get_inner();
-        let vpc_security_group_ids_binding_1 = args
+        let valid_from_binding = args.valid_from.get_output(context);
+        let valid_until_binding = args.valid_until.get_output(context);
+        let volume_tags_binding = args.volume_tags.get_output(context);
+        let vpc_security_group_ids_binding = args
             .vpc_security_group_ids
             .get_output(context);
-        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
-            .get_inner();
-        let wait_for_fulfillment_binding_1 = args
-            .wait_for_fulfillment
-            .get_output(context);
-        let wait_for_fulfillment_binding = wait_for_fulfillment_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let wait_for_fulfillment_binding = args.wait_for_fulfillment.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/spotInstanceRequest:SpotInstanceRequest".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ami".into(),
-                    value: &ami_binding,
+                    value: ami_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associatePublicIpAddress".into(),
-                    value: &associate_public_ip_address_binding,
+                    value: associate_public_ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: &availability_zone_binding,
+                    value: availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockDurationMinutes".into(),
-                    value: &block_duration_minutes_binding,
+                    value: block_duration_minutes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityReservationSpecification".into(),
-                    value: &capacity_reservation_specification_binding,
+                    value: capacity_reservation_specification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cpuCoreCount".into(),
-                    value: &cpu_core_count_binding,
+                    value: cpu_core_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cpuOptions".into(),
-                    value: &cpu_options_binding,
+                    value: cpu_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cpuThreadsPerCore".into(),
-                    value: &cpu_threads_per_core_binding,
+                    value: cpu_threads_per_core_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "creditSpecification".into(),
-                    value: &credit_specification_binding,
+                    value: credit_specification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableApiStop".into(),
-                    value: &disable_api_stop_binding,
+                    value: disable_api_stop_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableApiTermination".into(),
-                    value: &disable_api_termination_binding,
+                    value: disable_api_termination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsBlockDevices".into(),
-                    value: &ebs_block_devices_binding,
+                    value: ebs_block_devices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsOptimized".into(),
-                    value: &ebs_optimized_binding,
+                    value: ebs_optimized_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enablePrimaryIpv6".into(),
-                    value: &enable_primary_ipv6_binding,
+                    value: enable_primary_ipv6_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enclaveOptions".into(),
-                    value: &enclave_options_binding,
+                    value: enclave_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ephemeralBlockDevices".into(),
-                    value: &ephemeral_block_devices_binding,
+                    value: ephemeral_block_devices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "getPasswordData".into(),
-                    value: &get_password_data_binding,
+                    value: get_password_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hibernation".into(),
-                    value: &hibernation_binding,
+                    value: hibernation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostId".into(),
-                    value: &host_id_binding,
+                    value: host_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostResourceGroupArn".into(),
-                    value: &host_resource_group_arn_binding,
+                    value: host_resource_group_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamInstanceProfile".into(),
-                    value: &iam_instance_profile_binding,
+                    value: iam_instance_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceInitiatedShutdownBehavior".into(),
-                    value: &instance_initiated_shutdown_behavior_binding,
+                    value: instance_initiated_shutdown_behavior_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceInterruptionBehavior".into(),
-                    value: &instance_interruption_behavior_binding,
+                    value: instance_interruption_behavior_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: &instance_type_binding,
+                    value: instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6AddressCount".into(),
-                    value: &ipv6_address_count_binding,
+                    value: ipv6_address_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6Addresses".into(),
-                    value: &ipv6_addresses_binding,
+                    value: ipv6_addresses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyName".into(),
-                    value: &key_name_binding,
+                    value: key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchGroup".into(),
-                    value: &launch_group_binding,
+                    value: launch_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchTemplate".into(),
-                    value: &launch_template_binding,
+                    value: launch_template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceOptions".into(),
-                    value: &maintenance_options_binding,
+                    value: maintenance_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadataOptions".into(),
-                    value: &metadata_options_binding,
+                    value: metadata_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitoring".into(),
-                    value: &monitoring_binding,
+                    value: monitoring_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaces".into(),
-                    value: &network_interfaces_binding,
+                    value: network_interfaces_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementGroup".into(),
-                    value: &placement_group_binding,
+                    value: placement_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementPartitionNumber".into(),
-                    value: &placement_partition_number_binding,
+                    value: placement_partition_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateDnsNameOptions".into(),
-                    value: &private_dns_name_options_binding,
+                    value: private_dns_name_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIp".into(),
-                    value: &private_ip_binding,
+                    value: private_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rootBlockDevice".into(),
-                    value: &root_block_device_binding,
+                    value: root_block_device_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryPrivateIps".into(),
-                    value: &secondary_private_ips_binding,
+                    value: secondary_private_ips_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroups".into(),
-                    value: &security_groups_binding,
+                    value: security_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDestCheck".into(),
-                    value: &source_dest_check_binding,
+                    value: source_dest_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spotPrice".into(),
-                    value: &spot_price_binding,
+                    value: spot_price_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spotType".into(),
-                    value: &spot_type_binding,
+                    value: spot_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenancy".into(),
-                    value: &tenancy_binding,
+                    value: tenancy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userData".into(),
-                    value: &user_data_binding,
+                    value: user_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userDataBase64".into(),
-                    value: &user_data_base64_binding,
+                    value: user_data_base64_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userDataReplaceOnChange".into(),
-                    value: &user_data_replace_on_change_binding,
+                    value: user_data_replace_on_change_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validFrom".into(),
-                    value: &valid_from_binding,
+                    value: valid_from_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validUntil".into(),
-                    value: &valid_until_binding,
+                    value: valid_until_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeTags".into(),
-                    value: &volume_tags_binding,
+                    value: volume_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSecurityGroupIds".into(),
-                    value: &vpc_security_group_ids_binding,
+                    value: vpc_security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForFulfillment".into(),
-                    value: &wait_for_fulfillment_binding,
+                    value: wait_for_fulfillment_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpotInstanceRequestResult {
-            ami: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ami")),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            associate_public_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associatePublicIpAddress"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            block_duration_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockDurationMinutes"),
-            ),
-            capacity_reservation_specification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityReservationSpecification"),
-            ),
-            cpu_core_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cpuCoreCount"),
-            ),
-            cpu_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cpuOptions"),
-            ),
-            cpu_threads_per_core: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cpuThreadsPerCore"),
-            ),
-            credit_specification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creditSpecification"),
-            ),
-            disable_api_stop: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableApiStop"),
-            ),
-            disable_api_termination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableApiTermination"),
-            ),
-            ebs_block_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsBlockDevices"),
-            ),
-            ebs_optimized: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsOptimized"),
-            ),
-            enable_primary_ipv6: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enablePrimaryIpv6"),
-            ),
-            enclave_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enclaveOptions"),
-            ),
-            ephemeral_block_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ephemeralBlockDevices"),
-            ),
-            get_password_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("getPasswordData"),
-            ),
-            hibernation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hibernation"),
-            ),
-            host_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostId"),
-            ),
-            host_resource_group_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostResourceGroupArn"),
-            ),
-            iam_instance_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamInstanceProfile"),
-            ),
-            instance_initiated_shutdown_behavior: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceInitiatedShutdownBehavior"),
-            ),
-            instance_interruption_behavior: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceInterruptionBehavior"),
-            ),
-            instance_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceState"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            ipv6_address_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6AddressCount"),
-            ),
-            ipv6_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6Addresses"),
-            ),
-            key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyName"),
-            ),
-            launch_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchGroup"),
-            ),
-            launch_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchTemplate"),
-            ),
-            maintenance_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceOptions"),
-            ),
-            metadata_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadataOptions"),
-            ),
-            monitoring: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoring"),
-            ),
-            network_interfaces: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaces"),
-            ),
-            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostArn"),
-            ),
-            password_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("passwordData"),
-            ),
-            placement_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementGroup"),
-            ),
-            placement_partition_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementPartitionNumber"),
-            ),
-            primary_network_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryNetworkInterfaceId"),
-            ),
-            private_dns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDns"),
-            ),
-            private_dns_name_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDnsNameOptions"),
-            ),
-            private_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIp"),
-            ),
-            public_dns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicDns"),
-            ),
-            public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIp"),
-            ),
-            root_block_device: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootBlockDevice"),
-            ),
-            secondary_private_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryPrivateIps"),
-            ),
-            security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroups"),
-            ),
-            source_dest_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDestCheck"),
-            ),
-            spot_bid_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spotBidStatus"),
-            ),
-            spot_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spotInstanceId"),
-            ),
-            spot_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spotPrice"),
-            ),
-            spot_request_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spotRequestState"),
-            ),
-            spot_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spotType"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tenancy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenancy"),
-            ),
-            user_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userData"),
-            ),
-            user_data_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userDataBase64"),
-            ),
-            user_data_replace_on_change: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userDataReplaceOnChange"),
-            ),
-            valid_from: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validFrom"),
-            ),
-            valid_until: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validUntil"),
-            ),
-            volume_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeTags"),
-            ),
-            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSecurityGroupIds"),
-            ),
-            wait_for_fulfillment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForFulfillment"),
-            ),
+            ami: o.get_field("ami"),
+            arn: o.get_field("arn"),
+            associate_public_ip_address: o.get_field("associatePublicIpAddress"),
+            availability_zone: o.get_field("availabilityZone"),
+            block_duration_minutes: o.get_field("blockDurationMinutes"),
+            capacity_reservation_specification: o
+                .get_field("capacityReservationSpecification"),
+            cpu_core_count: o.get_field("cpuCoreCount"),
+            cpu_options: o.get_field("cpuOptions"),
+            cpu_threads_per_core: o.get_field("cpuThreadsPerCore"),
+            credit_specification: o.get_field("creditSpecification"),
+            disable_api_stop: o.get_field("disableApiStop"),
+            disable_api_termination: o.get_field("disableApiTermination"),
+            ebs_block_devices: o.get_field("ebsBlockDevices"),
+            ebs_optimized: o.get_field("ebsOptimized"),
+            enable_primary_ipv6: o.get_field("enablePrimaryIpv6"),
+            enclave_options: o.get_field("enclaveOptions"),
+            ephemeral_block_devices: o.get_field("ephemeralBlockDevices"),
+            get_password_data: o.get_field("getPasswordData"),
+            hibernation: o.get_field("hibernation"),
+            host_id: o.get_field("hostId"),
+            host_resource_group_arn: o.get_field("hostResourceGroupArn"),
+            iam_instance_profile: o.get_field("iamInstanceProfile"),
+            instance_initiated_shutdown_behavior: o
+                .get_field("instanceInitiatedShutdownBehavior"),
+            instance_interruption_behavior: o.get_field("instanceInterruptionBehavior"),
+            instance_state: o.get_field("instanceState"),
+            instance_type: o.get_field("instanceType"),
+            ipv6_address_count: o.get_field("ipv6AddressCount"),
+            ipv6_addresses: o.get_field("ipv6Addresses"),
+            key_name: o.get_field("keyName"),
+            launch_group: o.get_field("launchGroup"),
+            launch_template: o.get_field("launchTemplate"),
+            maintenance_options: o.get_field("maintenanceOptions"),
+            metadata_options: o.get_field("metadataOptions"),
+            monitoring: o.get_field("monitoring"),
+            network_interfaces: o.get_field("networkInterfaces"),
+            outpost_arn: o.get_field("outpostArn"),
+            password_data: o.get_field("passwordData"),
+            placement_group: o.get_field("placementGroup"),
+            placement_partition_number: o.get_field("placementPartitionNumber"),
+            primary_network_interface_id: o.get_field("primaryNetworkInterfaceId"),
+            private_dns: o.get_field("privateDns"),
+            private_dns_name_options: o.get_field("privateDnsNameOptions"),
+            private_ip: o.get_field("privateIp"),
+            public_dns: o.get_field("publicDns"),
+            public_ip: o.get_field("publicIp"),
+            root_block_device: o.get_field("rootBlockDevice"),
+            secondary_private_ips: o.get_field("secondaryPrivateIps"),
+            security_groups: o.get_field("securityGroups"),
+            source_dest_check: o.get_field("sourceDestCheck"),
+            spot_bid_status: o.get_field("spotBidStatus"),
+            spot_instance_id: o.get_field("spotInstanceId"),
+            spot_price: o.get_field("spotPrice"),
+            spot_request_state: o.get_field("spotRequestState"),
+            spot_type: o.get_field("spotType"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tenancy: o.get_field("tenancy"),
+            user_data: o.get_field("userData"),
+            user_data_base64: o.get_field("userDataBase64"),
+            user_data_replace_on_change: o.get_field("userDataReplaceOnChange"),
+            valid_from: o.get_field("validFrom"),
+            valid_until: o.get_field("validUntil"),
+            volume_tags: o.get_field("volumeTags"),
+            vpc_security_group_ids: o.get_field("vpcSecurityGroupIds"),
+            wait_for_fulfillment: o.get_field("waitForFulfillment"),
         }
     }
 }

@@ -128,126 +128,96 @@ pub mod component {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ComponentArgs,
     ) -> ComponentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let change_description_binding_1 = args.change_description.get_output(context);
-        let change_description_binding = change_description_binding_1.get_inner();
-        let data_binding_1 = args.data.get_output(context);
-        let data_binding = data_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let platform_binding_1 = args.platform.get_output(context);
-        let platform_binding = platform_binding_1.get_inner();
-        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
-        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
-        let supported_os_versions_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let change_description_binding = args.change_description.get_output(context);
+        let data_binding = args.data.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let platform_binding = args.platform.get_output(context);
+        let skip_destroy_binding = args.skip_destroy.get_output(context);
+        let supported_os_versions_binding = args
             .supported_os_versions
             .get_output(context);
-        let supported_os_versions_binding = supported_os_versions_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let uri_binding_1 = args.uri.get_output(context);
-        let uri_binding = uri_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let uri_binding = args.uri.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:imagebuilder/component:Component".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "changeDescription".into(),
-                    value: &change_description_binding,
+                    value: change_description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "data".into(),
-                    value: &data_binding,
+                    value: data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platform".into(),
-                    value: &platform_binding,
+                    value: platform_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: &skip_destroy_binding,
+                    value: skip_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedOsVersions".into(),
-                    value: &supported_os_versions_binding,
+                    value: supported_os_versions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uri".into(),
-                    value: &uri_binding,
+                    value: uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ComponentResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            change_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("changeDescription"),
-            ),
-            data: pulumi_gestalt_rust::__private::into_domain(o.extract_field("data")),
-            date_created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dateCreated"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encrypted"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            skip_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipDestroy"),
-            ),
-            supported_os_versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedOsVersions"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            arn: o.get_field("arn"),
+            change_description: o.get_field("changeDescription"),
+            data: o.get_field("data"),
+            date_created: o.get_field("dateCreated"),
+            description: o.get_field("description"),
+            encrypted: o.get_field("encrypted"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            name: o.get_field("name"),
+            owner: o.get_field("owner"),
+            platform: o.get_field("platform"),
+            skip_destroy: o.get_field("skipDestroy"),
+            supported_os_versions: o.get_field("supportedOsVersions"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
+            uri: o.get_field("uri"),
+            version: o.get_field("version"),
         }
     }
 }

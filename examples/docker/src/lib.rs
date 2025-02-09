@@ -2,12 +2,13 @@ use pulumi_gestalt_providers_docker::functions::get_remote_image;
 use pulumi_gestalt_providers_docker::functions::get_remote_image::GetRemoteImageArgs;
 use pulumi_gestalt_providers_docker::types::{ContainerLabel, DockerBuild};
 use pulumi_gestalt_providers_docker::{container, image};
-use pulumi_gestalt_rust::{add_export, PulumiContext};
+use pulumi_gestalt_rust::GestaltOutput;
+use pulumi_gestalt_rust::{add_export, Context};
 
 #[cfg(target_arch = "wasm32")]
 pulumi_gestalt_rust::pulumi_main!();
 
-fn pulumi_main(context: &PulumiContext) -> anyhow::Result<()> {
+fn pulumi_main(context: &Context) -> anyhow::Result<()> {
     let cont = container::create(
         context,
         "container",

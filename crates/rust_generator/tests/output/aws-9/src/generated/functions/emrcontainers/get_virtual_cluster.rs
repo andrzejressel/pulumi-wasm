@@ -40,45 +40,38 @@ pub mod get_virtual_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVirtualClusterArgs,
     ) -> GetVirtualClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let virtual_cluster_id_binding_1 = args.virtual_cluster_id.get_output(context);
-        let virtual_cluster_id_binding = virtual_cluster_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let tags_binding = args.tags.get_output(context);
+        let virtual_cluster_id_binding = args.virtual_cluster_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:emrcontainers/getVirtualCluster:getVirtualCluster".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualClusterId".into(),
-                    value: &virtual_cluster_id_binding,
+                    value: virtual_cluster_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVirtualClusterResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            container_providers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerProviders"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualClusterId"),
-            ),
+            arn: o.get_field("arn"),
+            container_providers: o.get_field("containerProviders"),
+            created_at: o.get_field("createdAt"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            virtual_cluster_id: o.get_field("virtualClusterId"),
         }
     }
 }

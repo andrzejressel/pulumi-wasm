@@ -68,106 +68,67 @@ pub mod get_volume {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVolumeArgs,
     ) -> GetVolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding_1 = args.account_name.get_output(context);
-        let account_name_binding = account_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let pool_name_binding_1 = args.pool_name.get_output(context);
-        let pool_name_binding = pool_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let security_style_binding_1 = args.security_style.get_output(context);
-        let security_style_binding = security_style_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_name_binding = args.account_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let pool_name_binding = args.pool_name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let security_style_binding = args.security_style.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:netapp/getVolume:getVolume".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: &account_name_binding,
+                    value: account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "poolName".into(),
-                    value: &pool_name_binding,
+                    value: pool_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityStyle".into(),
-                    value: &security_style_binding,
+                    value: security_style_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVolumeResult {
-            account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountName"),
-            ),
-            data_protection_backup_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataProtectionBackupPolicies"),
-            ),
-            data_protection_replications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataProtectionReplications"),
-            ),
-            encryption_key_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionKeySource"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_vault_private_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultPrivateEndpointId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mount_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mountIpAddresses"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_features: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkFeatures"),
-            ),
-            pool_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("poolName"),
-            ),
-            protocols: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocols"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            security_style: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityStyle"),
-            ),
-            service_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceLevel"),
-            ),
-            smb_access_based_enumeration_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smbAccessBasedEnumerationEnabled"),
-            ),
-            smb_non_browsable_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smbNonBrowsableEnabled"),
-            ),
-            storage_quota_in_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageQuotaInGb"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            volume_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumePath"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            account_name: o.get_field("accountName"),
+            data_protection_backup_policies: o.get_field("dataProtectionBackupPolicies"),
+            data_protection_replications: o.get_field("dataProtectionReplications"),
+            encryption_key_source: o.get_field("encryptionKeySource"),
+            id: o.get_field("id"),
+            key_vault_private_endpoint_id: o.get_field("keyVaultPrivateEndpointId"),
+            location: o.get_field("location"),
+            mount_ip_addresses: o.get_field("mountIpAddresses"),
+            name: o.get_field("name"),
+            network_features: o.get_field("networkFeatures"),
+            pool_name: o.get_field("poolName"),
+            protocols: o.get_field("protocols"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            security_style: o.get_field("securityStyle"),
+            service_level: o.get_field("serviceLevel"),
+            smb_access_based_enumeration_enabled: o
+                .get_field("smbAccessBasedEnumerationEnabled"),
+            smb_non_browsable_enabled: o.get_field("smbNonBrowsableEnabled"),
+            storage_quota_in_gb: o.get_field("storageQuotaInGb"),
+            subnet_id: o.get_field("subnetId"),
+            volume_path: o.get_field("volumePath"),
+            zone: o.get_field("zone"),
         }
     }
 }

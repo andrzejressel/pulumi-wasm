@@ -50,87 +50,63 @@ pub mod get_user {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetUserArgs,
     ) -> GetUserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_string_binding_1 = args.access_string.get_output(context);
-        let access_string_binding = access_string_binding_1.get_inner();
-        let authentication_modes_binding_1 = args
-            .authentication_modes
-            .get_output(context);
-        let authentication_modes_binding = authentication_modes_binding_1.get_inner();
-        let engine_binding_1 = args.engine.get_output(context);
-        let engine_binding = engine_binding_1.get_inner();
-        let no_password_required_binding_1 = args
-            .no_password_required
-            .get_output(context);
-        let no_password_required_binding = no_password_required_binding_1.get_inner();
-        let passwords_binding_1 = args.passwords.get_output(context);
-        let passwords_binding = passwords_binding_1.get_inner();
-        let user_id_binding_1 = args.user_id.get_output(context);
-        let user_id_binding = user_id_binding_1.get_inner();
-        let user_name_binding_1 = args.user_name.get_output(context);
-        let user_name_binding = user_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_string_binding = args.access_string.get_output(context);
+        let authentication_modes_binding = args.authentication_modes.get_output(context);
+        let engine_binding = args.engine.get_output(context);
+        let no_password_required_binding = args.no_password_required.get_output(context);
+        let passwords_binding = args.passwords.get_output(context);
+        let user_id_binding = args.user_id.get_output(context);
+        let user_name_binding = args.user_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:elasticache/getUser:getUser".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessString".into(),
-                    value: &access_string_binding,
+                    value: access_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationModes".into(),
-                    value: &authentication_modes_binding,
+                    value: authentication_modes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: &engine_binding,
+                    value: engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "noPasswordRequired".into(),
-                    value: &no_password_required_binding,
+                    value: no_password_required_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "passwords".into(),
-                    value: &passwords_binding,
+                    value: passwords_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userId".into(),
-                    value: &user_id_binding,
+                    value: user_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userName".into(),
-                    value: &user_name_binding,
+                    value: user_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetUserResult {
-            access_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessString"),
-            ),
-            authentication_modes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationModes"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            no_password_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("noPasswordRequired"),
-            ),
-            passwords: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("passwords"),
-            ),
-            user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userId"),
-            ),
-            user_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userName"),
-            ),
+            access_string: o.get_field("accessString"),
+            authentication_modes: o.get_field("authenticationModes"),
+            engine: o.get_field("engine"),
+            id: o.get_field("id"),
+            no_password_required: o.get_field("noPasswordRequired"),
+            passwords: o.get_field("passwords"),
+            user_id: o.get_field("userId"),
+            user_name: o.get_field("userName"),
         }
     }
 }

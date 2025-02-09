@@ -249,206 +249,148 @@ pub mod queue {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: QueueArgs,
     ) -> QueueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let content_based_deduplication_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let content_based_deduplication_binding = args
             .content_based_deduplication
             .get_output(context);
-        let content_based_deduplication_binding = content_based_deduplication_binding_1
-            .get_inner();
-        let deduplication_scope_binding_1 = args.deduplication_scope.get_output(context);
-        let deduplication_scope_binding = deduplication_scope_binding_1.get_inner();
-        let delay_seconds_binding_1 = args.delay_seconds.get_output(context);
-        let delay_seconds_binding = delay_seconds_binding_1.get_inner();
-        let fifo_queue_binding_1 = args.fifo_queue.get_output(context);
-        let fifo_queue_binding = fifo_queue_binding_1.get_inner();
-        let fifo_throughput_limit_binding_1 = args
+        let deduplication_scope_binding = args.deduplication_scope.get_output(context);
+        let delay_seconds_binding = args.delay_seconds.get_output(context);
+        let fifo_queue_binding = args.fifo_queue.get_output(context);
+        let fifo_throughput_limit_binding = args
             .fifo_throughput_limit
             .get_output(context);
-        let fifo_throughput_limit_binding = fifo_throughput_limit_binding_1.get_inner();
-        let kms_data_key_reuse_period_seconds_binding_1 = args
+        let kms_data_key_reuse_period_seconds_binding = args
             .kms_data_key_reuse_period_seconds
             .get_output(context);
-        let kms_data_key_reuse_period_seconds_binding = kms_data_key_reuse_period_seconds_binding_1
-            .get_inner();
-        let kms_master_key_id_binding_1 = args.kms_master_key_id.get_output(context);
-        let kms_master_key_id_binding = kms_master_key_id_binding_1.get_inner();
-        let max_message_size_binding_1 = args.max_message_size.get_output(context);
-        let max_message_size_binding = max_message_size_binding_1.get_inner();
-        let message_retention_seconds_binding_1 = args
+        let kms_master_key_id_binding = args.kms_master_key_id.get_output(context);
+        let max_message_size_binding = args.max_message_size.get_output(context);
+        let message_retention_seconds_binding = args
             .message_retention_seconds
             .get_output(context);
-        let message_retention_seconds_binding = message_retention_seconds_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let receive_wait_time_seconds_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let policy_binding = args.policy.get_output(context);
+        let receive_wait_time_seconds_binding = args
             .receive_wait_time_seconds
             .get_output(context);
-        let receive_wait_time_seconds_binding = receive_wait_time_seconds_binding_1
-            .get_inner();
-        let redrive_allow_policy_binding_1 = args
-            .redrive_allow_policy
-            .get_output(context);
-        let redrive_allow_policy_binding = redrive_allow_policy_binding_1.get_inner();
-        let redrive_policy_binding_1 = args.redrive_policy.get_output(context);
-        let redrive_policy_binding = redrive_policy_binding_1.get_inner();
-        let sqs_managed_sse_enabled_binding_1 = args
+        let redrive_allow_policy_binding = args.redrive_allow_policy.get_output(context);
+        let redrive_policy_binding = args.redrive_policy.get_output(context);
+        let sqs_managed_sse_enabled_binding = args
             .sqs_managed_sse_enabled
             .get_output(context);
-        let sqs_managed_sse_enabled_binding = sqs_managed_sse_enabled_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let visibility_timeout_seconds_binding_1 = args
+        let tags_binding = args.tags.get_output(context);
+        let visibility_timeout_seconds_binding = args
             .visibility_timeout_seconds
             .get_output(context);
-        let visibility_timeout_seconds_binding = visibility_timeout_seconds_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sqs/queue:Queue".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentBasedDeduplication".into(),
-                    value: &content_based_deduplication_binding,
+                    value: content_based_deduplication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deduplicationScope".into(),
-                    value: &deduplication_scope_binding,
+                    value: deduplication_scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delaySeconds".into(),
-                    value: &delay_seconds_binding,
+                    value: delay_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fifoQueue".into(),
-                    value: &fifo_queue_binding,
+                    value: fifo_queue_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fifoThroughputLimit".into(),
-                    value: &fifo_throughput_limit_binding,
+                    value: fifo_throughput_limit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsDataKeyReusePeriodSeconds".into(),
-                    value: &kms_data_key_reuse_period_seconds_binding,
+                    value: kms_data_key_reuse_period_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsMasterKeyId".into(),
-                    value: &kms_master_key_id_binding,
+                    value: kms_master_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxMessageSize".into(),
-                    value: &max_message_size_binding,
+                    value: max_message_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messageRetentionSeconds".into(),
-                    value: &message_retention_seconds_binding,
+                    value: message_retention_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "receiveWaitTimeSeconds".into(),
-                    value: &receive_wait_time_seconds_binding,
+                    value: receive_wait_time_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redriveAllowPolicy".into(),
-                    value: &redrive_allow_policy_binding,
+                    value: redrive_allow_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redrivePolicy".into(),
-                    value: &redrive_policy_binding,
+                    value: redrive_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqsManagedSseEnabled".into(),
-                    value: &sqs_managed_sse_enabled_binding,
+                    value: sqs_managed_sse_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "visibilityTimeoutSeconds".into(),
-                    value: &visibility_timeout_seconds_binding,
+                    value: visibility_timeout_seconds_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         QueueResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            content_based_deduplication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentBasedDeduplication"),
-            ),
-            deduplication_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deduplicationScope"),
-            ),
-            delay_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delaySeconds"),
-            ),
-            fifo_queue: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fifoQueue"),
-            ),
-            fifo_throughput_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fifoThroughputLimit"),
-            ),
-            kms_data_key_reuse_period_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsDataKeyReusePeriodSeconds"),
-            ),
-            kms_master_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsMasterKeyId"),
-            ),
-            max_message_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxMessageSize"),
-            ),
-            message_retention_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("messageRetentionSeconds"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            receive_wait_time_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("receiveWaitTimeSeconds"),
-            ),
-            redrive_allow_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redriveAllowPolicy"),
-            ),
-            redrive_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redrivePolicy"),
-            ),
-            sqs_managed_sse_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqsManagedSseEnabled"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
-            visibility_timeout_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("visibilityTimeoutSeconds"),
-            ),
+            arn: o.get_field("arn"),
+            content_based_deduplication: o.get_field("contentBasedDeduplication"),
+            deduplication_scope: o.get_field("deduplicationScope"),
+            delay_seconds: o.get_field("delaySeconds"),
+            fifo_queue: o.get_field("fifoQueue"),
+            fifo_throughput_limit: o.get_field("fifoThroughputLimit"),
+            kms_data_key_reuse_period_seconds: o
+                .get_field("kmsDataKeyReusePeriodSeconds"),
+            kms_master_key_id: o.get_field("kmsMasterKeyId"),
+            max_message_size: o.get_field("maxMessageSize"),
+            message_retention_seconds: o.get_field("messageRetentionSeconds"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            policy: o.get_field("policy"),
+            receive_wait_time_seconds: o.get_field("receiveWaitTimeSeconds"),
+            redrive_allow_policy: o.get_field("redriveAllowPolicy"),
+            redrive_policy: o.get_field("redrivePolicy"),
+            sqs_managed_sse_enabled: o.get_field("sqsManagedSseEnabled"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            url: o.get_field("url"),
+            visibility_timeout_seconds: o.get_field("visibilityTimeoutSeconds"),
         }
     }
 }

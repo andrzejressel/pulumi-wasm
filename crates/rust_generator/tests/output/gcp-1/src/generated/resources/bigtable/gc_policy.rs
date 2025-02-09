@@ -217,107 +217,82 @@ pub mod gc_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GCPolicyArgs,
     ) -> GCPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let column_family_binding_1 = args.column_family.get_output(context);
-        let column_family_binding = column_family_binding_1.get_inner();
-        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
-        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
-        let gc_rules_binding_1 = args.gc_rules.get_output(context);
-        let gc_rules_binding = gc_rules_binding_1.get_inner();
-        let ignore_warnings_binding_1 = args.ignore_warnings.get_output(context);
-        let ignore_warnings_binding = ignore_warnings_binding_1.get_inner();
-        let instance_name_binding_1 = args.instance_name.get_output(context);
-        let instance_name_binding = instance_name_binding_1.get_inner();
-        let max_age_binding_1 = args.max_age.get_output(context);
-        let max_age_binding = max_age_binding_1.get_inner();
-        let max_versions_binding_1 = args.max_versions.get_output(context);
-        let max_versions_binding = max_versions_binding_1.get_inner();
-        let mode_binding_1 = args.mode.get_output(context);
-        let mode_binding = mode_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let table_binding_1 = args.table.get_output(context);
-        let table_binding = table_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let column_family_binding = args.column_family.get_output(context);
+        let deletion_policy_binding = args.deletion_policy.get_output(context);
+        let gc_rules_binding = args.gc_rules.get_output(context);
+        let ignore_warnings_binding = args.ignore_warnings.get_output(context);
+        let instance_name_binding = args.instance_name.get_output(context);
+        let max_age_binding = args.max_age.get_output(context);
+        let max_versions_binding = args.max_versions.get_output(context);
+        let mode_binding = args.mode.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let table_binding = args.table.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:bigtable/gCPolicy:GCPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "columnFamily".into(),
-                    value: &column_family_binding,
+                    value: column_family_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: &deletion_policy_binding,
+                    value: deletion_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gcRules".into(),
-                    value: &gc_rules_binding,
+                    value: gc_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreWarnings".into(),
-                    value: &ignore_warnings_binding,
+                    value: ignore_warnings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceName".into(),
-                    value: &instance_name_binding,
+                    value: instance_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxAge".into(),
-                    value: &max_age_binding,
+                    value: max_age_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxVersions".into(),
-                    value: &max_versions_binding,
+                    value: max_versions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: &mode_binding,
+                    value: mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "table".into(),
-                    value: &table_binding,
+                    value: table_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GCPolicyResult {
-            column_family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("columnFamily"),
-            ),
-            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionPolicy"),
-            ),
-            gc_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gcRules"),
-            ),
-            ignore_warnings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoreWarnings"),
-            ),
-            instance_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceName"),
-            ),
-            max_age: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxAge"),
-            ),
-            max_versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxVersions"),
-            ),
-            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            table: pulumi_gestalt_rust::__private::into_domain(o.extract_field("table")),
+            column_family: o.get_field("columnFamily"),
+            deletion_policy: o.get_field("deletionPolicy"),
+            gc_rules: o.get_field("gcRules"),
+            ignore_warnings: o.get_field("ignoreWarnings"),
+            instance_name: o.get_field("instanceName"),
+            max_age: o.get_field("maxAge"),
+            max_versions: o.get_field("maxVersions"),
+            mode: o.get_field("mode"),
+            project: o.get_field("project"),
+            table: o.get_field("table"),
         }
     }
 }

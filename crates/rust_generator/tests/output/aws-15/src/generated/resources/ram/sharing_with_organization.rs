@@ -29,15 +29,16 @@ pub mod sharing_with_organization {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(context: &pulumi_gestalt_rust::PulumiContext, name: &str) {
+    pub fn create(context: &pulumi_gestalt_rust::Context, name: &str) {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ram/sharingWithOrganization:SharingWithOrganization".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([]),
+            object: &[],
         };
-        register_interface::register(context.get_inner(), &request);
+        context.register_resource(request);
     }
 }

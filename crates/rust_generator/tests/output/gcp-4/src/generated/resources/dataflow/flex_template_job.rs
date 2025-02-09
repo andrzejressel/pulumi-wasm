@@ -259,267 +259,187 @@ pub mod flex_template_job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FlexTemplateJobArgs,
     ) -> FlexTemplateJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_experiments_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_experiments_binding = args
             .additional_experiments
             .get_output(context);
-        let additional_experiments_binding = additional_experiments_binding_1
-            .get_inner();
-        let autoscaling_algorithm_binding_1 = args
+        let autoscaling_algorithm_binding = args
             .autoscaling_algorithm
             .get_output(context);
-        let autoscaling_algorithm_binding = autoscaling_algorithm_binding_1.get_inner();
-        let container_spec_gcs_path_binding_1 = args
+        let container_spec_gcs_path_binding = args
             .container_spec_gcs_path
             .get_output(context);
-        let container_spec_gcs_path_binding = container_spec_gcs_path_binding_1
-            .get_inner();
-        let enable_streaming_engine_binding_1 = args
+        let enable_streaming_engine_binding = args
             .enable_streaming_engine
             .get_output(context);
-        let enable_streaming_engine_binding = enable_streaming_engine_binding_1
-            .get_inner();
-        let ip_configuration_binding_1 = args.ip_configuration.get_output(context);
-        let ip_configuration_binding = ip_configuration_binding_1.get_inner();
-        let kms_key_name_binding_1 = args.kms_key_name.get_output(context);
-        let kms_key_name_binding = kms_key_name_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let launcher_machine_type_binding_1 = args
+        let ip_configuration_binding = args.ip_configuration.get_output(context);
+        let kms_key_name_binding = args.kms_key_name.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let launcher_machine_type_binding = args
             .launcher_machine_type
             .get_output(context);
-        let launcher_machine_type_binding = launcher_machine_type_binding_1.get_inner();
-        let machine_type_binding_1 = args.machine_type.get_output(context);
-        let machine_type_binding = machine_type_binding_1.get_inner();
-        let max_workers_binding_1 = args.max_workers.get_output(context);
-        let max_workers_binding = max_workers_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let num_workers_binding_1 = args.num_workers.get_output(context);
-        let num_workers_binding = num_workers_binding_1.get_inner();
-        let on_delete_binding_1 = args.on_delete.get_output(context);
-        let on_delete_binding = on_delete_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let sdk_container_image_binding_1 = args.sdk_container_image.get_output(context);
-        let sdk_container_image_binding = sdk_container_image_binding_1.get_inner();
-        let service_account_email_binding_1 = args
+        let machine_type_binding = args.machine_type.get_output(context);
+        let max_workers_binding = args.max_workers.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let num_workers_binding = args.num_workers.get_output(context);
+        let on_delete_binding = args.on_delete.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let sdk_container_image_binding = args.sdk_container_image.get_output(context);
+        let service_account_email_binding = args
             .service_account_email
             .get_output(context);
-        let service_account_email_binding = service_account_email_binding_1.get_inner();
-        let skip_wait_on_job_termination_binding_1 = args
+        let skip_wait_on_job_termination_binding = args
             .skip_wait_on_job_termination
             .get_output(context);
-        let skip_wait_on_job_termination_binding = skip_wait_on_job_termination_binding_1
-            .get_inner();
-        let staging_location_binding_1 = args.staging_location.get_output(context);
-        let staging_location_binding = staging_location_binding_1.get_inner();
-        let subnetwork_binding_1 = args.subnetwork.get_output(context);
-        let subnetwork_binding = subnetwork_binding_1.get_inner();
-        let temp_location_binding_1 = args.temp_location.get_output(context);
-        let temp_location_binding = temp_location_binding_1.get_inner();
-        let transform_name_mapping_binding_1 = args
+        let staging_location_binding = args.staging_location.get_output(context);
+        let subnetwork_binding = args.subnetwork.get_output(context);
+        let temp_location_binding = args.temp_location.get_output(context);
+        let transform_name_mapping_binding = args
             .transform_name_mapping
             .get_output(context);
-        let transform_name_mapping_binding = transform_name_mapping_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dataflow/flexTemplateJob:FlexTemplateJob".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalExperiments".into(),
-                    value: &additional_experiments_binding,
+                    value: additional_experiments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingAlgorithm".into(),
-                    value: &autoscaling_algorithm_binding,
+                    value: autoscaling_algorithm_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerSpecGcsPath".into(),
-                    value: &container_spec_gcs_path_binding,
+                    value: container_spec_gcs_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableStreamingEngine".into(),
-                    value: &enable_streaming_engine_binding,
+                    value: enable_streaming_engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipConfiguration".into(),
-                    value: &ip_configuration_binding,
+                    value: ip_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyName".into(),
-                    value: &kms_key_name_binding,
+                    value: kms_key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launcherMachineType".into(),
-                    value: &launcher_machine_type_binding,
+                    value: launcher_machine_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "machineType".into(),
-                    value: &machine_type_binding,
+                    value: machine_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxWorkers".into(),
-                    value: &max_workers_binding,
+                    value: max_workers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numWorkers".into(),
-                    value: &num_workers_binding,
+                    value: num_workers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onDelete".into(),
-                    value: &on_delete_binding,
+                    value: on_delete_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sdkContainerImage".into(),
-                    value: &sdk_container_image_binding,
+                    value: sdk_container_image_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountEmail".into(),
-                    value: &service_account_email_binding,
+                    value: service_account_email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipWaitOnJobTermination".into(),
-                    value: &skip_wait_on_job_termination_binding,
+                    value: skip_wait_on_job_termination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stagingLocation".into(),
-                    value: &staging_location_binding,
+                    value: staging_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetwork".into(),
-                    value: &subnetwork_binding,
+                    value: subnetwork_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tempLocation".into(),
-                    value: &temp_location_binding,
+                    value: temp_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transformNameMapping".into(),
-                    value: &transform_name_mapping_binding,
+                    value: transform_name_mapping_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FlexTemplateJobResult {
-            additional_experiments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalExperiments"),
-            ),
-            autoscaling_algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscalingAlgorithm"),
-            ),
-            container_spec_gcs_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerSpecGcsPath"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            enable_streaming_engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableStreamingEngine"),
-            ),
-            ip_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipConfiguration"),
-            ),
-            job_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobId"),
-            ),
-            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyName"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            launcher_machine_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launcherMachineType"),
-            ),
-            machine_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("machineType"),
-            ),
-            max_workers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxWorkers"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            num_workers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numWorkers"),
-            ),
-            on_delete: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("onDelete"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            sdk_container_image: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sdkContainerImage"),
-            ),
-            service_account_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountEmail"),
-            ),
-            skip_wait_on_job_termination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipWaitOnJobTermination"),
-            ),
-            staging_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stagingLocation"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            subnetwork: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetwork"),
-            ),
-            temp_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tempLocation"),
-            ),
-            transform_name_mapping: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transformNameMapping"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            additional_experiments: o.get_field("additionalExperiments"),
+            autoscaling_algorithm: o.get_field("autoscalingAlgorithm"),
+            container_spec_gcs_path: o.get_field("containerSpecGcsPath"),
+            effective_labels: o.get_field("effectiveLabels"),
+            enable_streaming_engine: o.get_field("enableStreamingEngine"),
+            ip_configuration: o.get_field("ipConfiguration"),
+            job_id: o.get_field("jobId"),
+            kms_key_name: o.get_field("kmsKeyName"),
+            labels: o.get_field("labels"),
+            launcher_machine_type: o.get_field("launcherMachineType"),
+            machine_type: o.get_field("machineType"),
+            max_workers: o.get_field("maxWorkers"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            num_workers: o.get_field("numWorkers"),
+            on_delete: o.get_field("onDelete"),
+            parameters: o.get_field("parameters"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            region: o.get_field("region"),
+            sdk_container_image: o.get_field("sdkContainerImage"),
+            service_account_email: o.get_field("serviceAccountEmail"),
+            skip_wait_on_job_termination: o.get_field("skipWaitOnJobTermination"),
+            staging_location: o.get_field("stagingLocation"),
+            state: o.get_field("state"),
+            subnetwork: o.get_field("subnetwork"),
+            temp_location: o.get_field("tempLocation"),
+            transform_name_mapping: o.get_field("transformNameMapping"),
+            type_: o.get_field("type"),
         }
     }
 }

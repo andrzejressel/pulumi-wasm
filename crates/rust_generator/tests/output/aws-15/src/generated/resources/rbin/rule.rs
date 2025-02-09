@@ -101,86 +101,63 @@ pub mod rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RuleArgs,
     ) -> RuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let lock_configuration_binding_1 = args.lock_configuration.get_output(context);
-        let lock_configuration_binding = lock_configuration_binding_1.get_inner();
-        let resource_tags_binding_1 = args.resource_tags.get_output(context);
-        let resource_tags_binding = resource_tags_binding_1.get_inner();
-        let resource_type_binding_1 = args.resource_type.get_output(context);
-        let resource_type_binding = resource_type_binding_1.get_inner();
-        let retention_period_binding_1 = args.retention_period.get_output(context);
-        let retention_period_binding = retention_period_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let lock_configuration_binding = args.lock_configuration.get_output(context);
+        let resource_tags_binding = args.resource_tags.get_output(context);
+        let resource_type_binding = args.resource_type.get_output(context);
+        let retention_period_binding = args.retention_period.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rbin/rule:Rule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lockConfiguration".into(),
-                    value: &lock_configuration_binding,
+                    value: lock_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTags".into(),
-                    value: &resource_tags_binding,
+                    value: resource_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceType".into(),
-                    value: &resource_type_binding,
+                    value: resource_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPeriod".into(),
-                    value: &retention_period_binding,
+                    value: retention_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RuleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            lock_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lockConfiguration"),
-            ),
-            lock_end_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lockEndTime"),
-            ),
-            lock_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lockState"),
-            ),
-            resource_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceTags"),
-            ),
-            resource_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceType"),
-            ),
-            retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionPeriod"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            lock_configuration: o.get_field("lockConfiguration"),
+            lock_end_time: o.get_field("lockEndTime"),
+            lock_state: o.get_field("lockState"),
+            resource_tags: o.get_field("resourceTags"),
+            resource_type: o.get_field("resourceType"),
+            retention_period: o.get_field("retentionPeriod"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

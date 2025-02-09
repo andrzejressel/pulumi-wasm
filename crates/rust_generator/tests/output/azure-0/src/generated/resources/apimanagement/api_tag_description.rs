@@ -99,63 +99,51 @@ pub mod api_tag_description {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiTagDescriptionArgs,
     ) -> ApiTagDescriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_tag_id_binding_1 = args.api_tag_id.get_output(context);
-        let api_tag_id_binding = api_tag_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let external_documentation_description_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_tag_id_binding = args.api_tag_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let external_documentation_description_binding = args
             .external_documentation_description
             .get_output(context);
-        let external_documentation_description_binding = external_documentation_description_binding_1
-            .get_inner();
-        let external_documentation_url_binding_1 = args
+        let external_documentation_url_binding = args
             .external_documentation_url
             .get_output(context);
-        let external_documentation_url_binding = external_documentation_url_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/apiTagDescription:ApiTagDescription".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiTagId".into(),
-                    value: &api_tag_id_binding,
+                    value: api_tag_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalDocumentationDescription".into(),
-                    value: &external_documentation_description_binding,
+                    value: external_documentation_description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalDocumentationUrl".into(),
-                    value: &external_documentation_url_binding,
+                    value: external_documentation_url_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiTagDescriptionResult {
-            api_tag_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiTagId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            external_documentation_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalDocumentationDescription"),
-            ),
-            external_documentation_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalDocumentationUrl"),
-            ),
+            api_tag_id: o.get_field("apiTagId"),
+            description: o.get_field("description"),
+            external_documentation_description: o
+                .get_field("externalDocumentationDescription"),
+            external_documentation_url: o.get_field("externalDocumentationUrl"),
         }
     }
 }

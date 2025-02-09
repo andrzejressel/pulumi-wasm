@@ -276,137 +276,101 @@ pub mod cx_security_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CxSecuritySettingsArgs,
     ) -> CxSecuritySettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audio_export_settings_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let audio_export_settings_binding = args
             .audio_export_settings
             .get_output(context);
-        let audio_export_settings_binding = audio_export_settings_binding_1.get_inner();
-        let deidentify_template_binding_1 = args.deidentify_template.get_output(context);
-        let deidentify_template_binding = deidentify_template_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let insights_export_settings_binding_1 = args
+        let deidentify_template_binding = args.deidentify_template.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let insights_export_settings_binding = args
             .insights_export_settings
             .get_output(context);
-        let insights_export_settings_binding = insights_export_settings_binding_1
-            .get_inner();
-        let inspect_template_binding_1 = args.inspect_template.get_output(context);
-        let inspect_template_binding = inspect_template_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let purge_data_types_binding_1 = args.purge_data_types.get_output(context);
-        let purge_data_types_binding = purge_data_types_binding_1.get_inner();
-        let redaction_scope_binding_1 = args.redaction_scope.get_output(context);
-        let redaction_scope_binding = redaction_scope_binding_1.get_inner();
-        let redaction_strategy_binding_1 = args.redaction_strategy.get_output(context);
-        let redaction_strategy_binding = redaction_strategy_binding_1.get_inner();
-        let retention_strategy_binding_1 = args.retention_strategy.get_output(context);
-        let retention_strategy_binding = retention_strategy_binding_1.get_inner();
-        let retention_window_days_binding_1 = args
+        let inspect_template_binding = args.inspect_template.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let purge_data_types_binding = args.purge_data_types.get_output(context);
+        let redaction_scope_binding = args.redaction_scope.get_output(context);
+        let redaction_strategy_binding = args.redaction_strategy.get_output(context);
+        let retention_strategy_binding = args.retention_strategy.get_output(context);
+        let retention_window_days_binding = args
             .retention_window_days
             .get_output(context);
-        let retention_window_days_binding = retention_window_days_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:diagflow/cxSecuritySettings:CxSecuritySettings".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "audioExportSettings".into(),
-                    value: &audio_export_settings_binding,
+                    value: audio_export_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deidentifyTemplate".into(),
-                    value: &deidentify_template_binding,
+                    value: deidentify_template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insightsExportSettings".into(),
-                    value: &insights_export_settings_binding,
+                    value: insights_export_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inspectTemplate".into(),
-                    value: &inspect_template_binding,
+                    value: inspect_template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purgeDataTypes".into(),
-                    value: &purge_data_types_binding,
+                    value: purge_data_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redactionScope".into(),
-                    value: &redaction_scope_binding,
+                    value: redaction_scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redactionStrategy".into(),
-                    value: &redaction_strategy_binding,
+                    value: redaction_strategy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionStrategy".into(),
-                    value: &retention_strategy_binding,
+                    value: retention_strategy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionWindowDays".into(),
-                    value: &retention_window_days_binding,
+                    value: retention_window_days_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CxSecuritySettingsResult {
-            audio_export_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("audioExportSettings"),
-            ),
-            deidentify_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deidentifyTemplate"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            insights_export_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("insightsExportSettings"),
-            ),
-            inspect_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inspectTemplate"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            purge_data_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("purgeDataTypes"),
-            ),
-            redaction_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redactionScope"),
-            ),
-            redaction_strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redactionStrategy"),
-            ),
-            retention_strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionStrategy"),
-            ),
-            retention_window_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionWindowDays"),
-            ),
+            audio_export_settings: o.get_field("audioExportSettings"),
+            deidentify_template: o.get_field("deidentifyTemplate"),
+            display_name: o.get_field("displayName"),
+            insights_export_settings: o.get_field("insightsExportSettings"),
+            inspect_template: o.get_field("inspectTemplate"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            purge_data_types: o.get_field("purgeDataTypes"),
+            redaction_scope: o.get_field("redactionScope"),
+            redaction_strategy: o.get_field("redactionStrategy"),
+            retention_strategy: o.get_field("retentionStrategy"),
+            retention_window_days: o.get_field("retentionWindowDays"),
         }
     }
 }

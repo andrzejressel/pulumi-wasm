@@ -345,125 +345,91 @@ pub mod ai_index_endpoint_deployed_index {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AiIndexEndpointDeployedIndexArgs,
     ) -> AiIndexEndpointDeployedIndexResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automatic_resources_binding_1 = args.automatic_resources.get_output(context);
-        let automatic_resources_binding = automatic_resources_binding_1.get_inner();
-        let dedicated_resources_binding_1 = args.dedicated_resources.get_output(context);
-        let dedicated_resources_binding = dedicated_resources_binding_1.get_inner();
-        let deployed_index_auth_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let automatic_resources_binding = args.automatic_resources.get_output(context);
+        let dedicated_resources_binding = args.dedicated_resources.get_output(context);
+        let deployed_index_auth_config_binding = args
             .deployed_index_auth_config
             .get_output(context);
-        let deployed_index_auth_config_binding = deployed_index_auth_config_binding_1
-            .get_inner();
-        let deployed_index_id_binding_1 = args.deployed_index_id.get_output(context);
-        let deployed_index_id_binding = deployed_index_id_binding_1.get_inner();
-        let deployment_group_binding_1 = args.deployment_group.get_output(context);
-        let deployment_group_binding = deployment_group_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enable_access_logging_binding_1 = args
+        let deployed_index_id_binding = args.deployed_index_id.get_output(context);
+        let deployment_group_binding = args.deployment_group.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let enable_access_logging_binding = args
             .enable_access_logging
             .get_output(context);
-        let enable_access_logging_binding = enable_access_logging_binding_1.get_inner();
-        let index_binding_1 = args.index.get_output(context);
-        let index_binding = index_binding_1.get_inner();
-        let index_endpoint_binding_1 = args.index_endpoint.get_output(context);
-        let index_endpoint_binding = index_endpoint_binding_1.get_inner();
-        let reserved_ip_ranges_binding_1 = args.reserved_ip_ranges.get_output(context);
-        let reserved_ip_ranges_binding = reserved_ip_ranges_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let index_binding = args.index.get_output(context);
+        let index_endpoint_binding = args.index_endpoint.get_output(context);
+        let reserved_ip_ranges_binding = args.reserved_ip_ranges.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:vertex/aiIndexEndpointDeployedIndex:AiIndexEndpointDeployedIndex"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticResources".into(),
-                    value: &automatic_resources_binding,
+                    value: automatic_resources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dedicatedResources".into(),
-                    value: &dedicated_resources_binding,
+                    value: dedicated_resources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deployedIndexAuthConfig".into(),
-                    value: &deployed_index_auth_config_binding,
+                    value: deployed_index_auth_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deployedIndexId".into(),
-                    value: &deployed_index_id_binding,
+                    value: deployed_index_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentGroup".into(),
-                    value: &deployment_group_binding,
+                    value: deployment_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableAccessLogging".into(),
-                    value: &enable_access_logging_binding,
+                    value: enable_access_logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "index".into(),
-                    value: &index_binding,
+                    value: index_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexEndpoint".into(),
-                    value: &index_endpoint_binding,
+                    value: index_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservedIpRanges".into(),
-                    value: &reserved_ip_ranges_binding,
+                    value: reserved_ip_ranges_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AiIndexEndpointDeployedIndexResult {
-            automatic_resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automaticResources"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            dedicated_resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dedicatedResources"),
-            ),
-            deployed_index_auth_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deployedIndexAuthConfig"),
-            ),
-            deployed_index_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deployedIndexId"),
-            ),
-            deployment_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentGroup"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enable_access_logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableAccessLogging"),
-            ),
-            index: pulumi_gestalt_rust::__private::into_domain(o.extract_field("index")),
-            index_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("indexEndpoint"),
-            ),
-            index_sync_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("indexSyncTime"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateEndpoints"),
-            ),
-            reserved_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservedIpRanges"),
-            ),
+            automatic_resources: o.get_field("automaticResources"),
+            create_time: o.get_field("createTime"),
+            dedicated_resources: o.get_field("dedicatedResources"),
+            deployed_index_auth_config: o.get_field("deployedIndexAuthConfig"),
+            deployed_index_id: o.get_field("deployedIndexId"),
+            deployment_group: o.get_field("deploymentGroup"),
+            display_name: o.get_field("displayName"),
+            enable_access_logging: o.get_field("enableAccessLogging"),
+            index: o.get_field("index"),
+            index_endpoint: o.get_field("indexEndpoint"),
+            index_sync_time: o.get_field("indexSyncTime"),
+            name: o.get_field("name"),
+            private_endpoints: o.get_field("privateEndpoints"),
+            reserved_ip_ranges: o.get_field("reservedIpRanges"),
         }
     }
 }

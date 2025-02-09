@@ -76,48 +76,40 @@ pub mod user_in_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserInGroupArgs,
     ) -> UserInGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_name_binding_1 = args.group_name.get_output(context);
-        let group_name_binding = group_name_binding_1.get_inner();
-        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
-        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
-        let username_binding_1 = args.username.get_output(context);
-        let username_binding = username_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let group_name_binding = args.group_name.get_output(context);
+        let user_pool_id_binding = args.user_pool_id.get_output(context);
+        let username_binding = args.username.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cognito/userInGroup:UserInGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupName".into(),
-                    value: &group_name_binding,
+                    value: group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolId".into(),
-                    value: &user_pool_id_binding,
+                    value: user_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: &username_binding,
+                    value: username_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserInGroupResult {
-            group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupName"),
-            ),
-            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPoolId"),
-            ),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
+            group_name: o.get_field("groupName"),
+            user_pool_id: o.get_field("userPoolId"),
+            username: o.get_field("username"),
         }
     }
 }

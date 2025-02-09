@@ -29,44 +29,37 @@ pub mod get_db_servers {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDbServersArgs,
     ) -> GetDbServersResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloud_exadata_infrastructure_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cloud_exadata_infrastructure_name_binding = args
             .cloud_exadata_infrastructure_name
             .get_output(context);
-        let cloud_exadata_infrastructure_name_binding = cloud_exadata_infrastructure_name_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:oracle/getDbServers:getDbServers".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudExadataInfrastructureName".into(),
-                    value: &cloud_exadata_infrastructure_name_binding,
+                    value: cloud_exadata_infrastructure_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDbServersResult {
-            cloud_exadata_infrastructure_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudExadataInfrastructureName"),
-            ),
-            db_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbServers"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            cloud_exadata_infrastructure_name: o
+                .get_field("cloudExadataInfrastructureName"),
+            db_servers: o.get_field("dbServers"),
+            id: o.get_field("id"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

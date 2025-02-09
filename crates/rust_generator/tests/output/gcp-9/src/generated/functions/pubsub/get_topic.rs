@@ -46,60 +46,41 @@ pub mod get_topic {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTopicArgs,
     ) -> GetTopicResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:pubsub/getTopic:getTopic".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTopicResult {
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ingestion_data_source_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingestionDataSourceSettings"),
-            ),
-            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyName"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            message_retention_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("messageRetentionDuration"),
-            ),
-            message_storage_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("messageStoragePolicies"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            schema_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schemaSettings"),
-            ),
+            effective_labels: o.get_field("effectiveLabels"),
+            id: o.get_field("id"),
+            ingestion_data_source_settings: o.get_field("ingestionDataSourceSettings"),
+            kms_key_name: o.get_field("kmsKeyName"),
+            labels: o.get_field("labels"),
+            message_retention_duration: o.get_field("messageRetentionDuration"),
+            message_storage_policies: o.get_field("messageStoragePolicies"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            schema_settings: o.get_field("schemaSettings"),
         }
     }
 }

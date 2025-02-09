@@ -174,118 +174,88 @@ pub mod diagnostic_setting {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DiagnosticSettingArgs,
     ) -> DiagnosticSettingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enabled_logs_binding_1 = args.enabled_logs.get_output(context);
-        let enabled_logs_binding = enabled_logs_binding_1.get_inner();
-        let eventhub_authorization_rule_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let enabled_logs_binding = args.enabled_logs.get_output(context);
+        let eventhub_authorization_rule_id_binding = args
             .eventhub_authorization_rule_id
             .get_output(context);
-        let eventhub_authorization_rule_id_binding = eventhub_authorization_rule_id_binding_1
-            .get_inner();
-        let eventhub_name_binding_1 = args.eventhub_name.get_output(context);
-        let eventhub_name_binding = eventhub_name_binding_1.get_inner();
-        let log_analytics_destination_type_binding_1 = args
+        let eventhub_name_binding = args.eventhub_name.get_output(context);
+        let log_analytics_destination_type_binding = args
             .log_analytics_destination_type
             .get_output(context);
-        let log_analytics_destination_type_binding = log_analytics_destination_type_binding_1
-            .get_inner();
-        let log_analytics_workspace_id_binding_1 = args
+        let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
             .get_output(context);
-        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
-            .get_inner();
-        let metrics_binding_1 = args.metrics.get_output(context);
-        let metrics_binding = metrics_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let partner_solution_id_binding_1 = args.partner_solution_id.get_output(context);
-        let partner_solution_id_binding = partner_solution_id_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let target_resource_id_binding_1 = args.target_resource_id.get_output(context);
-        let target_resource_id_binding = target_resource_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let metrics_binding = args.metrics.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let partner_solution_id_binding = args.partner_solution_id.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let target_resource_id_binding = args.target_resource_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:monitoring/diagnosticSetting:DiagnosticSetting".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabledLogs".into(),
-                    value: &enabled_logs_binding,
+                    value: enabled_logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubAuthorizationRuleId".into(),
-                    value: &eventhub_authorization_rule_id_binding,
+                    value: eventhub_authorization_rule_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubName".into(),
-                    value: &eventhub_name_binding,
+                    value: eventhub_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsDestinationType".into(),
-                    value: &log_analytics_destination_type_binding,
+                    value: log_analytics_destination_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: &log_analytics_workspace_id_binding,
+                    value: log_analytics_workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metrics".into(),
-                    value: &metrics_binding,
+                    value: metrics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partnerSolutionId".into(),
-                    value: &partner_solution_id_binding,
+                    value: partner_solution_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceId".into(),
-                    value: &target_resource_id_binding,
+                    value: target_resource_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DiagnosticSettingResult {
-            enabled_logs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabledLogs"),
-            ),
-            eventhub_authorization_rule_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventhubAuthorizationRuleId"),
-            ),
-            eventhub_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventhubName"),
-            ),
-            log_analytics_destination_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logAnalyticsDestinationType"),
-            ),
-            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logAnalyticsWorkspaceId"),
-            ),
-            metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metrics"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            partner_solution_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partnerSolutionId"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
-            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetResourceId"),
-            ),
+            enabled_logs: o.get_field("enabledLogs"),
+            eventhub_authorization_rule_id: o.get_field("eventhubAuthorizationRuleId"),
+            eventhub_name: o.get_field("eventhubName"),
+            log_analytics_destination_type: o.get_field("logAnalyticsDestinationType"),
+            log_analytics_workspace_id: o.get_field("logAnalyticsWorkspaceId"),
+            metrics: o.get_field("metrics"),
+            name: o.get_field("name"),
+            partner_solution_id: o.get_field("partnerSolutionId"),
+            storage_account_id: o.get_field("storageAccountId"),
+            target_resource_id: o.get_field("targetResourceId"),
         }
     }
 }

@@ -226,87 +226,68 @@ pub mod prevention_stored_info_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PreventionStoredInfoTypeArgs,
     ) -> PreventionStoredInfoTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dictionary_binding_1 = args.dictionary.get_output(context);
-        let dictionary_binding = dictionary_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let large_custom_dictionary_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let dictionary_binding = args.dictionary.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let large_custom_dictionary_binding = args
             .large_custom_dictionary
             .get_output(context);
-        let large_custom_dictionary_binding = large_custom_dictionary_binding_1
-            .get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let regex_binding_1 = args.regex.get_output(context);
-        let regex_binding = regex_binding_1.get_inner();
-        let stored_info_type_id_binding_1 = args.stored_info_type_id.get_output(context);
-        let stored_info_type_id_binding = stored_info_type_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let parent_binding = args.parent.get_output(context);
+        let regex_binding = args.regex.get_output(context);
+        let stored_info_type_id_binding = args.stored_info_type_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dataloss/preventionStoredInfoType:PreventionStoredInfoType"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dictionary".into(),
-                    value: &dictionary_binding,
+                    value: dictionary_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "largeCustomDictionary".into(),
-                    value: &large_custom_dictionary_binding,
+                    value: large_custom_dictionary_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regex".into(),
-                    value: &regex_binding,
+                    value: regex_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storedInfoTypeId".into(),
-                    value: &stored_info_type_id_binding,
+                    value: stored_info_type_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PreventionStoredInfoTypeResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dictionary: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dictionary"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            large_custom_dictionary: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("largeCustomDictionary"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            regex: pulumi_gestalt_rust::__private::into_domain(o.extract_field("regex")),
-            stored_info_type_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storedInfoTypeId"),
-            ),
+            description: o.get_field("description"),
+            dictionary: o.get_field("dictionary"),
+            display_name: o.get_field("displayName"),
+            large_custom_dictionary: o.get_field("largeCustomDictionary"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            regex: o.get_field("regex"),
+            stored_info_type_id: o.get_field("storedInfoTypeId"),
         }
     }
 }

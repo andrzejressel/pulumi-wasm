@@ -63,39 +63,34 @@ pub mod instance_public_ports {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstancePublicPortsArgs,
     ) -> InstancePublicPortsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_name_binding_1 = args.instance_name.get_output(context);
-        let instance_name_binding = instance_name_binding_1.get_inner();
-        let port_infos_binding_1 = args.port_infos.get_output(context);
-        let port_infos_binding = port_infos_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let instance_name_binding = args.instance_name.get_output(context);
+        let port_infos_binding = args.port_infos.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lightsail/instancePublicPorts:InstancePublicPorts".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceName".into(),
-                    value: &instance_name_binding,
+                    value: instance_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portInfos".into(),
-                    value: &port_infos_binding,
+                    value: port_infos_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstancePublicPortsResult {
-            instance_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceName"),
-            ),
-            port_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("portInfos"),
-            ),
+            instance_name: o.get_field("instanceName"),
+            port_infos: o.get_field("portInfos"),
         }
     }
 }

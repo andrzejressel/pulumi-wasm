@@ -87,67 +87,56 @@ pub mod hyperv_network_mapping {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HypervNetworkMappingArgs,
     ) -> HypervNetworkMappingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let recovery_vault_id_binding_1 = args.recovery_vault_id.get_output(context);
-        let recovery_vault_id_binding = recovery_vault_id_binding_1.get_inner();
-        let source_network_name_binding_1 = args.source_network_name.get_output(context);
-        let source_network_name_binding = source_network_name_binding_1.get_inner();
-        let source_system_center_virtual_machine_manager_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let recovery_vault_id_binding = args.recovery_vault_id.get_output(context);
+        let source_network_name_binding = args.source_network_name.get_output(context);
+        let source_system_center_virtual_machine_manager_name_binding = args
             .source_system_center_virtual_machine_manager_name
             .get_output(context);
-        let source_system_center_virtual_machine_manager_name_binding = source_system_center_virtual_machine_manager_name_binding_1
-            .get_inner();
-        let target_network_id_binding_1 = args.target_network_id.get_output(context);
-        let target_network_id_binding = target_network_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let target_network_id_binding = args.target_network_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultId".into(),
-                    value: &recovery_vault_id_binding,
+                    value: recovery_vault_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceNetworkName".into(),
-                    value: &source_network_name_binding,
+                    value: source_network_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceSystemCenterVirtualMachineManagerName".into(),
-                    value: &source_system_center_virtual_machine_manager_name_binding,
+                    value: source_system_center_virtual_machine_manager_name_binding
+                        .get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetNetworkId".into(),
-                    value: &target_network_id_binding,
+                    value: target_network_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HypervNetworkMappingResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            recovery_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recoveryVaultId"),
-            ),
-            source_network_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceNetworkName"),
-            ),
-            source_system_center_virtual_machine_manager_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceSystemCenterVirtualMachineManagerName"),
-            ),
-            target_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetNetworkId"),
-            ),
+            name: o.get_field("name"),
+            recovery_vault_id: o.get_field("recoveryVaultId"),
+            source_network_name: o.get_field("sourceNetworkName"),
+            source_system_center_virtual_machine_manager_name: o
+                .get_field("sourceSystemCenterVirtualMachineManagerName"),
+            target_network_id: o.get_field("targetNetworkId"),
         }
     }
 }

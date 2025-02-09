@@ -83,50 +83,42 @@ pub mod dedicated_ip_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DedicatedIpPoolArgs,
     ) -> DedicatedIpPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let pool_name_binding_1 = args.pool_name.get_output(context);
-        let pool_name_binding = pool_name_binding_1.get_inner();
-        let scaling_mode_binding_1 = args.scaling_mode.get_output(context);
-        let scaling_mode_binding = scaling_mode_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let pool_name_binding = args.pool_name.get_output(context);
+        let scaling_mode_binding = args.scaling_mode.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sesv2/dedicatedIpPool:DedicatedIpPool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "poolName".into(),
-                    value: &pool_name_binding,
+                    value: pool_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingMode".into(),
-                    value: &scaling_mode_binding,
+                    value: scaling_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DedicatedIpPoolResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            pool_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("poolName"),
-            ),
-            scaling_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalingMode"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            pool_name: o.get_field("poolName"),
+            scaling_mode: o.get_field("scalingMode"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

@@ -287,310 +287,216 @@ pub mod windows_web_app {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WindowsWebAppArgs,
     ) -> WindowsWebAppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_settings_binding_1 = args.app_settings.get_output(context);
-        let app_settings_binding = app_settings_binding_1.get_inner();
-        let auth_settings_binding_1 = args.auth_settings.get_output(context);
-        let auth_settings_binding = auth_settings_binding_1.get_inner();
-        let auth_settings_v2_binding_1 = args.auth_settings_v2.get_output(context);
-        let auth_settings_v2_binding = auth_settings_v2_binding_1.get_inner();
-        let backup_binding_1 = args.backup.get_output(context);
-        let backup_binding = backup_binding_1.get_inner();
-        let client_affinity_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_settings_binding = args.app_settings.get_output(context);
+        let auth_settings_binding = args.auth_settings.get_output(context);
+        let auth_settings_v2_binding = args.auth_settings_v2.get_output(context);
+        let backup_binding = args.backup.get_output(context);
+        let client_affinity_enabled_binding = args
             .client_affinity_enabled
             .get_output(context);
-        let client_affinity_enabled_binding = client_affinity_enabled_binding_1
-            .get_inner();
-        let client_certificate_enabled_binding_1 = args
+        let client_certificate_enabled_binding = args
             .client_certificate_enabled
             .get_output(context);
-        let client_certificate_enabled_binding = client_certificate_enabled_binding_1
-            .get_inner();
-        let client_certificate_exclusion_paths_binding_1 = args
+        let client_certificate_exclusion_paths_binding = args
             .client_certificate_exclusion_paths
             .get_output(context);
-        let client_certificate_exclusion_paths_binding = client_certificate_exclusion_paths_binding_1
-            .get_inner();
-        let client_certificate_mode_binding_1 = args
+        let client_certificate_mode_binding = args
             .client_certificate_mode
             .get_output(context);
-        let client_certificate_mode_binding = client_certificate_mode_binding_1
-            .get_inner();
-        let connection_strings_binding_1 = args.connection_strings.get_output(context);
-        let connection_strings_binding = connection_strings_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let ftp_publish_basic_authentication_enabled_binding_1 = args
+        let connection_strings_binding = args.connection_strings.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let ftp_publish_basic_authentication_enabled_binding = args
             .ftp_publish_basic_authentication_enabled
             .get_output(context);
-        let ftp_publish_basic_authentication_enabled_binding = ftp_publish_basic_authentication_enabled_binding_1
-            .get_inner();
-        let https_only_binding_1 = args.https_only.get_output(context);
-        let https_only_binding = https_only_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let key_vault_reference_identity_id_binding_1 = args
+        let https_only_binding = args.https_only.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let key_vault_reference_identity_id_binding = args
             .key_vault_reference_identity_id
             .get_output(context);
-        let key_vault_reference_identity_id_binding = key_vault_reference_identity_id_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let logs_binding_1 = args.logs.get_output(context);
-        let logs_binding = logs_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let logs_binding = args.logs.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let service_plan_id_binding_1 = args.service_plan_id.get_output(context);
-        let service_plan_id_binding = service_plan_id_binding_1.get_inner();
-        let site_config_binding_1 = args.site_config.get_output(context);
-        let site_config_binding = site_config_binding_1.get_inner();
-        let sticky_settings_binding_1 = args.sticky_settings.get_output(context);
-        let sticky_settings_binding = sticky_settings_binding_1.get_inner();
-        let storage_accounts_binding_1 = args.storage_accounts.get_output(context);
-        let storage_accounts_binding = storage_accounts_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let virtual_network_subnet_id_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let service_plan_id_binding = args.service_plan_id.get_output(context);
+        let site_config_binding = args.site_config.get_output(context);
+        let sticky_settings_binding = args.sticky_settings.get_output(context);
+        let storage_accounts_binding = args.storage_accounts.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let virtual_network_subnet_id_binding = args
             .virtual_network_subnet_id
             .get_output(context);
-        let virtual_network_subnet_id_binding = virtual_network_subnet_id_binding_1
-            .get_inner();
-        let webdeploy_publish_basic_authentication_enabled_binding_1 = args
+        let webdeploy_publish_basic_authentication_enabled_binding = args
             .webdeploy_publish_basic_authentication_enabled
             .get_output(context);
-        let webdeploy_publish_basic_authentication_enabled_binding = webdeploy_publish_basic_authentication_enabled_binding_1
-            .get_inner();
-        let zip_deploy_file_binding_1 = args.zip_deploy_file.get_output(context);
-        let zip_deploy_file_binding = zip_deploy_file_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let zip_deploy_file_binding = args.zip_deploy_file.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appservice/windowsWebApp:WindowsWebApp".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appSettings".into(),
-                    value: &app_settings_binding,
+                    value: app_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authSettings".into(),
-                    value: &auth_settings_binding,
+                    value: auth_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authSettingsV2".into(),
-                    value: &auth_settings_v2_binding,
+                    value: auth_settings_v2_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backup".into(),
-                    value: &backup_binding,
+                    value: backup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientAffinityEnabled".into(),
-                    value: &client_affinity_enabled_binding,
+                    value: client_affinity_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificateEnabled".into(),
-                    value: &client_certificate_enabled_binding,
+                    value: client_certificate_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificateExclusionPaths".into(),
-                    value: &client_certificate_exclusion_paths_binding,
+                    value: client_certificate_exclusion_paths_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificateMode".into(),
-                    value: &client_certificate_mode_binding,
+                    value: client_certificate_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionStrings".into(),
-                    value: &connection_strings_binding,
+                    value: connection_strings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ftpPublishBasicAuthenticationEnabled".into(),
-                    value: &ftp_publish_basic_authentication_enabled_binding,
+                    value: ftp_publish_basic_authentication_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsOnly".into(),
-                    value: &https_only_binding,
+                    value: https_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultReferenceIdentityId".into(),
-                    value: &key_vault_reference_identity_id_binding,
+                    value: key_vault_reference_identity_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logs".into(),
-                    value: &logs_binding,
+                    value: logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePlanId".into(),
-                    value: &service_plan_id_binding,
+                    value: service_plan_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteConfig".into(),
-                    value: &site_config_binding,
+                    value: site_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stickySettings".into(),
-                    value: &sticky_settings_binding,
+                    value: sticky_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccounts".into(),
-                    value: &storage_accounts_binding,
+                    value: storage_accounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkSubnetId".into(),
-                    value: &virtual_network_subnet_id_binding,
+                    value: virtual_network_subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webdeployPublishBasicAuthenticationEnabled".into(),
-                    value: &webdeploy_publish_basic_authentication_enabled_binding,
+                    value: webdeploy_publish_basic_authentication_enabled_binding
+                        .get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zipDeployFile".into(),
-                    value: &zip_deploy_file_binding,
+                    value: zip_deploy_file_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WindowsWebAppResult {
-            app_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appSettings"),
-            ),
-            auth_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authSettings"),
-            ),
-            auth_settings_v2: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authSettingsV2"),
-            ),
-            backup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backup"),
-            ),
-            client_affinity_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientAffinityEnabled"),
-            ),
-            client_certificate_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientCertificateEnabled"),
-            ),
-            client_certificate_exclusion_paths: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientCertificateExclusionPaths"),
-            ),
-            client_certificate_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientCertificateMode"),
-            ),
-            connection_strings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionStrings"),
-            ),
-            custom_domain_verification_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDomainVerificationId"),
-            ),
-            default_hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultHostname"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            ftp_publish_basic_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ftpPublishBasicAuthenticationEnabled"),
-            ),
-            hosting_environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostingEnvironmentId"),
-            ),
-            https_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsOnly"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            key_vault_reference_identity_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultReferenceIdentityId"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            logs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("logs")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            outbound_ip_address_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outboundIpAddressLists"),
-            ),
-            outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outboundIpAddresses"),
-            ),
-            possible_outbound_ip_address_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("possibleOutboundIpAddressLists"),
-            ),
-            possible_outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("possibleOutboundIpAddresses"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            service_plan_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicePlanId"),
-            ),
-            site_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteConfig"),
-            ),
-            site_credentials: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteCredentials"),
-            ),
-            sticky_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stickySettings"),
-            ),
-            storage_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccounts"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_network_subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkSubnetId"),
-            ),
-            webdeploy_publish_basic_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webdeployPublishBasicAuthenticationEnabled"),
-            ),
-            zip_deploy_file: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zipDeployFile"),
-            ),
+            app_settings: o.get_field("appSettings"),
+            auth_settings: o.get_field("authSettings"),
+            auth_settings_v2: o.get_field("authSettingsV2"),
+            backup: o.get_field("backup"),
+            client_affinity_enabled: o.get_field("clientAffinityEnabled"),
+            client_certificate_enabled: o.get_field("clientCertificateEnabled"),
+            client_certificate_exclusion_paths: o
+                .get_field("clientCertificateExclusionPaths"),
+            client_certificate_mode: o.get_field("clientCertificateMode"),
+            connection_strings: o.get_field("connectionStrings"),
+            custom_domain_verification_id: o.get_field("customDomainVerificationId"),
+            default_hostname: o.get_field("defaultHostname"),
+            enabled: o.get_field("enabled"),
+            ftp_publish_basic_authentication_enabled: o
+                .get_field("ftpPublishBasicAuthenticationEnabled"),
+            hosting_environment_id: o.get_field("hostingEnvironmentId"),
+            https_only: o.get_field("httpsOnly"),
+            identity: o.get_field("identity"),
+            key_vault_reference_identity_id: o.get_field("keyVaultReferenceIdentityId"),
+            kind: o.get_field("kind"),
+            location: o.get_field("location"),
+            logs: o.get_field("logs"),
+            name: o.get_field("name"),
+            outbound_ip_address_lists: o.get_field("outboundIpAddressLists"),
+            outbound_ip_addresses: o.get_field("outboundIpAddresses"),
+            possible_outbound_ip_address_lists: o
+                .get_field("possibleOutboundIpAddressLists"),
+            possible_outbound_ip_addresses: o.get_field("possibleOutboundIpAddresses"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            service_plan_id: o.get_field("servicePlanId"),
+            site_config: o.get_field("siteConfig"),
+            site_credentials: o.get_field("siteCredentials"),
+            sticky_settings: o.get_field("stickySettings"),
+            storage_accounts: o.get_field("storageAccounts"),
+            tags: o.get_field("tags"),
+            virtual_network_subnet_id: o.get_field("virtualNetworkSubnetId"),
+            webdeploy_publish_basic_authentication_enabled: o
+                .get_field("webdeployPublishBasicAuthenticationEnabled"),
+            zip_deploy_file: o.get_field("zipDeployFile"),
         }
     }
 }

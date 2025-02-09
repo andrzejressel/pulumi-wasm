@@ -210,158 +210,111 @@ pub mod storage_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StoragePoolArgs,
     ) -> StoragePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_directory_binding_1 = args.active_directory.get_output(context);
-        let active_directory_binding = active_directory_binding_1.get_inner();
-        let allow_auto_tiering_binding_1 = args.allow_auto_tiering.get_output(context);
-        let allow_auto_tiering_binding = allow_auto_tiering_binding_1.get_inner();
-        let capacity_gib_binding_1 = args.capacity_gib.get_output(context);
-        let capacity_gib_binding = capacity_gib_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let kms_config_binding_1 = args.kms_config.get_output(context);
-        let kms_config_binding = kms_config_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let ldap_enabled_binding_1 = args.ldap_enabled.get_output(context);
-        let ldap_enabled_binding = ldap_enabled_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let replica_zone_binding_1 = args.replica_zone.get_output(context);
-        let replica_zone_binding = replica_zone_binding_1.get_inner();
-        let service_level_binding_1 = args.service_level.get_output(context);
-        let service_level_binding = service_level_binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let active_directory_binding = args.active_directory.get_output(context);
+        let allow_auto_tiering_binding = args.allow_auto_tiering.get_output(context);
+        let capacity_gib_binding = args.capacity_gib.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let kms_config_binding = args.kms_config.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let ldap_enabled_binding = args.ldap_enabled.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let replica_zone_binding = args.replica_zone.get_output(context);
+        let service_level_binding = args.service_level.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:netapp/storagePool:StoragePool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activeDirectory".into(),
-                    value: &active_directory_binding,
+                    value: active_directory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowAutoTiering".into(),
-                    value: &allow_auto_tiering_binding,
+                    value: allow_auto_tiering_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityGib".into(),
-                    value: &capacity_gib_binding,
+                    value: capacity_gib_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsConfig".into(),
-                    value: &kms_config_binding,
+                    value: kms_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ldapEnabled".into(),
-                    value: &ldap_enabled_binding,
+                    value: ldap_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaZone".into(),
-                    value: &replica_zone_binding,
+                    value: replica_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceLevel".into(),
-                    value: &service_level_binding,
+                    value: service_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StoragePoolResult {
-            active_directory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activeDirectory"),
-            ),
-            allow_auto_tiering: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowAutoTiering"),
-            ),
-            capacity_gib: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityGib"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            encryption_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionType"),
-            ),
-            kms_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsConfig"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            ldap_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ldapEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            replica_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaZone"),
-            ),
-            service_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceLevel"),
-            ),
-            volume_capacity_gib: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeCapacityGib"),
-            ),
-            volume_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeCount"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            active_directory: o.get_field("activeDirectory"),
+            allow_auto_tiering: o.get_field("allowAutoTiering"),
+            capacity_gib: o.get_field("capacityGib"),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            encryption_type: o.get_field("encryptionType"),
+            kms_config: o.get_field("kmsConfig"),
+            labels: o.get_field("labels"),
+            ldap_enabled: o.get_field("ldapEnabled"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            replica_zone: o.get_field("replicaZone"),
+            service_level: o.get_field("serviceLevel"),
+            volume_capacity_gib: o.get_field("volumeCapacityGib"),
+            volume_count: o.get_field("volumeCount"),
+            zone: o.get_field("zone"),
         }
     }
 }

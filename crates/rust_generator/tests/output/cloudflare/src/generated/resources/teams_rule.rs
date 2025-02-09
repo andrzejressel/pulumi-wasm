@@ -109,121 +109,89 @@ pub mod teams_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TeamsRuleArgs,
     ) -> TeamsRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let device_posture_binding_1 = args.device_posture.get_output(context);
-        let device_posture_binding = device_posture_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let precedence_binding_1 = args.precedence.get_output(context);
-        let precedence_binding = precedence_binding_1.get_inner();
-        let rule_settings_binding_1 = args.rule_settings.get_output(context);
-        let rule_settings_binding = rule_settings_binding_1.get_inner();
-        let traffic_binding_1 = args.traffic.get_output(context);
-        let traffic_binding = traffic_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let action_binding = args.action.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let device_posture_binding = args.device_posture.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let filters_binding = args.filters.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let precedence_binding = args.precedence.get_output(context);
+        let rule_settings_binding = args.rule_settings.get_output(context);
+        let traffic_binding = args.traffic.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/teamsRule:TeamsRule".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "devicePosture".into(),
-                    value: &device_posture_binding,
+                    value: device_posture_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "precedence".into(),
-                    value: &precedence_binding,
+                    value: precedence_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleSettings".into(),
-                    value: &rule_settings_binding,
+                    value: rule_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "traffic".into(),
-                    value: &traffic_binding,
+                    value: traffic_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TeamsRuleResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            device_posture: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("devicePosture"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            precedence: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("precedence"),
-            ),
-            rule_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleSettings"),
-            ),
-            traffic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("traffic"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            account_id: o.get_field("accountId"),
+            action: o.get_field("action"),
+            description: o.get_field("description"),
+            device_posture: o.get_field("devicePosture"),
+            enabled: o.get_field("enabled"),
+            filters: o.get_field("filters"),
+            identity: o.get_field("identity"),
+            name: o.get_field("name"),
+            precedence: o.get_field("precedence"),
+            rule_settings: o.get_field("ruleSettings"),
+            traffic: o.get_field("traffic"),
+            version: o.get_field("version"),
         }
     }
 }

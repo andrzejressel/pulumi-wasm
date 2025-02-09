@@ -152,193 +152,138 @@ pub mod graph_ql_api {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GraphQLApiArgs,
     ) -> GraphQLApiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_authentication_providers_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_authentication_providers_binding = args
             .additional_authentication_providers
             .get_output(context);
-        let additional_authentication_providers_binding = additional_authentication_providers_binding_1
-            .get_inner();
-        let api_type_binding_1 = args.api_type.get_output(context);
-        let api_type_binding = api_type_binding_1.get_inner();
-        let authentication_type_binding_1 = args.authentication_type.get_output(context);
-        let authentication_type_binding = authentication_type_binding_1.get_inner();
-        let enhanced_metrics_config_binding_1 = args
+        let api_type_binding = args.api_type.get_output(context);
+        let authentication_type_binding = args.authentication_type.get_output(context);
+        let enhanced_metrics_config_binding = args
             .enhanced_metrics_config
             .get_output(context);
-        let enhanced_metrics_config_binding = enhanced_metrics_config_binding_1
-            .get_inner();
-        let introspection_config_binding_1 = args
-            .introspection_config
-            .get_output(context);
-        let introspection_config_binding = introspection_config_binding_1.get_inner();
-        let lambda_authorizer_config_binding_1 = args
+        let introspection_config_binding = args.introspection_config.get_output(context);
+        let lambda_authorizer_config_binding = args
             .lambda_authorizer_config
             .get_output(context);
-        let lambda_authorizer_config_binding = lambda_authorizer_config_binding_1
-            .get_inner();
-        let log_config_binding_1 = args.log_config.get_output(context);
-        let log_config_binding = log_config_binding_1.get_inner();
-        let merged_api_execution_role_arn_binding_1 = args
+        let log_config_binding = args.log_config.get_output(context);
+        let merged_api_execution_role_arn_binding = args
             .merged_api_execution_role_arn
             .get_output(context);
-        let merged_api_execution_role_arn_binding = merged_api_execution_role_arn_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let openid_connect_config_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let openid_connect_config_binding = args
             .openid_connect_config
             .get_output(context);
-        let openid_connect_config_binding = openid_connect_config_binding_1.get_inner();
-        let query_depth_limit_binding_1 = args.query_depth_limit.get_output(context);
-        let query_depth_limit_binding = query_depth_limit_binding_1.get_inner();
-        let resolver_count_limit_binding_1 = args
-            .resolver_count_limit
-            .get_output(context);
-        let resolver_count_limit_binding = resolver_count_limit_binding_1.get_inner();
-        let schema_binding_1 = args.schema.get_output(context);
-        let schema_binding = schema_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_pool_config_binding_1 = args.user_pool_config.get_output(context);
-        let user_pool_config_binding = user_pool_config_binding_1.get_inner();
-        let visibility_binding_1 = args.visibility.get_output(context);
-        let visibility_binding = visibility_binding_1.get_inner();
-        let xray_enabled_binding_1 = args.xray_enabled.get_output(context);
-        let xray_enabled_binding = xray_enabled_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let query_depth_limit_binding = args.query_depth_limit.get_output(context);
+        let resolver_count_limit_binding = args.resolver_count_limit.get_output(context);
+        let schema_binding = args.schema.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let user_pool_config_binding = args.user_pool_config.get_output(context);
+        let visibility_binding = args.visibility.get_output(context);
+        let xray_enabled_binding = args.xray_enabled.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appsync/graphQLApi:GraphQLApi".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalAuthenticationProviders".into(),
-                    value: &additional_authentication_providers_binding,
+                    value: additional_authentication_providers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiType".into(),
-                    value: &api_type_binding,
+                    value: api_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationType".into(),
-                    value: &authentication_type_binding,
+                    value: authentication_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enhancedMetricsConfig".into(),
-                    value: &enhanced_metrics_config_binding,
+                    value: enhanced_metrics_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "introspectionConfig".into(),
-                    value: &introspection_config_binding,
+                    value: introspection_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaAuthorizerConfig".into(),
-                    value: &lambda_authorizer_config_binding,
+                    value: lambda_authorizer_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfig".into(),
-                    value: &log_config_binding,
+                    value: log_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mergedApiExecutionRoleArn".into(),
-                    value: &merged_api_execution_role_arn_binding,
+                    value: merged_api_execution_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "openidConnectConfig".into(),
-                    value: &openid_connect_config_binding,
+                    value: openid_connect_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryDepthLimit".into(),
-                    value: &query_depth_limit_binding,
+                    value: query_depth_limit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolverCountLimit".into(),
-                    value: &resolver_count_limit_binding,
+                    value: resolver_count_limit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schema".into(),
-                    value: &schema_binding,
+                    value: schema_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolConfig".into(),
-                    value: &user_pool_config_binding,
+                    value: user_pool_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "visibility".into(),
-                    value: &visibility_binding,
+                    value: visibility_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "xrayEnabled".into(),
-                    value: &xray_enabled_binding,
+                    value: xray_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GraphQLApiResult {
-            additional_authentication_providers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalAuthenticationProviders"),
-            ),
-            api_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiType"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationType"),
-            ),
-            enhanced_metrics_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enhancedMetricsConfig"),
-            ),
-            introspection_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("introspectionConfig"),
-            ),
-            lambda_authorizer_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lambdaAuthorizerConfig"),
-            ),
-            log_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logConfig"),
-            ),
-            merged_api_execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mergedApiExecutionRoleArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            openid_connect_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("openidConnectConfig"),
-            ),
-            query_depth_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryDepthLimit"),
-            ),
-            resolver_count_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resolverCountLimit"),
-            ),
-            schema: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schema"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            uris: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uris")),
-            user_pool_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPoolConfig"),
-            ),
-            visibility: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("visibility"),
-            ),
-            xray_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("xrayEnabled"),
-            ),
+            additional_authentication_providers: o
+                .get_field("additionalAuthenticationProviders"),
+            api_type: o.get_field("apiType"),
+            arn: o.get_field("arn"),
+            authentication_type: o.get_field("authenticationType"),
+            enhanced_metrics_config: o.get_field("enhancedMetricsConfig"),
+            introspection_config: o.get_field("introspectionConfig"),
+            lambda_authorizer_config: o.get_field("lambdaAuthorizerConfig"),
+            log_config: o.get_field("logConfig"),
+            merged_api_execution_role_arn: o.get_field("mergedApiExecutionRoleArn"),
+            name: o.get_field("name"),
+            openid_connect_config: o.get_field("openidConnectConfig"),
+            query_depth_limit: o.get_field("queryDepthLimit"),
+            resolver_count_limit: o.get_field("resolverCountLimit"),
+            schema: o.get_field("schema"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            uris: o.get_field("uris"),
+            user_pool_config: o.get_field("userPoolConfig"),
+            visibility: o.get_field("visibility"),
+            xray_enabled: o.get_field("xrayEnabled"),
         }
     }
 }

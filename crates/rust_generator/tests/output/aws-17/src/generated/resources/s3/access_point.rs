@@ -149,99 +149,73 @@ pub mod access_point {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccessPointArgs,
     ) -> AccessPointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let bucket_account_id_binding_1 = args.bucket_account_id.get_output(context);
-        let bucket_account_id_binding = bucket_account_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let public_access_block_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let bucket_binding = args.bucket.get_output(context);
+        let bucket_account_id_binding = args.bucket_account_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let policy_binding = args.policy.get_output(context);
+        let public_access_block_configuration_binding = args
             .public_access_block_configuration
             .get_output(context);
-        let public_access_block_configuration_binding = public_access_block_configuration_binding_1
-            .get_inner();
-        let vpc_configuration_binding_1 = args.vpc_configuration.get_output(context);
-        let vpc_configuration_binding = vpc_configuration_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let vpc_configuration_binding = args.vpc_configuration.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:s3/accessPoint:AccessPoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketAccountId".into(),
-                    value: &bucket_account_id_binding,
+                    value: bucket_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicAccessBlockConfiguration".into(),
-                    value: &public_access_block_configuration_binding,
+                    value: public_access_block_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfiguration".into(),
-                    value: &vpc_configuration_binding,
+                    value: vpc_configuration_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccessPointResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            bucket_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketAccountId"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoints"),
-            ),
-            has_public_access_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hasPublicAccessPolicy"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_origin: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkOrigin"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            public_access_block_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicAccessBlockConfiguration"),
-            ),
-            vpc_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfiguration"),
-            ),
+            account_id: o.get_field("accountId"),
+            alias: o.get_field("alias"),
+            arn: o.get_field("arn"),
+            bucket: o.get_field("bucket"),
+            bucket_account_id: o.get_field("bucketAccountId"),
+            domain_name: o.get_field("domainName"),
+            endpoints: o.get_field("endpoints"),
+            has_public_access_policy: o.get_field("hasPublicAccessPolicy"),
+            name: o.get_field("name"),
+            network_origin: o.get_field("networkOrigin"),
+            policy: o.get_field("policy"),
+            public_access_block_configuration: o
+                .get_field("publicAccessBlockConfiguration"),
+            vpc_configuration: o.get_field("vpcConfiguration"),
         }
     }
 }

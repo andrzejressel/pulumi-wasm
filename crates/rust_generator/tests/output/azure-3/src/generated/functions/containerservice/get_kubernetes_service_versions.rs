@@ -33,57 +33,43 @@ pub mod get_kubernetes_service_versions {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetKubernetesServiceVersionsArgs,
     ) -> GetKubernetesServiceVersionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let include_preview_binding_1 = args.include_preview.get_output(context);
-        let include_preview_binding = include_preview_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let version_prefix_binding_1 = args.version_prefix.get_output(context);
-        let version_prefix_binding = version_prefix_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let include_preview_binding = args.include_preview.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let version_prefix_binding = args.version_prefix.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includePreview".into(),
-                    value: &include_preview_binding,
+                    value: include_preview_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionPrefix".into(),
-                    value: &version_prefix_binding,
+                    value: version_prefix_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetKubernetesServiceVersionsResult {
-            default_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultVersion"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            include_preview: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includePreview"),
-            ),
-            latest_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latestVersion"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            version_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionPrefix"),
-            ),
-            versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versions"),
-            ),
+            default_version: o.get_field("defaultVersion"),
+            id: o.get_field("id"),
+            include_preview: o.get_field("includePreview"),
+            latest_version: o.get_field("latestVersion"),
+            location: o.get_field("location"),
+            version_prefix: o.get_field("versionPrefix"),
+            versions: o.get_field("versions"),
         }
     }
 }

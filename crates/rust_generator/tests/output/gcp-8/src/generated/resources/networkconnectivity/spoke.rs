@@ -524,141 +524,102 @@ pub mod spoke {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpokeArgs,
     ) -> SpokeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let hub_binding_1 = args.hub.get_output(context);
-        let hub_binding = hub_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let linked_interconnect_attachments_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let hub_binding = args.hub.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let linked_interconnect_attachments_binding = args
             .linked_interconnect_attachments
             .get_output(context);
-        let linked_interconnect_attachments_binding = linked_interconnect_attachments_binding_1
-            .get_inner();
-        let linked_producer_vpc_network_binding_1 = args
+        let linked_producer_vpc_network_binding = args
             .linked_producer_vpc_network
             .get_output(context);
-        let linked_producer_vpc_network_binding = linked_producer_vpc_network_binding_1
-            .get_inner();
-        let linked_router_appliance_instances_binding_1 = args
+        let linked_router_appliance_instances_binding = args
             .linked_router_appliance_instances
             .get_output(context);
-        let linked_router_appliance_instances_binding = linked_router_appliance_instances_binding_1
-            .get_inner();
-        let linked_vpc_network_binding_1 = args.linked_vpc_network.get_output(context);
-        let linked_vpc_network_binding = linked_vpc_network_binding_1.get_inner();
-        let linked_vpn_tunnels_binding_1 = args.linked_vpn_tunnels.get_output(context);
-        let linked_vpn_tunnels_binding = linked_vpn_tunnels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let linked_vpc_network_binding = args.linked_vpc_network.get_output(context);
+        let linked_vpn_tunnels_binding = args.linked_vpn_tunnels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:networkconnectivity/spoke:Spoke".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hub".into(),
-                    value: &hub_binding,
+                    value: hub_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedInterconnectAttachments".into(),
-                    value: &linked_interconnect_attachments_binding,
+                    value: linked_interconnect_attachments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedProducerVpcNetwork".into(),
-                    value: &linked_producer_vpc_network_binding,
+                    value: linked_producer_vpc_network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedRouterApplianceInstances".into(),
-                    value: &linked_router_appliance_instances_binding,
+                    value: linked_router_appliance_instances_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedVpcNetwork".into(),
-                    value: &linked_vpc_network_binding,
+                    value: linked_vpc_network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedVpnTunnels".into(),
-                    value: &linked_vpn_tunnels_binding,
+                    value: linked_vpn_tunnels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpokeResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            hub: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hub")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            linked_interconnect_attachments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedInterconnectAttachments"),
-            ),
-            linked_producer_vpc_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedProducerVpcNetwork"),
-            ),
-            linked_router_appliance_instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedRouterApplianceInstances"),
-            ),
-            linked_vpc_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedVpcNetwork"),
-            ),
-            linked_vpn_tunnels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedVpnTunnels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            unique_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uniqueId"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            hub: o.get_field("hub"),
+            labels: o.get_field("labels"),
+            linked_interconnect_attachments: o
+                .get_field("linkedInterconnectAttachments"),
+            linked_producer_vpc_network: o.get_field("linkedProducerVpcNetwork"),
+            linked_router_appliance_instances: o
+                .get_field("linkedRouterApplianceInstances"),
+            linked_vpc_network: o.get_field("linkedVpcNetwork"),
+            linked_vpn_tunnels: o.get_field("linkedVpnTunnels"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            state: o.get_field("state"),
+            unique_id: o.get_field("uniqueId"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

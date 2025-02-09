@@ -53,86 +53,55 @@ pub mod get_autonomous_database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAutonomousDatabaseArgs,
     ) -> GetAutonomousDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autonomous_database_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let autonomous_database_id_binding = args
             .autonomous_database_id
             .get_output(context);
-        let autonomous_database_id_binding = autonomous_database_id_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:oracledatabase/getAutonomousDatabase:getAutonomousDatabase"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autonomousDatabaseId".into(),
-                    value: &autonomous_database_id_binding,
+                    value: autonomous_database_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAutonomousDatabaseResult {
-            admin_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminPassword"),
-            ),
-            autonomous_database_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autonomousDatabaseId"),
-            ),
-            cidr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidr")),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("database"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            entitlement_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entitlementId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("properties"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
+            admin_password: o.get_field("adminPassword"),
+            autonomous_database_id: o.get_field("autonomousDatabaseId"),
+            cidr: o.get_field("cidr"),
+            create_time: o.get_field("createTime"),
+            database: o.get_field("database"),
+            deletion_protection: o.get_field("deletionProtection"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            entitlement_id: o.get_field("entitlementId"),
+            id: o.get_field("id"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            project: o.get_field("project"),
+            properties: o.get_field("properties"),
+            pulumi_labels: o.get_field("pulumiLabels"),
         }
     }
 }

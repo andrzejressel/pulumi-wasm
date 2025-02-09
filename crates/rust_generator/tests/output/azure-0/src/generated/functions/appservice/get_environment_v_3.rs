@@ -62,85 +62,51 @@ pub mod get_environment_v_3 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetEnvironmentV3Args,
     ) -> GetEnvironmentV3Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:appservice/getEnvironmentV3:getEnvironmentV3".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetEnvironmentV3Result {
-            allow_new_private_endpoint_connections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowNewPrivateEndpointConnections"),
-            ),
-            cluster_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterSettings"),
-            ),
-            dedicated_host_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dedicatedHostCount"),
-            ),
-            dns_suffix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsSuffix"),
-            ),
-            external_inbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalInboundIpAddresses"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            inbound_network_dependencies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inboundNetworkDependencies"),
-            ),
-            internal_inbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internalInboundIpAddresses"),
-            ),
-            internal_load_balancing_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internalLoadBalancingMode"),
-            ),
-            ip_ssl_address_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipSslAddressCount"),
-            ),
-            linux_outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linuxOutboundIpAddresses"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pricing_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pricingTier"),
-            ),
-            remote_debugging_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteDebuggingEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            windows_outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("windowsOutboundIpAddresses"),
-            ),
-            zone_redundant: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneRedundant"),
-            ),
+            allow_new_private_endpoint_connections: o
+                .get_field("allowNewPrivateEndpointConnections"),
+            cluster_settings: o.get_field("clusterSettings"),
+            dedicated_host_count: o.get_field("dedicatedHostCount"),
+            dns_suffix: o.get_field("dnsSuffix"),
+            external_inbound_ip_addresses: o.get_field("externalInboundIpAddresses"),
+            id: o.get_field("id"),
+            inbound_network_dependencies: o.get_field("inboundNetworkDependencies"),
+            internal_inbound_ip_addresses: o.get_field("internalInboundIpAddresses"),
+            internal_load_balancing_mode: o.get_field("internalLoadBalancingMode"),
+            ip_ssl_address_count: o.get_field("ipSslAddressCount"),
+            linux_outbound_ip_addresses: o.get_field("linuxOutboundIpAddresses"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            pricing_tier: o.get_field("pricingTier"),
+            remote_debugging_enabled: o.get_field("remoteDebuggingEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            windows_outbound_ip_addresses: o.get_field("windowsOutboundIpAddresses"),
+            zone_redundant: o.get_field("zoneRedundant"),
         }
     }
 }

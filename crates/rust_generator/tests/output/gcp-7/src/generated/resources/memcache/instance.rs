@@ -230,157 +230,109 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorized_network_binding_1 = args.authorized_network.get_output(context);
-        let authorized_network_binding = authorized_network_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let maintenance_policy_binding_1 = args.maintenance_policy.get_output(context);
-        let maintenance_policy_binding = maintenance_policy_binding_1.get_inner();
-        let memcache_parameters_binding_1 = args.memcache_parameters.get_output(context);
-        let memcache_parameters_binding = memcache_parameters_binding_1.get_inner();
-        let memcache_version_binding_1 = args.memcache_version.get_output(context);
-        let memcache_version_binding = memcache_version_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let node_config_binding_1 = args.node_config.get_output(context);
-        let node_config_binding = node_config_binding_1.get_inner();
-        let node_count_binding_1 = args.node_count.get_output(context);
-        let node_count_binding = node_count_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let reserved_ip_range_ids_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authorized_network_binding = args.authorized_network.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let maintenance_policy_binding = args.maintenance_policy.get_output(context);
+        let memcache_parameters_binding = args.memcache_parameters.get_output(context);
+        let memcache_version_binding = args.memcache_version.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let node_config_binding = args.node_config.get_output(context);
+        let node_count_binding = args.node_count.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let reserved_ip_range_ids_binding = args
             .reserved_ip_range_ids
             .get_output(context);
-        let reserved_ip_range_ids_binding = reserved_ip_range_ids_binding_1.get_inner();
-        let zones_binding_1 = args.zones.get_output(context);
-        let zones_binding = zones_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let zones_binding = args.zones.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:memcache/instance:Instance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedNetwork".into(),
-                    value: &authorized_network_binding,
+                    value: authorized_network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenancePolicy".into(),
-                    value: &maintenance_policy_binding,
+                    value: maintenance_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memcacheParameters".into(),
-                    value: &memcache_parameters_binding,
+                    value: memcache_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memcacheVersion".into(),
-                    value: &memcache_version_binding,
+                    value: memcache_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeConfig".into(),
-                    value: &node_config_binding,
+                    value: node_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeCount".into(),
-                    value: &node_count_binding,
+                    value: node_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservedIpRangeIds".into(),
-                    value: &reserved_ip_range_ids_binding,
+                    value: reserved_ip_range_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zones".into(),
-                    value: &zones_binding,
+                    value: zones_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceResult {
-            authorized_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizedNetwork"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            discovery_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("discoveryEndpoint"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            maintenance_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenancePolicy"),
-            ),
-            maintenance_schedules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceSchedules"),
-            ),
-            memcache_full_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memcacheFullVersion"),
-            ),
-            memcache_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memcacheNodes"),
-            ),
-            memcache_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memcacheParameters"),
-            ),
-            memcache_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memcacheVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeConfig"),
-            ),
-            node_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeCount"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            reserved_ip_range_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservedIpRangeIds"),
-            ),
-            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
+            authorized_network: o.get_field("authorizedNetwork"),
+            create_time: o.get_field("createTime"),
+            discovery_endpoint: o.get_field("discoveryEndpoint"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            labels: o.get_field("labels"),
+            maintenance_policy: o.get_field("maintenancePolicy"),
+            maintenance_schedules: o.get_field("maintenanceSchedules"),
+            memcache_full_version: o.get_field("memcacheFullVersion"),
+            memcache_nodes: o.get_field("memcacheNodes"),
+            memcache_parameters: o.get_field("memcacheParameters"),
+            memcache_version: o.get_field("memcacheVersion"),
+            name: o.get_field("name"),
+            node_config: o.get_field("nodeConfig"),
+            node_count: o.get_field("nodeCount"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            region: o.get_field("region"),
+            reserved_ip_range_ids: o.get_field("reservedIpRangeIds"),
+            zones: o.get_field("zones"),
         }
     }
 }

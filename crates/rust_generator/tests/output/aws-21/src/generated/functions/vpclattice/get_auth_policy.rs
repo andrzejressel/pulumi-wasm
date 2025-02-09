@@ -29,45 +29,39 @@ pub mod get_auth_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAuthPolicyArgs,
     ) -> GetAuthPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let resource_identifier_binding_1 = args.resource_identifier.get_output(context);
-        let resource_identifier_binding = resource_identifier_binding_1.get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let policy_binding = args.policy.get_output(context);
+        let resource_identifier_binding = args.resource_identifier.get_output(context);
+        let state_binding = args.state.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:vpclattice/getAuthPolicy:getAuthPolicy".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceIdentifier".into(),
-                    value: &resource_identifier_binding,
+                    value: resource_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAuthPolicyResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            resource_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceIdentifier"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            id: o.get_field("id"),
+            policy: o.get_field("policy"),
+            resource_identifier: o.get_field("resourceIdentifier"),
+            state: o.get_field("state"),
         }
     }
 }

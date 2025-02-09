@@ -497,237 +497,159 @@ pub mod bare_metal_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BareMetalClusterArgs,
     ) -> BareMetalClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_cluster_membership_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let admin_cluster_membership_binding = args
             .admin_cluster_membership
             .get_output(context);
-        let admin_cluster_membership_binding = admin_cluster_membership_binding_1
-            .get_inner();
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let bare_metal_version_binding_1 = args.bare_metal_version.get_output(context);
-        let bare_metal_version_binding = bare_metal_version_binding_1.get_inner();
-        let binary_authorization_binding_1 = args
-            .binary_authorization
-            .get_output(context);
-        let binary_authorization_binding = binary_authorization_binding_1.get_inner();
-        let cluster_operations_binding_1 = args.cluster_operations.get_output(context);
-        let cluster_operations_binding = cluster_operations_binding_1.get_inner();
-        let control_plane_binding_1 = args.control_plane.get_output(context);
-        let control_plane_binding = control_plane_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let load_balancer_binding_1 = args.load_balancer.get_output(context);
-        let load_balancer_binding = load_balancer_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let maintenance_config_binding_1 = args.maintenance_config.get_output(context);
-        let maintenance_config_binding = maintenance_config_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_config_binding_1 = args.network_config.get_output(context);
-        let network_config_binding = network_config_binding_1.get_inner();
-        let node_access_config_binding_1 = args.node_access_config.get_output(context);
-        let node_access_config_binding = node_access_config_binding_1.get_inner();
-        let node_config_binding_1 = args.node_config.get_output(context);
-        let node_config_binding = node_config_binding_1.get_inner();
-        let os_environment_config_binding_1 = args
+        let annotations_binding = args.annotations.get_output(context);
+        let bare_metal_version_binding = args.bare_metal_version.get_output(context);
+        let binary_authorization_binding = args.binary_authorization.get_output(context);
+        let cluster_operations_binding = args.cluster_operations.get_output(context);
+        let control_plane_binding = args.control_plane.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let load_balancer_binding = args.load_balancer.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let maintenance_config_binding = args.maintenance_config.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_config_binding = args.network_config.get_output(context);
+        let node_access_config_binding = args.node_access_config.get_output(context);
+        let node_config_binding = args.node_config.get_output(context);
+        let os_environment_config_binding = args
             .os_environment_config
             .get_output(context);
-        let os_environment_config_binding = os_environment_config_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let proxy_binding_1 = args.proxy.get_output(context);
-        let proxy_binding = proxy_binding_1.get_inner();
-        let security_config_binding_1 = args.security_config.get_output(context);
-        let security_config_binding = security_config_binding_1.get_inner();
-        let storage_binding_1 = args.storage.get_output(context);
-        let storage_binding = storage_binding_1.get_inner();
-        let upgrade_policy_binding_1 = args.upgrade_policy.get_output(context);
-        let upgrade_policy_binding = upgrade_policy_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let project_binding = args.project.get_output(context);
+        let proxy_binding = args.proxy.get_output(context);
+        let security_config_binding = args.security_config.get_output(context);
+        let storage_binding = args.storage.get_output(context);
+        let upgrade_policy_binding = args.upgrade_policy.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:gkeonprem/bareMetalCluster:BareMetalCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminClusterMembership".into(),
-                    value: &admin_cluster_membership_binding,
+                    value: admin_cluster_membership_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bareMetalVersion".into(),
-                    value: &bare_metal_version_binding,
+                    value: bare_metal_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "binaryAuthorization".into(),
-                    value: &binary_authorization_binding,
+                    value: binary_authorization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterOperations".into(),
-                    value: &cluster_operations_binding,
+                    value: cluster_operations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlane".into(),
-                    value: &control_plane_binding,
+                    value: control_plane_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancer".into(),
-                    value: &load_balancer_binding,
+                    value: load_balancer_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceConfig".into(),
-                    value: &maintenance_config_binding,
+                    value: maintenance_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfig".into(),
-                    value: &network_config_binding,
+                    value: network_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeAccessConfig".into(),
-                    value: &node_access_config_binding,
+                    value: node_access_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeConfig".into(),
-                    value: &node_config_binding,
+                    value: node_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osEnvironmentConfig".into(),
-                    value: &os_environment_config_binding,
+                    value: os_environment_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxy".into(),
-                    value: &proxy_binding,
+                    value: proxy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityConfig".into(),
-                    value: &security_config_binding,
+                    value: security_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storage".into(),
-                    value: &storage_binding,
+                    value: storage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upgradePolicy".into(),
-                    value: &upgrade_policy_binding,
+                    value: upgrade_policy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BareMetalClusterResult {
-            admin_cluster_membership: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminClusterMembership"),
-            ),
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            bare_metal_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bareMetalVersion"),
-            ),
-            binary_authorization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("binaryAuthorization"),
-            ),
-            cluster_operations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterOperations"),
-            ),
-            control_plane: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlane"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            delete_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            fleets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fleets"),
-            ),
-            load_balancer: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancer"),
-            ),
-            local_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localName"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maintenance_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfig"),
-            ),
-            node_access_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeAccessConfig"),
-            ),
-            node_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeConfig"),
-            ),
-            os_environment_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osEnvironmentConfig"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            proxy: pulumi_gestalt_rust::__private::into_domain(o.extract_field("proxy")),
-            reconciling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciling"),
-            ),
-            security_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityConfig"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            statuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statuses"),
-            ),
-            storage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storage"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            upgrade_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("upgradePolicy"),
-            ),
-            validation_checks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationChecks"),
-            ),
+            admin_cluster_membership: o.get_field("adminClusterMembership"),
+            annotations: o.get_field("annotations"),
+            bare_metal_version: o.get_field("bareMetalVersion"),
+            binary_authorization: o.get_field("binaryAuthorization"),
+            cluster_operations: o.get_field("clusterOperations"),
+            control_plane: o.get_field("controlPlane"),
+            create_time: o.get_field("createTime"),
+            delete_time: o.get_field("deleteTime"),
+            description: o.get_field("description"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            endpoint: o.get_field("endpoint"),
+            etag: o.get_field("etag"),
+            fleets: o.get_field("fleets"),
+            load_balancer: o.get_field("loadBalancer"),
+            local_name: o.get_field("localName"),
+            location: o.get_field("location"),
+            maintenance_config: o.get_field("maintenanceConfig"),
+            name: o.get_field("name"),
+            network_config: o.get_field("networkConfig"),
+            node_access_config: o.get_field("nodeAccessConfig"),
+            node_config: o.get_field("nodeConfig"),
+            os_environment_config: o.get_field("osEnvironmentConfig"),
+            project: o.get_field("project"),
+            proxy: o.get_field("proxy"),
+            reconciling: o.get_field("reconciling"),
+            security_config: o.get_field("securityConfig"),
+            state: o.get_field("state"),
+            statuses: o.get_field("statuses"),
+            storage: o.get_field("storage"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
+            upgrade_policy: o.get_field("upgradePolicy"),
+            validation_checks: o.get_field("validationChecks"),
         }
     }
 }

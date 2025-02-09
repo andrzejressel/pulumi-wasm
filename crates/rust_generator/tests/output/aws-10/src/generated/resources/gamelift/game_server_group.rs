@@ -217,133 +217,95 @@ pub mod game_server_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GameServerGroupArgs,
     ) -> GameServerGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_scaling_policy_binding_1 = args.auto_scaling_policy.get_output(context);
-        let auto_scaling_policy_binding = auto_scaling_policy_binding_1.get_inner();
-        let balancing_strategy_binding_1 = args.balancing_strategy.get_output(context);
-        let balancing_strategy_binding = balancing_strategy_binding_1.get_inner();
-        let game_server_group_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_scaling_policy_binding = args.auto_scaling_policy.get_output(context);
+        let balancing_strategy_binding = args.balancing_strategy.get_output(context);
+        let game_server_group_name_binding = args
             .game_server_group_name
             .get_output(context);
-        let game_server_group_name_binding = game_server_group_name_binding_1
-            .get_inner();
-        let game_server_protection_policy_binding_1 = args
+        let game_server_protection_policy_binding = args
             .game_server_protection_policy
             .get_output(context);
-        let game_server_protection_policy_binding = game_server_protection_policy_binding_1
-            .get_inner();
-        let instance_definitions_binding_1 = args
-            .instance_definitions
-            .get_output(context);
-        let instance_definitions_binding = instance_definitions_binding_1.get_inner();
-        let launch_template_binding_1 = args.launch_template.get_output(context);
-        let launch_template_binding = launch_template_binding_1.get_inner();
-        let max_size_binding_1 = args.max_size.get_output(context);
-        let max_size_binding = max_size_binding_1.get_inner();
-        let min_size_binding_1 = args.min_size.get_output(context);
-        let min_size_binding = min_size_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_subnets_binding_1 = args.vpc_subnets.get_output(context);
-        let vpc_subnets_binding = vpc_subnets_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let instance_definitions_binding = args.instance_definitions.get_output(context);
+        let launch_template_binding = args.launch_template.get_output(context);
+        let max_size_binding = args.max_size.get_output(context);
+        let min_size_binding = args.min_size.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_subnets_binding = args.vpc_subnets.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:gamelift/gameServerGroup:GameServerGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScalingPolicy".into(),
-                    value: &auto_scaling_policy_binding,
+                    value: auto_scaling_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "balancingStrategy".into(),
-                    value: &balancing_strategy_binding,
+                    value: balancing_strategy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gameServerGroupName".into(),
-                    value: &game_server_group_name_binding,
+                    value: game_server_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gameServerProtectionPolicy".into(),
-                    value: &game_server_protection_policy_binding,
+                    value: game_server_protection_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceDefinitions".into(),
-                    value: &instance_definitions_binding,
+                    value: instance_definitions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchTemplate".into(),
-                    value: &launch_template_binding,
+                    value: launch_template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxSize".into(),
-                    value: &max_size_binding,
+                    value: max_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minSize".into(),
-                    value: &min_size_binding,
+                    value: min_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSubnets".into(),
-                    value: &vpc_subnets_binding,
+                    value: vpc_subnets_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GameServerGroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_scaling_group_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScalingGroupArn"),
-            ),
-            auto_scaling_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScalingPolicy"),
-            ),
-            balancing_strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("balancingStrategy"),
-            ),
-            game_server_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gameServerGroupName"),
-            ),
-            game_server_protection_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gameServerProtectionPolicy"),
-            ),
-            instance_definitions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceDefinitions"),
-            ),
-            launch_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchTemplate"),
-            ),
-            max_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxSize"),
-            ),
-            min_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minSize"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_subnets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSubnets"),
-            ),
+            arn: o.get_field("arn"),
+            auto_scaling_group_arn: o.get_field("autoScalingGroupArn"),
+            auto_scaling_policy: o.get_field("autoScalingPolicy"),
+            balancing_strategy: o.get_field("balancingStrategy"),
+            game_server_group_name: o.get_field("gameServerGroupName"),
+            game_server_protection_policy: o.get_field("gameServerProtectionPolicy"),
+            instance_definitions: o.get_field("instanceDefinitions"),
+            launch_template: o.get_field("launchTemplate"),
+            max_size: o.get_field("maxSize"),
+            min_size: o.get_field("minSize"),
+            role_arn: o.get_field("roleArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_subnets: o.get_field("vpcSubnets"),
         }
     }
 }

@@ -1,12 +1,11 @@
 use pulumi_gestalt_providers_random::random_string;
 use pulumi_gestalt_providers_random::random_string::RandomStringArgs;
-use pulumi_gestalt_rust::{add_export};
-use pulumi_gestalt_rust::{Output, PulumiContext};
+use pulumi_gestalt_rust::*;
 
 #[cfg(target_arch = "wasm32")]
 pulumi_gestalt_rust::pulumi_main!();
 
-fn pulumi_main(context: &PulumiContext) -> anyhow::Result<()> {
+fn pulumi_main(context: &Context) -> anyhow::Result<()> {
     let length: Output<i32> = Output::new(context, &4);
     let random_string_1 = random_string::create(
         context,

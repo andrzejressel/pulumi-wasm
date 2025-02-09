@@ -145,154 +145,102 @@ pub mod snapshot_copy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SnapshotCopyArgs,
     ) -> SnapshotCopyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let copy_tags_binding_1 = args.copy_tags.get_output(context);
-        let copy_tags_binding = copy_tags_binding_1.get_inner();
-        let destination_region_binding_1 = args.destination_region.get_output(context);
-        let destination_region_binding = destination_region_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let option_group_name_binding_1 = args.option_group_name.get_output(context);
-        let option_group_name_binding = option_group_name_binding_1.get_inner();
-        let presigned_url_binding_1 = args.presigned_url.get_output(context);
-        let presigned_url_binding = presigned_url_binding_1.get_inner();
-        let shared_accounts_binding_1 = args.shared_accounts.get_output(context);
-        let shared_accounts_binding = shared_accounts_binding_1.get_inner();
-        let source_db_snapshot_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let copy_tags_binding = args.copy_tags.get_output(context);
+        let destination_region_binding = args.destination_region.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let option_group_name_binding = args.option_group_name.get_output(context);
+        let presigned_url_binding = args.presigned_url.get_output(context);
+        let shared_accounts_binding = args.shared_accounts.get_output(context);
+        let source_db_snapshot_identifier_binding = args
             .source_db_snapshot_identifier
             .get_output(context);
-        let source_db_snapshot_identifier_binding = source_db_snapshot_identifier_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_custom_availability_zone_binding_1 = args
+        let tags_binding = args.tags.get_output(context);
+        let target_custom_availability_zone_binding = args
             .target_custom_availability_zone
             .get_output(context);
-        let target_custom_availability_zone_binding = target_custom_availability_zone_binding_1
-            .get_inner();
-        let target_db_snapshot_identifier_binding_1 = args
+        let target_db_snapshot_identifier_binding = args
             .target_db_snapshot_identifier
             .get_output(context);
-        let target_db_snapshot_identifier_binding = target_db_snapshot_identifier_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rds/snapshotCopy:SnapshotCopy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyTags".into(),
-                    value: &copy_tags_binding,
+                    value: copy_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationRegion".into(),
-                    value: &destination_region_binding,
+                    value: destination_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "optionGroupName".into(),
-                    value: &option_group_name_binding,
+                    value: option_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "presignedUrl".into(),
-                    value: &presigned_url_binding,
+                    value: presigned_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccounts".into(),
-                    value: &shared_accounts_binding,
+                    value: shared_accounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDbSnapshotIdentifier".into(),
-                    value: &source_db_snapshot_identifier_binding,
+                    value: source_db_snapshot_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetCustomAvailabilityZone".into(),
-                    value: &target_custom_availability_zone_binding,
+                    value: target_custom_availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetDbSnapshotIdentifier".into(),
-                    value: &target_db_snapshot_identifier_binding,
+                    value: target_db_snapshot_identifier_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SnapshotCopyResult {
-            allocated_storage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocatedStorage"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            copy_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("copyTags"),
-            ),
-            db_snapshot_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbSnapshotArn"),
-            ),
-            destination_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationRegion"),
-            ),
-            encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encrypted"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            iops: pulumi_gestalt_rust::__private::into_domain(o.extract_field("iops")),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            license_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseModel"),
-            ),
-            option_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("optionGroupName"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            presigned_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("presignedUrl"),
-            ),
-            shared_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharedAccounts"),
-            ),
-            snapshot_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotType"),
-            ),
-            source_db_snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDbSnapshotIdentifier"),
-            ),
-            source_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceRegion"),
-            ),
-            storage_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_custom_availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetCustomAvailabilityZone"),
-            ),
-            target_db_snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetDbSnapshotIdentifier"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            allocated_storage: o.get_field("allocatedStorage"),
+            availability_zone: o.get_field("availabilityZone"),
+            copy_tags: o.get_field("copyTags"),
+            db_snapshot_arn: o.get_field("dbSnapshotArn"),
+            destination_region: o.get_field("destinationRegion"),
+            encrypted: o.get_field("encrypted"),
+            engine: o.get_field("engine"),
+            engine_version: o.get_field("engineVersion"),
+            iops: o.get_field("iops"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            license_model: o.get_field("licenseModel"),
+            option_group_name: o.get_field("optionGroupName"),
+            port: o.get_field("port"),
+            presigned_url: o.get_field("presignedUrl"),
+            shared_accounts: o.get_field("sharedAccounts"),
+            snapshot_type: o.get_field("snapshotType"),
+            source_db_snapshot_identifier: o.get_field("sourceDbSnapshotIdentifier"),
+            source_region: o.get_field("sourceRegion"),
+            storage_type: o.get_field("storageType"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_custom_availability_zone: o.get_field("targetCustomAvailabilityZone"),
+            target_db_snapshot_identifier: o.get_field("targetDbSnapshotIdentifier"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

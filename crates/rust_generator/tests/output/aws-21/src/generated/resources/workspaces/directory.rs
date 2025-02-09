@@ -243,125 +243,85 @@ pub mod directory {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DirectoryArgs,
     ) -> DirectoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let directory_id_binding_1 = args.directory_id.get_output(context);
-        let directory_id_binding = directory_id_binding_1.get_inner();
-        let ip_group_ids_binding_1 = args.ip_group_ids.get_output(context);
-        let ip_group_ids_binding = ip_group_ids_binding_1.get_inner();
-        let saml_properties_binding_1 = args.saml_properties.get_output(context);
-        let saml_properties_binding = saml_properties_binding_1.get_inner();
-        let self_service_permissions_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let directory_id_binding = args.directory_id.get_output(context);
+        let ip_group_ids_binding = args.ip_group_ids.get_output(context);
+        let saml_properties_binding = args.saml_properties.get_output(context);
+        let self_service_permissions_binding = args
             .self_service_permissions
             .get_output(context);
-        let self_service_permissions_binding = self_service_permissions_binding_1
-            .get_inner();
-        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
-        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let workspace_access_properties_binding_1 = args
+        let subnet_ids_binding = args.subnet_ids.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let workspace_access_properties_binding = args
             .workspace_access_properties
             .get_output(context);
-        let workspace_access_properties_binding = workspace_access_properties_binding_1
-            .get_inner();
-        let workspace_creation_properties_binding_1 = args
+        let workspace_creation_properties_binding = args
             .workspace_creation_properties
             .get_output(context);
-        let workspace_creation_properties_binding = workspace_creation_properties_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:workspaces/directory:Directory".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: &directory_id_binding,
+                    value: directory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipGroupIds".into(),
-                    value: &ip_group_ids_binding,
+                    value: ip_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "samlProperties".into(),
-                    value: &saml_properties_binding,
+                    value: saml_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfServicePermissions".into(),
-                    value: &self_service_permissions_binding,
+                    value: self_service_permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: &subnet_ids_binding,
+                    value: subnet_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceAccessProperties".into(),
-                    value: &workspace_access_properties_binding,
+                    value: workspace_access_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceCreationProperties".into(),
-                    value: &workspace_creation_properties_binding,
+                    value: workspace_creation_properties_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DirectoryResult {
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            customer_user_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerUserName"),
-            ),
-            directory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryId"),
-            ),
-            directory_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryName"),
-            ),
-            directory_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryType"),
-            ),
-            dns_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsIpAddresses"),
-            ),
-            iam_role_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoleId"),
-            ),
-            ip_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipGroupIds"),
-            ),
-            registration_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registrationCode"),
-            ),
-            saml_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("samlProperties"),
-            ),
-            self_service_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfServicePermissions"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            workspace_access_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceAccessProperties"),
-            ),
-            workspace_creation_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceCreationProperties"),
-            ),
-            workspace_security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceSecurityGroupId"),
-            ),
+            alias: o.get_field("alias"),
+            customer_user_name: o.get_field("customerUserName"),
+            directory_id: o.get_field("directoryId"),
+            directory_name: o.get_field("directoryName"),
+            directory_type: o.get_field("directoryType"),
+            dns_ip_addresses: o.get_field("dnsIpAddresses"),
+            iam_role_id: o.get_field("iamRoleId"),
+            ip_group_ids: o.get_field("ipGroupIds"),
+            registration_code: o.get_field("registrationCode"),
+            saml_properties: o.get_field("samlProperties"),
+            self_service_permissions: o.get_field("selfServicePermissions"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            workspace_access_properties: o.get_field("workspaceAccessProperties"),
+            workspace_creation_properties: o.get_field("workspaceCreationProperties"),
+            workspace_security_group_id: o.get_field("workspaceSecurityGroupId"),
         }
     }
 }

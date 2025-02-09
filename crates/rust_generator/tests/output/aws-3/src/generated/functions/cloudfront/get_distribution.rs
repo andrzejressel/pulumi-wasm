@@ -49,59 +49,42 @@ pub mod get_distribution {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDistributionArgs,
     ) -> GetDistributionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let id_binding = args.id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:cloudfront/getDistribution:getDistribution".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDistributionResult {
-            aliases: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aliases"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            hosted_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostedZoneId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            in_progress_validation_batches: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inProgressValidationBatches"),
-            ),
-            last_modified_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedTime"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            web_acl_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webAclId"),
-            ),
+            aliases: o.get_field("aliases"),
+            arn: o.get_field("arn"),
+            domain_name: o.get_field("domainName"),
+            enabled: o.get_field("enabled"),
+            etag: o.get_field("etag"),
+            hosted_zone_id: o.get_field("hostedZoneId"),
+            id: o.get_field("id"),
+            in_progress_validation_batches: o.get_field("inProgressValidationBatches"),
+            last_modified_time: o.get_field("lastModifiedTime"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            web_acl_id: o.get_field("webAclId"),
         }
     }
 }

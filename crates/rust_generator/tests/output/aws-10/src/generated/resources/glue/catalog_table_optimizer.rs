@@ -149,64 +149,52 @@ pub mod catalog_table_optimizer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CatalogTableOptimizerArgs,
     ) -> CatalogTableOptimizerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding_1 = args.catalog_id.get_output(context);
-        let catalog_id_binding = catalog_id_binding_1.get_inner();
-        let configuration_binding_1 = args.configuration.get_output(context);
-        let configuration_binding = configuration_binding_1.get_inner();
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let table_name_binding_1 = args.table_name.get_output(context);
-        let table_name_binding = table_name_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_id_binding = args.catalog_id.get_output(context);
+        let configuration_binding = args.configuration.get_output(context);
+        let database_name_binding = args.database_name.get_output(context);
+        let table_name_binding = args.table_name.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:glue/catalogTableOptimizer:CatalogTableOptimizer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: &catalog_id_binding,
+                    value: catalog_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configuration".into(),
-                    value: &configuration_binding,
+                    value: configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableName".into(),
-                    value: &table_name_binding,
+                    value: table_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CatalogTableOptimizerResult {
-            catalog_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogId"),
-            ),
-            configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configuration"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            table_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableName"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            catalog_id: o.get_field("catalogId"),
+            configuration: o.get_field("configuration"),
+            database_name: o.get_field("databaseName"),
+            table_name: o.get_field("tableName"),
+            type_: o.get_field("type"),
         }
     }
 }

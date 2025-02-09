@@ -83,74 +83,56 @@ pub mod namespace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NamespaceArgs,
     ) -> NamespaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
-        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
-        let identity_store_binding_1 = args.identity_store.get_output(context);
-        let identity_store_binding = identity_store_binding_1.get_inner();
-        let namespace_binding_1 = args.namespace.get_output(context);
-        let namespace_binding = namespace_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_account_id_binding = args.aws_account_id.get_output(context);
+        let identity_store_binding = args.identity_store.get_output(context);
+        let namespace_binding = args.namespace.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:quicksight/namespace:Namespace".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: &aws_account_id_binding,
+                    value: aws_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityStore".into(),
-                    value: &identity_store_binding,
+                    value: identity_store_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespace".into(),
-                    value: &namespace_binding,
+                    value: namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NamespaceResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            capacity_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityRegion"),
-            ),
-            creation_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationStatus"),
-            ),
-            identity_store: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityStore"),
-            ),
-            namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespace"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            arn: o.get_field("arn"),
+            aws_account_id: o.get_field("awsAccountId"),
+            capacity_region: o.get_field("capacityRegion"),
+            creation_status: o.get_field("creationStatus"),
+            identity_store: o.get_field("identityStore"),
+            namespace: o.get_field("namespace"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

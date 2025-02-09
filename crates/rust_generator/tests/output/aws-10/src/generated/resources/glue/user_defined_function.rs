@@ -96,86 +96,66 @@ pub mod user_defined_function {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserDefinedFunctionArgs,
     ) -> UserDefinedFunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding_1 = args.catalog_id.get_output(context);
-        let catalog_id_binding = catalog_id_binding_1.get_inner();
-        let class_name_binding_1 = args.class_name.get_output(context);
-        let class_name_binding = class_name_binding_1.get_inner();
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let owner_name_binding_1 = args.owner_name.get_output(context);
-        let owner_name_binding = owner_name_binding_1.get_inner();
-        let owner_type_binding_1 = args.owner_type.get_output(context);
-        let owner_type_binding = owner_type_binding_1.get_inner();
-        let resource_uris_binding_1 = args.resource_uris.get_output(context);
-        let resource_uris_binding = resource_uris_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_id_binding = args.catalog_id.get_output(context);
+        let class_name_binding = args.class_name.get_output(context);
+        let database_name_binding = args.database_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let owner_name_binding = args.owner_name.get_output(context);
+        let owner_type_binding = args.owner_type.get_output(context);
+        let resource_uris_binding = args.resource_uris.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:glue/userDefinedFunction:UserDefinedFunction".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: &catalog_id_binding,
+                    value: catalog_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "className".into(),
-                    value: &class_name_binding,
+                    value: class_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerName".into(),
-                    value: &owner_name_binding,
+                    value: owner_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerType".into(),
-                    value: &owner_type_binding,
+                    value: owner_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceUris".into(),
-                    value: &resource_uris_binding,
+                    value: resource_uris_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserDefinedFunctionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            catalog_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogId"),
-            ),
-            class_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("className"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerName"),
-            ),
-            owner_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerType"),
-            ),
-            resource_uris: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceUris"),
-            ),
+            arn: o.get_field("arn"),
+            catalog_id: o.get_field("catalogId"),
+            class_name: o.get_field("className"),
+            create_time: o.get_field("createTime"),
+            database_name: o.get_field("databaseName"),
+            name: o.get_field("name"),
+            owner_name: o.get_field("ownerName"),
+            owner_type: o.get_field("ownerType"),
+            resource_uris: o.get_field("resourceUris"),
         }
     }
 }

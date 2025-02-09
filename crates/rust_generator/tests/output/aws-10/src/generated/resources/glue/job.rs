@@ -275,212 +275,152 @@ pub mod job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: JobArgs,
     ) -> JobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let command_binding_1 = args.command.get_output(context);
-        let command_binding = command_binding_1.get_inner();
-        let connections_binding_1 = args.connections.get_output(context);
-        let connections_binding = connections_binding_1.get_inner();
-        let default_arguments_binding_1 = args.default_arguments.get_output(context);
-        let default_arguments_binding = default_arguments_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let execution_class_binding_1 = args.execution_class.get_output(context);
-        let execution_class_binding = execution_class_binding_1.get_inner();
-        let execution_property_binding_1 = args.execution_property.get_output(context);
-        let execution_property_binding = execution_property_binding_1.get_inner();
-        let glue_version_binding_1 = args.glue_version.get_output(context);
-        let glue_version_binding = glue_version_binding_1.get_inner();
-        let job_run_queuing_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let command_binding = args.command.get_output(context);
+        let connections_binding = args.connections.get_output(context);
+        let default_arguments_binding = args.default_arguments.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let execution_class_binding = args.execution_class.get_output(context);
+        let execution_property_binding = args.execution_property.get_output(context);
+        let glue_version_binding = args.glue_version.get_output(context);
+        let job_run_queuing_enabled_binding = args
             .job_run_queuing_enabled
             .get_output(context);
-        let job_run_queuing_enabled_binding = job_run_queuing_enabled_binding_1
-            .get_inner();
-        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
-        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
-        let max_capacity_binding_1 = args.max_capacity.get_output(context);
-        let max_capacity_binding = max_capacity_binding_1.get_inner();
-        let max_retries_binding_1 = args.max_retries.get_output(context);
-        let max_retries_binding = max_retries_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let non_overridable_arguments_binding_1 = args
+        let maintenance_window_binding = args.maintenance_window.get_output(context);
+        let max_capacity_binding = args.max_capacity.get_output(context);
+        let max_retries_binding = args.max_retries.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let non_overridable_arguments_binding = args
             .non_overridable_arguments
             .get_output(context);
-        let non_overridable_arguments_binding = non_overridable_arguments_binding_1
-            .get_inner();
-        let notification_property_binding_1 = args
+        let notification_property_binding = args
             .notification_property
             .get_output(context);
-        let notification_property_binding = notification_property_binding_1.get_inner();
-        let number_of_workers_binding_1 = args.number_of_workers.get_output(context);
-        let number_of_workers_binding = number_of_workers_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let security_configuration_binding_1 = args
+        let number_of_workers_binding = args.number_of_workers.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let security_configuration_binding = args
             .security_configuration
             .get_output(context);
-        let security_configuration_binding = security_configuration_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeout_binding_1 = args.timeout.get_output(context);
-        let timeout_binding = timeout_binding_1.get_inner();
-        let worker_type_binding_1 = args.worker_type.get_output(context);
-        let worker_type_binding = worker_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let timeout_binding = args.timeout.get_output(context);
+        let worker_type_binding = args.worker_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:glue/job:Job".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "command".into(),
-                    value: &command_binding,
+                    value: command_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connections".into(),
-                    value: &connections_binding,
+                    value: connections_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultArguments".into(),
-                    value: &default_arguments_binding,
+                    value: default_arguments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionClass".into(),
-                    value: &execution_class_binding,
+                    value: execution_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionProperty".into(),
-                    value: &execution_property_binding,
+                    value: execution_property_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "glueVersion".into(),
-                    value: &glue_version_binding,
+                    value: glue_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobRunQueuingEnabled".into(),
-                    value: &job_run_queuing_enabled_binding,
+                    value: job_run_queuing_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceWindow".into(),
-                    value: &maintenance_window_binding,
+                    value: maintenance_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxCapacity".into(),
-                    value: &max_capacity_binding,
+                    value: max_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxRetries".into(),
-                    value: &max_retries_binding,
+                    value: max_retries_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nonOverridableArguments".into(),
-                    value: &non_overridable_arguments_binding,
+                    value: non_overridable_arguments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationProperty".into(),
-                    value: &notification_property_binding,
+                    value: notification_property_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberOfWorkers".into(),
-                    value: &number_of_workers_binding,
+                    value: number_of_workers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityConfiguration".into(),
-                    value: &security_configuration_binding,
+                    value: security_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeout".into(),
-                    value: &timeout_binding,
+                    value: timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerType".into(),
-                    value: &worker_type_binding,
+                    value: worker_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         JobResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            command: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("command"),
-            ),
-            connections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connections"),
-            ),
-            default_arguments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultArguments"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            execution_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionClass"),
-            ),
-            execution_property: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionProperty"),
-            ),
-            glue_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("glueVersion"),
-            ),
-            job_run_queuing_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobRunQueuingEnabled"),
-            ),
-            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindow"),
-            ),
-            max_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxCapacity"),
-            ),
-            max_retries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxRetries"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            non_overridable_arguments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nonOverridableArguments"),
-            ),
-            notification_property: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationProperty"),
-            ),
-            number_of_workers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberOfWorkers"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            security_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityConfiguration"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeout"),
-            ),
-            worker_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workerType"),
-            ),
+            arn: o.get_field("arn"),
+            command: o.get_field("command"),
+            connections: o.get_field("connections"),
+            default_arguments: o.get_field("defaultArguments"),
+            description: o.get_field("description"),
+            execution_class: o.get_field("executionClass"),
+            execution_property: o.get_field("executionProperty"),
+            glue_version: o.get_field("glueVersion"),
+            job_run_queuing_enabled: o.get_field("jobRunQueuingEnabled"),
+            maintenance_window: o.get_field("maintenanceWindow"),
+            max_capacity: o.get_field("maxCapacity"),
+            max_retries: o.get_field("maxRetries"),
+            name: o.get_field("name"),
+            non_overridable_arguments: o.get_field("nonOverridableArguments"),
+            notification_property: o.get_field("notificationProperty"),
+            number_of_workers: o.get_field("numberOfWorkers"),
+            role_arn: o.get_field("roleArn"),
+            security_configuration: o.get_field("securityConfiguration"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeout: o.get_field("timeout"),
+            worker_type: o.get_field("workerType"),
         }
     }
 }

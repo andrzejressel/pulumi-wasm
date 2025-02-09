@@ -27,40 +27,35 @@ pub mod get_prompt {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPromptArgs,
     ) -> GetPromptResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let instance_id_binding = args.instance_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:connect/getPrompt:getPrompt".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPromptResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            prompt_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("promptId"),
-            ),
+            arn: o.get_field("arn"),
+            id: o.get_field("id"),
+            instance_id: o.get_field("instanceId"),
+            name: o.get_field("name"),
+            prompt_id: o.get_field("promptId"),
         }
     }
 }

@@ -278,86 +278,66 @@ pub mod anomaly_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AnomalySubscriptionArgs,
     ) -> AnomalySubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let frequency_binding_1 = args.frequency.get_output(context);
-        let frequency_binding = frequency_binding_1.get_inner();
-        let monitor_arn_lists_binding_1 = args.monitor_arn_lists.get_output(context);
-        let monitor_arn_lists_binding = monitor_arn_lists_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let subscribers_binding_1 = args.subscribers.get_output(context);
-        let subscribers_binding = subscribers_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let threshold_expression_binding_1 = args
-            .threshold_expression
-            .get_output(context);
-        let threshold_expression_binding = threshold_expression_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let frequency_binding = args.frequency.get_output(context);
+        let monitor_arn_lists_binding = args.monitor_arn_lists.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let subscribers_binding = args.subscribers.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let threshold_expression_binding = args.threshold_expression.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:costexplorer/anomalySubscription:AnomalySubscription".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frequency".into(),
-                    value: &frequency_binding,
+                    value: frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitorArnLists".into(),
-                    value: &monitor_arn_lists_binding,
+                    value: monitor_arn_lists_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscribers".into(),
-                    value: &subscribers_binding,
+                    value: subscribers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thresholdExpression".into(),
-                    value: &threshold_expression_binding,
+                    value: threshold_expression_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AnomalySubscriptionResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frequency"),
-            ),
-            monitor_arn_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitorArnLists"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            subscribers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscribers"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            threshold_expression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thresholdExpression"),
-            ),
+            account_id: o.get_field("accountId"),
+            arn: o.get_field("arn"),
+            frequency: o.get_field("frequency"),
+            monitor_arn_lists: o.get_field("monitorArnLists"),
+            name: o.get_field("name"),
+            subscribers: o.get_field("subscribers"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            threshold_expression: o.get_field("thresholdExpression"),
         }
     }
 }

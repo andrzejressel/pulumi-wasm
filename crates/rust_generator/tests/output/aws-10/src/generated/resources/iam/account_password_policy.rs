@@ -100,120 +100,87 @@ pub mod account_password_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountPasswordPolicyArgs,
     ) -> AccountPasswordPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_users_to_change_password_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_users_to_change_password_binding = args
             .allow_users_to_change_password
             .get_output(context);
-        let allow_users_to_change_password_binding = allow_users_to_change_password_binding_1
-            .get_inner();
-        let hard_expiry_binding_1 = args.hard_expiry.get_output(context);
-        let hard_expiry_binding = hard_expiry_binding_1.get_inner();
-        let max_password_age_binding_1 = args.max_password_age.get_output(context);
-        let max_password_age_binding = max_password_age_binding_1.get_inner();
-        let minimum_password_length_binding_1 = args
+        let hard_expiry_binding = args.hard_expiry.get_output(context);
+        let max_password_age_binding = args.max_password_age.get_output(context);
+        let minimum_password_length_binding = args
             .minimum_password_length
             .get_output(context);
-        let minimum_password_length_binding = minimum_password_length_binding_1
-            .get_inner();
-        let password_reuse_prevention_binding_1 = args
+        let password_reuse_prevention_binding = args
             .password_reuse_prevention
             .get_output(context);
-        let password_reuse_prevention_binding = password_reuse_prevention_binding_1
-            .get_inner();
-        let require_lowercase_characters_binding_1 = args
+        let require_lowercase_characters_binding = args
             .require_lowercase_characters
             .get_output(context);
-        let require_lowercase_characters_binding = require_lowercase_characters_binding_1
-            .get_inner();
-        let require_numbers_binding_1 = args.require_numbers.get_output(context);
-        let require_numbers_binding = require_numbers_binding_1.get_inner();
-        let require_symbols_binding_1 = args.require_symbols.get_output(context);
-        let require_symbols_binding = require_symbols_binding_1.get_inner();
-        let require_uppercase_characters_binding_1 = args
+        let require_numbers_binding = args.require_numbers.get_output(context);
+        let require_symbols_binding = args.require_symbols.get_output(context);
+        let require_uppercase_characters_binding = args
             .require_uppercase_characters
             .get_output(context);
-        let require_uppercase_characters_binding = require_uppercase_characters_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iam/accountPasswordPolicy:AccountPasswordPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowUsersToChangePassword".into(),
-                    value: &allow_users_to_change_password_binding,
+                    value: allow_users_to_change_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hardExpiry".into(),
-                    value: &hard_expiry_binding,
+                    value: hard_expiry_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxPasswordAge".into(),
-                    value: &max_password_age_binding,
+                    value: max_password_age_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumPasswordLength".into(),
-                    value: &minimum_password_length_binding,
+                    value: minimum_password_length_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "passwordReusePrevention".into(),
-                    value: &password_reuse_prevention_binding,
+                    value: password_reuse_prevention_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireLowercaseCharacters".into(),
-                    value: &require_lowercase_characters_binding,
+                    value: require_lowercase_characters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireNumbers".into(),
-                    value: &require_numbers_binding,
+                    value: require_numbers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireSymbols".into(),
-                    value: &require_symbols_binding,
+                    value: require_symbols_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireUppercaseCharacters".into(),
-                    value: &require_uppercase_characters_binding,
+                    value: require_uppercase_characters_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountPasswordPolicyResult {
-            allow_users_to_change_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowUsersToChangePassword"),
-            ),
-            expire_passwords: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirePasswords"),
-            ),
-            hard_expiry: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hardExpiry"),
-            ),
-            max_password_age: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxPasswordAge"),
-            ),
-            minimum_password_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumPasswordLength"),
-            ),
-            password_reuse_prevention: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("passwordReusePrevention"),
-            ),
-            require_lowercase_characters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requireLowercaseCharacters"),
-            ),
-            require_numbers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requireNumbers"),
-            ),
-            require_symbols: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requireSymbols"),
-            ),
-            require_uppercase_characters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requireUppercaseCharacters"),
-            ),
+            allow_users_to_change_password: o.get_field("allowUsersToChangePassword"),
+            expire_passwords: o.get_field("expirePasswords"),
+            hard_expiry: o.get_field("hardExpiry"),
+            max_password_age: o.get_field("maxPasswordAge"),
+            minimum_password_length: o.get_field("minimumPasswordLength"),
+            password_reuse_prevention: o.get_field("passwordReusePrevention"),
+            require_lowercase_characters: o.get_field("requireLowercaseCharacters"),
+            require_numbers: o.get_field("requireNumbers"),
+            require_symbols: o.get_field("requireSymbols"),
+            require_uppercase_characters: o.get_field("requireUppercaseCharacters"),
         }
     }
 }

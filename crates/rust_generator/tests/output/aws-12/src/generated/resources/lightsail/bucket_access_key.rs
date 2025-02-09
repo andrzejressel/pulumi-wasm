@@ -51,42 +51,32 @@ pub mod bucket_access_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BucketAccessKeyArgs,
     ) -> BucketAccessKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_name_binding_1 = args.bucket_name.get_output(context);
-        let bucket_name_binding = bucket_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_name_binding = args.bucket_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lightsail/bucketAccessKey:BucketAccessKey".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketName".into(),
-                    value: &bucket_name_binding,
+                    value: bucket_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BucketAccessKeyResult {
-            access_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessKeyId"),
-            ),
-            bucket_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketName"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            secret_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretAccessKey"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            access_key_id: o.get_field("accessKeyId"),
+            bucket_name: o.get_field("bucketName"),
+            created_at: o.get_field("createdAt"),
+            secret_access_key: o.get_field("secretAccessKey"),
+            status: o.get_field("status"),
         }
     }
 }

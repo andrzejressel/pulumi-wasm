@@ -55,74 +55,42 @@ pub mod get_signing_job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSigningJobArgs,
     ) -> GetSigningJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let job_id_binding_1 = args.job_id.get_output(context);
-        let job_id_binding = job_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let job_id_binding = args.job_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:signer/getSigningJob:getSigningJob".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobId".into(),
-                    value: &job_id_binding,
+                    value: job_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSigningJobResult {
-            completed_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("completedAt"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            job_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobId"),
-            ),
-            job_invoker: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobInvoker"),
-            ),
-            job_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobOwner"),
-            ),
-            platform_display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformDisplayName"),
-            ),
-            platform_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformId"),
-            ),
-            profile_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("profileName"),
-            ),
-            profile_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("profileVersion"),
-            ),
-            requested_by: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestedBy"),
-            ),
-            revocation_records: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revocationRecords"),
-            ),
-            signature_expires_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signatureExpiresAt"),
-            ),
-            signed_objects: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signedObjects"),
-            ),
-            sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sources"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusReason"),
-            ),
+            completed_at: o.get_field("completedAt"),
+            created_at: o.get_field("createdAt"),
+            id: o.get_field("id"),
+            job_id: o.get_field("jobId"),
+            job_invoker: o.get_field("jobInvoker"),
+            job_owner: o.get_field("jobOwner"),
+            platform_display_name: o.get_field("platformDisplayName"),
+            platform_id: o.get_field("platformId"),
+            profile_name: o.get_field("profileName"),
+            profile_version: o.get_field("profileVersion"),
+            requested_by: o.get_field("requestedBy"),
+            revocation_records: o.get_field("revocationRecords"),
+            signature_expires_at: o.get_field("signatureExpiresAt"),
+            signed_objects: o.get_field("signedObjects"),
+            sources: o.get_field("sources"),
+            status: o.get_field("status"),
+            status_reason: o.get_field("statusReason"),
         }
     }
 }

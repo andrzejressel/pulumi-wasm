@@ -80,87 +80,63 @@ pub mod auto_scaling_configuration_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AutoScalingConfigurationVersionArgs,
     ) -> AutoScalingConfigurationVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_scaling_configuration_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_scaling_configuration_name_binding = args
             .auto_scaling_configuration_name
             .get_output(context);
-        let auto_scaling_configuration_name_binding = auto_scaling_configuration_name_binding_1
-            .get_inner();
-        let max_concurrency_binding_1 = args.max_concurrency.get_output(context);
-        let max_concurrency_binding = max_concurrency_binding_1.get_inner();
-        let max_size_binding_1 = args.max_size.get_output(context);
-        let max_size_binding = max_size_binding_1.get_inner();
-        let min_size_binding_1 = args.min_size.get_output(context);
-        let min_size_binding = min_size_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let max_concurrency_binding = args.max_concurrency.get_output(context);
+        let max_size_binding = args.max_size.get_output(context);
+        let min_size_binding = args.min_size.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScalingConfigurationName".into(),
-                    value: &auto_scaling_configuration_name_binding,
+                    value: auto_scaling_configuration_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxConcurrency".into(),
-                    value: &max_concurrency_binding,
+                    value: max_concurrency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxSize".into(),
-                    value: &max_size_binding,
+                    value: max_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minSize".into(),
-                    value: &min_size_binding,
+                    value: min_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AutoScalingConfigurationVersionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_scaling_configuration_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScalingConfigurationName"),
-            ),
-            auto_scaling_configuration_revision: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScalingConfigurationRevision"),
-            ),
-            has_associated_service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hasAssociatedService"),
-            ),
-            is_default: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isDefault"),
-            ),
-            latest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latest"),
-            ),
-            max_concurrency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxConcurrency"),
-            ),
-            max_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxSize"),
-            ),
-            min_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minSize"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            auto_scaling_configuration_name: o.get_field("autoScalingConfigurationName"),
+            auto_scaling_configuration_revision: o
+                .get_field("autoScalingConfigurationRevision"),
+            has_associated_service: o.get_field("hasAssociatedService"),
+            is_default: o.get_field("isDefault"),
+            latest: o.get_field("latest"),
+            max_concurrency: o.get_field("maxConcurrency"),
+            max_size: o.get_field("maxSize"),
+            min_size: o.get_field("minSize"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

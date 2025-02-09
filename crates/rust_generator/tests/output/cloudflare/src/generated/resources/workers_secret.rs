@@ -60,55 +60,46 @@ pub mod workers_secret {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkersSecretArgs,
     ) -> WorkersSecretResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let script_name_binding_1 = args.script_name.get_output(context);
-        let script_name_binding = script_name_binding_1.get_inner();
-        let secret_text_binding_1 = args.secret_text.get_output(context);
-        let secret_text_binding = secret_text_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let script_name_binding = args.script_name.get_output(context);
+        let secret_text_binding = args.secret_text.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/workersSecret:WorkersSecret".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scriptName".into(),
-                    value: &script_name_binding,
+                    value: script_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretText".into(),
-                    value: &secret_text_binding,
+                    value: secret_text_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkersSecretResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            script_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scriptName"),
-            ),
-            secret_text: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretText"),
-            ),
+            account_id: o.get_field("accountId"),
+            name: o.get_field("name"),
+            script_name: o.get_field("scriptName"),
+            secret_text: o.get_field("secretText"),
         }
     }
 }

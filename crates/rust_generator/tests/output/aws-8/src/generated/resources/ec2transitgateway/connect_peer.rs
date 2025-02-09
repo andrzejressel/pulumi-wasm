@@ -91,89 +91,66 @@ pub mod connect_peer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectPeerArgs,
     ) -> ConnectPeerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bgp_asn_binding_1 = args.bgp_asn.get_output(context);
-        let bgp_asn_binding = bgp_asn_binding_1.get_inner();
-        let inside_cidr_blocks_binding_1 = args.inside_cidr_blocks.get_output(context);
-        let inside_cidr_blocks_binding = inside_cidr_blocks_binding_1.get_inner();
-        let peer_address_binding_1 = args.peer_address.get_output(context);
-        let peer_address_binding = peer_address_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let transit_gateway_address_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bgp_asn_binding = args.bgp_asn.get_output(context);
+        let inside_cidr_blocks_binding = args.inside_cidr_blocks.get_output(context);
+        let peer_address_binding = args.peer_address.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let transit_gateway_address_binding = args
             .transit_gateway_address
             .get_output(context);
-        let transit_gateway_address_binding = transit_gateway_address_binding_1
-            .get_inner();
-        let transit_gateway_attachment_id_binding_1 = args
+        let transit_gateway_attachment_id_binding = args
             .transit_gateway_attachment_id
             .get_output(context);
-        let transit_gateway_attachment_id_binding = transit_gateway_attachment_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/connectPeer:ConnectPeer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpAsn".into(),
-                    value: &bgp_asn_binding,
+                    value: bgp_asn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insideCidrBlocks".into(),
-                    value: &inside_cidr_blocks_binding,
+                    value: inside_cidr_blocks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerAddress".into(),
-                    value: &peer_address_binding,
+                    value: peer_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayAddress".into(),
-                    value: &transit_gateway_address_binding,
+                    value: transit_gateway_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayAttachmentId".into(),
-                    value: &transit_gateway_attachment_id_binding,
+                    value: transit_gateway_attachment_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectPeerResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bgp_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpAsn"),
-            ),
-            bgp_peer_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpPeerAddress"),
-            ),
-            bgp_transit_gateway_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpTransitGatewayAddresses"),
-            ),
-            inside_cidr_blocks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("insideCidrBlocks"),
-            ),
-            peer_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerAddress"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            transit_gateway_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayAddress"),
-            ),
-            transit_gateway_attachment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayAttachmentId"),
-            ),
+            arn: o.get_field("arn"),
+            bgp_asn: o.get_field("bgpAsn"),
+            bgp_peer_address: o.get_field("bgpPeerAddress"),
+            bgp_transit_gateway_addresses: o.get_field("bgpTransitGatewayAddresses"),
+            inside_cidr_blocks: o.get_field("insideCidrBlocks"),
+            peer_address: o.get_field("peerAddress"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            transit_gateway_address: o.get_field("transitGatewayAddress"),
+            transit_gateway_attachment_id: o.get_field("transitGatewayAttachmentId"),
         }
     }
 }

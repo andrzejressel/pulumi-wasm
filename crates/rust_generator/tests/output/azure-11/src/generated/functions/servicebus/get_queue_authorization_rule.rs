@@ -49,89 +49,62 @@ pub mod get_queue_authorization_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetQueueAuthorizationRuleArgs,
     ) -> GetQueueAuthorizationRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let namespace_name_binding_1 = args.namespace_name.get_output(context);
-        let namespace_name_binding = namespace_name_binding_1.get_inner();
-        let queue_id_binding_1 = args.queue_id.get_output(context);
-        let queue_id_binding = queue_id_binding_1.get_inner();
-        let queue_name_binding_1 = args.queue_name.get_output(context);
-        let queue_name_binding = queue_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let namespace_name_binding = args.namespace_name.get_output(context);
+        let queue_id_binding = args.queue_id.get_output(context);
+        let queue_name_binding = args.queue_name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceName".into(),
-                    value: &namespace_name_binding,
+                    value: namespace_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueId".into(),
-                    value: &queue_id_binding,
+                    value: queue_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueName".into(),
-                    value: &queue_name_binding,
+                    value: queue_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetQueueAuthorizationRuleResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            listen: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listen"),
-            ),
-            manage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manage"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceName"),
-            ),
-            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryConnectionString"),
-            ),
-            primary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryConnectionStringAlias"),
-            ),
-            primary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryKey"),
-            ),
-            queue_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueId"),
-            ),
-            queue_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueName"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryConnectionString"),
-            ),
-            secondary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryConnectionStringAlias"),
-            ),
-            secondary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryKey"),
-            ),
-            send: pulumi_gestalt_rust::__private::into_domain(o.extract_field("send")),
+            id: o.get_field("id"),
+            listen: o.get_field("listen"),
+            manage: o.get_field("manage"),
+            name: o.get_field("name"),
+            namespace_name: o.get_field("namespaceName"),
+            primary_connection_string: o.get_field("primaryConnectionString"),
+            primary_connection_string_alias: o.get_field("primaryConnectionStringAlias"),
+            primary_key: o.get_field("primaryKey"),
+            queue_id: o.get_field("queueId"),
+            queue_name: o.get_field("queueName"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_connection_string: o.get_field("secondaryConnectionString"),
+            secondary_connection_string_alias: o
+                .get_field("secondaryConnectionStringAlias"),
+            secondary_key: o.get_field("secondaryKey"),
+            send: o.get_field("send"),
         }
     }
 }

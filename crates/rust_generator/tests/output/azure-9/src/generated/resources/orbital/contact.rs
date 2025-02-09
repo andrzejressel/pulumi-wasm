@@ -146,78 +146,60 @@ pub mod contact {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ContactArgs,
     ) -> ContactResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let contact_profile_id_binding_1 = args.contact_profile_id.get_output(context);
-        let contact_profile_id_binding = contact_profile_id_binding_1.get_inner();
-        let ground_station_name_binding_1 = args.ground_station_name.get_output(context);
-        let ground_station_name_binding = ground_station_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let reservation_end_time_binding_1 = args
-            .reservation_end_time
-            .get_output(context);
-        let reservation_end_time_binding = reservation_end_time_binding_1.get_inner();
-        let reservation_start_time_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let contact_profile_id_binding = args.contact_profile_id.get_output(context);
+        let ground_station_name_binding = args.ground_station_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let reservation_end_time_binding = args.reservation_end_time.get_output(context);
+        let reservation_start_time_binding = args
             .reservation_start_time
             .get_output(context);
-        let reservation_start_time_binding = reservation_start_time_binding_1
-            .get_inner();
-        let spacecraft_id_binding_1 = args.spacecraft_id.get_output(context);
-        let spacecraft_id_binding = spacecraft_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let spacecraft_id_binding = args.spacecraft_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:orbital/contact:Contact".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactProfileId".into(),
-                    value: &contact_profile_id_binding,
+                    value: contact_profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groundStationName".into(),
-                    value: &ground_station_name_binding,
+                    value: ground_station_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservationEndTime".into(),
-                    value: &reservation_end_time_binding,
+                    value: reservation_end_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservationStartTime".into(),
-                    value: &reservation_start_time_binding,
+                    value: reservation_start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spacecraftId".into(),
-                    value: &spacecraft_id_binding,
+                    value: spacecraft_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ContactResult {
-            contact_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contactProfileId"),
-            ),
-            ground_station_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groundStationName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            reservation_end_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservationEndTime"),
-            ),
-            reservation_start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservationStartTime"),
-            ),
-            spacecraft_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spacecraftId"),
-            ),
+            contact_profile_id: o.get_field("contactProfileId"),
+            ground_station_name: o.get_field("groundStationName"),
+            name: o.get_field("name"),
+            reservation_end_time: o.get_field("reservationEndTime"),
+            reservation_start_time: o.get_field("reservationStartTime"),
+            spacecraft_id: o.get_field("spacecraftId"),
         }
     }
 }

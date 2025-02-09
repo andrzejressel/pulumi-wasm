@@ -212,123 +212,87 @@ pub mod certificate_authority {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CertificateAuthorityArgs,
     ) -> CertificateAuthorityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_authority_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_authority_configuration_binding = args
             .certificate_authority_configuration
             .get_output(context);
-        let certificate_authority_configuration_binding = certificate_authority_configuration_binding_1
-            .get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let key_storage_security_standard_binding_1 = args
+        let enabled_binding = args.enabled.get_output(context);
+        let key_storage_security_standard_binding = args
             .key_storage_security_standard
             .get_output(context);
-        let key_storage_security_standard_binding = key_storage_security_standard_binding_1
-            .get_inner();
-        let permanent_deletion_time_in_days_binding_1 = args
+        let permanent_deletion_time_in_days_binding = args
             .permanent_deletion_time_in_days
             .get_output(context);
-        let permanent_deletion_time_in_days_binding = permanent_deletion_time_in_days_binding_1
-            .get_inner();
-        let revocation_configuration_binding_1 = args
+        let revocation_configuration_binding = args
             .revocation_configuration
             .get_output(context);
-        let revocation_configuration_binding = revocation_configuration_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let usage_mode_binding_1 = args.usage_mode.get_output(context);
-        let usage_mode_binding = usage_mode_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let usage_mode_binding = args.usage_mode.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:acmpca/certificateAuthority:CertificateAuthority".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthorityConfiguration".into(),
-                    value: &certificate_authority_configuration_binding,
+                    value: certificate_authority_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyStorageSecurityStandard".into(),
-                    value: &key_storage_security_standard_binding,
+                    value: key_storage_security_standard_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permanentDeletionTimeInDays".into(),
-                    value: &permanent_deletion_time_in_days_binding,
+                    value: permanent_deletion_time_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "revocationConfiguration".into(),
-                    value: &revocation_configuration_binding,
+                    value: revocation_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usageMode".into(),
-                    value: &usage_mode_binding,
+                    value: usage_mode_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CertificateAuthorityResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificate"),
-            ),
-            certificate_authority_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateAuthorityConfiguration"),
-            ),
-            certificate_chain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateChain"),
-            ),
-            certificate_signing_request: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateSigningRequest"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            key_storage_security_standard: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyStorageSecurityStandard"),
-            ),
-            not_after: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notAfter"),
-            ),
-            not_before: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notBefore"),
-            ),
-            permanent_deletion_time_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permanentDeletionTimeInDays"),
-            ),
-            revocation_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revocationConfiguration"),
-            ),
-            serial: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serial"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            usage_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usageMode"),
-            ),
+            arn: o.get_field("arn"),
+            certificate: o.get_field("certificate"),
+            certificate_authority_configuration: o
+                .get_field("certificateAuthorityConfiguration"),
+            certificate_chain: o.get_field("certificateChain"),
+            certificate_signing_request: o.get_field("certificateSigningRequest"),
+            enabled: o.get_field("enabled"),
+            key_storage_security_standard: o.get_field("keyStorageSecurityStandard"),
+            not_after: o.get_field("notAfter"),
+            not_before: o.get_field("notBefore"),
+            permanent_deletion_time_in_days: o.get_field("permanentDeletionTimeInDays"),
+            revocation_configuration: o.get_field("revocationConfiguration"),
+            serial: o.get_field("serial"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
+            usage_mode: o.get_field("usageMode"),
         }
     }
 }

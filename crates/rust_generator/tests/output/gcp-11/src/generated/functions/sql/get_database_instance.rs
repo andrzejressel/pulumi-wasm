@@ -59,108 +59,57 @@ pub mod get_database_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDatabaseInstanceArgs,
     ) -> GetDatabaseInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:sql/getDatabaseInstance:getDatabaseInstance".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDatabaseInstanceResult {
-            available_maintenance_versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availableMaintenanceVersions"),
-            ),
-            clones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clones"),
-            ),
-            connection_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionName"),
-            ),
-            database_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseVersion"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            encryption_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionKeyName"),
-            ),
-            first_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firstIpAddress"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddresses"),
-            ),
-            maintenance_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceVersion"),
-            ),
-            master_instance_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterInstanceName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpAddress"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            psc_service_attachment_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pscServiceAttachmentLink"),
-            ),
-            public_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIpAddress"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            replica_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaConfigurations"),
-            ),
-            replica_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaNames"),
-            ),
-            restore_backup_contexts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restoreBackupContexts"),
-            ),
-            root_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootPassword"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            server_ca_certs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverCaCerts"),
-            ),
-            service_account_email_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountEmailAddress"),
-            ),
-            settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("settings"),
-            ),
+            available_maintenance_versions: o.get_field("availableMaintenanceVersions"),
+            clones: o.get_field("clones"),
+            connection_name: o.get_field("connectionName"),
+            database_version: o.get_field("databaseVersion"),
+            deletion_protection: o.get_field("deletionProtection"),
+            dns_name: o.get_field("dnsName"),
+            encryption_key_name: o.get_field("encryptionKeyName"),
+            first_ip_address: o.get_field("firstIpAddress"),
+            id: o.get_field("id"),
+            instance_type: o.get_field("instanceType"),
+            ip_addresses: o.get_field("ipAddresses"),
+            maintenance_version: o.get_field("maintenanceVersion"),
+            master_instance_name: o.get_field("masterInstanceName"),
+            name: o.get_field("name"),
+            private_ip_address: o.get_field("privateIpAddress"),
+            project: o.get_field("project"),
+            psc_service_attachment_link: o.get_field("pscServiceAttachmentLink"),
+            public_ip_address: o.get_field("publicIpAddress"),
+            region: o.get_field("region"),
+            replica_configurations: o.get_field("replicaConfigurations"),
+            replica_names: o.get_field("replicaNames"),
+            restore_backup_contexts: o.get_field("restoreBackupContexts"),
+            root_password: o.get_field("rootPassword"),
+            self_link: o.get_field("selfLink"),
+            server_ca_certs: o.get_field("serverCaCerts"),
+            service_account_email_address: o.get_field("serviceAccountEmailAddress"),
+            settings: o.get_field("settings"),
         }
     }
 }

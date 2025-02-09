@@ -358,406 +358,281 @@ pub mod kubernetes_cluster_node_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KubernetesClusterNodePoolArgs,
     ) -> KubernetesClusterNodePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_scaling_enabled_binding_1 = args
-            .auto_scaling_enabled
-            .get_output(context);
-        let auto_scaling_enabled_binding = auto_scaling_enabled_binding_1.get_inner();
-        let capacity_reservation_group_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_scaling_enabled_binding = args.auto_scaling_enabled.get_output(context);
+        let capacity_reservation_group_id_binding = args
             .capacity_reservation_group_id
             .get_output(context);
-        let capacity_reservation_group_id_binding = capacity_reservation_group_id_binding_1
-            .get_inner();
-        let eviction_policy_binding_1 = args.eviction_policy.get_output(context);
-        let eviction_policy_binding = eviction_policy_binding_1.get_inner();
-        let fips_enabled_binding_1 = args.fips_enabled.get_output(context);
-        let fips_enabled_binding = fips_enabled_binding_1.get_inner();
-        let gpu_instance_binding_1 = args.gpu_instance.get_output(context);
-        let gpu_instance_binding = gpu_instance_binding_1.get_inner();
-        let host_encryption_enabled_binding_1 = args
+        let eviction_policy_binding = args.eviction_policy.get_output(context);
+        let fips_enabled_binding = args.fips_enabled.get_output(context);
+        let gpu_instance_binding = args.gpu_instance.get_output(context);
+        let host_encryption_enabled_binding = args
             .host_encryption_enabled
             .get_output(context);
-        let host_encryption_enabled_binding = host_encryption_enabled_binding_1
-            .get_inner();
-        let host_group_id_binding_1 = args.host_group_id.get_output(context);
-        let host_group_id_binding = host_group_id_binding_1.get_inner();
-        let kubelet_config_binding_1 = args.kubelet_config.get_output(context);
-        let kubelet_config_binding = kubelet_config_binding_1.get_inner();
-        let kubelet_disk_type_binding_1 = args.kubelet_disk_type.get_output(context);
-        let kubelet_disk_type_binding = kubelet_disk_type_binding_1.get_inner();
-        let kubernetes_cluster_id_binding_1 = args
+        let host_group_id_binding = args.host_group_id.get_output(context);
+        let kubelet_config_binding = args.kubelet_config.get_output(context);
+        let kubelet_disk_type_binding = args.kubelet_disk_type.get_output(context);
+        let kubernetes_cluster_id_binding = args
             .kubernetes_cluster_id
             .get_output(context);
-        let kubernetes_cluster_id_binding = kubernetes_cluster_id_binding_1.get_inner();
-        let linux_os_config_binding_1 = args.linux_os_config.get_output(context);
-        let linux_os_config_binding = linux_os_config_binding_1.get_inner();
-        let max_count_binding_1 = args.max_count.get_output(context);
-        let max_count_binding = max_count_binding_1.get_inner();
-        let max_pods_binding_1 = args.max_pods.get_output(context);
-        let max_pods_binding = max_pods_binding_1.get_inner();
-        let min_count_binding_1 = args.min_count.get_output(context);
-        let min_count_binding = min_count_binding_1.get_inner();
-        let mode_binding_1 = args.mode.get_output(context);
-        let mode_binding = mode_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let node_count_binding_1 = args.node_count.get_output(context);
-        let node_count_binding = node_count_binding_1.get_inner();
-        let node_labels_binding_1 = args.node_labels.get_output(context);
-        let node_labels_binding = node_labels_binding_1.get_inner();
-        let node_network_profile_binding_1 = args
-            .node_network_profile
-            .get_output(context);
-        let node_network_profile_binding = node_network_profile_binding_1.get_inner();
-        let node_public_ip_enabled_binding_1 = args
+        let linux_os_config_binding = args.linux_os_config.get_output(context);
+        let max_count_binding = args.max_count.get_output(context);
+        let max_pods_binding = args.max_pods.get_output(context);
+        let min_count_binding = args.min_count.get_output(context);
+        let mode_binding = args.mode.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let node_count_binding = args.node_count.get_output(context);
+        let node_labels_binding = args.node_labels.get_output(context);
+        let node_network_profile_binding = args.node_network_profile.get_output(context);
+        let node_public_ip_enabled_binding = args
             .node_public_ip_enabled
             .get_output(context);
-        let node_public_ip_enabled_binding = node_public_ip_enabled_binding_1
-            .get_inner();
-        let node_public_ip_prefix_id_binding_1 = args
+        let node_public_ip_prefix_id_binding = args
             .node_public_ip_prefix_id
             .get_output(context);
-        let node_public_ip_prefix_id_binding = node_public_ip_prefix_id_binding_1
-            .get_inner();
-        let node_taints_binding_1 = args.node_taints.get_output(context);
-        let node_taints_binding = node_taints_binding_1.get_inner();
-        let orchestrator_version_binding_1 = args
-            .orchestrator_version
-            .get_output(context);
-        let orchestrator_version_binding = orchestrator_version_binding_1.get_inner();
-        let os_disk_size_gb_binding_1 = args.os_disk_size_gb.get_output(context);
-        let os_disk_size_gb_binding = os_disk_size_gb_binding_1.get_inner();
-        let os_disk_type_binding_1 = args.os_disk_type.get_output(context);
-        let os_disk_type_binding = os_disk_type_binding_1.get_inner();
-        let os_sku_binding_1 = args.os_sku.get_output(context);
-        let os_sku_binding = os_sku_binding_1.get_inner();
-        let os_type_binding_1 = args.os_type.get_output(context);
-        let os_type_binding = os_type_binding_1.get_inner();
-        let pod_subnet_id_binding_1 = args.pod_subnet_id.get_output(context);
-        let pod_subnet_id_binding = pod_subnet_id_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let proximity_placement_group_id_binding_1 = args
+        let node_taints_binding = args.node_taints.get_output(context);
+        let orchestrator_version_binding = args.orchestrator_version.get_output(context);
+        let os_disk_size_gb_binding = args.os_disk_size_gb.get_output(context);
+        let os_disk_type_binding = args.os_disk_type.get_output(context);
+        let os_sku_binding = args.os_sku.get_output(context);
+        let os_type_binding = args.os_type.get_output(context);
+        let pod_subnet_id_binding = args.pod_subnet_id.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let proximity_placement_group_id_binding = args
             .proximity_placement_group_id
             .get_output(context);
-        let proximity_placement_group_id_binding = proximity_placement_group_id_binding_1
-            .get_inner();
-        let scale_down_mode_binding_1 = args.scale_down_mode.get_output(context);
-        let scale_down_mode_binding = scale_down_mode_binding_1.get_inner();
-        let snapshot_id_binding_1 = args.snapshot_id.get_output(context);
-        let snapshot_id_binding = snapshot_id_binding_1.get_inner();
-        let spot_max_price_binding_1 = args.spot_max_price.get_output(context);
-        let spot_max_price_binding = spot_max_price_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let ultra_ssd_enabled_binding_1 = args.ultra_ssd_enabled.get_output(context);
-        let ultra_ssd_enabled_binding = ultra_ssd_enabled_binding_1.get_inner();
-        let upgrade_settings_binding_1 = args.upgrade_settings.get_output(context);
-        let upgrade_settings_binding = upgrade_settings_binding_1.get_inner();
-        let vm_size_binding_1 = args.vm_size.get_output(context);
-        let vm_size_binding = vm_size_binding_1.get_inner();
-        let vnet_subnet_id_binding_1 = args.vnet_subnet_id.get_output(context);
-        let vnet_subnet_id_binding = vnet_subnet_id_binding_1.get_inner();
-        let windows_profile_binding_1 = args.windows_profile.get_output(context);
-        let windows_profile_binding = windows_profile_binding_1.get_inner();
-        let workload_runtime_binding_1 = args.workload_runtime.get_output(context);
-        let workload_runtime_binding = workload_runtime_binding_1.get_inner();
-        let zones_binding_1 = args.zones.get_output(context);
-        let zones_binding = zones_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let scale_down_mode_binding = args.scale_down_mode.get_output(context);
+        let snapshot_id_binding = args.snapshot_id.get_output(context);
+        let spot_max_price_binding = args.spot_max_price.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let ultra_ssd_enabled_binding = args.ultra_ssd_enabled.get_output(context);
+        let upgrade_settings_binding = args.upgrade_settings.get_output(context);
+        let vm_size_binding = args.vm_size.get_output(context);
+        let vnet_subnet_id_binding = args.vnet_subnet_id.get_output(context);
+        let windows_profile_binding = args.windows_profile.get_output(context);
+        let workload_runtime_binding = args.workload_runtime.get_output(context);
+        let zones_binding = args.zones.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScalingEnabled".into(),
-                    value: &auto_scaling_enabled_binding,
+                    value: auto_scaling_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityReservationGroupId".into(),
-                    value: &capacity_reservation_group_id_binding,
+                    value: capacity_reservation_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "evictionPolicy".into(),
-                    value: &eviction_policy_binding,
+                    value: eviction_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fipsEnabled".into(),
-                    value: &fips_enabled_binding,
+                    value: fips_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gpuInstance".into(),
-                    value: &gpu_instance_binding,
+                    value: gpu_instance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostEncryptionEnabled".into(),
-                    value: &host_encryption_enabled_binding,
+                    value: host_encryption_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostGroupId".into(),
-                    value: &host_group_id_binding,
+                    value: host_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubeletConfig".into(),
-                    value: &kubelet_config_binding,
+                    value: kubelet_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubeletDiskType".into(),
-                    value: &kubelet_disk_type_binding,
+                    value: kubelet_disk_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesClusterId".into(),
-                    value: &kubernetes_cluster_id_binding,
+                    value: kubernetes_cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linuxOsConfig".into(),
-                    value: &linux_os_config_binding,
+                    value: linux_os_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxCount".into(),
-                    value: &max_count_binding,
+                    value: max_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxPods".into(),
-                    value: &max_pods_binding,
+                    value: max_pods_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minCount".into(),
-                    value: &min_count_binding,
+                    value: min_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: &mode_binding,
+                    value: mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeCount".into(),
-                    value: &node_count_binding,
+                    value: node_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeLabels".into(),
-                    value: &node_labels_binding,
+                    value: node_labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeNetworkProfile".into(),
-                    value: &node_network_profile_binding,
+                    value: node_network_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodePublicIpEnabled".into(),
-                    value: &node_public_ip_enabled_binding,
+                    value: node_public_ip_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodePublicIpPrefixId".into(),
-                    value: &node_public_ip_prefix_id_binding,
+                    value: node_public_ip_prefix_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeTaints".into(),
-                    value: &node_taints_binding,
+                    value: node_taints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orchestratorVersion".into(),
-                    value: &orchestrator_version_binding,
+                    value: orchestrator_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osDiskSizeGb".into(),
-                    value: &os_disk_size_gb_binding,
+                    value: os_disk_size_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osDiskType".into(),
-                    value: &os_disk_type_binding,
+                    value: os_disk_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osSku".into(),
-                    value: &os_sku_binding,
+                    value: os_sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osType".into(),
-                    value: &os_type_binding,
+                    value: os_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "podSubnetId".into(),
-                    value: &pod_subnet_id_binding,
+                    value: pod_subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proximityPlacementGroupId".into(),
-                    value: &proximity_placement_group_id_binding,
+                    value: proximity_placement_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scaleDownMode".into(),
-                    value: &scale_down_mode_binding,
+                    value: scale_down_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotId".into(),
-                    value: &snapshot_id_binding,
+                    value: snapshot_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spotMaxPrice".into(),
-                    value: &spot_max_price_binding,
+                    value: spot_max_price_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ultraSsdEnabled".into(),
-                    value: &ultra_ssd_enabled_binding,
+                    value: ultra_ssd_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upgradeSettings".into(),
-                    value: &upgrade_settings_binding,
+                    value: upgrade_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmSize".into(),
-                    value: &vm_size_binding,
+                    value: vm_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vnetSubnetId".into(),
-                    value: &vnet_subnet_id_binding,
+                    value: vnet_subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "windowsProfile".into(),
-                    value: &windows_profile_binding,
+                    value: windows_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadRuntime".into(),
-                    value: &workload_runtime_binding,
+                    value: workload_runtime_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zones".into(),
-                    value: &zones_binding,
+                    value: zones_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KubernetesClusterNodePoolResult {
-            auto_scaling_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScalingEnabled"),
-            ),
-            capacity_reservation_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityReservationGroupId"),
-            ),
-            eviction_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("evictionPolicy"),
-            ),
-            fips_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fipsEnabled"),
-            ),
-            gpu_instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gpuInstance"),
-            ),
-            host_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostEncryptionEnabled"),
-            ),
-            host_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostGroupId"),
-            ),
-            kubelet_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubeletConfig"),
-            ),
-            kubelet_disk_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubeletDiskType"),
-            ),
-            kubernetes_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubernetesClusterId"),
-            ),
-            linux_os_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linuxOsConfig"),
-            ),
-            max_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxCount"),
-            ),
-            max_pods: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxPods"),
-            ),
-            min_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minCount"),
-            ),
-            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeCount"),
-            ),
-            node_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeLabels"),
-            ),
-            node_network_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeNetworkProfile"),
-            ),
-            node_public_ip_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodePublicIpEnabled"),
-            ),
-            node_public_ip_prefix_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodePublicIpPrefixId"),
-            ),
-            node_taints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeTaints"),
-            ),
-            orchestrator_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orchestratorVersion"),
-            ),
-            os_disk_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osDiskSizeGb"),
-            ),
-            os_disk_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osDiskType"),
-            ),
-            os_sku: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osSku"),
-            ),
-            os_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osType"),
-            ),
-            pod_subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("podSubnetId"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            proximity_placement_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proximityPlacementGroupId"),
-            ),
-            scale_down_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scaleDownMode"),
-            ),
-            snapshot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotId"),
-            ),
-            spot_max_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spotMaxPrice"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            ultra_ssd_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ultraSsdEnabled"),
-            ),
-            upgrade_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("upgradeSettings"),
-            ),
-            vm_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmSize"),
-            ),
-            vnet_subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vnetSubnetId"),
-            ),
-            windows_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("windowsProfile"),
-            ),
-            workload_runtime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadRuntime"),
-            ),
-            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
+            auto_scaling_enabled: o.get_field("autoScalingEnabled"),
+            capacity_reservation_group_id: o.get_field("capacityReservationGroupId"),
+            eviction_policy: o.get_field("evictionPolicy"),
+            fips_enabled: o.get_field("fipsEnabled"),
+            gpu_instance: o.get_field("gpuInstance"),
+            host_encryption_enabled: o.get_field("hostEncryptionEnabled"),
+            host_group_id: o.get_field("hostGroupId"),
+            kubelet_config: o.get_field("kubeletConfig"),
+            kubelet_disk_type: o.get_field("kubeletDiskType"),
+            kubernetes_cluster_id: o.get_field("kubernetesClusterId"),
+            linux_os_config: o.get_field("linuxOsConfig"),
+            max_count: o.get_field("maxCount"),
+            max_pods: o.get_field("maxPods"),
+            min_count: o.get_field("minCount"),
+            mode: o.get_field("mode"),
+            name: o.get_field("name"),
+            node_count: o.get_field("nodeCount"),
+            node_labels: o.get_field("nodeLabels"),
+            node_network_profile: o.get_field("nodeNetworkProfile"),
+            node_public_ip_enabled: o.get_field("nodePublicIpEnabled"),
+            node_public_ip_prefix_id: o.get_field("nodePublicIpPrefixId"),
+            node_taints: o.get_field("nodeTaints"),
+            orchestrator_version: o.get_field("orchestratorVersion"),
+            os_disk_size_gb: o.get_field("osDiskSizeGb"),
+            os_disk_type: o.get_field("osDiskType"),
+            os_sku: o.get_field("osSku"),
+            os_type: o.get_field("osType"),
+            pod_subnet_id: o.get_field("podSubnetId"),
+            priority: o.get_field("priority"),
+            proximity_placement_group_id: o.get_field("proximityPlacementGroupId"),
+            scale_down_mode: o.get_field("scaleDownMode"),
+            snapshot_id: o.get_field("snapshotId"),
+            spot_max_price: o.get_field("spotMaxPrice"),
+            tags: o.get_field("tags"),
+            ultra_ssd_enabled: o.get_field("ultraSsdEnabled"),
+            upgrade_settings: o.get_field("upgradeSettings"),
+            vm_size: o.get_field("vmSize"),
+            vnet_subnet_id: o.get_field("vnetSubnetId"),
+            windows_profile: o.get_field("windowsProfile"),
+            workload_runtime: o.get_field("workloadRuntime"),
+            zones: o.get_field("zones"),
         }
     }
 }

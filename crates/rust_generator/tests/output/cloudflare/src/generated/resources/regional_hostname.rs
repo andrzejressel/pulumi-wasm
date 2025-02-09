@@ -59,51 +59,41 @@ pub mod regional_hostname {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegionalHostnameArgs,
     ) -> RegionalHostnameResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hostname_binding_1 = args.hostname.get_output(context);
-        let hostname_binding = hostname_binding_1.get_inner();
-        let region_key_binding_1 = args.region_key.get_output(context);
-        let region_key_binding = region_key_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let hostname_binding = args.hostname.get_output(context);
+        let region_key_binding = args.region_key.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/regionalHostname:RegionalHostname".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostname".into(),
-                    value: &hostname_binding,
+                    value: hostname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regionKey".into(),
-                    value: &region_key_binding,
+                    value: region_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegionalHostnameResult {
-            created_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdOn"),
-            ),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            region_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regionKey"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            created_on: o.get_field("createdOn"),
+            hostname: o.get_field("hostname"),
+            region_key: o.get_field("regionKey"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

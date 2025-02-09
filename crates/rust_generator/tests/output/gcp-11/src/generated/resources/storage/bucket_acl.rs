@@ -72,57 +72,46 @@ pub mod bucket_acl {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BucketACLArgs,
     ) -> BucketACLResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let default_acl_binding_1 = args.default_acl.get_output(context);
-        let default_acl_binding = default_acl_binding_1.get_inner();
-        let predefined_acl_binding_1 = args.predefined_acl.get_output(context);
-        let predefined_acl_binding = predefined_acl_binding_1.get_inner();
-        let role_entities_binding_1 = args.role_entities.get_output(context);
-        let role_entities_binding = role_entities_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_binding = args.bucket.get_output(context);
+        let default_acl_binding = args.default_acl.get_output(context);
+        let predefined_acl_binding = args.predefined_acl.get_output(context);
+        let role_entities_binding = args.role_entities.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:storage/bucketACL:BucketACL".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAcl".into(),
-                    value: &default_acl_binding,
+                    value: default_acl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "predefinedAcl".into(),
-                    value: &predefined_acl_binding,
+                    value: predefined_acl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleEntities".into(),
-                    value: &role_entities_binding,
+                    value: role_entities_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BucketACLResult {
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            default_acl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultAcl"),
-            ),
-            predefined_acl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("predefinedAcl"),
-            ),
-            role_entities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleEntities"),
-            ),
+            bucket: o.get_field("bucket"),
+            default_acl: o.get_field("defaultAcl"),
+            predefined_acl: o.get_field("predefinedAcl"),
+            role_entities: o.get_field("roleEntities"),
         }
     }
 }

@@ -80,40 +80,35 @@ pub mod spring_cloud_active_deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudActiveDeploymentArgs,
     ) -> SpringCloudActiveDeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deployment_name_binding_1 = args.deployment_name.get_output(context);
-        let deployment_name_binding = deployment_name_binding_1.get_inner();
-        let spring_cloud_app_id_binding_1 = args.spring_cloud_app_id.get_output(context);
-        let spring_cloud_app_id_binding = spring_cloud_app_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let deployment_name_binding = args.deployment_name.get_output(context);
+        let spring_cloud_app_id_binding = args.spring_cloud_app_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentName".into(),
-                    value: &deployment_name_binding,
+                    value: deployment_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudAppId".into(),
-                    value: &spring_cloud_app_id_binding,
+                    value: spring_cloud_app_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudActiveDeploymentResult {
-            deployment_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentName"),
-            ),
-            spring_cloud_app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudAppId"),
-            ),
+            deployment_name: o.get_field("deploymentName"),
+            spring_cloud_app_id: o.get_field("springCloudAppId"),
         }
     }
 }

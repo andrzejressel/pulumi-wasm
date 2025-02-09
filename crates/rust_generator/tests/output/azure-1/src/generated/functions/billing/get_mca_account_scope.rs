@@ -27,53 +27,39 @@ pub mod get_mca_account_scope {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetMcaAccountScopeArgs,
     ) -> GetMcaAccountScopeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let billing_account_name_binding_1 = args
-            .billing_account_name
-            .get_output(context);
-        let billing_account_name_binding = billing_account_name_binding_1.get_inner();
-        let billing_profile_name_binding_1 = args
-            .billing_profile_name
-            .get_output(context);
-        let billing_profile_name_binding = billing_profile_name_binding_1.get_inner();
-        let invoice_section_name_binding_1 = args
-            .invoice_section_name
-            .get_output(context);
-        let invoice_section_name_binding = invoice_section_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let billing_account_name_binding = args.billing_account_name.get_output(context);
+        let billing_profile_name_binding = args.billing_profile_name.get_output(context);
+        let invoice_section_name_binding = args.invoice_section_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:billing/getMcaAccountScope:getMcaAccountScope".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAccountName".into(),
-                    value: &billing_account_name_binding,
+                    value: billing_account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingProfileName".into(),
-                    value: &billing_profile_name_binding,
+                    value: billing_profile_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "invoiceSectionName".into(),
-                    value: &invoice_section_name_binding,
+                    value: invoice_section_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetMcaAccountScopeResult {
-            billing_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingAccountName"),
-            ),
-            billing_profile_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingProfileName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            invoice_section_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invoiceSectionName"),
-            ),
+            billing_account_name: o.get_field("billingAccountName"),
+            billing_profile_name: o.get_field("billingProfileName"),
+            id: o.get_field("id"),
+            invoice_section_name: o.get_field("invoiceSectionName"),
         }
     }
 }

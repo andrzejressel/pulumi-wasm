@@ -72,48 +72,40 @@ pub mod notification {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NotificationArgs,
     ) -> NotificationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_names_binding_1 = args.group_names.get_output(context);
-        let group_names_binding = group_names_binding_1.get_inner();
-        let notifications_binding_1 = args.notifications.get_output(context);
-        let notifications_binding = notifications_binding_1.get_inner();
-        let topic_arn_binding_1 = args.topic_arn.get_output(context);
-        let topic_arn_binding = topic_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let group_names_binding = args.group_names.get_output(context);
+        let notifications_binding = args.notifications.get_output(context);
+        let topic_arn_binding = args.topic_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:autoscaling/notification:Notification".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupNames".into(),
-                    value: &group_names_binding,
+                    value: group_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notifications".into(),
-                    value: &notifications_binding,
+                    value: notifications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topicArn".into(),
-                    value: &topic_arn_binding,
+                    value: topic_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NotificationResult {
-            group_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupNames"),
-            ),
-            notifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notifications"),
-            ),
-            topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("topicArn"),
-            ),
+            group_names: o.get_field("groupNames"),
+            notifications: o.get_field("notifications"),
+            topic_arn: o.get_field("topicArn"),
         }
     }
 }

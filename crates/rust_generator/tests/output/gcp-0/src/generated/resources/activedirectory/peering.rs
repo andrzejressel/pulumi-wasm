@@ -123,91 +123,67 @@ pub mod peering {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PeeringArgs,
     ) -> PeeringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorized_network_binding_1 = args.authorized_network.get_output(context);
-        let authorized_network_binding = authorized_network_binding_1.get_inner();
-        let domain_resource_binding_1 = args.domain_resource.get_output(context);
-        let domain_resource_binding = domain_resource_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let peering_id_binding_1 = args.peering_id.get_output(context);
-        let peering_id_binding = peering_id_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let status_message_binding_1 = args.status_message.get_output(context);
-        let status_message_binding = status_message_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authorized_network_binding = args.authorized_network.get_output(context);
+        let domain_resource_binding = args.domain_resource.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let peering_id_binding = args.peering_id.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let status_message_binding = args.status_message.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:activedirectory/peering:Peering".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedNetwork".into(),
-                    value: &authorized_network_binding,
+                    value: authorized_network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainResource".into(),
-                    value: &domain_resource_binding,
+                    value: domain_resource_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeringId".into(),
-                    value: &peering_id_binding,
+                    value: peering_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statusMessage".into(),
-                    value: &status_message_binding,
+                    value: status_message_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PeeringResult {
-            authorized_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizedNetwork"),
-            ),
-            domain_resource: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainResource"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            peering_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peeringId"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusMessage"),
-            ),
+            authorized_network: o.get_field("authorizedNetwork"),
+            domain_resource: o.get_field("domainResource"),
+            effective_labels: o.get_field("effectiveLabels"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            peering_id: o.get_field("peeringId"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            status: o.get_field("status"),
+            status_message: o.get_field("statusMessage"),
         }
     }
 }

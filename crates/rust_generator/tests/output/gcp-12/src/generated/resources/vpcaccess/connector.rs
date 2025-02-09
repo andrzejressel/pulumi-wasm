@@ -191,125 +191,91 @@ pub mod connector {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectorArgs,
     ) -> ConnectorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ip_cidr_range_binding_1 = args.ip_cidr_range.get_output(context);
-        let ip_cidr_range_binding = ip_cidr_range_binding_1.get_inner();
-        let machine_type_binding_1 = args.machine_type.get_output(context);
-        let machine_type_binding = machine_type_binding_1.get_inner();
-        let max_instances_binding_1 = args.max_instances.get_output(context);
-        let max_instances_binding = max_instances_binding_1.get_inner();
-        let max_throughput_binding_1 = args.max_throughput.get_output(context);
-        let max_throughput_binding = max_throughput_binding_1.get_inner();
-        let min_instances_binding_1 = args.min_instances.get_output(context);
-        let min_instances_binding = min_instances_binding_1.get_inner();
-        let min_throughput_binding_1 = args.min_throughput.get_output(context);
-        let min_throughput_binding = min_throughput_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let subnet_binding_1 = args.subnet.get_output(context);
-        let subnet_binding = subnet_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let ip_cidr_range_binding = args.ip_cidr_range.get_output(context);
+        let machine_type_binding = args.machine_type.get_output(context);
+        let max_instances_binding = args.max_instances.get_output(context);
+        let max_throughput_binding = args.max_throughput.get_output(context);
+        let min_instances_binding = args.min_instances.get_output(context);
+        let min_throughput_binding = args.min_throughput.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let subnet_binding = args.subnet.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:vpcaccess/connector:Connector".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipCidrRange".into(),
-                    value: &ip_cidr_range_binding,
+                    value: ip_cidr_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "machineType".into(),
-                    value: &machine_type_binding,
+                    value: machine_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxInstances".into(),
-                    value: &max_instances_binding,
+                    value: max_instances_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxThroughput".into(),
-                    value: &max_throughput_binding,
+                    value: max_throughput_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minInstances".into(),
-                    value: &min_instances_binding,
+                    value: min_instances_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minThroughput".into(),
-                    value: &min_throughput_binding,
+                    value: min_throughput_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnet".into(),
-                    value: &subnet_binding,
+                    value: subnet_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectorResult {
-            connected_projects: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectedProjects"),
-            ),
-            ip_cidr_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipCidrRange"),
-            ),
-            machine_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("machineType"),
-            ),
-            max_instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxInstances"),
-            ),
-            max_throughput: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxThroughput"),
-            ),
-            min_instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minInstances"),
-            ),
-            min_throughput: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minThroughput"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            subnet: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnet"),
-            ),
+            connected_projects: o.get_field("connectedProjects"),
+            ip_cidr_range: o.get_field("ipCidrRange"),
+            machine_type: o.get_field("machineType"),
+            max_instances: o.get_field("maxInstances"),
+            max_throughput: o.get_field("maxThroughput"),
+            min_instances: o.get_field("minInstances"),
+            min_throughput: o.get_field("minThroughput"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            self_link: o.get_field("selfLink"),
+            state: o.get_field("state"),
+            subnet: o.get_field("subnet"),
         }
     }
 }

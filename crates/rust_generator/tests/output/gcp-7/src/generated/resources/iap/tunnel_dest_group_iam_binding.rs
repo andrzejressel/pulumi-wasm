@@ -440,74 +440,59 @@ pub mod tunnel_dest_group_iam_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TunnelDestGroupIamBindingArgs,
     ) -> TunnelDestGroupIamBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding_1 = args.condition.get_output(context);
-        let condition_binding = condition_binding_1.get_inner();
-        let dest_group_binding_1 = args.dest_group.get_output(context);
-        let dest_group_binding = dest_group_binding_1.get_inner();
-        let members_binding_1 = args.members.get_output(context);
-        let members_binding = members_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let condition_binding = args.condition.get_output(context);
+        let dest_group_binding = args.dest_group.get_output(context);
+        let members_binding = args.members.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let role_binding = args.role.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:iap/tunnelDestGroupIamBinding:TunnelDestGroupIamBinding".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: &condition_binding,
+                    value: condition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destGroup".into(),
-                    value: &dest_group_binding,
+                    value: dest_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "members".into(),
-                    value: &members_binding,
+                    value: members_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TunnelDestGroupIamBindingResult {
-            condition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("condition"),
-            ),
-            dest_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destGroup"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            members: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("members"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
+            condition: o.get_field("condition"),
+            dest_group: o.get_field("destGroup"),
+            etag: o.get_field("etag"),
+            members: o.get_field("members"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            role: o.get_field("role"),
         }
     }
 }

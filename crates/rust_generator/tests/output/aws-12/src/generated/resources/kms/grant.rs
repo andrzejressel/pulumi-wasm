@@ -75,99 +75,74 @@ pub mod grant {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GrantArgs,
     ) -> GrantResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let constraints_binding_1 = args.constraints.get_output(context);
-        let constraints_binding = constraints_binding_1.get_inner();
-        let grant_creation_tokens_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let constraints_binding = args.constraints.get_output(context);
+        let grant_creation_tokens_binding = args
             .grant_creation_tokens
             .get_output(context);
-        let grant_creation_tokens_binding = grant_creation_tokens_binding_1.get_inner();
-        let grantee_principal_binding_1 = args.grantee_principal.get_output(context);
-        let grantee_principal_binding = grantee_principal_binding_1.get_inner();
-        let key_id_binding_1 = args.key_id.get_output(context);
-        let key_id_binding = key_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let operations_binding_1 = args.operations.get_output(context);
-        let operations_binding = operations_binding_1.get_inner();
-        let retire_on_delete_binding_1 = args.retire_on_delete.get_output(context);
-        let retire_on_delete_binding = retire_on_delete_binding_1.get_inner();
-        let retiring_principal_binding_1 = args.retiring_principal.get_output(context);
-        let retiring_principal_binding = retiring_principal_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let grantee_principal_binding = args.grantee_principal.get_output(context);
+        let key_id_binding = args.key_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let operations_binding = args.operations.get_output(context);
+        let retire_on_delete_binding = args.retire_on_delete.get_output(context);
+        let retiring_principal_binding = args.retiring_principal.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:kms/grant:Grant".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "constraints".into(),
-                    value: &constraints_binding,
+                    value: constraints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grantCreationTokens".into(),
-                    value: &grant_creation_tokens_binding,
+                    value: grant_creation_tokens_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "granteePrincipal".into(),
-                    value: &grantee_principal_binding,
+                    value: grantee_principal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyId".into(),
-                    value: &key_id_binding,
+                    value: key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operations".into(),
-                    value: &operations_binding,
+                    value: operations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retireOnDelete".into(),
-                    value: &retire_on_delete_binding,
+                    value: retire_on_delete_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retiringPrincipal".into(),
-                    value: &retiring_principal_binding,
+                    value: retiring_principal_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GrantResult {
-            constraints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("constraints"),
-            ),
-            grant_creation_tokens: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grantCreationTokens"),
-            ),
-            grant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grantId"),
-            ),
-            grant_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grantToken"),
-            ),
-            grantee_principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("granteePrincipal"),
-            ),
-            key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            operations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operations"),
-            ),
-            retire_on_delete: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retireOnDelete"),
-            ),
-            retiring_principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retiringPrincipal"),
-            ),
+            constraints: o.get_field("constraints"),
+            grant_creation_tokens: o.get_field("grantCreationTokens"),
+            grant_id: o.get_field("grantId"),
+            grant_token: o.get_field("grantToken"),
+            grantee_principal: o.get_field("granteePrincipal"),
+            key_id: o.get_field("keyId"),
+            name: o.get_field("name"),
+            operations: o.get_field("operations"),
+            retire_on_delete: o.get_field("retireOnDelete"),
+            retiring_principal: o.get_field("retiringPrincipal"),
         }
     }
 }

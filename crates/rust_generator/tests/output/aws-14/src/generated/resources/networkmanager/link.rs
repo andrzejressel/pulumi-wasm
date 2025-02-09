@@ -92,84 +92,66 @@ pub mod link {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LinkArgs,
     ) -> LinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bandwidth_binding_1 = args.bandwidth.get_output(context);
-        let bandwidth_binding = bandwidth_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let global_network_id_binding_1 = args.global_network_id.get_output(context);
-        let global_network_id_binding = global_network_id_binding_1.get_inner();
-        let provider_name_binding_1 = args.provider_name.get_output(context);
-        let provider_name_binding = provider_name_binding_1.get_inner();
-        let site_id_binding_1 = args.site_id.get_output(context);
-        let site_id_binding = site_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bandwidth_binding = args.bandwidth.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let global_network_id_binding = args.global_network_id.get_output(context);
+        let provider_name_binding = args.provider_name.get_output(context);
+        let site_id_binding = args.site_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:networkmanager/link:Link".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bandwidth".into(),
-                    value: &bandwidth_binding,
+                    value: bandwidth_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalNetworkId".into(),
-                    value: &global_network_id_binding,
+                    value: global_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerName".into(),
-                    value: &provider_name_binding,
+                    value: provider_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteId".into(),
-                    value: &site_id_binding,
+                    value: site_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LinkResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bandwidth: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bandwidth"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            global_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalNetworkId"),
-            ),
-            provider_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("providerName"),
-            ),
-            site_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            arn: o.get_field("arn"),
+            bandwidth: o.get_field("bandwidth"),
+            description: o.get_field("description"),
+            global_network_id: o.get_field("globalNetworkId"),
+            provider_name: o.get_field("providerName"),
+            site_id: o.get_field("siteId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
         }
     }
 }

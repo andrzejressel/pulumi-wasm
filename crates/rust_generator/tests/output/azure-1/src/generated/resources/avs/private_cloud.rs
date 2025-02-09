@@ -142,137 +142,93 @@ pub mod private_cloud {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PrivateCloudArgs,
     ) -> PrivateCloudResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let internet_connection_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let internet_connection_enabled_binding = args
             .internet_connection_enabled
             .get_output(context);
-        let internet_connection_enabled_binding = internet_connection_enabled_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let management_cluster_binding_1 = args.management_cluster.get_output(context);
-        let management_cluster_binding = management_cluster_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_subnet_cidr_binding_1 = args.network_subnet_cidr.get_output(context);
-        let network_subnet_cidr_binding = network_subnet_cidr_binding_1.get_inner();
-        let nsxt_password_binding_1 = args.nsxt_password.get_output(context);
-        let nsxt_password_binding = nsxt_password_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vcenter_password_binding_1 = args.vcenter_password.get_output(context);
-        let vcenter_password_binding = vcenter_password_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let management_cluster_binding = args.management_cluster.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_subnet_cidr_binding = args.network_subnet_cidr.get_output(context);
+        let nsxt_password_binding = args.nsxt_password.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_name_binding = args.sku_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vcenter_password_binding = args.vcenter_password.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:avs/privateCloud:PrivateCloud".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetConnectionEnabled".into(),
-                    value: &internet_connection_enabled_binding,
+                    value: internet_connection_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managementCluster".into(),
-                    value: &management_cluster_binding,
+                    value: management_cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkSubnetCidr".into(),
-                    value: &network_subnet_cidr_binding,
+                    value: network_subnet_cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nsxtPassword".into(),
-                    value: &nsxt_password_binding,
+                    value: nsxt_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vcenterPassword".into(),
-                    value: &vcenter_password_binding,
+                    value: vcenter_password_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PrivateCloudResult {
-            circuits: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("circuits"),
-            ),
-            hcx_cloud_manager_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hcxCloudManagerEndpoint"),
-            ),
-            internet_connection_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internetConnectionEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            management_cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementCluster"),
-            ),
-            management_subnet_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementSubnetCidr"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_subnet_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkSubnetCidr"),
-            ),
-            nsxt_certificate_thumbprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nsxtCertificateThumbprint"),
-            ),
-            nsxt_manager_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nsxtManagerEndpoint"),
-            ),
-            nsxt_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nsxtPassword"),
-            ),
-            provisioning_subnet_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisioningSubnetCidr"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vcenter_certificate_thumbprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vcenterCertificateThumbprint"),
-            ),
-            vcenter_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vcenterPassword"),
-            ),
-            vcsa_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vcsaEndpoint"),
-            ),
-            vmotion_subnet_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmotionSubnetCidr"),
-            ),
+            circuits: o.get_field("circuits"),
+            hcx_cloud_manager_endpoint: o.get_field("hcxCloudManagerEndpoint"),
+            internet_connection_enabled: o.get_field("internetConnectionEnabled"),
+            location: o.get_field("location"),
+            management_cluster: o.get_field("managementCluster"),
+            management_subnet_cidr: o.get_field("managementSubnetCidr"),
+            name: o.get_field("name"),
+            network_subnet_cidr: o.get_field("networkSubnetCidr"),
+            nsxt_certificate_thumbprint: o.get_field("nsxtCertificateThumbprint"),
+            nsxt_manager_endpoint: o.get_field("nsxtManagerEndpoint"),
+            nsxt_password: o.get_field("nsxtPassword"),
+            provisioning_subnet_cidr: o.get_field("provisioningSubnetCidr"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku_name: o.get_field("skuName"),
+            tags: o.get_field("tags"),
+            vcenter_certificate_thumbprint: o.get_field("vcenterCertificateThumbprint"),
+            vcenter_password: o.get_field("vcenterPassword"),
+            vcsa_endpoint: o.get_field("vcsaEndpoint"),
+            vmotion_subnet_cidr: o.get_field("vmotionSubnetCidr"),
         }
     }
 }

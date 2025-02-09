@@ -332,156 +332,114 @@ pub mod budget {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BudgetArgs,
     ) -> BudgetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let auto_adjust_data_binding_1 = args.auto_adjust_data.get_output(context);
-        let auto_adjust_data_binding = auto_adjust_data_binding_1.get_inner();
-        let budget_type_binding_1 = args.budget_type.get_output(context);
-        let budget_type_binding = budget_type_binding_1.get_inner();
-        let cost_filters_binding_1 = args.cost_filters.get_output(context);
-        let cost_filters_binding = cost_filters_binding_1.get_inner();
-        let cost_types_binding_1 = args.cost_types.get_output(context);
-        let cost_types_binding = cost_types_binding_1.get_inner();
-        let limit_amount_binding_1 = args.limit_amount.get_output(context);
-        let limit_amount_binding = limit_amount_binding_1.get_inner();
-        let limit_unit_binding_1 = args.limit_unit.get_output(context);
-        let limit_unit_binding = limit_unit_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let notifications_binding_1 = args.notifications.get_output(context);
-        let notifications_binding = notifications_binding_1.get_inner();
-        let planned_limits_binding_1 = args.planned_limits.get_output(context);
-        let planned_limits_binding = planned_limits_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let time_period_end_binding_1 = args.time_period_end.get_output(context);
-        let time_period_end_binding = time_period_end_binding_1.get_inner();
-        let time_period_start_binding_1 = args.time_period_start.get_output(context);
-        let time_period_start_binding = time_period_start_binding_1.get_inner();
-        let time_unit_binding_1 = args.time_unit.get_output(context);
-        let time_unit_binding = time_unit_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let auto_adjust_data_binding = args.auto_adjust_data.get_output(context);
+        let budget_type_binding = args.budget_type.get_output(context);
+        let cost_filters_binding = args.cost_filters.get_output(context);
+        let cost_types_binding = args.cost_types.get_output(context);
+        let limit_amount_binding = args.limit_amount.get_output(context);
+        let limit_unit_binding = args.limit_unit.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let notifications_binding = args.notifications.get_output(context);
+        let planned_limits_binding = args.planned_limits.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let time_period_end_binding = args.time_period_end.get_output(context);
+        let time_period_start_binding = args.time_period_start.get_output(context);
+        let time_unit_binding = args.time_unit.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:budgets/budget:Budget".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoAdjustData".into(),
-                    value: &auto_adjust_data_binding,
+                    value: auto_adjust_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "budgetType".into(),
-                    value: &budget_type_binding,
+                    value: budget_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "costFilters".into(),
-                    value: &cost_filters_binding,
+                    value: cost_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "costTypes".into(),
-                    value: &cost_types_binding,
+                    value: cost_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "limitAmount".into(),
-                    value: &limit_amount_binding,
+                    value: limit_amount_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "limitUnit".into(),
-                    value: &limit_unit_binding,
+                    value: limit_unit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notifications".into(),
-                    value: &notifications_binding,
+                    value: notifications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plannedLimits".into(),
-                    value: &planned_limits_binding,
+                    value: planned_limits_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timePeriodEnd".into(),
-                    value: &time_period_end_binding,
+                    value: time_period_end_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timePeriodStart".into(),
-                    value: &time_period_start_binding,
+                    value: time_period_start_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeUnit".into(),
-                    value: &time_unit_binding,
+                    value: time_unit_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BudgetResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_adjust_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoAdjustData"),
-            ),
-            budget_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("budgetType"),
-            ),
-            cost_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("costFilters"),
-            ),
-            cost_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("costTypes"),
-            ),
-            limit_amount: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("limitAmount"),
-            ),
-            limit_unit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("limitUnit"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            notifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notifications"),
-            ),
-            planned_limits: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("plannedLimits"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            time_period_end: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timePeriodEnd"),
-            ),
-            time_period_start: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timePeriodStart"),
-            ),
-            time_unit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeUnit"),
-            ),
+            account_id: o.get_field("accountId"),
+            arn: o.get_field("arn"),
+            auto_adjust_data: o.get_field("autoAdjustData"),
+            budget_type: o.get_field("budgetType"),
+            cost_filters: o.get_field("costFilters"),
+            cost_types: o.get_field("costTypes"),
+            limit_amount: o.get_field("limitAmount"),
+            limit_unit: o.get_field("limitUnit"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            notifications: o.get_field("notifications"),
+            planned_limits: o.get_field("plannedLimits"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            time_period_end: o.get_field("timePeriodEnd"),
+            time_period_start: o.get_field("timePeriodStart"),
+            time_unit: o.get_field("timeUnit"),
         }
     }
 }

@@ -44,34 +44,31 @@ pub mod retention_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RetentionConfigurationArgs,
     ) -> RetentionConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let retention_period_in_days_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let retention_period_in_days_binding = args
             .retention_period_in_days
             .get_output(context);
-        let retention_period_in_days_binding = retention_period_in_days_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cfg/retentionConfiguration:RetentionConfiguration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPeriodInDays".into(),
-                    value: &retention_period_in_days_binding,
+                    value: retention_period_in_days_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RetentionConfigurationResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            retention_period_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionPeriodInDays"),
-            ),
+            name: o.get_field("name"),
+            retention_period_in_days: o.get_field("retentionPeriodInDays"),
         }
     }
 }

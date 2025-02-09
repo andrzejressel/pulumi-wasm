@@ -129,66 +129,52 @@ pub mod firewall_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FirewallRuleArgs,
     ) -> FirewallRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let source_range_binding_1 = args.source_range.get_output(context);
-        let source_range_binding = source_range_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let source_range_binding = args.source_range.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:appengine/firewallRule:FirewallRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceRange".into(),
-                    value: &source_range_binding,
+                    value: source_range_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FirewallRuleResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            source_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceRange"),
-            ),
+            action: o.get_field("action"),
+            description: o.get_field("description"),
+            priority: o.get_field("priority"),
+            project: o.get_field("project"),
+            source_range: o.get_field("sourceRange"),
         }
     }
 }

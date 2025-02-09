@@ -260,167 +260,122 @@ pub mod frontdoor_route {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FrontdoorRouteArgs,
     ) -> FrontdoorRouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cache_binding_1 = args.cache.get_output(context);
-        let cache_binding = cache_binding_1.get_inner();
-        let cdn_frontdoor_custom_domain_ids_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cache_binding = args.cache.get_output(context);
+        let cdn_frontdoor_custom_domain_ids_binding = args
             .cdn_frontdoor_custom_domain_ids
             .get_output(context);
-        let cdn_frontdoor_custom_domain_ids_binding = cdn_frontdoor_custom_domain_ids_binding_1
-            .get_inner();
-        let cdn_frontdoor_endpoint_id_binding_1 = args
+        let cdn_frontdoor_endpoint_id_binding = args
             .cdn_frontdoor_endpoint_id
             .get_output(context);
-        let cdn_frontdoor_endpoint_id_binding = cdn_frontdoor_endpoint_id_binding_1
-            .get_inner();
-        let cdn_frontdoor_origin_group_id_binding_1 = args
+        let cdn_frontdoor_origin_group_id_binding = args
             .cdn_frontdoor_origin_group_id
             .get_output(context);
-        let cdn_frontdoor_origin_group_id_binding = cdn_frontdoor_origin_group_id_binding_1
-            .get_inner();
-        let cdn_frontdoor_origin_ids_binding_1 = args
+        let cdn_frontdoor_origin_ids_binding = args
             .cdn_frontdoor_origin_ids
             .get_output(context);
-        let cdn_frontdoor_origin_ids_binding = cdn_frontdoor_origin_ids_binding_1
-            .get_inner();
-        let cdn_frontdoor_origin_path_binding_1 = args
+        let cdn_frontdoor_origin_path_binding = args
             .cdn_frontdoor_origin_path
             .get_output(context);
-        let cdn_frontdoor_origin_path_binding = cdn_frontdoor_origin_path_binding_1
-            .get_inner();
-        let cdn_frontdoor_rule_set_ids_binding_1 = args
+        let cdn_frontdoor_rule_set_ids_binding = args
             .cdn_frontdoor_rule_set_ids
             .get_output(context);
-        let cdn_frontdoor_rule_set_ids_binding = cdn_frontdoor_rule_set_ids_binding_1
-            .get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let forwarding_protocol_binding_1 = args.forwarding_protocol.get_output(context);
-        let forwarding_protocol_binding = forwarding_protocol_binding_1.get_inner();
-        let https_redirect_enabled_binding_1 = args
+        let enabled_binding = args.enabled.get_output(context);
+        let forwarding_protocol_binding = args.forwarding_protocol.get_output(context);
+        let https_redirect_enabled_binding = args
             .https_redirect_enabled
             .get_output(context);
-        let https_redirect_enabled_binding = https_redirect_enabled_binding_1
-            .get_inner();
-        let link_to_default_domain_binding_1 = args
+        let link_to_default_domain_binding = args
             .link_to_default_domain
             .get_output(context);
-        let link_to_default_domain_binding = link_to_default_domain_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let patterns_to_matches_binding_1 = args.patterns_to_matches.get_output(context);
-        let patterns_to_matches_binding = patterns_to_matches_binding_1.get_inner();
-        let supported_protocols_binding_1 = args.supported_protocols.get_output(context);
-        let supported_protocols_binding = supported_protocols_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let patterns_to_matches_binding = args.patterns_to_matches.get_output(context);
+        let supported_protocols_binding = args.supported_protocols.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorRoute:FrontdoorRoute".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cache".into(),
-                    value: &cache_binding,
+                    value: cache_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorCustomDomainIds".into(),
-                    value: &cdn_frontdoor_custom_domain_ids_binding,
+                    value: cdn_frontdoor_custom_domain_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorEndpointId".into(),
-                    value: &cdn_frontdoor_endpoint_id_binding,
+                    value: cdn_frontdoor_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorOriginGroupId".into(),
-                    value: &cdn_frontdoor_origin_group_id_binding,
+                    value: cdn_frontdoor_origin_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorOriginIds".into(),
-                    value: &cdn_frontdoor_origin_ids_binding,
+                    value: cdn_frontdoor_origin_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorOriginPath".into(),
-                    value: &cdn_frontdoor_origin_path_binding,
+                    value: cdn_frontdoor_origin_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorRuleSetIds".into(),
-                    value: &cdn_frontdoor_rule_set_ids_binding,
+                    value: cdn_frontdoor_rule_set_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forwardingProtocol".into(),
-                    value: &forwarding_protocol_binding,
+                    value: forwarding_protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsRedirectEnabled".into(),
-                    value: &https_redirect_enabled_binding,
+                    value: https_redirect_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkToDefaultDomain".into(),
-                    value: &link_to_default_domain_binding,
+                    value: link_to_default_domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "patternsToMatches".into(),
-                    value: &patterns_to_matches_binding,
+                    value: patterns_to_matches_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedProtocols".into(),
-                    value: &supported_protocols_binding,
+                    value: supported_protocols_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FrontdoorRouteResult {
-            cache: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cache")),
-            cdn_frontdoor_custom_domain_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnFrontdoorCustomDomainIds"),
-            ),
-            cdn_frontdoor_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnFrontdoorEndpointId"),
-            ),
-            cdn_frontdoor_origin_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnFrontdoorOriginGroupId"),
-            ),
-            cdn_frontdoor_origin_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnFrontdoorOriginIds"),
-            ),
-            cdn_frontdoor_origin_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnFrontdoorOriginPath"),
-            ),
-            cdn_frontdoor_rule_set_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnFrontdoorRuleSetIds"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            forwarding_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forwardingProtocol"),
-            ),
-            https_redirect_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsRedirectEnabled"),
-            ),
-            link_to_default_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkToDefaultDomain"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            patterns_to_matches: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("patternsToMatches"),
-            ),
-            supported_protocols: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedProtocols"),
-            ),
+            cache: o.get_field("cache"),
+            cdn_frontdoor_custom_domain_ids: o.get_field("cdnFrontdoorCustomDomainIds"),
+            cdn_frontdoor_endpoint_id: o.get_field("cdnFrontdoorEndpointId"),
+            cdn_frontdoor_origin_group_id: o.get_field("cdnFrontdoorOriginGroupId"),
+            cdn_frontdoor_origin_ids: o.get_field("cdnFrontdoorOriginIds"),
+            cdn_frontdoor_origin_path: o.get_field("cdnFrontdoorOriginPath"),
+            cdn_frontdoor_rule_set_ids: o.get_field("cdnFrontdoorRuleSetIds"),
+            enabled: o.get_field("enabled"),
+            forwarding_protocol: o.get_field("forwardingProtocol"),
+            https_redirect_enabled: o.get_field("httpsRedirectEnabled"),
+            link_to_default_domain: o.get_field("linkToDefaultDomain"),
+            name: o.get_field("name"),
+            patterns_to_matches: o.get_field("patternsToMatches"),
+            supported_protocols: o.get_field("supportedProtocols"),
         }
     }
 }

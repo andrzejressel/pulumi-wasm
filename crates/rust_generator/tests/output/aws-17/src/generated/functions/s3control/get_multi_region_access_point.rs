@@ -43,54 +43,41 @@ pub mod get_multi_region_access_point {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetMultiRegionAccessPointArgs,
     ) -> GetMultiRegionAccessPointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetMultiRegionAccessPointResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            public_access_blocks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicAccessBlocks"),
-            ),
-            regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regions"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            account_id: o.get_field("accountId"),
+            alias: o.get_field("alias"),
+            arn: o.get_field("arn"),
+            created_at: o.get_field("createdAt"),
+            domain_name: o.get_field("domainName"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            public_access_blocks: o.get_field("publicAccessBlocks"),
+            regions: o.get_field("regions"),
+            status: o.get_field("status"),
         }
     }
 }

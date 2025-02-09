@@ -118,73 +118,60 @@ pub mod endpoint_servicebus {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointServicebusArgs,
     ) -> EndpointServicebusResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dead_letter_storage_secret_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dead_letter_storage_secret_binding = args
             .dead_letter_storage_secret
             .get_output(context);
-        let dead_letter_storage_secret_binding = dead_letter_storage_secret_binding_1
-            .get_inner();
-        let digital_twins_id_binding_1 = args.digital_twins_id.get_output(context);
-        let digital_twins_id_binding = digital_twins_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let servicebus_primary_connection_string_binding_1 = args
+        let digital_twins_id_binding = args.digital_twins_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let servicebus_primary_connection_string_binding = args
             .servicebus_primary_connection_string
             .get_output(context);
-        let servicebus_primary_connection_string_binding = servicebus_primary_connection_string_binding_1
-            .get_inner();
-        let servicebus_secondary_connection_string_binding_1 = args
+        let servicebus_secondary_connection_string_binding = args
             .servicebus_secondary_connection_string
             .get_output(context);
-        let servicebus_secondary_connection_string_binding = servicebus_secondary_connection_string_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:digitaltwins/endpointServicebus:EndpointServicebus".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deadLetterStorageSecret".into(),
-                    value: &dead_letter_storage_secret_binding,
+                    value: dead_letter_storage_secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "digitalTwinsId".into(),
-                    value: &digital_twins_id_binding,
+                    value: digital_twins_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicebusPrimaryConnectionString".into(),
-                    value: &servicebus_primary_connection_string_binding,
+                    value: servicebus_primary_connection_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicebusSecondaryConnectionString".into(),
-                    value: &servicebus_secondary_connection_string_binding,
+                    value: servicebus_secondary_connection_string_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointServicebusResult {
-            dead_letter_storage_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deadLetterStorageSecret"),
-            ),
-            digital_twins_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("digitalTwinsId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            servicebus_primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicebusPrimaryConnectionString"),
-            ),
-            servicebus_secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicebusSecondaryConnectionString"),
-            ),
+            dead_letter_storage_secret: o.get_field("deadLetterStorageSecret"),
+            digital_twins_id: o.get_field("digitalTwinsId"),
+            name: o.get_field("name"),
+            servicebus_primary_connection_string: o
+                .get_field("servicebusPrimaryConnectionString"),
+            servicebus_secondary_connection_string: o
+                .get_field("servicebusSecondaryConnectionString"),
         }
     }
 }

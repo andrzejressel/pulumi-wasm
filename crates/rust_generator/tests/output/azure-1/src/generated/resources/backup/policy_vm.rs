@@ -182,142 +182,104 @@ pub mod policy_vm {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PolicyVMArgs,
     ) -> PolicyVMResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_binding_1 = args.backup.get_output(context);
-        let backup_binding = backup_binding_1.get_inner();
-        let instant_restore_resource_group_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backup_binding = args.backup.get_output(context);
+        let instant_restore_resource_group_binding = args
             .instant_restore_resource_group
             .get_output(context);
-        let instant_restore_resource_group_binding = instant_restore_resource_group_binding_1
-            .get_inner();
-        let instant_restore_retention_days_binding_1 = args
+        let instant_restore_retention_days_binding = args
             .instant_restore_retention_days
             .get_output(context);
-        let instant_restore_retention_days_binding = instant_restore_retention_days_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let policy_type_binding_1 = args.policy_type.get_output(context);
-        let policy_type_binding = policy_type_binding_1.get_inner();
-        let recovery_vault_name_binding_1 = args.recovery_vault_name.get_output(context);
-        let recovery_vault_name_binding = recovery_vault_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let retention_daily_binding_1 = args.retention_daily.get_output(context);
-        let retention_daily_binding = retention_daily_binding_1.get_inner();
-        let retention_monthly_binding_1 = args.retention_monthly.get_output(context);
-        let retention_monthly_binding = retention_monthly_binding_1.get_inner();
-        let retention_weekly_binding_1 = args.retention_weekly.get_output(context);
-        let retention_weekly_binding = retention_weekly_binding_1.get_inner();
-        let retention_yearly_binding_1 = args.retention_yearly.get_output(context);
-        let retention_yearly_binding = retention_yearly_binding_1.get_inner();
-        let tiering_policy_binding_1 = args.tiering_policy.get_output(context);
-        let tiering_policy_binding = tiering_policy_binding_1.get_inner();
-        let timezone_binding_1 = args.timezone.get_output(context);
-        let timezone_binding = timezone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let policy_type_binding = args.policy_type.get_output(context);
+        let recovery_vault_name_binding = args.recovery_vault_name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let retention_daily_binding = args.retention_daily.get_output(context);
+        let retention_monthly_binding = args.retention_monthly.get_output(context);
+        let retention_weekly_binding = args.retention_weekly.get_output(context);
+        let retention_yearly_binding = args.retention_yearly.get_output(context);
+        let tiering_policy_binding = args.tiering_policy.get_output(context);
+        let timezone_binding = args.timezone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:backup/policyVM:PolicyVM".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backup".into(),
-                    value: &backup_binding,
+                    value: backup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instantRestoreResourceGroup".into(),
-                    value: &instant_restore_resource_group_binding,
+                    value: instant_restore_resource_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instantRestoreRetentionDays".into(),
-                    value: &instant_restore_retention_days_binding,
+                    value: instant_restore_retention_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyType".into(),
-                    value: &policy_type_binding,
+                    value: policy_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultName".into(),
-                    value: &recovery_vault_name_binding,
+                    value: recovery_vault_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionDaily".into(),
-                    value: &retention_daily_binding,
+                    value: retention_daily_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionMonthly".into(),
-                    value: &retention_monthly_binding,
+                    value: retention_monthly_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionWeekly".into(),
-                    value: &retention_weekly_binding,
+                    value: retention_weekly_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionYearly".into(),
-                    value: &retention_yearly_binding,
+                    value: retention_yearly_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tieringPolicy".into(),
-                    value: &tiering_policy_binding,
+                    value: tiering_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timezone".into(),
-                    value: &timezone_binding,
+                    value: timezone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PolicyVMResult {
-            backup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backup"),
-            ),
-            instant_restore_resource_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instantRestoreResourceGroup"),
-            ),
-            instant_restore_retention_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instantRestoreRetentionDays"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            policy_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyType"),
-            ),
-            recovery_vault_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recoveryVaultName"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            retention_daily: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionDaily"),
-            ),
-            retention_monthly: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionMonthly"),
-            ),
-            retention_weekly: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionWeekly"),
-            ),
-            retention_yearly: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionYearly"),
-            ),
-            tiering_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tieringPolicy"),
-            ),
-            timezone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timezone"),
-            ),
+            backup: o.get_field("backup"),
+            instant_restore_resource_group: o.get_field("instantRestoreResourceGroup"),
+            instant_restore_retention_days: o.get_field("instantRestoreRetentionDays"),
+            name: o.get_field("name"),
+            policy_type: o.get_field("policyType"),
+            recovery_vault_name: o.get_field("recoveryVaultName"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            retention_daily: o.get_field("retentionDaily"),
+            retention_monthly: o.get_field("retentionMonthly"),
+            retention_weekly: o.get_field("retentionWeekly"),
+            retention_yearly: o.get_field("retentionYearly"),
+            tiering_policy: o.get_field("tieringPolicy"),
+            timezone: o.get_field("timezone"),
         }
     }
 }

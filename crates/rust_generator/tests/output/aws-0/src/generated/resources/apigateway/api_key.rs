@@ -82,79 +82,62 @@ pub mod api_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiKeyArgs,
     ) -> ApiKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let customer_id_binding_1 = args.customer_id.get_output(context);
-        let customer_id_binding = customer_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let value_binding_1 = args.value.get_output(context);
-        let value_binding = value_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let customer_id_binding = args.customer_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let value_binding = args.value.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigateway/apiKey:ApiKey".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerId".into(),
-                    value: &customer_id_binding,
+                    value: customer_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "value".into(),
-                    value: &value_binding,
+                    value: value_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiKeyResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            customer_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            last_updated_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedDate"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
+            arn: o.get_field("arn"),
+            created_date: o.get_field("createdDate"),
+            customer_id: o.get_field("customerId"),
+            description: o.get_field("description"),
+            enabled: o.get_field("enabled"),
+            last_updated_date: o.get_field("lastUpdatedDate"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            value: o.get_field("value"),
         }
     }
 }

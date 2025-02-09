@@ -22,33 +22,29 @@ pub mod get_origin_ca_root_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetOriginCaRootCertificateArgs,
     ) -> GetOriginCaRootCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let algorithm_binding_1 = args.algorithm.get_output(context);
-        let algorithm_binding = algorithm_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let algorithm_binding = args.algorithm.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "cloudflare:index/getOriginCaRootCertificate:getOriginCaRootCertificate"
                 .into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "algorithm".into(),
-                    value: &algorithm_binding,
+                    value: algorithm_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetOriginCaRootCertificateResult {
-            algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("algorithm"),
-            ),
-            cert_pem: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certPem"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            algorithm: o.get_field("algorithm"),
+            cert_pem: o.get_field("certPem"),
+            id: o.get_field("id"),
         }
     }
 }

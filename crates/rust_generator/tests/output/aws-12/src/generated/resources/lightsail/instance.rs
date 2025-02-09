@@ -178,126 +178,86 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let add_on_binding_1 = args.add_on.get_output(context);
-        let add_on_binding = add_on_binding_1.get_inner();
-        let availability_zone_binding_1 = args.availability_zone.get_output(context);
-        let availability_zone_binding = availability_zone_binding_1.get_inner();
-        let blueprint_id_binding_1 = args.blueprint_id.get_output(context);
-        let blueprint_id_binding = blueprint_id_binding_1.get_inner();
-        let bundle_id_binding_1 = args.bundle_id.get_output(context);
-        let bundle_id_binding = bundle_id_binding_1.get_inner();
-        let ip_address_type_binding_1 = args.ip_address_type.get_output(context);
-        let ip_address_type_binding = ip_address_type_binding_1.get_inner();
-        let key_pair_name_binding_1 = args.key_pair_name.get_output(context);
-        let key_pair_name_binding = key_pair_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_data_binding_1 = args.user_data.get_output(context);
-        let user_data_binding = user_data_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let add_on_binding = args.add_on.get_output(context);
+        let availability_zone_binding = args.availability_zone.get_output(context);
+        let blueprint_id_binding = args.blueprint_id.get_output(context);
+        let bundle_id_binding = args.bundle_id.get_output(context);
+        let ip_address_type_binding = args.ip_address_type.get_output(context);
+        let key_pair_name_binding = args.key_pair_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let user_data_binding = args.user_data.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lightsail/instance:Instance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addOn".into(),
-                    value: &add_on_binding,
+                    value: add_on_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: &availability_zone_binding,
+                    value: availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blueprintId".into(),
-                    value: &blueprint_id_binding,
+                    value: blueprint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bundleId".into(),
-                    value: &bundle_id_binding,
+                    value: bundle_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddressType".into(),
-                    value: &ip_address_type_binding,
+                    value: ip_address_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyPairName".into(),
-                    value: &key_pair_name_binding,
+                    value: key_pair_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userData".into(),
-                    value: &user_data_binding,
+                    value: user_data_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceResult {
-            add_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addOn"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            blueprint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blueprintId"),
-            ),
-            bundle_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bundleId"),
-            ),
-            cpu_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cpuCount"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            ip_address_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddressType"),
-            ),
-            ipv6_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6Addresses"),
-            ),
-            is_static_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isStaticIp"),
-            ),
-            key_pair_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyPairName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpAddress"),
-            ),
-            public_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIpAddress"),
-            ),
-            ram_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ramSize"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            user_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userData"),
-            ),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
+            add_on: o.get_field("addOn"),
+            arn: o.get_field("arn"),
+            availability_zone: o.get_field("availabilityZone"),
+            blueprint_id: o.get_field("blueprintId"),
+            bundle_id: o.get_field("bundleId"),
+            cpu_count: o.get_field("cpuCount"),
+            created_at: o.get_field("createdAt"),
+            ip_address_type: o.get_field("ipAddressType"),
+            ipv6_addresses: o.get_field("ipv6Addresses"),
+            is_static_ip: o.get_field("isStaticIp"),
+            key_pair_name: o.get_field("keyPairName"),
+            name: o.get_field("name"),
+            private_ip_address: o.get_field("privateIpAddress"),
+            public_ip_address: o.get_field("publicIpAddress"),
+            ram_size: o.get_field("ramSize"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            user_data: o.get_field("userData"),
+            username: o.get_field("username"),
         }
     }
 }

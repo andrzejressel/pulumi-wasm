@@ -58,31 +58,29 @@ pub mod organization_admin_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OrganizationAdminAccountArgs,
     ) -> OrganizationAdminAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_account_id_binding_1 = args.admin_account_id.get_output(context);
-        let admin_account_id_binding = admin_account_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let admin_account_id_binding = args.admin_account_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:securityhub/organizationAdminAccount:OrganizationAdminAccount"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminAccountId".into(),
-                    value: &admin_account_id_binding,
+                    value: admin_account_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OrganizationAdminAccountResult {
-            admin_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminAccountId"),
-            ),
+            admin_account_id: o.get_field("adminAccountId"),
         }
     }
 }

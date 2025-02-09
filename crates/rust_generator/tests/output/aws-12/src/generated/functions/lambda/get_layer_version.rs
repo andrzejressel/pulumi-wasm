@@ -56,93 +56,59 @@ pub mod get_layer_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetLayerVersionArgs,
     ) -> GetLayerVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compatible_architecture_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let compatible_architecture_binding = args
             .compatible_architecture
             .get_output(context);
-        let compatible_architecture_binding = compatible_architecture_binding_1
-            .get_inner();
-        let compatible_runtime_binding_1 = args.compatible_runtime.get_output(context);
-        let compatible_runtime_binding = compatible_runtime_binding_1.get_inner();
-        let layer_name_binding_1 = args.layer_name.get_output(context);
-        let layer_name_binding = layer_name_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let compatible_runtime_binding = args.compatible_runtime.get_output(context);
+        let layer_name_binding = args.layer_name.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:lambda/getLayerVersion:getLayerVersion".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compatibleArchitecture".into(),
-                    value: &compatible_architecture_binding,
+                    value: compatible_architecture_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compatibleRuntime".into(),
-                    value: &compatible_runtime_binding,
+                    value: compatible_runtime_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "layerName".into(),
-                    value: &layer_name_binding,
+                    value: layer_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetLayerVersionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            code_sha256: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("codeSha256"),
-            ),
-            compatible_architecture: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compatibleArchitecture"),
-            ),
-            compatible_architectures: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compatibleArchitectures"),
-            ),
-            compatible_runtime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compatibleRuntime"),
-            ),
-            compatible_runtimes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compatibleRuntimes"),
-            ),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            layer_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("layerArn"),
-            ),
-            layer_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("layerName"),
-            ),
-            license_info: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseInfo"),
-            ),
-            signing_job_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingJobArn"),
-            ),
-            signing_profile_version_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingProfileVersionArn"),
-            ),
-            source_code_hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceCodeHash"),
-            ),
-            source_code_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceCodeSize"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            arn: o.get_field("arn"),
+            code_sha256: o.get_field("codeSha256"),
+            compatible_architecture: o.get_field("compatibleArchitecture"),
+            compatible_architectures: o.get_field("compatibleArchitectures"),
+            compatible_runtime: o.get_field("compatibleRuntime"),
+            compatible_runtimes: o.get_field("compatibleRuntimes"),
+            created_date: o.get_field("createdDate"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            layer_arn: o.get_field("layerArn"),
+            layer_name: o.get_field("layerName"),
+            license_info: o.get_field("licenseInfo"),
+            signing_job_arn: o.get_field("signingJobArn"),
+            signing_profile_version_arn: o.get_field("signingProfileVersionArn"),
+            source_code_hash: o.get_field("sourceCodeHash"),
+            source_code_size: o.get_field("sourceCodeSize"),
+            version: o.get_field("version"),
         }
     }
 }

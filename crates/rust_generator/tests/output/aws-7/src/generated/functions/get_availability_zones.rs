@@ -48,73 +48,56 @@ pub mod get_availability_zones {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAvailabilityZonesArgs,
     ) -> GetAvailabilityZonesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let all_availability_zones_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let all_availability_zones_binding = args
             .all_availability_zones
             .get_output(context);
-        let all_availability_zones_binding = all_availability_zones_binding_1
-            .get_inner();
-        let exclude_names_binding_1 = args.exclude_names.get_output(context);
-        let exclude_names_binding = exclude_names_binding_1.get_inner();
-        let exclude_zone_ids_binding_1 = args.exclude_zone_ids.get_output(context);
-        let exclude_zone_ids_binding = exclude_zone_ids_binding_1.get_inner();
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let exclude_names_binding = args.exclude_names.get_output(context);
+        let exclude_zone_ids_binding = args.exclude_zone_ids.get_output(context);
+        let filters_binding = args.filters.get_output(context);
+        let state_binding = args.state.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:index/getAvailabilityZones:getAvailabilityZones".into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allAvailabilityZones".into(),
-                    value: &all_availability_zones_binding,
+                    value: all_availability_zones_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeNames".into(),
-                    value: &exclude_names_binding,
+                    value: exclude_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeZoneIds".into(),
-                    value: &exclude_zone_ids_binding,
+                    value: exclude_zone_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAvailabilityZonesResult {
-            all_availability_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allAvailabilityZones"),
-            ),
-            exclude_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludeNames"),
-            ),
-            exclude_zone_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludeZoneIds"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            group_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupNames"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            names: pulumi_gestalt_rust::__private::into_domain(o.extract_field("names")),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            zone_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneIds"),
-            ),
+            all_availability_zones: o.get_field("allAvailabilityZones"),
+            exclude_names: o.get_field("excludeNames"),
+            exclude_zone_ids: o.get_field("excludeZoneIds"),
+            filters: o.get_field("filters"),
+            group_names: o.get_field("groupNames"),
+            id: o.get_field("id"),
+            names: o.get_field("names"),
+            state: o.get_field("state"),
+            zone_ids: o.get_field("zoneIds"),
         }
     }
 }

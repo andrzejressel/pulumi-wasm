@@ -45,69 +45,44 @@ pub mod get_lb_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetLbRuleArgs,
     ) -> GetLbRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let loadbalancer_id_binding_1 = args.loadbalancer_id.get_output(context);
-        let loadbalancer_id_binding = loadbalancer_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let loadbalancer_id_binding = args.loadbalancer_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:lb/getLBRule:getLBRule".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadbalancerId".into(),
-                    value: &loadbalancer_id_binding,
+                    value: loadbalancer_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetLbRuleResult {
-            backend_address_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendAddressPoolId"),
-            ),
-            backend_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendPort"),
-            ),
-            disable_outbound_snat: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableOutboundSnat"),
-            ),
-            enable_floating_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableFloatingIp"),
-            ),
-            enable_tcp_reset: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableTcpReset"),
-            ),
-            frontend_ip_configuration_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendIpConfigurationName"),
-            ),
-            frontend_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendPort"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            idle_timeout_in_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleTimeoutInMinutes"),
-            ),
-            load_distribution: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadDistribution"),
-            ),
-            loadbalancer_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadbalancerId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            probe_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("probeId"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
+            backend_address_pool_id: o.get_field("backendAddressPoolId"),
+            backend_port: o.get_field("backendPort"),
+            disable_outbound_snat: o.get_field("disableOutboundSnat"),
+            enable_floating_ip: o.get_field("enableFloatingIp"),
+            enable_tcp_reset: o.get_field("enableTcpReset"),
+            frontend_ip_configuration_name: o.get_field("frontendIpConfigurationName"),
+            frontend_port: o.get_field("frontendPort"),
+            id: o.get_field("id"),
+            idle_timeout_in_minutes: o.get_field("idleTimeoutInMinutes"),
+            load_distribution: o.get_field("loadDistribution"),
+            loadbalancer_id: o.get_field("loadbalancerId"),
+            name: o.get_field("name"),
+            probe_id: o.get_field("probeId"),
+            protocol: o.get_field("protocol"),
         }
     }
 }

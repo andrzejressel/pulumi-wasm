@@ -244,54 +244,47 @@ pub mod namespace_iam_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NamespaceIamBindingArgs,
     ) -> NamespaceIamBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding_1 = args.condition.get_output(context);
-        let condition_binding = condition_binding_1.get_inner();
-        let members_binding_1 = args.members.get_output(context);
-        let members_binding = members_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let condition_binding = args.condition.get_output(context);
+        let members_binding = args.members.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let role_binding = args.role.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:servicedirectory/namespaceIamBinding:NamespaceIamBinding".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: &condition_binding,
+                    value: condition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "members".into(),
-                    value: &members_binding,
+                    value: members_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NamespaceIamBindingResult {
-            condition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("condition"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            members: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("members"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
+            condition: o.get_field("condition"),
+            etag: o.get_field("etag"),
+            members: o.get_field("members"),
+            name: o.get_field("name"),
+            role: o.get_field("role"),
         }
     }
 }

@@ -151,142 +151,102 @@ pub mod load_balancer_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LoadBalancerPoolArgs,
     ) -> LoadBalancerPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let check_regions_binding_1 = args.check_regions.get_output(context);
-        let check_regions_binding = check_regions_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let latitude_binding_1 = args.latitude.get_output(context);
-        let latitude_binding = latitude_binding_1.get_inner();
-        let load_sheddings_binding_1 = args.load_sheddings.get_output(context);
-        let load_sheddings_binding = load_sheddings_binding_1.get_inner();
-        let longitude_binding_1 = args.longitude.get_output(context);
-        let longitude_binding = longitude_binding_1.get_inner();
-        let minimum_origins_binding_1 = args.minimum_origins.get_output(context);
-        let minimum_origins_binding = minimum_origins_binding_1.get_inner();
-        let monitor_binding_1 = args.monitor.get_output(context);
-        let monitor_binding = monitor_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let notification_email_binding_1 = args.notification_email.get_output(context);
-        let notification_email_binding = notification_email_binding_1.get_inner();
-        let origin_steerings_binding_1 = args.origin_steerings.get_output(context);
-        let origin_steerings_binding = origin_steerings_binding_1.get_inner();
-        let origins_binding_1 = args.origins.get_output(context);
-        let origins_binding = origins_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let check_regions_binding = args.check_regions.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let latitude_binding = args.latitude.get_output(context);
+        let load_sheddings_binding = args.load_sheddings.get_output(context);
+        let longitude_binding = args.longitude.get_output(context);
+        let minimum_origins_binding = args.minimum_origins.get_output(context);
+        let monitor_binding = args.monitor.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let notification_email_binding = args.notification_email.get_output(context);
+        let origin_steerings_binding = args.origin_steerings.get_output(context);
+        let origins_binding = args.origins.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/loadBalancerPool:LoadBalancerPool".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "checkRegions".into(),
-                    value: &check_regions_binding,
+                    value: check_regions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "latitude".into(),
-                    value: &latitude_binding,
+                    value: latitude_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadSheddings".into(),
-                    value: &load_sheddings_binding,
+                    value: load_sheddings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "longitude".into(),
-                    value: &longitude_binding,
+                    value: longitude_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumOrigins".into(),
-                    value: &minimum_origins_binding,
+                    value: minimum_origins_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitor".into(),
-                    value: &monitor_binding,
+                    value: monitor_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationEmail".into(),
-                    value: &notification_email_binding,
+                    value: notification_email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originSteerings".into(),
-                    value: &origin_steerings_binding,
+                    value: origin_steerings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "origins".into(),
-                    value: &origins_binding,
+                    value: origins_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LoadBalancerPoolResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            check_regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checkRegions"),
-            ),
-            created_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdOn"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            latitude: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latitude"),
-            ),
-            load_sheddings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadSheddings"),
-            ),
-            longitude: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("longitude"),
-            ),
-            minimum_origins: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumOrigins"),
-            ),
-            modified_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modifiedOn"),
-            ),
-            monitor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitor"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationEmail"),
-            ),
-            origin_steerings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originSteerings"),
-            ),
-            origins: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("origins"),
-            ),
+            account_id: o.get_field("accountId"),
+            check_regions: o.get_field("checkRegions"),
+            created_on: o.get_field("createdOn"),
+            description: o.get_field("description"),
+            enabled: o.get_field("enabled"),
+            latitude: o.get_field("latitude"),
+            load_sheddings: o.get_field("loadSheddings"),
+            longitude: o.get_field("longitude"),
+            minimum_origins: o.get_field("minimumOrigins"),
+            modified_on: o.get_field("modifiedOn"),
+            monitor: o.get_field("monitor"),
+            name: o.get_field("name"),
+            notification_email: o.get_field("notificationEmail"),
+            origin_steerings: o.get_field("originSteerings"),
+            origins: o.get_field("origins"),
         }
     }
 }

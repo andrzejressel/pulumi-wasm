@@ -66,72 +66,50 @@ pub mod custom_ssl {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomSslArgs,
     ) -> CustomSslResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_ssl_options_binding_1 = args.custom_ssl_options.get_output(context);
-        let custom_ssl_options_binding = custom_ssl_options_binding_1.get_inner();
-        let custom_ssl_priorities_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let custom_ssl_options_binding = args.custom_ssl_options.get_output(context);
+        let custom_ssl_priorities_binding = args
             .custom_ssl_priorities
             .get_output(context);
-        let custom_ssl_priorities_binding = custom_ssl_priorities_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/customSsl:CustomSsl".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSslOptions".into(),
-                    value: &custom_ssl_options_binding,
+                    value: custom_ssl_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSslPriorities".into(),
-                    value: &custom_ssl_priorities_binding,
+                    value: custom_ssl_priorities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomSslResult {
-            custom_ssl_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customSslOptions"),
-            ),
-            custom_ssl_priorities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customSslPriorities"),
-            ),
-            expires_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiresOn"),
-            ),
-            hosts: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hosts")),
-            issuer: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issuer"),
-            ),
-            modified_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modifiedOn"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            signature: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signature"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            uploaded_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uploadedOn"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            custom_ssl_options: o.get_field("customSslOptions"),
+            custom_ssl_priorities: o.get_field("customSslPriorities"),
+            expires_on: o.get_field("expiresOn"),
+            hosts: o.get_field("hosts"),
+            issuer: o.get_field("issuer"),
+            modified_on: o.get_field("modifiedOn"),
+            priority: o.get_field("priority"),
+            signature: o.get_field("signature"),
+            status: o.get_field("status"),
+            uploaded_on: o.get_field("uploadedOn"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

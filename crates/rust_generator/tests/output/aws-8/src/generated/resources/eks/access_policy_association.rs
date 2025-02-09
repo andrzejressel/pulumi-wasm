@@ -66,63 +66,48 @@ pub mod access_policy_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccessPolicyAssociationArgs,
     ) -> AccessPolicyAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_scope_binding_1 = args.access_scope.get_output(context);
-        let access_scope_binding = access_scope_binding_1.get_inner();
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let policy_arn_binding_1 = args.policy_arn.get_output(context);
-        let policy_arn_binding = policy_arn_binding_1.get_inner();
-        let principal_arn_binding_1 = args.principal_arn.get_output(context);
-        let principal_arn_binding = principal_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_scope_binding = args.access_scope.get_output(context);
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let policy_arn_binding = args.policy_arn.get_output(context);
+        let principal_arn_binding = args.principal_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:eks/accessPolicyAssociation:AccessPolicyAssociation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessScope".into(),
-                    value: &access_scope_binding,
+                    value: access_scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyArn".into(),
-                    value: &policy_arn_binding,
+                    value: policy_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalArn".into(),
-                    value: &principal_arn_binding,
+                    value: principal_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccessPolicyAssociationResult {
-            access_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessScope"),
-            ),
-            associated_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associatedAt"),
-            ),
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            modified_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modifiedAt"),
-            ),
-            policy_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyArn"),
-            ),
-            principal_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalArn"),
-            ),
+            access_scope: o.get_field("accessScope"),
+            associated_at: o.get_field("associatedAt"),
+            cluster_name: o.get_field("clusterName"),
+            modified_at: o.get_field("modifiedAt"),
+            policy_arn: o.get_field("policyArn"),
+            principal_arn: o.get_field("principalArn"),
         }
     }
 }

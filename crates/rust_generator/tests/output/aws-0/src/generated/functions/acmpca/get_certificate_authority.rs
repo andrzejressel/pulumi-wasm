@@ -51,65 +51,44 @@ pub mod get_certificate_authority {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCertificateAuthorityArgs,
     ) -> GetCertificateAuthorityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:acmpca/getCertificateAuthority:getCertificateAuthority".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCertificateAuthorityResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificate"),
-            ),
-            certificate_chain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateChain"),
-            ),
-            certificate_signing_request: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateSigningRequest"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_storage_security_standard: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyStorageSecurityStandard"),
-            ),
-            not_after: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notAfter"),
-            ),
-            not_before: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notBefore"),
-            ),
-            revocation_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revocationConfigurations"),
-            ),
-            serial: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serial"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            usage_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usageMode"),
-            ),
+            arn: o.get_field("arn"),
+            certificate: o.get_field("certificate"),
+            certificate_chain: o.get_field("certificateChain"),
+            certificate_signing_request: o.get_field("certificateSigningRequest"),
+            id: o.get_field("id"),
+            key_storage_security_standard: o.get_field("keyStorageSecurityStandard"),
+            not_after: o.get_field("notAfter"),
+            not_before: o.get_field("notBefore"),
+            revocation_configurations: o.get_field("revocationConfigurations"),
+            serial: o.get_field("serial"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            type_: o.get_field("type"),
+            usage_mode: o.get_field("usageMode"),
         }
     }
 }

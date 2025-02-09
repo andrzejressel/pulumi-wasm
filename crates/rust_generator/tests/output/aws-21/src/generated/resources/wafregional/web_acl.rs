@@ -164,75 +164,62 @@ pub mod web_acl {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WebAclArgs,
     ) -> WebAclResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_action_binding_1 = args.default_action.get_output(context);
-        let default_action_binding = default_action_binding_1.get_inner();
-        let logging_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let default_action_binding = args.default_action.get_output(context);
+        let logging_configuration_binding = args
             .logging_configuration
             .get_output(context);
-        let logging_configuration_binding = logging_configuration_binding_1.get_inner();
-        let metric_name_binding_1 = args.metric_name.get_output(context);
-        let metric_name_binding = metric_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let rules_binding_1 = args.rules.get_output(context);
-        let rules_binding = rules_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let metric_name_binding = args.metric_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let rules_binding = args.rules.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:wafregional/webAcl:WebAcl".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAction".into(),
-                    value: &default_action_binding,
+                    value: default_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingConfiguration".into(),
-                    value: &logging_configuration_binding,
+                    value: logging_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricName".into(),
-                    value: &metric_name_binding,
+                    value: metric_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: &rules_binding,
+                    value: rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WebAclResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            default_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultAction"),
-            ),
-            logging_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingConfiguration"),
-            ),
-            metric_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metricName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            default_action: o.get_field("defaultAction"),
+            logging_configuration: o.get_field("loggingConfiguration"),
+            metric_name: o.get_field("metricName"),
+            name: o.get_field("name"),
+            rules: o.get_field("rules"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

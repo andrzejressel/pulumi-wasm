@@ -53,30 +53,28 @@ pub mod event_sources_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EventSourcesConfigArgs,
     ) -> EventSourcesConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let event_sources_binding_1 = args.event_sources.get_output(context);
-        let event_sources_binding = event_sources_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let event_sources_binding = args.event_sources.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:devopsguru/eventSourcesConfig:EventSourcesConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventSources".into(),
-                    value: &event_sources_binding,
+                    value: event_sources_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EventSourcesConfigResult {
-            event_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventSources"),
-            ),
+            event_sources: o.get_field("eventSources"),
         }
     }
 }

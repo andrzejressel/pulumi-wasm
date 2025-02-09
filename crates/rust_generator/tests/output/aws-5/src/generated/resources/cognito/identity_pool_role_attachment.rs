@@ -49,47 +49,41 @@ pub mod identity_pool_role_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IdentityPoolRoleAttachmentArgs,
     ) -> IdentityPoolRoleAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identity_pool_id_binding_1 = args.identity_pool_id.get_output(context);
-        let identity_pool_id_binding = identity_pool_id_binding_1.get_inner();
-        let role_mappings_binding_1 = args.role_mappings.get_output(context);
-        let role_mappings_binding = role_mappings_binding_1.get_inner();
-        let roles_binding_1 = args.roles.get_output(context);
-        let roles_binding = roles_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let identity_pool_id_binding = args.identity_pool_id.get_output(context);
+        let role_mappings_binding = args.role_mappings.get_output(context);
+        let roles_binding = args.roles.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityPoolId".into(),
-                    value: &identity_pool_id_binding,
+                    value: identity_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleMappings".into(),
-                    value: &role_mappings_binding,
+                    value: role_mappings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roles".into(),
-                    value: &roles_binding,
+                    value: roles_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IdentityPoolRoleAttachmentResult {
-            identity_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityPoolId"),
-            ),
-            role_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleMappings"),
-            ),
-            roles: pulumi_gestalt_rust::__private::into_domain(o.extract_field("roles")),
+            identity_pool_id: o.get_field("identityPoolId"),
+            role_mappings: o.get_field("roleMappings"),
+            roles: o.get_field("roles"),
         }
     }
 }

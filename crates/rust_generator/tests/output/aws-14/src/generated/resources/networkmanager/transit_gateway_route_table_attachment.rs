@@ -84,79 +84,54 @@ pub mod transit_gateway_route_table_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TransitGatewayRouteTableAttachmentArgs,
     ) -> TransitGatewayRouteTableAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let peering_id_binding_1 = args.peering_id.get_output(context);
-        let peering_id_binding = peering_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let transit_gateway_route_table_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let peering_id_binding = args.peering_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let transit_gateway_route_table_arn_binding = args
             .transit_gateway_route_table_arn
             .get_output(context);
-        let transit_gateway_route_table_arn_binding = transit_gateway_route_table_arn_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeringId".into(),
-                    value: &peering_id_binding,
+                    value: peering_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayRouteTableArn".into(),
-                    value: &transit_gateway_route_table_arn_binding,
+                    value: transit_gateway_route_table_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TransitGatewayRouteTableAttachmentResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            attachment_policy_rule_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachmentPolicyRuleNumber"),
-            ),
-            attachment_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachmentType"),
-            ),
-            core_network_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreNetworkArn"),
-            ),
-            core_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreNetworkId"),
-            ),
-            edge_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeLocation"),
-            ),
-            owner_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerAccountId"),
-            ),
-            peering_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peeringId"),
-            ),
-            resource_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceArn"),
-            ),
-            segment_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("segmentName"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            transit_gateway_route_table_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayRouteTableArn"),
-            ),
+            arn: o.get_field("arn"),
+            attachment_policy_rule_number: o.get_field("attachmentPolicyRuleNumber"),
+            attachment_type: o.get_field("attachmentType"),
+            core_network_arn: o.get_field("coreNetworkArn"),
+            core_network_id: o.get_field("coreNetworkId"),
+            edge_location: o.get_field("edgeLocation"),
+            owner_account_id: o.get_field("ownerAccountId"),
+            peering_id: o.get_field("peeringId"),
+            resource_arn: o.get_field("resourceArn"),
+            segment_name: o.get_field("segmentName"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            transit_gateway_route_table_arn: o.get_field("transitGatewayRouteTableArn"),
         }
     }
 }

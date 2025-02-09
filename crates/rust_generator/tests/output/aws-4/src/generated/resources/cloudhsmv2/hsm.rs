@@ -68,66 +68,49 @@ pub mod hsm {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HsmArgs,
     ) -> HsmResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding_1 = args.availability_zone.get_output(context);
-        let availability_zone_binding = availability_zone_binding_1.get_inner();
-        let cluster_id_binding_1 = args.cluster_id.get_output(context);
-        let cluster_id_binding = cluster_id_binding_1.get_inner();
-        let ip_address_binding_1 = args.ip_address.get_output(context);
-        let ip_address_binding = ip_address_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let availability_zone_binding = args.availability_zone.get_output(context);
+        let cluster_id_binding = args.cluster_id.get_output(context);
+        let ip_address_binding = args.ip_address.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudhsmv2/hsm:Hsm".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: &availability_zone_binding,
+                    value: availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: &cluster_id_binding,
+                    value: cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: &ip_address_binding,
+                    value: ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HsmResult {
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterId"),
-            ),
-            hsm_eni_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hsmEniId"),
-            ),
-            hsm_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hsmId"),
-            ),
-            hsm_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hsmState"),
-            ),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
+            availability_zone: o.get_field("availabilityZone"),
+            cluster_id: o.get_field("clusterId"),
+            hsm_eni_id: o.get_field("hsmEniId"),
+            hsm_id: o.get_field("hsmId"),
+            hsm_state: o.get_field("hsmState"),
+            ip_address: o.get_field("ipAddress"),
+            subnet_id: o.get_field("subnetId"),
         }
     }
 }

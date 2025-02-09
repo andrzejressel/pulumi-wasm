@@ -106,88 +106,65 @@ pub mod certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CertificateArgs,
     ) -> CertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_passthrough_binding_1 = args.api_passthrough.get_output(context);
-        let api_passthrough_binding = api_passthrough_binding_1.get_inner();
-        let certificate_authority_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_passthrough_binding = args.api_passthrough.get_output(context);
+        let certificate_authority_arn_binding = args
             .certificate_authority_arn
             .get_output(context);
-        let certificate_authority_arn_binding = certificate_authority_arn_binding_1
-            .get_inner();
-        let certificate_signing_request_binding_1 = args
+        let certificate_signing_request_binding = args
             .certificate_signing_request
             .get_output(context);
-        let certificate_signing_request_binding = certificate_signing_request_binding_1
-            .get_inner();
-        let signing_algorithm_binding_1 = args.signing_algorithm.get_output(context);
-        let signing_algorithm_binding = signing_algorithm_binding_1.get_inner();
-        let template_arn_binding_1 = args.template_arn.get_output(context);
-        let template_arn_binding = template_arn_binding_1.get_inner();
-        let validity_binding_1 = args.validity.get_output(context);
-        let validity_binding = validity_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let signing_algorithm_binding = args.signing_algorithm.get_output(context);
+        let template_arn_binding = args.template_arn.get_output(context);
+        let validity_binding = args.validity.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:acmpca/certificate:Certificate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiPassthrough".into(),
-                    value: &api_passthrough_binding,
+                    value: api_passthrough_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthorityArn".into(),
-                    value: &certificate_authority_arn_binding,
+                    value: certificate_authority_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateSigningRequest".into(),
-                    value: &certificate_signing_request_binding,
+                    value: certificate_signing_request_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signingAlgorithm".into(),
-                    value: &signing_algorithm_binding,
+                    value: signing_algorithm_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateArn".into(),
-                    value: &template_arn_binding,
+                    value: template_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validity".into(),
-                    value: &validity_binding,
+                    value: validity_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CertificateResult {
-            api_passthrough: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiPassthrough"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificate"),
-            ),
-            certificate_authority_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateAuthorityArn"),
-            ),
-            certificate_chain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateChain"),
-            ),
-            certificate_signing_request: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateSigningRequest"),
-            ),
-            signing_algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingAlgorithm"),
-            ),
-            template_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateArn"),
-            ),
-            validity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validity"),
-            ),
+            api_passthrough: o.get_field("apiPassthrough"),
+            arn: o.get_field("arn"),
+            certificate: o.get_field("certificate"),
+            certificate_authority_arn: o.get_field("certificateAuthorityArn"),
+            certificate_chain: o.get_field("certificateChain"),
+            certificate_signing_request: o.get_field("certificateSigningRequest"),
+            signing_algorithm: o.get_field("signingAlgorithm"),
+            template_arn: o.get_field("templateArn"),
+            validity: o.get_field("validity"),
         }
     }
 }

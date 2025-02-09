@@ -117,101 +117,77 @@ pub mod share_file {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ShareFileArgs,
     ) -> ShareFileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let content_disposition_binding_1 = args.content_disposition.get_output(context);
-        let content_disposition_binding = content_disposition_binding_1.get_inner();
-        let content_encoding_binding_1 = args.content_encoding.get_output(context);
-        let content_encoding_binding = content_encoding_binding_1.get_inner();
-        let content_md5_binding_1 = args.content_md5.get_output(context);
-        let content_md5_binding = content_md5_binding_1.get_inner();
-        let content_type_binding_1 = args.content_type.get_output(context);
-        let content_type_binding = content_type_binding_1.get_inner();
-        let metadata_binding_1 = args.metadata.get_output(context);
-        let metadata_binding = metadata_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let path_binding_1 = args.path.get_output(context);
-        let path_binding = path_binding_1.get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let storage_share_id_binding_1 = args.storage_share_id.get_output(context);
-        let storage_share_id_binding = storage_share_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let content_disposition_binding = args.content_disposition.get_output(context);
+        let content_encoding_binding = args.content_encoding.get_output(context);
+        let content_md5_binding = args.content_md5.get_output(context);
+        let content_type_binding = args.content_type.get_output(context);
+        let metadata_binding = args.metadata.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let path_binding = args.path.get_output(context);
+        let source_binding = args.source.get_output(context);
+        let storage_share_id_binding = args.storage_share_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/shareFile:ShareFile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentDisposition".into(),
-                    value: &content_disposition_binding,
+                    value: content_disposition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentEncoding".into(),
-                    value: &content_encoding_binding,
+                    value: content_encoding_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentMd5".into(),
-                    value: &content_md5_binding,
+                    value: content_md5_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentType".into(),
-                    value: &content_type_binding,
+                    value: content_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: &metadata_binding,
+                    value: metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: &path_binding,
+                    value: path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageShareId".into(),
-                    value: &storage_share_id_binding,
+                    value: storage_share_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ShareFileResult {
-            content_disposition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentDisposition"),
-            ),
-            content_encoding: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentEncoding"),
-            ),
-            content_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentLength"),
-            ),
-            content_md5: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentMd5"),
-            ),
-            content_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentType"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            storage_share_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageShareId"),
-            ),
+            content_disposition: o.get_field("contentDisposition"),
+            content_encoding: o.get_field("contentEncoding"),
+            content_length: o.get_field("contentLength"),
+            content_md5: o.get_field("contentMd5"),
+            content_type: o.get_field("contentType"),
+            metadata: o.get_field("metadata"),
+            name: o.get_field("name"),
+            path: o.get_field("path"),
+            source: o.get_field("source"),
+            storage_share_id: o.get_field("storageShareId"),
         }
     }
 }

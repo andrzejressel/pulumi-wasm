@@ -285,95 +285,69 @@ pub mod runtime {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RuntimeArgs,
     ) -> RuntimeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_config_binding_1 = args.access_config.get_output(context);
-        let access_config_binding = access_config_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let software_config_binding_1 = args.software_config.get_output(context);
-        let software_config_binding = software_config_binding_1.get_inner();
-        let virtual_machine_binding_1 = args.virtual_machine.get_output(context);
-        let virtual_machine_binding = virtual_machine_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_config_binding = args.access_config.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let software_config_binding = args.software_config.get_output(context);
+        let virtual_machine_binding = args.virtual_machine.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:notebooks/runtime:Runtime".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessConfig".into(),
-                    value: &access_config_binding,
+                    value: access_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "softwareConfig".into(),
-                    value: &software_config_binding,
+                    value: software_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachine".into(),
-                    value: &virtual_machine_binding,
+                    value: virtual_machine_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RuntimeResult {
-            access_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessConfig"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            health_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthState"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metrics"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            software_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("softwareConfig"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            virtual_machine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachine"),
-            ),
+            access_config: o.get_field("accessConfig"),
+            effective_labels: o.get_field("effectiveLabels"),
+            health_state: o.get_field("healthState"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            metrics: o.get_field("metrics"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            software_config: o.get_field("softwareConfig"),
+            state: o.get_field("state"),
+            virtual_machine: o.get_field("virtualMachine"),
         }
     }
 }

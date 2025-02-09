@@ -213,148 +213,105 @@ pub mod frontdoor {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FrontdoorArgs,
     ) -> FrontdoorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backend_pool_health_probes_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backend_pool_health_probes_binding = args
             .backend_pool_health_probes
             .get_output(context);
-        let backend_pool_health_probes_binding = backend_pool_health_probes_binding_1
-            .get_inner();
-        let backend_pool_load_balancings_binding_1 = args
+        let backend_pool_load_balancings_binding = args
             .backend_pool_load_balancings
             .get_output(context);
-        let backend_pool_load_balancings_binding = backend_pool_load_balancings_binding_1
-            .get_inner();
-        let backend_pool_settings_binding_1 = args
+        let backend_pool_settings_binding = args
             .backend_pool_settings
             .get_output(context);
-        let backend_pool_settings_binding = backend_pool_settings_binding_1.get_inner();
-        let backend_pools_binding_1 = args.backend_pools.get_output(context);
-        let backend_pools_binding = backend_pools_binding_1.get_inner();
-        let friendly_name_binding_1 = args.friendly_name.get_output(context);
-        let friendly_name_binding = friendly_name_binding_1.get_inner();
-        let frontend_endpoints_binding_1 = args.frontend_endpoints.get_output(context);
-        let frontend_endpoints_binding = frontend_endpoints_binding_1.get_inner();
-        let load_balancer_enabled_binding_1 = args
+        let backend_pools_binding = args.backend_pools.get_output(context);
+        let friendly_name_binding = args.friendly_name.get_output(context);
+        let frontend_endpoints_binding = args.frontend_endpoints.get_output(context);
+        let load_balancer_enabled_binding = args
             .load_balancer_enabled
             .get_output(context);
-        let load_balancer_enabled_binding = load_balancer_enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let routing_rules_binding_1 = args.routing_rules.get_output(context);
-        let routing_rules_binding = routing_rules_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let routing_rules_binding = args.routing_rules.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:frontdoor/frontdoor:Frontdoor".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendPoolHealthProbes".into(),
-                    value: &backend_pool_health_probes_binding,
+                    value: backend_pool_health_probes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendPoolLoadBalancings".into(),
-                    value: &backend_pool_load_balancings_binding,
+                    value: backend_pool_load_balancings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendPoolSettings".into(),
-                    value: &backend_pool_settings_binding,
+                    value: backend_pool_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendPools".into(),
-                    value: &backend_pools_binding,
+                    value: backend_pools_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "friendlyName".into(),
-                    value: &friendly_name_binding,
+                    value: friendly_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendEndpoints".into(),
-                    value: &frontend_endpoints_binding,
+                    value: frontend_endpoints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerEnabled".into(),
-                    value: &load_balancer_enabled_binding,
+                    value: load_balancer_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingRules".into(),
-                    value: &routing_rules_binding,
+                    value: routing_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FrontdoorResult {
-            backend_pool_health_probes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendPoolHealthProbes"),
-            ),
-            backend_pool_health_probes_map: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendPoolHealthProbesMap"),
-            ),
-            backend_pool_load_balancing_settings_map: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendPoolLoadBalancingSettingsMap"),
-            ),
-            backend_pool_load_balancings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendPoolLoadBalancings"),
-            ),
-            backend_pool_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendPoolSettings"),
-            ),
-            backend_pools: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendPools"),
-            ),
-            backend_pools_map: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendPoolsMap"),
-            ),
-            cname: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cname")),
-            explicit_resource_orders: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("explicitResourceOrders"),
-            ),
-            friendly_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("friendlyName"),
-            ),
-            frontend_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendEndpoints"),
-            ),
-            frontend_endpoints_map: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendEndpointsMap"),
-            ),
-            header_frontdoor_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("headerFrontdoorId"),
-            ),
-            load_balancer_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            routing_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingRules"),
-            ),
-            routing_rules_map: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingRulesMap"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            backend_pool_health_probes: o.get_field("backendPoolHealthProbes"),
+            backend_pool_health_probes_map: o.get_field("backendPoolHealthProbesMap"),
+            backend_pool_load_balancing_settings_map: o
+                .get_field("backendPoolLoadBalancingSettingsMap"),
+            backend_pool_load_balancings: o.get_field("backendPoolLoadBalancings"),
+            backend_pool_settings: o.get_field("backendPoolSettings"),
+            backend_pools: o.get_field("backendPools"),
+            backend_pools_map: o.get_field("backendPoolsMap"),
+            cname: o.get_field("cname"),
+            explicit_resource_orders: o.get_field("explicitResourceOrders"),
+            friendly_name: o.get_field("friendlyName"),
+            frontend_endpoints: o.get_field("frontendEndpoints"),
+            frontend_endpoints_map: o.get_field("frontendEndpointsMap"),
+            header_frontdoor_id: o.get_field("headerFrontdoorId"),
+            load_balancer_enabled: o.get_field("loadBalancerEnabled"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            routing_rules: o.get_field("routingRules"),
+            routing_rules_map: o.get_field("routingRulesMap"),
+            tags: o.get_field("tags"),
         }
     }
 }

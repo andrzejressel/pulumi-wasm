@@ -117,108 +117,77 @@ pub mod workload {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkloadArgs,
     ) -> WorkloadResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding_1 = args.application_id.get_output(context);
-        let application_id_binding = application_id_binding_1.get_inner();
-        let attributes_binding_1 = args.attributes.get_output(context);
-        let attributes_binding = attributes_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let discovered_workload_binding_1 = args.discovered_workload.get_output(context);
-        let discovered_workload_binding = discovered_workload_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let workload_id_binding_1 = args.workload_id.get_output(context);
-        let workload_id_binding = workload_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_id_binding = args.application_id.get_output(context);
+        let attributes_binding = args.attributes.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let discovered_workload_binding = args.discovered_workload.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let workload_id_binding = args.workload_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apphub/workload:Workload".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: &application_id_binding,
+                    value: application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributes".into(),
-                    value: &attributes_binding,
+                    value: attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "discoveredWorkload".into(),
-                    value: &discovered_workload_binding,
+                    value: discovered_workload_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadId".into(),
-                    value: &workload_id_binding,
+                    value: workload_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkloadResult {
-            application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationId"),
-            ),
-            attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attributes"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            discovered_workload: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("discoveredWorkload"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            workload_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadId"),
-            ),
-            workload_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadProperties"),
-            ),
-            workload_references: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadReferences"),
-            ),
+            application_id: o.get_field("applicationId"),
+            attributes: o.get_field("attributes"),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            discovered_workload: o.get_field("discoveredWorkload"),
+            display_name: o.get_field("displayName"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            state: o.get_field("state"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
+            workload_id: o.get_field("workloadId"),
+            workload_properties: o.get_field("workloadProperties"),
+            workload_references: o.get_field("workloadReferences"),
         }
     }
 }

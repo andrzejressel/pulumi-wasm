@@ -321,116 +321,88 @@ pub mod listener {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ListenerArgs,
     ) -> ListenerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alpn_policy_binding_1 = args.alpn_policy.get_output(context);
-        let alpn_policy_binding = alpn_policy_binding_1.get_inner();
-        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
-        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
-        let default_actions_binding_1 = args.default_actions.get_output(context);
-        let default_actions_binding = default_actions_binding_1.get_inner();
-        let load_balancer_arn_binding_1 = args.load_balancer_arn.get_output(context);
-        let load_balancer_arn_binding = load_balancer_arn_binding_1.get_inner();
-        let mutual_authentication_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alpn_policy_binding = args.alpn_policy.get_output(context);
+        let certificate_arn_binding = args.certificate_arn.get_output(context);
+        let default_actions_binding = args.default_actions.get_output(context);
+        let load_balancer_arn_binding = args.load_balancer_arn.get_output(context);
+        let mutual_authentication_binding = args
             .mutual_authentication
             .get_output(context);
-        let mutual_authentication_binding = mutual_authentication_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let ssl_policy_binding_1 = args.ssl_policy.get_output(context);
-        let ssl_policy_binding = ssl_policy_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tcp_idle_timeout_seconds_binding_1 = args
+        let port_binding = args.port.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let ssl_policy_binding = args.ssl_policy.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tcp_idle_timeout_seconds_binding = args
             .tcp_idle_timeout_seconds
             .get_output(context);
-        let tcp_idle_timeout_seconds_binding = tcp_idle_timeout_seconds_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lb/listener:Listener".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alpnPolicy".into(),
-                    value: &alpn_policy_binding,
+                    value: alpn_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateArn".into(),
-                    value: &certificate_arn_binding,
+                    value: certificate_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultActions".into(),
-                    value: &default_actions_binding,
+                    value: default_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerArn".into(),
-                    value: &load_balancer_arn_binding,
+                    value: load_balancer_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mutualAuthentication".into(),
-                    value: &mutual_authentication_binding,
+                    value: mutual_authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslPolicy".into(),
-                    value: &ssl_policy_binding,
+                    value: ssl_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tcpIdleTimeoutSeconds".into(),
-                    value: &tcp_idle_timeout_seconds_binding,
+                    value: tcp_idle_timeout_seconds_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ListenerResult {
-            alpn_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alpnPolicy"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateArn"),
-            ),
-            default_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultActions"),
-            ),
-            load_balancer_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerArn"),
-            ),
-            mutual_authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mutualAuthentication"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            ssl_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslPolicy"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tcp_idle_timeout_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tcpIdleTimeoutSeconds"),
-            ),
+            alpn_policy: o.get_field("alpnPolicy"),
+            arn: o.get_field("arn"),
+            certificate_arn: o.get_field("certificateArn"),
+            default_actions: o.get_field("defaultActions"),
+            load_balancer_arn: o.get_field("loadBalancerArn"),
+            mutual_authentication: o.get_field("mutualAuthentication"),
+            port: o.get_field("port"),
+            protocol: o.get_field("protocol"),
+            ssl_policy: o.get_field("sslPolicy"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tcp_idle_timeout_seconds: o.get_field("tcpIdleTimeoutSeconds"),
         }
     }
 }

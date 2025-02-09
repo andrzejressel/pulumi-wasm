@@ -223,130 +223,99 @@ pub mod plan {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PlanArgs,
     ) -> PlanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_service_environment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_service_environment_id_binding = args
             .app_service_environment_id
             .get_output(context);
-        let app_service_environment_id_binding = app_service_environment_id_binding_1
-            .get_inner();
-        let is_xenon_binding_1 = args.is_xenon.get_output(context);
-        let is_xenon_binding = is_xenon_binding_1.get_inner();
-        let kind_binding_1 = args.kind.get_output(context);
-        let kind_binding = kind_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let maximum_elastic_worker_count_binding_1 = args
+        let is_xenon_binding = args.is_xenon.get_output(context);
+        let kind_binding = args.kind.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let maximum_elastic_worker_count_binding = args
             .maximum_elastic_worker_count
             .get_output(context);
-        let maximum_elastic_worker_count_binding = maximum_elastic_worker_count_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let per_site_scaling_binding_1 = args.per_site_scaling.get_output(context);
-        let per_site_scaling_binding = per_site_scaling_binding_1.get_inner();
-        let reserved_binding_1 = args.reserved.get_output(context);
-        let reserved_binding = reserved_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let zone_redundant_binding_1 = args.zone_redundant.get_output(context);
-        let zone_redundant_binding = zone_redundant_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let per_site_scaling_binding = args.per_site_scaling.get_output(context);
+        let reserved_binding = args.reserved.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let zone_redundant_binding = args.zone_redundant.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appservice/plan:Plan".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServiceEnvironmentId".into(),
-                    value: &app_service_environment_id_binding,
+                    value: app_service_environment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isXenon".into(),
-                    value: &is_xenon_binding,
+                    value: is_xenon_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kind".into(),
-                    value: &kind_binding,
+                    value: kind_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumElasticWorkerCount".into(),
-                    value: &maximum_elastic_worker_count_binding,
+                    value: maximum_elastic_worker_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "perSiteScaling".into(),
-                    value: &per_site_scaling_binding,
+                    value: per_site_scaling_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reserved".into(),
-                    value: &reserved_binding,
+                    value: reserved_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneRedundant".into(),
-                    value: &zone_redundant_binding,
+                    value: zone_redundant_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PlanResult {
-            app_service_environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appServiceEnvironmentId"),
-            ),
-            is_xenon: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isXenon"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maximum_elastic_worker_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumElasticWorkerCount"),
-            ),
-            maximum_number_of_workers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumNumberOfWorkers"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            per_site_scaling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("perSiteScaling"),
-            ),
-            reserved: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reserved"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            zone_redundant: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneRedundant"),
-            ),
+            app_service_environment_id: o.get_field("appServiceEnvironmentId"),
+            is_xenon: o.get_field("isXenon"),
+            kind: o.get_field("kind"),
+            location: o.get_field("location"),
+            maximum_elastic_worker_count: o.get_field("maximumElasticWorkerCount"),
+            maximum_number_of_workers: o.get_field("maximumNumberOfWorkers"),
+            name: o.get_field("name"),
+            per_site_scaling: o.get_field("perSiteScaling"),
+            reserved: o.get_field("reserved"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
+            zone_redundant: o.get_field("zoneRedundant"),
         }
     }
 }

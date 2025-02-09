@@ -122,94 +122,70 @@ pub mod vpc_dhcp_options {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcDhcpOptionsArgs,
     ) -> VpcDhcpOptionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let domain_name_servers_binding_1 = args.domain_name_servers.get_output(context);
-        let domain_name_servers_binding = domain_name_servers_binding_1.get_inner();
-        let ipv6_address_preferred_lease_time_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_name_binding = args.domain_name.get_output(context);
+        let domain_name_servers_binding = args.domain_name_servers.get_output(context);
+        let ipv6_address_preferred_lease_time_binding = args
             .ipv6_address_preferred_lease_time
             .get_output(context);
-        let ipv6_address_preferred_lease_time_binding = ipv6_address_preferred_lease_time_binding_1
-            .get_inner();
-        let netbios_name_servers_binding_1 = args
-            .netbios_name_servers
-            .get_output(context);
-        let netbios_name_servers_binding = netbios_name_servers_binding_1.get_inner();
-        let netbios_node_type_binding_1 = args.netbios_node_type.get_output(context);
-        let netbios_node_type_binding = netbios_node_type_binding_1.get_inner();
-        let ntp_servers_binding_1 = args.ntp_servers.get_output(context);
-        let ntp_servers_binding = ntp_servers_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let netbios_name_servers_binding = args.netbios_name_servers.get_output(context);
+        let netbios_node_type_binding = args.netbios_node_type.get_output(context);
+        let ntp_servers_binding = args.ntp_servers.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcDhcpOptions:VpcDhcpOptions".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainNameServers".into(),
-                    value: &domain_name_servers_binding,
+                    value: domain_name_servers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6AddressPreferredLeaseTime".into(),
-                    value: &ipv6_address_preferred_lease_time_binding,
+                    value: ipv6_address_preferred_lease_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "netbiosNameServers".into(),
-                    value: &netbios_name_servers_binding,
+                    value: netbios_name_servers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "netbiosNodeType".into(),
-                    value: &netbios_node_type_binding,
+                    value: netbios_node_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ntpServers".into(),
-                    value: &ntp_servers_binding,
+                    value: ntp_servers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcDhcpOptionsResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            domain_name_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainNameServers"),
-            ),
-            ipv6_address_preferred_lease_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6AddressPreferredLeaseTime"),
-            ),
-            netbios_name_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("netbiosNameServers"),
-            ),
-            netbios_node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("netbiosNodeType"),
-            ),
-            ntp_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ntpServers"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            domain_name: o.get_field("domainName"),
+            domain_name_servers: o.get_field("domainNameServers"),
+            ipv6_address_preferred_lease_time: o
+                .get_field("ipv6AddressPreferredLeaseTime"),
+            netbios_name_servers: o.get_field("netbiosNameServers"),
+            netbios_node_type: o.get_field("netbiosNodeType"),
+            ntp_servers: o.get_field("ntpServers"),
+            owner_id: o.get_field("ownerId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

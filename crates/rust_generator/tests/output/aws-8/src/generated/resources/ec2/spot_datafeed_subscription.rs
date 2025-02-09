@@ -56,39 +56,34 @@ pub mod spot_datafeed_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpotDatafeedSubscriptionArgs,
     ) -> SpotDatafeedSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let prefix_binding_1 = args.prefix.get_output(context);
-        let prefix_binding = prefix_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_binding = args.bucket.get_output(context);
+        let prefix_binding = args.prefix.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefix".into(),
-                    value: &prefix_binding,
+                    value: prefix_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpotDatafeedSubscriptionResult {
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefix"),
-            ),
+            bucket: o.get_field("bucket"),
+            prefix: o.get_field("prefix"),
         }
     }
 }

@@ -54,63 +54,44 @@ pub mod get_image_recipe {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetImageRecipeArgs,
     ) -> GetImageRecipeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:imagebuilder/getImageRecipe:getImageRecipe".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetImageRecipeResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            block_device_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockDeviceMappings"),
-            ),
-            components: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("components"),
-            ),
-            date_created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dateCreated"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            parent_image: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentImage"),
-            ),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            user_data_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userDataBase64"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            working_directory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workingDirectory"),
-            ),
+            arn: o.get_field("arn"),
+            block_device_mappings: o.get_field("blockDeviceMappings"),
+            components: o.get_field("components"),
+            date_created: o.get_field("dateCreated"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            owner: o.get_field("owner"),
+            parent_image: o.get_field("parentImage"),
+            platform: o.get_field("platform"),
+            tags: o.get_field("tags"),
+            user_data_base64: o.get_field("userDataBase64"),
+            version: o.get_field("version"),
+            working_directory: o.get_field("workingDirectory"),
         }
     }
 }

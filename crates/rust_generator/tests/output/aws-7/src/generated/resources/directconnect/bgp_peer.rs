@@ -72,86 +72,61 @@ pub mod bgp_peer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BgpPeerArgs,
     ) -> BgpPeerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_family_binding_1 = args.address_family.get_output(context);
-        let address_family_binding = address_family_binding_1.get_inner();
-        let amazon_address_binding_1 = args.amazon_address.get_output(context);
-        let amazon_address_binding = amazon_address_binding_1.get_inner();
-        let bgp_asn_binding_1 = args.bgp_asn.get_output(context);
-        let bgp_asn_binding = bgp_asn_binding_1.get_inner();
-        let bgp_auth_key_binding_1 = args.bgp_auth_key.get_output(context);
-        let bgp_auth_key_binding = bgp_auth_key_binding_1.get_inner();
-        let customer_address_binding_1 = args.customer_address.get_output(context);
-        let customer_address_binding = customer_address_binding_1.get_inner();
-        let virtual_interface_id_binding_1 = args
-            .virtual_interface_id
-            .get_output(context);
-        let virtual_interface_id_binding = virtual_interface_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let address_family_binding = args.address_family.get_output(context);
+        let amazon_address_binding = args.amazon_address.get_output(context);
+        let bgp_asn_binding = args.bgp_asn.get_output(context);
+        let bgp_auth_key_binding = args.bgp_auth_key.get_output(context);
+        let customer_address_binding = args.customer_address.get_output(context);
+        let virtual_interface_id_binding = args.virtual_interface_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:directconnect/bgpPeer:BgpPeer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressFamily".into(),
-                    value: &address_family_binding,
+                    value: address_family_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amazonAddress".into(),
-                    value: &amazon_address_binding,
+                    value: amazon_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpAsn".into(),
-                    value: &bgp_asn_binding,
+                    value: bgp_asn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpAuthKey".into(),
-                    value: &bgp_auth_key_binding,
+                    value: bgp_auth_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerAddress".into(),
-                    value: &customer_address_binding,
+                    value: customer_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualInterfaceId".into(),
-                    value: &virtual_interface_id_binding,
+                    value: virtual_interface_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BgpPeerResult {
-            address_family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addressFamily"),
-            ),
-            amazon_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("amazonAddress"),
-            ),
-            aws_device: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsDevice"),
-            ),
-            bgp_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpAsn"),
-            ),
-            bgp_auth_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpAuthKey"),
-            ),
-            bgp_peer_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpPeerId"),
-            ),
-            bgp_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpStatus"),
-            ),
-            customer_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerAddress"),
-            ),
-            virtual_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualInterfaceId"),
-            ),
+            address_family: o.get_field("addressFamily"),
+            amazon_address: o.get_field("amazonAddress"),
+            aws_device: o.get_field("awsDevice"),
+            bgp_asn: o.get_field("bgpAsn"),
+            bgp_auth_key: o.get_field("bgpAuthKey"),
+            bgp_peer_id: o.get_field("bgpPeerId"),
+            bgp_status: o.get_field("bgpStatus"),
+            customer_address: o.get_field("customerAddress"),
+            virtual_interface_id: o.get_field("virtualInterfaceId"),
         }
     }
 }

@@ -102,39 +102,34 @@ pub mod access_levels {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccessLevelsArgs,
     ) -> AccessLevelsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_levels_binding_1 = args.access_levels.get_output(context);
-        let access_levels_binding = access_levels_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_levels_binding = args.access_levels.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/accessLevels:AccessLevels".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessLevels".into(),
-                    value: &access_levels_binding,
+                    value: access_levels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccessLevelsResult {
-            access_levels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessLevels"),
-            ),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
+            access_levels: o.get_field("accessLevels"),
+            parent: o.get_field("parent"),
         }
     }
 }

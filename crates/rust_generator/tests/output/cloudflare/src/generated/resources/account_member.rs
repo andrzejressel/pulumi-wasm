@@ -64,57 +64,46 @@ pub mod account_member {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountMemberArgs,
     ) -> AccountMemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let email_address_binding_1 = args.email_address.get_output(context);
-        let email_address_binding = email_address_binding_1.get_inner();
-        let role_ids_binding_1 = args.role_ids.get_output(context);
-        let role_ids_binding = role_ids_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let email_address_binding = args.email_address.get_output(context);
+        let role_ids_binding = args.role_ids.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/accountMember:AccountMember".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddress".into(),
-                    value: &email_address_binding,
+                    value: email_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleIds".into(),
-                    value: &role_ids_binding,
+                    value: role_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountMemberResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            email_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailAddress"),
-            ),
-            role_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleIds"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            account_id: o.get_field("accountId"),
+            email_address: o.get_field("emailAddress"),
+            role_ids: o.get_field("roleIds"),
+            status: o.get_field("status"),
         }
     }
 }

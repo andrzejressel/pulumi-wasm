@@ -78,64 +78,43 @@ pub mod attachment_accepter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AttachmentAccepterArgs,
     ) -> AttachmentAccepterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attachment_id_binding_1 = args.attachment_id.get_output(context);
-        let attachment_id_binding = attachment_id_binding_1.get_inner();
-        let attachment_type_binding_1 = args.attachment_type.get_output(context);
-        let attachment_type_binding = attachment_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attachment_id_binding = args.attachment_id.get_output(context);
+        let attachment_type_binding = args.attachment_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:networkmanager/attachmentAccepter:AttachmentAccepter".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachmentId".into(),
-                    value: &attachment_id_binding,
+                    value: attachment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachmentType".into(),
-                    value: &attachment_type_binding,
+                    value: attachment_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AttachmentAccepterResult {
-            attachment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachmentId"),
-            ),
-            attachment_policy_rule_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachmentPolicyRuleNumber"),
-            ),
-            attachment_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachmentType"),
-            ),
-            core_network_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreNetworkArn"),
-            ),
-            core_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreNetworkId"),
-            ),
-            edge_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeLocation"),
-            ),
-            edge_locations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeLocations"),
-            ),
-            owner_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerAccountId"),
-            ),
-            resource_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceArn"),
-            ),
-            segment_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("segmentName"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            attachment_id: o.get_field("attachmentId"),
+            attachment_policy_rule_number: o.get_field("attachmentPolicyRuleNumber"),
+            attachment_type: o.get_field("attachmentType"),
+            core_network_arn: o.get_field("coreNetworkArn"),
+            core_network_id: o.get_field("coreNetworkId"),
+            edge_location: o.get_field("edgeLocation"),
+            edge_locations: o.get_field("edgeLocations"),
+            owner_account_id: o.get_field("ownerAccountId"),
+            resource_arn: o.get_field("resourceArn"),
+            segment_name: o.get_field("segmentName"),
+            state: o.get_field("state"),
         }
     }
 }

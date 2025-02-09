@@ -148,101 +148,74 @@ pub mod scope_rbac_role_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ScopeRbacRoleBindingArgs,
     ) -> ScopeRbacRoleBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_binding_1 = args.group.get_output(context);
-        let group_binding = group_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let scope_id_binding_1 = args.scope_id.get_output(context);
-        let scope_id_binding = scope_id_binding_1.get_inner();
-        let scope_rbac_role_binding_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let group_binding = args.group.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let role_binding = args.role.get_output(context);
+        let scope_id_binding = args.scope_id.get_output(context);
+        let scope_rbac_role_binding_id_binding = args
             .scope_rbac_role_binding_id
             .get_output(context);
-        let scope_rbac_role_binding_id_binding = scope_rbac_role_binding_id_binding_1
-            .get_inner();
-        let user_binding_1 = args.user.get_output(context);
-        let user_binding = user_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let user_binding = args.user.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:gkehub/scopeRbacRoleBinding:ScopeRbacRoleBinding".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "group".into(),
-                    value: &group_binding,
+                    value: group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopeId".into(),
-                    value: &scope_id_binding,
+                    value: scope_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopeRbacRoleBindingId".into(),
-                    value: &scope_rbac_role_binding_id_binding,
+                    value: scope_rbac_role_binding_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "user".into(),
-                    value: &user_binding,
+                    value: user_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ScopeRbacRoleBindingResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            delete_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteTime"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            group: pulumi_gestalt_rust::__private::into_domain(o.extract_field("group")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
-            scope_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopeId"),
-            ),
-            scope_rbac_role_binding_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopeRbacRoleBindingId"),
-            ),
-            states: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("states"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
+            create_time: o.get_field("createTime"),
+            delete_time: o.get_field("deleteTime"),
+            effective_labels: o.get_field("effectiveLabels"),
+            group: o.get_field("group"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            role: o.get_field("role"),
+            scope_id: o.get_field("scopeId"),
+            scope_rbac_role_binding_id: o.get_field("scopeRbacRoleBindingId"),
+            states: o.get_field("states"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
+            user: o.get_field("user"),
         }
     }
 }

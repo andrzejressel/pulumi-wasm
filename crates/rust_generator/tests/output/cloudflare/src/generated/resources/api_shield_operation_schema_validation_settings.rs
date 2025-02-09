@@ -56,49 +56,41 @@ pub mod api_shield_operation_schema_validation_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiShieldOperationSchemaValidationSettingsArgs,
     ) -> ApiShieldOperationSchemaValidationSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mitigation_action_binding_1 = args.mitigation_action.get_output(context);
-        let mitigation_action_binding = mitigation_action_binding_1.get_inner();
-        let operation_id_binding_1 = args.operation_id.get_output(context);
-        let operation_id_binding = operation_id_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let mitigation_action_binding = args.mitigation_action.get_output(context);
+        let operation_id_binding = args.operation_id.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/apiShieldOperationSchemaValidationSettings:ApiShieldOperationSchemaValidationSettings"
                 .into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mitigationAction".into(),
-                    value: &mitigation_action_binding,
+                    value: mitigation_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operationId".into(),
-                    value: &operation_id_binding,
+                    value: operation_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiShieldOperationSchemaValidationSettingsResult {
-            mitigation_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mitigationAction"),
-            ),
-            operation_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operationId"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            mitigation_action: o.get_field("mitigationAction"),
+            operation_id: o.get_field("operationId"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

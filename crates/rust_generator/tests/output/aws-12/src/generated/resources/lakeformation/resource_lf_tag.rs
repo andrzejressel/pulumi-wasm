@@ -103,73 +103,58 @@ pub mod resource_lf_tag {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResourceLfTagArgs,
     ) -> ResourceLfTagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding_1 = args.catalog_id.get_output(context);
-        let catalog_id_binding = catalog_id_binding_1.get_inner();
-        let database_binding_1 = args.database.get_output(context);
-        let database_binding = database_binding_1.get_inner();
-        let lf_tag_binding_1 = args.lf_tag.get_output(context);
-        let lf_tag_binding = lf_tag_binding_1.get_inner();
-        let table_binding_1 = args.table.get_output(context);
-        let table_binding = table_binding_1.get_inner();
-        let table_with_columns_binding_1 = args.table_with_columns.get_output(context);
-        let table_with_columns_binding = table_with_columns_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_id_binding = args.catalog_id.get_output(context);
+        let database_binding = args.database.get_output(context);
+        let lf_tag_binding = args.lf_tag.get_output(context);
+        let table_binding = args.table.get_output(context);
+        let table_with_columns_binding = args.table_with_columns.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lakeformation/resourceLfTag:ResourceLfTag".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: &catalog_id_binding,
+                    value: catalog_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "database".into(),
-                    value: &database_binding,
+                    value: database_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lfTag".into(),
-                    value: &lf_tag_binding,
+                    value: lf_tag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "table".into(),
-                    value: &table_binding,
+                    value: table_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableWithColumns".into(),
-                    value: &table_with_columns_binding,
+                    value: table_with_columns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResourceLfTagResult {
-            catalog_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogId"),
-            ),
-            database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("database"),
-            ),
-            lf_tag: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lfTag"),
-            ),
-            table: pulumi_gestalt_rust::__private::into_domain(o.extract_field("table")),
-            table_with_columns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableWithColumns"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            catalog_id: o.get_field("catalogId"),
+            database: o.get_field("database"),
+            lf_tag: o.get_field("lfTag"),
+            table: o.get_field("table"),
+            table_with_columns: o.get_field("tableWithColumns"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

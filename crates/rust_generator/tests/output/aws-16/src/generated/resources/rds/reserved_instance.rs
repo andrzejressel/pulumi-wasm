@@ -108,93 +108,60 @@ pub mod reserved_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ReservedInstanceArgs,
     ) -> ReservedInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_count_binding_1 = args.instance_count.get_output(context);
-        let instance_count_binding = instance_count_binding_1.get_inner();
-        let offering_id_binding_1 = args.offering_id.get_output(context);
-        let offering_id_binding = offering_id_binding_1.get_inner();
-        let reservation_id_binding_1 = args.reservation_id.get_output(context);
-        let reservation_id_binding = reservation_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let instance_count_binding = args.instance_count.get_output(context);
+        let offering_id_binding = args.offering_id.get_output(context);
+        let reservation_id_binding = args.reservation_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rds/reservedInstance:ReservedInstance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceCount".into(),
-                    value: &instance_count_binding,
+                    value: instance_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "offeringId".into(),
-                    value: &offering_id_binding,
+                    value: offering_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservationId".into(),
-                    value: &reservation_id_binding,
+                    value: reservation_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ReservedInstanceResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            currency_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("currencyCode"),
-            ),
-            db_instance_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbInstanceClass"),
-            ),
-            duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("duration"),
-            ),
-            fixed_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fixedPrice"),
-            ),
-            instance_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceCount"),
-            ),
-            lease_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("leaseId"),
-            ),
-            multi_az: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiAz"),
-            ),
-            offering_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("offeringId"),
-            ),
-            offering_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("offeringType"),
-            ),
-            product_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productDescription"),
-            ),
-            recurring_charges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recurringCharges"),
-            ),
-            reservation_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservationId"),
-            ),
-            start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startTime"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            usage_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usagePrice"),
-            ),
+            arn: o.get_field("arn"),
+            currency_code: o.get_field("currencyCode"),
+            db_instance_class: o.get_field("dbInstanceClass"),
+            duration: o.get_field("duration"),
+            fixed_price: o.get_field("fixedPrice"),
+            instance_count: o.get_field("instanceCount"),
+            lease_id: o.get_field("leaseId"),
+            multi_az: o.get_field("multiAz"),
+            offering_id: o.get_field("offeringId"),
+            offering_type: o.get_field("offeringType"),
+            product_description: o.get_field("productDescription"),
+            recurring_charges: o.get_field("recurringCharges"),
+            reservation_id: o.get_field("reservationId"),
+            start_time: o.get_field("startTime"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            usage_price: o.get_field("usagePrice"),
         }
     }
 }

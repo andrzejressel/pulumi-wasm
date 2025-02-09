@@ -26,33 +26,29 @@ pub mod get_standards_control_associations {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetStandardsControlAssociationsArgs,
     ) -> GetStandardsControlAssociationsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let security_control_id_binding_1 = args.security_control_id.get_output(context);
-        let security_control_id_binding = security_control_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let security_control_id_binding = args.security_control_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityControlId".into(),
-                    value: &security_control_id_binding,
+                    value: security_control_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetStandardsControlAssociationsResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            security_control_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityControlId"),
-            ),
-            standards_control_associations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("standardsControlAssociations"),
-            ),
+            id: o.get_field("id"),
+            security_control_id: o.get_field("securityControlId"),
+            standards_control_associations: o.get_field("standardsControlAssociations"),
         }
     }
 }

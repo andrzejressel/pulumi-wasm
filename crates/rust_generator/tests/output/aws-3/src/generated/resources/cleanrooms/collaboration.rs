@@ -138,107 +138,78 @@ pub mod collaboration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CollaborationArgs,
     ) -> CollaborationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let creator_display_name_binding_1 = args
-            .creator_display_name
-            .get_output(context);
-        let creator_display_name_binding = creator_display_name_binding_1.get_inner();
-        let creator_member_abilities_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let creator_display_name_binding = args.creator_display_name.get_output(context);
+        let creator_member_abilities_binding = args
             .creator_member_abilities
             .get_output(context);
-        let creator_member_abilities_binding = creator_member_abilities_binding_1
-            .get_inner();
-        let data_encryption_metadata_binding_1 = args
+        let data_encryption_metadata_binding = args
             .data_encryption_metadata
             .get_output(context);
-        let data_encryption_metadata_binding = data_encryption_metadata_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let members_binding_1 = args.members.get_output(context);
-        let members_binding = members_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let query_log_status_binding_1 = args.query_log_status.get_output(context);
-        let query_log_status_binding = query_log_status_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let members_binding = args.members.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let query_log_status_binding = args.query_log_status.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cleanrooms/collaboration:Collaboration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "creatorDisplayName".into(),
-                    value: &creator_display_name_binding,
+                    value: creator_display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "creatorMemberAbilities".into(),
-                    value: &creator_member_abilities_binding,
+                    value: creator_member_abilities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataEncryptionMetadata".into(),
-                    value: &data_encryption_metadata_binding,
+                    value: data_encryption_metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "members".into(),
-                    value: &members_binding,
+                    value: members_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryLogStatus".into(),
-                    value: &query_log_status_binding,
+                    value: query_log_status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CollaborationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            creator_display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creatorDisplayName"),
-            ),
-            creator_member_abilities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creatorMemberAbilities"),
-            ),
-            data_encryption_metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataEncryptionMetadata"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            members: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("members"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            query_log_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryLogStatus"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            arn: o.get_field("arn"),
+            create_time: o.get_field("createTime"),
+            creator_display_name: o.get_field("creatorDisplayName"),
+            creator_member_abilities: o.get_field("creatorMemberAbilities"),
+            data_encryption_metadata: o.get_field("dataEncryptionMetadata"),
+            description: o.get_field("description"),
+            members: o.get_field("members"),
+            name: o.get_field("name"),
+            query_log_status: o.get_field("queryLogStatus"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

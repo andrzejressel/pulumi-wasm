@@ -107,155 +107,75 @@ pub mod get_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetInstanceArgs,
     ) -> GetInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_instance_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let db_instance_identifier_binding = args
             .db_instance_identifier
             .get_output(context);
-        let db_instance_identifier_binding = db_instance_identifier_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:rds/getInstance:getInstance".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbInstanceIdentifier".into(),
-                    value: &db_instance_identifier_binding,
+                    value: db_instance_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetInstanceResult {
-            address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("address"),
-            ),
-            allocated_storage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocatedStorage"),
-            ),
-            auto_minor_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoMinorVersionUpgrade"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            backup_retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupRetentionPeriod"),
-            ),
-            ca_cert_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("caCertIdentifier"),
-            ),
-            db_cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbClusterIdentifier"),
-            ),
-            db_instance_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbInstanceArn"),
-            ),
-            db_instance_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbInstanceClass"),
-            ),
-            db_instance_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbInstanceIdentifier"),
-            ),
-            db_instance_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbInstancePort"),
-            ),
-            db_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbName"),
-            ),
-            db_parameter_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbParameterGroups"),
-            ),
-            db_subnet_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbSubnetGroup"),
-            ),
-            enabled_cloudwatch_logs_exports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabledCloudwatchLogsExports"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            hosted_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostedZoneId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            iops: pulumi_gestalt_rust::__private::into_domain(o.extract_field("iops")),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            license_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseModel"),
-            ),
-            master_user_secrets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterUserSecrets"),
-            ),
-            master_username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterUsername"),
-            ),
-            max_allocated_storage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxAllocatedStorage"),
-            ),
-            monitoring_interval: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoringInterval"),
-            ),
-            monitoring_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoringRoleArn"),
-            ),
-            multi_az: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiAz"),
-            ),
-            network_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkType"),
-            ),
-            option_group_memberships: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("optionGroupMemberships"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            preferred_backup_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredBackupWindow"),
-            ),
-            preferred_maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredMaintenanceWindow"),
-            ),
-            publicly_accessible: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publiclyAccessible"),
-            ),
-            replicate_source_db: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicateSourceDb"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            storage_encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageEncrypted"),
-            ),
-            storage_throughput: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageThroughput"),
-            ),
-            storage_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            timezone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timezone"),
-            ),
-            vpc_security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSecurityGroups"),
-            ),
+            address: o.get_field("address"),
+            allocated_storage: o.get_field("allocatedStorage"),
+            auto_minor_version_upgrade: o.get_field("autoMinorVersionUpgrade"),
+            availability_zone: o.get_field("availabilityZone"),
+            backup_retention_period: o.get_field("backupRetentionPeriod"),
+            ca_cert_identifier: o.get_field("caCertIdentifier"),
+            db_cluster_identifier: o.get_field("dbClusterIdentifier"),
+            db_instance_arn: o.get_field("dbInstanceArn"),
+            db_instance_class: o.get_field("dbInstanceClass"),
+            db_instance_identifier: o.get_field("dbInstanceIdentifier"),
+            db_instance_port: o.get_field("dbInstancePort"),
+            db_name: o.get_field("dbName"),
+            db_parameter_groups: o.get_field("dbParameterGroups"),
+            db_subnet_group: o.get_field("dbSubnetGroup"),
+            enabled_cloudwatch_logs_exports: o.get_field("enabledCloudwatchLogsExports"),
+            endpoint: o.get_field("endpoint"),
+            engine: o.get_field("engine"),
+            engine_version: o.get_field("engineVersion"),
+            hosted_zone_id: o.get_field("hostedZoneId"),
+            id: o.get_field("id"),
+            iops: o.get_field("iops"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            license_model: o.get_field("licenseModel"),
+            master_user_secrets: o.get_field("masterUserSecrets"),
+            master_username: o.get_field("masterUsername"),
+            max_allocated_storage: o.get_field("maxAllocatedStorage"),
+            monitoring_interval: o.get_field("monitoringInterval"),
+            monitoring_role_arn: o.get_field("monitoringRoleArn"),
+            multi_az: o.get_field("multiAz"),
+            network_type: o.get_field("networkType"),
+            option_group_memberships: o.get_field("optionGroupMemberships"),
+            port: o.get_field("port"),
+            preferred_backup_window: o.get_field("preferredBackupWindow"),
+            preferred_maintenance_window: o.get_field("preferredMaintenanceWindow"),
+            publicly_accessible: o.get_field("publiclyAccessible"),
+            replicate_source_db: o.get_field("replicateSourceDb"),
+            resource_id: o.get_field("resourceId"),
+            storage_encrypted: o.get_field("storageEncrypted"),
+            storage_throughput: o.get_field("storageThroughput"),
+            storage_type: o.get_field("storageType"),
+            tags: o.get_field("tags"),
+            timezone: o.get_field("timezone"),
+            vpc_security_groups: o.get_field("vpcSecurityGroups"),
         }
     }
 }

@@ -57,51 +57,39 @@ pub mod account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let finding_publishing_frequency_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let finding_publishing_frequency_binding = args
             .finding_publishing_frequency
             .get_output(context);
-        let finding_publishing_frequency_binding = finding_publishing_frequency_binding_1
-            .get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let status_binding = args.status.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:macie2/account:Account".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "findingPublishingFrequency".into(),
-                    value: &finding_publishing_frequency_binding,
+                    value: finding_publishing_frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountResult {
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            finding_publishing_frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("findingPublishingFrequency"),
-            ),
-            service_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRole"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            updated_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatedAt"),
-            ),
+            created_at: o.get_field("createdAt"),
+            finding_publishing_frequency: o.get_field("findingPublishingFrequency"),
+            service_role: o.get_field("serviceRole"),
+            status: o.get_field("status"),
+            updated_at: o.get_field("updatedAt"),
         }
     }
 }

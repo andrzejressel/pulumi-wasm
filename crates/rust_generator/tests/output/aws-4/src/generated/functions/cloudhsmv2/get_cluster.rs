@@ -33,48 +33,37 @@ pub mod get_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetClusterArgs,
     ) -> GetClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding_1 = args.cluster_id.get_output(context);
-        let cluster_id_binding = cluster_id_binding_1.get_inner();
-        let cluster_state_binding_1 = args.cluster_state.get_output(context);
-        let cluster_state_binding = cluster_state_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_id_binding = args.cluster_id.get_output(context);
+        let cluster_state_binding = args.cluster_state.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:cloudhsmv2/getCluster:getCluster".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: &cluster_id_binding,
+                    value: cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterState".into(),
-                    value: &cluster_state_binding,
+                    value: cluster_state_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetClusterResult {
-            cluster_certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterCertificates"),
-            ),
-            cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterId"),
-            ),
-            cluster_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterState"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupId"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            cluster_certificates: o.get_field("clusterCertificates"),
+            cluster_id: o.get_field("clusterId"),
+            cluster_state: o.get_field("clusterState"),
+            id: o.get_field("id"),
+            security_group_id: o.get_field("securityGroupId"),
+            subnet_ids: o.get_field("subnetIds"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

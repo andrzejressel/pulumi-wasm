@@ -83,67 +83,50 @@ pub mod map {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MapArgs,
     ) -> MapResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_binding_1 = args.configuration.get_output(context);
-        let configuration_binding = configuration_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let map_name_binding_1 = args.map_name.get_output(context);
-        let map_name_binding = map_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let configuration_binding = args.configuration.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let map_name_binding = args.map_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:location/map:Map".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configuration".into(),
-                    value: &configuration_binding,
+                    value: configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mapName".into(),
-                    value: &map_name_binding,
+                    value: map_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MapResult {
-            configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configuration"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            map_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mapArn"),
-            ),
-            map_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mapName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            configuration: o.get_field("configuration"),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            map_arn: o.get_field("mapArn"),
+            map_name: o.get_field("mapName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

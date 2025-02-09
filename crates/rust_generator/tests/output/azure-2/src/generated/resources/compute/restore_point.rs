@@ -128,61 +128,51 @@ pub mod restore_point {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RestorePointArgs,
     ) -> RestorePointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let crash_consistency_mode_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let crash_consistency_mode_enabled_binding = args
             .crash_consistency_mode_enabled
             .get_output(context);
-        let crash_consistency_mode_enabled_binding = crash_consistency_mode_enabled_binding_1
-            .get_inner();
-        let excluded_disks_binding_1 = args.excluded_disks.get_output(context);
-        let excluded_disks_binding = excluded_disks_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let virtual_machine_restore_point_collection_id_binding_1 = args
+        let excluded_disks_binding = args.excluded_disks.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let virtual_machine_restore_point_collection_id_binding = args
             .virtual_machine_restore_point_collection_id
             .get_output(context);
-        let virtual_machine_restore_point_collection_id_binding = virtual_machine_restore_point_collection_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:compute/restorePoint:RestorePoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "crashConsistencyModeEnabled".into(),
-                    value: &crash_consistency_mode_enabled_binding,
+                    value: crash_consistency_mode_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludedDisks".into(),
-                    value: &excluded_disks_binding,
+                    value: excluded_disks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineRestorePointCollectionId".into(),
-                    value: &virtual_machine_restore_point_collection_id_binding,
+                    value: virtual_machine_restore_point_collection_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RestorePointResult {
-            crash_consistency_mode_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("crashConsistencyModeEnabled"),
-            ),
-            excluded_disks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludedDisks"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            virtual_machine_restore_point_collection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachineRestorePointCollectionId"),
-            ),
+            crash_consistency_mode_enabled: o.get_field("crashConsistencyModeEnabled"),
+            excluded_disks: o.get_field("excludedDisks"),
+            name: o.get_field("name"),
+            virtual_machine_restore_point_collection_id: o
+                .get_field("virtualMachineRestorePointCollectionId"),
         }
     }
 }

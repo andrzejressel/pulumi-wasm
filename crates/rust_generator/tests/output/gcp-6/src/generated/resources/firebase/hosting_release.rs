@@ -218,68 +218,54 @@ pub mod hosting_release {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HostingReleaseArgs,
     ) -> HostingReleaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let channel_id_binding_1 = args.channel_id.get_output(context);
-        let channel_id_binding = channel_id_binding_1.get_inner();
-        let message_binding_1 = args.message.get_output(context);
-        let message_binding = message_binding_1.get_inner();
-        let site_id_binding_1 = args.site_id.get_output(context);
-        let site_id_binding = site_id_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let version_name_binding_1 = args.version_name.get_output(context);
-        let version_name_binding = version_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let channel_id_binding = args.channel_id.get_output(context);
+        let message_binding = args.message.get_output(context);
+        let site_id_binding = args.site_id.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let version_name_binding = args.version_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:firebase/hostingRelease:HostingRelease".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "channelId".into(),
-                    value: &channel_id_binding,
+                    value: channel_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "message".into(),
-                    value: &message_binding,
+                    value: message_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteId".into(),
-                    value: &site_id_binding,
+                    value: site_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionName".into(),
-                    value: &version_name_binding,
+                    value: version_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HostingReleaseResult {
-            channel_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("channelId"),
-            ),
-            message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("message"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            release_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseId"),
-            ),
-            site_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteId"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            version_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionName"),
-            ),
+            channel_id: o.get_field("channelId"),
+            message: o.get_field("message"),
+            name: o.get_field("name"),
+            release_id: o.get_field("releaseId"),
+            site_id: o.get_field("siteId"),
+            type_: o.get_field("type"),
+            version_name: o.get_field("versionName"),
         }
     }
 }

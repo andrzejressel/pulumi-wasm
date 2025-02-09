@@ -32,31 +32,29 @@ pub mod get_application_providers {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetApplicationProvidersArgs,
     ) -> GetApplicationProvidersResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_providers_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_providers_binding = args
             .application_providers
             .get_output(context);
-        let application_providers_binding = application_providers_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ssoadmin/getApplicationProviders:getApplicationProviders".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationProviders".into(),
-                    value: &application_providers_binding,
+                    value: application_providers_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetApplicationProvidersResult {
-            application_providers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationProviders"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            application_providers: o.get_field("applicationProviders"),
+            id: o.get_field("id"),
         }
     }
 }

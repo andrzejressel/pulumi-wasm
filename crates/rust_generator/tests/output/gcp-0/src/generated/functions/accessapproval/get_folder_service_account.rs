@@ -24,34 +24,30 @@ pub mod get_folder_service_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetFolderServiceAccountArgs,
     ) -> GetFolderServiceAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let folder_id_binding_1 = args.folder_id.get_output(context);
-        let folder_id_binding = folder_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let folder_id_binding = args.folder_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:accessapproval/getFolderServiceAccount:getFolderServiceAccount"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folderId".into(),
-                    value: &folder_id_binding,
+                    value: folder_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetFolderServiceAccountResult {
-            account_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountEmail"),
-            ),
-            folder_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("folderId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            account_email: o.get_field("accountEmail"),
+            folder_id: o.get_field("folderId"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
         }
     }
 }

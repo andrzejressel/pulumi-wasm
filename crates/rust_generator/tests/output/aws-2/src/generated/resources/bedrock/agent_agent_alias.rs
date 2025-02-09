@@ -152,85 +152,63 @@ pub mod agent_agent_alias {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AgentAgentAliasArgs,
     ) -> AgentAgentAliasResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_alias_name_binding_1 = args.agent_alias_name.get_output(context);
-        let agent_alias_name_binding = agent_alias_name_binding_1.get_inner();
-        let agent_id_binding_1 = args.agent_id.get_output(context);
-        let agent_id_binding = agent_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let routing_configurations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let agent_alias_name_binding = args.agent_alias_name.get_output(context);
+        let agent_id_binding = args.agent_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let routing_configurations_binding = args
             .routing_configurations
             .get_output(context);
-        let routing_configurations_binding = routing_configurations_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:bedrock/agentAgentAlias:AgentAgentAlias".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentAliasName".into(),
-                    value: &agent_alias_name_binding,
+                    value: agent_alias_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentId".into(),
-                    value: &agent_id_binding,
+                    value: agent_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingConfigurations".into(),
-                    value: &routing_configurations_binding,
+                    value: routing_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AgentAgentAliasResult {
-            agent_alias_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentAliasArn"),
-            ),
-            agent_alias_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentAliasId"),
-            ),
-            agent_alias_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentAliasName"),
-            ),
-            agent_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            routing_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingConfigurations"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            agent_alias_arn: o.get_field("agentAliasArn"),
+            agent_alias_id: o.get_field("agentAliasId"),
+            agent_alias_name: o.get_field("agentAliasName"),
+            agent_id: o.get_field("agentId"),
+            description: o.get_field("description"),
+            routing_configurations: o.get_field("routingConfigurations"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

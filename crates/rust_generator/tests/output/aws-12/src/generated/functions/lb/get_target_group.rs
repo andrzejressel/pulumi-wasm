@@ -57,100 +57,67 @@ pub mod get_target_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTargetGroupArgs,
     ) -> GetTargetGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let load_balancing_anomaly_mitigation_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let load_balancing_anomaly_mitigation_binding = args
             .load_balancing_anomaly_mitigation
             .get_output(context);
-        let load_balancing_anomaly_mitigation_binding = load_balancing_anomaly_mitigation_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:lb/getTargetGroup:getTargetGroup".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancingAnomalyMitigation".into(),
-                    value: &load_balancing_anomaly_mitigation_binding,
+                    value: load_balancing_anomaly_mitigation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTargetGroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            arn_suffix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("arnSuffix"),
-            ),
-            connection_termination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionTermination"),
-            ),
-            deregistration_delay: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deregistrationDelay"),
-            ),
-            health_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheck"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            lambda_multi_value_headers_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lambdaMultiValueHeadersEnabled"),
-            ),
-            load_balancer_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerArns"),
-            ),
-            load_balancing_algorithm_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancingAlgorithmType"),
-            ),
-            load_balancing_anomaly_mitigation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancingAnomalyMitigation"),
-            ),
-            load_balancing_cross_zone_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancingCrossZoneEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            preserve_client_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preserveClientIp"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            protocol_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocolVersion"),
-            ),
-            proxy_protocol_v2: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proxyProtocolV2"),
-            ),
-            slow_start: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("slowStart"),
-            ),
-            stickiness: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stickiness"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            target_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetType"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            arn: o.get_field("arn"),
+            arn_suffix: o.get_field("arnSuffix"),
+            connection_termination: o.get_field("connectionTermination"),
+            deregistration_delay: o.get_field("deregistrationDelay"),
+            health_check: o.get_field("healthCheck"),
+            id: o.get_field("id"),
+            lambda_multi_value_headers_enabled: o
+                .get_field("lambdaMultiValueHeadersEnabled"),
+            load_balancer_arns: o.get_field("loadBalancerArns"),
+            load_balancing_algorithm_type: o.get_field("loadBalancingAlgorithmType"),
+            load_balancing_anomaly_mitigation: o
+                .get_field("loadBalancingAnomalyMitigation"),
+            load_balancing_cross_zone_enabled: o
+                .get_field("loadBalancingCrossZoneEnabled"),
+            name: o.get_field("name"),
+            port: o.get_field("port"),
+            preserve_client_ip: o.get_field("preserveClientIp"),
+            protocol: o.get_field("protocol"),
+            protocol_version: o.get_field("protocolVersion"),
+            proxy_protocol_v2: o.get_field("proxyProtocolV2"),
+            slow_start: o.get_field("slowStart"),
+            stickiness: o.get_field("stickiness"),
+            tags: o.get_field("tags"),
+            target_type: o.get_field("targetType"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

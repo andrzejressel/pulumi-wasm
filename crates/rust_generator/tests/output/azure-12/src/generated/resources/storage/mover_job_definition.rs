@@ -161,103 +161,78 @@ pub mod mover_job_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MoverJobDefinitionArgs,
     ) -> MoverJobDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_name_binding_1 = args.agent_name.get_output(context);
-        let agent_name_binding = agent_name_binding_1.get_inner();
-        let copy_mode_binding_1 = args.copy_mode.get_output(context);
-        let copy_mode_binding = copy_mode_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let source_name_binding_1 = args.source_name.get_output(context);
-        let source_name_binding = source_name_binding_1.get_inner();
-        let source_sub_path_binding_1 = args.source_sub_path.get_output(context);
-        let source_sub_path_binding = source_sub_path_binding_1.get_inner();
-        let storage_mover_project_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let agent_name_binding = args.agent_name.get_output(context);
+        let copy_mode_binding = args.copy_mode.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let source_name_binding = args.source_name.get_output(context);
+        let source_sub_path_binding = args.source_sub_path.get_output(context);
+        let storage_mover_project_id_binding = args
             .storage_mover_project_id
             .get_output(context);
-        let storage_mover_project_id_binding = storage_mover_project_id_binding_1
-            .get_inner();
-        let target_name_binding_1 = args.target_name.get_output(context);
-        let target_name_binding = target_name_binding_1.get_inner();
-        let target_sub_path_binding_1 = args.target_sub_path.get_output(context);
-        let target_sub_path_binding = target_sub_path_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let target_name_binding = args.target_name.get_output(context);
+        let target_sub_path_binding = args.target_sub_path.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/moverJobDefinition:MoverJobDefinition".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentName".into(),
-                    value: &agent_name_binding,
+                    value: agent_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyMode".into(),
-                    value: &copy_mode_binding,
+                    value: copy_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceName".into(),
-                    value: &source_name_binding,
+                    value: source_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceSubPath".into(),
-                    value: &source_sub_path_binding,
+                    value: source_sub_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageMoverProjectId".into(),
-                    value: &storage_mover_project_id_binding,
+                    value: storage_mover_project_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetName".into(),
-                    value: &target_name_binding,
+                    value: target_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetSubPath".into(),
-                    value: &target_sub_path_binding,
+                    value: target_sub_path_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MoverJobDefinitionResult {
-            agent_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentName"),
-            ),
-            copy_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("copyMode"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            source_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceName"),
-            ),
-            source_sub_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceSubPath"),
-            ),
-            storage_mover_project_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageMoverProjectId"),
-            ),
-            target_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetName"),
-            ),
-            target_sub_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetSubPath"),
-            ),
+            agent_name: o.get_field("agentName"),
+            copy_mode: o.get_field("copyMode"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            source_name: o.get_field("sourceName"),
+            source_sub_path: o.get_field("sourceSubPath"),
+            storage_mover_project_id: o.get_field("storageMoverProjectId"),
+            target_name: o.get_field("targetName"),
+            target_sub_path: o.get_field("targetSubPath"),
         }
     }
 }

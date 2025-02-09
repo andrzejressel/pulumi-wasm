@@ -95,152 +95,112 @@ pub mod zero_trust_access_organization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ZeroTrustAccessOrganizationArgs,
     ) -> ZeroTrustAccessOrganizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let allow_authenticate_via_warp_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let allow_authenticate_via_warp_binding = args
             .allow_authenticate_via_warp
             .get_output(context);
-        let allow_authenticate_via_warp_binding = allow_authenticate_via_warp_binding_1
-            .get_inner();
-        let auth_domain_binding_1 = args.auth_domain.get_output(context);
-        let auth_domain_binding = auth_domain_binding_1.get_inner();
-        let auto_redirect_to_identity_binding_1 = args
+        let auth_domain_binding = args.auth_domain.get_output(context);
+        let auto_redirect_to_identity_binding = args
             .auto_redirect_to_identity
             .get_output(context);
-        let auto_redirect_to_identity_binding = auto_redirect_to_identity_binding_1
-            .get_inner();
-        let custom_pages_binding_1 = args.custom_pages.get_output(context);
-        let custom_pages_binding = custom_pages_binding_1.get_inner();
-        let is_ui_read_only_binding_1 = args.is_ui_read_only.get_output(context);
-        let is_ui_read_only_binding = is_ui_read_only_binding_1.get_inner();
-        let login_designs_binding_1 = args.login_designs.get_output(context);
-        let login_designs_binding = login_designs_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let session_duration_binding_1 = args.session_duration.get_output(context);
-        let session_duration_binding = session_duration_binding_1.get_inner();
-        let ui_read_only_toggle_reason_binding_1 = args
+        let custom_pages_binding = args.custom_pages.get_output(context);
+        let is_ui_read_only_binding = args.is_ui_read_only.get_output(context);
+        let login_designs_binding = args.login_designs.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let session_duration_binding = args.session_duration.get_output(context);
+        let ui_read_only_toggle_reason_binding = args
             .ui_read_only_toggle_reason
             .get_output(context);
-        let ui_read_only_toggle_reason_binding = ui_read_only_toggle_reason_binding_1
-            .get_inner();
-        let user_seat_expiration_inactive_time_binding_1 = args
+        let user_seat_expiration_inactive_time_binding = args
             .user_seat_expiration_inactive_time
             .get_output(context);
-        let user_seat_expiration_inactive_time_binding = user_seat_expiration_inactive_time_binding_1
-            .get_inner();
-        let warp_auth_session_duration_binding_1 = args
+        let warp_auth_session_duration_binding = args
             .warp_auth_session_duration
             .get_output(context);
-        let warp_auth_session_duration_binding = warp_auth_session_duration_binding_1
-            .get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustAccessOrganization:ZeroTrustAccessOrganization"
                 .into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowAuthenticateViaWarp".into(),
-                    value: &allow_authenticate_via_warp_binding,
+                    value: allow_authenticate_via_warp_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authDomain".into(),
-                    value: &auth_domain_binding,
+                    value: auth_domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRedirectToIdentity".into(),
-                    value: &auto_redirect_to_identity_binding,
+                    value: auto_redirect_to_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customPages".into(),
-                    value: &custom_pages_binding,
+                    value: custom_pages_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isUiReadOnly".into(),
-                    value: &is_ui_read_only_binding,
+                    value: is_ui_read_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loginDesigns".into(),
-                    value: &login_designs_binding,
+                    value: login_designs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionDuration".into(),
-                    value: &session_duration_binding,
+                    value: session_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uiReadOnlyToggleReason".into(),
-                    value: &ui_read_only_toggle_reason_binding,
+                    value: ui_read_only_toggle_reason_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userSeatExpirationInactiveTime".into(),
-                    value: &user_seat_expiration_inactive_time_binding,
+                    value: user_seat_expiration_inactive_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "warpAuthSessionDuration".into(),
-                    value: &warp_auth_session_duration_binding,
+                    value: warp_auth_session_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ZeroTrustAccessOrganizationResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            allow_authenticate_via_warp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowAuthenticateViaWarp"),
-            ),
-            auth_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authDomain"),
-            ),
-            auto_redirect_to_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoRedirectToIdentity"),
-            ),
-            custom_pages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customPages"),
-            ),
-            is_ui_read_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isUiReadOnly"),
-            ),
-            login_designs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loginDesigns"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            session_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionDuration"),
-            ),
-            ui_read_only_toggle_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uiReadOnlyToggleReason"),
-            ),
-            user_seat_expiration_inactive_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userSeatExpirationInactiveTime"),
-            ),
-            warp_auth_session_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("warpAuthSessionDuration"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            account_id: o.get_field("accountId"),
+            allow_authenticate_via_warp: o.get_field("allowAuthenticateViaWarp"),
+            auth_domain: o.get_field("authDomain"),
+            auto_redirect_to_identity: o.get_field("autoRedirectToIdentity"),
+            custom_pages: o.get_field("customPages"),
+            is_ui_read_only: o.get_field("isUiReadOnly"),
+            login_designs: o.get_field("loginDesigns"),
+            name: o.get_field("name"),
+            session_duration: o.get_field("sessionDuration"),
+            ui_read_only_toggle_reason: o.get_field("uiReadOnlyToggleReason"),
+            user_seat_expiration_inactive_time: o
+                .get_field("userSeatExpirationInactiveTime"),
+            warp_auth_session_duration: o.get_field("warpAuthSessionDuration"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

@@ -150,149 +150,110 @@ pub mod run_book {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RunBookArgs,
     ) -> RunBookResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let automation_account_name_binding = args
             .automation_account_name
             .get_output(context);
-        let automation_account_name_binding = automation_account_name_binding_1
-            .get_inner();
-        let content_binding_1 = args.content.get_output(context);
-        let content_binding = content_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let draft_binding_1 = args.draft.get_output(context);
-        let draft_binding = draft_binding_1.get_inner();
-        let job_schedules_binding_1 = args.job_schedules.get_output(context);
-        let job_schedules_binding = job_schedules_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let log_activity_trace_level_binding_1 = args
+        let content_binding = args.content.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let draft_binding = args.draft.get_output(context);
+        let job_schedules_binding = args.job_schedules.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let log_activity_trace_level_binding = args
             .log_activity_trace_level
             .get_output(context);
-        let log_activity_trace_level_binding = log_activity_trace_level_binding_1
-            .get_inner();
-        let log_progress_binding_1 = args.log_progress.get_output(context);
-        let log_progress_binding = log_progress_binding_1.get_inner();
-        let log_verbose_binding_1 = args.log_verbose.get_output(context);
-        let log_verbose_binding = log_verbose_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let publish_content_link_binding_1 = args
-            .publish_content_link
-            .get_output(context);
-        let publish_content_link_binding = publish_content_link_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let runbook_type_binding_1 = args.runbook_type.get_output(context);
-        let runbook_type_binding = runbook_type_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let log_progress_binding = args.log_progress.get_output(context);
+        let log_verbose_binding = args.log_verbose.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let publish_content_link_binding = args.publish_content_link.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let runbook_type_binding = args.runbook_type.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:automation/runBook:RunBook".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationAccountName".into(),
-                    value: &automation_account_name_binding,
+                    value: automation_account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "content".into(),
-                    value: &content_binding,
+                    value: content_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "draft".into(),
-                    value: &draft_binding,
+                    value: draft_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobSchedules".into(),
-                    value: &job_schedules_binding,
+                    value: job_schedules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logActivityTraceLevel".into(),
-                    value: &log_activity_trace_level_binding,
+                    value: log_activity_trace_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logProgress".into(),
-                    value: &log_progress_binding,
+                    value: log_progress_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logVerbose".into(),
-                    value: &log_verbose_binding,
+                    value: log_verbose_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publishContentLink".into(),
-                    value: &publish_content_link_binding,
+                    value: publish_content_link_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runbookType".into(),
-                    value: &runbook_type_binding,
+                    value: runbook_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RunBookResult {
-            automation_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automationAccountName"),
-            ),
-            content: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("content"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            draft: pulumi_gestalt_rust::__private::into_domain(o.extract_field("draft")),
-            job_schedules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobSchedules"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            log_activity_trace_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logActivityTraceLevel"),
-            ),
-            log_progress: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logProgress"),
-            ),
-            log_verbose: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logVerbose"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            publish_content_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publishContentLink"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            runbook_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runbookType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            automation_account_name: o.get_field("automationAccountName"),
+            content: o.get_field("content"),
+            description: o.get_field("description"),
+            draft: o.get_field("draft"),
+            job_schedules: o.get_field("jobSchedules"),
+            location: o.get_field("location"),
+            log_activity_trace_level: o.get_field("logActivityTraceLevel"),
+            log_progress: o.get_field("logProgress"),
+            log_verbose: o.get_field("logVerbose"),
+            name: o.get_field("name"),
+            publish_content_link: o.get_field("publishContentLink"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            runbook_type: o.get_field("runbookType"),
+            tags: o.get_field("tags"),
         }
     }
 }

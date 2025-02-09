@@ -158,124 +158,88 @@ pub mod api_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiConfigArgs,
     ) -> ApiConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_binding_1 = args.api.get_output(context);
-        let api_binding = api_binding_1.get_inner();
-        let api_config_id_binding_1 = args.api_config_id.get_output(context);
-        let api_config_id_binding = api_config_id_binding_1.get_inner();
-        let api_config_id_prefix_binding_1 = args
-            .api_config_id_prefix
-            .get_output(context);
-        let api_config_id_prefix_binding = api_config_id_prefix_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let gateway_config_binding_1 = args.gateway_config.get_output(context);
-        let gateway_config_binding = gateway_config_binding_1.get_inner();
-        let grpc_services_binding_1 = args.grpc_services.get_output(context);
-        let grpc_services_binding = grpc_services_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let managed_service_configs_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_binding = args.api.get_output(context);
+        let api_config_id_binding = args.api_config_id.get_output(context);
+        let api_config_id_prefix_binding = args.api_config_id_prefix.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let gateway_config_binding = args.gateway_config.get_output(context);
+        let grpc_services_binding = args.grpc_services.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let managed_service_configs_binding = args
             .managed_service_configs
             .get_output(context);
-        let managed_service_configs_binding = managed_service_configs_binding_1
-            .get_inner();
-        let openapi_documents_binding_1 = args.openapi_documents.get_output(context);
-        let openapi_documents_binding = openapi_documents_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let openapi_documents_binding = args.openapi_documents.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apigateway/apiConfig:ApiConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "api".into(),
-                    value: &api_binding,
+                    value: api_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiConfigId".into(),
-                    value: &api_config_id_binding,
+                    value: api_config_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiConfigIdPrefix".into(),
-                    value: &api_config_id_prefix_binding,
+                    value: api_config_id_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayConfig".into(),
-                    value: &gateway_config_binding,
+                    value: gateway_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grpcServices".into(),
-                    value: &grpc_services_binding,
+                    value: grpc_services_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedServiceConfigs".into(),
-                    value: &managed_service_configs_binding,
+                    value: managed_service_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "openapiDocuments".into(),
-                    value: &openapi_documents_binding,
+                    value: openapi_documents_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiConfigResult {
-            api: pulumi_gestalt_rust::__private::into_domain(o.extract_field("api")),
-            api_config_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiConfigId"),
-            ),
-            api_config_id_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiConfigIdPrefix"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            gateway_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayConfig"),
-            ),
-            grpc_services: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grpcServices"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            managed_service_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedServiceConfigs"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            openapi_documents: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("openapiDocuments"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            service_config_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceConfigId"),
-            ),
+            api: o.get_field("api"),
+            api_config_id: o.get_field("apiConfigId"),
+            api_config_id_prefix: o.get_field("apiConfigIdPrefix"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            gateway_config: o.get_field("gatewayConfig"),
+            grpc_services: o.get_field("grpcServices"),
+            labels: o.get_field("labels"),
+            managed_service_configs: o.get_field("managedServiceConfigs"),
+            name: o.get_field("name"),
+            openapi_documents: o.get_field("openapiDocuments"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            service_config_id: o.get_field("serviceConfigId"),
         }
     }
 }

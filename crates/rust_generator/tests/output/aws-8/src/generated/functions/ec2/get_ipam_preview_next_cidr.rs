@@ -29,48 +29,40 @@ pub mod get_ipam_preview_next_cidr {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetIpamPreviewNextCidrArgs,
     ) -> GetIpamPreviewNextCidrResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disallowed_cidrs_binding_1 = args.disallowed_cidrs.get_output(context);
-        let disallowed_cidrs_binding = disallowed_cidrs_binding_1.get_inner();
-        let ipam_pool_id_binding_1 = args.ipam_pool_id.get_output(context);
-        let ipam_pool_id_binding = ipam_pool_id_binding_1.get_inner();
-        let netmask_length_binding_1 = args.netmask_length.get_output(context);
-        let netmask_length_binding = netmask_length_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let disallowed_cidrs_binding = args.disallowed_cidrs.get_output(context);
+        let ipam_pool_id_binding = args.ipam_pool_id.get_output(context);
+        let netmask_length_binding = args.netmask_length.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disallowedCidrs".into(),
-                    value: &disallowed_cidrs_binding,
+                    value: disallowed_cidrs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamPoolId".into(),
-                    value: &ipam_pool_id_binding,
+                    value: ipam_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "netmaskLength".into(),
-                    value: &netmask_length_binding,
+                    value: netmask_length_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetIpamPreviewNextCidrResult {
-            cidr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidr")),
-            disallowed_cidrs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disallowedCidrs"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ipam_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamPoolId"),
-            ),
-            netmask_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("netmaskLength"),
-            ),
+            cidr: o.get_field("cidr"),
+            disallowed_cidrs: o.get_field("disallowedCidrs"),
+            id: o.get_field("id"),
+            ipam_pool_id: o.get_field("ipamPoolId"),
+            netmask_length: o.get_field("netmaskLength"),
         }
     }
 }

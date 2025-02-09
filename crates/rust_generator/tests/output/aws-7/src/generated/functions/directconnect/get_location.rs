@@ -27,41 +27,31 @@ pub mod get_location {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetLocationArgs,
     ) -> GetLocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_code_binding_1 = args.location_code.get_output(context);
-        let location_code_binding = location_code_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let location_code_binding = args.location_code.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:directconnect/getLocation:getLocation".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationCode".into(),
-                    value: &location_code_binding,
+                    value: location_code_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetLocationResult {
-            available_macsec_port_speeds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availableMacsecPortSpeeds"),
-            ),
-            available_port_speeds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availablePortSpeeds"),
-            ),
-            available_providers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availableProviders"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationCode"),
-            ),
-            location_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationName"),
-            ),
+            available_macsec_port_speeds: o.get_field("availableMacsecPortSpeeds"),
+            available_port_speeds: o.get_field("availablePortSpeeds"),
+            available_providers: o.get_field("availableProviders"),
+            id: o.get_field("id"),
+            location_code: o.get_field("locationCode"),
+            location_name: o.get_field("locationName"),
         }
     }
 }

@@ -36,41 +36,35 @@ pub mod get_agent_agent_versions {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAgentAgentVersionsArgs,
     ) -> GetAgentAgentVersionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_id_binding_1 = args.agent_id.get_output(context);
-        let agent_id_binding = agent_id_binding_1.get_inner();
-        let agent_version_summaries_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let agent_id_binding = args.agent_id.get_output(context);
+        let agent_version_summaries_binding = args
             .agent_version_summaries
             .get_output(context);
-        let agent_version_summaries_binding = agent_version_summaries_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:bedrock/getAgentAgentVersions:getAgentAgentVersions".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentId".into(),
-                    value: &agent_id_binding,
+                    value: agent_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentVersionSummaries".into(),
-                    value: &agent_version_summaries_binding,
+                    value: agent_version_summaries_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAgentAgentVersionsResult {
-            agent_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentId"),
-            ),
-            agent_version_summaries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentVersionSummaries"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            agent_id: o.get_field("agentId"),
+            agent_version_summaries: o.get_field("agentVersionSummaries"),
+            id: o.get_field("id"),
         }
     }
 }

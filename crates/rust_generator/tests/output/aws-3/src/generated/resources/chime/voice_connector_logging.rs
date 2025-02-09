@@ -62,51 +62,42 @@ pub mod voice_connector_logging {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VoiceConnectorLoggingArgs,
     ) -> VoiceConnectorLoggingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enable_media_metric_logs_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let enable_media_metric_logs_binding = args
             .enable_media_metric_logs
             .get_output(context);
-        let enable_media_metric_logs_binding = enable_media_metric_logs_binding_1
-            .get_inner();
-        let enable_sip_logs_binding_1 = args.enable_sip_logs.get_output(context);
-        let enable_sip_logs_binding = enable_sip_logs_binding_1.get_inner();
-        let voice_connector_id_binding_1 = args.voice_connector_id.get_output(context);
-        let voice_connector_id_binding = voice_connector_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let enable_sip_logs_binding = args.enable_sip_logs.get_output(context);
+        let voice_connector_id_binding = args.voice_connector_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:chime/voiceConnectorLogging:VoiceConnectorLogging".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableMediaMetricLogs".into(),
-                    value: &enable_media_metric_logs_binding,
+                    value: enable_media_metric_logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableSipLogs".into(),
-                    value: &enable_sip_logs_binding,
+                    value: enable_sip_logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceConnectorId".into(),
-                    value: &voice_connector_id_binding,
+                    value: voice_connector_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VoiceConnectorLoggingResult {
-            enable_media_metric_logs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableMediaMetricLogs"),
-            ),
-            enable_sip_logs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableSipLogs"),
-            ),
-            voice_connector_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("voiceConnectorId"),
-            ),
+            enable_media_metric_logs: o.get_field("enableMediaMetricLogs"),
+            enable_sip_logs: o.get_field("enableSipLogs"),
+            voice_connector_id: o.get_field("voiceConnectorId"),
         }
     }
 }

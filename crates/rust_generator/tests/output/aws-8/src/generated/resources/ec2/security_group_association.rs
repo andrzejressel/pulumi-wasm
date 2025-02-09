@@ -56,51 +56,42 @@ pub mod security_group_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SecurityGroupAssociationArgs,
     ) -> SecurityGroupAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let replace_default_association_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let replace_default_association_binding = args
             .replace_default_association
             .get_output(context);
-        let replace_default_association_binding = replace_default_association_binding_1
-            .get_inner();
-        let security_group_id_binding_1 = args.security_group_id.get_output(context);
-        let security_group_id_binding = security_group_id_binding_1.get_inner();
-        let vpc_endpoint_id_binding_1 = args.vpc_endpoint_id.get_output(context);
-        let vpc_endpoint_id_binding = vpc_endpoint_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let security_group_id_binding = args.security_group_id.get_output(context);
+        let vpc_endpoint_id_binding = args.vpc_endpoint_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/securityGroupAssociation:SecurityGroupAssociation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replaceDefaultAssociation".into(),
-                    value: &replace_default_association_binding,
+                    value: replace_default_association_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupId".into(),
-                    value: &security_group_id_binding,
+                    value: security_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointId".into(),
-                    value: &vpc_endpoint_id_binding,
+                    value: vpc_endpoint_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SecurityGroupAssociationResult {
-            replace_default_association: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replaceDefaultAssociation"),
-            ),
-            security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupId"),
-            ),
-            vpc_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcEndpointId"),
-            ),
+            replace_default_association: o.get_field("replaceDefaultAssociation"),
+            security_group_id: o.get_field("securityGroupId"),
+            vpc_endpoint_id: o.get_field("vpcEndpointId"),
         }
     }
 }

@@ -399,293 +399,204 @@ pub mod spot_fleet_request {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpotFleetRequestArgs,
     ) -> SpotFleetRequestResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocation_strategy_binding_1 = args.allocation_strategy.get_output(context);
-        let allocation_strategy_binding = allocation_strategy_binding_1.get_inner();
-        let context_binding_1 = args.context.get_output(context);
-        let context_binding = context_binding_1.get_inner();
-        let excess_capacity_termination_policy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allocation_strategy_binding = args.allocation_strategy.get_output(context);
+        let context_binding = args.context.get_output(context);
+        let excess_capacity_termination_policy_binding = args
             .excess_capacity_termination_policy
             .get_output(context);
-        let excess_capacity_termination_policy_binding = excess_capacity_termination_policy_binding_1
-            .get_inner();
-        let fleet_type_binding_1 = args.fleet_type.get_output(context);
-        let fleet_type_binding = fleet_type_binding_1.get_inner();
-        let iam_fleet_role_binding_1 = args.iam_fleet_role.get_output(context);
-        let iam_fleet_role_binding = iam_fleet_role_binding_1.get_inner();
-        let instance_interruption_behaviour_binding_1 = args
+        let fleet_type_binding = args.fleet_type.get_output(context);
+        let iam_fleet_role_binding = args.iam_fleet_role.get_output(context);
+        let instance_interruption_behaviour_binding = args
             .instance_interruption_behaviour
             .get_output(context);
-        let instance_interruption_behaviour_binding = instance_interruption_behaviour_binding_1
-            .get_inner();
-        let instance_pools_to_use_count_binding_1 = args
+        let instance_pools_to_use_count_binding = args
             .instance_pools_to_use_count
             .get_output(context);
-        let instance_pools_to_use_count_binding = instance_pools_to_use_count_binding_1
-            .get_inner();
-        let launch_specifications_binding_1 = args
+        let launch_specifications_binding = args
             .launch_specifications
             .get_output(context);
-        let launch_specifications_binding = launch_specifications_binding_1.get_inner();
-        let launch_template_configs_binding_1 = args
+        let launch_template_configs_binding = args
             .launch_template_configs
             .get_output(context);
-        let launch_template_configs_binding = launch_template_configs_binding_1
-            .get_inner();
-        let load_balancers_binding_1 = args.load_balancers.get_output(context);
-        let load_balancers_binding = load_balancers_binding_1.get_inner();
-        let on_demand_allocation_strategy_binding_1 = args
+        let load_balancers_binding = args.load_balancers.get_output(context);
+        let on_demand_allocation_strategy_binding = args
             .on_demand_allocation_strategy
             .get_output(context);
-        let on_demand_allocation_strategy_binding = on_demand_allocation_strategy_binding_1
-            .get_inner();
-        let on_demand_max_total_price_binding_1 = args
+        let on_demand_max_total_price_binding = args
             .on_demand_max_total_price
             .get_output(context);
-        let on_demand_max_total_price_binding = on_demand_max_total_price_binding_1
-            .get_inner();
-        let on_demand_target_capacity_binding_1 = args
+        let on_demand_target_capacity_binding = args
             .on_demand_target_capacity
             .get_output(context);
-        let on_demand_target_capacity_binding = on_demand_target_capacity_binding_1
-            .get_inner();
-        let replace_unhealthy_instances_binding_1 = args
+        let replace_unhealthy_instances_binding = args
             .replace_unhealthy_instances
             .get_output(context);
-        let replace_unhealthy_instances_binding = replace_unhealthy_instances_binding_1
-            .get_inner();
-        let spot_maintenance_strategies_binding_1 = args
+        let spot_maintenance_strategies_binding = args
             .spot_maintenance_strategies
             .get_output(context);
-        let spot_maintenance_strategies_binding = spot_maintenance_strategies_binding_1
-            .get_inner();
-        let spot_price_binding_1 = args.spot_price.get_output(context);
-        let spot_price_binding = spot_price_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_capacity_binding_1 = args.target_capacity.get_output(context);
-        let target_capacity_binding = target_capacity_binding_1.get_inner();
-        let target_capacity_unit_type_binding_1 = args
+        let spot_price_binding = args.spot_price.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_capacity_binding = args.target_capacity.get_output(context);
+        let target_capacity_unit_type_binding = args
             .target_capacity_unit_type
             .get_output(context);
-        let target_capacity_unit_type_binding = target_capacity_unit_type_binding_1
-            .get_inner();
-        let target_group_arns_binding_1 = args.target_group_arns.get_output(context);
-        let target_group_arns_binding = target_group_arns_binding_1.get_inner();
-        let terminate_instances_on_delete_binding_1 = args
+        let target_group_arns_binding = args.target_group_arns.get_output(context);
+        let terminate_instances_on_delete_binding = args
             .terminate_instances_on_delete
             .get_output(context);
-        let terminate_instances_on_delete_binding = terminate_instances_on_delete_binding_1
-            .get_inner();
-        let terminate_instances_with_expiration_binding_1 = args
+        let terminate_instances_with_expiration_binding = args
             .terminate_instances_with_expiration
             .get_output(context);
-        let terminate_instances_with_expiration_binding = terminate_instances_with_expiration_binding_1
-            .get_inner();
-        let valid_from_binding_1 = args.valid_from.get_output(context);
-        let valid_from_binding = valid_from_binding_1.get_inner();
-        let valid_until_binding_1 = args.valid_until.get_output(context);
-        let valid_until_binding = valid_until_binding_1.get_inner();
-        let wait_for_fulfillment_binding_1 = args
-            .wait_for_fulfillment
-            .get_output(context);
-        let wait_for_fulfillment_binding = wait_for_fulfillment_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let valid_from_binding = args.valid_from.get_output(context);
+        let valid_until_binding = args.valid_until.get_output(context);
+        let wait_for_fulfillment_binding = args.wait_for_fulfillment.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/spotFleetRequest:SpotFleetRequest".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationStrategy".into(),
-                    value: &allocation_strategy_binding,
+                    value: allocation_strategy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "context".into(),
-                    value: &context_binding,
+                    value: context_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excessCapacityTerminationPolicy".into(),
-                    value: &excess_capacity_termination_policy_binding,
+                    value: excess_capacity_termination_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetType".into(),
-                    value: &fleet_type_binding,
+                    value: fleet_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamFleetRole".into(),
-                    value: &iam_fleet_role_binding,
+                    value: iam_fleet_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceInterruptionBehaviour".into(),
-                    value: &instance_interruption_behaviour_binding,
+                    value: instance_interruption_behaviour_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instancePoolsToUseCount".into(),
-                    value: &instance_pools_to_use_count_binding,
+                    value: instance_pools_to_use_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchSpecifications".into(),
-                    value: &launch_specifications_binding,
+                    value: launch_specifications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchTemplateConfigs".into(),
-                    value: &launch_template_configs_binding,
+                    value: launch_template_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancers".into(),
-                    value: &load_balancers_binding,
+                    value: load_balancers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onDemandAllocationStrategy".into(),
-                    value: &on_demand_allocation_strategy_binding,
+                    value: on_demand_allocation_strategy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onDemandMaxTotalPrice".into(),
-                    value: &on_demand_max_total_price_binding,
+                    value: on_demand_max_total_price_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onDemandTargetCapacity".into(),
-                    value: &on_demand_target_capacity_binding,
+                    value: on_demand_target_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replaceUnhealthyInstances".into(),
-                    value: &replace_unhealthy_instances_binding,
+                    value: replace_unhealthy_instances_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spotMaintenanceStrategies".into(),
-                    value: &spot_maintenance_strategies_binding,
+                    value: spot_maintenance_strategies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spotPrice".into(),
-                    value: &spot_price_binding,
+                    value: spot_price_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetCapacity".into(),
-                    value: &target_capacity_binding,
+                    value: target_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetCapacityUnitType".into(),
-                    value: &target_capacity_unit_type_binding,
+                    value: target_capacity_unit_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetGroupArns".into(),
-                    value: &target_group_arns_binding,
+                    value: target_group_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terminateInstancesOnDelete".into(),
-                    value: &terminate_instances_on_delete_binding,
+                    value: terminate_instances_on_delete_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terminateInstancesWithExpiration".into(),
-                    value: &terminate_instances_with_expiration_binding,
+                    value: terminate_instances_with_expiration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validFrom".into(),
-                    value: &valid_from_binding,
+                    value: valid_from_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validUntil".into(),
-                    value: &valid_until_binding,
+                    value: valid_until_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForFulfillment".into(),
-                    value: &wait_for_fulfillment_binding,
+                    value: wait_for_fulfillment_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpotFleetRequestResult {
-            allocation_strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocationStrategy"),
-            ),
-            client_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientToken"),
-            ),
-            context: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("context"),
-            ),
-            excess_capacity_termination_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excessCapacityTerminationPolicy"),
-            ),
-            fleet_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fleetType"),
-            ),
-            iam_fleet_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamFleetRole"),
-            ),
-            instance_interruption_behaviour: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceInterruptionBehaviour"),
-            ),
-            instance_pools_to_use_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instancePoolsToUseCount"),
-            ),
-            launch_specifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchSpecifications"),
-            ),
-            launch_template_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchTemplateConfigs"),
-            ),
-            load_balancers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancers"),
-            ),
-            on_demand_allocation_strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("onDemandAllocationStrategy"),
-            ),
-            on_demand_max_total_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("onDemandMaxTotalPrice"),
-            ),
-            on_demand_target_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("onDemandTargetCapacity"),
-            ),
-            replace_unhealthy_instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replaceUnhealthyInstances"),
-            ),
-            spot_maintenance_strategies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spotMaintenanceStrategies"),
-            ),
-            spot_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spotPrice"),
-            ),
-            spot_request_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spotRequestState"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetCapacity"),
-            ),
-            target_capacity_unit_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetCapacityUnitType"),
-            ),
-            target_group_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetGroupArns"),
-            ),
-            terminate_instances_on_delete: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("terminateInstancesOnDelete"),
-            ),
-            terminate_instances_with_expiration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("terminateInstancesWithExpiration"),
-            ),
-            valid_from: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validFrom"),
-            ),
-            valid_until: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validUntil"),
-            ),
-            wait_for_fulfillment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForFulfillment"),
-            ),
+            allocation_strategy: o.get_field("allocationStrategy"),
+            client_token: o.get_field("clientToken"),
+            context: o.get_field("context"),
+            excess_capacity_termination_policy: o
+                .get_field("excessCapacityTerminationPolicy"),
+            fleet_type: o.get_field("fleetType"),
+            iam_fleet_role: o.get_field("iamFleetRole"),
+            instance_interruption_behaviour: o
+                .get_field("instanceInterruptionBehaviour"),
+            instance_pools_to_use_count: o.get_field("instancePoolsToUseCount"),
+            launch_specifications: o.get_field("launchSpecifications"),
+            launch_template_configs: o.get_field("launchTemplateConfigs"),
+            load_balancers: o.get_field("loadBalancers"),
+            on_demand_allocation_strategy: o.get_field("onDemandAllocationStrategy"),
+            on_demand_max_total_price: o.get_field("onDemandMaxTotalPrice"),
+            on_demand_target_capacity: o.get_field("onDemandTargetCapacity"),
+            replace_unhealthy_instances: o.get_field("replaceUnhealthyInstances"),
+            spot_maintenance_strategies: o.get_field("spotMaintenanceStrategies"),
+            spot_price: o.get_field("spotPrice"),
+            spot_request_state: o.get_field("spotRequestState"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_capacity: o.get_field("targetCapacity"),
+            target_capacity_unit_type: o.get_field("targetCapacityUnitType"),
+            target_group_arns: o.get_field("targetGroupArns"),
+            terminate_instances_on_delete: o.get_field("terminateInstancesOnDelete"),
+            terminate_instances_with_expiration: o
+                .get_field("terminateInstancesWithExpiration"),
+            valid_from: o.get_field("validFrom"),
+            valid_until: o.get_field("validUntil"),
+            wait_for_fulfillment: o.get_field("waitForFulfillment"),
         }
     }
 }

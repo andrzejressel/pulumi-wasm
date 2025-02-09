@@ -224,120 +224,91 @@ pub mod config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConfigArgs,
     ) -> ConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorized_domains_binding_1 = args.authorized_domains.get_output(context);
-        let authorized_domains_binding = authorized_domains_binding_1.get_inner();
-        let autodelete_anonymous_users_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authorized_domains_binding = args.authorized_domains.get_output(context);
+        let autodelete_anonymous_users_binding = args
             .autodelete_anonymous_users
             .get_output(context);
-        let autodelete_anonymous_users_binding = autodelete_anonymous_users_binding_1
-            .get_inner();
-        let blocking_functions_binding_1 = args.blocking_functions.get_output(context);
-        let blocking_functions_binding = blocking_functions_binding_1.get_inner();
-        let client_binding_1 = args.client.get_output(context);
-        let client_binding = client_binding_1.get_inner();
-        let mfa_binding_1 = args.mfa.get_output(context);
-        let mfa_binding = mfa_binding_1.get_inner();
-        let monitoring_binding_1 = args.monitoring.get_output(context);
-        let monitoring_binding = monitoring_binding_1.get_inner();
-        let multi_tenant_binding_1 = args.multi_tenant.get_output(context);
-        let multi_tenant_binding = multi_tenant_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let quota_binding_1 = args.quota.get_output(context);
-        let quota_binding = quota_binding_1.get_inner();
-        let sign_in_binding_1 = args.sign_in.get_output(context);
-        let sign_in_binding = sign_in_binding_1.get_inner();
-        let sms_region_config_binding_1 = args.sms_region_config.get_output(context);
-        let sms_region_config_binding = sms_region_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let blocking_functions_binding = args.blocking_functions.get_output(context);
+        let client_binding = args.client.get_output(context);
+        let mfa_binding = args.mfa.get_output(context);
+        let monitoring_binding = args.monitoring.get_output(context);
+        let multi_tenant_binding = args.multi_tenant.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let quota_binding = args.quota.get_output(context);
+        let sign_in_binding = args.sign_in.get_output(context);
+        let sms_region_config_binding = args.sms_region_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:identityplatform/config:Config".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedDomains".into(),
-                    value: &authorized_domains_binding,
+                    value: authorized_domains_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autodeleteAnonymousUsers".into(),
-                    value: &autodelete_anonymous_users_binding,
+                    value: autodelete_anonymous_users_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockingFunctions".into(),
-                    value: &blocking_functions_binding,
+                    value: blocking_functions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "client".into(),
-                    value: &client_binding,
+                    value: client_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mfa".into(),
-                    value: &mfa_binding,
+                    value: mfa_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitoring".into(),
-                    value: &monitoring_binding,
+                    value: monitoring_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiTenant".into(),
-                    value: &multi_tenant_binding,
+                    value: multi_tenant_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quota".into(),
-                    value: &quota_binding,
+                    value: quota_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signIn".into(),
-                    value: &sign_in_binding,
+                    value: sign_in_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smsRegionConfig".into(),
-                    value: &sms_region_config_binding,
+                    value: sms_region_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConfigResult {
-            authorized_domains: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizedDomains"),
-            ),
-            autodelete_anonymous_users: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autodeleteAnonymousUsers"),
-            ),
-            blocking_functions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockingFunctions"),
-            ),
-            client: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("client"),
-            ),
-            mfa: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mfa")),
-            monitoring: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoring"),
-            ),
-            multi_tenant: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiTenant"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            quota: pulumi_gestalt_rust::__private::into_domain(o.extract_field("quota")),
-            sign_in: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signIn"),
-            ),
-            sms_region_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smsRegionConfig"),
-            ),
+            authorized_domains: o.get_field("authorizedDomains"),
+            autodelete_anonymous_users: o.get_field("autodeleteAnonymousUsers"),
+            blocking_functions: o.get_field("blockingFunctions"),
+            client: o.get_field("client"),
+            mfa: o.get_field("mfa"),
+            monitoring: o.get_field("monitoring"),
+            multi_tenant: o.get_field("multiTenant"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            quota: o.get_field("quota"),
+            sign_in: o.get_field("signIn"),
+            sms_region_config: o.get_field("smsRegionConfig"),
         }
     }
 }

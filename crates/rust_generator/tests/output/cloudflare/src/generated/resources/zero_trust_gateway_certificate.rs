@@ -48,87 +48,59 @@ pub mod zero_trust_gateway_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ZeroTrustGatewayCertificateArgs,
     ) -> ZeroTrustGatewayCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let activate_binding_1 = args.activate.get_output(context);
-        let activate_binding = activate_binding_1.get_inner();
-        let custom_binding_1 = args.custom.get_output(context);
-        let custom_binding = custom_binding_1.get_inner();
-        let gateway_managed_binding_1 = args.gateway_managed.get_output(context);
-        let gateway_managed_binding = gateway_managed_binding_1.get_inner();
-        let validity_period_days_binding_1 = args
-            .validity_period_days
-            .get_output(context);
-        let validity_period_days_binding = validity_period_days_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let activate_binding = args.activate.get_output(context);
+        let custom_binding = args.custom.get_output(context);
+        let gateway_managed_binding = args.gateway_managed.get_output(context);
+        let validity_period_days_binding = args.validity_period_days.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustGatewayCertificate:ZeroTrustGatewayCertificate"
                 .into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activate".into(),
-                    value: &activate_binding,
+                    value: activate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "custom".into(),
-                    value: &custom_binding,
+                    value: custom_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayManaged".into(),
-                    value: &gateway_managed_binding,
+                    value: gateway_managed_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validityPeriodDays".into(),
-                    value: &validity_period_days_binding,
+                    value: validity_period_days_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ZeroTrustGatewayCertificateResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            activate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activate"),
-            ),
-            binding_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bindingStatus"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            custom: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("custom"),
-            ),
-            expires_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiresOn"),
-            ),
-            gateway_managed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayManaged"),
-            ),
-            in_use: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inUse"),
-            ),
-            qs_pack_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qsPackId"),
-            ),
-            uploaded_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uploadedOn"),
-            ),
-            validity_period_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validityPeriodDays"),
-            ),
+            account_id: o.get_field("accountId"),
+            activate: o.get_field("activate"),
+            binding_status: o.get_field("bindingStatus"),
+            created_at: o.get_field("createdAt"),
+            custom: o.get_field("custom"),
+            expires_on: o.get_field("expiresOn"),
+            gateway_managed: o.get_field("gatewayManaged"),
+            in_use: o.get_field("inUse"),
+            qs_pack_id: o.get_field("qsPackId"),
+            uploaded_on: o.get_field("uploadedOn"),
+            validity_period_days: o.get_field("validityPeriodDays"),
         }
     }
 }

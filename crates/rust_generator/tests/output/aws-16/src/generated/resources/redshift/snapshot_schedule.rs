@@ -79,77 +79,60 @@ pub mod snapshot_schedule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SnapshotScheduleArgs,
     ) -> SnapshotScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let definitions_binding_1 = args.definitions.get_output(context);
-        let definitions_binding = definitions_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let identifier_binding_1 = args.identifier.get_output(context);
-        let identifier_binding = identifier_binding_1.get_inner();
-        let identifier_prefix_binding_1 = args.identifier_prefix.get_output(context);
-        let identifier_prefix_binding = identifier_prefix_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let definitions_binding = args.definitions.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let identifier_binding = args.identifier.get_output(context);
+        let identifier_prefix_binding = args.identifier_prefix.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshift/snapshotSchedule:SnapshotSchedule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "definitions".into(),
-                    value: &definitions_binding,
+                    value: definitions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identifier".into(),
-                    value: &identifier_binding,
+                    value: identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identifierPrefix".into(),
-                    value: &identifier_prefix_binding,
+                    value: identifier_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SnapshotScheduleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            definitions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("definitions"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identifier"),
-            ),
-            identifier_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identifierPrefix"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            definitions: o.get_field("definitions"),
+            description: o.get_field("description"),
+            force_destroy: o.get_field("forceDestroy"),
+            identifier: o.get_field("identifier"),
+            identifier_prefix: o.get_field("identifierPrefix"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

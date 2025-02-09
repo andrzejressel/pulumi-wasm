@@ -21,32 +21,28 @@ pub mod get_queues {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetQueuesArgs,
     ) -> GetQueuesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let queue_name_prefix_binding_1 = args.queue_name_prefix.get_output(context);
-        let queue_name_prefix_binding = queue_name_prefix_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let queue_name_prefix_binding = args.queue_name_prefix.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:sqs/getQueues:getQueues".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueNamePrefix".into(),
-                    value: &queue_name_prefix_binding,
+                    value: queue_name_prefix_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetQueuesResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            queue_name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueNamePrefix"),
-            ),
-            queue_urls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueUrls"),
-            ),
+            id: o.get_field("id"),
+            queue_name_prefix: o.get_field("queueNamePrefix"),
+            queue_urls: o.get_field("queueUrls"),
         }
     }
 }

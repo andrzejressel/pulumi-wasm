@@ -122,68 +122,55 @@ pub mod entity_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EntityTypeArgs,
     ) -> EntityTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enable_fuzzy_extraction_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let display_name_binding = args.display_name.get_output(context);
+        let enable_fuzzy_extraction_binding = args
             .enable_fuzzy_extraction
             .get_output(context);
-        let enable_fuzzy_extraction_binding = enable_fuzzy_extraction_binding_1
-            .get_inner();
-        let entities_binding_1 = args.entities.get_output(context);
-        let entities_binding = entities_binding_1.get_inner();
-        let kind_binding_1 = args.kind.get_output(context);
-        let kind_binding = kind_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let entities_binding = args.entities.get_output(context);
+        let kind_binding = args.kind.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:diagflow/entityType:EntityType".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableFuzzyExtraction".into(),
-                    value: &enable_fuzzy_extraction_binding,
+                    value: enable_fuzzy_extraction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entities".into(),
-                    value: &entities_binding,
+                    value: entities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kind".into(),
-                    value: &kind_binding,
+                    value: kind_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EntityTypeResult {
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enable_fuzzy_extraction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableFuzzyExtraction"),
-            ),
-            entities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entities"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
+            display_name: o.get_field("displayName"),
+            enable_fuzzy_extraction: o.get_field("enableFuzzyExtraction"),
+            entities: o.get_field("entities"),
+            kind: o.get_field("kind"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
         }
     }
 }

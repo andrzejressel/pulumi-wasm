@@ -127,130 +127,96 @@ pub mod schedule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ScheduleArgs,
     ) -> ScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let automation_account_name_binding = args
             .automation_account_name
             .get_output(context);
-        let automation_account_name_binding = automation_account_name_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let expiry_time_binding_1 = args.expiry_time.get_output(context);
-        let expiry_time_binding = expiry_time_binding_1.get_inner();
-        let frequency_binding_1 = args.frequency.get_output(context);
-        let frequency_binding = frequency_binding_1.get_inner();
-        let interval_binding_1 = args.interval.get_output(context);
-        let interval_binding = interval_binding_1.get_inner();
-        let month_days_binding_1 = args.month_days.get_output(context);
-        let month_days_binding = month_days_binding_1.get_inner();
-        let monthly_occurrence_binding_1 = args.monthly_occurrence.get_output(context);
-        let monthly_occurrence_binding = monthly_occurrence_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let start_time_binding_1 = args.start_time.get_output(context);
-        let start_time_binding = start_time_binding_1.get_inner();
-        let timezone_binding_1 = args.timezone.get_output(context);
-        let timezone_binding = timezone_binding_1.get_inner();
-        let week_days_binding_1 = args.week_days.get_output(context);
-        let week_days_binding = week_days_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let expiry_time_binding = args.expiry_time.get_output(context);
+        let frequency_binding = args.frequency.get_output(context);
+        let interval_binding = args.interval.get_output(context);
+        let month_days_binding = args.month_days.get_output(context);
+        let monthly_occurrence_binding = args.monthly_occurrence.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let start_time_binding = args.start_time.get_output(context);
+        let timezone_binding = args.timezone.get_output(context);
+        let week_days_binding = args.week_days.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:automation/schedule:Schedule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationAccountName".into(),
-                    value: &automation_account_name_binding,
+                    value: automation_account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiryTime".into(),
-                    value: &expiry_time_binding,
+                    value: expiry_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frequency".into(),
-                    value: &frequency_binding,
+                    value: frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interval".into(),
-                    value: &interval_binding,
+                    value: interval_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monthDays".into(),
-                    value: &month_days_binding,
+                    value: month_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monthlyOccurrence".into(),
-                    value: &monthly_occurrence_binding,
+                    value: monthly_occurrence_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startTime".into(),
-                    value: &start_time_binding,
+                    value: start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timezone".into(),
-                    value: &timezone_binding,
+                    value: timezone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weekDays".into(),
-                    value: &week_days_binding,
+                    value: week_days_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ScheduleResult {
-            automation_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automationAccountName"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            expiry_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiryTime"),
-            ),
-            frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frequency"),
-            ),
-            interval: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interval"),
-            ),
-            month_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monthDays"),
-            ),
-            monthly_occurrence: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monthlyOccurrence"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startTime"),
-            ),
-            timezone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timezone"),
-            ),
-            week_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("weekDays"),
-            ),
+            automation_account_name: o.get_field("automationAccountName"),
+            description: o.get_field("description"),
+            expiry_time: o.get_field("expiryTime"),
+            frequency: o.get_field("frequency"),
+            interval: o.get_field("interval"),
+            month_days: o.get_field("monthDays"),
+            monthly_occurrence: o.get_field("monthlyOccurrence"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            start_time: o.get_field("startTime"),
+            timezone: o.get_field("timezone"),
+            week_days: o.get_field("weekDays"),
         }
     }
 }

@@ -75,73 +75,58 @@ pub mod anomaly_alert {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AnomalyAlertArgs,
     ) -> AnomalyAlertResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let email_addresses_binding_1 = args.email_addresses.get_output(context);
-        let email_addresses_binding = email_addresses_binding_1.get_inner();
-        let email_subject_binding_1 = args.email_subject.get_output(context);
-        let email_subject_binding = email_subject_binding_1.get_inner();
-        let message_binding_1 = args.message.get_output(context);
-        let message_binding = message_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let subscription_id_binding_1 = args.subscription_id.get_output(context);
-        let subscription_id_binding = subscription_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let display_name_binding = args.display_name.get_output(context);
+        let email_addresses_binding = args.email_addresses.get_output(context);
+        let email_subject_binding = args.email_subject.get_output(context);
+        let message_binding = args.message.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let subscription_id_binding = args.subscription_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:costmanagement/anomalyAlert:AnomalyAlert".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddresses".into(),
-                    value: &email_addresses_binding,
+                    value: email_addresses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailSubject".into(),
-                    value: &email_subject_binding,
+                    value: email_subject_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "message".into(),
-                    value: &message_binding,
+                    value: message_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionId".into(),
-                    value: &subscription_id_binding,
+                    value: subscription_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AnomalyAlertResult {
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            email_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailAddresses"),
-            ),
-            email_subject: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailSubject"),
-            ),
-            message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("message"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            subscription_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionId"),
-            ),
+            display_name: o.get_field("displayName"),
+            email_addresses: o.get_field("emailAddresses"),
+            email_subject: o.get_field("emailSubject"),
+            message: o.get_field("message"),
+            name: o.get_field("name"),
+            subscription_id: o.get_field("subscriptionId"),
         }
     }
 }

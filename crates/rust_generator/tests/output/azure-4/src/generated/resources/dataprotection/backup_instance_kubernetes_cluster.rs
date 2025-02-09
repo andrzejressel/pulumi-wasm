@@ -262,91 +262,71 @@ pub mod backup_instance_kubernetes_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BackupInstanceKubernetesClusterArgs,
     ) -> BackupInstanceKubernetesClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_datasource_parameters_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backup_datasource_parameters_binding = args
             .backup_datasource_parameters
             .get_output(context);
-        let backup_datasource_parameters_binding = backup_datasource_parameters_binding_1
-            .get_inner();
-        let backup_policy_id_binding_1 = args.backup_policy_id.get_output(context);
-        let backup_policy_id_binding = backup_policy_id_binding_1.get_inner();
-        let kubernetes_cluster_id_binding_1 = args
+        let backup_policy_id_binding = args.backup_policy_id.get_output(context);
+        let kubernetes_cluster_id_binding = args
             .kubernetes_cluster_id
             .get_output(context);
-        let kubernetes_cluster_id_binding = kubernetes_cluster_id_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let snapshot_resource_group_name_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let snapshot_resource_group_name_binding = args
             .snapshot_resource_group_name
             .get_output(context);
-        let snapshot_resource_group_name_binding = snapshot_resource_group_name_binding_1
-            .get_inner();
-        let vault_id_binding_1 = args.vault_id.get_output(context);
-        let vault_id_binding = vault_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let vault_id_binding = args.vault_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupDatasourceParameters".into(),
-                    value: &backup_datasource_parameters_binding,
+                    value: backup_datasource_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupPolicyId".into(),
-                    value: &backup_policy_id_binding,
+                    value: backup_policy_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesClusterId".into(),
-                    value: &kubernetes_cluster_id_binding,
+                    value: kubernetes_cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotResourceGroupName".into(),
-                    value: &snapshot_resource_group_name_binding,
+                    value: snapshot_resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vaultId".into(),
-                    value: &vault_id_binding,
+                    value: vault_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BackupInstanceKubernetesClusterResult {
-            backup_datasource_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupDatasourceParameters"),
-            ),
-            backup_policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupPolicyId"),
-            ),
-            kubernetes_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubernetesClusterId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            snapshot_resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotResourceGroupName"),
-            ),
-            vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vaultId"),
-            ),
+            backup_datasource_parameters: o.get_field("backupDatasourceParameters"),
+            backup_policy_id: o.get_field("backupPolicyId"),
+            kubernetes_cluster_id: o.get_field("kubernetesClusterId"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            snapshot_resource_group_name: o.get_field("snapshotResourceGroupName"),
+            vault_id: o.get_field("vaultId"),
         }
     }
 }

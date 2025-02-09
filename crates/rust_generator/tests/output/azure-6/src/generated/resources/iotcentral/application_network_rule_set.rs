@@ -80,61 +80,49 @@ pub mod application_network_rule_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApplicationNetworkRuleSetArgs,
     ) -> ApplicationNetworkRuleSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let apply_to_device_binding_1 = args.apply_to_device.get_output(context);
-        let apply_to_device_binding = apply_to_device_binding_1.get_inner();
-        let default_action_binding_1 = args.default_action.get_output(context);
-        let default_action_binding = default_action_binding_1.get_inner();
-        let iotcentral_application_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let apply_to_device_binding = args.apply_to_device.get_output(context);
+        let default_action_binding = args.default_action.get_output(context);
+        let iotcentral_application_id_binding = args
             .iotcentral_application_id
             .get_output(context);
-        let iotcentral_application_id_binding = iotcentral_application_id_binding_1
-            .get_inner();
-        let ip_rules_binding_1 = args.ip_rules.get_output(context);
-        let ip_rules_binding = ip_rules_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ip_rules_binding = args.ip_rules.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applyToDevice".into(),
-                    value: &apply_to_device_binding,
+                    value: apply_to_device_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAction".into(),
-                    value: &default_action_binding,
+                    value: default_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iotcentralApplicationId".into(),
-                    value: &iotcentral_application_id_binding,
+                    value: iotcentral_application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipRules".into(),
-                    value: &ip_rules_binding,
+                    value: ip_rules_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApplicationNetworkRuleSetResult {
-            apply_to_device: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applyToDevice"),
-            ),
-            default_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultAction"),
-            ),
-            iotcentral_application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iotcentralApplicationId"),
-            ),
-            ip_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipRules"),
-            ),
+            apply_to_device: o.get_field("applyToDevice"),
+            default_action: o.get_field("defaultAction"),
+            iotcentral_application_id: o.get_field("iotcentralApplicationId"),
+            ip_rules: o.get_field("ipRules"),
         }
     }
 }

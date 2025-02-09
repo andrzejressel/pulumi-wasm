@@ -142,112 +142,84 @@ pub mod pipeline {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PipelineArgs,
     ) -> PipelineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let activities_json_binding_1 = args.activities_json.get_output(context);
-        let activities_json_binding = activities_json_binding_1.get_inner();
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let concurrency_binding_1 = args.concurrency.get_output(context);
-        let concurrency_binding = concurrency_binding_1.get_inner();
-        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
-        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let folder_binding_1 = args.folder.get_output(context);
-        let folder_binding = folder_binding_1.get_inner();
-        let moniter_metrics_after_duration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let activities_json_binding = args.activities_json.get_output(context);
+        let annotations_binding = args.annotations.get_output(context);
+        let concurrency_binding = args.concurrency.get_output(context);
+        let data_factory_id_binding = args.data_factory_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let folder_binding = args.folder.get_output(context);
+        let moniter_metrics_after_duration_binding = args
             .moniter_metrics_after_duration
             .get_output(context);
-        let moniter_metrics_after_duration_binding = moniter_metrics_after_duration_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let variables_binding_1 = args.variables.get_output(context);
-        let variables_binding = variables_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let variables_binding = args.variables.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:datafactory/pipeline:Pipeline".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activitiesJson".into(),
-                    value: &activities_json_binding,
+                    value: activities_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "concurrency".into(),
-                    value: &concurrency_binding,
+                    value: concurrency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: &data_factory_id_binding,
+                    value: data_factory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: &folder_binding,
+                    value: folder_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "moniterMetricsAfterDuration".into(),
-                    value: &moniter_metrics_after_duration_binding,
+                    value: moniter_metrics_after_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "variables".into(),
-                    value: &variables_binding,
+                    value: variables_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PipelineResult {
-            activities_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activitiesJson"),
-            ),
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            concurrency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("concurrency"),
-            ),
-            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFactoryId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            folder: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("folder"),
-            ),
-            moniter_metrics_after_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("moniterMetricsAfterDuration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            variables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("variables"),
-            ),
+            activities_json: o.get_field("activitiesJson"),
+            annotations: o.get_field("annotations"),
+            concurrency: o.get_field("concurrency"),
+            data_factory_id: o.get_field("dataFactoryId"),
+            description: o.get_field("description"),
+            folder: o.get_field("folder"),
+            moniter_metrics_after_duration: o.get_field("moniterMetricsAfterDuration"),
+            name: o.get_field("name"),
+            parameters: o.get_field("parameters"),
+            variables: o.get_field("variables"),
         }
     }
 }

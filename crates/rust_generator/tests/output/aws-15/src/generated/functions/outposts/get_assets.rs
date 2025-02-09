@@ -29,48 +29,40 @@ pub mod get_assets {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAssetsArgs,
     ) -> GetAssetsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let host_id_filters_binding_1 = args.host_id_filters.get_output(context);
-        let host_id_filters_binding = host_id_filters_binding_1.get_inner();
-        let status_id_filters_binding_1 = args.status_id_filters.get_output(context);
-        let status_id_filters_binding = status_id_filters_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let host_id_filters_binding = args.host_id_filters.get_output(context);
+        let status_id_filters_binding = args.status_id_filters.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:outposts/getAssets:getAssets".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostIdFilters".into(),
-                    value: &host_id_filters_binding,
+                    value: host_id_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statusIdFilters".into(),
-                    value: &status_id_filters_binding,
+                    value: status_id_filters_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAssetsResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            asset_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assetIds"),
-            ),
-            host_id_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostIdFilters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            status_id_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusIdFilters"),
-            ),
+            arn: o.get_field("arn"),
+            asset_ids: o.get_field("assetIds"),
+            host_id_filters: o.get_field("hostIdFilters"),
+            id: o.get_field("id"),
+            status_id_filters: o.get_field("statusIdFilters"),
         }
     }
 }

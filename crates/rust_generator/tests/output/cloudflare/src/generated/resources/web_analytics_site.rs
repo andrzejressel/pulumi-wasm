@@ -67,67 +67,50 @@ pub mod web_analytics_site {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WebAnalyticsSiteArgs,
     ) -> WebAnalyticsSiteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let auto_install_binding_1 = args.auto_install.get_output(context);
-        let auto_install_binding = auto_install_binding_1.get_inner();
-        let host_binding_1 = args.host.get_output(context);
-        let host_binding = host_binding_1.get_inner();
-        let zone_tag_binding_1 = args.zone_tag.get_output(context);
-        let zone_tag_binding = zone_tag_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let auto_install_binding = args.auto_install.get_output(context);
+        let host_binding = args.host.get_output(context);
+        let zone_tag_binding = args.zone_tag.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/webAnalyticsSite:WebAnalyticsSite".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoInstall".into(),
-                    value: &auto_install_binding,
+                    value: auto_install_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: &host_binding,
+                    value: host_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneTag".into(),
-                    value: &zone_tag_binding,
+                    value: zone_tag_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WebAnalyticsSiteResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            auto_install: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoInstall"),
-            ),
-            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
-            ruleset_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rulesetId"),
-            ),
-            site_tag: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteTag"),
-            ),
-            site_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteToken"),
-            ),
-            snippet: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snippet"),
-            ),
-            zone_tag: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneTag"),
-            ),
+            account_id: o.get_field("accountId"),
+            auto_install: o.get_field("autoInstall"),
+            host: o.get_field("host"),
+            ruleset_id: o.get_field("rulesetId"),
+            site_tag: o.get_field("siteTag"),
+            site_token: o.get_field("siteToken"),
+            snippet: o.get_field("snippet"),
+            zone_tag: o.get_field("zoneTag"),
         }
     }
 }

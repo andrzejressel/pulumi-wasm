@@ -305,216 +305,151 @@ pub mod standard_app_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StandardAppVersionArgs,
     ) -> StandardAppVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_engine_apis_binding_1 = args.app_engine_apis.get_output(context);
-        let app_engine_apis_binding = app_engine_apis_binding_1.get_inner();
-        let automatic_scaling_binding_1 = args.automatic_scaling.get_output(context);
-        let automatic_scaling_binding = automatic_scaling_binding_1.get_inner();
-        let basic_scaling_binding_1 = args.basic_scaling.get_output(context);
-        let basic_scaling_binding = basic_scaling_binding_1.get_inner();
-        let delete_service_on_destroy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_engine_apis_binding = args.app_engine_apis.get_output(context);
+        let automatic_scaling_binding = args.automatic_scaling.get_output(context);
+        let basic_scaling_binding = args.basic_scaling.get_output(context);
+        let delete_service_on_destroy_binding = args
             .delete_service_on_destroy
             .get_output(context);
-        let delete_service_on_destroy_binding = delete_service_on_destroy_binding_1
-            .get_inner();
-        let deployment_binding_1 = args.deployment.get_output(context);
-        let deployment_binding = deployment_binding_1.get_inner();
-        let entrypoint_binding_1 = args.entrypoint.get_output(context);
-        let entrypoint_binding = entrypoint_binding_1.get_inner();
-        let env_variables_binding_1 = args.env_variables.get_output(context);
-        let env_variables_binding = env_variables_binding_1.get_inner();
-        let handlers_binding_1 = args.handlers.get_output(context);
-        let handlers_binding = handlers_binding_1.get_inner();
-        let inbound_services_binding_1 = args.inbound_services.get_output(context);
-        let inbound_services_binding = inbound_services_binding_1.get_inner();
-        let instance_class_binding_1 = args.instance_class.get_output(context);
-        let instance_class_binding = instance_class_binding_1.get_inner();
-        let libraries_binding_1 = args.libraries.get_output(context);
-        let libraries_binding = libraries_binding_1.get_inner();
-        let manual_scaling_binding_1 = args.manual_scaling.get_output(context);
-        let manual_scaling_binding = manual_scaling_binding_1.get_inner();
-        let noop_on_destroy_binding_1 = args.noop_on_destroy.get_output(context);
-        let noop_on_destroy_binding = noop_on_destroy_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let runtime_binding_1 = args.runtime.get_output(context);
-        let runtime_binding = runtime_binding_1.get_inner();
-        let runtime_api_version_binding_1 = args.runtime_api_version.get_output(context);
-        let runtime_api_version_binding = runtime_api_version_binding_1.get_inner();
-        let service_binding_1 = args.service.get_output(context);
-        let service_binding = service_binding_1.get_inner();
-        let service_account_binding_1 = args.service_account.get_output(context);
-        let service_account_binding = service_account_binding_1.get_inner();
-        let threadsafe_binding_1 = args.threadsafe.get_output(context);
-        let threadsafe_binding = threadsafe_binding_1.get_inner();
-        let version_id_binding_1 = args.version_id.get_output(context);
-        let version_id_binding = version_id_binding_1.get_inner();
-        let vpc_access_connector_binding_1 = args
-            .vpc_access_connector
-            .get_output(context);
-        let vpc_access_connector_binding = vpc_access_connector_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let deployment_binding = args.deployment.get_output(context);
+        let entrypoint_binding = args.entrypoint.get_output(context);
+        let env_variables_binding = args.env_variables.get_output(context);
+        let handlers_binding = args.handlers.get_output(context);
+        let inbound_services_binding = args.inbound_services.get_output(context);
+        let instance_class_binding = args.instance_class.get_output(context);
+        let libraries_binding = args.libraries.get_output(context);
+        let manual_scaling_binding = args.manual_scaling.get_output(context);
+        let noop_on_destroy_binding = args.noop_on_destroy.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let runtime_binding = args.runtime.get_output(context);
+        let runtime_api_version_binding = args.runtime_api_version.get_output(context);
+        let service_binding = args.service.get_output(context);
+        let service_account_binding = args.service_account.get_output(context);
+        let threadsafe_binding = args.threadsafe.get_output(context);
+        let version_id_binding = args.version_id.get_output(context);
+        let vpc_access_connector_binding = args.vpc_access_connector.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:appengine/standardAppVersion:StandardAppVersion".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appEngineApis".into(),
-                    value: &app_engine_apis_binding,
+                    value: app_engine_apis_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticScaling".into(),
-                    value: &automatic_scaling_binding,
+                    value: automatic_scaling_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basicScaling".into(),
-                    value: &basic_scaling_binding,
+                    value: basic_scaling_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteServiceOnDestroy".into(),
-                    value: &delete_service_on_destroy_binding,
+                    value: delete_service_on_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deployment".into(),
-                    value: &deployment_binding,
+                    value: deployment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entrypoint".into(),
-                    value: &entrypoint_binding,
+                    value: entrypoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "envVariables".into(),
-                    value: &env_variables_binding,
+                    value: env_variables_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "handlers".into(),
-                    value: &handlers_binding,
+                    value: handlers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inboundServices".into(),
-                    value: &inbound_services_binding,
+                    value: inbound_services_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceClass".into(),
-                    value: &instance_class_binding,
+                    value: instance_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "libraries".into(),
-                    value: &libraries_binding,
+                    value: libraries_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manualScaling".into(),
-                    value: &manual_scaling_binding,
+                    value: manual_scaling_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "noopOnDestroy".into(),
-                    value: &noop_on_destroy_binding,
+                    value: noop_on_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtime".into(),
-                    value: &runtime_binding,
+                    value: runtime_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeApiVersion".into(),
-                    value: &runtime_api_version_binding,
+                    value: runtime_api_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: &service_binding,
+                    value: service_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccount".into(),
-                    value: &service_account_binding,
+                    value: service_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threadsafe".into(),
-                    value: &threadsafe_binding,
+                    value: threadsafe_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionId".into(),
-                    value: &version_id_binding,
+                    value: version_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcAccessConnector".into(),
-                    value: &vpc_access_connector_binding,
+                    value: vpc_access_connector_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StandardAppVersionResult {
-            app_engine_apis: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appEngineApis"),
-            ),
-            automatic_scaling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automaticScaling"),
-            ),
-            basic_scaling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("basicScaling"),
-            ),
-            delete_service_on_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteServiceOnDestroy"),
-            ),
-            deployment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deployment"),
-            ),
-            entrypoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entrypoint"),
-            ),
-            env_variables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("envVariables"),
-            ),
-            handlers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("handlers"),
-            ),
-            inbound_services: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inboundServices"),
-            ),
-            instance_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceClass"),
-            ),
-            libraries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("libraries"),
-            ),
-            manual_scaling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manualScaling"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            noop_on_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("noopOnDestroy"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            runtime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtime"),
-            ),
-            runtime_api_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtimeApiVersion"),
-            ),
-            service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("service"),
-            ),
-            service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccount"),
-            ),
-            threadsafe: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("threadsafe"),
-            ),
-            version_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionId"),
-            ),
-            vpc_access_connector: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcAccessConnector"),
-            ),
+            app_engine_apis: o.get_field("appEngineApis"),
+            automatic_scaling: o.get_field("automaticScaling"),
+            basic_scaling: o.get_field("basicScaling"),
+            delete_service_on_destroy: o.get_field("deleteServiceOnDestroy"),
+            deployment: o.get_field("deployment"),
+            entrypoint: o.get_field("entrypoint"),
+            env_variables: o.get_field("envVariables"),
+            handlers: o.get_field("handlers"),
+            inbound_services: o.get_field("inboundServices"),
+            instance_class: o.get_field("instanceClass"),
+            libraries: o.get_field("libraries"),
+            manual_scaling: o.get_field("manualScaling"),
+            name: o.get_field("name"),
+            noop_on_destroy: o.get_field("noopOnDestroy"),
+            project: o.get_field("project"),
+            runtime: o.get_field("runtime"),
+            runtime_api_version: o.get_field("runtimeApiVersion"),
+            service: o.get_field("service"),
+            service_account: o.get_field("serviceAccount"),
+            threadsafe: o.get_field("threadsafe"),
+            version_id: o.get_field("versionId"),
+            vpc_access_connector: o.get_field("vpcAccessConnector"),
         }
     }
 }

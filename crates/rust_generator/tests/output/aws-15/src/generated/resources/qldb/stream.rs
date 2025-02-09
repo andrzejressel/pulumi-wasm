@@ -81,90 +81,68 @@ pub mod stream {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StreamArgs,
     ) -> StreamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let exclusive_end_time_binding_1 = args.exclusive_end_time.get_output(context);
-        let exclusive_end_time_binding = exclusive_end_time_binding_1.get_inner();
-        let inclusive_start_time_binding_1 = args
-            .inclusive_start_time
-            .get_output(context);
-        let inclusive_start_time_binding = inclusive_start_time_binding_1.get_inner();
-        let kinesis_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let exclusive_end_time_binding = args.exclusive_end_time.get_output(context);
+        let inclusive_start_time_binding = args.inclusive_start_time.get_output(context);
+        let kinesis_configuration_binding = args
             .kinesis_configuration
             .get_output(context);
-        let kinesis_configuration_binding = kinesis_configuration_binding_1.get_inner();
-        let ledger_name_binding_1 = args.ledger_name.get_output(context);
-        let ledger_name_binding = ledger_name_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let stream_name_binding_1 = args.stream_name.get_output(context);
-        let stream_name_binding = stream_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ledger_name_binding = args.ledger_name.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let stream_name_binding = args.stream_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:qldb/stream:Stream".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exclusiveEndTime".into(),
-                    value: &exclusive_end_time_binding,
+                    value: exclusive_end_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inclusiveStartTime".into(),
-                    value: &inclusive_start_time_binding,
+                    value: inclusive_start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kinesisConfiguration".into(),
-                    value: &kinesis_configuration_binding,
+                    value: kinesis_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ledgerName".into(),
-                    value: &ledger_name_binding,
+                    value: ledger_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamName".into(),
-                    value: &stream_name_binding,
+                    value: stream_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StreamResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            exclusive_end_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exclusiveEndTime"),
-            ),
-            inclusive_start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inclusiveStartTime"),
-            ),
-            kinesis_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kinesisConfiguration"),
-            ),
-            ledger_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ledgerName"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            stream_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            exclusive_end_time: o.get_field("exclusiveEndTime"),
+            inclusive_start_time: o.get_field("inclusiveStartTime"),
+            kinesis_configuration: o.get_field("kinesisConfiguration"),
+            ledger_name: o.get_field("ledgerName"),
+            role_arn: o.get_field("roleArn"),
+            stream_name: o.get_field("streamName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

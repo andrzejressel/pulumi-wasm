@@ -69,84 +69,65 @@ pub mod sms_preferences {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SmsPreferencesArgs,
     ) -> SmsPreferencesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_sender_id_binding_1 = args.default_sender_id.get_output(context);
-        let default_sender_id_binding = default_sender_id_binding_1.get_inner();
-        let default_sms_type_binding_1 = args.default_sms_type.get_output(context);
-        let default_sms_type_binding = default_sms_type_binding_1.get_inner();
-        let delivery_status_iam_role_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let default_sender_id_binding = args.default_sender_id.get_output(context);
+        let default_sms_type_binding = args.default_sms_type.get_output(context);
+        let delivery_status_iam_role_arn_binding = args
             .delivery_status_iam_role_arn
             .get_output(context);
-        let delivery_status_iam_role_arn_binding = delivery_status_iam_role_arn_binding_1
-            .get_inner();
-        let delivery_status_success_sampling_rate_binding_1 = args
+        let delivery_status_success_sampling_rate_binding = args
             .delivery_status_success_sampling_rate
             .get_output(context);
-        let delivery_status_success_sampling_rate_binding = delivery_status_success_sampling_rate_binding_1
-            .get_inner();
-        let monthly_spend_limit_binding_1 = args.monthly_spend_limit.get_output(context);
-        let monthly_spend_limit_binding = monthly_spend_limit_binding_1.get_inner();
-        let usage_report_s3_bucket_binding_1 = args
+        let monthly_spend_limit_binding = args.monthly_spend_limit.get_output(context);
+        let usage_report_s3_bucket_binding = args
             .usage_report_s3_bucket
             .get_output(context);
-        let usage_report_s3_bucket_binding = usage_report_s3_bucket_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sns/smsPreferences:SmsPreferences".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultSenderId".into(),
-                    value: &default_sender_id_binding,
+                    value: default_sender_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultSmsType".into(),
-                    value: &default_sms_type_binding,
+                    value: default_sms_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryStatusIamRoleArn".into(),
-                    value: &delivery_status_iam_role_arn_binding,
+                    value: delivery_status_iam_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryStatusSuccessSamplingRate".into(),
-                    value: &delivery_status_success_sampling_rate_binding,
+                    value: delivery_status_success_sampling_rate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monthlySpendLimit".into(),
-                    value: &monthly_spend_limit_binding,
+                    value: monthly_spend_limit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usageReportS3Bucket".into(),
-                    value: &usage_report_s3_bucket_binding,
+                    value: usage_report_s3_bucket_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SmsPreferencesResult {
-            default_sender_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSenderId"),
-            ),
-            default_sms_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSmsType"),
-            ),
-            delivery_status_iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deliveryStatusIamRoleArn"),
-            ),
-            delivery_status_success_sampling_rate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deliveryStatusSuccessSamplingRate"),
-            ),
-            monthly_spend_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monthlySpendLimit"),
-            ),
-            usage_report_s3_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usageReportS3Bucket"),
-            ),
+            default_sender_id: o.get_field("defaultSenderId"),
+            default_sms_type: o.get_field("defaultSmsType"),
+            delivery_status_iam_role_arn: o.get_field("deliveryStatusIamRoleArn"),
+            delivery_status_success_sampling_rate: o
+                .get_field("deliveryStatusSuccessSamplingRate"),
+            monthly_spend_limit: o.get_field("monthlySpendLimit"),
+            usage_report_s3_bucket: o.get_field("usageReportS3Bucket"),
         }
     }
 }

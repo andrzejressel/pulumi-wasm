@@ -167,209 +167,149 @@ pub mod queue {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: QueueArgs,
     ) -> QueueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_delete_on_idle_binding_1 = args.auto_delete_on_idle.get_output(context);
-        let auto_delete_on_idle_binding = auto_delete_on_idle_binding_1.get_inner();
-        let batched_operations_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_delete_on_idle_binding = args.auto_delete_on_idle.get_output(context);
+        let batched_operations_enabled_binding = args
             .batched_operations_enabled
             .get_output(context);
-        let batched_operations_enabled_binding = batched_operations_enabled_binding_1
-            .get_inner();
-        let dead_lettering_on_message_expiration_binding_1 = args
+        let dead_lettering_on_message_expiration_binding = args
             .dead_lettering_on_message_expiration
             .get_output(context);
-        let dead_lettering_on_message_expiration_binding = dead_lettering_on_message_expiration_binding_1
-            .get_inner();
-        let default_message_ttl_binding_1 = args.default_message_ttl.get_output(context);
-        let default_message_ttl_binding = default_message_ttl_binding_1.get_inner();
-        let duplicate_detection_history_time_window_binding_1 = args
+        let default_message_ttl_binding = args.default_message_ttl.get_output(context);
+        let duplicate_detection_history_time_window_binding = args
             .duplicate_detection_history_time_window
             .get_output(context);
-        let duplicate_detection_history_time_window_binding = duplicate_detection_history_time_window_binding_1
-            .get_inner();
-        let express_enabled_binding_1 = args.express_enabled.get_output(context);
-        let express_enabled_binding = express_enabled_binding_1.get_inner();
-        let forward_dead_lettered_messages_to_binding_1 = args
+        let express_enabled_binding = args.express_enabled.get_output(context);
+        let forward_dead_lettered_messages_to_binding = args
             .forward_dead_lettered_messages_to
             .get_output(context);
-        let forward_dead_lettered_messages_to_binding = forward_dead_lettered_messages_to_binding_1
-            .get_inner();
-        let forward_to_binding_1 = args.forward_to.get_output(context);
-        let forward_to_binding = forward_to_binding_1.get_inner();
-        let lock_duration_binding_1 = args.lock_duration.get_output(context);
-        let lock_duration_binding = lock_duration_binding_1.get_inner();
-        let max_delivery_count_binding_1 = args.max_delivery_count.get_output(context);
-        let max_delivery_count_binding = max_delivery_count_binding_1.get_inner();
-        let max_message_size_in_kilobytes_binding_1 = args
+        let forward_to_binding = args.forward_to.get_output(context);
+        let lock_duration_binding = args.lock_duration.get_output(context);
+        let max_delivery_count_binding = args.max_delivery_count.get_output(context);
+        let max_message_size_in_kilobytes_binding = args
             .max_message_size_in_kilobytes
             .get_output(context);
-        let max_message_size_in_kilobytes_binding = max_message_size_in_kilobytes_binding_1
-            .get_inner();
-        let max_size_in_megabytes_binding_1 = args
+        let max_size_in_megabytes_binding = args
             .max_size_in_megabytes
             .get_output(context);
-        let max_size_in_megabytes_binding = max_size_in_megabytes_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let namespace_id_binding_1 = args.namespace_id.get_output(context);
-        let namespace_id_binding = namespace_id_binding_1.get_inner();
-        let partitioning_enabled_binding_1 = args
-            .partitioning_enabled
-            .get_output(context);
-        let partitioning_enabled_binding = partitioning_enabled_binding_1.get_inner();
-        let requires_duplicate_detection_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let namespace_id_binding = args.namespace_id.get_output(context);
+        let partitioning_enabled_binding = args.partitioning_enabled.get_output(context);
+        let requires_duplicate_detection_binding = args
             .requires_duplicate_detection
             .get_output(context);
-        let requires_duplicate_detection_binding = requires_duplicate_detection_binding_1
-            .get_inner();
-        let requires_session_binding_1 = args.requires_session.get_output(context);
-        let requires_session_binding = requires_session_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let requires_session_binding = args.requires_session.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:servicebus/queue:Queue".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoDeleteOnIdle".into(),
-                    value: &auto_delete_on_idle_binding,
+                    value: auto_delete_on_idle_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchedOperationsEnabled".into(),
-                    value: &batched_operations_enabled_binding,
+                    value: batched_operations_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deadLetteringOnMessageExpiration".into(),
-                    value: &dead_lettering_on_message_expiration_binding,
+                    value: dead_lettering_on_message_expiration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultMessageTtl".into(),
-                    value: &default_message_ttl_binding,
+                    value: default_message_ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "duplicateDetectionHistoryTimeWindow".into(),
-                    value: &duplicate_detection_history_time_window_binding,
+                    value: duplicate_detection_history_time_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressEnabled".into(),
-                    value: &express_enabled_binding,
+                    value: express_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forwardDeadLetteredMessagesTo".into(),
-                    value: &forward_dead_lettered_messages_to_binding,
+                    value: forward_dead_lettered_messages_to_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forwardTo".into(),
-                    value: &forward_to_binding,
+                    value: forward_to_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lockDuration".into(),
-                    value: &lock_duration_binding,
+                    value: lock_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxDeliveryCount".into(),
-                    value: &max_delivery_count_binding,
+                    value: max_delivery_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxMessageSizeInKilobytes".into(),
-                    value: &max_message_size_in_kilobytes_binding,
+                    value: max_message_size_in_kilobytes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxSizeInMegabytes".into(),
-                    value: &max_size_in_megabytes_binding,
+                    value: max_size_in_megabytes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceId".into(),
-                    value: &namespace_id_binding,
+                    value: namespace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitioningEnabled".into(),
-                    value: &partitioning_enabled_binding,
+                    value: partitioning_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requiresDuplicateDetection".into(),
-                    value: &requires_duplicate_detection_binding,
+                    value: requires_duplicate_detection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requiresSession".into(),
-                    value: &requires_session_binding,
+                    value: requires_session_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         QueueResult {
-            auto_delete_on_idle: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoDeleteOnIdle"),
-            ),
-            batched_operations_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("batchedOperationsEnabled"),
-            ),
-            dead_lettering_on_message_expiration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deadLetteringOnMessageExpiration"),
-            ),
-            default_message_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultMessageTtl"),
-            ),
-            duplicate_detection_history_time_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("duplicateDetectionHistoryTimeWindow"),
-            ),
-            express_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expressEnabled"),
-            ),
-            forward_dead_lettered_messages_to: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forwardDeadLetteredMessagesTo"),
-            ),
-            forward_to: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forwardTo"),
-            ),
-            lock_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lockDuration"),
-            ),
-            max_delivery_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxDeliveryCount"),
-            ),
-            max_message_size_in_kilobytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxMessageSizeInKilobytes"),
-            ),
-            max_size_in_megabytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxSizeInMegabytes"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceId"),
-            ),
-            namespace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceName"),
-            ),
-            partitioning_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitioningEnabled"),
-            ),
-            requires_duplicate_detection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requiresDuplicateDetection"),
-            ),
-            requires_session: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requiresSession"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            auto_delete_on_idle: o.get_field("autoDeleteOnIdle"),
+            batched_operations_enabled: o.get_field("batchedOperationsEnabled"),
+            dead_lettering_on_message_expiration: o
+                .get_field("deadLetteringOnMessageExpiration"),
+            default_message_ttl: o.get_field("defaultMessageTtl"),
+            duplicate_detection_history_time_window: o
+                .get_field("duplicateDetectionHistoryTimeWindow"),
+            express_enabled: o.get_field("expressEnabled"),
+            forward_dead_lettered_messages_to: o
+                .get_field("forwardDeadLetteredMessagesTo"),
+            forward_to: o.get_field("forwardTo"),
+            lock_duration: o.get_field("lockDuration"),
+            max_delivery_count: o.get_field("maxDeliveryCount"),
+            max_message_size_in_kilobytes: o.get_field("maxMessageSizeInKilobytes"),
+            max_size_in_megabytes: o.get_field("maxSizeInMegabytes"),
+            name: o.get_field("name"),
+            namespace_id: o.get_field("namespaceId"),
+            namespace_name: o.get_field("namespaceName"),
+            partitioning_enabled: o.get_field("partitioningEnabled"),
+            requires_duplicate_detection: o.get_field("requiresDuplicateDetection"),
+            requires_session: o.get_field("requiresSession"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            status: o.get_field("status"),
         }
     }
 }

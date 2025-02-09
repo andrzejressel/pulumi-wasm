@@ -121,60 +121,50 @@ pub mod repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RepositoryArgs,
     ) -> RepositoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let create_ignore_already_exists_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let create_ignore_already_exists_binding = args
             .create_ignore_already_exists
             .get_output(context);
-        let create_ignore_already_exists_binding = create_ignore_already_exists_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let pubsub_configs_binding_1 = args.pubsub_configs.get_output(context);
-        let pubsub_configs_binding = pubsub_configs_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let pubsub_configs_binding = args.pubsub_configs.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:sourcerepo/repository:Repository".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createIgnoreAlreadyExists".into(),
-                    value: &create_ignore_already_exists_binding,
+                    value: create_ignore_already_exists_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pubsubConfigs".into(),
-                    value: &pubsub_configs_binding,
+                    value: pubsub_configs_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RepositoryResult {
-            create_ignore_already_exists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createIgnoreAlreadyExists"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pubsub_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pubsubConfigs"),
-            ),
-            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            create_ignore_already_exists: o.get_field("createIgnoreAlreadyExists"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pubsub_configs: o.get_field("pubsubConfigs"),
+            size: o.get_field("size"),
+            url: o.get_field("url"),
         }
     }
 }

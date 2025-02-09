@@ -359,208 +359,148 @@ pub mod task_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TaskDefinitionArgs,
     ) -> TaskDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_definitions_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let container_definitions_binding = args
             .container_definitions
             .get_output(context);
-        let container_definitions_binding = container_definitions_binding_1.get_inner();
-        let cpu_binding_1 = args.cpu.get_output(context);
-        let cpu_binding = cpu_binding_1.get_inner();
-        let ephemeral_storage_binding_1 = args.ephemeral_storage.get_output(context);
-        let ephemeral_storage_binding = ephemeral_storage_binding_1.get_inner();
-        let execution_role_arn_binding_1 = args.execution_role_arn.get_output(context);
-        let execution_role_arn_binding = execution_role_arn_binding_1.get_inner();
-        let family_binding_1 = args.family.get_output(context);
-        let family_binding = family_binding_1.get_inner();
-        let inference_accelerators_binding_1 = args
+        let cpu_binding = args.cpu.get_output(context);
+        let ephemeral_storage_binding = args.ephemeral_storage.get_output(context);
+        let execution_role_arn_binding = args.execution_role_arn.get_output(context);
+        let family_binding = args.family.get_output(context);
+        let inference_accelerators_binding = args
             .inference_accelerators
             .get_output(context);
-        let inference_accelerators_binding = inference_accelerators_binding_1
-            .get_inner();
-        let ipc_mode_binding_1 = args.ipc_mode.get_output(context);
-        let ipc_mode_binding = ipc_mode_binding_1.get_inner();
-        let memory_binding_1 = args.memory.get_output(context);
-        let memory_binding = memory_binding_1.get_inner();
-        let network_mode_binding_1 = args.network_mode.get_output(context);
-        let network_mode_binding = network_mode_binding_1.get_inner();
-        let pid_mode_binding_1 = args.pid_mode.get_output(context);
-        let pid_mode_binding = pid_mode_binding_1.get_inner();
-        let placement_constraints_binding_1 = args
+        let ipc_mode_binding = args.ipc_mode.get_output(context);
+        let memory_binding = args.memory.get_output(context);
+        let network_mode_binding = args.network_mode.get_output(context);
+        let pid_mode_binding = args.pid_mode.get_output(context);
+        let placement_constraints_binding = args
             .placement_constraints
             .get_output(context);
-        let placement_constraints_binding = placement_constraints_binding_1.get_inner();
-        let proxy_configuration_binding_1 = args.proxy_configuration.get_output(context);
-        let proxy_configuration_binding = proxy_configuration_binding_1.get_inner();
-        let requires_compatibilities_binding_1 = args
+        let proxy_configuration_binding = args.proxy_configuration.get_output(context);
+        let requires_compatibilities_binding = args
             .requires_compatibilities
             .get_output(context);
-        let requires_compatibilities_binding = requires_compatibilities_binding_1
-            .get_inner();
-        let runtime_platform_binding_1 = args.runtime_platform.get_output(context);
-        let runtime_platform_binding = runtime_platform_binding_1.get_inner();
-        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
-        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let task_role_arn_binding_1 = args.task_role_arn.get_output(context);
-        let task_role_arn_binding = task_role_arn_binding_1.get_inner();
-        let track_latest_binding_1 = args.track_latest.get_output(context);
-        let track_latest_binding = track_latest_binding_1.get_inner();
-        let volumes_binding_1 = args.volumes.get_output(context);
-        let volumes_binding = volumes_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let runtime_platform_binding = args.runtime_platform.get_output(context);
+        let skip_destroy_binding = args.skip_destroy.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let task_role_arn_binding = args.task_role_arn.get_output(context);
+        let track_latest_binding = args.track_latest.get_output(context);
+        let volumes_binding = args.volumes.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ecs/taskDefinition:TaskDefinition".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerDefinitions".into(),
-                    value: &container_definitions_binding,
+                    value: container_definitions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cpu".into(),
-                    value: &cpu_binding,
+                    value: cpu_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ephemeralStorage".into(),
-                    value: &ephemeral_storage_binding,
+                    value: ephemeral_storage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionRoleArn".into(),
-                    value: &execution_role_arn_binding,
+                    value: execution_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "family".into(),
-                    value: &family_binding,
+                    value: family_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inferenceAccelerators".into(),
-                    value: &inference_accelerators_binding,
+                    value: inference_accelerators_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipcMode".into(),
-                    value: &ipc_mode_binding,
+                    value: ipc_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memory".into(),
-                    value: &memory_binding,
+                    value: memory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkMode".into(),
-                    value: &network_mode_binding,
+                    value: network_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pidMode".into(),
-                    value: &pid_mode_binding,
+                    value: pid_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementConstraints".into(),
-                    value: &placement_constraints_binding,
+                    value: placement_constraints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyConfiguration".into(),
-                    value: &proxy_configuration_binding,
+                    value: proxy_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requiresCompatibilities".into(),
-                    value: &requires_compatibilities_binding,
+                    value: requires_compatibilities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimePlatform".into(),
-                    value: &runtime_platform_binding,
+                    value: runtime_platform_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: &skip_destroy_binding,
+                    value: skip_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskRoleArn".into(),
-                    value: &task_role_arn_binding,
+                    value: task_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trackLatest".into(),
-                    value: &track_latest_binding,
+                    value: track_latest_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumes".into(),
-                    value: &volumes_binding,
+                    value: volumes_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TaskDefinitionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            arn_without_revision: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("arnWithoutRevision"),
-            ),
-            container_definitions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerDefinitions"),
-            ),
-            cpu: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cpu")),
-            ephemeral_storage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ephemeralStorage"),
-            ),
-            execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionRoleArn"),
-            ),
-            family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("family"),
-            ),
-            inference_accelerators: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inferenceAccelerators"),
-            ),
-            ipc_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipcMode"),
-            ),
-            memory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memory"),
-            ),
-            network_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkMode"),
-            ),
-            pid_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pidMode"),
-            ),
-            placement_constraints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementConstraints"),
-            ),
-            proxy_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proxyConfiguration"),
-            ),
-            requires_compatibilities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requiresCompatibilities"),
-            ),
-            revision: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revision"),
-            ),
-            runtime_platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtimePlatform"),
-            ),
-            skip_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipDestroy"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            task_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskRoleArn"),
-            ),
-            track_latest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trackLatest"),
-            ),
-            volumes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumes"),
-            ),
+            arn: o.get_field("arn"),
+            arn_without_revision: o.get_field("arnWithoutRevision"),
+            container_definitions: o.get_field("containerDefinitions"),
+            cpu: o.get_field("cpu"),
+            ephemeral_storage: o.get_field("ephemeralStorage"),
+            execution_role_arn: o.get_field("executionRoleArn"),
+            family: o.get_field("family"),
+            inference_accelerators: o.get_field("inferenceAccelerators"),
+            ipc_mode: o.get_field("ipcMode"),
+            memory: o.get_field("memory"),
+            network_mode: o.get_field("networkMode"),
+            pid_mode: o.get_field("pidMode"),
+            placement_constraints: o.get_field("placementConstraints"),
+            proxy_configuration: o.get_field("proxyConfiguration"),
+            requires_compatibilities: o.get_field("requiresCompatibilities"),
+            revision: o.get_field("revision"),
+            runtime_platform: o.get_field("runtimePlatform"),
+            skip_destroy: o.get_field("skipDestroy"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            task_role_arn: o.get_field("taskRoleArn"),
+            track_latest: o.get_field("trackLatest"),
+            volumes: o.get_field("volumes"),
         }
     }
 }

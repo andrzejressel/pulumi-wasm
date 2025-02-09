@@ -140,148 +140,108 @@ pub mod image_builder {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ImageBuilderArgs,
     ) -> ImageBuilderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_endpoints_binding_1 = args.access_endpoints.get_output(context);
-        let access_endpoints_binding = access_endpoints_binding_1.get_inner();
-        let appstream_agent_version_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_endpoints_binding = args.access_endpoints.get_output(context);
+        let appstream_agent_version_binding = args
             .appstream_agent_version
             .get_output(context);
-        let appstream_agent_version_binding = appstream_agent_version_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let domain_join_info_binding_1 = args.domain_join_info.get_output(context);
-        let domain_join_info_binding = domain_join_info_binding_1.get_inner();
-        let enable_default_internet_access_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let domain_join_info_binding = args.domain_join_info.get_output(context);
+        let enable_default_internet_access_binding = args
             .enable_default_internet_access
             .get_output(context);
-        let enable_default_internet_access_binding = enable_default_internet_access_binding_1
-            .get_inner();
-        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
-        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
-        let image_arn_binding_1 = args.image_arn.get_output(context);
-        let image_arn_binding = image_arn_binding_1.get_inner();
-        let image_name_binding_1 = args.image_name.get_output(context);
-        let image_name_binding = image_name_binding_1.get_inner();
-        let instance_type_binding_1 = args.instance_type.get_output(context);
-        let instance_type_binding = instance_type_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_config_binding_1 = args.vpc_config.get_output(context);
-        let vpc_config_binding = vpc_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let iam_role_arn_binding = args.iam_role_arn.get_output(context);
+        let image_arn_binding = args.image_arn.get_output(context);
+        let image_name_binding = args.image_name.get_output(context);
+        let instance_type_binding = args.instance_type.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_config_binding = args.vpc_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appstream/imageBuilder:ImageBuilder".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessEndpoints".into(),
-                    value: &access_endpoints_binding,
+                    value: access_endpoints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appstreamAgentVersion".into(),
-                    value: &appstream_agent_version_binding,
+                    value: appstream_agent_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainJoinInfo".into(),
-                    value: &domain_join_info_binding,
+                    value: domain_join_info_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableDefaultInternetAccess".into(),
-                    value: &enable_default_internet_access_binding,
+                    value: enable_default_internet_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: &iam_role_arn_binding,
+                    value: iam_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageArn".into(),
-                    value: &image_arn_binding,
+                    value: image_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageName".into(),
-                    value: &image_name_binding,
+                    value: image_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: &instance_type_binding,
+                    value: instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfig".into(),
-                    value: &vpc_config_binding,
+                    value: vpc_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ImageBuilderResult {
-            access_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessEndpoints"),
-            ),
-            appstream_agent_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appstreamAgentVersion"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            domain_join_info: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainJoinInfo"),
-            ),
-            enable_default_internet_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableDefaultInternetAccess"),
-            ),
-            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoleArn"),
-            ),
-            image_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageArn"),
-            ),
-            image_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageName"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfig"),
-            ),
+            access_endpoints: o.get_field("accessEndpoints"),
+            appstream_agent_version: o.get_field("appstreamAgentVersion"),
+            arn: o.get_field("arn"),
+            created_time: o.get_field("createdTime"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            domain_join_info: o.get_field("domainJoinInfo"),
+            enable_default_internet_access: o.get_field("enableDefaultInternetAccess"),
+            iam_role_arn: o.get_field("iamRoleArn"),
+            image_arn: o.get_field("imageArn"),
+            image_name: o.get_field("imageName"),
+            instance_type: o.get_field("instanceType"),
+            name: o.get_field("name"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_config: o.get_field("vpcConfig"),
         }
     }
 }

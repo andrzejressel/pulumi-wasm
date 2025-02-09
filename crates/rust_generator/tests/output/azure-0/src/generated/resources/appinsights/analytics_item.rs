@@ -99,81 +99,63 @@ pub mod analytics_item {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AnalyticsItemArgs,
     ) -> AnalyticsItemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_insights_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_insights_id_binding = args
             .application_insights_id
             .get_output(context);
-        let application_insights_id_binding = application_insights_id_binding_1
-            .get_inner();
-        let content_binding_1 = args.content.get_output(context);
-        let content_binding = content_binding_1.get_inner();
-        let function_alias_binding_1 = args.function_alias.get_output(context);
-        let function_alias_binding = function_alias_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let content_binding = args.content.get_output(context);
+        let function_alias_binding = args.function_alias.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appinsights/analyticsItem:AnalyticsItem".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationInsightsId".into(),
-                    value: &application_insights_id_binding,
+                    value: application_insights_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "content".into(),
-                    value: &content_binding,
+                    value: content_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionAlias".into(),
-                    value: &function_alias_binding,
+                    value: function_alias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AnalyticsItemResult {
-            application_insights_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationInsightsId"),
-            ),
-            content: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("content"),
-            ),
-            function_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionAlias"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
-            time_created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeCreated"),
-            ),
-            time_modified: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeModified"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            application_insights_id: o.get_field("applicationInsightsId"),
+            content: o.get_field("content"),
+            function_alias: o.get_field("functionAlias"),
+            name: o.get_field("name"),
+            scope: o.get_field("scope"),
+            time_created: o.get_field("timeCreated"),
+            time_modified: o.get_field("timeModified"),
+            type_: o.get_field("type"),
+            version: o.get_field("version"),
         }
     }
 }

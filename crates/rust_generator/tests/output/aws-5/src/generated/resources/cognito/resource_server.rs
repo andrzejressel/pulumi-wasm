@@ -101,58 +101,47 @@ pub mod resource_server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResourceServerArgs,
     ) -> ResourceServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identifier_binding_1 = args.identifier.get_output(context);
-        let identifier_binding = identifier_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let scopes_binding_1 = args.scopes.get_output(context);
-        let scopes_binding = scopes_binding_1.get_inner();
-        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
-        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let identifier_binding = args.identifier.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let scopes_binding = args.scopes.get_output(context);
+        let user_pool_id_binding = args.user_pool_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cognito/resourceServer:ResourceServer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identifier".into(),
-                    value: &identifier_binding,
+                    value: identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopes".into(),
-                    value: &scopes_binding,
+                    value: scopes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolId".into(),
-                    value: &user_pool_id_binding,
+                    value: user_pool_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResourceServerResult {
-            identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identifier"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            scope_identifiers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopeIdentifiers"),
-            ),
-            scopes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopes"),
-            ),
-            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPoolId"),
-            ),
+            identifier: o.get_field("identifier"),
+            name: o.get_field("name"),
+            scope_identifiers: o.get_field("scopeIdentifiers"),
+            scopes: o.get_field("scopes"),
+            user_pool_id: o.get_field("userPoolId"),
         }
     }
 }

@@ -52,39 +52,34 @@ pub mod subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SubscriptionArgs,
     ) -> SubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_renew_binding_1 = args.auto_renew.get_output(context);
-        let auto_renew_binding = auto_renew_binding_1.get_inner();
-        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
-        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_renew_binding = args.auto_renew.get_output(context);
+        let skip_destroy_binding = args.skip_destroy.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:shield/subscription:Subscription".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRenew".into(),
-                    value: &auto_renew_binding,
+                    value: auto_renew_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: &skip_destroy_binding,
+                    value: skip_destroy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SubscriptionResult {
-            auto_renew: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoRenew"),
-            ),
-            skip_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipDestroy"),
-            ),
+            auto_renew: o.get_field("autoRenew"),
+            skip_destroy: o.get_field("skipDestroy"),
         }
     }
 }

@@ -133,65 +133,51 @@ pub mod data_lake {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataLakeArgs,
     ) -> DataLakeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_binding_1 = args.configuration.get_output(context);
-        let configuration_binding = configuration_binding_1.get_inner();
-        let meta_store_manager_role_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let configuration_binding = args.configuration.get_output(context);
+        let meta_store_manager_role_arn_binding = args
             .meta_store_manager_role_arn
             .get_output(context);
-        let meta_store_manager_role_arn_binding = meta_store_manager_role_arn_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:securitylake/dataLake:DataLake".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configuration".into(),
-                    value: &configuration_binding,
+                    value: configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metaStoreManagerRoleArn".into(),
-                    value: &meta_store_manager_role_arn_binding,
+                    value: meta_store_manager_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataLakeResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configuration"),
-            ),
-            meta_store_manager_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metaStoreManagerRoleArn"),
-            ),
-            s3_bucket_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3BucketArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            arn: o.get_field("arn"),
+            configuration: o.get_field("configuration"),
+            meta_store_manager_role_arn: o.get_field("metaStoreManagerRoleArn"),
+            s3_bucket_arn: o.get_field("s3BucketArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

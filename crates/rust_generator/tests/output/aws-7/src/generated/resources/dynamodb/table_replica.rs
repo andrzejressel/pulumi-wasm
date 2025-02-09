@@ -101,85 +101,64 @@ pub mod table_replica {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TableReplicaArgs,
     ) -> TableReplicaResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_protection_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let deletion_protection_enabled_binding = args
             .deletion_protection_enabled
             .get_output(context);
-        let deletion_protection_enabled_binding = deletion_protection_enabled_binding_1
-            .get_inner();
-        let global_table_arn_binding_1 = args.global_table_arn.get_output(context);
-        let global_table_arn_binding = global_table_arn_binding_1.get_inner();
-        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
-        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
-        let point_in_time_recovery_binding_1 = args
+        let global_table_arn_binding = args.global_table_arn.get_output(context);
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context);
+        let point_in_time_recovery_binding = args
             .point_in_time_recovery
             .get_output(context);
-        let point_in_time_recovery_binding = point_in_time_recovery_binding_1
-            .get_inner();
-        let table_class_override_binding_1 = args
-            .table_class_override
-            .get_output(context);
-        let table_class_override_binding = table_class_override_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let table_class_override_binding = args.table_class_override.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:dynamodb/tableReplica:TableReplica".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtectionEnabled".into(),
-                    value: &deletion_protection_enabled_binding,
+                    value: deletion_protection_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalTableArn".into(),
-                    value: &global_table_arn_binding,
+                    value: global_table_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: &kms_key_arn_binding,
+                    value: kms_key_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pointInTimeRecovery".into(),
-                    value: &point_in_time_recovery_binding,
+                    value: point_in_time_recovery_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableClassOverride".into(),
-                    value: &table_class_override_binding,
+                    value: table_class_override_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TableReplicaResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            deletion_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtectionEnabled"),
-            ),
-            global_table_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalTableArn"),
-            ),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            point_in_time_recovery: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pointInTimeRecovery"),
-            ),
-            table_class_override: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableClassOverride"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            deletion_protection_enabled: o.get_field("deletionProtectionEnabled"),
+            global_table_arn: o.get_field("globalTableArn"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            point_in_time_recovery: o.get_field("pointInTimeRecovery"),
+            table_class_override: o.get_field("tableClassOverride"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

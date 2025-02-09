@@ -123,55 +123,46 @@ pub mod instance_group_membership {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceGroupMembershipArgs,
     ) -> InstanceGroupMembershipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_binding_1 = args.instance.get_output(context);
-        let instance_binding = instance_binding_1.get_inner();
-        let instance_group_binding_1 = args.instance_group.get_output(context);
-        let instance_group_binding = instance_group_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let instance_binding = args.instance.get_output(context);
+        let instance_group_binding = args.instance_group.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/instanceGroupMembership:InstanceGroupMembership".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instance".into(),
-                    value: &instance_binding,
+                    value: instance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceGroup".into(),
-                    value: &instance_group_binding,
+                    value: instance_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceGroupMembershipResult {
-            instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instance"),
-            ),
-            instance_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceGroup"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            instance: o.get_field("instance"),
+            instance_group: o.get_field("instanceGroup"),
+            project: o.get_field("project"),
+            zone: o.get_field("zone"),
         }
     }
 }

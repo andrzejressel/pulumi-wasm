@@ -182,123 +182,83 @@ pub mod gdc_service_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GdcServiceInstanceArgs,
     ) -> GdcServiceInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let gdce_cluster_binding_1 = args.gdce_cluster.get_output(context);
-        let gdce_cluster_binding = gdce_cluster_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let service_account_binding_1 = args.service_account.get_output(context);
-        let service_account_binding = service_account_binding_1.get_inner();
-        let service_instance_id_binding_1 = args.service_instance_id.get_output(context);
-        let service_instance_id_binding = service_instance_id_binding_1.get_inner();
-        let spark_service_instance_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let display_name_binding = args.display_name.get_output(context);
+        let gdce_cluster_binding = args.gdce_cluster.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let service_account_binding = args.service_account.get_output(context);
+        let service_instance_id_binding = args.service_instance_id.get_output(context);
+        let spark_service_instance_config_binding = args
             .spark_service_instance_config
             .get_output(context);
-        let spark_service_instance_config_binding = spark_service_instance_config_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dataproc/gdcServiceInstance:GdcServiceInstance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gdceCluster".into(),
-                    value: &gdce_cluster_binding,
+                    value: gdce_cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccount".into(),
-                    value: &service_account_binding,
+                    value: service_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceInstanceId".into(),
-                    value: &service_instance_id_binding,
+                    value: service_instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkServiceInstanceConfig".into(),
-                    value: &spark_service_instance_config_binding,
+                    value: spark_service_instance_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GdcServiceInstanceResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            effective_service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveServiceAccount"),
-            ),
-            gdce_cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gdceCluster"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            reconciling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciling"),
-            ),
-            requested_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestedState"),
-            ),
-            service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccount"),
-            ),
-            service_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceInstanceId"),
-            ),
-            spark_service_instance_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparkServiceInstanceConfig"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateMessage"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            create_time: o.get_field("createTime"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            effective_service_account: o.get_field("effectiveServiceAccount"),
+            gdce_cluster: o.get_field("gdceCluster"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            reconciling: o.get_field("reconciling"),
+            requested_state: o.get_field("requestedState"),
+            service_account: o.get_field("serviceAccount"),
+            service_instance_id: o.get_field("serviceInstanceId"),
+            spark_service_instance_config: o.get_field("sparkServiceInstanceConfig"),
+            state: o.get_field("state"),
+            state_message: o.get_field("stateMessage"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

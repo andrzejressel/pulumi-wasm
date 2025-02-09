@@ -101,78 +101,60 @@ pub mod volume_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VolumeAttachmentArgs,
     ) -> VolumeAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let device_name_binding_1 = args.device_name.get_output(context);
-        let device_name_binding = device_name_binding_1.get_inner();
-        let force_detach_binding_1 = args.force_detach.get_output(context);
-        let force_detach_binding = force_detach_binding_1.get_inner();
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
-        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
-        let stop_instance_before_detaching_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let device_name_binding = args.device_name.get_output(context);
+        let force_detach_binding = args.force_detach.get_output(context);
+        let instance_id_binding = args.instance_id.get_output(context);
+        let skip_destroy_binding = args.skip_destroy.get_output(context);
+        let stop_instance_before_detaching_binding = args
             .stop_instance_before_detaching
             .get_output(context);
-        let stop_instance_before_detaching_binding = stop_instance_before_detaching_binding_1
-            .get_inner();
-        let volume_id_binding_1 = args.volume_id.get_output(context);
-        let volume_id_binding = volume_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let volume_id_binding = args.volume_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/volumeAttachment:VolumeAttachment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceName".into(),
-                    value: &device_name_binding,
+                    value: device_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDetach".into(),
-                    value: &force_detach_binding,
+                    value: force_detach_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: &skip_destroy_binding,
+                    value: skip_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stopInstanceBeforeDetaching".into(),
-                    value: &stop_instance_before_detaching_binding,
+                    value: stop_instance_before_detaching_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeId".into(),
-                    value: &volume_id_binding,
+                    value: volume_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VolumeAttachmentResult {
-            device_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deviceName"),
-            ),
-            force_detach: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDetach"),
-            ),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            skip_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipDestroy"),
-            ),
-            stop_instance_before_detaching: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stopInstanceBeforeDetaching"),
-            ),
-            volume_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeId"),
-            ),
+            device_name: o.get_field("deviceName"),
+            force_detach: o.get_field("forceDetach"),
+            instance_id: o.get_field("instanceId"),
+            skip_destroy: o.get_field("skipDestroy"),
+            stop_instance_before_detaching: o.get_field("stopInstanceBeforeDetaching"),
+            volume_id: o.get_field("volumeId"),
         }
     }
 }

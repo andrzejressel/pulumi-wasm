@@ -259,353 +259,245 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_major_version_upgrade_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_major_version_upgrade_binding = args
             .allow_major_version_upgrade
             .get_output(context);
-        let allow_major_version_upgrade_binding = allow_major_version_upgrade_binding_1
-            .get_inner();
-        let apply_immediately_binding_1 = args.apply_immediately.get_output(context);
-        let apply_immediately_binding = apply_immediately_binding_1.get_inner();
-        let availability_zones_binding_1 = args.availability_zones.get_output(context);
-        let availability_zones_binding = availability_zones_binding_1.get_inner();
-        let backup_retention_period_binding_1 = args
+        let apply_immediately_binding = args.apply_immediately.get_output(context);
+        let availability_zones_binding = args.availability_zones.get_output(context);
+        let backup_retention_period_binding = args
             .backup_retention_period
             .get_output(context);
-        let backup_retention_period_binding = backup_retention_period_binding_1
-            .get_inner();
-        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
-        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
-        let cluster_identifier_prefix_binding_1 = args
+        let cluster_identifier_binding = args.cluster_identifier.get_output(context);
+        let cluster_identifier_prefix_binding = args
             .cluster_identifier_prefix
             .get_output(context);
-        let cluster_identifier_prefix_binding = cluster_identifier_prefix_binding_1
-            .get_inner();
-        let copy_tags_to_snapshot_binding_1 = args
+        let copy_tags_to_snapshot_binding = args
             .copy_tags_to_snapshot
             .get_output(context);
-        let copy_tags_to_snapshot_binding = copy_tags_to_snapshot_binding_1.get_inner();
-        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
-        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
-        let enable_cloudwatch_logs_exports_binding_1 = args
+        let deletion_protection_binding = args.deletion_protection.get_output(context);
+        let enable_cloudwatch_logs_exports_binding = args
             .enable_cloudwatch_logs_exports
             .get_output(context);
-        let enable_cloudwatch_logs_exports_binding = enable_cloudwatch_logs_exports_binding_1
-            .get_inner();
-        let engine_binding_1 = args.engine.get_output(context);
-        let engine_binding = engine_binding_1.get_inner();
-        let engine_version_binding_1 = args.engine_version.get_output(context);
-        let engine_version_binding = engine_version_binding_1.get_inner();
-        let final_snapshot_identifier_binding_1 = args
+        let engine_binding = args.engine.get_output(context);
+        let engine_version_binding = args.engine_version.get_output(context);
+        let final_snapshot_identifier_binding = args
             .final_snapshot_identifier
             .get_output(context);
-        let final_snapshot_identifier_binding = final_snapshot_identifier_binding_1
-            .get_inner();
-        let global_cluster_identifier_binding_1 = args
+        let global_cluster_identifier_binding = args
             .global_cluster_identifier
             .get_output(context);
-        let global_cluster_identifier_binding = global_cluster_identifier_binding_1
-            .get_inner();
-        let iam_database_authentication_enabled_binding_1 = args
+        let iam_database_authentication_enabled_binding = args
             .iam_database_authentication_enabled
             .get_output(context);
-        let iam_database_authentication_enabled_binding = iam_database_authentication_enabled_binding_1
-            .get_inner();
-        let iam_roles_binding_1 = args.iam_roles.get_output(context);
-        let iam_roles_binding = iam_roles_binding_1.get_inner();
-        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
-        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
-        let neptune_cluster_parameter_group_name_binding_1 = args
+        let iam_roles_binding = args.iam_roles.get_output(context);
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context);
+        let neptune_cluster_parameter_group_name_binding = args
             .neptune_cluster_parameter_group_name
             .get_output(context);
-        let neptune_cluster_parameter_group_name_binding = neptune_cluster_parameter_group_name_binding_1
-            .get_inner();
-        let neptune_instance_parameter_group_name_binding_1 = args
+        let neptune_instance_parameter_group_name_binding = args
             .neptune_instance_parameter_group_name
             .get_output(context);
-        let neptune_instance_parameter_group_name_binding = neptune_instance_parameter_group_name_binding_1
-            .get_inner();
-        let neptune_subnet_group_name_binding_1 = args
+        let neptune_subnet_group_name_binding = args
             .neptune_subnet_group_name
             .get_output(context);
-        let neptune_subnet_group_name_binding = neptune_subnet_group_name_binding_1
-            .get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let preferred_backup_window_binding_1 = args
+        let port_binding = args.port.get_output(context);
+        let preferred_backup_window_binding = args
             .preferred_backup_window
             .get_output(context);
-        let preferred_backup_window_binding = preferred_backup_window_binding_1
-            .get_inner();
-        let preferred_maintenance_window_binding_1 = args
+        let preferred_maintenance_window_binding = args
             .preferred_maintenance_window
             .get_output(context);
-        let preferred_maintenance_window_binding = preferred_maintenance_window_binding_1
-            .get_inner();
-        let replication_source_identifier_binding_1 = args
+        let replication_source_identifier_binding = args
             .replication_source_identifier
             .get_output(context);
-        let replication_source_identifier_binding = replication_source_identifier_binding_1
-            .get_inner();
-        let serverless_v2_scaling_configuration_binding_1 = args
+        let serverless_v2_scaling_configuration_binding = args
             .serverless_v2_scaling_configuration
             .get_output(context);
-        let serverless_v2_scaling_configuration_binding = serverless_v2_scaling_configuration_binding_1
-            .get_inner();
-        let skip_final_snapshot_binding_1 = args.skip_final_snapshot.get_output(context);
-        let skip_final_snapshot_binding = skip_final_snapshot_binding_1.get_inner();
-        let snapshot_identifier_binding_1 = args.snapshot_identifier.get_output(context);
-        let snapshot_identifier_binding = snapshot_identifier_binding_1.get_inner();
-        let storage_encrypted_binding_1 = args.storage_encrypted.get_output(context);
-        let storage_encrypted_binding = storage_encrypted_binding_1.get_inner();
-        let storage_type_binding_1 = args.storage_type.get_output(context);
-        let storage_type_binding = storage_type_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_security_group_ids_binding_1 = args
+        let skip_final_snapshot_binding = args.skip_final_snapshot.get_output(context);
+        let snapshot_identifier_binding = args.snapshot_identifier.get_output(context);
+        let storage_encrypted_binding = args.storage_encrypted.get_output(context);
+        let storage_type_binding = args.storage_type.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_security_group_ids_binding = args
             .vpc_security_group_ids
             .get_output(context);
-        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:neptune/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowMajorVersionUpgrade".into(),
-                    value: &allow_major_version_upgrade_binding,
+                    value: allow_major_version_upgrade_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applyImmediately".into(),
-                    value: &apply_immediately_binding,
+                    value: apply_immediately_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZones".into(),
-                    value: &availability_zones_binding,
+                    value: availability_zones_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupRetentionPeriod".into(),
-                    value: &backup_retention_period_binding,
+                    value: backup_retention_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: &cluster_identifier_binding,
+                    value: cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifierPrefix".into(),
-                    value: &cluster_identifier_prefix_binding,
+                    value: cluster_identifier_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyTagsToSnapshot".into(),
-                    value: &copy_tags_to_snapshot_binding,
+                    value: copy_tags_to_snapshot_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: &deletion_protection_binding,
+                    value: deletion_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableCloudwatchLogsExports".into(),
-                    value: &enable_cloudwatch_logs_exports_binding,
+                    value: enable_cloudwatch_logs_exports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: &engine_binding,
+                    value: engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: &engine_version_binding,
+                    value: engine_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "finalSnapshotIdentifier".into(),
-                    value: &final_snapshot_identifier_binding,
+                    value: final_snapshot_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalClusterIdentifier".into(),
-                    value: &global_cluster_identifier_binding,
+                    value: global_cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamDatabaseAuthenticationEnabled".into(),
-                    value: &iam_database_authentication_enabled_binding,
+                    value: iam_database_authentication_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoles".into(),
-                    value: &iam_roles_binding,
+                    value: iam_roles_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: &kms_key_arn_binding,
+                    value: kms_key_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "neptuneClusterParameterGroupName".into(),
-                    value: &neptune_cluster_parameter_group_name_binding,
+                    value: neptune_cluster_parameter_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "neptuneInstanceParameterGroupName".into(),
-                    value: &neptune_instance_parameter_group_name_binding,
+                    value: neptune_instance_parameter_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "neptuneSubnetGroupName".into(),
-                    value: &neptune_subnet_group_name_binding,
+                    value: neptune_subnet_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredBackupWindow".into(),
-                    value: &preferred_backup_window_binding,
+                    value: preferred_backup_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredMaintenanceWindow".into(),
-                    value: &preferred_maintenance_window_binding,
+                    value: preferred_maintenance_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationSourceIdentifier".into(),
-                    value: &replication_source_identifier_binding,
+                    value: replication_source_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverlessV2ScalingConfiguration".into(),
-                    value: &serverless_v2_scaling_configuration_binding,
+                    value: serverless_v2_scaling_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipFinalSnapshot".into(),
-                    value: &skip_final_snapshot_binding,
+                    value: skip_final_snapshot_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotIdentifier".into(),
-                    value: &snapshot_identifier_binding,
+                    value: snapshot_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageEncrypted".into(),
-                    value: &storage_encrypted_binding,
+                    value: storage_encrypted_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageType".into(),
-                    value: &storage_type_binding,
+                    value: storage_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSecurityGroupIds".into(),
-                    value: &vpc_security_group_ids_binding,
+                    value: vpc_security_group_ids_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            allow_major_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowMajorVersionUpgrade"),
-            ),
-            apply_immediately: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applyImmediately"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZones"),
-            ),
-            backup_retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupRetentionPeriod"),
-            ),
-            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterIdentifier"),
-            ),
-            cluster_identifier_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterIdentifierPrefix"),
-            ),
-            cluster_members: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterMembers"),
-            ),
-            cluster_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterResourceId"),
-            ),
-            copy_tags_to_snapshot: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("copyTagsToSnapshot"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            enable_cloudwatch_logs_exports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableCloudwatchLogsExports"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            final_snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("finalSnapshotIdentifier"),
-            ),
-            global_cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalClusterIdentifier"),
-            ),
-            hosted_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostedZoneId"),
-            ),
-            iam_database_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamDatabaseAuthenticationEnabled"),
-            ),
-            iam_roles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoles"),
-            ),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            neptune_cluster_parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("neptuneClusterParameterGroupName"),
-            ),
-            neptune_instance_parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("neptuneInstanceParameterGroupName"),
-            ),
-            neptune_subnet_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("neptuneSubnetGroupName"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            preferred_backup_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredBackupWindow"),
-            ),
-            preferred_maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredMaintenanceWindow"),
-            ),
-            reader_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readerEndpoint"),
-            ),
-            replication_source_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationSourceIdentifier"),
-            ),
-            serverless_v2_scaling_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverlessV2ScalingConfiguration"),
-            ),
-            skip_final_snapshot: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipFinalSnapshot"),
-            ),
-            snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotIdentifier"),
-            ),
-            storage_encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageEncrypted"),
-            ),
-            storage_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSecurityGroupIds"),
-            ),
+            allow_major_version_upgrade: o.get_field("allowMajorVersionUpgrade"),
+            apply_immediately: o.get_field("applyImmediately"),
+            arn: o.get_field("arn"),
+            availability_zones: o.get_field("availabilityZones"),
+            backup_retention_period: o.get_field("backupRetentionPeriod"),
+            cluster_identifier: o.get_field("clusterIdentifier"),
+            cluster_identifier_prefix: o.get_field("clusterIdentifierPrefix"),
+            cluster_members: o.get_field("clusterMembers"),
+            cluster_resource_id: o.get_field("clusterResourceId"),
+            copy_tags_to_snapshot: o.get_field("copyTagsToSnapshot"),
+            deletion_protection: o.get_field("deletionProtection"),
+            enable_cloudwatch_logs_exports: o.get_field("enableCloudwatchLogsExports"),
+            endpoint: o.get_field("endpoint"),
+            engine: o.get_field("engine"),
+            engine_version: o.get_field("engineVersion"),
+            final_snapshot_identifier: o.get_field("finalSnapshotIdentifier"),
+            global_cluster_identifier: o.get_field("globalClusterIdentifier"),
+            hosted_zone_id: o.get_field("hostedZoneId"),
+            iam_database_authentication_enabled: o
+                .get_field("iamDatabaseAuthenticationEnabled"),
+            iam_roles: o.get_field("iamRoles"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            neptune_cluster_parameter_group_name: o
+                .get_field("neptuneClusterParameterGroupName"),
+            neptune_instance_parameter_group_name: o
+                .get_field("neptuneInstanceParameterGroupName"),
+            neptune_subnet_group_name: o.get_field("neptuneSubnetGroupName"),
+            port: o.get_field("port"),
+            preferred_backup_window: o.get_field("preferredBackupWindow"),
+            preferred_maintenance_window: o.get_field("preferredMaintenanceWindow"),
+            reader_endpoint: o.get_field("readerEndpoint"),
+            replication_source_identifier: o.get_field("replicationSourceIdentifier"),
+            serverless_v2_scaling_configuration: o
+                .get_field("serverlessV2ScalingConfiguration"),
+            skip_final_snapshot: o.get_field("skipFinalSnapshot"),
+            snapshot_identifier: o.get_field("snapshotIdentifier"),
+            storage_encrypted: o.get_field("storageEncrypted"),
+            storage_type: o.get_field("storageType"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_security_group_ids: o.get_field("vpcSecurityGroupIds"),
         }
     }
 }

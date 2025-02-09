@@ -81,40 +81,35 @@ pub mod voice_connector_termination_credentials {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VoiceConnectorTerminationCredentialsArgs,
     ) -> VoiceConnectorTerminationCredentialsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let credentials_binding_1 = args.credentials.get_output(context);
-        let credentials_binding = credentials_binding_1.get_inner();
-        let voice_connector_id_binding_1 = args.voice_connector_id.get_output(context);
-        let voice_connector_id_binding = voice_connector_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let credentials_binding = args.credentials.get_output(context);
+        let voice_connector_id_binding = args.voice_connector_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credentials".into(),
-                    value: &credentials_binding,
+                    value: credentials_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceConnectorId".into(),
-                    value: &voice_connector_id_binding,
+                    value: voice_connector_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VoiceConnectorTerminationCredentialsResult {
-            credentials: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("credentials"),
-            ),
-            voice_connector_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("voiceConnectorId"),
-            ),
+            credentials: o.get_field("credentials"),
+            voice_connector_id: o.get_field("voiceConnectorId"),
         }
     }
 }

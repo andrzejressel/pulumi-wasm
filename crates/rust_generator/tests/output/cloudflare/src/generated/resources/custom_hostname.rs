@@ -92,96 +92,69 @@ pub mod custom_hostname {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomHostnameArgs,
     ) -> CustomHostnameResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_metadata_binding_1 = args.custom_metadata.get_output(context);
-        let custom_metadata_binding = custom_metadata_binding_1.get_inner();
-        let custom_origin_server_binding_1 = args
-            .custom_origin_server
-            .get_output(context);
-        let custom_origin_server_binding = custom_origin_server_binding_1.get_inner();
-        let custom_origin_sni_binding_1 = args.custom_origin_sni.get_output(context);
-        let custom_origin_sni_binding = custom_origin_sni_binding_1.get_inner();
-        let hostname_binding_1 = args.hostname.get_output(context);
-        let hostname_binding = hostname_binding_1.get_inner();
-        let ssls_binding_1 = args.ssls.get_output(context);
-        let ssls_binding = ssls_binding_1.get_inner();
-        let wait_for_ssl_pending_validation_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let custom_metadata_binding = args.custom_metadata.get_output(context);
+        let custom_origin_server_binding = args.custom_origin_server.get_output(context);
+        let custom_origin_sni_binding = args.custom_origin_sni.get_output(context);
+        let hostname_binding = args.hostname.get_output(context);
+        let ssls_binding = args.ssls.get_output(context);
+        let wait_for_ssl_pending_validation_binding = args
             .wait_for_ssl_pending_validation
             .get_output(context);
-        let wait_for_ssl_pending_validation_binding = wait_for_ssl_pending_validation_binding_1
-            .get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/customHostname:CustomHostname".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customMetadata".into(),
-                    value: &custom_metadata_binding,
+                    value: custom_metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customOriginServer".into(),
-                    value: &custom_origin_server_binding,
+                    value: custom_origin_server_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customOriginSni".into(),
-                    value: &custom_origin_sni_binding,
+                    value: custom_origin_sni_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostname".into(),
-                    value: &hostname_binding,
+                    value: hostname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ssls".into(),
-                    value: &ssls_binding,
+                    value: ssls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForSslPendingValidation".into(),
-                    value: &wait_for_ssl_pending_validation_binding,
+                    value: wait_for_ssl_pending_validation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomHostnameResult {
-            custom_metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customMetadata"),
-            ),
-            custom_origin_server: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customOriginServer"),
-            ),
-            custom_origin_sni: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customOriginSni"),
-            ),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            ownership_verification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownershipVerification"),
-            ),
-            ownership_verification_http: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownershipVerificationHttp"),
-            ),
-            ssls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ssls")),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            wait_for_ssl_pending_validation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForSslPendingValidation"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            custom_metadata: o.get_field("customMetadata"),
+            custom_origin_server: o.get_field("customOriginServer"),
+            custom_origin_sni: o.get_field("customOriginSni"),
+            hostname: o.get_field("hostname"),
+            ownership_verification: o.get_field("ownershipVerification"),
+            ownership_verification_http: o.get_field("ownershipVerificationHttp"),
+            ssls: o.get_field("ssls"),
+            status: o.get_field("status"),
+            wait_for_ssl_pending_validation: o.get_field("waitForSslPendingValidation"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

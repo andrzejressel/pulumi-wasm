@@ -312,249 +312,177 @@ pub mod target_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TargetGroupArgs,
     ) -> TargetGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_termination_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let connection_termination_binding = args
             .connection_termination
             .get_output(context);
-        let connection_termination_binding = connection_termination_binding_1
-            .get_inner();
-        let deregistration_delay_binding_1 = args
-            .deregistration_delay
-            .get_output(context);
-        let deregistration_delay_binding = deregistration_delay_binding_1.get_inner();
-        let health_check_binding_1 = args.health_check.get_output(context);
-        let health_check_binding = health_check_binding_1.get_inner();
-        let ip_address_type_binding_1 = args.ip_address_type.get_output(context);
-        let ip_address_type_binding = ip_address_type_binding_1.get_inner();
-        let lambda_multi_value_headers_enabled_binding_1 = args
+        let deregistration_delay_binding = args.deregistration_delay.get_output(context);
+        let health_check_binding = args.health_check.get_output(context);
+        let ip_address_type_binding = args.ip_address_type.get_output(context);
+        let lambda_multi_value_headers_enabled_binding = args
             .lambda_multi_value_headers_enabled
             .get_output(context);
-        let lambda_multi_value_headers_enabled_binding = lambda_multi_value_headers_enabled_binding_1
-            .get_inner();
-        let load_balancing_algorithm_type_binding_1 = args
+        let load_balancing_algorithm_type_binding = args
             .load_balancing_algorithm_type
             .get_output(context);
-        let load_balancing_algorithm_type_binding = load_balancing_algorithm_type_binding_1
-            .get_inner();
-        let load_balancing_anomaly_mitigation_binding_1 = args
+        let load_balancing_anomaly_mitigation_binding = args
             .load_balancing_anomaly_mitigation
             .get_output(context);
-        let load_balancing_anomaly_mitigation_binding = load_balancing_anomaly_mitigation_binding_1
-            .get_inner();
-        let load_balancing_cross_zone_enabled_binding_1 = args
+        let load_balancing_cross_zone_enabled_binding = args
             .load_balancing_cross_zone_enabled
             .get_output(context);
-        let load_balancing_cross_zone_enabled_binding = load_balancing_cross_zone_enabled_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let preserve_client_ip_binding_1 = args.preserve_client_ip.get_output(context);
-        let preserve_client_ip_binding = preserve_client_ip_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let protocol_version_binding_1 = args.protocol_version.get_output(context);
-        let protocol_version_binding = protocol_version_binding_1.get_inner();
-        let proxy_protocol_v2_binding_1 = args.proxy_protocol_v2.get_output(context);
-        let proxy_protocol_v2_binding = proxy_protocol_v2_binding_1.get_inner();
-        let slow_start_binding_1 = args.slow_start.get_output(context);
-        let slow_start_binding = slow_start_binding_1.get_inner();
-        let stickiness_binding_1 = args.stickiness.get_output(context);
-        let stickiness_binding = stickiness_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_failovers_binding_1 = args.target_failovers.get_output(context);
-        let target_failovers_binding = target_failovers_binding_1.get_inner();
-        let target_group_health_binding_1 = args.target_group_health.get_output(context);
-        let target_group_health_binding = target_group_health_binding_1.get_inner();
-        let target_health_states_binding_1 = args
-            .target_health_states
-            .get_output(context);
-        let target_health_states_binding = target_health_states_binding_1.get_inner();
-        let target_type_binding_1 = args.target_type.get_output(context);
-        let target_type_binding = target_type_binding_1.get_inner();
-        let vpc_id_binding_1 = args.vpc_id.get_output(context);
-        let vpc_id_binding = vpc_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let preserve_client_ip_binding = args.preserve_client_ip.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let protocol_version_binding = args.protocol_version.get_output(context);
+        let proxy_protocol_v2_binding = args.proxy_protocol_v2.get_output(context);
+        let slow_start_binding = args.slow_start.get_output(context);
+        let stickiness_binding = args.stickiness.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_failovers_binding = args.target_failovers.get_output(context);
+        let target_group_health_binding = args.target_group_health.get_output(context);
+        let target_health_states_binding = args.target_health_states.get_output(context);
+        let target_type_binding = args.target_type.get_output(context);
+        let vpc_id_binding = args.vpc_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lb/targetGroup:TargetGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionTermination".into(),
-                    value: &connection_termination_binding,
+                    value: connection_termination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deregistrationDelay".into(),
-                    value: &deregistration_delay_binding,
+                    value: deregistration_delay_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheck".into(),
-                    value: &health_check_binding,
+                    value: health_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddressType".into(),
-                    value: &ip_address_type_binding,
+                    value: ip_address_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaMultiValueHeadersEnabled".into(),
-                    value: &lambda_multi_value_headers_enabled_binding,
+                    value: lambda_multi_value_headers_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancingAlgorithmType".into(),
-                    value: &load_balancing_algorithm_type_binding,
+                    value: load_balancing_algorithm_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancingAnomalyMitigation".into(),
-                    value: &load_balancing_anomaly_mitigation_binding,
+                    value: load_balancing_anomaly_mitigation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancingCrossZoneEnabled".into(),
-                    value: &load_balancing_cross_zone_enabled_binding,
+                    value: load_balancing_cross_zone_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preserveClientIp".into(),
-                    value: &preserve_client_ip_binding,
+                    value: preserve_client_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocolVersion".into(),
-                    value: &protocol_version_binding,
+                    value: protocol_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyProtocolV2".into(),
-                    value: &proxy_protocol_v2_binding,
+                    value: proxy_protocol_v2_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slowStart".into(),
-                    value: &slow_start_binding,
+                    value: slow_start_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stickiness".into(),
-                    value: &stickiness_binding,
+                    value: stickiness_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetFailovers".into(),
-                    value: &target_failovers_binding,
+                    value: target_failovers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetGroupHealth".into(),
-                    value: &target_group_health_binding,
+                    value: target_group_health_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetHealthStates".into(),
-                    value: &target_health_states_binding,
+                    value: target_health_states_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetType".into(),
-                    value: &target_type_binding,
+                    value: target_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: &vpc_id_binding,
+                    value: vpc_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TargetGroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            arn_suffix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("arnSuffix"),
-            ),
-            connection_termination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionTermination"),
-            ),
-            deregistration_delay: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deregistrationDelay"),
-            ),
-            health_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheck"),
-            ),
-            ip_address_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddressType"),
-            ),
-            lambda_multi_value_headers_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lambdaMultiValueHeadersEnabled"),
-            ),
-            load_balancer_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerArns"),
-            ),
-            load_balancing_algorithm_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancingAlgorithmType"),
-            ),
-            load_balancing_anomaly_mitigation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancingAnomalyMitigation"),
-            ),
-            load_balancing_cross_zone_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancingCrossZoneEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            preserve_client_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preserveClientIp"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            protocol_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocolVersion"),
-            ),
-            proxy_protocol_v2: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proxyProtocolV2"),
-            ),
-            slow_start: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("slowStart"),
-            ),
-            stickiness: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stickiness"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_failovers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetFailovers"),
-            ),
-            target_group_health: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetGroupHealth"),
-            ),
-            target_health_states: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetHealthStates"),
-            ),
-            target_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetType"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            arn: o.get_field("arn"),
+            arn_suffix: o.get_field("arnSuffix"),
+            connection_termination: o.get_field("connectionTermination"),
+            deregistration_delay: o.get_field("deregistrationDelay"),
+            health_check: o.get_field("healthCheck"),
+            ip_address_type: o.get_field("ipAddressType"),
+            lambda_multi_value_headers_enabled: o
+                .get_field("lambdaMultiValueHeadersEnabled"),
+            load_balancer_arns: o.get_field("loadBalancerArns"),
+            load_balancing_algorithm_type: o.get_field("loadBalancingAlgorithmType"),
+            load_balancing_anomaly_mitigation: o
+                .get_field("loadBalancingAnomalyMitigation"),
+            load_balancing_cross_zone_enabled: o
+                .get_field("loadBalancingCrossZoneEnabled"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            port: o.get_field("port"),
+            preserve_client_ip: o.get_field("preserveClientIp"),
+            protocol: o.get_field("protocol"),
+            protocol_version: o.get_field("protocolVersion"),
+            proxy_protocol_v2: o.get_field("proxyProtocolV2"),
+            slow_start: o.get_field("slowStart"),
+            stickiness: o.get_field("stickiness"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_failovers: o.get_field("targetFailovers"),
+            target_group_health: o.get_field("targetGroupHealth"),
+            target_health_states: o.get_field("targetHealthStates"),
+            target_type: o.get_field("targetType"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

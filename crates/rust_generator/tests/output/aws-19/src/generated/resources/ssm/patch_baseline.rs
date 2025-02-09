@@ -251,139 +251,105 @@ pub mod patch_baseline {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PatchBaselineArgs,
     ) -> PatchBaselineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let approval_rules_binding_1 = args.approval_rules.get_output(context);
-        let approval_rules_binding = approval_rules_binding_1.get_inner();
-        let approved_patches_binding_1 = args.approved_patches.get_output(context);
-        let approved_patches_binding = approved_patches_binding_1.get_inner();
-        let approved_patches_compliance_level_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let approval_rules_binding = args.approval_rules.get_output(context);
+        let approved_patches_binding = args.approved_patches.get_output(context);
+        let approved_patches_compliance_level_binding = args
             .approved_patches_compliance_level
             .get_output(context);
-        let approved_patches_compliance_level_binding = approved_patches_compliance_level_binding_1
-            .get_inner();
-        let approved_patches_enable_non_security_binding_1 = args
+        let approved_patches_enable_non_security_binding = args
             .approved_patches_enable_non_security
             .get_output(context);
-        let approved_patches_enable_non_security_binding = approved_patches_enable_non_security_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let global_filters_binding_1 = args.global_filters.get_output(context);
-        let global_filters_binding = global_filters_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let operating_system_binding_1 = args.operating_system.get_output(context);
-        let operating_system_binding = operating_system_binding_1.get_inner();
-        let rejected_patches_binding_1 = args.rejected_patches.get_output(context);
-        let rejected_patches_binding = rejected_patches_binding_1.get_inner();
-        let rejected_patches_action_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let global_filters_binding = args.global_filters.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let operating_system_binding = args.operating_system.get_output(context);
+        let rejected_patches_binding = args.rejected_patches.get_output(context);
+        let rejected_patches_action_binding = args
             .rejected_patches_action
             .get_output(context);
-        let rejected_patches_action_binding = rejected_patches_action_binding_1
-            .get_inner();
-        let sources_binding_1 = args.sources.get_output(context);
-        let sources_binding = sources_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let sources_binding = args.sources.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssm/patchBaseline:PatchBaseline".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvalRules".into(),
-                    value: &approval_rules_binding,
+                    value: approval_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvedPatches".into(),
-                    value: &approved_patches_binding,
+                    value: approved_patches_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvedPatchesComplianceLevel".into(),
-                    value: &approved_patches_compliance_level_binding,
+                    value: approved_patches_compliance_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvedPatchesEnableNonSecurity".into(),
-                    value: &approved_patches_enable_non_security_binding,
+                    value: approved_patches_enable_non_security_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalFilters".into(),
-                    value: &global_filters_binding,
+                    value: global_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operatingSystem".into(),
-                    value: &operating_system_binding,
+                    value: operating_system_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rejectedPatches".into(),
-                    value: &rejected_patches_binding,
+                    value: rejected_patches_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rejectedPatchesAction".into(),
-                    value: &rejected_patches_action_binding,
+                    value: rejected_patches_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sources".into(),
-                    value: &sources_binding,
+                    value: sources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PatchBaselineResult {
-            approval_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvalRules"),
-            ),
-            approved_patches: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvedPatches"),
-            ),
-            approved_patches_compliance_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvedPatchesComplianceLevel"),
-            ),
-            approved_patches_enable_non_security: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvedPatchesEnableNonSecurity"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            global_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalFilters"),
-            ),
-            json: pulumi_gestalt_rust::__private::into_domain(o.extract_field("json")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            operating_system: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operatingSystem"),
-            ),
-            rejected_patches: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rejectedPatches"),
-            ),
-            rejected_patches_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rejectedPatchesAction"),
-            ),
-            sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sources"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            approval_rules: o.get_field("approvalRules"),
+            approved_patches: o.get_field("approvedPatches"),
+            approved_patches_compliance_level: o
+                .get_field("approvedPatchesComplianceLevel"),
+            approved_patches_enable_non_security: o
+                .get_field("approvedPatchesEnableNonSecurity"),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            global_filters: o.get_field("globalFilters"),
+            json: o.get_field("json"),
+            name: o.get_field("name"),
+            operating_system: o.get_field("operatingSystem"),
+            rejected_patches: o.get_field("rejectedPatches"),
+            rejected_patches_action: o.get_field("rejectedPatchesAction"),
+            sources: o.get_field("sources"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

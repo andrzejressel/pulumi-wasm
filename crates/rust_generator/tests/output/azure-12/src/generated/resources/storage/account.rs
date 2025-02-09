@@ -557,613 +557,359 @@ pub mod account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_tier_binding_1 = args.access_tier.get_output(context);
-        let access_tier_binding = access_tier_binding_1.get_inner();
-        let account_kind_binding_1 = args.account_kind.get_output(context);
-        let account_kind_binding = account_kind_binding_1.get_inner();
-        let account_replication_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_tier_binding = args.access_tier.get_output(context);
+        let account_kind_binding = args.account_kind.get_output(context);
+        let account_replication_type_binding = args
             .account_replication_type
             .get_output(context);
-        let account_replication_type_binding = account_replication_type_binding_1
-            .get_inner();
-        let account_tier_binding_1 = args.account_tier.get_output(context);
-        let account_tier_binding = account_tier_binding_1.get_inner();
-        let allow_nested_items_to_be_public_binding_1 = args
+        let account_tier_binding = args.account_tier.get_output(context);
+        let allow_nested_items_to_be_public_binding = args
             .allow_nested_items_to_be_public
             .get_output(context);
-        let allow_nested_items_to_be_public_binding = allow_nested_items_to_be_public_binding_1
-            .get_inner();
-        let allowed_copy_scope_binding_1 = args.allowed_copy_scope.get_output(context);
-        let allowed_copy_scope_binding = allowed_copy_scope_binding_1.get_inner();
-        let azure_files_authentication_binding_1 = args
+        let allowed_copy_scope_binding = args.allowed_copy_scope.get_output(context);
+        let azure_files_authentication_binding = args
             .azure_files_authentication
             .get_output(context);
-        let azure_files_authentication_binding = azure_files_authentication_binding_1
-            .get_inner();
-        let blob_properties_binding_1 = args.blob_properties.get_output(context);
-        let blob_properties_binding = blob_properties_binding_1.get_inner();
-        let cross_tenant_replication_enabled_binding_1 = args
+        let blob_properties_binding = args.blob_properties.get_output(context);
+        let cross_tenant_replication_enabled_binding = args
             .cross_tenant_replication_enabled
             .get_output(context);
-        let cross_tenant_replication_enabled_binding = cross_tenant_replication_enabled_binding_1
-            .get_inner();
-        let custom_domain_binding_1 = args.custom_domain.get_output(context);
-        let custom_domain_binding = custom_domain_binding_1.get_inner();
-        let customer_managed_key_binding_1 = args
-            .customer_managed_key
-            .get_output(context);
-        let customer_managed_key_binding = customer_managed_key_binding_1.get_inner();
-        let default_to_oauth_authentication_binding_1 = args
+        let custom_domain_binding = args.custom_domain.get_output(context);
+        let customer_managed_key_binding = args.customer_managed_key.get_output(context);
+        let default_to_oauth_authentication_binding = args
             .default_to_oauth_authentication
             .get_output(context);
-        let default_to_oauth_authentication_binding = default_to_oauth_authentication_binding_1
-            .get_inner();
-        let dns_endpoint_type_binding_1 = args.dns_endpoint_type.get_output(context);
-        let dns_endpoint_type_binding = dns_endpoint_type_binding_1.get_inner();
-        let edge_zone_binding_1 = args.edge_zone.get_output(context);
-        let edge_zone_binding = edge_zone_binding_1.get_inner();
-        let https_traffic_only_enabled_binding_1 = args
+        let dns_endpoint_type_binding = args.dns_endpoint_type.get_output(context);
+        let edge_zone_binding = args.edge_zone.get_output(context);
+        let https_traffic_only_enabled_binding = args
             .https_traffic_only_enabled
             .get_output(context);
-        let https_traffic_only_enabled_binding = https_traffic_only_enabled_binding_1
-            .get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let immutability_policy_binding_1 = args.immutability_policy.get_output(context);
-        let immutability_policy_binding = immutability_policy_binding_1.get_inner();
-        let infrastructure_encryption_enabled_binding_1 = args
+        let identity_binding = args.identity.get_output(context);
+        let immutability_policy_binding = args.immutability_policy.get_output(context);
+        let infrastructure_encryption_enabled_binding = args
             .infrastructure_encryption_enabled
             .get_output(context);
-        let infrastructure_encryption_enabled_binding = infrastructure_encryption_enabled_binding_1
-            .get_inner();
-        let is_hns_enabled_binding_1 = args.is_hns_enabled.get_output(context);
-        let is_hns_enabled_binding = is_hns_enabled_binding_1.get_inner();
-        let large_file_share_enabled_binding_1 = args
+        let is_hns_enabled_binding = args.is_hns_enabled.get_output(context);
+        let large_file_share_enabled_binding = args
             .large_file_share_enabled
             .get_output(context);
-        let large_file_share_enabled_binding = large_file_share_enabled_binding_1
-            .get_inner();
-        let local_user_enabled_binding_1 = args.local_user_enabled.get_output(context);
-        let local_user_enabled_binding = local_user_enabled_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let min_tls_version_binding_1 = args.min_tls_version.get_output(context);
-        let min_tls_version_binding = min_tls_version_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_rules_binding_1 = args.network_rules.get_output(context);
-        let network_rules_binding = network_rules_binding_1.get_inner();
-        let nfsv3_enabled_binding_1 = args.nfsv3_enabled.get_output(context);
-        let nfsv3_enabled_binding = nfsv3_enabled_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let local_user_enabled_binding = args.local_user_enabled.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let min_tls_version_binding = args.min_tls_version.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_rules_binding = args.network_rules.get_output(context);
+        let nfsv3_enabled_binding = args.nfsv3_enabled.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let queue_encryption_key_type_binding_1 = args
+        let queue_encryption_key_type_binding = args
             .queue_encryption_key_type
             .get_output(context);
-        let queue_encryption_key_type_binding = queue_encryption_key_type_binding_1
-            .get_inner();
-        let queue_properties_binding_1 = args.queue_properties.get_output(context);
-        let queue_properties_binding = queue_properties_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let routing_binding_1 = args.routing.get_output(context);
-        let routing_binding = routing_binding_1.get_inner();
-        let sas_policy_binding_1 = args.sas_policy.get_output(context);
-        let sas_policy_binding = sas_policy_binding_1.get_inner();
-        let sftp_enabled_binding_1 = args.sftp_enabled.get_output(context);
-        let sftp_enabled_binding = sftp_enabled_binding_1.get_inner();
-        let share_properties_binding_1 = args.share_properties.get_output(context);
-        let share_properties_binding = share_properties_binding_1.get_inner();
-        let shared_access_key_enabled_binding_1 = args
+        let queue_properties_binding = args.queue_properties.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let routing_binding = args.routing.get_output(context);
+        let sas_policy_binding = args.sas_policy.get_output(context);
+        let sftp_enabled_binding = args.sftp_enabled.get_output(context);
+        let share_properties_binding = args.share_properties.get_output(context);
+        let shared_access_key_enabled_binding = args
             .shared_access_key_enabled
             .get_output(context);
-        let shared_access_key_enabled_binding = shared_access_key_enabled_binding_1
-            .get_inner();
-        let static_website_binding_1 = args.static_website.get_output(context);
-        let static_website_binding = static_website_binding_1.get_inner();
-        let table_encryption_key_type_binding_1 = args
+        let static_website_binding = args.static_website.get_output(context);
+        let table_encryption_key_type_binding = args
             .table_encryption_key_type
             .get_output(context);
-        let table_encryption_key_type_binding = table_encryption_key_type_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/account:Account".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessTier".into(),
-                    value: &access_tier_binding,
+                    value: access_tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountKind".into(),
-                    value: &account_kind_binding,
+                    value: account_kind_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountReplicationType".into(),
-                    value: &account_replication_type_binding,
+                    value: account_replication_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountTier".into(),
-                    value: &account_tier_binding,
+                    value: account_tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowNestedItemsToBePublic".into(),
-                    value: &allow_nested_items_to_be_public_binding,
+                    value: allow_nested_items_to_be_public_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedCopyScope".into(),
-                    value: &allowed_copy_scope_binding,
+                    value: allowed_copy_scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureFilesAuthentication".into(),
-                    value: &azure_files_authentication_binding,
+                    value: azure_files_authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blobProperties".into(),
-                    value: &blob_properties_binding,
+                    value: blob_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "crossTenantReplicationEnabled".into(),
-                    value: &cross_tenant_replication_enabled_binding,
+                    value: cross_tenant_replication_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDomain".into(),
-                    value: &custom_domain_binding,
+                    value: custom_domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKey".into(),
-                    value: &customer_managed_key_binding,
+                    value: customer_managed_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultToOauthAuthentication".into(),
-                    value: &default_to_oauth_authentication_binding,
+                    value: default_to_oauth_authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsEndpointType".into(),
-                    value: &dns_endpoint_type_binding,
+                    value: dns_endpoint_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeZone".into(),
-                    value: &edge_zone_binding,
+                    value: edge_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsTrafficOnlyEnabled".into(),
-                    value: &https_traffic_only_enabled_binding,
+                    value: https_traffic_only_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "immutabilityPolicy".into(),
-                    value: &immutability_policy_binding,
+                    value: immutability_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "infrastructureEncryptionEnabled".into(),
-                    value: &infrastructure_encryption_enabled_binding,
+                    value: infrastructure_encryption_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isHnsEnabled".into(),
-                    value: &is_hns_enabled_binding,
+                    value: is_hns_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "largeFileShareEnabled".into(),
-                    value: &large_file_share_enabled_binding,
+                    value: large_file_share_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localUserEnabled".into(),
-                    value: &local_user_enabled_binding,
+                    value: local_user_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minTlsVersion".into(),
-                    value: &min_tls_version_binding,
+                    value: min_tls_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkRules".into(),
-                    value: &network_rules_binding,
+                    value: network_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nfsv3Enabled".into(),
-                    value: &nfsv3_enabled_binding,
+                    value: nfsv3_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueEncryptionKeyType".into(),
-                    value: &queue_encryption_key_type_binding,
+                    value: queue_encryption_key_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueProperties".into(),
-                    value: &queue_properties_binding,
+                    value: queue_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routing".into(),
-                    value: &routing_binding,
+                    value: routing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sasPolicy".into(),
-                    value: &sas_policy_binding,
+                    value: sas_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sftpEnabled".into(),
-                    value: &sftp_enabled_binding,
+                    value: sftp_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareProperties".into(),
-                    value: &share_properties_binding,
+                    value: share_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccessKeyEnabled".into(),
-                    value: &shared_access_key_enabled_binding,
+                    value: shared_access_key_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staticWebsite".into(),
-                    value: &static_website_binding,
+                    value: static_website_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableEncryptionKeyType".into(),
-                    value: &table_encryption_key_type_binding,
+                    value: table_encryption_key_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountResult {
-            access_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessTier"),
-            ),
-            account_kind: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountKind"),
-            ),
-            account_replication_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountReplicationType"),
-            ),
-            account_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountTier"),
-            ),
-            allow_nested_items_to_be_public: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowNestedItemsToBePublic"),
-            ),
-            allowed_copy_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedCopyScope"),
-            ),
-            azure_files_authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureFilesAuthentication"),
-            ),
-            blob_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blobProperties"),
-            ),
-            cross_tenant_replication_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("crossTenantReplicationEnabled"),
-            ),
-            custom_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDomain"),
-            ),
-            customer_managed_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerManagedKey"),
-            ),
-            default_to_oauth_authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultToOauthAuthentication"),
-            ),
-            dns_endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsEndpointType"),
-            ),
-            edge_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeZone"),
-            ),
-            https_traffic_only_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsTrafficOnlyEnabled"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            immutability_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("immutabilityPolicy"),
-            ),
-            infrastructure_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("infrastructureEncryptionEnabled"),
-            ),
-            is_hns_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isHnsEnabled"),
-            ),
-            large_file_share_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("largeFileShareEnabled"),
-            ),
-            local_user_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localUserEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            min_tls_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minTlsVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkRules"),
-            ),
-            nfsv3_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nfsv3Enabled"),
-            ),
-            primary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryAccessKey"),
-            ),
-            primary_blob_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryBlobConnectionString"),
-            ),
-            primary_blob_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryBlobEndpoint"),
-            ),
-            primary_blob_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryBlobHost"),
-            ),
-            primary_blob_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryBlobInternetEndpoint"),
-            ),
-            primary_blob_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryBlobInternetHost"),
-            ),
-            primary_blob_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryBlobMicrosoftEndpoint"),
-            ),
-            primary_blob_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryBlobMicrosoftHost"),
-            ),
-            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryConnectionString"),
-            ),
-            primary_dfs_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryDfsEndpoint"),
-            ),
-            primary_dfs_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryDfsHost"),
-            ),
-            primary_dfs_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryDfsInternetEndpoint"),
-            ),
-            primary_dfs_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryDfsInternetHost"),
-            ),
-            primary_dfs_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryDfsMicrosoftEndpoint"),
-            ),
-            primary_dfs_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryDfsMicrosoftHost"),
-            ),
-            primary_file_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryFileEndpoint"),
-            ),
-            primary_file_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryFileHost"),
-            ),
-            primary_file_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryFileInternetEndpoint"),
-            ),
-            primary_file_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryFileInternetHost"),
-            ),
-            primary_file_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryFileMicrosoftEndpoint"),
-            ),
-            primary_file_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryFileMicrosoftHost"),
-            ),
-            primary_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryLocation"),
-            ),
-            primary_queue_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryQueueEndpoint"),
-            ),
-            primary_queue_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryQueueHost"),
-            ),
-            primary_queue_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryQueueMicrosoftEndpoint"),
-            ),
-            primary_queue_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryQueueMicrosoftHost"),
-            ),
-            primary_table_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryTableEndpoint"),
-            ),
-            primary_table_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryTableHost"),
-            ),
-            primary_table_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryTableMicrosoftEndpoint"),
-            ),
-            primary_table_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryTableMicrosoftHost"),
-            ),
-            primary_web_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryWebEndpoint"),
-            ),
-            primary_web_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryWebHost"),
-            ),
-            primary_web_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryWebInternetEndpoint"),
-            ),
-            primary_web_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryWebInternetHost"),
-            ),
-            primary_web_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryWebMicrosoftEndpoint"),
-            ),
-            primary_web_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryWebMicrosoftHost"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            queue_encryption_key_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueEncryptionKeyType"),
-            ),
-            queue_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueProperties"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            routing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routing"),
-            ),
-            sas_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sasPolicy"),
-            ),
-            secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryAccessKey"),
-            ),
-            secondary_blob_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryBlobConnectionString"),
-            ),
-            secondary_blob_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryBlobEndpoint"),
-            ),
-            secondary_blob_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryBlobHost"),
-            ),
-            secondary_blob_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryBlobInternetEndpoint"),
-            ),
-            secondary_blob_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryBlobInternetHost"),
-            ),
-            secondary_blob_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryBlobMicrosoftEndpoint"),
-            ),
-            secondary_blob_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryBlobMicrosoftHost"),
-            ),
-            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryConnectionString"),
-            ),
-            secondary_dfs_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryDfsEndpoint"),
-            ),
-            secondary_dfs_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryDfsHost"),
-            ),
-            secondary_dfs_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryDfsInternetEndpoint"),
-            ),
-            secondary_dfs_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryDfsInternetHost"),
-            ),
-            secondary_dfs_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryDfsMicrosoftEndpoint"),
-            ),
-            secondary_dfs_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryDfsMicrosoftHost"),
-            ),
-            secondary_file_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryFileEndpoint"),
-            ),
-            secondary_file_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryFileHost"),
-            ),
-            secondary_file_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryFileInternetEndpoint"),
-            ),
-            secondary_file_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryFileInternetHost"),
-            ),
-            secondary_file_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryFileMicrosoftEndpoint"),
-            ),
-            secondary_file_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryFileMicrosoftHost"),
-            ),
-            secondary_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryLocation"),
-            ),
-            secondary_queue_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryQueueEndpoint"),
-            ),
-            secondary_queue_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryQueueHost"),
-            ),
-            secondary_queue_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryQueueMicrosoftEndpoint"),
-            ),
-            secondary_queue_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryQueueMicrosoftHost"),
-            ),
-            secondary_table_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryTableEndpoint"),
-            ),
-            secondary_table_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryTableHost"),
-            ),
-            secondary_table_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryTableMicrosoftEndpoint"),
-            ),
-            secondary_table_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryTableMicrosoftHost"),
-            ),
-            secondary_web_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryWebEndpoint"),
-            ),
-            secondary_web_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryWebHost"),
-            ),
-            secondary_web_internet_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryWebInternetEndpoint"),
-            ),
-            secondary_web_internet_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryWebInternetHost"),
-            ),
-            secondary_web_microsoft_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryWebMicrosoftEndpoint"),
-            ),
-            secondary_web_microsoft_host: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryWebMicrosoftHost"),
-            ),
-            sftp_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sftpEnabled"),
-            ),
-            share_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shareProperties"),
-            ),
-            shared_access_key_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharedAccessKeyEnabled"),
-            ),
-            static_website: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("staticWebsite"),
-            ),
-            table_encryption_key_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableEncryptionKeyType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            access_tier: o.get_field("accessTier"),
+            account_kind: o.get_field("accountKind"),
+            account_replication_type: o.get_field("accountReplicationType"),
+            account_tier: o.get_field("accountTier"),
+            allow_nested_items_to_be_public: o.get_field("allowNestedItemsToBePublic"),
+            allowed_copy_scope: o.get_field("allowedCopyScope"),
+            azure_files_authentication: o.get_field("azureFilesAuthentication"),
+            blob_properties: o.get_field("blobProperties"),
+            cross_tenant_replication_enabled: o
+                .get_field("crossTenantReplicationEnabled"),
+            custom_domain: o.get_field("customDomain"),
+            customer_managed_key: o.get_field("customerManagedKey"),
+            default_to_oauth_authentication: o.get_field("defaultToOauthAuthentication"),
+            dns_endpoint_type: o.get_field("dnsEndpointType"),
+            edge_zone: o.get_field("edgeZone"),
+            https_traffic_only_enabled: o.get_field("httpsTrafficOnlyEnabled"),
+            identity: o.get_field("identity"),
+            immutability_policy: o.get_field("immutabilityPolicy"),
+            infrastructure_encryption_enabled: o
+                .get_field("infrastructureEncryptionEnabled"),
+            is_hns_enabled: o.get_field("isHnsEnabled"),
+            large_file_share_enabled: o.get_field("largeFileShareEnabled"),
+            local_user_enabled: o.get_field("localUserEnabled"),
+            location: o.get_field("location"),
+            min_tls_version: o.get_field("minTlsVersion"),
+            name: o.get_field("name"),
+            network_rules: o.get_field("networkRules"),
+            nfsv3_enabled: o.get_field("nfsv3Enabled"),
+            primary_access_key: o.get_field("primaryAccessKey"),
+            primary_blob_connection_string: o.get_field("primaryBlobConnectionString"),
+            primary_blob_endpoint: o.get_field("primaryBlobEndpoint"),
+            primary_blob_host: o.get_field("primaryBlobHost"),
+            primary_blob_internet_endpoint: o.get_field("primaryBlobInternetEndpoint"),
+            primary_blob_internet_host: o.get_field("primaryBlobInternetHost"),
+            primary_blob_microsoft_endpoint: o.get_field("primaryBlobMicrosoftEndpoint"),
+            primary_blob_microsoft_host: o.get_field("primaryBlobMicrosoftHost"),
+            primary_connection_string: o.get_field("primaryConnectionString"),
+            primary_dfs_endpoint: o.get_field("primaryDfsEndpoint"),
+            primary_dfs_host: o.get_field("primaryDfsHost"),
+            primary_dfs_internet_endpoint: o.get_field("primaryDfsInternetEndpoint"),
+            primary_dfs_internet_host: o.get_field("primaryDfsInternetHost"),
+            primary_dfs_microsoft_endpoint: o.get_field("primaryDfsMicrosoftEndpoint"),
+            primary_dfs_microsoft_host: o.get_field("primaryDfsMicrosoftHost"),
+            primary_file_endpoint: o.get_field("primaryFileEndpoint"),
+            primary_file_host: o.get_field("primaryFileHost"),
+            primary_file_internet_endpoint: o.get_field("primaryFileInternetEndpoint"),
+            primary_file_internet_host: o.get_field("primaryFileInternetHost"),
+            primary_file_microsoft_endpoint: o.get_field("primaryFileMicrosoftEndpoint"),
+            primary_file_microsoft_host: o.get_field("primaryFileMicrosoftHost"),
+            primary_location: o.get_field("primaryLocation"),
+            primary_queue_endpoint: o.get_field("primaryQueueEndpoint"),
+            primary_queue_host: o.get_field("primaryQueueHost"),
+            primary_queue_microsoft_endpoint: o
+                .get_field("primaryQueueMicrosoftEndpoint"),
+            primary_queue_microsoft_host: o.get_field("primaryQueueMicrosoftHost"),
+            primary_table_endpoint: o.get_field("primaryTableEndpoint"),
+            primary_table_host: o.get_field("primaryTableHost"),
+            primary_table_microsoft_endpoint: o
+                .get_field("primaryTableMicrosoftEndpoint"),
+            primary_table_microsoft_host: o.get_field("primaryTableMicrosoftHost"),
+            primary_web_endpoint: o.get_field("primaryWebEndpoint"),
+            primary_web_host: o.get_field("primaryWebHost"),
+            primary_web_internet_endpoint: o.get_field("primaryWebInternetEndpoint"),
+            primary_web_internet_host: o.get_field("primaryWebInternetHost"),
+            primary_web_microsoft_endpoint: o.get_field("primaryWebMicrosoftEndpoint"),
+            primary_web_microsoft_host: o.get_field("primaryWebMicrosoftHost"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            queue_encryption_key_type: o.get_field("queueEncryptionKeyType"),
+            queue_properties: o.get_field("queueProperties"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            routing: o.get_field("routing"),
+            sas_policy: o.get_field("sasPolicy"),
+            secondary_access_key: o.get_field("secondaryAccessKey"),
+            secondary_blob_connection_string: o
+                .get_field("secondaryBlobConnectionString"),
+            secondary_blob_endpoint: o.get_field("secondaryBlobEndpoint"),
+            secondary_blob_host: o.get_field("secondaryBlobHost"),
+            secondary_blob_internet_endpoint: o
+                .get_field("secondaryBlobInternetEndpoint"),
+            secondary_blob_internet_host: o.get_field("secondaryBlobInternetHost"),
+            secondary_blob_microsoft_endpoint: o
+                .get_field("secondaryBlobMicrosoftEndpoint"),
+            secondary_blob_microsoft_host: o.get_field("secondaryBlobMicrosoftHost"),
+            secondary_connection_string: o.get_field("secondaryConnectionString"),
+            secondary_dfs_endpoint: o.get_field("secondaryDfsEndpoint"),
+            secondary_dfs_host: o.get_field("secondaryDfsHost"),
+            secondary_dfs_internet_endpoint: o.get_field("secondaryDfsInternetEndpoint"),
+            secondary_dfs_internet_host: o.get_field("secondaryDfsInternetHost"),
+            secondary_dfs_microsoft_endpoint: o
+                .get_field("secondaryDfsMicrosoftEndpoint"),
+            secondary_dfs_microsoft_host: o.get_field("secondaryDfsMicrosoftHost"),
+            secondary_file_endpoint: o.get_field("secondaryFileEndpoint"),
+            secondary_file_host: o.get_field("secondaryFileHost"),
+            secondary_file_internet_endpoint: o
+                .get_field("secondaryFileInternetEndpoint"),
+            secondary_file_internet_host: o.get_field("secondaryFileInternetHost"),
+            secondary_file_microsoft_endpoint: o
+                .get_field("secondaryFileMicrosoftEndpoint"),
+            secondary_file_microsoft_host: o.get_field("secondaryFileMicrosoftHost"),
+            secondary_location: o.get_field("secondaryLocation"),
+            secondary_queue_endpoint: o.get_field("secondaryQueueEndpoint"),
+            secondary_queue_host: o.get_field("secondaryQueueHost"),
+            secondary_queue_microsoft_endpoint: o
+                .get_field("secondaryQueueMicrosoftEndpoint"),
+            secondary_queue_microsoft_host: o.get_field("secondaryQueueMicrosoftHost"),
+            secondary_table_endpoint: o.get_field("secondaryTableEndpoint"),
+            secondary_table_host: o.get_field("secondaryTableHost"),
+            secondary_table_microsoft_endpoint: o
+                .get_field("secondaryTableMicrosoftEndpoint"),
+            secondary_table_microsoft_host: o.get_field("secondaryTableMicrosoftHost"),
+            secondary_web_endpoint: o.get_field("secondaryWebEndpoint"),
+            secondary_web_host: o.get_field("secondaryWebHost"),
+            secondary_web_internet_endpoint: o.get_field("secondaryWebInternetEndpoint"),
+            secondary_web_internet_host: o.get_field("secondaryWebInternetHost"),
+            secondary_web_microsoft_endpoint: o
+                .get_field("secondaryWebMicrosoftEndpoint"),
+            secondary_web_microsoft_host: o.get_field("secondaryWebMicrosoftHost"),
+            sftp_enabled: o.get_field("sftpEnabled"),
+            share_properties: o.get_field("shareProperties"),
+            shared_access_key_enabled: o.get_field("sharedAccessKeyEnabled"),
+            static_website: o.get_field("staticWebsite"),
+            table_encryption_key_type: o.get_field("tableEncryptionKeyType"),
+            tags: o.get_field("tags"),
         }
     }
 }

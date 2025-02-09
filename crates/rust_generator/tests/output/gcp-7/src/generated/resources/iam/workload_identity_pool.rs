@@ -139,71 +139,56 @@ pub mod workload_identity_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkloadIdentityPoolArgs,
     ) -> WorkloadIdentityPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let workload_identity_pool_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let disabled_binding = args.disabled.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let workload_identity_pool_id_binding = args
             .workload_identity_pool_id
             .get_output(context);
-        let workload_identity_pool_id_binding = workload_identity_pool_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:iam/workloadIdentityPool:WorkloadIdentityPool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadIdentityPoolId".into(),
-                    value: &workload_identity_pool_id_binding,
+                    value: workload_identity_pool_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkloadIdentityPoolResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            workload_identity_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadIdentityPoolId"),
-            ),
+            description: o.get_field("description"),
+            disabled: o.get_field("disabled"),
+            display_name: o.get_field("displayName"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            state: o.get_field("state"),
+            workload_identity_pool_id: o.get_field("workloadIdentityPoolId"),
         }
     }
 }

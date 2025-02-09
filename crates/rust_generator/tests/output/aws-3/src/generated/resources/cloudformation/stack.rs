@@ -141,140 +141,102 @@ pub mod stack {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StackArgs,
     ) -> StackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capabilities_binding_1 = args.capabilities.get_output(context);
-        let capabilities_binding = capabilities_binding_1.get_inner();
-        let disable_rollback_binding_1 = args.disable_rollback.get_output(context);
-        let disable_rollback_binding = disable_rollback_binding_1.get_inner();
-        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
-        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let notification_arns_binding_1 = args.notification_arns.get_output(context);
-        let notification_arns_binding = notification_arns_binding_1.get_inner();
-        let on_failure_binding_1 = args.on_failure.get_output(context);
-        let on_failure_binding = on_failure_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let policy_body_binding_1 = args.policy_body.get_output(context);
-        let policy_body_binding = policy_body_binding_1.get_inner();
-        let policy_url_binding_1 = args.policy_url.get_output(context);
-        let policy_url_binding = policy_url_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let template_body_binding_1 = args.template_body.get_output(context);
-        let template_body_binding = template_body_binding_1.get_inner();
-        let template_url_binding_1 = args.template_url.get_output(context);
-        let template_url_binding = template_url_binding_1.get_inner();
-        let timeout_in_minutes_binding_1 = args.timeout_in_minutes.get_output(context);
-        let timeout_in_minutes_binding = timeout_in_minutes_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let capabilities_binding = args.capabilities.get_output(context);
+        let disable_rollback_binding = args.disable_rollback.get_output(context);
+        let iam_role_arn_binding = args.iam_role_arn.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let notification_arns_binding = args.notification_arns.get_output(context);
+        let on_failure_binding = args.on_failure.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let policy_body_binding = args.policy_body.get_output(context);
+        let policy_url_binding = args.policy_url.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let template_body_binding = args.template_body.get_output(context);
+        let template_url_binding = args.template_url.get_output(context);
+        let timeout_in_minutes_binding = args.timeout_in_minutes.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudformation/stack:Stack".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capabilities".into(),
-                    value: &capabilities_binding,
+                    value: capabilities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableRollback".into(),
-                    value: &disable_rollback_binding,
+                    value: disable_rollback_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: &iam_role_arn_binding,
+                    value: iam_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationArns".into(),
-                    value: &notification_arns_binding,
+                    value: notification_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onFailure".into(),
-                    value: &on_failure_binding,
+                    value: on_failure_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyBody".into(),
-                    value: &policy_body_binding,
+                    value: policy_body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyUrl".into(),
-                    value: &policy_url_binding,
+                    value: policy_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateBody".into(),
-                    value: &template_body_binding,
+                    value: template_body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateUrl".into(),
-                    value: &template_url_binding,
+                    value: template_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeoutInMinutes".into(),
-                    value: &timeout_in_minutes_binding,
+                    value: timeout_in_minutes_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StackResult {
-            capabilities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capabilities"),
-            ),
-            disable_rollback: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableRollback"),
-            ),
-            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoleArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationArns"),
-            ),
-            on_failure: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("onFailure"),
-            ),
-            outputs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputs"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            policy_body: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyBody"),
-            ),
-            policy_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyUrl"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            template_body: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateBody"),
-            ),
-            template_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateUrl"),
-            ),
-            timeout_in_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeoutInMinutes"),
-            ),
+            capabilities: o.get_field("capabilities"),
+            disable_rollback: o.get_field("disableRollback"),
+            iam_role_arn: o.get_field("iamRoleArn"),
+            name: o.get_field("name"),
+            notification_arns: o.get_field("notificationArns"),
+            on_failure: o.get_field("onFailure"),
+            outputs: o.get_field("outputs"),
+            parameters: o.get_field("parameters"),
+            policy_body: o.get_field("policyBody"),
+            policy_url: o.get_field("policyUrl"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            template_body: o.get_field("templateBody"),
+            template_url: o.get_field("templateUrl"),
+            timeout_in_minutes: o.get_field("timeoutInMinutes"),
         }
     }
 }

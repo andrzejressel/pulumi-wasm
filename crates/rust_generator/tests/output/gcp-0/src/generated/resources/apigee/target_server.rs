@@ -194,87 +194,70 @@ pub mod target_server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TargetServerArgs,
     ) -> TargetServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let env_id_binding_1 = args.env_id.get_output(context);
-        let env_id_binding = env_id_binding_1.get_inner();
-        let host_binding_1 = args.host.get_output(context);
-        let host_binding = host_binding_1.get_inner();
-        let is_enabled_binding_1 = args.is_enabled.get_output(context);
-        let is_enabled_binding = is_enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let s_sl_info_binding_1 = args.s_sl_info.get_output(context);
-        let s_sl_info_binding = s_sl_info_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let env_id_binding = args.env_id.get_output(context);
+        let host_binding = args.host.get_output(context);
+        let is_enabled_binding = args.is_enabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let s_sl_info_binding = args.s_sl_info.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apigee/targetServer:TargetServer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "envId".into(),
-                    value: &env_id_binding,
+                    value: env_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: &host_binding,
+                    value: host_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isEnabled".into(),
-                    value: &is_enabled_binding,
+                    value: is_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sSlInfo".into(),
-                    value: &s_sl_info_binding,
+                    value: s_sl_info_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TargetServerResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            env_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("envId"),
-            ),
-            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
-            is_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            s_sl_info: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sSlInfo"),
-            ),
+            description: o.get_field("description"),
+            env_id: o.get_field("envId"),
+            host: o.get_field("host"),
+            is_enabled: o.get_field("isEnabled"),
+            name: o.get_field("name"),
+            port: o.get_field("port"),
+            protocol: o.get_field("protocol"),
+            s_sl_info: o.get_field("sSlInfo"),
         }
     }
 }

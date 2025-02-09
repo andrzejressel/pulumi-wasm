@@ -75,79 +75,58 @@ pub mod endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointArgs,
     ) -> EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_type_binding_1 = args.access_type.get_output(context);
-        let access_type_binding = access_type_binding_1.get_inner();
-        let customer_owned_ipv4_pool_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_type_binding = args.access_type.get_output(context);
+        let customer_owned_ipv4_pool_binding = args
             .customer_owned_ipv4_pool
             .get_output(context);
-        let customer_owned_ipv4_pool_binding = customer_owned_ipv4_pool_binding_1
-            .get_inner();
-        let outpost_id_binding_1 = args.outpost_id.get_output(context);
-        let outpost_id_binding = outpost_id_binding_1.get_inner();
-        let security_group_id_binding_1 = args.security_group_id.get_output(context);
-        let security_group_id_binding = security_group_id_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let outpost_id_binding = args.outpost_id.get_output(context);
+        let security_group_id_binding = args.security_group_id.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:s3outposts/endpoint:Endpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessType".into(),
-                    value: &access_type_binding,
+                    value: access_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerOwnedIpv4Pool".into(),
-                    value: &customer_owned_ipv4_pool_binding,
+                    value: customer_owned_ipv4_pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outpostId".into(),
-                    value: &outpost_id_binding,
+                    value: outpost_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupId".into(),
-                    value: &security_group_id_binding,
+                    value: security_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointResult {
-            access_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessType"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrBlock"),
-            ),
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            customer_owned_ipv4_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerOwnedIpv4Pool"),
-            ),
-            network_interfaces: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaces"),
-            ),
-            outpost_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostId"),
-            ),
-            security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupId"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
+            access_type: o.get_field("accessType"),
+            arn: o.get_field("arn"),
+            cidr_block: o.get_field("cidrBlock"),
+            creation_time: o.get_field("creationTime"),
+            customer_owned_ipv4_pool: o.get_field("customerOwnedIpv4Pool"),
+            network_interfaces: o.get_field("networkInterfaces"),
+            outpost_id: o.get_field("outpostId"),
+            security_group_id: o.get_field("securityGroupId"),
+            subnet_id: o.get_field("subnetId"),
         }
     }
 }

@@ -137,123 +137,85 @@ pub mod vpc_endpoint_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcEndpointServiceArgs,
     ) -> VpcEndpointServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let acceptance_required_binding_1 = args.acceptance_required.get_output(context);
-        let acceptance_required_binding = acceptance_required_binding_1.get_inner();
-        let allowed_principals_binding_1 = args.allowed_principals.get_output(context);
-        let allowed_principals_binding = allowed_principals_binding_1.get_inner();
-        let gateway_load_balancer_arns_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let acceptance_required_binding = args.acceptance_required.get_output(context);
+        let allowed_principals_binding = args.allowed_principals.get_output(context);
+        let gateway_load_balancer_arns_binding = args
             .gateway_load_balancer_arns
             .get_output(context);
-        let gateway_load_balancer_arns_binding = gateway_load_balancer_arns_binding_1
-            .get_inner();
-        let network_load_balancer_arns_binding_1 = args
+        let network_load_balancer_arns_binding = args
             .network_load_balancer_arns
             .get_output(context);
-        let network_load_balancer_arns_binding = network_load_balancer_arns_binding_1
-            .get_inner();
-        let private_dns_name_binding_1 = args.private_dns_name.get_output(context);
-        let private_dns_name_binding = private_dns_name_binding_1.get_inner();
-        let supported_ip_address_types_binding_1 = args
+        let private_dns_name_binding = args.private_dns_name.get_output(context);
+        let supported_ip_address_types_binding = args
             .supported_ip_address_types
             .get_output(context);
-        let supported_ip_address_types_binding = supported_ip_address_types_binding_1
-            .get_inner();
-        let supported_regions_binding_1 = args.supported_regions.get_output(context);
-        let supported_regions_binding = supported_regions_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let supported_regions_binding = args.supported_regions.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcEndpointService:VpcEndpointService".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptanceRequired".into(),
-                    value: &acceptance_required_binding,
+                    value: acceptance_required_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedPrincipals".into(),
-                    value: &allowed_principals_binding,
+                    value: allowed_principals_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayLoadBalancerArns".into(),
-                    value: &gateway_load_balancer_arns_binding,
+                    value: gateway_load_balancer_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkLoadBalancerArns".into(),
-                    value: &network_load_balancer_arns_binding,
+                    value: network_load_balancer_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateDnsName".into(),
-                    value: &private_dns_name_binding,
+                    value: private_dns_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedIpAddressTypes".into(),
-                    value: &supported_ip_address_types_binding,
+                    value: supported_ip_address_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedRegions".into(),
-                    value: &supported_regions_binding,
+                    value: supported_regions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcEndpointServiceResult {
-            acceptance_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceptanceRequired"),
-            ),
-            allowed_principals: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedPrincipals"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZones"),
-            ),
-            base_endpoint_dns_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseEndpointDnsNames"),
-            ),
-            gateway_load_balancer_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayLoadBalancerArns"),
-            ),
-            manages_vpc_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managesVpcEndpoints"),
-            ),
-            network_load_balancer_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkLoadBalancerArns"),
-            ),
-            private_dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDnsName"),
-            ),
-            private_dns_name_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDnsNameConfigurations"),
-            ),
-            service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceName"),
-            ),
-            service_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceType"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            supported_ip_address_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedIpAddressTypes"),
-            ),
-            supported_regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedRegions"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            acceptance_required: o.get_field("acceptanceRequired"),
+            allowed_principals: o.get_field("allowedPrincipals"),
+            arn: o.get_field("arn"),
+            availability_zones: o.get_field("availabilityZones"),
+            base_endpoint_dns_names: o.get_field("baseEndpointDnsNames"),
+            gateway_load_balancer_arns: o.get_field("gatewayLoadBalancerArns"),
+            manages_vpc_endpoints: o.get_field("managesVpcEndpoints"),
+            network_load_balancer_arns: o.get_field("networkLoadBalancerArns"),
+            private_dns_name: o.get_field("privateDnsName"),
+            private_dns_name_configurations: o.get_field("privateDnsNameConfigurations"),
+            service_name: o.get_field("serviceName"),
+            service_type: o.get_field("serviceType"),
+            state: o.get_field("state"),
+            supported_ip_address_types: o.get_field("supportedIpAddressTypes"),
+            supported_regions: o.get_field("supportedRegions"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

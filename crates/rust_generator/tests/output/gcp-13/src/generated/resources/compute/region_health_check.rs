@@ -448,164 +448,116 @@ pub mod region_health_check {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegionHealthCheckArgs,
     ) -> RegionHealthCheckResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let check_interval_sec_binding_1 = args.check_interval_sec.get_output(context);
-        let check_interval_sec_binding = check_interval_sec_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let grpc_health_check_binding_1 = args.grpc_health_check.get_output(context);
-        let grpc_health_check_binding = grpc_health_check_binding_1.get_inner();
-        let healthy_threshold_binding_1 = args.healthy_threshold.get_output(context);
-        let healthy_threshold_binding = healthy_threshold_binding_1.get_inner();
-        let http2_health_check_binding_1 = args.http2_health_check.get_output(context);
-        let http2_health_check_binding = http2_health_check_binding_1.get_inner();
-        let http_health_check_binding_1 = args.http_health_check.get_output(context);
-        let http_health_check_binding = http_health_check_binding_1.get_inner();
-        let https_health_check_binding_1 = args.https_health_check.get_output(context);
-        let https_health_check_binding = https_health_check_binding_1.get_inner();
-        let log_config_binding_1 = args.log_config.get_output(context);
-        let log_config_binding = log_config_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let ssl_health_check_binding_1 = args.ssl_health_check.get_output(context);
-        let ssl_health_check_binding = ssl_health_check_binding_1.get_inner();
-        let tcp_health_check_binding_1 = args.tcp_health_check.get_output(context);
-        let tcp_health_check_binding = tcp_health_check_binding_1.get_inner();
-        let timeout_sec_binding_1 = args.timeout_sec.get_output(context);
-        let timeout_sec_binding = timeout_sec_binding_1.get_inner();
-        let unhealthy_threshold_binding_1 = args.unhealthy_threshold.get_output(context);
-        let unhealthy_threshold_binding = unhealthy_threshold_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let check_interval_sec_binding = args.check_interval_sec.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let grpc_health_check_binding = args.grpc_health_check.get_output(context);
+        let healthy_threshold_binding = args.healthy_threshold.get_output(context);
+        let http2_health_check_binding = args.http2_health_check.get_output(context);
+        let http_health_check_binding = args.http_health_check.get_output(context);
+        let https_health_check_binding = args.https_health_check.get_output(context);
+        let log_config_binding = args.log_config.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let ssl_health_check_binding = args.ssl_health_check.get_output(context);
+        let tcp_health_check_binding = args.tcp_health_check.get_output(context);
+        let timeout_sec_binding = args.timeout_sec.get_output(context);
+        let unhealthy_threshold_binding = args.unhealthy_threshold.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/regionHealthCheck:RegionHealthCheck".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "checkIntervalSec".into(),
-                    value: &check_interval_sec_binding,
+                    value: check_interval_sec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grpcHealthCheck".into(),
-                    value: &grpc_health_check_binding,
+                    value: grpc_health_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthyThreshold".into(),
-                    value: &healthy_threshold_binding,
+                    value: healthy_threshold_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "http2HealthCheck".into(),
-                    value: &http2_health_check_binding,
+                    value: http2_health_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpHealthCheck".into(),
-                    value: &http_health_check_binding,
+                    value: http_health_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsHealthCheck".into(),
-                    value: &https_health_check_binding,
+                    value: https_health_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfig".into(),
-                    value: &log_config_binding,
+                    value: log_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslHealthCheck".into(),
-                    value: &ssl_health_check_binding,
+                    value: ssl_health_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tcpHealthCheck".into(),
-                    value: &tcp_health_check_binding,
+                    value: tcp_health_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeoutSec".into(),
-                    value: &timeout_sec_binding,
+                    value: timeout_sec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "unhealthyThreshold".into(),
-                    value: &unhealthy_threshold_binding,
+                    value: unhealthy_threshold_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegionHealthCheckResult {
-            check_interval_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checkIntervalSec"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            grpc_health_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grpcHealthCheck"),
-            ),
-            health_check_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckId"),
-            ),
-            healthy_threshold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthyThreshold"),
-            ),
-            http2_health_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("http2HealthCheck"),
-            ),
-            http_health_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpHealthCheck"),
-            ),
-            https_health_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsHealthCheck"),
-            ),
-            log_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            ssl_health_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslHealthCheck"),
-            ),
-            tcp_health_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tcpHealthCheck"),
-            ),
-            timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeoutSec"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            unhealthy_threshold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("unhealthyThreshold"),
-            ),
+            check_interval_sec: o.get_field("checkIntervalSec"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            grpc_health_check: o.get_field("grpcHealthCheck"),
+            health_check_id: o.get_field("healthCheckId"),
+            healthy_threshold: o.get_field("healthyThreshold"),
+            http2_health_check: o.get_field("http2HealthCheck"),
+            http_health_check: o.get_field("httpHealthCheck"),
+            https_health_check: o.get_field("httpsHealthCheck"),
+            log_config: o.get_field("logConfig"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            self_link: o.get_field("selfLink"),
+            ssl_health_check: o.get_field("sslHealthCheck"),
+            tcp_health_check: o.get_field("tcpHealthCheck"),
+            timeout_sec: o.get_field("timeoutSec"),
+            type_: o.get_field("type"),
+            unhealthy_threshold: o.get_field("unhealthyThreshold"),
         }
     }
 }

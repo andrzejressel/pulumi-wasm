@@ -139,126 +139,95 @@ pub mod network {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkArgs,
     ) -> NetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attachable_binding_1 = args.attachable.get_output(context);
-        let attachable_binding = attachable_binding_1.get_inner();
-        let check_duplicate_binding_1 = args.check_duplicate.get_output(context);
-        let check_duplicate_binding = check_duplicate_binding_1.get_inner();
-        let driver_binding_1 = args.driver.get_output(context);
-        let driver_binding = driver_binding_1.get_inner();
-        let ingress_binding_1 = args.ingress.get_output(context);
-        let ingress_binding = ingress_binding_1.get_inner();
-        let internal_binding_1 = args.internal.get_output(context);
-        let internal_binding = internal_binding_1.get_inner();
-        let ipam_configs_binding_1 = args.ipam_configs.get_output(context);
-        let ipam_configs_binding = ipam_configs_binding_1.get_inner();
-        let ipam_driver_binding_1 = args.ipam_driver.get_output(context);
-        let ipam_driver_binding = ipam_driver_binding_1.get_inner();
-        let ipam_options_binding_1 = args.ipam_options.get_output(context);
-        let ipam_options_binding = ipam_options_binding_1.get_inner();
-        let ipv6_binding_1 = args.ipv6.get_output(context);
-        let ipv6_binding = ipv6_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let options_binding_1 = args.options.get_output(context);
-        let options_binding = options_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attachable_binding = args.attachable.get_output(context);
+        let check_duplicate_binding = args.check_duplicate.get_output(context);
+        let driver_binding = args.driver.get_output(context);
+        let ingress_binding = args.ingress.get_output(context);
+        let internal_binding = args.internal.get_output(context);
+        let ipam_configs_binding = args.ipam_configs.get_output(context);
+        let ipam_driver_binding = args.ipam_driver.get_output(context);
+        let ipam_options_binding = args.ipam_options.get_output(context);
+        let ipv6_binding = args.ipv6.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let options_binding = args.options.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "docker:index/network:Network".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachable".into(),
-                    value: &attachable_binding,
+                    value: attachable_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "checkDuplicate".into(),
-                    value: &check_duplicate_binding,
+                    value: check_duplicate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "driver".into(),
-                    value: &driver_binding,
+                    value: driver_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingress".into(),
-                    value: &ingress_binding,
+                    value: ingress_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internal".into(),
-                    value: &internal_binding,
+                    value: internal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamConfigs".into(),
-                    value: &ipam_configs_binding,
+                    value: ipam_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamDriver".into(),
-                    value: &ipam_driver_binding,
+                    value: ipam_driver_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamOptions".into(),
-                    value: &ipam_options_binding,
+                    value: ipam_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6".into(),
-                    value: &ipv6_binding,
+                    value: ipv6_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "options".into(),
-                    value: &options_binding,
+                    value: options_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkResult {
-            attachable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachable"),
-            ),
-            check_duplicate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checkDuplicate"),
-            ),
-            driver: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("driver"),
-            ),
-            ingress: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingress"),
-            ),
-            internal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internal"),
-            ),
-            ipam_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamConfigs"),
-            ),
-            ipam_driver: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamDriver"),
-            ),
-            ipam_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamOptions"),
-            ),
-            ipv6: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ipv6")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("options"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            attachable: o.get_field("attachable"),
+            check_duplicate: o.get_field("checkDuplicate"),
+            driver: o.get_field("driver"),
+            ingress: o.get_field("ingress"),
+            internal: o.get_field("internal"),
+            ipam_configs: o.get_field("ipamConfigs"),
+            ipam_driver: o.get_field("ipamDriver"),
+            ipam_options: o.get_field("ipamOptions"),
+            ipv6: o.get_field("ipv6"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            options: o.get_field("options"),
+            scope: o.get_field("scope"),
         }
     }
 }

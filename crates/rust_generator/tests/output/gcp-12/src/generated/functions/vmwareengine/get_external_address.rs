@@ -30,53 +30,40 @@ pub mod get_external_address {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetExternalAddressArgs,
     ) -> GetExternalAddressResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:vmwareengine/getExternalAddress:getExternalAddress".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetExternalAddressResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            external_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalIp"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            internal_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internalIp"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            external_ip: o.get_field("externalIp"),
+            id: o.get_field("id"),
+            internal_ip: o.get_field("internalIp"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            state: o.get_field("state"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

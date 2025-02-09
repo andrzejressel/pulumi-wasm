@@ -399,107 +399,77 @@ pub mod pipeline_job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PipelineJobArgs,
     ) -> PipelineJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backfill_pipeline_job_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backfill_pipeline_job_binding = args
             .backfill_pipeline_job
             .get_output(context);
-        let backfill_pipeline_job_binding = backfill_pipeline_job_binding_1.get_inner();
-        let dataset_binding_1 = args.dataset.get_output(context);
-        let dataset_binding = dataset_binding_1.get_inner();
-        let disable_lineage_binding_1 = args.disable_lineage.get_output(context);
-        let disable_lineage_binding = disable_lineage_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let mapping_pipeline_job_binding_1 = args
-            .mapping_pipeline_job
-            .get_output(context);
-        let mapping_pipeline_job_binding = mapping_pipeline_job_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let reconciliation_pipeline_job_binding_1 = args
+        let dataset_binding = args.dataset.get_output(context);
+        let disable_lineage_binding = args.disable_lineage.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let mapping_pipeline_job_binding = args.mapping_pipeline_job.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let reconciliation_pipeline_job_binding = args
             .reconciliation_pipeline_job
             .get_output(context);
-        let reconciliation_pipeline_job_binding = reconciliation_pipeline_job_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:healthcare/pipelineJob:PipelineJob".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backfillPipelineJob".into(),
-                    value: &backfill_pipeline_job_binding,
+                    value: backfill_pipeline_job_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: &dataset_binding,
+                    value: dataset_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableLineage".into(),
-                    value: &disable_lineage_binding,
+                    value: disable_lineage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mappingPipelineJob".into(),
-                    value: &mapping_pipeline_job_binding,
+                    value: mapping_pipeline_job_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reconciliationPipelineJob".into(),
-                    value: &reconciliation_pipeline_job_binding,
+                    value: reconciliation_pipeline_job_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PipelineJobResult {
-            backfill_pipeline_job: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backfillPipelineJob"),
-            ),
-            dataset: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataset"),
-            ),
-            disable_lineage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableLineage"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mapping_pipeline_job: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mappingPipelineJob"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            reconciliation_pipeline_job: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciliationPipelineJob"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
+            backfill_pipeline_job: o.get_field("backfillPipelineJob"),
+            dataset: o.get_field("dataset"),
+            disable_lineage: o.get_field("disableLineage"),
+            effective_labels: o.get_field("effectiveLabels"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            mapping_pipeline_job: o.get_field("mappingPipelineJob"),
+            name: o.get_field("name"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            reconciliation_pipeline_job: o.get_field("reconciliationPipelineJob"),
+            self_link: o.get_field("selfLink"),
         }
     }
 }

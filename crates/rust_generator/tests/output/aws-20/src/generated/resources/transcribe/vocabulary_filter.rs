@@ -83,75 +83,59 @@ pub mod vocabulary_filter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VocabularyFilterArgs,
     ) -> VocabularyFilterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let language_code_binding_1 = args.language_code.get_output(context);
-        let language_code_binding = language_code_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vocabulary_filter_file_uri_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let language_code_binding = args.language_code.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vocabulary_filter_file_uri_binding = args
             .vocabulary_filter_file_uri
             .get_output(context);
-        let vocabulary_filter_file_uri_binding = vocabulary_filter_file_uri_binding_1
-            .get_inner();
-        let vocabulary_filter_name_binding_1 = args
+        let vocabulary_filter_name_binding = args
             .vocabulary_filter_name
             .get_output(context);
-        let vocabulary_filter_name_binding = vocabulary_filter_name_binding_1
-            .get_inner();
-        let words_binding_1 = args.words.get_output(context);
-        let words_binding = words_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let words_binding = args.words.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:transcribe/vocabularyFilter:VocabularyFilter".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageCode".into(),
-                    value: &language_code_binding,
+                    value: language_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vocabularyFilterFileUri".into(),
-                    value: &vocabulary_filter_file_uri_binding,
+                    value: vocabulary_filter_file_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vocabularyFilterName".into(),
-                    value: &vocabulary_filter_name_binding,
+                    value: vocabulary_filter_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "words".into(),
-                    value: &words_binding,
+                    value: words_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VocabularyFilterResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            download_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("downloadUri"),
-            ),
-            language_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("languageCode"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vocabulary_filter_file_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vocabularyFilterFileUri"),
-            ),
-            vocabulary_filter_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vocabularyFilterName"),
-            ),
-            words: pulumi_gestalt_rust::__private::into_domain(o.extract_field("words")),
+            arn: o.get_field("arn"),
+            download_uri: o.get_field("downloadUri"),
+            language_code: o.get_field("languageCode"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vocabulary_filter_file_uri: o.get_field("vocabularyFilterFileUri"),
+            vocabulary_filter_name: o.get_field("vocabularyFilterName"),
+            words: o.get_field("words"),
         }
     }
 }

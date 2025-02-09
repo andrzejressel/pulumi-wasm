@@ -56,49 +56,39 @@ pub mod vpc_block_public_access_options {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcBlockPublicAccessOptionsArgs,
     ) -> VpcBlockPublicAccessOptionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let internet_gateway_block_mode_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let internet_gateway_block_mode_binding = args
             .internet_gateway_block_mode
             .get_output(context);
-        let internet_gateway_block_mode_binding = internet_gateway_block_mode_binding_1
-            .get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetGatewayBlockMode".into(),
-                    value: &internet_gateway_block_mode_binding,
+                    value: internet_gateway_block_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcBlockPublicAccessOptionsResult {
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            aws_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsRegion"),
-            ),
-            internet_gateway_block_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internetGatewayBlockMode"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            aws_account_id: o.get_field("awsAccountId"),
+            aws_region: o.get_field("awsRegion"),
+            internet_gateway_block_mode: o.get_field("internetGatewayBlockMode"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

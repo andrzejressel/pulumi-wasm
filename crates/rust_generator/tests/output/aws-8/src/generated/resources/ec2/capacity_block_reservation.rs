@@ -97,98 +97,62 @@ pub mod capacity_block_reservation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CapacityBlockReservationArgs,
     ) -> CapacityBlockReservationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_block_offering_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let capacity_block_offering_id_binding = args
             .capacity_block_offering_id
             .get_output(context);
-        let capacity_block_offering_id_binding = capacity_block_offering_id_binding_1
-            .get_inner();
-        let instance_platform_binding_1 = args.instance_platform.get_output(context);
-        let instance_platform_binding = instance_platform_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let instance_platform_binding = args.instance_platform.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/capacityBlockReservation:CapacityBlockReservation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityBlockOfferingId".into(),
-                    value: &capacity_block_offering_id_binding,
+                    value: capacity_block_offering_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instancePlatform".into(),
-                    value: &instance_platform_binding,
+                    value: instance_platform_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CapacityBlockReservationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            capacity_block_offering_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityBlockOfferingId"),
-            ),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            ebs_optimized: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsOptimized"),
-            ),
-            end_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endDate"),
-            ),
-            end_date_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endDateType"),
-            ),
-            instance_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceCount"),
-            ),
-            instance_platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instancePlatform"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostArn"),
-            ),
-            placement_group_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementGroupArn"),
-            ),
-            reservation_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservationType"),
-            ),
-            start_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startDate"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tenancy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenancy"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            arn: o.get_field("arn"),
+            availability_zone: o.get_field("availabilityZone"),
+            capacity_block_offering_id: o.get_field("capacityBlockOfferingId"),
+            created_date: o.get_field("createdDate"),
+            ebs_optimized: o.get_field("ebsOptimized"),
+            end_date: o.get_field("endDate"),
+            end_date_type: o.get_field("endDateType"),
+            instance_count: o.get_field("instanceCount"),
+            instance_platform: o.get_field("instancePlatform"),
+            instance_type: o.get_field("instanceType"),
+            outpost_arn: o.get_field("outpostArn"),
+            placement_group_arn: o.get_field("placementGroupArn"),
+            reservation_type: o.get_field("reservationType"),
+            start_date: o.get_field("startDate"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tenancy: o.get_field("tenancy"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

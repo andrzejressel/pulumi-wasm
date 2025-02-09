@@ -66,57 +66,46 @@ pub mod folder_membership {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FolderMembershipArgs,
     ) -> FolderMembershipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
-        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
-        let folder_id_binding_1 = args.folder_id.get_output(context);
-        let folder_id_binding = folder_id_binding_1.get_inner();
-        let member_id_binding_1 = args.member_id.get_output(context);
-        let member_id_binding = member_id_binding_1.get_inner();
-        let member_type_binding_1 = args.member_type.get_output(context);
-        let member_type_binding = member_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_account_id_binding = args.aws_account_id.get_output(context);
+        let folder_id_binding = args.folder_id.get_output(context);
+        let member_id_binding = args.member_id.get_output(context);
+        let member_type_binding = args.member_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:quicksight/folderMembership:FolderMembership".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: &aws_account_id_binding,
+                    value: aws_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folderId".into(),
-                    value: &folder_id_binding,
+                    value: folder_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memberId".into(),
-                    value: &member_id_binding,
+                    value: member_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memberType".into(),
-                    value: &member_type_binding,
+                    value: member_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FolderMembershipResult {
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            folder_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("folderId"),
-            ),
-            member_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memberId"),
-            ),
-            member_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memberType"),
-            ),
+            aws_account_id: o.get_field("awsAccountId"),
+            folder_id: o.get_field("folderId"),
+            member_id: o.get_field("memberId"),
+            member_type: o.get_field("memberType"),
         }
     }
 }

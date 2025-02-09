@@ -74,53 +74,46 @@ pub mod user_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserPolicyArgs,
     ) -> UserPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let user_binding_1 = args.user.get_output(context);
-        let user_binding = user_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let policy_binding = args.policy.get_output(context);
+        let user_binding = args.user.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iam/userPolicy:UserPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "user".into(),
-                    value: &user_binding,
+                    value: user_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserPolicyResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            policy: o.get_field("policy"),
+            user: o.get_field("user"),
         }
     }
 }

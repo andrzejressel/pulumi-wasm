@@ -130,52 +130,42 @@ pub mod static_web_app_custom_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StaticWebAppCustomDomainArgs,
     ) -> StaticWebAppCustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let static_web_app_id_binding_1 = args.static_web_app_id.get_output(context);
-        let static_web_app_id_binding = static_web_app_id_binding_1.get_inner();
-        let validation_type_binding_1 = args.validation_type.get_output(context);
-        let validation_type_binding = validation_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_name_binding = args.domain_name.get_output(context);
+        let static_web_app_id_binding = args.static_web_app_id.get_output(context);
+        let validation_type_binding = args.validation_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appservice/staticWebAppCustomDomain:StaticWebAppCustomDomain"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staticWebAppId".into(),
-                    value: &static_web_app_id_binding,
+                    value: static_web_app_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationType".into(),
-                    value: &validation_type_binding,
+                    value: validation_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StaticWebAppCustomDomainResult {
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            static_web_app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("staticWebAppId"),
-            ),
-            validation_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationToken"),
-            ),
-            validation_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationType"),
-            ),
+            domain_name: o.get_field("domainName"),
+            static_web_app_id: o.get_field("staticWebAppId"),
+            validation_token: o.get_field("validationToken"),
+            validation_type: o.get_field("validationType"),
         }
     }
 }

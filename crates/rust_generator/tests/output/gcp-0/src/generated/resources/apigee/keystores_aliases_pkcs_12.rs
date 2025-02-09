@@ -85,84 +85,66 @@ pub mod keystores_aliases_pkcs_12 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KeystoresAliasesPkcs12Args,
     ) -> KeystoresAliasesPkcs12Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding_1 = args.alias.get_output(context);
-        let alias_binding = alias_binding_1.get_inner();
-        let environment_binding_1 = args.environment.get_output(context);
-        let environment_binding = environment_binding_1.get_inner();
-        let file_binding_1 = args.file.get_output(context);
-        let file_binding = file_binding_1.get_inner();
-        let filehash_binding_1 = args.filehash.get_output(context);
-        let filehash_binding = filehash_binding_1.get_inner();
-        let keystore_binding_1 = args.keystore.get_output(context);
-        let keystore_binding = keystore_binding_1.get_inner();
-        let org_id_binding_1 = args.org_id.get_output(context);
-        let org_id_binding = org_id_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alias_binding = args.alias.get_output(context);
+        let environment_binding = args.environment.get_output(context);
+        let file_binding = args.file.get_output(context);
+        let filehash_binding = args.filehash.get_output(context);
+        let keystore_binding = args.keystore.get_output(context);
+        let org_id_binding = args.org_id.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apigee/keystoresAliasesPkcs12:KeystoresAliasesPkcs12".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alias".into(),
-                    value: &alias_binding,
+                    value: alias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environment".into(),
-                    value: &environment_binding,
+                    value: environment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "file".into(),
-                    value: &file_binding,
+                    value: file_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filehash".into(),
-                    value: &filehash_binding,
+                    value: filehash_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keystore".into(),
-                    value: &keystore_binding,
+                    value: keystore_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: &org_id_binding,
+                    value: org_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KeystoresAliasesPkcs12Result {
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            certs_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certsInfos"),
-            ),
-            environment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environment"),
-            ),
-            file: pulumi_gestalt_rust::__private::into_domain(o.extract_field("file")),
-            filehash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filehash"),
-            ),
-            keystore: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keystore"),
-            ),
-            org_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orgId"),
-            ),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            alias: o.get_field("alias"),
+            certs_infos: o.get_field("certsInfos"),
+            environment: o.get_field("environment"),
+            file: o.get_field("file"),
+            filehash: o.get_field("filehash"),
+            keystore: o.get_field("keystore"),
+            org_id: o.get_field("orgId"),
+            password: o.get_field("password"),
+            type_: o.get_field("type"),
         }
     }
 }

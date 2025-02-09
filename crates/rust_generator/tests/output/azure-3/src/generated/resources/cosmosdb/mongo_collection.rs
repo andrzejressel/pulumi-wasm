@@ -116,115 +116,85 @@ pub mod mongo_collection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MongoCollectionArgs,
     ) -> MongoCollectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding_1 = args.account_name.get_output(context);
-        let account_name_binding = account_name_binding_1.get_inner();
-        let analytical_storage_ttl_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_name_binding = args.account_name.get_output(context);
+        let analytical_storage_ttl_binding = args
             .analytical_storage_ttl
             .get_output(context);
-        let analytical_storage_ttl_binding = analytical_storage_ttl_binding_1
-            .get_inner();
-        let autoscale_settings_binding_1 = args.autoscale_settings.get_output(context);
-        let autoscale_settings_binding = autoscale_settings_binding_1.get_inner();
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let default_ttl_seconds_binding_1 = args.default_ttl_seconds.get_output(context);
-        let default_ttl_seconds_binding = default_ttl_seconds_binding_1.get_inner();
-        let indices_binding_1 = args.indices.get_output(context);
-        let indices_binding = indices_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let shard_key_binding_1 = args.shard_key.get_output(context);
-        let shard_key_binding = shard_key_binding_1.get_inner();
-        let throughput_binding_1 = args.throughput.get_output(context);
-        let throughput_binding = throughput_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let autoscale_settings_binding = args.autoscale_settings.get_output(context);
+        let database_name_binding = args.database_name.get_output(context);
+        let default_ttl_seconds_binding = args.default_ttl_seconds.get_output(context);
+        let indices_binding = args.indices.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let shard_key_binding = args.shard_key.get_output(context);
+        let throughput_binding = args.throughput.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cosmosdb/mongoCollection:MongoCollection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: &account_name_binding,
+                    value: account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "analyticalStorageTtl".into(),
-                    value: &analytical_storage_ttl_binding,
+                    value: analytical_storage_ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscaleSettings".into(),
-                    value: &autoscale_settings_binding,
+                    value: autoscale_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTtlSeconds".into(),
-                    value: &default_ttl_seconds_binding,
+                    value: default_ttl_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indices".into(),
-                    value: &indices_binding,
+                    value: indices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shardKey".into(),
-                    value: &shard_key_binding,
+                    value: shard_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throughput".into(),
-                    value: &throughput_binding,
+                    value: throughput_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MongoCollectionResult {
-            account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountName"),
-            ),
-            analytical_storage_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("analyticalStorageTtl"),
-            ),
-            autoscale_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscaleSettings"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            default_ttl_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultTtlSeconds"),
-            ),
-            indices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("indices"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            shard_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shardKey"),
-            ),
-            system_indexes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("systemIndexes"),
-            ),
-            throughput: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("throughput"),
-            ),
+            account_name: o.get_field("accountName"),
+            analytical_storage_ttl: o.get_field("analyticalStorageTtl"),
+            autoscale_settings: o.get_field("autoscaleSettings"),
+            database_name: o.get_field("databaseName"),
+            default_ttl_seconds: o.get_field("defaultTtlSeconds"),
+            indices: o.get_field("indices"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            shard_key: o.get_field("shardKey"),
+            system_indexes: o.get_field("systemIndexes"),
+            throughput: o.get_field("throughput"),
         }
     }
 }

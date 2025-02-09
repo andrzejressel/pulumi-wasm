@@ -143,100 +143,73 @@ pub mod deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DeploymentArgs,
     ) -> DeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let create_policy_binding_1 = args.create_policy.get_output(context);
-        let create_policy_binding = create_policy_binding_1.get_inner();
-        let delete_policy_binding_1 = args.delete_policy.get_output(context);
-        let delete_policy_binding = delete_policy_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let preview_binding_1 = args.preview.get_output(context);
-        let preview_binding = preview_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let target_binding_1 = args.target.get_output(context);
-        let target_binding = target_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let create_policy_binding = args.create_policy.get_output(context);
+        let delete_policy_binding = args.delete_policy.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let preview_binding = args.preview.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let target_binding = args.target.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:deploymentmanager/deployment:Deployment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createPolicy".into(),
-                    value: &create_policy_binding,
+                    value: create_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletePolicy".into(),
-                    value: &delete_policy_binding,
+                    value: delete_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preview".into(),
-                    value: &preview_binding,
+                    value: preview_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "target".into(),
-                    value: &target_binding,
+                    value: target_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DeploymentResult {
-            create_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createPolicy"),
-            ),
-            delete_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletePolicy"),
-            ),
-            deployment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            manifest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manifest"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            preview: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preview"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("target"),
-            ),
+            create_policy: o.get_field("createPolicy"),
+            delete_policy: o.get_field("deletePolicy"),
+            deployment_id: o.get_field("deploymentId"),
+            description: o.get_field("description"),
+            labels: o.get_field("labels"),
+            manifest: o.get_field("manifest"),
+            name: o.get_field("name"),
+            preview: o.get_field("preview"),
+            project: o.get_field("project"),
+            self_link: o.get_field("selfLink"),
+            target: o.get_field("target"),
         }
     }
 }

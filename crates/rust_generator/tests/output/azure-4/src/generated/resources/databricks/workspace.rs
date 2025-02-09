@@ -195,252 +195,183 @@ pub mod workspace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkspaceArgs,
     ) -> WorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_connector_id_binding_1 = args.access_connector_id.get_output(context);
-        let access_connector_id_binding = access_connector_id_binding_1.get_inner();
-        let custom_parameters_binding_1 = args.custom_parameters.get_output(context);
-        let custom_parameters_binding = custom_parameters_binding_1.get_inner();
-        let customer_managed_key_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_connector_id_binding = args.access_connector_id.get_output(context);
+        let custom_parameters_binding = args.custom_parameters.get_output(context);
+        let customer_managed_key_enabled_binding = args
             .customer_managed_key_enabled
             .get_output(context);
-        let customer_managed_key_enabled_binding = customer_managed_key_enabled_binding_1
-            .get_inner();
-        let default_storage_firewall_enabled_binding_1 = args
+        let default_storage_firewall_enabled_binding = args
             .default_storage_firewall_enabled
             .get_output(context);
-        let default_storage_firewall_enabled_binding = default_storage_firewall_enabled_binding_1
-            .get_inner();
-        let enhanced_security_compliance_binding_1 = args
+        let enhanced_security_compliance_binding = args
             .enhanced_security_compliance
             .get_output(context);
-        let enhanced_security_compliance_binding = enhanced_security_compliance_binding_1
-            .get_inner();
-        let infrastructure_encryption_enabled_binding_1 = args
+        let infrastructure_encryption_enabled_binding = args
             .infrastructure_encryption_enabled
             .get_output(context);
-        let infrastructure_encryption_enabled_binding = infrastructure_encryption_enabled_binding_1
-            .get_inner();
-        let load_balancer_backend_address_pool_id_binding_1 = args
+        let load_balancer_backend_address_pool_id_binding = args
             .load_balancer_backend_address_pool_id
             .get_output(context);
-        let load_balancer_backend_address_pool_id_binding = load_balancer_backend_address_pool_id_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let managed_disk_cmk_key_vault_id_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let managed_disk_cmk_key_vault_id_binding = args
             .managed_disk_cmk_key_vault_id
             .get_output(context);
-        let managed_disk_cmk_key_vault_id_binding = managed_disk_cmk_key_vault_id_binding_1
-            .get_inner();
-        let managed_disk_cmk_key_vault_key_id_binding_1 = args
+        let managed_disk_cmk_key_vault_key_id_binding = args
             .managed_disk_cmk_key_vault_key_id
             .get_output(context);
-        let managed_disk_cmk_key_vault_key_id_binding = managed_disk_cmk_key_vault_key_id_binding_1
-            .get_inner();
-        let managed_disk_cmk_rotation_to_latest_version_enabled_binding_1 = args
+        let managed_disk_cmk_rotation_to_latest_version_enabled_binding = args
             .managed_disk_cmk_rotation_to_latest_version_enabled
             .get_output(context);
-        let managed_disk_cmk_rotation_to_latest_version_enabled_binding = managed_disk_cmk_rotation_to_latest_version_enabled_binding_1
-            .get_inner();
-        let managed_resource_group_name_binding_1 = args
+        let managed_resource_group_name_binding = args
             .managed_resource_group_name
             .get_output(context);
-        let managed_resource_group_name_binding = managed_resource_group_name_binding_1
-            .get_inner();
-        let managed_services_cmk_key_vault_id_binding_1 = args
+        let managed_services_cmk_key_vault_id_binding = args
             .managed_services_cmk_key_vault_id
             .get_output(context);
-        let managed_services_cmk_key_vault_id_binding = managed_services_cmk_key_vault_id_binding_1
-            .get_inner();
-        let managed_services_cmk_key_vault_key_id_binding_1 = args
+        let managed_services_cmk_key_vault_key_id_binding = args
             .managed_services_cmk_key_vault_key_id
             .get_output(context);
-        let managed_services_cmk_key_vault_key_id_binding = managed_services_cmk_key_vault_key_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_security_group_rules_required_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let network_security_group_rules_required_binding = args
             .network_security_group_rules_required
             .get_output(context);
-        let network_security_group_rules_required_binding = network_security_group_rules_required_binding_1
-            .get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:databricks/workspace:Workspace".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessConnectorId".into(),
-                    value: &access_connector_id_binding,
+                    value: access_connector_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customParameters".into(),
-                    value: &custom_parameters_binding,
+                    value: custom_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKeyEnabled".into(),
-                    value: &customer_managed_key_enabled_binding,
+                    value: customer_managed_key_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultStorageFirewallEnabled".into(),
-                    value: &default_storage_firewall_enabled_binding,
+                    value: default_storage_firewall_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enhancedSecurityCompliance".into(),
-                    value: &enhanced_security_compliance_binding,
+                    value: enhanced_security_compliance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "infrastructureEncryptionEnabled".into(),
-                    value: &infrastructure_encryption_enabled_binding,
+                    value: infrastructure_encryption_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerBackendAddressPoolId".into(),
-                    value: &load_balancer_backend_address_pool_id_binding,
+                    value: load_balancer_backend_address_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedDiskCmkKeyVaultId".into(),
-                    value: &managed_disk_cmk_key_vault_id_binding,
+                    value: managed_disk_cmk_key_vault_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedDiskCmkKeyVaultKeyId".into(),
-                    value: &managed_disk_cmk_key_vault_key_id_binding,
+                    value: managed_disk_cmk_key_vault_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedDiskCmkRotationToLatestVersionEnabled".into(),
-                    value: &managed_disk_cmk_rotation_to_latest_version_enabled_binding,
+                    value: managed_disk_cmk_rotation_to_latest_version_enabled_binding
+                        .get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedResourceGroupName".into(),
-                    value: &managed_resource_group_name_binding,
+                    value: managed_resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedServicesCmkKeyVaultId".into(),
-                    value: &managed_services_cmk_key_vault_id_binding,
+                    value: managed_services_cmk_key_vault_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedServicesCmkKeyVaultKeyId".into(),
-                    value: &managed_services_cmk_key_vault_key_id_binding,
+                    value: managed_services_cmk_key_vault_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkSecurityGroupRulesRequired".into(),
-                    value: &network_security_group_rules_required_binding,
+                    value: network_security_group_rules_required_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkspaceResult {
-            access_connector_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessConnectorId"),
-            ),
-            custom_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customParameters"),
-            ),
-            customer_managed_key_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerManagedKeyEnabled"),
-            ),
-            default_storage_firewall_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultStorageFirewallEnabled"),
-            ),
-            disk_encryption_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskEncryptionSetId"),
-            ),
-            enhanced_security_compliance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enhancedSecurityCompliance"),
-            ),
-            infrastructure_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("infrastructureEncryptionEnabled"),
-            ),
-            load_balancer_backend_address_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerBackendAddressPoolId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            managed_disk_cmk_key_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedDiskCmkKeyVaultId"),
-            ),
-            managed_disk_cmk_key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedDiskCmkKeyVaultKeyId"),
-            ),
-            managed_disk_cmk_rotation_to_latest_version_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedDiskCmkRotationToLatestVersionEnabled"),
-            ),
-            managed_disk_identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedDiskIdentities"),
-            ),
-            managed_resource_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedResourceGroupId"),
-            ),
-            managed_resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedResourceGroupName"),
-            ),
-            managed_services_cmk_key_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedServicesCmkKeyVaultId"),
-            ),
-            managed_services_cmk_key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedServicesCmkKeyVaultKeyId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_security_group_rules_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkSecurityGroupRulesRequired"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            storage_account_identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountIdentities"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
-            workspace_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceUrl"),
-            ),
+            access_connector_id: o.get_field("accessConnectorId"),
+            custom_parameters: o.get_field("customParameters"),
+            customer_managed_key_enabled: o.get_field("customerManagedKeyEnabled"),
+            default_storage_firewall_enabled: o
+                .get_field("defaultStorageFirewallEnabled"),
+            disk_encryption_set_id: o.get_field("diskEncryptionSetId"),
+            enhanced_security_compliance: o.get_field("enhancedSecurityCompliance"),
+            infrastructure_encryption_enabled: o
+                .get_field("infrastructureEncryptionEnabled"),
+            load_balancer_backend_address_pool_id: o
+                .get_field("loadBalancerBackendAddressPoolId"),
+            location: o.get_field("location"),
+            managed_disk_cmk_key_vault_id: o.get_field("managedDiskCmkKeyVaultId"),
+            managed_disk_cmk_key_vault_key_id: o
+                .get_field("managedDiskCmkKeyVaultKeyId"),
+            managed_disk_cmk_rotation_to_latest_version_enabled: o
+                .get_field("managedDiskCmkRotationToLatestVersionEnabled"),
+            managed_disk_identities: o.get_field("managedDiskIdentities"),
+            managed_resource_group_id: o.get_field("managedResourceGroupId"),
+            managed_resource_group_name: o.get_field("managedResourceGroupName"),
+            managed_services_cmk_key_vault_id: o
+                .get_field("managedServicesCmkKeyVaultId"),
+            managed_services_cmk_key_vault_key_id: o
+                .get_field("managedServicesCmkKeyVaultKeyId"),
+            name: o.get_field("name"),
+            network_security_group_rules_required: o
+                .get_field("networkSecurityGroupRulesRequired"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku: o.get_field("sku"),
+            storage_account_identities: o.get_field("storageAccountIdentities"),
+            tags: o.get_field("tags"),
+            workspace_id: o.get_field("workspaceId"),
+            workspace_url: o.get_field("workspaceUrl"),
         }
     }
 }

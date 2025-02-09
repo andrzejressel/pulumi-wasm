@@ -83,67 +83,55 @@ pub mod encryption_scope {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EncryptionScopeArgs,
     ) -> EncryptionScopeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let infrastructure_encryption_required_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let infrastructure_encryption_required_binding = args
             .infrastructure_encryption_required
             .get_output(context);
-        let infrastructure_encryption_required_binding = infrastructure_encryption_required_binding_1
-            .get_inner();
-        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
-        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let key_vault_key_id_binding = args.key_vault_key_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let source_binding = args.source.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/encryptionScope:EncryptionScope".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "infrastructureEncryptionRequired".into(),
-                    value: &infrastructure_encryption_required_binding,
+                    value: infrastructure_encryption_required_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyId".into(),
-                    value: &key_vault_key_id_binding,
+                    value: key_vault_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EncryptionScopeResult {
-            infrastructure_encryption_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("infrastructureEncryptionRequired"),
-            ),
-            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultKeyId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
+            infrastructure_encryption_required: o
+                .get_field("infrastructureEncryptionRequired"),
+            key_vault_key_id: o.get_field("keyVaultKeyId"),
+            name: o.get_field("name"),
+            source: o.get_field("source"),
+            storage_account_id: o.get_field("storageAccountId"),
         }
     }
 }

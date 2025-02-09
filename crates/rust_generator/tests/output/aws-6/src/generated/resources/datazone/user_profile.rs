@@ -79,70 +79,54 @@ pub mod user_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserProfileArgs,
     ) -> UserProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_identifier_binding_1 = args.domain_identifier.get_output(context);
-        let domain_identifier_binding = domain_identifier_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let user_identifier_binding_1 = args.user_identifier.get_output(context);
-        let user_identifier_binding = user_identifier_binding_1.get_inner();
-        let user_type_binding_1 = args.user_type.get_output(context);
-        let user_type_binding = user_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_identifier_binding = args.domain_identifier.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let user_identifier_binding = args.user_identifier.get_output(context);
+        let user_type_binding = args.user_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datazone/userProfile:UserProfile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainIdentifier".into(),
-                    value: &domain_identifier_binding,
+                    value: domain_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userIdentifier".into(),
-                    value: &user_identifier_binding,
+                    value: user_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userType".into(),
-                    value: &user_type_binding,
+                    value: user_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserProfileResult {
-            details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("details"),
-            ),
-            domain_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainIdentifier"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            user_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userIdentifier"),
-            ),
-            user_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userType"),
-            ),
+            details: o.get_field("details"),
+            domain_identifier: o.get_field("domainIdentifier"),
+            status: o.get_field("status"),
+            timeouts: o.get_field("timeouts"),
+            type_: o.get_field("type"),
+            user_identifier: o.get_field("userIdentifier"),
+            user_type: o.get_field("userType"),
         }
     }
 }

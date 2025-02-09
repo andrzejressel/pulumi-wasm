@@ -130,87 +130,62 @@ pub mod group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GroupArgs,
     ) -> GroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let group_key_binding_1 = args.group_key.get_output(context);
-        let group_key_binding = group_key_binding_1.get_inner();
-        let initial_group_config_binding_1 = args
-            .initial_group_config
-            .get_output(context);
-        let initial_group_config_binding = initial_group_config_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let group_key_binding = args.group_key.get_output(context);
+        let initial_group_config_binding = args.initial_group_config.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:cloudidentity/group:Group".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupKey".into(),
-                    value: &group_key_binding,
+                    value: group_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialGroupConfig".into(),
-                    value: &initial_group_config_binding,
+                    value: initial_group_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GroupResult {
-            additional_group_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalGroupKeys"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            group_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupKey"),
-            ),
-            initial_group_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initialGroupConfig"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            additional_group_keys: o.get_field("additionalGroupKeys"),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            group_key: o.get_field("groupKey"),
+            initial_group_config: o.get_field("initialGroupConfig"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

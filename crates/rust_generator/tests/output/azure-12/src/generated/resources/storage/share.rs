@@ -143,93 +143,72 @@ pub mod share {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ShareArgs,
     ) -> ShareResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_tier_binding_1 = args.access_tier.get_output(context);
-        let access_tier_binding = access_tier_binding_1.get_inner();
-        let acls_binding_1 = args.acls.get_output(context);
-        let acls_binding = acls_binding_1.get_inner();
-        let enabled_protocol_binding_1 = args.enabled_protocol.get_output(context);
-        let enabled_protocol_binding = enabled_protocol_binding_1.get_inner();
-        let metadata_binding_1 = args.metadata.get_output(context);
-        let metadata_binding = metadata_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let quota_binding_1 = args.quota.get_output(context);
-        let quota_binding = quota_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let storage_account_name_binding_1 = args
-            .storage_account_name
-            .get_output(context);
-        let storage_account_name_binding = storage_account_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_tier_binding = args.access_tier.get_output(context);
+        let acls_binding = args.acls.get_output(context);
+        let enabled_protocol_binding = args.enabled_protocol.get_output(context);
+        let metadata_binding = args.metadata.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let quota_binding = args.quota.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let storage_account_name_binding = args.storage_account_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/share:Share".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessTier".into(),
-                    value: &access_tier_binding,
+                    value: access_tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acls".into(),
-                    value: &acls_binding,
+                    value: acls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabledProtocol".into(),
-                    value: &enabled_protocol_binding,
+                    value: enabled_protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: &metadata_binding,
+                    value: metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quota".into(),
-                    value: &quota_binding,
+                    value: quota_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountName".into(),
-                    value: &storage_account_name_binding,
+                    value: storage_account_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ShareResult {
-            access_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessTier"),
-            ),
-            acls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("acls")),
-            enabled_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabledProtocol"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            quota: pulumi_gestalt_rust::__private::into_domain(o.extract_field("quota")),
-            resource_manager_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceManagerId"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
-            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountName"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            access_tier: o.get_field("accessTier"),
+            acls: o.get_field("acls"),
+            enabled_protocol: o.get_field("enabledProtocol"),
+            metadata: o.get_field("metadata"),
+            name: o.get_field("name"),
+            quota: o.get_field("quota"),
+            resource_manager_id: o.get_field("resourceManagerId"),
+            storage_account_id: o.get_field("storageAccountId"),
+            storage_account_name: o.get_field("storageAccountName"),
+            url: o.get_field("url"),
         }
     }
 }

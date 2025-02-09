@@ -415,168 +415,115 @@ pub mod managed_zone {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagedZoneArgs,
     ) -> ManagedZoneResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloud_logging_config_binding_1 = args
-            .cloud_logging_config
-            .get_output(context);
-        let cloud_logging_config_binding = cloud_logging_config_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dns_name_binding_1 = args.dns_name.get_output(context);
-        let dns_name_binding = dns_name_binding_1.get_inner();
-        let dnssec_config_binding_1 = args.dnssec_config.get_output(context);
-        let dnssec_config_binding = dnssec_config_binding_1.get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let forwarding_config_binding_1 = args.forwarding_config.get_output(context);
-        let forwarding_config_binding = forwarding_config_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let peering_config_binding_1 = args.peering_config.get_output(context);
-        let peering_config_binding = peering_config_binding_1.get_inner();
-        let private_visibility_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cloud_logging_config_binding = args.cloud_logging_config.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let dns_name_binding = args.dns_name.get_output(context);
+        let dnssec_config_binding = args.dnssec_config.get_output(context);
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let forwarding_config_binding = args.forwarding_config.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let peering_config_binding = args.peering_config.get_output(context);
+        let private_visibility_config_binding = args
             .private_visibility_config
             .get_output(context);
-        let private_visibility_config_binding = private_visibility_config_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let reverse_lookup_binding_1 = args.reverse_lookup.get_output(context);
-        let reverse_lookup_binding = reverse_lookup_binding_1.get_inner();
-        let service_directory_config_binding_1 = args
+        let project_binding = args.project.get_output(context);
+        let reverse_lookup_binding = args.reverse_lookup.get_output(context);
+        let service_directory_config_binding = args
             .service_directory_config
             .get_output(context);
-        let service_directory_config_binding = service_directory_config_binding_1
-            .get_inner();
-        let visibility_binding_1 = args.visibility.get_output(context);
-        let visibility_binding = visibility_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let visibility_binding = args.visibility.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dns/managedZone:ManagedZone".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudLoggingConfig".into(),
-                    value: &cloud_logging_config_binding,
+                    value: cloud_logging_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsName".into(),
-                    value: &dns_name_binding,
+                    value: dns_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnssecConfig".into(),
-                    value: &dnssec_config_binding,
+                    value: dnssec_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forwardingConfig".into(),
-                    value: &forwarding_config_binding,
+                    value: forwarding_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeringConfig".into(),
-                    value: &peering_config_binding,
+                    value: peering_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateVisibilityConfig".into(),
-                    value: &private_visibility_config_binding,
+                    value: private_visibility_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reverseLookup".into(),
-                    value: &reverse_lookup_binding,
+                    value: reverse_lookup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceDirectoryConfig".into(),
-                    value: &service_directory_config_binding,
+                    value: service_directory_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "visibility".into(),
-                    value: &visibility_binding,
+                    value: visibility_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagedZoneResult {
-            cloud_logging_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudLoggingConfig"),
-            ),
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            dnssec_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnssecConfig"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            forwarding_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forwardingConfig"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            managed_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedZoneId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nameServers"),
-            ),
-            peering_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peeringConfig"),
-            ),
-            private_visibility_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateVisibilityConfig"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            reverse_lookup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reverseLookup"),
-            ),
-            service_directory_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceDirectoryConfig"),
-            ),
-            visibility: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("visibility"),
-            ),
+            cloud_logging_config: o.get_field("cloudLoggingConfig"),
+            creation_time: o.get_field("creationTime"),
+            description: o.get_field("description"),
+            dns_name: o.get_field("dnsName"),
+            dnssec_config: o.get_field("dnssecConfig"),
+            effective_labels: o.get_field("effectiveLabels"),
+            force_destroy: o.get_field("forceDestroy"),
+            forwarding_config: o.get_field("forwardingConfig"),
+            labels: o.get_field("labels"),
+            managed_zone_id: o.get_field("managedZoneId"),
+            name: o.get_field("name"),
+            name_servers: o.get_field("nameServers"),
+            peering_config: o.get_field("peeringConfig"),
+            private_visibility_config: o.get_field("privateVisibilityConfig"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            reverse_lookup: o.get_field("reverseLookup"),
+            service_directory_config: o.get_field("serviceDirectoryConfig"),
+            visibility: o.get_field("visibility"),
         }
     }
 }

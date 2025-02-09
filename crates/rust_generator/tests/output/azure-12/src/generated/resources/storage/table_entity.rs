@@ -82,57 +82,46 @@ pub mod table_entity {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TableEntityArgs,
     ) -> TableEntityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let entity_binding_1 = args.entity.get_output(context);
-        let entity_binding = entity_binding_1.get_inner();
-        let partition_key_binding_1 = args.partition_key.get_output(context);
-        let partition_key_binding = partition_key_binding_1.get_inner();
-        let row_key_binding_1 = args.row_key.get_output(context);
-        let row_key_binding = row_key_binding_1.get_inner();
-        let storage_table_id_binding_1 = args.storage_table_id.get_output(context);
-        let storage_table_id_binding = storage_table_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let entity_binding = args.entity.get_output(context);
+        let partition_key_binding = args.partition_key.get_output(context);
+        let row_key_binding = args.row_key.get_output(context);
+        let storage_table_id_binding = args.storage_table_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/tableEntity:TableEntity".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entity".into(),
-                    value: &entity_binding,
+                    value: entity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKey".into(),
-                    value: &partition_key_binding,
+                    value: partition_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rowKey".into(),
-                    value: &row_key_binding,
+                    value: row_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageTableId".into(),
-                    value: &storage_table_id_binding,
+                    value: storage_table_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TableEntityResult {
-            entity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entity"),
-            ),
-            partition_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionKey"),
-            ),
-            row_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rowKey"),
-            ),
-            storage_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageTableId"),
-            ),
+            entity: o.get_field("entity"),
+            partition_key: o.get_field("partitionKey"),
+            row_key: o.get_field("rowKey"),
+            storage_table_id: o.get_field("storageTableId"),
         }
     }
 }

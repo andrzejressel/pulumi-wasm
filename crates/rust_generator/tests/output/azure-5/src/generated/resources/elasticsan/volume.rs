@@ -170,67 +170,50 @@ pub mod volume {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VolumeArgs,
     ) -> VolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let create_source_binding_1 = args.create_source.get_output(context);
-        let create_source_binding = create_source_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let size_in_gib_binding_1 = args.size_in_gib.get_output(context);
-        let size_in_gib_binding = size_in_gib_binding_1.get_inner();
-        let volume_group_id_binding_1 = args.volume_group_id.get_output(context);
-        let volume_group_id_binding = volume_group_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let create_source_binding = args.create_source.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let size_in_gib_binding = args.size_in_gib.get_output(context);
+        let volume_group_id_binding = args.volume_group_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:elasticsan/volume:Volume".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createSource".into(),
-                    value: &create_source_binding,
+                    value: create_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sizeInGib".into(),
-                    value: &size_in_gib_binding,
+                    value: size_in_gib_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeGroupId".into(),
-                    value: &volume_group_id_binding,
+                    value: volume_group_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VolumeResult {
-            create_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createSource"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            size_in_gib: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sizeInGib"),
-            ),
-            target_iqn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetIqn"),
-            ),
-            target_portal_hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetPortalHostname"),
-            ),
-            target_portal_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetPortalPort"),
-            ),
-            volume_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeGroupId"),
-            ),
-            volume_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeId"),
-            ),
+            create_source: o.get_field("createSource"),
+            name: o.get_field("name"),
+            size_in_gib: o.get_field("sizeInGib"),
+            target_iqn: o.get_field("targetIqn"),
+            target_portal_hostname: o.get_field("targetPortalHostname"),
+            target_portal_port: o.get_field("targetPortalPort"),
+            volume_group_id: o.get_field("volumeGroupId"),
+            volume_id: o.get_field("volumeId"),
         }
     }
 }

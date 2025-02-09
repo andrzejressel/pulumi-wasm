@@ -59,57 +59,46 @@ pub mod metrics_destination {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MetricsDestinationArgs,
     ) -> MetricsDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_monitor_name_binding_1 = args.app_monitor_name.get_output(context);
-        let app_monitor_name_binding = app_monitor_name_binding_1.get_inner();
-        let destination_binding_1 = args.destination.get_output(context);
-        let destination_binding = destination_binding_1.get_inner();
-        let destination_arn_binding_1 = args.destination_arn.get_output(context);
-        let destination_arn_binding = destination_arn_binding_1.get_inner();
-        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
-        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_monitor_name_binding = args.app_monitor_name.get_output(context);
+        let destination_binding = args.destination.get_output(context);
+        let destination_arn_binding = args.destination_arn.get_output(context);
+        let iam_role_arn_binding = args.iam_role_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rum/metricsDestination:MetricsDestination".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appMonitorName".into(),
-                    value: &app_monitor_name_binding,
+                    value: app_monitor_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: &destination_binding,
+                    value: destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationArn".into(),
-                    value: &destination_arn_binding,
+                    value: destination_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: &iam_role_arn_binding,
+                    value: iam_role_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MetricsDestinationResult {
-            app_monitor_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appMonitorName"),
-            ),
-            destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destination"),
-            ),
-            destination_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationArn"),
-            ),
-            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoleArn"),
-            ),
+            app_monitor_name: o.get_field("appMonitorName"),
+            destination: o.get_field("destination"),
+            destination_arn: o.get_field("destinationArn"),
+            iam_role_arn: o.get_field("iamRoleArn"),
         }
     }
 }

@@ -129,73 +129,57 @@ pub mod virtual_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VirtualServiceArgs,
     ) -> VirtualServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mesh_name_binding_1 = args.mesh_name.get_output(context);
-        let mesh_name_binding = mesh_name_binding_1.get_inner();
-        let mesh_owner_binding_1 = args.mesh_owner.get_output(context);
-        let mesh_owner_binding = mesh_owner_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let spec_binding_1 = args.spec.get_output(context);
-        let spec_binding = spec_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let mesh_name_binding = args.mesh_name.get_output(context);
+        let mesh_owner_binding = args.mesh_owner.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let spec_binding = args.spec.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appmesh/virtualService:VirtualService".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "meshName".into(),
-                    value: &mesh_name_binding,
+                    value: mesh_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "meshOwner".into(),
-                    value: &mesh_owner_binding,
+                    value: mesh_owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spec".into(),
-                    value: &spec_binding,
+                    value: spec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VirtualServiceResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            last_updated_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedDate"),
-            ),
-            mesh_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("meshName"),
-            ),
-            mesh_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("meshOwner"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceOwner"),
-            ),
-            spec: pulumi_gestalt_rust::__private::into_domain(o.extract_field("spec")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            created_date: o.get_field("createdDate"),
+            last_updated_date: o.get_field("lastUpdatedDate"),
+            mesh_name: o.get_field("meshName"),
+            mesh_owner: o.get_field("meshOwner"),
+            name: o.get_field("name"),
+            resource_owner: o.get_field("resourceOwner"),
+            spec: o.get_field("spec"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

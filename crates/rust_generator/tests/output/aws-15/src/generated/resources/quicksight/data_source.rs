@@ -138,112 +138,86 @@ pub mod data_source {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataSourceArgs,
     ) -> DataSourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
-        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
-        let credentials_binding_1 = args.credentials.get_output(context);
-        let credentials_binding = credentials_binding_1.get_inner();
-        let data_source_id_binding_1 = args.data_source_id.get_output(context);
-        let data_source_id_binding = data_source_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let permissions_binding_1 = args.permissions.get_output(context);
-        let permissions_binding = permissions_binding_1.get_inner();
-        let ssl_properties_binding_1 = args.ssl_properties.get_output(context);
-        let ssl_properties_binding = ssl_properties_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let vpc_connection_properties_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_account_id_binding = args.aws_account_id.get_output(context);
+        let credentials_binding = args.credentials.get_output(context);
+        let data_source_id_binding = args.data_source_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let permissions_binding = args.permissions.get_output(context);
+        let ssl_properties_binding = args.ssl_properties.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let vpc_connection_properties_binding = args
             .vpc_connection_properties
             .get_output(context);
-        let vpc_connection_properties_binding = vpc_connection_properties_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:quicksight/dataSource:DataSource".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: &aws_account_id_binding,
+                    value: aws_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credentials".into(),
-                    value: &credentials_binding,
+                    value: credentials_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSourceId".into(),
-                    value: &data_source_id_binding,
+                    value: data_source_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissions".into(),
-                    value: &permissions_binding,
+                    value: permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslProperties".into(),
-                    value: &ssl_properties_binding,
+                    value: ssl_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConnectionProperties".into(),
-                    value: &vpc_connection_properties_binding,
+                    value: vpc_connection_properties_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataSourceResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            credentials: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("credentials"),
-            ),
-            data_source_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSourceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissions"),
-            ),
-            ssl_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslProperties"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            vpc_connection_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConnectionProperties"),
-            ),
+            arn: o.get_field("arn"),
+            aws_account_id: o.get_field("awsAccountId"),
+            credentials: o.get_field("credentials"),
+            data_source_id: o.get_field("dataSourceId"),
+            name: o.get_field("name"),
+            parameters: o.get_field("parameters"),
+            permissions: o.get_field("permissions"),
+            ssl_properties: o.get_field("sslProperties"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
+            vpc_connection_properties: o.get_field("vpcConnectionProperties"),
         }
     }
 }

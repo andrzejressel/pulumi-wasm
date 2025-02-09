@@ -293,316 +293,231 @@ pub mod topic {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TopicArgs,
     ) -> TopicResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_failure_feedback_role_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_failure_feedback_role_arn_binding = args
             .application_failure_feedback_role_arn
             .get_output(context);
-        let application_failure_feedback_role_arn_binding = application_failure_feedback_role_arn_binding_1
-            .get_inner();
-        let application_success_feedback_role_arn_binding_1 = args
+        let application_success_feedback_role_arn_binding = args
             .application_success_feedback_role_arn
             .get_output(context);
-        let application_success_feedback_role_arn_binding = application_success_feedback_role_arn_binding_1
-            .get_inner();
-        let application_success_feedback_sample_rate_binding_1 = args
+        let application_success_feedback_sample_rate_binding = args
             .application_success_feedback_sample_rate
             .get_output(context);
-        let application_success_feedback_sample_rate_binding = application_success_feedback_sample_rate_binding_1
-            .get_inner();
-        let archive_policy_binding_1 = args.archive_policy.get_output(context);
-        let archive_policy_binding = archive_policy_binding_1.get_inner();
-        let content_based_deduplication_binding_1 = args
+        let archive_policy_binding = args.archive_policy.get_output(context);
+        let content_based_deduplication_binding = args
             .content_based_deduplication
             .get_output(context);
-        let content_based_deduplication_binding = content_based_deduplication_binding_1
-            .get_inner();
-        let delivery_policy_binding_1 = args.delivery_policy.get_output(context);
-        let delivery_policy_binding = delivery_policy_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let fifo_topic_binding_1 = args.fifo_topic.get_output(context);
-        let fifo_topic_binding = fifo_topic_binding_1.get_inner();
-        let firehose_failure_feedback_role_arn_binding_1 = args
+        let delivery_policy_binding = args.delivery_policy.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let fifo_topic_binding = args.fifo_topic.get_output(context);
+        let firehose_failure_feedback_role_arn_binding = args
             .firehose_failure_feedback_role_arn
             .get_output(context);
-        let firehose_failure_feedback_role_arn_binding = firehose_failure_feedback_role_arn_binding_1
-            .get_inner();
-        let firehose_success_feedback_role_arn_binding_1 = args
+        let firehose_success_feedback_role_arn_binding = args
             .firehose_success_feedback_role_arn
             .get_output(context);
-        let firehose_success_feedback_role_arn_binding = firehose_success_feedback_role_arn_binding_1
-            .get_inner();
-        let firehose_success_feedback_sample_rate_binding_1 = args
+        let firehose_success_feedback_sample_rate_binding = args
             .firehose_success_feedback_sample_rate
             .get_output(context);
-        let firehose_success_feedback_sample_rate_binding = firehose_success_feedback_sample_rate_binding_1
-            .get_inner();
-        let http_failure_feedback_role_arn_binding_1 = args
+        let http_failure_feedback_role_arn_binding = args
             .http_failure_feedback_role_arn
             .get_output(context);
-        let http_failure_feedback_role_arn_binding = http_failure_feedback_role_arn_binding_1
-            .get_inner();
-        let http_success_feedback_role_arn_binding_1 = args
+        let http_success_feedback_role_arn_binding = args
             .http_success_feedback_role_arn
             .get_output(context);
-        let http_success_feedback_role_arn_binding = http_success_feedback_role_arn_binding_1
-            .get_inner();
-        let http_success_feedback_sample_rate_binding_1 = args
+        let http_success_feedback_sample_rate_binding = args
             .http_success_feedback_sample_rate
             .get_output(context);
-        let http_success_feedback_sample_rate_binding = http_success_feedback_sample_rate_binding_1
-            .get_inner();
-        let kms_master_key_id_binding_1 = args.kms_master_key_id.get_output(context);
-        let kms_master_key_id_binding = kms_master_key_id_binding_1.get_inner();
-        let lambda_failure_feedback_role_arn_binding_1 = args
+        let kms_master_key_id_binding = args.kms_master_key_id.get_output(context);
+        let lambda_failure_feedback_role_arn_binding = args
             .lambda_failure_feedback_role_arn
             .get_output(context);
-        let lambda_failure_feedback_role_arn_binding = lambda_failure_feedback_role_arn_binding_1
-            .get_inner();
-        let lambda_success_feedback_role_arn_binding_1 = args
+        let lambda_success_feedback_role_arn_binding = args
             .lambda_success_feedback_role_arn
             .get_output(context);
-        let lambda_success_feedback_role_arn_binding = lambda_success_feedback_role_arn_binding_1
-            .get_inner();
-        let lambda_success_feedback_sample_rate_binding_1 = args
+        let lambda_success_feedback_sample_rate_binding = args
             .lambda_success_feedback_sample_rate
             .get_output(context);
-        let lambda_success_feedback_sample_rate_binding = lambda_success_feedback_sample_rate_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let signature_version_binding_1 = args.signature_version.get_output(context);
-        let signature_version_binding = signature_version_binding_1.get_inner();
-        let sqs_failure_feedback_role_arn_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let policy_binding = args.policy.get_output(context);
+        let signature_version_binding = args.signature_version.get_output(context);
+        let sqs_failure_feedback_role_arn_binding = args
             .sqs_failure_feedback_role_arn
             .get_output(context);
-        let sqs_failure_feedback_role_arn_binding = sqs_failure_feedback_role_arn_binding_1
-            .get_inner();
-        let sqs_success_feedback_role_arn_binding_1 = args
+        let sqs_success_feedback_role_arn_binding = args
             .sqs_success_feedback_role_arn
             .get_output(context);
-        let sqs_success_feedback_role_arn_binding = sqs_success_feedback_role_arn_binding_1
-            .get_inner();
-        let sqs_success_feedback_sample_rate_binding_1 = args
+        let sqs_success_feedback_sample_rate_binding = args
             .sqs_success_feedback_sample_rate
             .get_output(context);
-        let sqs_success_feedback_sample_rate_binding = sqs_success_feedback_sample_rate_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tracing_config_binding_1 = args.tracing_config.get_output(context);
-        let tracing_config_binding = tracing_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let tracing_config_binding = args.tracing_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sns/topic:Topic".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationFailureFeedbackRoleArn".into(),
-                    value: &application_failure_feedback_role_arn_binding,
+                    value: application_failure_feedback_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationSuccessFeedbackRoleArn".into(),
-                    value: &application_success_feedback_role_arn_binding,
+                    value: application_success_feedback_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationSuccessFeedbackSampleRate".into(),
-                    value: &application_success_feedback_sample_rate_binding,
+                    value: application_success_feedback_sample_rate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "archivePolicy".into(),
-                    value: &archive_policy_binding,
+                    value: archive_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentBasedDeduplication".into(),
-                    value: &content_based_deduplication_binding,
+                    value: content_based_deduplication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryPolicy".into(),
-                    value: &delivery_policy_binding,
+                    value: delivery_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fifoTopic".into(),
-                    value: &fifo_topic_binding,
+                    value: fifo_topic_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firehoseFailureFeedbackRoleArn".into(),
-                    value: &firehose_failure_feedback_role_arn_binding,
+                    value: firehose_failure_feedback_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firehoseSuccessFeedbackRoleArn".into(),
-                    value: &firehose_success_feedback_role_arn_binding,
+                    value: firehose_success_feedback_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firehoseSuccessFeedbackSampleRate".into(),
-                    value: &firehose_success_feedback_sample_rate_binding,
+                    value: firehose_success_feedback_sample_rate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpFailureFeedbackRoleArn".into(),
-                    value: &http_failure_feedback_role_arn_binding,
+                    value: http_failure_feedback_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpSuccessFeedbackRoleArn".into(),
-                    value: &http_success_feedback_role_arn_binding,
+                    value: http_success_feedback_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpSuccessFeedbackSampleRate".into(),
-                    value: &http_success_feedback_sample_rate_binding,
+                    value: http_success_feedback_sample_rate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsMasterKeyId".into(),
-                    value: &kms_master_key_id_binding,
+                    value: kms_master_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaFailureFeedbackRoleArn".into(),
-                    value: &lambda_failure_feedback_role_arn_binding,
+                    value: lambda_failure_feedback_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaSuccessFeedbackRoleArn".into(),
-                    value: &lambda_success_feedback_role_arn_binding,
+                    value: lambda_success_feedback_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaSuccessFeedbackSampleRate".into(),
-                    value: &lambda_success_feedback_sample_rate_binding,
+                    value: lambda_success_feedback_sample_rate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signatureVersion".into(),
-                    value: &signature_version_binding,
+                    value: signature_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqsFailureFeedbackRoleArn".into(),
-                    value: &sqs_failure_feedback_role_arn_binding,
+                    value: sqs_failure_feedback_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqsSuccessFeedbackRoleArn".into(),
-                    value: &sqs_success_feedback_role_arn_binding,
+                    value: sqs_success_feedback_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqsSuccessFeedbackSampleRate".into(),
-                    value: &sqs_success_feedback_sample_rate_binding,
+                    value: sqs_success_feedback_sample_rate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tracingConfig".into(),
-                    value: &tracing_config_binding,
+                    value: tracing_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TopicResult {
-            application_failure_feedback_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationFailureFeedbackRoleArn"),
-            ),
-            application_success_feedback_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationSuccessFeedbackRoleArn"),
-            ),
-            application_success_feedback_sample_rate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationSuccessFeedbackSampleRate"),
-            ),
-            archive_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("archivePolicy"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            beginning_archive_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("beginningArchiveTime"),
-            ),
-            content_based_deduplication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentBasedDeduplication"),
-            ),
-            delivery_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deliveryPolicy"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            fifo_topic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fifoTopic"),
-            ),
-            firehose_failure_feedback_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firehoseFailureFeedbackRoleArn"),
-            ),
-            firehose_success_feedback_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firehoseSuccessFeedbackRoleArn"),
-            ),
-            firehose_success_feedback_sample_rate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firehoseSuccessFeedbackSampleRate"),
-            ),
-            http_failure_feedback_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpFailureFeedbackRoleArn"),
-            ),
-            http_success_feedback_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpSuccessFeedbackRoleArn"),
-            ),
-            http_success_feedback_sample_rate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpSuccessFeedbackSampleRate"),
-            ),
-            kms_master_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsMasterKeyId"),
-            ),
-            lambda_failure_feedback_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lambdaFailureFeedbackRoleArn"),
-            ),
-            lambda_success_feedback_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lambdaSuccessFeedbackRoleArn"),
-            ),
-            lambda_success_feedback_sample_rate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lambdaSuccessFeedbackSampleRate"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            signature_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signatureVersion"),
-            ),
-            sqs_failure_feedback_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqsFailureFeedbackRoleArn"),
-            ),
-            sqs_success_feedback_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqsSuccessFeedbackRoleArn"),
-            ),
-            sqs_success_feedback_sample_rate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqsSuccessFeedbackSampleRate"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tracing_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tracingConfig"),
-            ),
+            application_failure_feedback_role_arn: o
+                .get_field("applicationFailureFeedbackRoleArn"),
+            application_success_feedback_role_arn: o
+                .get_field("applicationSuccessFeedbackRoleArn"),
+            application_success_feedback_sample_rate: o
+                .get_field("applicationSuccessFeedbackSampleRate"),
+            archive_policy: o.get_field("archivePolicy"),
+            arn: o.get_field("arn"),
+            beginning_archive_time: o.get_field("beginningArchiveTime"),
+            content_based_deduplication: o.get_field("contentBasedDeduplication"),
+            delivery_policy: o.get_field("deliveryPolicy"),
+            display_name: o.get_field("displayName"),
+            fifo_topic: o.get_field("fifoTopic"),
+            firehose_failure_feedback_role_arn: o
+                .get_field("firehoseFailureFeedbackRoleArn"),
+            firehose_success_feedback_role_arn: o
+                .get_field("firehoseSuccessFeedbackRoleArn"),
+            firehose_success_feedback_sample_rate: o
+                .get_field("firehoseSuccessFeedbackSampleRate"),
+            http_failure_feedback_role_arn: o.get_field("httpFailureFeedbackRoleArn"),
+            http_success_feedback_role_arn: o.get_field("httpSuccessFeedbackRoleArn"),
+            http_success_feedback_sample_rate: o
+                .get_field("httpSuccessFeedbackSampleRate"),
+            kms_master_key_id: o.get_field("kmsMasterKeyId"),
+            lambda_failure_feedback_role_arn: o
+                .get_field("lambdaFailureFeedbackRoleArn"),
+            lambda_success_feedback_role_arn: o
+                .get_field("lambdaSuccessFeedbackRoleArn"),
+            lambda_success_feedback_sample_rate: o
+                .get_field("lambdaSuccessFeedbackSampleRate"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            owner: o.get_field("owner"),
+            policy: o.get_field("policy"),
+            signature_version: o.get_field("signatureVersion"),
+            sqs_failure_feedback_role_arn: o.get_field("sqsFailureFeedbackRoleArn"),
+            sqs_success_feedback_role_arn: o.get_field("sqsSuccessFeedbackRoleArn"),
+            sqs_success_feedback_sample_rate: o
+                .get_field("sqsSuccessFeedbackSampleRate"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tracing_config: o.get_field("tracingConfig"),
         }
     }
 }

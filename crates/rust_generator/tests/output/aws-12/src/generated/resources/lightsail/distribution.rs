@@ -284,141 +284,96 @@ pub mod distribution {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DistributionArgs,
     ) -> DistributionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bundle_id_binding_1 = args.bundle_id.get_output(context);
-        let bundle_id_binding = bundle_id_binding_1.get_inner();
-        let cache_behavior_settings_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bundle_id_binding = args.bundle_id.get_output(context);
+        let cache_behavior_settings_binding = args
             .cache_behavior_settings
             .get_output(context);
-        let cache_behavior_settings_binding = cache_behavior_settings_binding_1
-            .get_inner();
-        let cache_behaviors_binding_1 = args.cache_behaviors.get_output(context);
-        let cache_behaviors_binding = cache_behaviors_binding_1.get_inner();
-        let certificate_name_binding_1 = args.certificate_name.get_output(context);
-        let certificate_name_binding = certificate_name_binding_1.get_inner();
-        let default_cache_behavior_binding_1 = args
+        let cache_behaviors_binding = args.cache_behaviors.get_output(context);
+        let certificate_name_binding = args.certificate_name.get_output(context);
+        let default_cache_behavior_binding = args
             .default_cache_behavior
             .get_output(context);
-        let default_cache_behavior_binding = default_cache_behavior_binding_1
-            .get_inner();
-        let ip_address_type_binding_1 = args.ip_address_type.get_output(context);
-        let ip_address_type_binding = ip_address_type_binding_1.get_inner();
-        let is_enabled_binding_1 = args.is_enabled.get_output(context);
-        let is_enabled_binding = is_enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let origin_binding_1 = args.origin.get_output(context);
-        let origin_binding = origin_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ip_address_type_binding = args.ip_address_type.get_output(context);
+        let is_enabled_binding = args.is_enabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let origin_binding = args.origin.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lightsail/distribution:Distribution".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bundleId".into(),
-                    value: &bundle_id_binding,
+                    value: bundle_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheBehaviorSettings".into(),
-                    value: &cache_behavior_settings_binding,
+                    value: cache_behavior_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheBehaviors".into(),
-                    value: &cache_behaviors_binding,
+                    value: cache_behaviors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateName".into(),
-                    value: &certificate_name_binding,
+                    value: certificate_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultCacheBehavior".into(),
-                    value: &default_cache_behavior_binding,
+                    value: default_cache_behavior_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddressType".into(),
-                    value: &ip_address_type_binding,
+                    value: ip_address_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isEnabled".into(),
-                    value: &is_enabled_binding,
+                    value: is_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "origin".into(),
-                    value: &origin_binding,
+                    value: origin_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DistributionResult {
-            alternative_domain_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alternativeDomainNames"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bundle_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bundleId"),
-            ),
-            cache_behavior_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheBehaviorSettings"),
-            ),
-            cache_behaviors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheBehaviors"),
-            ),
-            certificate_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateName"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            default_cache_behavior: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultCacheBehavior"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            ip_address_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddressType"),
-            ),
-            is_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isEnabled"),
-            ),
-            locations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locations"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            origin: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("origin"),
-            ),
-            origin_public_dns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originPublicDns"),
-            ),
-            resource_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceType"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            support_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportCode"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            alternative_domain_names: o.get_field("alternativeDomainNames"),
+            arn: o.get_field("arn"),
+            bundle_id: o.get_field("bundleId"),
+            cache_behavior_settings: o.get_field("cacheBehaviorSettings"),
+            cache_behaviors: o.get_field("cacheBehaviors"),
+            certificate_name: o.get_field("certificateName"),
+            created_at: o.get_field("createdAt"),
+            default_cache_behavior: o.get_field("defaultCacheBehavior"),
+            domain_name: o.get_field("domainName"),
+            ip_address_type: o.get_field("ipAddressType"),
+            is_enabled: o.get_field("isEnabled"),
+            locations: o.get_field("locations"),
+            name: o.get_field("name"),
+            origin: o.get_field("origin"),
+            origin_public_dns: o.get_field("originPublicDns"),
+            resource_type: o.get_field("resourceType"),
+            status: o.get_field("status"),
+            support_code: o.get_field("supportCode"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

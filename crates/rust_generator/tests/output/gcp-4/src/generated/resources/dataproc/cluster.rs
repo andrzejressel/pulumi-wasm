@@ -188,94 +188,70 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_config_binding_1 = args.cluster_config.get_output(context);
-        let cluster_config_binding = cluster_config_binding_1.get_inner();
-        let graceful_decommission_timeout_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_config_binding = args.cluster_config.get_output(context);
+        let graceful_decommission_timeout_binding = args
             .graceful_decommission_timeout
             .get_output(context);
-        let graceful_decommission_timeout_binding = graceful_decommission_timeout_binding_1
-            .get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let virtual_cluster_config_binding_1 = args
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let virtual_cluster_config_binding = args
             .virtual_cluster_config
             .get_output(context);
-        let virtual_cluster_config_binding = virtual_cluster_config_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dataproc/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterConfig".into(),
-                    value: &cluster_config_binding,
+                    value: cluster_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gracefulDecommissionTimeout".into(),
-                    value: &graceful_decommission_timeout_binding,
+                    value: graceful_decommission_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualClusterConfig".into(),
-                    value: &virtual_cluster_config_binding,
+                    value: virtual_cluster_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            cluster_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterConfig"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            graceful_decommission_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gracefulDecommissionTimeout"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            virtual_cluster_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualClusterConfig"),
-            ),
+            cluster_config: o.get_field("clusterConfig"),
+            effective_labels: o.get_field("effectiveLabels"),
+            graceful_decommission_timeout: o.get_field("gracefulDecommissionTimeout"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            region: o.get_field("region"),
+            virtual_cluster_config: o.get_field("virtualClusterConfig"),
         }
     }
 }

@@ -234,220 +234,155 @@ pub mod active_directory {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ActiveDirectoryArgs,
     ) -> ActiveDirectoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administrators_binding_1 = args.administrators.get_output(context);
-        let administrators_binding = administrators_binding_1.get_inner();
-        let aes_encryption_binding_1 = args.aes_encryption.get_output(context);
-        let aes_encryption_binding = aes_encryption_binding_1.get_inner();
-        let backup_operators_binding_1 = args.backup_operators.get_output(context);
-        let backup_operators_binding = backup_operators_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dns_binding_1 = args.dns.get_output(context);
-        let dns_binding = dns_binding_1.get_inner();
-        let domain_binding_1 = args.domain.get_output(context);
-        let domain_binding = domain_binding_1.get_inner();
-        let encrypt_dc_connections_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let administrators_binding = args.administrators.get_output(context);
+        let aes_encryption_binding = args.aes_encryption.get_output(context);
+        let backup_operators_binding = args.backup_operators.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let dns_binding = args.dns.get_output(context);
+        let domain_binding = args.domain.get_output(context);
+        let encrypt_dc_connections_binding = args
             .encrypt_dc_connections
             .get_output(context);
-        let encrypt_dc_connections_binding = encrypt_dc_connections_binding_1
-            .get_inner();
-        let kdc_hostname_binding_1 = args.kdc_hostname.get_output(context);
-        let kdc_hostname_binding = kdc_hostname_binding_1.get_inner();
-        let kdc_ip_binding_1 = args.kdc_ip.get_output(context);
-        let kdc_ip_binding = kdc_ip_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let ldap_signing_binding_1 = args.ldap_signing.get_output(context);
-        let ldap_signing_binding = ldap_signing_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let net_bios_prefix_binding_1 = args.net_bios_prefix.get_output(context);
-        let net_bios_prefix_binding = net_bios_prefix_binding_1.get_inner();
-        let nfs_users_with_ldap_binding_1 = args.nfs_users_with_ldap.get_output(context);
-        let nfs_users_with_ldap_binding = nfs_users_with_ldap_binding_1.get_inner();
-        let organizational_unit_binding_1 = args.organizational_unit.get_output(context);
-        let organizational_unit_binding = organizational_unit_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let security_operators_binding_1 = args.security_operators.get_output(context);
-        let security_operators_binding = security_operators_binding_1.get_inner();
-        let site_binding_1 = args.site.get_output(context);
-        let site_binding = site_binding_1.get_inner();
-        let username_binding_1 = args.username.get_output(context);
-        let username_binding = username_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let kdc_hostname_binding = args.kdc_hostname.get_output(context);
+        let kdc_ip_binding = args.kdc_ip.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let ldap_signing_binding = args.ldap_signing.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let net_bios_prefix_binding = args.net_bios_prefix.get_output(context);
+        let nfs_users_with_ldap_binding = args.nfs_users_with_ldap.get_output(context);
+        let organizational_unit_binding = args.organizational_unit.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let security_operators_binding = args.security_operators.get_output(context);
+        let site_binding = args.site.get_output(context);
+        let username_binding = args.username.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:netapp/activeDirectory:ActiveDirectory".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administrators".into(),
-                    value: &administrators_binding,
+                    value: administrators_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aesEncryption".into(),
-                    value: &aes_encryption_binding,
+                    value: aes_encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupOperators".into(),
-                    value: &backup_operators_binding,
+                    value: backup_operators_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dns".into(),
-                    value: &dns_binding,
+                    value: dns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: &domain_binding,
+                    value: domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptDcConnections".into(),
-                    value: &encrypt_dc_connections_binding,
+                    value: encrypt_dc_connections_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kdcHostname".into(),
-                    value: &kdc_hostname_binding,
+                    value: kdc_hostname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kdcIp".into(),
-                    value: &kdc_ip_binding,
+                    value: kdc_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ldapSigning".into(),
-                    value: &ldap_signing_binding,
+                    value: ldap_signing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "netBiosPrefix".into(),
-                    value: &net_bios_prefix_binding,
+                    value: net_bios_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nfsUsersWithLdap".into(),
-                    value: &nfs_users_with_ldap_binding,
+                    value: nfs_users_with_ldap_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationalUnit".into(),
-                    value: &organizational_unit_binding,
+                    value: organizational_unit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityOperators".into(),
-                    value: &security_operators_binding,
+                    value: security_operators_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "site".into(),
-                    value: &site_binding,
+                    value: site_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: &username_binding,
+                    value: username_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ActiveDirectoryResult {
-            administrators: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administrators"),
-            ),
-            aes_encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aesEncryption"),
-            ),
-            backup_operators: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupOperators"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("dns")),
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            encrypt_dc_connections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptDcConnections"),
-            ),
-            kdc_hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kdcHostname"),
-            ),
-            kdc_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kdcIp"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            ldap_signing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ldapSigning"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            net_bios_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("netBiosPrefix"),
-            ),
-            nfs_users_with_ldap: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nfsUsersWithLdap"),
-            ),
-            organizational_unit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organizationalUnit"),
-            ),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            security_operators: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityOperators"),
-            ),
-            site: pulumi_gestalt_rust::__private::into_domain(o.extract_field("site")),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateDetails"),
-            ),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
+            administrators: o.get_field("administrators"),
+            aes_encryption: o.get_field("aesEncryption"),
+            backup_operators: o.get_field("backupOperators"),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            dns: o.get_field("dns"),
+            domain: o.get_field("domain"),
+            effective_labels: o.get_field("effectiveLabels"),
+            encrypt_dc_connections: o.get_field("encryptDcConnections"),
+            kdc_hostname: o.get_field("kdcHostname"),
+            kdc_ip: o.get_field("kdcIp"),
+            labels: o.get_field("labels"),
+            ldap_signing: o.get_field("ldapSigning"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            net_bios_prefix: o.get_field("netBiosPrefix"),
+            nfs_users_with_ldap: o.get_field("nfsUsersWithLdap"),
+            organizational_unit: o.get_field("organizationalUnit"),
+            password: o.get_field("password"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            security_operators: o.get_field("securityOperators"),
+            site: o.get_field("site"),
+            state: o.get_field("state"),
+            state_details: o.get_field("stateDetails"),
+            username: o.get_field("username"),
         }
     }
 }

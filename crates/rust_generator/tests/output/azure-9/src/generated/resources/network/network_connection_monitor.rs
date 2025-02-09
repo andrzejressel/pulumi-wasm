@@ -244,100 +244,79 @@ pub mod network_connection_monitor {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkConnectionMonitorArgs,
     ) -> NetworkConnectionMonitorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoints_binding_1 = args.endpoints.get_output(context);
-        let endpoints_binding = endpoints_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_watcher_id_binding_1 = args.network_watcher_id.get_output(context);
-        let network_watcher_id_binding = network_watcher_id_binding_1.get_inner();
-        let notes_binding_1 = args.notes.get_output(context);
-        let notes_binding = notes_binding_1.get_inner();
-        let output_workspace_resource_ids_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let endpoints_binding = args.endpoints.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_watcher_id_binding = args.network_watcher_id.get_output(context);
+        let notes_binding = args.notes.get_output(context);
+        let output_workspace_resource_ids_binding = args
             .output_workspace_resource_ids
             .get_output(context);
-        let output_workspace_resource_ids_binding = output_workspace_resource_ids_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let test_configurations_binding_1 = args.test_configurations.get_output(context);
-        let test_configurations_binding = test_configurations_binding_1.get_inner();
-        let test_groups_binding_1 = args.test_groups.get_output(context);
-        let test_groups_binding = test_groups_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let test_configurations_binding = args.test_configurations.get_output(context);
+        let test_groups_binding = args.test_groups.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/networkConnectionMonitor:NetworkConnectionMonitor"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoints".into(),
-                    value: &endpoints_binding,
+                    value: endpoints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkWatcherId".into(),
-                    value: &network_watcher_id_binding,
+                    value: network_watcher_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notes".into(),
-                    value: &notes_binding,
+                    value: notes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputWorkspaceResourceIds".into(),
-                    value: &output_workspace_resource_ids_binding,
+                    value: output_workspace_resource_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testConfigurations".into(),
-                    value: &test_configurations_binding,
+                    value: test_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testGroups".into(),
-                    value: &test_groups_binding,
+                    value: test_groups_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkConnectionMonitorResult {
-            endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoints"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_watcher_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkWatcherId"),
-            ),
-            notes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("notes")),
-            output_workspace_resource_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputWorkspaceResourceIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            test_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("testConfigurations"),
-            ),
-            test_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("testGroups"),
-            ),
+            endpoints: o.get_field("endpoints"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            network_watcher_id: o.get_field("networkWatcherId"),
+            notes: o.get_field("notes"),
+            output_workspace_resource_ids: o.get_field("outputWorkspaceResourceIds"),
+            tags: o.get_field("tags"),
+            test_configurations: o.get_field("testConfigurations"),
+            test_groups: o.get_field("testGroups"),
         }
     }
 }

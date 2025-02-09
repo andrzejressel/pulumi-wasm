@@ -137,110 +137,83 @@ pub mod queue {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: QueueArgs,
     ) -> QueueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let hours_of_operation_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let hours_of_operation_id_binding = args
             .hours_of_operation_id
             .get_output(context);
-        let hours_of_operation_id_binding = hours_of_operation_id_binding_1.get_inner();
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let max_contacts_binding_1 = args.max_contacts.get_output(context);
-        let max_contacts_binding = max_contacts_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let outbound_caller_config_binding_1 = args
+        let instance_id_binding = args.instance_id.get_output(context);
+        let max_contacts_binding = args.max_contacts.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let outbound_caller_config_binding = args
             .outbound_caller_config
             .get_output(context);
-        let outbound_caller_config_binding = outbound_caller_config_binding_1
-            .get_inner();
-        let quick_connect_ids_binding_1 = args.quick_connect_ids.get_output(context);
-        let quick_connect_ids_binding = quick_connect_ids_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let quick_connect_ids_binding = args.quick_connect_ids.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:connect/queue:Queue".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hoursOfOperationId".into(),
-                    value: &hours_of_operation_id_binding,
+                    value: hours_of_operation_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxContacts".into(),
-                    value: &max_contacts_binding,
+                    value: max_contacts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outboundCallerConfig".into(),
-                    value: &outbound_caller_config_binding,
+                    value: outbound_caller_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quickConnectIds".into(),
-                    value: &quick_connect_ids_binding,
+                    value: quick_connect_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         QueueResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            hours_of_operation_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hoursOfOperationId"),
-            ),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            max_contacts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxContacts"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            outbound_caller_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outboundCallerConfig"),
-            ),
-            queue_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueId"),
-            ),
-            quick_connect_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("quickConnectIds"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            hours_of_operation_id: o.get_field("hoursOfOperationId"),
+            instance_id: o.get_field("instanceId"),
+            max_contacts: o.get_field("maxContacts"),
+            name: o.get_field("name"),
+            outbound_caller_config: o.get_field("outboundCallerConfig"),
+            queue_id: o.get_field("queueId"),
+            quick_connect_ids: o.get_field("quickConnectIds"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

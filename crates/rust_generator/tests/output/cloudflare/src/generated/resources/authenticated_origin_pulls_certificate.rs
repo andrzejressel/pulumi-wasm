@@ -83,74 +83,53 @@ pub mod authenticated_origin_pulls_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AuthenticatedOriginPullsCertificateArgs,
     ) -> AuthenticatedOriginPullsCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_binding_1 = args.certificate.get_output(context);
-        let certificate_binding = certificate_binding_1.get_inner();
-        let private_key_binding_1 = args.private_key.get_output(context);
-        let private_key_binding = private_key_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_binding = args.certificate.get_output(context);
+        let private_key_binding = args.private_key.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/authenticatedOriginPullsCertificate:AuthenticatedOriginPullsCertificate"
                 .into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificate".into(),
-                    value: &certificate_binding,
+                    value: certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateKey".into(),
-                    value: &private_key_binding,
+                    value: private_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AuthenticatedOriginPullsCertificateResult {
-            certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificate"),
-            ),
-            expires_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiresOn"),
-            ),
-            issuer: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issuer"),
-            ),
-            private_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateKey"),
-            ),
-            serial_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serialNumber"),
-            ),
-            signature: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signature"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            uploaded_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uploadedOn"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            certificate: o.get_field("certificate"),
+            expires_on: o.get_field("expiresOn"),
+            issuer: o.get_field("issuer"),
+            private_key: o.get_field("privateKey"),
+            serial_number: o.get_field("serialNumber"),
+            signature: o.get_field("signature"),
+            status: o.get_field("status"),
+            type_: o.get_field("type"),
+            uploaded_on: o.get_field("uploadedOn"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

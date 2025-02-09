@@ -367,202 +367,134 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let availability_type_binding_1 = args.availability_type.get_output(context);
-        let availability_type_binding = availability_type_binding_1.get_inner();
-        let client_connection_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let annotations_binding = args.annotations.get_output(context);
+        let availability_type_binding = args.availability_type.get_output(context);
+        let client_connection_config_binding = args
             .client_connection_config
             .get_output(context);
-        let client_connection_config_binding = client_connection_config_binding_1
-            .get_inner();
-        let cluster_binding_1 = args.cluster.get_output(context);
-        let cluster_binding = cluster_binding_1.get_inner();
-        let database_flags_binding_1 = args.database_flags.get_output(context);
-        let database_flags_binding = database_flags_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let gce_zone_binding_1 = args.gce_zone.get_output(context);
-        let gce_zone_binding = gce_zone_binding_1.get_inner();
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let instance_type_binding_1 = args.instance_type.get_output(context);
-        let instance_type_binding = instance_type_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let machine_config_binding_1 = args.machine_config.get_output(context);
-        let machine_config_binding = machine_config_binding_1.get_inner();
-        let network_config_binding_1 = args.network_config.get_output(context);
-        let network_config_binding = network_config_binding_1.get_inner();
-        let observability_config_binding_1 = args
-            .observability_config
-            .get_output(context);
-        let observability_config_binding = observability_config_binding_1.get_inner();
-        let psc_instance_config_binding_1 = args.psc_instance_config.get_output(context);
-        let psc_instance_config_binding = psc_instance_config_binding_1.get_inner();
-        let query_insights_config_binding_1 = args
+        let cluster_binding = args.cluster.get_output(context);
+        let database_flags_binding = args.database_flags.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let gce_zone_binding = args.gce_zone.get_output(context);
+        let instance_id_binding = args.instance_id.get_output(context);
+        let instance_type_binding = args.instance_type.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let machine_config_binding = args.machine_config.get_output(context);
+        let network_config_binding = args.network_config.get_output(context);
+        let observability_config_binding = args.observability_config.get_output(context);
+        let psc_instance_config_binding = args.psc_instance_config.get_output(context);
+        let query_insights_config_binding = args
             .query_insights_config
             .get_output(context);
-        let query_insights_config_binding = query_insights_config_binding_1.get_inner();
-        let read_pool_config_binding_1 = args.read_pool_config.get_output(context);
-        let read_pool_config_binding = read_pool_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let read_pool_config_binding = args.read_pool_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:alloydb/instance:Instance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityType".into(),
-                    value: &availability_type_binding,
+                    value: availability_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientConnectionConfig".into(),
-                    value: &client_connection_config_binding,
+                    value: client_connection_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cluster".into(),
-                    value: &cluster_binding,
+                    value: cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseFlags".into(),
-                    value: &database_flags_binding,
+                    value: database_flags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gceZone".into(),
-                    value: &gce_zone_binding,
+                    value: gce_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: &instance_type_binding,
+                    value: instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "machineConfig".into(),
-                    value: &machine_config_binding,
+                    value: machine_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfig".into(),
-                    value: &network_config_binding,
+                    value: network_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "observabilityConfig".into(),
-                    value: &observability_config_binding,
+                    value: observability_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pscInstanceConfig".into(),
-                    value: &psc_instance_config_binding,
+                    value: psc_instance_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryInsightsConfig".into(),
-                    value: &query_insights_config_binding,
+                    value: query_insights_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readPoolConfig".into(),
-                    value: &read_pool_config_binding,
+                    value: read_pool_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceResult {
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            availability_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityType"),
-            ),
-            client_connection_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientConnectionConfig"),
-            ),
-            cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cluster"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            database_flags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseFlags"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            gce_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gceZone"),
-            ),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            machine_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("machineConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfig"),
-            ),
-            observability_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("observabilityConfig"),
-            ),
-            outbound_public_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outboundPublicIpAddresses"),
-            ),
-            psc_instance_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pscInstanceConfig"),
-            ),
-            public_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIpAddress"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            query_insights_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryInsightsConfig"),
-            ),
-            read_pool_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readPoolConfig"),
-            ),
-            reconciling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciling"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            annotations: o.get_field("annotations"),
+            availability_type: o.get_field("availabilityType"),
+            client_connection_config: o.get_field("clientConnectionConfig"),
+            cluster: o.get_field("cluster"),
+            create_time: o.get_field("createTime"),
+            database_flags: o.get_field("databaseFlags"),
+            display_name: o.get_field("displayName"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            effective_labels: o.get_field("effectiveLabels"),
+            gce_zone: o.get_field("gceZone"),
+            instance_id: o.get_field("instanceId"),
+            instance_type: o.get_field("instanceType"),
+            ip_address: o.get_field("ipAddress"),
+            labels: o.get_field("labels"),
+            machine_config: o.get_field("machineConfig"),
+            name: o.get_field("name"),
+            network_config: o.get_field("networkConfig"),
+            observability_config: o.get_field("observabilityConfig"),
+            outbound_public_ip_addresses: o.get_field("outboundPublicIpAddresses"),
+            psc_instance_config: o.get_field("pscInstanceConfig"),
+            public_ip_address: o.get_field("publicIpAddress"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            query_insights_config: o.get_field("queryInsightsConfig"),
+            read_pool_config: o.get_field("readPoolConfig"),
+            reconciling: o.get_field("reconciling"),
+            state: o.get_field("state"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

@@ -79,78 +79,59 @@ pub mod voice_connector_termination {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VoiceConnectorTerminationArgs,
     ) -> VoiceConnectorTerminationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let calling_regions_binding_1 = args.calling_regions.get_output(context);
-        let calling_regions_binding = calling_regions_binding_1.get_inner();
-        let cidr_allow_lists_binding_1 = args.cidr_allow_lists.get_output(context);
-        let cidr_allow_lists_binding = cidr_allow_lists_binding_1.get_inner();
-        let cps_limit_binding_1 = args.cps_limit.get_output(context);
-        let cps_limit_binding = cps_limit_binding_1.get_inner();
-        let default_phone_number_binding_1 = args
-            .default_phone_number
-            .get_output(context);
-        let default_phone_number_binding = default_phone_number_binding_1.get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let voice_connector_id_binding_1 = args.voice_connector_id.get_output(context);
-        let voice_connector_id_binding = voice_connector_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let calling_regions_binding = args.calling_regions.get_output(context);
+        let cidr_allow_lists_binding = args.cidr_allow_lists.get_output(context);
+        let cps_limit_binding = args.cps_limit.get_output(context);
+        let default_phone_number_binding = args.default_phone_number.get_output(context);
+        let disabled_binding = args.disabled.get_output(context);
+        let voice_connector_id_binding = args.voice_connector_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:chime/voiceConnectorTermination:VoiceConnectorTermination"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "callingRegions".into(),
-                    value: &calling_regions_binding,
+                    value: calling_regions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrAllowLists".into(),
-                    value: &cidr_allow_lists_binding,
+                    value: cidr_allow_lists_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cpsLimit".into(),
-                    value: &cps_limit_binding,
+                    value: cps_limit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultPhoneNumber".into(),
-                    value: &default_phone_number_binding,
+                    value: default_phone_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceConnectorId".into(),
-                    value: &voice_connector_id_binding,
+                    value: voice_connector_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VoiceConnectorTerminationResult {
-            calling_regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("callingRegions"),
-            ),
-            cidr_allow_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrAllowLists"),
-            ),
-            cps_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cpsLimit"),
-            ),
-            default_phone_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultPhoneNumber"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            voice_connector_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("voiceConnectorId"),
-            ),
+            calling_regions: o.get_field("callingRegions"),
+            cidr_allow_lists: o.get_field("cidrAllowLists"),
+            cps_limit: o.get_field("cpsLimit"),
+            default_phone_number: o.get_field("defaultPhoneNumber"),
+            disabled: o.get_field("disabled"),
+            voice_connector_id: o.get_field("voiceConnectorId"),
         }
     }
 }

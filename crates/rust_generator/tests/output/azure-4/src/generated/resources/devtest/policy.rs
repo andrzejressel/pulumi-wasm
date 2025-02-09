@@ -105,98 +105,76 @@ pub mod policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PolicyArgs,
     ) -> PolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let evaluator_type_binding_1 = args.evaluator_type.get_output(context);
-        let evaluator_type_binding = evaluator_type_binding_1.get_inner();
-        let fact_data_binding_1 = args.fact_data.get_output(context);
-        let fact_data_binding = fact_data_binding_1.get_inner();
-        let lab_name_binding_1 = args.lab_name.get_output(context);
-        let lab_name_binding = lab_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let policy_set_name_binding_1 = args.policy_set_name.get_output(context);
-        let policy_set_name_binding = policy_set_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let threshold_binding_1 = args.threshold.get_output(context);
-        let threshold_binding = threshold_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let evaluator_type_binding = args.evaluator_type.get_output(context);
+        let fact_data_binding = args.fact_data.get_output(context);
+        let lab_name_binding = args.lab_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let policy_set_name_binding = args.policy_set_name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let threshold_binding = args.threshold.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:devtest/policy:Policy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "evaluatorType".into(),
-                    value: &evaluator_type_binding,
+                    value: evaluator_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "factData".into(),
-                    value: &fact_data_binding,
+                    value: fact_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labName".into(),
-                    value: &lab_name_binding,
+                    value: lab_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policySetName".into(),
-                    value: &policy_set_name_binding,
+                    value: policy_set_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threshold".into(),
-                    value: &threshold_binding,
+                    value: threshold_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PolicyResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            evaluator_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("evaluatorType"),
-            ),
-            fact_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("factData"),
-            ),
-            lab_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            policy_set_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policySetName"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            threshold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("threshold"),
-            ),
+            description: o.get_field("description"),
+            evaluator_type: o.get_field("evaluatorType"),
+            fact_data: o.get_field("factData"),
+            lab_name: o.get_field("labName"),
+            name: o.get_field("name"),
+            policy_set_name: o.get_field("policySetName"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
+            threshold: o.get_field("threshold"),
         }
     }
 }

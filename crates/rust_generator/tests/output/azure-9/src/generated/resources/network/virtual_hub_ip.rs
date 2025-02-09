@@ -122,78 +122,60 @@ pub mod virtual_hub_ip {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VirtualHubIpArgs,
     ) -> VirtualHubIpResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let private_ip_address_binding_1 = args.private_ip_address.get_output(context);
-        let private_ip_address_binding = private_ip_address_binding_1.get_inner();
-        let private_ip_allocation_method_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let private_ip_address_binding = args.private_ip_address.get_output(context);
+        let private_ip_allocation_method_binding = args
             .private_ip_allocation_method
             .get_output(context);
-        let private_ip_allocation_method_binding = private_ip_allocation_method_binding_1
-            .get_inner();
-        let public_ip_address_id_binding_1 = args
-            .public_ip_address_id
-            .get_output(context);
-        let public_ip_address_id_binding = public_ip_address_id_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let virtual_hub_id_binding_1 = args.virtual_hub_id.get_output(context);
-        let virtual_hub_id_binding = virtual_hub_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let public_ip_address_id_binding = args.public_ip_address_id.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let virtual_hub_id_binding = args.virtual_hub_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/virtualHubIp:VirtualHubIp".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpAddress".into(),
-                    value: &private_ip_address_binding,
+                    value: private_ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpAllocationMethod".into(),
-                    value: &private_ip_allocation_method_binding,
+                    value: private_ip_allocation_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIpAddressId".into(),
-                    value: &public_ip_address_id_binding,
+                    value: public_ip_address_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualHubId".into(),
-                    value: &virtual_hub_id_binding,
+                    value: virtual_hub_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VirtualHubIpResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpAddress"),
-            ),
-            private_ip_allocation_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpAllocationMethod"),
-            ),
-            public_ip_address_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIpAddressId"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            virtual_hub_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualHubId"),
-            ),
+            name: o.get_field("name"),
+            private_ip_address: o.get_field("privateIpAddress"),
+            private_ip_allocation_method: o.get_field("privateIpAllocationMethod"),
+            public_ip_address_id: o.get_field("publicIpAddressId"),
+            subnet_id: o.get_field("subnetId"),
+            virtual_hub_id: o.get_field("virtualHubId"),
         }
     }
 }

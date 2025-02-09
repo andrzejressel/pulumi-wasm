@@ -465,143 +465,100 @@ pub mod edge_cache_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EdgeCacheServiceArgs,
     ) -> EdgeCacheServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disable_http2_binding_1 = args.disable_http2.get_output(context);
-        let disable_http2_binding = disable_http2_binding_1.get_inner();
-        let disable_quic_binding_1 = args.disable_quic.get_output(context);
-        let disable_quic_binding = disable_quic_binding_1.get_inner();
-        let edge_security_policy_binding_1 = args
-            .edge_security_policy
-            .get_output(context);
-        let edge_security_policy_binding = edge_security_policy_binding_1.get_inner();
-        let edge_ssl_certificates_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let disable_http2_binding = args.disable_http2.get_output(context);
+        let disable_quic_binding = args.disable_quic.get_output(context);
+        let edge_security_policy_binding = args.edge_security_policy.get_output(context);
+        let edge_ssl_certificates_binding = args
             .edge_ssl_certificates
             .get_output(context);
-        let edge_ssl_certificates_binding = edge_ssl_certificates_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let log_config_binding_1 = args.log_config.get_output(context);
-        let log_config_binding = log_config_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let require_tls_binding_1 = args.require_tls.get_output(context);
-        let require_tls_binding = require_tls_binding_1.get_inner();
-        let routing_binding_1 = args.routing.get_output(context);
-        let routing_binding = routing_binding_1.get_inner();
-        let ssl_policy_binding_1 = args.ssl_policy.get_output(context);
-        let ssl_policy_binding = ssl_policy_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let labels_binding = args.labels.get_output(context);
+        let log_config_binding = args.log_config.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let require_tls_binding = args.require_tls.get_output(context);
+        let routing_binding = args.routing.get_output(context);
+        let ssl_policy_binding = args.ssl_policy.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:networkservices/edgeCacheService:EdgeCacheService".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableHttp2".into(),
-                    value: &disable_http2_binding,
+                    value: disable_http2_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableQuic".into(),
-                    value: &disable_quic_binding,
+                    value: disable_quic_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeSecurityPolicy".into(),
-                    value: &edge_security_policy_binding,
+                    value: edge_security_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeSslCertificates".into(),
-                    value: &edge_ssl_certificates_binding,
+                    value: edge_ssl_certificates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfig".into(),
-                    value: &log_config_binding,
+                    value: log_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireTls".into(),
-                    value: &require_tls_binding,
+                    value: require_tls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routing".into(),
-                    value: &routing_binding,
+                    value: routing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslPolicy".into(),
-                    value: &ssl_policy_binding,
+                    value: ssl_policy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EdgeCacheServiceResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disable_http2: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableHttp2"),
-            ),
-            disable_quic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableQuic"),
-            ),
-            edge_security_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeSecurityPolicy"),
-            ),
-            edge_ssl_certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeSslCertificates"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            ipv4_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv4Addresses"),
-            ),
-            ipv6_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6Addresses"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            log_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            require_tls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requireTls"),
-            ),
-            routing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routing"),
-            ),
-            ssl_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslPolicy"),
-            ),
+            description: o.get_field("description"),
+            disable_http2: o.get_field("disableHttp2"),
+            disable_quic: o.get_field("disableQuic"),
+            edge_security_policy: o.get_field("edgeSecurityPolicy"),
+            edge_ssl_certificates: o.get_field("edgeSslCertificates"),
+            effective_labels: o.get_field("effectiveLabels"),
+            ipv4_addresses: o.get_field("ipv4Addresses"),
+            ipv6_addresses: o.get_field("ipv6Addresses"),
+            labels: o.get_field("labels"),
+            log_config: o.get_field("logConfig"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            require_tls: o.get_field("requireTls"),
+            routing: o.get_field("routing"),
+            ssl_policy: o.get_field("sslPolicy"),
         }
     }
 }

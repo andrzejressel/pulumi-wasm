@@ -235,177 +235,128 @@ pub mod association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AssociationArgs,
     ) -> AssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let apply_only_at_cron_interval_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let apply_only_at_cron_interval_binding = args
             .apply_only_at_cron_interval
             .get_output(context);
-        let apply_only_at_cron_interval_binding = apply_only_at_cron_interval_binding_1
-            .get_inner();
-        let association_name_binding_1 = args.association_name.get_output(context);
-        let association_name_binding = association_name_binding_1.get_inner();
-        let automation_target_parameter_name_binding_1 = args
+        let association_name_binding = args.association_name.get_output(context);
+        let automation_target_parameter_name_binding = args
             .automation_target_parameter_name
             .get_output(context);
-        let automation_target_parameter_name_binding = automation_target_parameter_name_binding_1
-            .get_inner();
-        let compliance_severity_binding_1 = args.compliance_severity.get_output(context);
-        let compliance_severity_binding = compliance_severity_binding_1.get_inner();
-        let document_version_binding_1 = args.document_version.get_output(context);
-        let document_version_binding = document_version_binding_1.get_inner();
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let max_concurrency_binding_1 = args.max_concurrency.get_output(context);
-        let max_concurrency_binding = max_concurrency_binding_1.get_inner();
-        let max_errors_binding_1 = args.max_errors.get_output(context);
-        let max_errors_binding = max_errors_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let output_location_binding_1 = args.output_location.get_output(context);
-        let output_location_binding = output_location_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let schedule_expression_binding_1 = args.schedule_expression.get_output(context);
-        let schedule_expression_binding = schedule_expression_binding_1.get_inner();
-        let sync_compliance_binding_1 = args.sync_compliance.get_output(context);
-        let sync_compliance_binding = sync_compliance_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let targets_binding_1 = args.targets.get_output(context);
-        let targets_binding = targets_binding_1.get_inner();
-        let wait_for_success_timeout_seconds_binding_1 = args
+        let compliance_severity_binding = args.compliance_severity.get_output(context);
+        let document_version_binding = args.document_version.get_output(context);
+        let instance_id_binding = args.instance_id.get_output(context);
+        let max_concurrency_binding = args.max_concurrency.get_output(context);
+        let max_errors_binding = args.max_errors.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let output_location_binding = args.output_location.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let schedule_expression_binding = args.schedule_expression.get_output(context);
+        let sync_compliance_binding = args.sync_compliance.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let targets_binding = args.targets.get_output(context);
+        let wait_for_success_timeout_seconds_binding = args
             .wait_for_success_timeout_seconds
             .get_output(context);
-        let wait_for_success_timeout_seconds_binding = wait_for_success_timeout_seconds_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssm/association:Association".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applyOnlyAtCronInterval".into(),
-                    value: &apply_only_at_cron_interval_binding,
+                    value: apply_only_at_cron_interval_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associationName".into(),
-                    value: &association_name_binding,
+                    value: association_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationTargetParameterName".into(),
-                    value: &automation_target_parameter_name_binding,
+                    value: automation_target_parameter_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "complianceSeverity".into(),
-                    value: &compliance_severity_binding,
+                    value: compliance_severity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentVersion".into(),
-                    value: &document_version_binding,
+                    value: document_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxConcurrency".into(),
-                    value: &max_concurrency_binding,
+                    value: max_concurrency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxErrors".into(),
-                    value: &max_errors_binding,
+                    value: max_errors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputLocation".into(),
-                    value: &output_location_binding,
+                    value: output_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleExpression".into(),
-                    value: &schedule_expression_binding,
+                    value: schedule_expression_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "syncCompliance".into(),
-                    value: &sync_compliance_binding,
+                    value: sync_compliance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targets".into(),
-                    value: &targets_binding,
+                    value: targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForSuccessTimeoutSeconds".into(),
-                    value: &wait_for_success_timeout_seconds_binding,
+                    value: wait_for_success_timeout_seconds_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AssociationResult {
-            apply_only_at_cron_interval: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applyOnlyAtCronInterval"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            association_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associationId"),
-            ),
-            association_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associationName"),
-            ),
-            automation_target_parameter_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automationTargetParameterName"),
-            ),
-            compliance_severity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("complianceSeverity"),
-            ),
-            document_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentVersion"),
-            ),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            max_concurrency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxConcurrency"),
-            ),
-            max_errors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxErrors"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            output_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputLocation"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            schedule_expression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduleExpression"),
-            ),
-            sync_compliance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("syncCompliance"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targets"),
-            ),
-            wait_for_success_timeout_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForSuccessTimeoutSeconds"),
-            ),
+            apply_only_at_cron_interval: o.get_field("applyOnlyAtCronInterval"),
+            arn: o.get_field("arn"),
+            association_id: o.get_field("associationId"),
+            association_name: o.get_field("associationName"),
+            automation_target_parameter_name: o
+                .get_field("automationTargetParameterName"),
+            compliance_severity: o.get_field("complianceSeverity"),
+            document_version: o.get_field("documentVersion"),
+            instance_id: o.get_field("instanceId"),
+            max_concurrency: o.get_field("maxConcurrency"),
+            max_errors: o.get_field("maxErrors"),
+            name: o.get_field("name"),
+            output_location: o.get_field("outputLocation"),
+            parameters: o.get_field("parameters"),
+            schedule_expression: o.get_field("scheduleExpression"),
+            sync_compliance: o.get_field("syncCompliance"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            targets: o.get_field("targets"),
+            wait_for_success_timeout_seconds: o.get_field("waitForSuccessTimeoutSeconds"),
         }
     }
 }

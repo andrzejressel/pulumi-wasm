@@ -184,71 +184,57 @@ pub mod data_collection_rule_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataCollectionRuleAssociationArgs,
     ) -> DataCollectionRuleAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_collection_endpoint_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_collection_endpoint_id_binding = args
             .data_collection_endpoint_id
             .get_output(context);
-        let data_collection_endpoint_id_binding = data_collection_endpoint_id_binding_1
-            .get_inner();
-        let data_collection_rule_id_binding_1 = args
+        let data_collection_rule_id_binding = args
             .data_collection_rule_id
             .get_output(context);
-        let data_collection_rule_id_binding = data_collection_rule_id_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let target_resource_id_binding_1 = args.target_resource_id.get_output(context);
-        let target_resource_id_binding = target_resource_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let target_resource_id_binding = args.target_resource_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCollectionEndpointId".into(),
-                    value: &data_collection_endpoint_id_binding,
+                    value: data_collection_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCollectionRuleId".into(),
-                    value: &data_collection_rule_id_binding,
+                    value: data_collection_rule_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceId".into(),
-                    value: &target_resource_id_binding,
+                    value: target_resource_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataCollectionRuleAssociationResult {
-            data_collection_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataCollectionEndpointId"),
-            ),
-            data_collection_rule_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataCollectionRuleId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetResourceId"),
-            ),
+            data_collection_endpoint_id: o.get_field("dataCollectionEndpointId"),
+            data_collection_rule_id: o.get_field("dataCollectionRuleId"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            target_resource_id: o.get_field("targetResourceId"),
         }
     }
 }

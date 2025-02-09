@@ -309,117 +309,86 @@ pub mod tls_inspection_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TlsInspectionPolicyArgs,
     ) -> TlsInspectionPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ca_pool_binding_1 = args.ca_pool.get_output(context);
-        let ca_pool_binding = ca_pool_binding_1.get_inner();
-        let custom_tls_features_binding_1 = args.custom_tls_features.get_output(context);
-        let custom_tls_features_binding = custom_tls_features_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let exclude_public_ca_set_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let ca_pool_binding = args.ca_pool.get_output(context);
+        let custom_tls_features_binding = args.custom_tls_features.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let exclude_public_ca_set_binding = args
             .exclude_public_ca_set
             .get_output(context);
-        let exclude_public_ca_set_binding = exclude_public_ca_set_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let min_tls_version_binding_1 = args.min_tls_version.get_output(context);
-        let min_tls_version_binding = min_tls_version_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let tls_feature_profile_binding_1 = args.tls_feature_profile.get_output(context);
-        let tls_feature_profile_binding = tls_feature_profile_binding_1.get_inner();
-        let trust_config_binding_1 = args.trust_config.get_output(context);
-        let trust_config_binding = trust_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let min_tls_version_binding = args.min_tls_version.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let tls_feature_profile_binding = args.tls_feature_profile.get_output(context);
+        let trust_config_binding = args.trust_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:networksecurity/tlsInspectionPolicy:TlsInspectionPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caPool".into(),
-                    value: &ca_pool_binding,
+                    value: ca_pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customTlsFeatures".into(),
-                    value: &custom_tls_features_binding,
+                    value: custom_tls_features_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludePublicCaSet".into(),
-                    value: &exclude_public_ca_set_binding,
+                    value: exclude_public_ca_set_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minTlsVersion".into(),
-                    value: &min_tls_version_binding,
+                    value: min_tls_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsFeatureProfile".into(),
-                    value: &tls_feature_profile_binding,
+                    value: tls_feature_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustConfig".into(),
-                    value: &trust_config_binding,
+                    value: trust_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TlsInspectionPolicyResult {
-            ca_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("caPool"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            custom_tls_features: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customTlsFeatures"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            exclude_public_ca_set: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludePublicCaSet"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            min_tls_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minTlsVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            tls_feature_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsFeatureProfile"),
-            ),
-            trust_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustConfig"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            ca_pool: o.get_field("caPool"),
+            create_time: o.get_field("createTime"),
+            custom_tls_features: o.get_field("customTlsFeatures"),
+            description: o.get_field("description"),
+            exclude_public_ca_set: o.get_field("excludePublicCaSet"),
+            location: o.get_field("location"),
+            min_tls_version: o.get_field("minTlsVersion"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            tls_feature_profile: o.get_field("tlsFeatureProfile"),
+            trust_config: o.get_field("trustConfig"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

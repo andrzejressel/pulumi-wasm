@@ -175,230 +175,162 @@ pub mod profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProfileArgs,
     ) -> ProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_number_binding_1 = args.account_number.get_output(context);
-        let account_number_binding = account_number_binding_1.get_inner();
-        let additional_information_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_number_binding = args.account_number.get_output(context);
+        let additional_information_binding = args
             .additional_information
             .get_output(context);
-        let additional_information_binding = additional_information_binding_1
-            .get_inner();
-        let address_binding_1 = args.address.get_output(context);
-        let address_binding = address_binding_1.get_inner();
-        let attributes_binding_1 = args.attributes.get_output(context);
-        let attributes_binding = attributes_binding_1.get_inner();
-        let billing_address_binding_1 = args.billing_address.get_output(context);
-        let billing_address_binding = billing_address_binding_1.get_inner();
-        let birth_date_binding_1 = args.birth_date.get_output(context);
-        let birth_date_binding = birth_date_binding_1.get_inner();
-        let business_email_address_binding_1 = args
+        let address_binding = args.address.get_output(context);
+        let attributes_binding = args.attributes.get_output(context);
+        let billing_address_binding = args.billing_address.get_output(context);
+        let birth_date_binding = args.birth_date.get_output(context);
+        let business_email_address_binding = args
             .business_email_address
             .get_output(context);
-        let business_email_address_binding = business_email_address_binding_1
-            .get_inner();
-        let business_name_binding_1 = args.business_name.get_output(context);
-        let business_name_binding = business_name_binding_1.get_inner();
-        let business_phone_number_binding_1 = args
+        let business_name_binding = args.business_name.get_output(context);
+        let business_phone_number_binding = args
             .business_phone_number
             .get_output(context);
-        let business_phone_number_binding = business_phone_number_binding_1.get_inner();
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let email_address_binding_1 = args.email_address.get_output(context);
-        let email_address_binding = email_address_binding_1.get_inner();
-        let first_name_binding_1 = args.first_name.get_output(context);
-        let first_name_binding = first_name_binding_1.get_inner();
-        let gender_string_binding_1 = args.gender_string.get_output(context);
-        let gender_string_binding = gender_string_binding_1.get_inner();
-        let home_phone_number_binding_1 = args.home_phone_number.get_output(context);
-        let home_phone_number_binding = home_phone_number_binding_1.get_inner();
-        let last_name_binding_1 = args.last_name.get_output(context);
-        let last_name_binding = last_name_binding_1.get_inner();
-        let mailing_address_binding_1 = args.mailing_address.get_output(context);
-        let mailing_address_binding = mailing_address_binding_1.get_inner();
-        let middle_name_binding_1 = args.middle_name.get_output(context);
-        let middle_name_binding = middle_name_binding_1.get_inner();
-        let mobile_phone_number_binding_1 = args.mobile_phone_number.get_output(context);
-        let mobile_phone_number_binding = mobile_phone_number_binding_1.get_inner();
-        let party_type_string_binding_1 = args.party_type_string.get_output(context);
-        let party_type_string_binding = party_type_string_binding_1.get_inner();
-        let personal_email_address_binding_1 = args
+        let domain_name_binding = args.domain_name.get_output(context);
+        let email_address_binding = args.email_address.get_output(context);
+        let first_name_binding = args.first_name.get_output(context);
+        let gender_string_binding = args.gender_string.get_output(context);
+        let home_phone_number_binding = args.home_phone_number.get_output(context);
+        let last_name_binding = args.last_name.get_output(context);
+        let mailing_address_binding = args.mailing_address.get_output(context);
+        let middle_name_binding = args.middle_name.get_output(context);
+        let mobile_phone_number_binding = args.mobile_phone_number.get_output(context);
+        let party_type_string_binding = args.party_type_string.get_output(context);
+        let personal_email_address_binding = args
             .personal_email_address
             .get_output(context);
-        let personal_email_address_binding = personal_email_address_binding_1
-            .get_inner();
-        let phone_number_binding_1 = args.phone_number.get_output(context);
-        let phone_number_binding = phone_number_binding_1.get_inner();
-        let shipping_address_binding_1 = args.shipping_address.get_output(context);
-        let shipping_address_binding = shipping_address_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let phone_number_binding = args.phone_number.get_output(context);
+        let shipping_address_binding = args.shipping_address.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:customerprofiles/profile:Profile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountNumber".into(),
-                    value: &account_number_binding,
+                    value: account_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalInformation".into(),
-                    value: &additional_information_binding,
+                    value: additional_information_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "address".into(),
-                    value: &address_binding,
+                    value: address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributes".into(),
-                    value: &attributes_binding,
+                    value: attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAddress".into(),
-                    value: &billing_address_binding,
+                    value: billing_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "birthDate".into(),
-                    value: &birth_date_binding,
+                    value: birth_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "businessEmailAddress".into(),
-                    value: &business_email_address_binding,
+                    value: business_email_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "businessName".into(),
-                    value: &business_name_binding,
+                    value: business_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "businessPhoneNumber".into(),
-                    value: &business_phone_number_binding,
+                    value: business_phone_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddress".into(),
-                    value: &email_address_binding,
+                    value: email_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firstName".into(),
-                    value: &first_name_binding,
+                    value: first_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "genderString".into(),
-                    value: &gender_string_binding,
+                    value: gender_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "homePhoneNumber".into(),
-                    value: &home_phone_number_binding,
+                    value: home_phone_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lastName".into(),
-                    value: &last_name_binding,
+                    value: last_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mailingAddress".into(),
-                    value: &mailing_address_binding,
+                    value: mailing_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "middleName".into(),
-                    value: &middle_name_binding,
+                    value: middle_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobilePhoneNumber".into(),
-                    value: &mobile_phone_number_binding,
+                    value: mobile_phone_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partyTypeString".into(),
-                    value: &party_type_string_binding,
+                    value: party_type_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "personalEmailAddress".into(),
-                    value: &personal_email_address_binding,
+                    value: personal_email_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "phoneNumber".into(),
-                    value: &phone_number_binding,
+                    value: phone_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shippingAddress".into(),
-                    value: &shipping_address_binding,
+                    value: shipping_address_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProfileResult {
-            account_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountNumber"),
-            ),
-            additional_information: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalInformation"),
-            ),
-            address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("address"),
-            ),
-            attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attributes"),
-            ),
-            billing_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingAddress"),
-            ),
-            birth_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("birthDate"),
-            ),
-            business_email_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("businessEmailAddress"),
-            ),
-            business_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("businessName"),
-            ),
-            business_phone_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("businessPhoneNumber"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            email_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailAddress"),
-            ),
-            first_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firstName"),
-            ),
-            gender_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("genderString"),
-            ),
-            home_phone_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("homePhoneNumber"),
-            ),
-            last_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastName"),
-            ),
-            mailing_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mailingAddress"),
-            ),
-            middle_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("middleName"),
-            ),
-            mobile_phone_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mobilePhoneNumber"),
-            ),
-            party_type_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partyTypeString"),
-            ),
-            personal_email_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("personalEmailAddress"),
-            ),
-            phone_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("phoneNumber"),
-            ),
-            shipping_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shippingAddress"),
-            ),
+            account_number: o.get_field("accountNumber"),
+            additional_information: o.get_field("additionalInformation"),
+            address: o.get_field("address"),
+            attributes: o.get_field("attributes"),
+            billing_address: o.get_field("billingAddress"),
+            birth_date: o.get_field("birthDate"),
+            business_email_address: o.get_field("businessEmailAddress"),
+            business_name: o.get_field("businessName"),
+            business_phone_number: o.get_field("businessPhoneNumber"),
+            domain_name: o.get_field("domainName"),
+            email_address: o.get_field("emailAddress"),
+            first_name: o.get_field("firstName"),
+            gender_string: o.get_field("genderString"),
+            home_phone_number: o.get_field("homePhoneNumber"),
+            last_name: o.get_field("lastName"),
+            mailing_address: o.get_field("mailingAddress"),
+            middle_name: o.get_field("middleName"),
+            mobile_phone_number: o.get_field("mobilePhoneNumber"),
+            party_type_string: o.get_field("partyTypeString"),
+            personal_email_address: o.get_field("personalEmailAddress"),
+            phone_number: o.get_field("phoneNumber"),
+            shipping_address: o.get_field("shippingAddress"),
         }
     }
 }

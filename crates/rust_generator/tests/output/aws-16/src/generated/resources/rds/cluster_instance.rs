@@ -230,298 +230,201 @@ pub mod cluster_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterInstanceArgs,
     ) -> ClusterInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let apply_immediately_binding_1 = args.apply_immediately.get_output(context);
-        let apply_immediately_binding = apply_immediately_binding_1.get_inner();
-        let auto_minor_version_upgrade_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let apply_immediately_binding = args.apply_immediately.get_output(context);
+        let auto_minor_version_upgrade_binding = args
             .auto_minor_version_upgrade
             .get_output(context);
-        let auto_minor_version_upgrade_binding = auto_minor_version_upgrade_binding_1
-            .get_inner();
-        let availability_zone_binding_1 = args.availability_zone.get_output(context);
-        let availability_zone_binding = availability_zone_binding_1.get_inner();
-        let ca_cert_identifier_binding_1 = args.ca_cert_identifier.get_output(context);
-        let ca_cert_identifier_binding = ca_cert_identifier_binding_1.get_inner();
-        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
-        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
-        let copy_tags_to_snapshot_binding_1 = args
+        let availability_zone_binding = args.availability_zone.get_output(context);
+        let ca_cert_identifier_binding = args.ca_cert_identifier.get_output(context);
+        let cluster_identifier_binding = args.cluster_identifier.get_output(context);
+        let copy_tags_to_snapshot_binding = args
             .copy_tags_to_snapshot
             .get_output(context);
-        let copy_tags_to_snapshot_binding = copy_tags_to_snapshot_binding_1.get_inner();
-        let custom_iam_instance_profile_binding_1 = args
+        let custom_iam_instance_profile_binding = args
             .custom_iam_instance_profile
             .get_output(context);
-        let custom_iam_instance_profile_binding = custom_iam_instance_profile_binding_1
-            .get_inner();
-        let db_parameter_group_name_binding_1 = args
+        let db_parameter_group_name_binding = args
             .db_parameter_group_name
             .get_output(context);
-        let db_parameter_group_name_binding = db_parameter_group_name_binding_1
-            .get_inner();
-        let db_subnet_group_name_binding_1 = args
-            .db_subnet_group_name
-            .get_output(context);
-        let db_subnet_group_name_binding = db_subnet_group_name_binding_1.get_inner();
-        let engine_binding_1 = args.engine.get_output(context);
-        let engine_binding = engine_binding_1.get_inner();
-        let engine_version_binding_1 = args.engine_version.get_output(context);
-        let engine_version_binding = engine_version_binding_1.get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let identifier_binding_1 = args.identifier.get_output(context);
-        let identifier_binding = identifier_binding_1.get_inner();
-        let identifier_prefix_binding_1 = args.identifier_prefix.get_output(context);
-        let identifier_prefix_binding = identifier_prefix_binding_1.get_inner();
-        let instance_class_binding_1 = args.instance_class.get_output(context);
-        let instance_class_binding = instance_class_binding_1.get_inner();
-        let monitoring_interval_binding_1 = args.monitoring_interval.get_output(context);
-        let monitoring_interval_binding = monitoring_interval_binding_1.get_inner();
-        let monitoring_role_arn_binding_1 = args.monitoring_role_arn.get_output(context);
-        let monitoring_role_arn_binding = monitoring_role_arn_binding_1.get_inner();
-        let performance_insights_enabled_binding_1 = args
+        let db_subnet_group_name_binding = args.db_subnet_group_name.get_output(context);
+        let engine_binding = args.engine.get_output(context);
+        let engine_version_binding = args.engine_version.get_output(context);
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let identifier_binding = args.identifier.get_output(context);
+        let identifier_prefix_binding = args.identifier_prefix.get_output(context);
+        let instance_class_binding = args.instance_class.get_output(context);
+        let monitoring_interval_binding = args.monitoring_interval.get_output(context);
+        let monitoring_role_arn_binding = args.monitoring_role_arn.get_output(context);
+        let performance_insights_enabled_binding = args
             .performance_insights_enabled
             .get_output(context);
-        let performance_insights_enabled_binding = performance_insights_enabled_binding_1
-            .get_inner();
-        let performance_insights_kms_key_id_binding_1 = args
+        let performance_insights_kms_key_id_binding = args
             .performance_insights_kms_key_id
             .get_output(context);
-        let performance_insights_kms_key_id_binding = performance_insights_kms_key_id_binding_1
-            .get_inner();
-        let performance_insights_retention_period_binding_1 = args
+        let performance_insights_retention_period_binding = args
             .performance_insights_retention_period
             .get_output(context);
-        let performance_insights_retention_period_binding = performance_insights_retention_period_binding_1
-            .get_inner();
-        let preferred_backup_window_binding_1 = args
+        let preferred_backup_window_binding = args
             .preferred_backup_window
             .get_output(context);
-        let preferred_backup_window_binding = preferred_backup_window_binding_1
-            .get_inner();
-        let preferred_maintenance_window_binding_1 = args
+        let preferred_maintenance_window_binding = args
             .preferred_maintenance_window
             .get_output(context);
-        let preferred_maintenance_window_binding = preferred_maintenance_window_binding_1
-            .get_inner();
-        let promotion_tier_binding_1 = args.promotion_tier.get_output(context);
-        let promotion_tier_binding = promotion_tier_binding_1.get_inner();
-        let publicly_accessible_binding_1 = args.publicly_accessible.get_output(context);
-        let publicly_accessible_binding = publicly_accessible_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let promotion_tier_binding = args.promotion_tier.get_output(context);
+        let publicly_accessible_binding = args.publicly_accessible.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rds/clusterInstance:ClusterInstance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applyImmediately".into(),
-                    value: &apply_immediately_binding,
+                    value: apply_immediately_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoMinorVersionUpgrade".into(),
-                    value: &auto_minor_version_upgrade_binding,
+                    value: auto_minor_version_upgrade_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: &availability_zone_binding,
+                    value: availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caCertIdentifier".into(),
-                    value: &ca_cert_identifier_binding,
+                    value: ca_cert_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: &cluster_identifier_binding,
+                    value: cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyTagsToSnapshot".into(),
-                    value: &copy_tags_to_snapshot_binding,
+                    value: copy_tags_to_snapshot_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customIamInstanceProfile".into(),
-                    value: &custom_iam_instance_profile_binding,
+                    value: custom_iam_instance_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbParameterGroupName".into(),
-                    value: &db_parameter_group_name_binding,
+                    value: db_parameter_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbSubnetGroupName".into(),
-                    value: &db_subnet_group_name_binding,
+                    value: db_subnet_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: &engine_binding,
+                    value: engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: &engine_version_binding,
+                    value: engine_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identifier".into(),
-                    value: &identifier_binding,
+                    value: identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identifierPrefix".into(),
-                    value: &identifier_prefix_binding,
+                    value: identifier_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceClass".into(),
-                    value: &instance_class_binding,
+                    value: instance_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitoringInterval".into(),
-                    value: &monitoring_interval_binding,
+                    value: monitoring_interval_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitoringRoleArn".into(),
-                    value: &monitoring_role_arn_binding,
+                    value: monitoring_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "performanceInsightsEnabled".into(),
-                    value: &performance_insights_enabled_binding,
+                    value: performance_insights_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "performanceInsightsKmsKeyId".into(),
-                    value: &performance_insights_kms_key_id_binding,
+                    value: performance_insights_kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "performanceInsightsRetentionPeriod".into(),
-                    value: &performance_insights_retention_period_binding,
+                    value: performance_insights_retention_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredBackupWindow".into(),
-                    value: &preferred_backup_window_binding,
+                    value: preferred_backup_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredMaintenanceWindow".into(),
-                    value: &preferred_maintenance_window_binding,
+                    value: preferred_maintenance_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "promotionTier".into(),
-                    value: &promotion_tier_binding,
+                    value: promotion_tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publiclyAccessible".into(),
-                    value: &publicly_accessible_binding,
+                    value: publicly_accessible_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterInstanceResult {
-            apply_immediately: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applyImmediately"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_minor_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoMinorVersionUpgrade"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            ca_cert_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("caCertIdentifier"),
-            ),
-            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterIdentifier"),
-            ),
-            copy_tags_to_snapshot: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("copyTagsToSnapshot"),
-            ),
-            custom_iam_instance_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customIamInstanceProfile"),
-            ),
-            db_parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbParameterGroupName"),
-            ),
-            db_subnet_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbSubnetGroupName"),
-            ),
-            dbi_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbiResourceId"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            engine_version_actual: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersionActual"),
-            ),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identifier"),
-            ),
-            identifier_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identifierPrefix"),
-            ),
-            instance_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceClass"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            monitoring_interval: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoringInterval"),
-            ),
-            monitoring_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoringRoleArn"),
-            ),
-            network_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkType"),
-            ),
-            performance_insights_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("performanceInsightsEnabled"),
-            ),
-            performance_insights_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("performanceInsightsKmsKeyId"),
-            ),
-            performance_insights_retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("performanceInsightsRetentionPeriod"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            preferred_backup_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredBackupWindow"),
-            ),
-            preferred_maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredMaintenanceWindow"),
-            ),
-            promotion_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("promotionTier"),
-            ),
-            publicly_accessible: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publiclyAccessible"),
-            ),
-            storage_encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageEncrypted"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            writer: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("writer"),
-            ),
+            apply_immediately: o.get_field("applyImmediately"),
+            arn: o.get_field("arn"),
+            auto_minor_version_upgrade: o.get_field("autoMinorVersionUpgrade"),
+            availability_zone: o.get_field("availabilityZone"),
+            ca_cert_identifier: o.get_field("caCertIdentifier"),
+            cluster_identifier: o.get_field("clusterIdentifier"),
+            copy_tags_to_snapshot: o.get_field("copyTagsToSnapshot"),
+            custom_iam_instance_profile: o.get_field("customIamInstanceProfile"),
+            db_parameter_group_name: o.get_field("dbParameterGroupName"),
+            db_subnet_group_name: o.get_field("dbSubnetGroupName"),
+            dbi_resource_id: o.get_field("dbiResourceId"),
+            endpoint: o.get_field("endpoint"),
+            engine: o.get_field("engine"),
+            engine_version: o.get_field("engineVersion"),
+            engine_version_actual: o.get_field("engineVersionActual"),
+            force_destroy: o.get_field("forceDestroy"),
+            identifier: o.get_field("identifier"),
+            identifier_prefix: o.get_field("identifierPrefix"),
+            instance_class: o.get_field("instanceClass"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            monitoring_interval: o.get_field("monitoringInterval"),
+            monitoring_role_arn: o.get_field("monitoringRoleArn"),
+            network_type: o.get_field("networkType"),
+            performance_insights_enabled: o.get_field("performanceInsightsEnabled"),
+            performance_insights_kms_key_id: o.get_field("performanceInsightsKmsKeyId"),
+            performance_insights_retention_period: o
+                .get_field("performanceInsightsRetentionPeriod"),
+            port: o.get_field("port"),
+            preferred_backup_window: o.get_field("preferredBackupWindow"),
+            preferred_maintenance_window: o.get_field("preferredMaintenanceWindow"),
+            promotion_tier: o.get_field("promotionTier"),
+            publicly_accessible: o.get_field("publiclyAccessible"),
+            storage_encrypted: o.get_field("storageEncrypted"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            writer: o.get_field("writer"),
         }
     }
 }

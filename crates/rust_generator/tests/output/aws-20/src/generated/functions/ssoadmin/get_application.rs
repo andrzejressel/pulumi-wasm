@@ -40,54 +40,39 @@ pub mod get_application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetApplicationArgs,
     ) -> GetApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_arn_binding_1 = args.application_arn.get_output(context);
-        let application_arn_binding = application_arn_binding_1.get_inner();
-        let portal_options_binding_1 = args.portal_options.get_output(context);
-        let portal_options_binding = portal_options_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_arn_binding = args.application_arn.get_output(context);
+        let portal_options_binding = args.portal_options.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ssoadmin/getApplication:getApplication".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationArn".into(),
-                    value: &application_arn_binding,
+                    value: application_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portalOptions".into(),
-                    value: &portal_options_binding,
+                    value: portal_options_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetApplicationResult {
-            application_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationAccount"),
-            ),
-            application_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationArn"),
-            ),
-            application_provider_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationProviderArn"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            portal_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("portalOptions"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            application_account: o.get_field("applicationAccount"),
+            application_arn: o.get_field("applicationArn"),
+            application_provider_arn: o.get_field("applicationProviderArn"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            instance_arn: o.get_field("instanceArn"),
+            name: o.get_field("name"),
+            portal_options: o.get_field("portalOptions"),
+            status: o.get_field("status"),
         }
     }
 }

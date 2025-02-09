@@ -139,105 +139,79 @@ pub mod capacity_commitment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CapacityCommitmentArgs,
     ) -> CapacityCommitmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_commitment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let capacity_commitment_id_binding = args
             .capacity_commitment_id
             .get_output(context);
-        let capacity_commitment_id_binding = capacity_commitment_id_binding_1
-            .get_inner();
-        let edition_binding_1 = args.edition.get_output(context);
-        let edition_binding = edition_binding_1.get_inner();
-        let enforce_single_admin_project_per_org_binding_1 = args
+        let edition_binding = args.edition.get_output(context);
+        let enforce_single_admin_project_per_org_binding = args
             .enforce_single_admin_project_per_org
             .get_output(context);
-        let enforce_single_admin_project_per_org_binding = enforce_single_admin_project_per_org_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let plan_binding_1 = args.plan.get_output(context);
-        let plan_binding = plan_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let renewal_plan_binding_1 = args.renewal_plan.get_output(context);
-        let renewal_plan_binding = renewal_plan_binding_1.get_inner();
-        let slot_count_binding_1 = args.slot_count.get_output(context);
-        let slot_count_binding = slot_count_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let plan_binding = args.plan.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let renewal_plan_binding = args.renewal_plan.get_output(context);
+        let slot_count_binding = args.slot_count.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:bigquery/capacityCommitment:CapacityCommitment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityCommitmentId".into(),
-                    value: &capacity_commitment_id_binding,
+                    value: capacity_commitment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edition".into(),
-                    value: &edition_binding,
+                    value: edition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enforceSingleAdminProjectPerOrg".into(),
-                    value: &enforce_single_admin_project_per_org_binding,
+                    value: enforce_single_admin_project_per_org_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plan".into(),
-                    value: &plan_binding,
+                    value: plan_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "renewalPlan".into(),
-                    value: &renewal_plan_binding,
+                    value: renewal_plan_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slotCount".into(),
-                    value: &slot_count_binding,
+                    value: slot_count_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CapacityCommitmentResult {
-            capacity_commitment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityCommitmentId"),
-            ),
-            commitment_end_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("commitmentEndTime"),
-            ),
-            commitment_start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("commitmentStartTime"),
-            ),
-            edition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edition"),
-            ),
-            enforce_single_admin_project_per_org: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enforceSingleAdminProjectPerOrg"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            renewal_plan: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("renewalPlan"),
-            ),
-            slot_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("slotCount"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            capacity_commitment_id: o.get_field("capacityCommitmentId"),
+            commitment_end_time: o.get_field("commitmentEndTime"),
+            commitment_start_time: o.get_field("commitmentStartTime"),
+            edition: o.get_field("edition"),
+            enforce_single_admin_project_per_org: o
+                .get_field("enforceSingleAdminProjectPerOrg"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            plan: o.get_field("plan"),
+            project: o.get_field("project"),
+            renewal_plan: o.get_field("renewalPlan"),
+            slot_count: o.get_field("slotCount"),
+            state: o.get_field("state"),
         }
     }
 }

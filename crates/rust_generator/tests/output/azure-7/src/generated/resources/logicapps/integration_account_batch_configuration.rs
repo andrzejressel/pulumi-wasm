@@ -101,77 +101,61 @@ pub mod integration_account_batch_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IntegrationAccountBatchConfigurationArgs,
     ) -> IntegrationAccountBatchConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let batch_group_name_binding_1 = args.batch_group_name.get_output(context);
-        let batch_group_name_binding = batch_group_name_binding_1.get_inner();
-        let integration_account_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let batch_group_name_binding = args.batch_group_name.get_output(context);
+        let integration_account_name_binding = args
             .integration_account_name
             .get_output(context);
-        let integration_account_name_binding = integration_account_name_binding_1
-            .get_inner();
-        let metadata_binding_1 = args.metadata.get_output(context);
-        let metadata_binding = metadata_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let release_criteria_binding_1 = args.release_criteria.get_output(context);
-        let release_criteria_binding = release_criteria_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let metadata_binding = args.metadata.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let release_criteria_binding = args.release_criteria.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchGroupName".into(),
-                    value: &batch_group_name_binding,
+                    value: batch_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationAccountName".into(),
-                    value: &integration_account_name_binding,
+                    value: integration_account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: &metadata_binding,
+                    value: metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseCriteria".into(),
-                    value: &release_criteria_binding,
+                    value: release_criteria_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IntegrationAccountBatchConfigurationResult {
-            batch_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("batchGroupName"),
-            ),
-            integration_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("integrationAccountName"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            release_criteria: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseCriteria"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            batch_group_name: o.get_field("batchGroupName"),
+            integration_account_name: o.get_field("integrationAccountName"),
+            metadata: o.get_field("metadata"),
+            name: o.get_field("name"),
+            release_criteria: o.get_field("releaseCriteria"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

@@ -101,92 +101,71 @@ pub mod license_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LicenseConfigurationArgs,
     ) -> LicenseConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let license_count_binding_1 = args.license_count.get_output(context);
-        let license_count_binding = license_count_binding_1.get_inner();
-        let license_count_hard_limit_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let license_count_binding = args.license_count.get_output(context);
+        let license_count_hard_limit_binding = args
             .license_count_hard_limit
             .get_output(context);
-        let license_count_hard_limit_binding = license_count_hard_limit_binding_1
-            .get_inner();
-        let license_counting_type_binding_1 = args
+        let license_counting_type_binding = args
             .license_counting_type
             .get_output(context);
-        let license_counting_type_binding = license_counting_type_binding_1.get_inner();
-        let license_rules_binding_1 = args.license_rules.get_output(context);
-        let license_rules_binding = license_rules_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let license_rules_binding = args.license_rules.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:licensemanager/licenseConfiguration:LicenseConfiguration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseCount".into(),
-                    value: &license_count_binding,
+                    value: license_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseCountHardLimit".into(),
-                    value: &license_count_hard_limit_binding,
+                    value: license_count_hard_limit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseCountingType".into(),
-                    value: &license_counting_type_binding,
+                    value: license_counting_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseRules".into(),
-                    value: &license_rules_binding,
+                    value: license_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LicenseConfigurationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            license_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseCount"),
-            ),
-            license_count_hard_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseCountHardLimit"),
-            ),
-            license_counting_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseCountingType"),
-            ),
-            license_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseRules"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerAccountId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            license_count: o.get_field("licenseCount"),
+            license_count_hard_limit: o.get_field("licenseCountHardLimit"),
+            license_counting_type: o.get_field("licenseCountingType"),
+            license_rules: o.get_field("licenseRules"),
+            name: o.get_field("name"),
+            owner_account_id: o.get_field("ownerAccountId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

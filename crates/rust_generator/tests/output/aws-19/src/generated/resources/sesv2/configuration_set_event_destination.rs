@@ -203,55 +203,45 @@ pub mod configuration_set_event_destination {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConfigurationSetEventDestinationArgs,
     ) -> ConfigurationSetEventDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_set_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let configuration_set_name_binding = args
             .configuration_set_name
             .get_output(context);
-        let configuration_set_name_binding = configuration_set_name_binding_1
-            .get_inner();
-        let event_destination_binding_1 = args.event_destination.get_output(context);
-        let event_destination_binding = event_destination_binding_1.get_inner();
-        let event_destination_name_binding_1 = args
+        let event_destination_binding = args.event_destination.get_output(context);
+        let event_destination_name_binding = args
             .event_destination_name
             .get_output(context);
-        let event_destination_name_binding = event_destination_name_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationSetName".into(),
-                    value: &configuration_set_name_binding,
+                    value: configuration_set_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventDestination".into(),
-                    value: &event_destination_binding,
+                    value: event_destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventDestinationName".into(),
-                    value: &event_destination_name_binding,
+                    value: event_destination_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConfigurationSetEventDestinationResult {
-            configuration_set_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationSetName"),
-            ),
-            event_destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventDestination"),
-            ),
-            event_destination_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventDestinationName"),
-            ),
+            configuration_set_name: o.get_field("configurationSetName"),
+            event_destination: o.get_field("eventDestination"),
+            event_destination_name: o.get_field("eventDestinationName"),
         }
     }
 }

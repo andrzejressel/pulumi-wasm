@@ -70,66 +70,54 @@ pub mod ledger {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LedgerArgs,
     ) -> LedgerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
-        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
-        let kms_key_binding_1 = args.kms_key.get_output(context);
-        let kms_key_binding = kms_key_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let permissions_mode_binding_1 = args.permissions_mode.get_output(context);
-        let permissions_mode_binding = permissions_mode_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let deletion_protection_binding = args.deletion_protection.get_output(context);
+        let kms_key_binding = args.kms_key.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let permissions_mode_binding = args.permissions_mode.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:qldb/ledger:Ledger".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: &deletion_protection_binding,
+                    value: deletion_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKey".into(),
-                    value: &kms_key_binding,
+                    value: kms_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionsMode".into(),
-                    value: &permissions_mode_binding,
+                    value: permissions_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LedgerResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            kms_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKey"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            permissions_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissionsMode"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            deletion_protection: o.get_field("deletionProtection"),
+            kms_key: o.get_field("kmsKey"),
+            name: o.get_field("name"),
+            permissions_mode: o.get_field("permissionsMode"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

@@ -66,60 +66,44 @@ pub mod custom_domain_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomDomainAssociationArgs,
     ) -> CustomDomainAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let enable_www_subdomain_binding_1 = args
-            .enable_www_subdomain
-            .get_output(context);
-        let enable_www_subdomain_binding = enable_www_subdomain_binding_1.get_inner();
-        let service_arn_binding_1 = args.service_arn.get_output(context);
-        let service_arn_binding = service_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_name_binding = args.domain_name.get_output(context);
+        let enable_www_subdomain_binding = args.enable_www_subdomain.get_output(context);
+        let service_arn_binding = args.service_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apprunner/customDomainAssociation:CustomDomainAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableWwwSubdomain".into(),
-                    value: &enable_www_subdomain_binding,
+                    value: enable_www_subdomain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceArn".into(),
-                    value: &service_arn_binding,
+                    value: service_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomDomainAssociationResult {
-            certificate_validation_records: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateValidationRecords"),
-            ),
-            dns_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsTarget"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            enable_www_subdomain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableWwwSubdomain"),
-            ),
-            service_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceArn"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            certificate_validation_records: o.get_field("certificateValidationRecords"),
+            dns_target: o.get_field("dnsTarget"),
+            domain_name: o.get_field("domainName"),
+            enable_www_subdomain: o.get_field("enableWwwSubdomain"),
+            service_arn: o.get_field("serviceArn"),
+            status: o.get_field("status"),
         }
     }
 }

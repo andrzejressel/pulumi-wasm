@@ -31,41 +31,34 @@ pub mod get_patch_baselines {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPatchBaselinesArgs,
     ) -> GetPatchBaselinesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_baselines_binding_1 = args.default_baselines.get_output(context);
-        let default_baselines_binding = default_baselines_binding_1.get_inner();
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let default_baselines_binding = args.default_baselines.get_output(context);
+        let filters_binding = args.filters.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ssm/getPatchBaselines:getPatchBaselines".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultBaselines".into(),
-                    value: &default_baselines_binding,
+                    value: default_baselines_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPatchBaselinesResult {
-            baseline_identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baselineIdentities"),
-            ),
-            default_baselines: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultBaselines"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            baseline_identities: o.get_field("baselineIdentities"),
+            default_baselines: o.get_field("defaultBaselines"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
         }
     }
 }

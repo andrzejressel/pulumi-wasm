@@ -89,75 +89,57 @@ pub mod profiles_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProfilesAssociationArgs,
     ) -> ProfilesAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let profile_id_binding_1 = args.profile_id.get_output(context);
-        let profile_id_binding = profile_id_binding_1.get_inner();
-        let resource_id_binding_1 = args.resource_id.get_output(context);
-        let resource_id_binding = resource_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let profile_id_binding = args.profile_id.get_output(context);
+        let resource_id_binding = args.resource_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:route53/profilesAssociation:ProfilesAssociation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileId".into(),
-                    value: &profile_id_binding,
+                    value: profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: &resource_id_binding,
+                    value: resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProfilesAssociationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("profileId"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusMessage"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            arn: o.get_field("arn"),
+            name: o.get_field("name"),
+            owner_id: o.get_field("ownerId"),
+            profile_id: o.get_field("profileId"),
+            resource_id: o.get_field("resourceId"),
+            status: o.get_field("status"),
+            status_message: o.get_field("statusMessage"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

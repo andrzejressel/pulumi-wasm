@@ -70,61 +70,48 @@ pub mod certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CertificateArgs,
     ) -> CertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_id_binding_1 = args.certificate_id.get_output(context);
-        let certificate_id_binding = certificate_id_binding_1.get_inner();
-        let certificate_pem_binding_1 = args.certificate_pem.get_output(context);
-        let certificate_pem_binding = certificate_pem_binding_1.get_inner();
-        let certificate_wallet_binding_1 = args.certificate_wallet.get_output(context);
-        let certificate_wallet_binding = certificate_wallet_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_id_binding = args.certificate_id.get_output(context);
+        let certificate_pem_binding = args.certificate_pem.get_output(context);
+        let certificate_wallet_binding = args.certificate_wallet.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:dms/certificate:Certificate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateId".into(),
-                    value: &certificate_id_binding,
+                    value: certificate_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificatePem".into(),
-                    value: &certificate_pem_binding,
+                    value: certificate_pem_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateWallet".into(),
-                    value: &certificate_wallet_binding,
+                    value: certificate_wallet_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CertificateResult {
-            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateArn"),
-            ),
-            certificate_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateId"),
-            ),
-            certificate_pem: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificatePem"),
-            ),
-            certificate_wallet: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateWallet"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            certificate_arn: o.get_field("certificateArn"),
+            certificate_id: o.get_field("certificateId"),
+            certificate_pem: o.get_field("certificatePem"),
+            certificate_wallet: o.get_field("certificateWallet"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

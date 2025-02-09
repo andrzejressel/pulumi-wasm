@@ -212,152 +212,107 @@ pub mod custom_db_engine_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomDbEngineVersionArgs,
     ) -> CustomDbEngineVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let database_installation_files_s3_bucket_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let database_installation_files_s3_bucket_name_binding = args
             .database_installation_files_s3_bucket_name
             .get_output(context);
-        let database_installation_files_s3_bucket_name_binding = database_installation_files_s3_bucket_name_binding_1
-            .get_inner();
-        let database_installation_files_s3_prefix_binding_1 = args
+        let database_installation_files_s3_prefix_binding = args
             .database_installation_files_s3_prefix
             .get_output(context);
-        let database_installation_files_s3_prefix_binding = database_installation_files_s3_prefix_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let engine_binding_1 = args.engine.get_output(context);
-        let engine_binding = engine_binding_1.get_inner();
-        let engine_version_binding_1 = args.engine_version.get_output(context);
-        let engine_version_binding = engine_version_binding_1.get_inner();
-        let filename_binding_1 = args.filename.get_output(context);
-        let filename_binding = filename_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let manifest_binding_1 = args.manifest.get_output(context);
-        let manifest_binding = manifest_binding_1.get_inner();
-        let manifest_hash_binding_1 = args.manifest_hash.get_output(context);
-        let manifest_hash_binding = manifest_hash_binding_1.get_inner();
-        let source_image_id_binding_1 = args.source_image_id.get_output(context);
-        let source_image_id_binding = source_image_id_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let engine_binding = args.engine.get_output(context);
+        let engine_version_binding = args.engine_version.get_output(context);
+        let filename_binding = args.filename.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let manifest_binding = args.manifest.get_output(context);
+        let manifest_hash_binding = args.manifest_hash.get_output(context);
+        let source_image_id_binding = args.source_image_id.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rds/customDbEngineVersion:CustomDbEngineVersion".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseInstallationFilesS3BucketName".into(),
-                    value: &database_installation_files_s3_bucket_name_binding,
+                    value: database_installation_files_s3_bucket_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseInstallationFilesS3Prefix".into(),
-                    value: &database_installation_files_s3_prefix_binding,
+                    value: database_installation_files_s3_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: &engine_binding,
+                    value: engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: &engine_version_binding,
+                    value: engine_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filename".into(),
-                    value: &filename_binding,
+                    value: filename_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manifest".into(),
-                    value: &manifest_binding,
+                    value: manifest_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manifestHash".into(),
-                    value: &manifest_hash_binding,
+                    value: manifest_hash_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceImageId".into(),
-                    value: &source_image_id_binding,
+                    value: source_image_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomDbEngineVersionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            database_installation_files_s3_bucket_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseInstallationFilesS3BucketName"),
-            ),
-            database_installation_files_s3_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseInstallationFilesS3Prefix"),
-            ),
-            db_parameter_group_family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbParameterGroupFamily"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            filename: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filename"),
-            ),
-            image_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageId"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            major_engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("majorEngineVersion"),
-            ),
-            manifest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manifest"),
-            ),
-            manifest_computed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manifestComputed"),
-            ),
-            manifest_hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manifestHash"),
-            ),
-            source_image_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceImageId"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            create_time: o.get_field("createTime"),
+            database_installation_files_s3_bucket_name: o
+                .get_field("databaseInstallationFilesS3BucketName"),
+            database_installation_files_s3_prefix: o
+                .get_field("databaseInstallationFilesS3Prefix"),
+            db_parameter_group_family: o.get_field("dbParameterGroupFamily"),
+            description: o.get_field("description"),
+            engine: o.get_field("engine"),
+            engine_version: o.get_field("engineVersion"),
+            filename: o.get_field("filename"),
+            image_id: o.get_field("imageId"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            major_engine_version: o.get_field("majorEngineVersion"),
+            manifest: o.get_field("manifest"),
+            manifest_computed: o.get_field("manifestComputed"),
+            manifest_hash: o.get_field("manifestHash"),
+            source_image_id: o.get_field("sourceImageId"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

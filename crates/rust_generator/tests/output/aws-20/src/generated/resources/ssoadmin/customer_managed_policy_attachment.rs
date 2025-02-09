@@ -83,52 +83,44 @@ pub mod customer_managed_policy_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomerManagedPolicyAttachmentArgs,
     ) -> CustomerManagedPolicyAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let customer_managed_policy_reference_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let customer_managed_policy_reference_binding = args
             .customer_managed_policy_reference
             .get_output(context);
-        let customer_managed_policy_reference_binding = customer_managed_policy_reference_binding_1
-            .get_inner();
-        let instance_arn_binding_1 = args.instance_arn.get_output(context);
-        let instance_arn_binding = instance_arn_binding_1.get_inner();
-        let permission_set_arn_binding_1 = args.permission_set_arn.get_output(context);
-        let permission_set_arn_binding = permission_set_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let instance_arn_binding = args.instance_arn.get_output(context);
+        let permission_set_arn_binding = args.permission_set_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedPolicyReference".into(),
-                    value: &customer_managed_policy_reference_binding,
+                    value: customer_managed_policy_reference_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceArn".into(),
-                    value: &instance_arn_binding,
+                    value: instance_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionSetArn".into(),
-                    value: &permission_set_arn_binding,
+                    value: permission_set_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomerManagedPolicyAttachmentResult {
-            customer_managed_policy_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerManagedPolicyReference"),
-            ),
-            instance_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceArn"),
-            ),
-            permission_set_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissionSetArn"),
-            ),
+            customer_managed_policy_reference: o
+                .get_field("customerManagedPolicyReference"),
+            instance_arn: o.get_field("instanceArn"),
+            permission_set_arn: o.get_field("permissionSetArn"),
         }
     }
 }

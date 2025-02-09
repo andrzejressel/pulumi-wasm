@@ -54,74 +54,50 @@ pub mod get_faq {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetFaqArgs,
     ) -> GetFaqResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let faq_id_binding_1 = args.faq_id.get_output(context);
-        let faq_id_binding = faq_id_binding_1.get_inner();
-        let index_id_binding_1 = args.index_id.get_output(context);
-        let index_id_binding = index_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let faq_id_binding = args.faq_id.get_output(context);
+        let index_id_binding = args.index_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:kendra/getFaq:getFaq".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "faqId".into(),
-                    value: &faq_id_binding,
+                    value: faq_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexId".into(),
-                    value: &index_id_binding,
+                    value: index_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetFaqResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            error_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errorMessage"),
-            ),
-            faq_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("faqId"),
-            ),
-            file_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileFormat"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            index_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("indexId"),
-            ),
-            language_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("languageCode"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            s3_paths: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Paths"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            updated_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatedAt"),
-            ),
+            arn: o.get_field("arn"),
+            created_at: o.get_field("createdAt"),
+            description: o.get_field("description"),
+            error_message: o.get_field("errorMessage"),
+            faq_id: o.get_field("faqId"),
+            file_format: o.get_field("fileFormat"),
+            id: o.get_field("id"),
+            index_id: o.get_field("indexId"),
+            language_code: o.get_field("languageCode"),
+            name: o.get_field("name"),
+            role_arn: o.get_field("roleArn"),
+            s3_paths: o.get_field("s3Paths"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            updated_at: o.get_field("updatedAt"),
         }
     }
 }

@@ -137,184 +137,132 @@ pub mod ipsec_tunnel {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IpsecTunnelArgs,
     ) -> IpsecTunnelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let allow_null_cipher_binding_1 = args.allow_null_cipher.get_output(context);
-        let allow_null_cipher_binding = allow_null_cipher_binding_1.get_inner();
-        let cloudflare_endpoint_binding_1 = args.cloudflare_endpoint.get_output(context);
-        let cloudflare_endpoint_binding = cloudflare_endpoint_binding_1.get_inner();
-        let customer_endpoint_binding_1 = args.customer_endpoint.get_output(context);
-        let customer_endpoint_binding = customer_endpoint_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let fqdn_id_binding_1 = args.fqdn_id.get_output(context);
-        let fqdn_id_binding = fqdn_id_binding_1.get_inner();
-        let health_check_direction_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let allow_null_cipher_binding = args.allow_null_cipher.get_output(context);
+        let cloudflare_endpoint_binding = args.cloudflare_endpoint.get_output(context);
+        let customer_endpoint_binding = args.customer_endpoint.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let fqdn_id_binding = args.fqdn_id.get_output(context);
+        let health_check_direction_binding = args
             .health_check_direction
             .get_output(context);
-        let health_check_direction_binding = health_check_direction_binding_1
-            .get_inner();
-        let health_check_enabled_binding_1 = args
-            .health_check_enabled
-            .get_output(context);
-        let health_check_enabled_binding = health_check_enabled_binding_1.get_inner();
-        let health_check_rate_binding_1 = args.health_check_rate.get_output(context);
-        let health_check_rate_binding = health_check_rate_binding_1.get_inner();
-        let health_check_target_binding_1 = args.health_check_target.get_output(context);
-        let health_check_target_binding = health_check_target_binding_1.get_inner();
-        let health_check_type_binding_1 = args.health_check_type.get_output(context);
-        let health_check_type_binding = health_check_type_binding_1.get_inner();
-        let hex_id_binding_1 = args.hex_id.get_output(context);
-        let hex_id_binding = hex_id_binding_1.get_inner();
-        let interface_address_binding_1 = args.interface_address.get_output(context);
-        let interface_address_binding = interface_address_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let psk_binding_1 = args.psk.get_output(context);
-        let psk_binding = psk_binding_1.get_inner();
-        let remote_id_binding_1 = args.remote_id.get_output(context);
-        let remote_id_binding = remote_id_binding_1.get_inner();
-        let replay_protection_binding_1 = args.replay_protection.get_output(context);
-        let replay_protection_binding = replay_protection_binding_1.get_inner();
-        let user_id_binding_1 = args.user_id.get_output(context);
-        let user_id_binding = user_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let health_check_enabled_binding = args.health_check_enabled.get_output(context);
+        let health_check_rate_binding = args.health_check_rate.get_output(context);
+        let health_check_target_binding = args.health_check_target.get_output(context);
+        let health_check_type_binding = args.health_check_type.get_output(context);
+        let hex_id_binding = args.hex_id.get_output(context);
+        let interface_address_binding = args.interface_address.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let psk_binding = args.psk.get_output(context);
+        let remote_id_binding = args.remote_id.get_output(context);
+        let replay_protection_binding = args.replay_protection.get_output(context);
+        let user_id_binding = args.user_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/ipsecTunnel:IpsecTunnel".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowNullCipher".into(),
-                    value: &allow_null_cipher_binding,
+                    value: allow_null_cipher_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudflareEndpoint".into(),
-                    value: &cloudflare_endpoint_binding,
+                    value: cloudflare_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerEndpoint".into(),
-                    value: &customer_endpoint_binding,
+                    value: customer_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fqdnId".into(),
-                    value: &fqdn_id_binding,
+                    value: fqdn_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckDirection".into(),
-                    value: &health_check_direction_binding,
+                    value: health_check_direction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckEnabled".into(),
-                    value: &health_check_enabled_binding,
+                    value: health_check_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckRate".into(),
-                    value: &health_check_rate_binding,
+                    value: health_check_rate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckTarget".into(),
-                    value: &health_check_target_binding,
+                    value: health_check_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckType".into(),
-                    value: &health_check_type_binding,
+                    value: health_check_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hexId".into(),
-                    value: &hex_id_binding,
+                    value: hex_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interfaceAddress".into(),
-                    value: &interface_address_binding,
+                    value: interface_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "psk".into(),
-                    value: &psk_binding,
+                    value: psk_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteId".into(),
-                    value: &remote_id_binding,
+                    value: remote_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replayProtection".into(),
-                    value: &replay_protection_binding,
+                    value: replay_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userId".into(),
-                    value: &user_id_binding,
+                    value: user_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IpsecTunnelResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            allow_null_cipher: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowNullCipher"),
-            ),
-            cloudflare_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudflareEndpoint"),
-            ),
-            customer_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerEndpoint"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            fqdn_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fqdnId"),
-            ),
-            health_check_direction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckDirection"),
-            ),
-            health_check_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckEnabled"),
-            ),
-            health_check_rate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckRate"),
-            ),
-            health_check_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckTarget"),
-            ),
-            health_check_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckType"),
-            ),
-            hex_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hexId"),
-            ),
-            interface_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interfaceAddress"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            psk: pulumi_gestalt_rust::__private::into_domain(o.extract_field("psk")),
-            remote_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteId"),
-            ),
-            replay_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replayProtection"),
-            ),
-            user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userId"),
-            ),
+            account_id: o.get_field("accountId"),
+            allow_null_cipher: o.get_field("allowNullCipher"),
+            cloudflare_endpoint: o.get_field("cloudflareEndpoint"),
+            customer_endpoint: o.get_field("customerEndpoint"),
+            description: o.get_field("description"),
+            fqdn_id: o.get_field("fqdnId"),
+            health_check_direction: o.get_field("healthCheckDirection"),
+            health_check_enabled: o.get_field("healthCheckEnabled"),
+            health_check_rate: o.get_field("healthCheckRate"),
+            health_check_target: o.get_field("healthCheckTarget"),
+            health_check_type: o.get_field("healthCheckType"),
+            hex_id: o.get_field("hexId"),
+            interface_address: o.get_field("interfaceAddress"),
+            name: o.get_field("name"),
+            psk: o.get_field("psk"),
+            remote_id: o.get_field("remoteId"),
+            replay_protection: o.get_field("replayProtection"),
+            user_id: o.get_field("userId"),
         }
     }
 }

@@ -67,80 +67,50 @@ pub mod get_image_pipeline {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetImagePipelineArgs,
     ) -> GetImagePipelineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:imagebuilder/getImagePipeline:getImagePipeline".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetImagePipelineResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            container_recipe_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerRecipeArn"),
-            ),
-            date_created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dateCreated"),
-            ),
-            date_last_run: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dateLastRun"),
-            ),
-            date_next_run: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dateNextRun"),
-            ),
-            date_updated: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dateUpdated"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            distribution_configuration_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("distributionConfigurationArn"),
-            ),
-            enhanced_image_metadata_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enhancedImageMetadataEnabled"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            image_recipe_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageRecipeArn"),
-            ),
-            image_scanning_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageScanningConfigurations"),
-            ),
-            image_tests_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageTestsConfigurations"),
-            ),
-            infrastructure_configuration_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("infrastructureConfigurationArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            schedules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedules"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            arn: o.get_field("arn"),
+            container_recipe_arn: o.get_field("containerRecipeArn"),
+            date_created: o.get_field("dateCreated"),
+            date_last_run: o.get_field("dateLastRun"),
+            date_next_run: o.get_field("dateNextRun"),
+            date_updated: o.get_field("dateUpdated"),
+            description: o.get_field("description"),
+            distribution_configuration_arn: o.get_field("distributionConfigurationArn"),
+            enhanced_image_metadata_enabled: o.get_field("enhancedImageMetadataEnabled"),
+            id: o.get_field("id"),
+            image_recipe_arn: o.get_field("imageRecipeArn"),
+            image_scanning_configurations: o.get_field("imageScanningConfigurations"),
+            image_tests_configurations: o.get_field("imageTestsConfigurations"),
+            infrastructure_configuration_arn: o
+                .get_field("infrastructureConfigurationArn"),
+            name: o.get_field("name"),
+            platform: o.get_field("platform"),
+            schedules: o.get_field("schedules"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
         }
     }
 }

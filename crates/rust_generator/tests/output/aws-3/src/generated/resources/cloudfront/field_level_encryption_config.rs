@@ -97,59 +97,47 @@ pub mod field_level_encryption_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FieldLevelEncryptionConfigArgs,
     ) -> FieldLevelEncryptionConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding_1 = args.comment.get_output(context);
-        let comment_binding = comment_binding_1.get_inner();
-        let content_type_profile_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let comment_binding = args.comment.get_output(context);
+        let content_type_profile_config_binding = args
             .content_type_profile_config
             .get_output(context);
-        let content_type_profile_config_binding = content_type_profile_config_binding_1
-            .get_inner();
-        let query_arg_profile_config_binding_1 = args
+        let query_arg_profile_config_binding = args
             .query_arg_profile_config
             .get_output(context);
-        let query_arg_profile_config_binding = query_arg_profile_config_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: &comment_binding,
+                    value: comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentTypeProfileConfig".into(),
-                    value: &content_type_profile_config_binding,
+                    value: content_type_profile_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryArgProfileConfig".into(),
-                    value: &query_arg_profile_config_binding,
+                    value: query_arg_profile_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FieldLevelEncryptionConfigResult {
-            caller_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("callerReference"),
-            ),
-            comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comment"),
-            ),
-            content_type_profile_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentTypeProfileConfig"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            query_arg_profile_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryArgProfileConfig"),
-            ),
+            caller_reference: o.get_field("callerReference"),
+            comment: o.get_field("comment"),
+            content_type_profile_config: o.get_field("contentTypeProfileConfig"),
+            etag: o.get_field("etag"),
+            query_arg_profile_config: o.get_field("queryArgProfileConfig"),
         }
     }
 }

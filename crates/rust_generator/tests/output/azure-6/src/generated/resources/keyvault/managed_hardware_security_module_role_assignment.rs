@@ -52,66 +52,54 @@ pub mod managed_hardware_security_module_role_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagedHardwareSecurityModuleRoleAssignmentArgs,
     ) -> ManagedHardwareSecurityModuleRoleAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let managed_hsm_id_binding_1 = args.managed_hsm_id.get_output(context);
-        let managed_hsm_id_binding = managed_hsm_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let principal_id_binding_1 = args.principal_id.get_output(context);
-        let principal_id_binding = principal_id_binding_1.get_inner();
-        let role_definition_id_binding_1 = args.role_definition_id.get_output(context);
-        let role_definition_id_binding = role_definition_id_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let managed_hsm_id_binding = args.managed_hsm_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let principal_id_binding = args.principal_id.get_output(context);
+        let role_definition_id_binding = args.role_definition_id.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedHsmId".into(),
-                    value: &managed_hsm_id_binding,
+                    value: managed_hsm_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalId".into(),
-                    value: &principal_id_binding,
+                    value: principal_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleDefinitionId".into(),
-                    value: &role_definition_id_binding,
+                    value: role_definition_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagedHardwareSecurityModuleRoleAssignmentResult {
-            managed_hsm_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedHsmId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            principal_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalId"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            role_definition_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleDefinitionId"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            managed_hsm_id: o.get_field("managedHsmId"),
+            name: o.get_field("name"),
+            principal_id: o.get_field("principalId"),
+            resource_id: o.get_field("resourceId"),
+            role_definition_id: o.get_field("roleDefinitionId"),
+            scope: o.get_field("scope"),
         }
     }
 }

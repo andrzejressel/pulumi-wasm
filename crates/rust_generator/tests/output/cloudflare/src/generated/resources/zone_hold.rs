@@ -59,55 +59,46 @@ pub mod zone_hold {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ZoneHoldArgs,
     ) -> ZoneHoldResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hold_binding_1 = args.hold.get_output(context);
-        let hold_binding = hold_binding_1.get_inner();
-        let hold_after_binding_1 = args.hold_after.get_output(context);
-        let hold_after_binding = hold_after_binding_1.get_inner();
-        let include_subdomains_binding_1 = args.include_subdomains.get_output(context);
-        let include_subdomains_binding = include_subdomains_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let hold_binding = args.hold.get_output(context);
+        let hold_after_binding = args.hold_after.get_output(context);
+        let include_subdomains_binding = args.include_subdomains.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/zoneHold:ZoneHold".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hold".into(),
-                    value: &hold_binding,
+                    value: hold_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "holdAfter".into(),
-                    value: &hold_after_binding,
+                    value: hold_after_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeSubdomains".into(),
-                    value: &include_subdomains_binding,
+                    value: include_subdomains_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ZoneHoldResult {
-            hold: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hold")),
-            hold_after: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("holdAfter"),
-            ),
-            include_subdomains: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeSubdomains"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            hold: o.get_field("hold"),
+            hold_after: o.get_field("holdAfter"),
+            include_subdomains: o.get_field("includeSubdomains"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

@@ -55,64 +55,52 @@ pub mod get_listener_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetListenerRuleArgs,
     ) -> GetListenerRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding_1 = args.actions.get_output(context);
-        let actions_binding = actions_binding_1.get_inner();
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let conditions_binding_1 = args.conditions.get_output(context);
-        let conditions_binding = conditions_binding_1.get_inner();
-        let listener_arn_binding_1 = args.listener_arn.get_output(context);
-        let listener_arn_binding = listener_arn_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let actions_binding = args.actions.get_output(context);
+        let arn_binding = args.arn.get_output(context);
+        let conditions_binding = args.conditions.get_output(context);
+        let listener_arn_binding = args.listener_arn.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:lb/getListenerRule:getListenerRule".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actions".into(),
-                    value: &actions_binding,
+                    value: actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conditions".into(),
-                    value: &conditions_binding,
+                    value: conditions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listenerArn".into(),
-                    value: &listener_arn_binding,
+                    value: listener_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetListenerRuleResult {
-            actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actions"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            conditions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("conditions"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            listener_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listenerArn"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            actions: o.get_field("actions"),
+            arn: o.get_field("arn"),
+            conditions: o.get_field("conditions"),
+            id: o.get_field("id"),
+            listener_arn: o.get_field("listenerArn"),
+            priority: o.get_field("priority"),
+            tags: o.get_field("tags"),
         }
     }
 }

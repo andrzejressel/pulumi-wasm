@@ -43,68 +43,51 @@ pub mod get_server_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetServerCertificateArgs,
     ) -> GetServerCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let latest_binding_1 = args.latest.get_output(context);
-        let latest_binding = latest_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let path_prefix_binding_1 = args.path_prefix.get_output(context);
-        let path_prefix_binding = path_prefix_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let latest_binding = args.latest.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let path_prefix_binding = args.path_prefix.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:iam/getServerCertificate:getServerCertificate".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "latest".into(),
-                    value: &latest_binding,
+                    value: latest_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pathPrefix".into(),
-                    value: &path_prefix_binding,
+                    value: path_prefix_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetServerCertificateResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            certificate_body: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateBody"),
-            ),
-            certificate_chain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateChain"),
-            ),
-            expiration_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationDate"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            latest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latest"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            path_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pathPrefix"),
-            ),
-            upload_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uploadDate"),
-            ),
+            arn: o.get_field("arn"),
+            certificate_body: o.get_field("certificateBody"),
+            certificate_chain: o.get_field("certificateChain"),
+            expiration_date: o.get_field("expirationDate"),
+            id: o.get_field("id"),
+            latest: o.get_field("latest"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            path: o.get_field("path"),
+            path_prefix: o.get_field("pathPrefix"),
+            upload_date: o.get_field("uploadDate"),
         }
     }
 }

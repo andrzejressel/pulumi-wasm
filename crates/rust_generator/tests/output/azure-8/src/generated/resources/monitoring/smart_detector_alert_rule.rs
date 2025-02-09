@@ -136,117 +136,89 @@ pub mod smart_detector_alert_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SmartDetectorAlertRuleArgs,
     ) -> SmartDetectorAlertRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_group_binding_1 = args.action_group.get_output(context);
-        let action_group_binding = action_group_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let detector_type_binding_1 = args.detector_type.get_output(context);
-        let detector_type_binding = detector_type_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let frequency_binding_1 = args.frequency.get_output(context);
-        let frequency_binding = frequency_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let scope_resource_ids_binding_1 = args.scope_resource_ids.get_output(context);
-        let scope_resource_ids_binding = scope_resource_ids_binding_1.get_inner();
-        let severity_binding_1 = args.severity.get_output(context);
-        let severity_binding = severity_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let throttling_duration_binding_1 = args.throttling_duration.get_output(context);
-        let throttling_duration_binding = throttling_duration_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_group_binding = args.action_group.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let detector_type_binding = args.detector_type.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let frequency_binding = args.frequency.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let scope_resource_ids_binding = args.scope_resource_ids.get_output(context);
+        let severity_binding = args.severity.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let throttling_duration_binding = args.throttling_duration.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionGroup".into(),
-                    value: &action_group_binding,
+                    value: action_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectorType".into(),
-                    value: &detector_type_binding,
+                    value: detector_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frequency".into(),
-                    value: &frequency_binding,
+                    value: frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopeResourceIds".into(),
-                    value: &scope_resource_ids_binding,
+                    value: scope_resource_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "severity".into(),
-                    value: &severity_binding,
+                    value: severity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throttlingDuration".into(),
-                    value: &throttling_duration_binding,
+                    value: throttling_duration_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SmartDetectorAlertRuleResult {
-            action_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionGroup"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            detector_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("detectorType"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frequency"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            scope_resource_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopeResourceIds"),
-            ),
-            severity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("severity"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            throttling_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("throttlingDuration"),
-            ),
+            action_group: o.get_field("actionGroup"),
+            description: o.get_field("description"),
+            detector_type: o.get_field("detectorType"),
+            enabled: o.get_field("enabled"),
+            frequency: o.get_field("frequency"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            scope_resource_ids: o.get_field("scopeResourceIds"),
+            severity: o.get_field("severity"),
+            tags: o.get_field("tags"),
+            throttling_duration: o.get_field("throttlingDuration"),
         }
     }
 }

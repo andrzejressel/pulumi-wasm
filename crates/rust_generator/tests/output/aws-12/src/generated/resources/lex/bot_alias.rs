@@ -79,74 +79,56 @@ pub mod bot_alias {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BotAliasArgs,
     ) -> BotAliasResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_name_binding_1 = args.bot_name.get_output(context);
-        let bot_name_binding = bot_name_binding_1.get_inner();
-        let bot_version_binding_1 = args.bot_version.get_output(context);
-        let bot_version_binding = bot_version_binding_1.get_inner();
-        let conversation_logs_binding_1 = args.conversation_logs.get_output(context);
-        let conversation_logs_binding = conversation_logs_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bot_name_binding = args.bot_name.get_output(context);
+        let bot_version_binding = args.bot_version.get_output(context);
+        let conversation_logs_binding = args.conversation_logs.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lex/botAlias:BotAlias".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botName".into(),
-                    value: &bot_name_binding,
+                    value: bot_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botVersion".into(),
-                    value: &bot_version_binding,
+                    value: bot_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conversationLogs".into(),
-                    value: &conversation_logs_binding,
+                    value: conversation_logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BotAliasResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bot_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botName"),
-            ),
-            bot_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botVersion"),
-            ),
-            checksum: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checksum"),
-            ),
-            conversation_logs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("conversationLogs"),
-            ),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            last_updated_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedDate"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            arn: o.get_field("arn"),
+            bot_name: o.get_field("botName"),
+            bot_version: o.get_field("botVersion"),
+            checksum: o.get_field("checksum"),
+            conversation_logs: o.get_field("conversationLogs"),
+            created_date: o.get_field("createdDate"),
+            description: o.get_field("description"),
+            last_updated_date: o.get_field("lastUpdatedDate"),
+            name: o.get_field("name"),
         }
     }
 }

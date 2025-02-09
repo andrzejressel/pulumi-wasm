@@ -55,54 +55,41 @@ pub mod get_job_queue {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetJobQueueArgs,
     ) -> GetJobQueueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:batch/getJobQueue:getJobQueue".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetJobQueueResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            compute_environment_orders: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeEnvironmentOrders"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            job_state_time_limit_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobStateTimeLimitActions"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            scheduling_policy_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedulingPolicyArn"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusReason"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            arn: o.get_field("arn"),
+            compute_environment_orders: o.get_field("computeEnvironmentOrders"),
+            id: o.get_field("id"),
+            job_state_time_limit_actions: o.get_field("jobStateTimeLimitActions"),
+            name: o.get_field("name"),
+            priority: o.get_field("priority"),
+            scheduling_policy_arn: o.get_field("schedulingPolicyArn"),
+            state: o.get_field("state"),
+            status: o.get_field("status"),
+            status_reason: o.get_field("statusReason"),
+            tags: o.get_field("tags"),
         }
     }
 }

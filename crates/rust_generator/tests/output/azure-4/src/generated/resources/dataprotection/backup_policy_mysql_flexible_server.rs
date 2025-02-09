@@ -137,80 +137,63 @@ pub mod backup_policy_mysql_flexible_server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BackupPolicyMysqlFlexibleServerArgs,
     ) -> BackupPolicyMysqlFlexibleServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_repeating_time_intervals_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backup_repeating_time_intervals_binding = args
             .backup_repeating_time_intervals
             .get_output(context);
-        let backup_repeating_time_intervals_binding = backup_repeating_time_intervals_binding_1
-            .get_inner();
-        let default_retention_rule_binding_1 = args
+        let default_retention_rule_binding = args
             .default_retention_rule
             .get_output(context);
-        let default_retention_rule_binding = default_retention_rule_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let retention_rules_binding_1 = args.retention_rules.get_output(context);
-        let retention_rules_binding = retention_rules_binding_1.get_inner();
-        let time_zone_binding_1 = args.time_zone.get_output(context);
-        let time_zone_binding = time_zone_binding_1.get_inner();
-        let vault_id_binding_1 = args.vault_id.get_output(context);
-        let vault_id_binding = vault_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let retention_rules_binding = args.retention_rules.get_output(context);
+        let time_zone_binding = args.time_zone.get_output(context);
+        let vault_id_binding = args.vault_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:dataprotection/backupPolicyMysqlFlexibleServer:BackupPolicyMysqlFlexibleServer"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupRepeatingTimeIntervals".into(),
-                    value: &backup_repeating_time_intervals_binding,
+                    value: backup_repeating_time_intervals_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRetentionRule".into(),
-                    value: &default_retention_rule_binding,
+                    value: default_retention_rule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionRules".into(),
-                    value: &retention_rules_binding,
+                    value: retention_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZone".into(),
-                    value: &time_zone_binding,
+                    value: time_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vaultId".into(),
-                    value: &vault_id_binding,
+                    value: vault_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BackupPolicyMysqlFlexibleServerResult {
-            backup_repeating_time_intervals: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupRepeatingTimeIntervals"),
-            ),
-            default_retention_rule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultRetentionRule"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            retention_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionRules"),
-            ),
-            time_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeZone"),
-            ),
-            vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vaultId"),
-            ),
+            backup_repeating_time_intervals: o.get_field("backupRepeatingTimeIntervals"),
+            default_retention_rule: o.get_field("defaultRetentionRule"),
+            name: o.get_field("name"),
+            retention_rules: o.get_field("retentionRules"),
+            time_zone: o.get_field("timeZone"),
+            vault_id: o.get_field("vaultId"),
         }
     }
 }

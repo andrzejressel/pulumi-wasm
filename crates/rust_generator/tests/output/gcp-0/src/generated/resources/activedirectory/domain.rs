@@ -141,99 +141,74 @@ pub mod domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DomainArgs,
     ) -> DomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_binding_1 = args.admin.get_output(context);
-        let admin_binding = admin_binding_1.get_inner();
-        let authorized_networks_binding_1 = args.authorized_networks.get_output(context);
-        let authorized_networks_binding = authorized_networks_binding_1.get_inner();
-        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
-        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let locations_binding_1 = args.locations.get_output(context);
-        let locations_binding = locations_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let reserved_ip_range_binding_1 = args.reserved_ip_range.get_output(context);
-        let reserved_ip_range_binding = reserved_ip_range_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let admin_binding = args.admin.get_output(context);
+        let authorized_networks_binding = args.authorized_networks.get_output(context);
+        let deletion_protection_binding = args.deletion_protection.get_output(context);
+        let domain_name_binding = args.domain_name.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let locations_binding = args.locations.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let reserved_ip_range_binding = args.reserved_ip_range.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:activedirectory/domain:Domain".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "admin".into(),
-                    value: &admin_binding,
+                    value: admin_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedNetworks".into(),
-                    value: &authorized_networks_binding,
+                    value: authorized_networks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: &deletion_protection_binding,
+                    value: deletion_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locations".into(),
-                    value: &locations_binding,
+                    value: locations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservedIpRange".into(),
-                    value: &reserved_ip_range_binding,
+                    value: reserved_ip_range_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DomainResult {
-            admin: pulumi_gestalt_rust::__private::into_domain(o.extract_field("admin")),
-            authorized_networks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizedNetworks"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            locations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locations"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            reserved_ip_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservedIpRange"),
-            ),
+            admin: o.get_field("admin"),
+            authorized_networks: o.get_field("authorizedNetworks"),
+            deletion_protection: o.get_field("deletionProtection"),
+            domain_name: o.get_field("domainName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            fqdn: o.get_field("fqdn"),
+            labels: o.get_field("labels"),
+            locations: o.get_field("locations"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            reserved_ip_range: o.get_field("reservedIpRange"),
         }
     }
 }

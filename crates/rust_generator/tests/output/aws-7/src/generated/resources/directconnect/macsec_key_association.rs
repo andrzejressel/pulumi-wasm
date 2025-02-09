@@ -89,57 +89,48 @@ pub mod macsec_key_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MacsecKeyAssociationArgs,
     ) -> MacsecKeyAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cak_binding_1 = args.cak.get_output(context);
-        let cak_binding = cak_binding_1.get_inner();
-        let ckn_binding_1 = args.ckn.get_output(context);
-        let ckn_binding = ckn_binding_1.get_inner();
-        let connection_id_binding_1 = args.connection_id.get_output(context);
-        let connection_id_binding = connection_id_binding_1.get_inner();
-        let secret_arn_binding_1 = args.secret_arn.get_output(context);
-        let secret_arn_binding = secret_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cak_binding = args.cak.get_output(context);
+        let ckn_binding = args.ckn.get_output(context);
+        let connection_id_binding = args.connection_id.get_output(context);
+        let secret_arn_binding = args.secret_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cak".into(),
-                    value: &cak_binding,
+                    value: cak_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ckn".into(),
-                    value: &ckn_binding,
+                    value: ckn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionId".into(),
-                    value: &connection_id_binding,
+                    value: connection_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretArn".into(),
-                    value: &secret_arn_binding,
+                    value: secret_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MacsecKeyAssociationResult {
-            cak: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cak")),
-            ckn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ckn")),
-            connection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionId"),
-            ),
-            secret_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretArn"),
-            ),
-            start_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startOn"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            cak: o.get_field("cak"),
+            ckn: o.get_field("ckn"),
+            connection_id: o.get_field("connectionId"),
+            secret_arn: o.get_field("secretArn"),
+            start_on: o.get_field("startOn"),
+            state: o.get_field("state"),
         }
     }
 }

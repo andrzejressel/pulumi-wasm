@@ -118,69 +118,56 @@ pub mod sync_cloud_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SyncCloudEndpointArgs,
     ) -> SyncCloudEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let file_share_name_binding_1 = args.file_share_name.get_output(context);
-        let file_share_name_binding = file_share_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let storage_account_tenant_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let file_share_name_binding = args.file_share_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let storage_account_tenant_id_binding = args
             .storage_account_tenant_id
             .get_output(context);
-        let storage_account_tenant_id_binding = storage_account_tenant_id_binding_1
-            .get_inner();
-        let storage_sync_group_id_binding_1 = args
+        let storage_sync_group_id_binding = args
             .storage_sync_group_id
             .get_output(context);
-        let storage_sync_group_id_binding = storage_sync_group_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/syncCloudEndpoint:SyncCloudEndpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileShareName".into(),
-                    value: &file_share_name_binding,
+                    value: file_share_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountTenantId".into(),
-                    value: &storage_account_tenant_id_binding,
+                    value: storage_account_tenant_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageSyncGroupId".into(),
-                    value: &storage_sync_group_id_binding,
+                    value: storage_sync_group_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SyncCloudEndpointResult {
-            file_share_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileShareName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
-            storage_account_tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountTenantId"),
-            ),
-            storage_sync_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageSyncGroupId"),
-            ),
+            file_share_name: o.get_field("fileShareName"),
+            name: o.get_field("name"),
+            storage_account_id: o.get_field("storageAccountId"),
+            storage_account_tenant_id: o.get_field("storageAccountTenantId"),
+            storage_sync_group_id: o.get_field("storageSyncGroupId"),
         }
     }
 }

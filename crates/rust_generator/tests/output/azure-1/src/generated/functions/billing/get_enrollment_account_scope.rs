@@ -23,44 +23,36 @@ pub mod get_enrollment_account_scope {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetEnrollmentAccountScopeArgs,
     ) -> GetEnrollmentAccountScopeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let billing_account_name_binding_1 = args
-            .billing_account_name
-            .get_output(context);
-        let billing_account_name_binding = billing_account_name_binding_1.get_inner();
-        let enrollment_account_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let billing_account_name_binding = args.billing_account_name.get_output(context);
+        let enrollment_account_name_binding = args
             .enrollment_account_name
             .get_output(context);
-        let enrollment_account_name_binding = enrollment_account_name_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAccountName".into(),
-                    value: &billing_account_name_binding,
+                    value: billing_account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enrollmentAccountName".into(),
-                    value: &enrollment_account_name_binding,
+                    value: enrollment_account_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetEnrollmentAccountScopeResult {
-            billing_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingAccountName"),
-            ),
-            enrollment_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enrollmentAccountName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            billing_account_name: o.get_field("billingAccountName"),
+            enrollment_account_name: o.get_field("enrollmentAccountName"),
+            id: o.get_field("id"),
         }
     }
 }

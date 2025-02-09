@@ -157,98 +157,75 @@ pub mod attached_database_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AttachedDatabaseConfigurationArgs,
     ) -> AttachedDatabaseConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let cluster_resource_id_binding_1 = args.cluster_resource_id.get_output(context);
-        let cluster_resource_id_binding = cluster_resource_id_binding_1.get_inner();
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let default_principal_modification_kind_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let cluster_resource_id_binding = args.cluster_resource_id.get_output(context);
+        let database_name_binding = args.database_name.get_output(context);
+        let default_principal_modification_kind_binding = args
             .default_principal_modification_kind
             .get_output(context);
-        let default_principal_modification_kind_binding = default_principal_modification_kind_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sharing_binding_1 = args.sharing.get_output(context);
-        let sharing_binding = sharing_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sharing_binding = args.sharing.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterResourceId".into(),
-                    value: &cluster_resource_id_binding,
+                    value: cluster_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultPrincipalModificationKind".into(),
-                    value: &default_principal_modification_kind_binding,
+                    value: default_principal_modification_kind_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharing".into(),
-                    value: &sharing_binding,
+                    value: sharing_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AttachedDatabaseConfigurationResult {
-            attached_database_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachedDatabaseNames"),
-            ),
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            cluster_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterResourceId"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            default_principal_modification_kind: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultPrincipalModificationKind"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sharing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharing"),
-            ),
+            attached_database_names: o.get_field("attachedDatabaseNames"),
+            cluster_name: o.get_field("clusterName"),
+            cluster_resource_id: o.get_field("clusterResourceId"),
+            database_name: o.get_field("databaseName"),
+            default_principal_modification_kind: o
+                .get_field("defaultPrincipalModificationKind"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sharing: o.get_field("sharing"),
         }
     }
 }

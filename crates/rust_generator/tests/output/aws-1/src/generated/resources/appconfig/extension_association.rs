@@ -99,52 +99,42 @@ pub mod extension_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ExtensionAssociationArgs,
     ) -> ExtensionAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let extension_arn_binding_1 = args.extension_arn.get_output(context);
-        let extension_arn_binding = extension_arn_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let resource_arn_binding_1 = args.resource_arn.get_output(context);
-        let resource_arn_binding = resource_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let extension_arn_binding = args.extension_arn.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let resource_arn_binding = args.resource_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appconfig/extensionAssociation:ExtensionAssociation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extensionArn".into(),
-                    value: &extension_arn_binding,
+                    value: extension_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: &resource_arn_binding,
+                    value: resource_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ExtensionAssociationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            extension_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extensionArn"),
-            ),
-            extension_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extensionVersion"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            resource_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceArn"),
-            ),
+            arn: o.get_field("arn"),
+            extension_arn: o.get_field("extensionArn"),
+            extension_version: o.get_field("extensionVersion"),
+            parameters: o.get_field("parameters"),
+            resource_arn: o.get_field("resourceArn"),
         }
     }
 }

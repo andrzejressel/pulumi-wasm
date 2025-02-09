@@ -175,183 +175,134 @@ pub mod virtual_machine {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VirtualMachineArgs,
     ) -> VirtualMachineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assessment_binding_1 = args.assessment.get_output(context);
-        let assessment_binding = assessment_binding_1.get_inner();
-        let auto_backup_binding_1 = args.auto_backup.get_output(context);
-        let auto_backup_binding = auto_backup_binding_1.get_inner();
-        let auto_patching_binding_1 = args.auto_patching.get_output(context);
-        let auto_patching_binding = auto_patching_binding_1.get_inner();
-        let key_vault_credential_binding_1 = args
-            .key_vault_credential
-            .get_output(context);
-        let key_vault_credential_binding = key_vault_credential_binding_1.get_inner();
-        let r_services_enabled_binding_1 = args.r_services_enabled.get_output(context);
-        let r_services_enabled_binding = r_services_enabled_binding_1.get_inner();
-        let sql_connectivity_port_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let assessment_binding = args.assessment.get_output(context);
+        let auto_backup_binding = args.auto_backup.get_output(context);
+        let auto_patching_binding = args.auto_patching.get_output(context);
+        let key_vault_credential_binding = args.key_vault_credential.get_output(context);
+        let r_services_enabled_binding = args.r_services_enabled.get_output(context);
+        let sql_connectivity_port_binding = args
             .sql_connectivity_port
             .get_output(context);
-        let sql_connectivity_port_binding = sql_connectivity_port_binding_1.get_inner();
-        let sql_connectivity_type_binding_1 = args
+        let sql_connectivity_type_binding = args
             .sql_connectivity_type
             .get_output(context);
-        let sql_connectivity_type_binding = sql_connectivity_type_binding_1.get_inner();
-        let sql_connectivity_update_password_binding_1 = args
+        let sql_connectivity_update_password_binding = args
             .sql_connectivity_update_password
             .get_output(context);
-        let sql_connectivity_update_password_binding = sql_connectivity_update_password_binding_1
-            .get_inner();
-        let sql_connectivity_update_username_binding_1 = args
+        let sql_connectivity_update_username_binding = args
             .sql_connectivity_update_username
             .get_output(context);
-        let sql_connectivity_update_username_binding = sql_connectivity_update_username_binding_1
-            .get_inner();
-        let sql_instance_binding_1 = args.sql_instance.get_output(context);
-        let sql_instance_binding = sql_instance_binding_1.get_inner();
-        let sql_license_type_binding_1 = args.sql_license_type.get_output(context);
-        let sql_license_type_binding = sql_license_type_binding_1.get_inner();
-        let sql_virtual_machine_group_id_binding_1 = args
+        let sql_instance_binding = args.sql_instance.get_output(context);
+        let sql_license_type_binding = args.sql_license_type.get_output(context);
+        let sql_virtual_machine_group_id_binding = args
             .sql_virtual_machine_group_id
             .get_output(context);
-        let sql_virtual_machine_group_id_binding = sql_virtual_machine_group_id_binding_1
-            .get_inner();
-        let storage_configuration_binding_1 = args
+        let storage_configuration_binding = args
             .storage_configuration
             .get_output(context);
-        let storage_configuration_binding = storage_configuration_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let virtual_machine_id_binding_1 = args.virtual_machine_id.get_output(context);
-        let virtual_machine_id_binding = virtual_machine_id_binding_1.get_inner();
-        let wsfc_domain_credential_binding_1 = args
+        let tags_binding = args.tags.get_output(context);
+        let virtual_machine_id_binding = args.virtual_machine_id.get_output(context);
+        let wsfc_domain_credential_binding = args
             .wsfc_domain_credential
             .get_output(context);
-        let wsfc_domain_credential_binding = wsfc_domain_credential_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mssql/virtualMachine:VirtualMachine".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assessment".into(),
-                    value: &assessment_binding,
+                    value: assessment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoBackup".into(),
-                    value: &auto_backup_binding,
+                    value: auto_backup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoPatching".into(),
-                    value: &auto_patching_binding,
+                    value: auto_patching_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultCredential".into(),
-                    value: &key_vault_credential_binding,
+                    value: key_vault_credential_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rServicesEnabled".into(),
-                    value: &r_services_enabled_binding,
+                    value: r_services_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlConnectivityPort".into(),
-                    value: &sql_connectivity_port_binding,
+                    value: sql_connectivity_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlConnectivityType".into(),
-                    value: &sql_connectivity_type_binding,
+                    value: sql_connectivity_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlConnectivityUpdatePassword".into(),
-                    value: &sql_connectivity_update_password_binding,
+                    value: sql_connectivity_update_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlConnectivityUpdateUsername".into(),
-                    value: &sql_connectivity_update_username_binding,
+                    value: sql_connectivity_update_username_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlInstance".into(),
-                    value: &sql_instance_binding,
+                    value: sql_instance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlLicenseType".into(),
-                    value: &sql_license_type_binding,
+                    value: sql_license_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlVirtualMachineGroupId".into(),
-                    value: &sql_virtual_machine_group_id_binding,
+                    value: sql_virtual_machine_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageConfiguration".into(),
-                    value: &storage_configuration_binding,
+                    value: storage_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineId".into(),
-                    value: &virtual_machine_id_binding,
+                    value: virtual_machine_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "wsfcDomainCredential".into(),
-                    value: &wsfc_domain_credential_binding,
+                    value: wsfc_domain_credential_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VirtualMachineResult {
-            assessment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assessment"),
-            ),
-            auto_backup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoBackup"),
-            ),
-            auto_patching: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoPatching"),
-            ),
-            key_vault_credential: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultCredential"),
-            ),
-            r_services_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rServicesEnabled"),
-            ),
-            sql_connectivity_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlConnectivityPort"),
-            ),
-            sql_connectivity_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlConnectivityType"),
-            ),
-            sql_connectivity_update_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlConnectivityUpdatePassword"),
-            ),
-            sql_connectivity_update_username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlConnectivityUpdateUsername"),
-            ),
-            sql_instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlInstance"),
-            ),
-            sql_license_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlLicenseType"),
-            ),
-            sql_virtual_machine_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlVirtualMachineGroupId"),
-            ),
-            storage_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageConfiguration"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachineId"),
-            ),
-            wsfc_domain_credential: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("wsfcDomainCredential"),
-            ),
+            assessment: o.get_field("assessment"),
+            auto_backup: o.get_field("autoBackup"),
+            auto_patching: o.get_field("autoPatching"),
+            key_vault_credential: o.get_field("keyVaultCredential"),
+            r_services_enabled: o.get_field("rServicesEnabled"),
+            sql_connectivity_port: o.get_field("sqlConnectivityPort"),
+            sql_connectivity_type: o.get_field("sqlConnectivityType"),
+            sql_connectivity_update_password: o
+                .get_field("sqlConnectivityUpdatePassword"),
+            sql_connectivity_update_username: o
+                .get_field("sqlConnectivityUpdateUsername"),
+            sql_instance: o.get_field("sqlInstance"),
+            sql_license_type: o.get_field("sqlLicenseType"),
+            sql_virtual_machine_group_id: o.get_field("sqlVirtualMachineGroupId"),
+            storage_configuration: o.get_field("storageConfiguration"),
+            tags: o.get_field("tags"),
+            virtual_machine_id: o.get_field("virtualMachineId"),
+            wsfc_domain_credential: o.get_field("wsfcDomainCredential"),
         }
     }
 }

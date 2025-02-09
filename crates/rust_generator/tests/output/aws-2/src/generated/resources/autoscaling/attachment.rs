@@ -63,49 +63,42 @@ pub mod attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AttachmentArgs,
     ) -> AttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_group_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let autoscaling_group_name_binding = args
             .autoscaling_group_name
             .get_output(context);
-        let autoscaling_group_name_binding = autoscaling_group_name_binding_1
-            .get_inner();
-        let elb_binding_1 = args.elb.get_output(context);
-        let elb_binding = elb_binding_1.get_inner();
-        let lb_target_group_arn_binding_1 = args.lb_target_group_arn.get_output(context);
-        let lb_target_group_arn_binding = lb_target_group_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let elb_binding = args.elb.get_output(context);
+        let lb_target_group_arn_binding = args.lb_target_group_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:autoscaling/attachment:Attachment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingGroupName".into(),
-                    value: &autoscaling_group_name_binding,
+                    value: autoscaling_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elb".into(),
-                    value: &elb_binding,
+                    value: elb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lbTargetGroupArn".into(),
-                    value: &lb_target_group_arn_binding,
+                    value: lb_target_group_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AttachmentResult {
-            autoscaling_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscalingGroupName"),
-            ),
-            elb: pulumi_gestalt_rust::__private::into_domain(o.extract_field("elb")),
-            lb_target_group_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lbTargetGroupArn"),
-            ),
+            autoscaling_group_name: o.get_field("autoscalingGroupName"),
+            elb: o.get_field("elb"),
+            lb_target_group_arn: o.get_field("lbTargetGroupArn"),
         }
     }
 }

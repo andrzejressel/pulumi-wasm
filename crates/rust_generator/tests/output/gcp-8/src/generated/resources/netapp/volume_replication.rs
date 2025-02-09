@@ -236,164 +236,109 @@ pub mod volume_replication {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VolumeReplicationArgs,
     ) -> VolumeReplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delete_destination_volume_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let delete_destination_volume_binding = args
             .delete_destination_volume
             .get_output(context);
-        let delete_destination_volume_binding = delete_destination_volume_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let destination_volume_parameters_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let destination_volume_parameters_binding = args
             .destination_volume_parameters
             .get_output(context);
-        let destination_volume_parameters_binding = destination_volume_parameters_binding_1
-            .get_inner();
-        let force_stopping_binding_1 = args.force_stopping.get_output(context);
-        let force_stopping_binding = force_stopping_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let replication_enabled_binding_1 = args.replication_enabled.get_output(context);
-        let replication_enabled_binding = replication_enabled_binding_1.get_inner();
-        let replication_schedule_binding_1 = args
-            .replication_schedule
-            .get_output(context);
-        let replication_schedule_binding = replication_schedule_binding_1.get_inner();
-        let volume_name_binding_1 = args.volume_name.get_output(context);
-        let volume_name_binding = volume_name_binding_1.get_inner();
-        let wait_for_mirror_binding_1 = args.wait_for_mirror.get_output(context);
-        let wait_for_mirror_binding = wait_for_mirror_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let force_stopping_binding = args.force_stopping.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let replication_enabled_binding = args.replication_enabled.get_output(context);
+        let replication_schedule_binding = args.replication_schedule.get_output(context);
+        let volume_name_binding = args.volume_name.get_output(context);
+        let wait_for_mirror_binding = args.wait_for_mirror.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:netapp/volumeReplication:VolumeReplication".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteDestinationVolume".into(),
-                    value: &delete_destination_volume_binding,
+                    value: delete_destination_volume_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationVolumeParameters".into(),
-                    value: &destination_volume_parameters_binding,
+                    value: destination_volume_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceStopping".into(),
-                    value: &force_stopping_binding,
+                    value: force_stopping_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationEnabled".into(),
-                    value: &replication_enabled_binding,
+                    value: replication_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationSchedule".into(),
-                    value: &replication_schedule_binding,
+                    value: replication_schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeName".into(),
-                    value: &volume_name_binding,
+                    value: volume_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForMirror".into(),
-                    value: &wait_for_mirror_binding,
+                    value: wait_for_mirror_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VolumeReplicationResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            delete_destination_volume: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteDestinationVolume"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            destination_volume: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationVolume"),
-            ),
-            destination_volume_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationVolumeParameters"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            force_stopping: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceStopping"),
-            ),
-            healthy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthy"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mirror_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mirrorState"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            replication_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationEnabled"),
-            ),
-            replication_schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationSchedule"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
-            source_volume: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceVolume"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateDetails"),
-            ),
-            transfer_stats: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transferStats"),
-            ),
-            volume_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeName"),
-            ),
-            wait_for_mirror: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForMirror"),
-            ),
+            create_time: o.get_field("createTime"),
+            delete_destination_volume: o.get_field("deleteDestinationVolume"),
+            description: o.get_field("description"),
+            destination_volume: o.get_field("destinationVolume"),
+            destination_volume_parameters: o.get_field("destinationVolumeParameters"),
+            effective_labels: o.get_field("effectiveLabels"),
+            force_stopping: o.get_field("forceStopping"),
+            healthy: o.get_field("healthy"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            mirror_state: o.get_field("mirrorState"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            replication_enabled: o.get_field("replicationEnabled"),
+            replication_schedule: o.get_field("replicationSchedule"),
+            role: o.get_field("role"),
+            source_volume: o.get_field("sourceVolume"),
+            state: o.get_field("state"),
+            state_details: o.get_field("stateDetails"),
+            transfer_stats: o.get_field("transferStats"),
+            volume_name: o.get_field("volumeName"),
+            wait_for_mirror: o.get_field("waitForMirror"),
         }
     }
 }

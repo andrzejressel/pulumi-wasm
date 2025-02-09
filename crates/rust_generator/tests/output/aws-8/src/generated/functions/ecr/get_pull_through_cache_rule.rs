@@ -25,40 +25,32 @@ pub mod get_pull_through_cache_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPullThroughCacheRuleArgs,
     ) -> GetPullThroughCacheRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ecr_repository_prefix_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let ecr_repository_prefix_binding = args
             .ecr_repository_prefix
             .get_output(context);
-        let ecr_repository_prefix_binding = ecr_repository_prefix_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ecrRepositoryPrefix".into(),
-                    value: &ecr_repository_prefix_binding,
+                    value: ecr_repository_prefix_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPullThroughCacheRuleResult {
-            credential_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("credentialArn"),
-            ),
-            ecr_repository_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ecrRepositoryPrefix"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryId"),
-            ),
-            upstream_registry_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("upstreamRegistryUrl"),
-            ),
+            credential_arn: o.get_field("credentialArn"),
+            ecr_repository_prefix: o.get_field("ecrRepositoryPrefix"),
+            id: o.get_field("id"),
+            registry_id: o.get_field("registryId"),
+            upstream_registry_url: o.get_field("upstreamRegistryUrl"),
         }
     }
 }

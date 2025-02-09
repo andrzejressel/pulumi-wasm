@@ -102,79 +102,66 @@ pub mod data_lake_gen_2_filesystem {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataLakeGen2FilesystemArgs,
     ) -> DataLakeGen2FilesystemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aces_binding_1 = args.aces.get_output(context);
-        let aces_binding = aces_binding_1.get_inner();
-        let default_encryption_scope_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aces_binding = args.aces.get_output(context);
+        let default_encryption_scope_binding = args
             .default_encryption_scope
             .get_output(context);
-        let default_encryption_scope_binding = default_encryption_scope_binding_1
-            .get_inner();
-        let group_binding_1 = args.group.get_output(context);
-        let group_binding = group_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let owner_binding_1 = args.owner.get_output(context);
-        let owner_binding = owner_binding_1.get_inner();
-        let properties_binding_1 = args.properties.get_output(context);
-        let properties_binding = properties_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let group_binding = args.group.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let owner_binding = args.owner.get_output(context);
+        let properties_binding = args.properties.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aces".into(),
-                    value: &aces_binding,
+                    value: aces_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultEncryptionScope".into(),
-                    value: &default_encryption_scope_binding,
+                    value: default_encryption_scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "group".into(),
-                    value: &group_binding,
+                    value: group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "owner".into(),
-                    value: &owner_binding,
+                    value: owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "properties".into(),
-                    value: &properties_binding,
+                    value: properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataLakeGen2FilesystemResult {
-            aces: pulumi_gestalt_rust::__private::into_domain(o.extract_field("aces")),
-            default_encryption_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultEncryptionScope"),
-            ),
-            group: pulumi_gestalt_rust::__private::into_domain(o.extract_field("group")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("properties"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
+            aces: o.get_field("aces"),
+            default_encryption_scope: o.get_field("defaultEncryptionScope"),
+            group: o.get_field("group"),
+            name: o.get_field("name"),
+            owner: o.get_field("owner"),
+            properties: o.get_field("properties"),
+            storage_account_id: o.get_field("storageAccountId"),
         }
     }
 }

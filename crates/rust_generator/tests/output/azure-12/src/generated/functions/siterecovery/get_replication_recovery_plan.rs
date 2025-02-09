@@ -40,52 +40,39 @@ pub mod get_replication_recovery_plan {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetReplicationRecoveryPlanArgs,
     ) -> GetReplicationRecoveryPlanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let recovery_vault_id_binding_1 = args.recovery_vault_id.get_output(context);
-        let recovery_vault_id_binding = recovery_vault_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let recovery_vault_id_binding = args.recovery_vault_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultId".into(),
-                    value: &recovery_vault_id_binding,
+                    value: recovery_vault_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetReplicationRecoveryPlanResult {
-            azure_to_azure_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureToAzureSettings"),
-            ),
-            failover_deployment_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failoverDeploymentModel"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            recovery_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recoveryGroups"),
-            ),
-            recovery_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recoveryVaultId"),
-            ),
-            source_recovery_fabric_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceRecoveryFabricId"),
-            ),
-            target_recovery_fabric_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetRecoveryFabricId"),
-            ),
+            azure_to_azure_settings: o.get_field("azureToAzureSettings"),
+            failover_deployment_model: o.get_field("failoverDeploymentModel"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            recovery_groups: o.get_field("recoveryGroups"),
+            recovery_vault_id: o.get_field("recoveryVaultId"),
+            source_recovery_fabric_id: o.get_field("sourceRecoveryFabricId"),
+            target_recovery_fabric_id: o.get_field("targetRecoveryFabricId"),
         }
     }
 }

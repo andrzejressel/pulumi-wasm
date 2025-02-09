@@ -72,92 +72,67 @@ pub mod proxy_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProxyEndpointArgs,
     ) -> ProxyEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_proxy_endpoint_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let db_proxy_endpoint_name_binding = args
             .db_proxy_endpoint_name
             .get_output(context);
-        let db_proxy_endpoint_name_binding = db_proxy_endpoint_name_binding_1
-            .get_inner();
-        let db_proxy_name_binding_1 = args.db_proxy_name.get_output(context);
-        let db_proxy_name_binding = db_proxy_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_role_binding_1 = args.target_role.get_output(context);
-        let target_role_binding = target_role_binding_1.get_inner();
-        let vpc_security_group_ids_binding_1 = args
+        let db_proxy_name_binding = args.db_proxy_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_role_binding = args.target_role.get_output(context);
+        let vpc_security_group_ids_binding = args
             .vpc_security_group_ids
             .get_output(context);
-        let vpc_security_group_ids_binding = vpc_security_group_ids_binding_1
-            .get_inner();
-        let vpc_subnet_ids_binding_1 = args.vpc_subnet_ids.get_output(context);
-        let vpc_subnet_ids_binding = vpc_subnet_ids_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let vpc_subnet_ids_binding = args.vpc_subnet_ids.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rds/proxyEndpoint:ProxyEndpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbProxyEndpointName".into(),
-                    value: &db_proxy_endpoint_name_binding,
+                    value: db_proxy_endpoint_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbProxyName".into(),
-                    value: &db_proxy_name_binding,
+                    value: db_proxy_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetRole".into(),
-                    value: &target_role_binding,
+                    value: target_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSecurityGroupIds".into(),
-                    value: &vpc_security_group_ids_binding,
+                    value: vpc_security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSubnetIds".into(),
-                    value: &vpc_subnet_ids_binding,
+                    value: vpc_subnet_ids_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProxyEndpointResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            db_proxy_endpoint_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbProxyEndpointName"),
-            ),
-            db_proxy_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbProxyName"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            is_default: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isDefault"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetRole"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcId"),
-            ),
-            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSecurityGroupIds"),
-            ),
-            vpc_subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSubnetIds"),
-            ),
+            arn: o.get_field("arn"),
+            db_proxy_endpoint_name: o.get_field("dbProxyEndpointName"),
+            db_proxy_name: o.get_field("dbProxyName"),
+            endpoint: o.get_field("endpoint"),
+            is_default: o.get_field("isDefault"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_role: o.get_field("targetRole"),
+            vpc_id: o.get_field("vpcId"),
+            vpc_security_group_ids: o.get_field("vpcSecurityGroupIds"),
+            vpc_subnet_ids: o.get_field("vpcSubnetIds"),
         }
     }
 }

@@ -99,92 +99,72 @@ pub mod python_3_package {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: Python3PackageArgs,
     ) -> Python3PackageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let automation_account_name_binding = args
             .automation_account_name
             .get_output(context);
-        let automation_account_name_binding = automation_account_name_binding_1
-            .get_inner();
-        let content_uri_binding_1 = args.content_uri.get_output(context);
-        let content_uri_binding = content_uri_binding_1.get_inner();
-        let content_version_binding_1 = args.content_version.get_output(context);
-        let content_version_binding = content_version_binding_1.get_inner();
-        let hash_algorithm_binding_1 = args.hash_algorithm.get_output(context);
-        let hash_algorithm_binding = hash_algorithm_binding_1.get_inner();
-        let hash_value_binding_1 = args.hash_value.get_output(context);
-        let hash_value_binding = hash_value_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let content_uri_binding = args.content_uri.get_output(context);
+        let content_version_binding = args.content_version.get_output(context);
+        let hash_algorithm_binding = args.hash_algorithm.get_output(context);
+        let hash_value_binding = args.hash_value.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:automation/python3Package:Python3Package".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationAccountName".into(),
-                    value: &automation_account_name_binding,
+                    value: automation_account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentUri".into(),
-                    value: &content_uri_binding,
+                    value: content_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentVersion".into(),
-                    value: &content_version_binding,
+                    value: content_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hashAlgorithm".into(),
-                    value: &hash_algorithm_binding,
+                    value: hash_algorithm_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hashValue".into(),
-                    value: &hash_value_binding,
+                    value: hash_value_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         Python3PackageResult {
-            automation_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automationAccountName"),
-            ),
-            content_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentUri"),
-            ),
-            content_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentVersion"),
-            ),
-            hash_algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hashAlgorithm"),
-            ),
-            hash_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hashValue"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            automation_account_name: o.get_field("automationAccountName"),
+            content_uri: o.get_field("contentUri"),
+            content_version: o.get_field("contentVersion"),
+            hash_algorithm: o.get_field("hashAlgorithm"),
+            hash_value: o.get_field("hashValue"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
         }
     }
 }

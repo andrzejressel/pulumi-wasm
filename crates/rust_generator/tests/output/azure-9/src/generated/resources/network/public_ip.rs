@@ -176,190 +176,138 @@ pub mod public_ip {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PublicIpArgs,
     ) -> PublicIpResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocation_method_binding_1 = args.allocation_method.get_output(context);
-        let allocation_method_binding = allocation_method_binding_1.get_inner();
-        let ddos_protection_mode_binding_1 = args
-            .ddos_protection_mode
-            .get_output(context);
-        let ddos_protection_mode_binding = ddos_protection_mode_binding_1.get_inner();
-        let ddos_protection_plan_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allocation_method_binding = args.allocation_method.get_output(context);
+        let ddos_protection_mode_binding = args.ddos_protection_mode.get_output(context);
+        let ddos_protection_plan_id_binding = args
             .ddos_protection_plan_id
             .get_output(context);
-        let ddos_protection_plan_id_binding = ddos_protection_plan_id_binding_1
-            .get_inner();
-        let domain_name_label_binding_1 = args.domain_name_label.get_output(context);
-        let domain_name_label_binding = domain_name_label_binding_1.get_inner();
-        let domain_name_label_scope_binding_1 = args
+        let domain_name_label_binding = args.domain_name_label.get_output(context);
+        let domain_name_label_scope_binding = args
             .domain_name_label_scope
             .get_output(context);
-        let domain_name_label_scope_binding = domain_name_label_scope_binding_1
-            .get_inner();
-        let edge_zone_binding_1 = args.edge_zone.get_output(context);
-        let edge_zone_binding = edge_zone_binding_1.get_inner();
-        let idle_timeout_in_minutes_binding_1 = args
+        let edge_zone_binding = args.edge_zone.get_output(context);
+        let idle_timeout_in_minutes_binding = args
             .idle_timeout_in_minutes
             .get_output(context);
-        let idle_timeout_in_minutes_binding = idle_timeout_in_minutes_binding_1
-            .get_inner();
-        let ip_tags_binding_1 = args.ip_tags.get_output(context);
-        let ip_tags_binding = ip_tags_binding_1.get_inner();
-        let ip_version_binding_1 = args.ip_version.get_output(context);
-        let ip_version_binding = ip_version_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let public_ip_prefix_id_binding_1 = args.public_ip_prefix_id.get_output(context);
-        let public_ip_prefix_id_binding = public_ip_prefix_id_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let reverse_fqdn_binding_1 = args.reverse_fqdn.get_output(context);
-        let reverse_fqdn_binding = reverse_fqdn_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let sku_tier_binding_1 = args.sku_tier.get_output(context);
-        let sku_tier_binding = sku_tier_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let zones_binding_1 = args.zones.get_output(context);
-        let zones_binding = zones_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ip_tags_binding = args.ip_tags.get_output(context);
+        let ip_version_binding = args.ip_version.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let public_ip_prefix_id_binding = args.public_ip_prefix_id.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let reverse_fqdn_binding = args.reverse_fqdn.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let sku_tier_binding = args.sku_tier.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let zones_binding = args.zones.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/publicIp:PublicIp".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationMethod".into(),
-                    value: &allocation_method_binding,
+                    value: allocation_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ddosProtectionMode".into(),
-                    value: &ddos_protection_mode_binding,
+                    value: ddos_protection_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ddosProtectionPlanId".into(),
-                    value: &ddos_protection_plan_id_binding,
+                    value: ddos_protection_plan_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainNameLabel".into(),
-                    value: &domain_name_label_binding,
+                    value: domain_name_label_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainNameLabelScope".into(),
-                    value: &domain_name_label_scope_binding,
+                    value: domain_name_label_scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeZone".into(),
-                    value: &edge_zone_binding,
+                    value: edge_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleTimeoutInMinutes".into(),
-                    value: &idle_timeout_in_minutes_binding,
+                    value: idle_timeout_in_minutes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipTags".into(),
-                    value: &ip_tags_binding,
+                    value: ip_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipVersion".into(),
-                    value: &ip_version_binding,
+                    value: ip_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIpPrefixId".into(),
-                    value: &public_ip_prefix_id_binding,
+                    value: public_ip_prefix_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reverseFqdn".into(),
-                    value: &reverse_fqdn_binding,
+                    value: reverse_fqdn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuTier".into(),
-                    value: &sku_tier_binding,
+                    value: sku_tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zones".into(),
-                    value: &zones_binding,
+                    value: zones_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PublicIpResult {
-            allocation_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocationMethod"),
-            ),
-            ddos_protection_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ddosProtectionMode"),
-            ),
-            ddos_protection_plan_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ddosProtectionPlanId"),
-            ),
-            domain_name_label: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainNameLabel"),
-            ),
-            domain_name_label_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainNameLabelScope"),
-            ),
-            edge_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeZone"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            idle_timeout_in_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleTimeoutInMinutes"),
-            ),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            ip_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipTags"),
-            ),
-            ip_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipVersion"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            public_ip_prefix_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIpPrefixId"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            reverse_fqdn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reverseFqdn"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            sku_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuTier"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
+            allocation_method: o.get_field("allocationMethod"),
+            ddos_protection_mode: o.get_field("ddosProtectionMode"),
+            ddos_protection_plan_id: o.get_field("ddosProtectionPlanId"),
+            domain_name_label: o.get_field("domainNameLabel"),
+            domain_name_label_scope: o.get_field("domainNameLabelScope"),
+            edge_zone: o.get_field("edgeZone"),
+            fqdn: o.get_field("fqdn"),
+            idle_timeout_in_minutes: o.get_field("idleTimeoutInMinutes"),
+            ip_address: o.get_field("ipAddress"),
+            ip_tags: o.get_field("ipTags"),
+            ip_version: o.get_field("ipVersion"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            public_ip_prefix_id: o.get_field("publicIpPrefixId"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            reverse_fqdn: o.get_field("reverseFqdn"),
+            sku: o.get_field("sku"),
+            sku_tier: o.get_field("skuTier"),
+            tags: o.get_field("tags"),
+            zones: o.get_field("zones"),
         }
     }
 }

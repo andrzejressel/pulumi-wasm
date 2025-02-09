@@ -31,46 +31,40 @@ pub mod get_search_all_resources {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSearchAllResourcesArgs,
     ) -> GetSearchAllResourcesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let asset_types_binding_1 = args.asset_types.get_output(context);
-        let asset_types_binding = asset_types_binding_1.get_inner();
-        let query_binding_1 = args.query.get_output(context);
-        let query_binding = query_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let asset_types_binding = args.asset_types.get_output(context);
+        let query_binding = args.query.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:cloudasset/getSearchAllResources:getSearchAllResources".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assetTypes".into(),
-                    value: &asset_types_binding,
+                    value: asset_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "query".into(),
-                    value: &query_binding,
+                    value: query_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSearchAllResourcesResult {
-            asset_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assetTypes"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            query: pulumi_gestalt_rust::__private::into_domain(o.extract_field("query")),
-            results: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("results"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            asset_types: o.get_field("assetTypes"),
+            id: o.get_field("id"),
+            query: o.get_field("query"),
+            results: o.get_field("results"),
+            scope: o.get_field("scope"),
         }
     }
 }

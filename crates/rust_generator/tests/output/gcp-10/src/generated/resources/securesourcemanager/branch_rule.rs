@@ -204,150 +204,106 @@ pub mod branch_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BranchRuleArgs,
     ) -> BranchRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_stale_reviews_binding_1 = args.allow_stale_reviews.get_output(context);
-        let allow_stale_reviews_binding = allow_stale_reviews_binding_1.get_inner();
-        let branch_rule_id_binding_1 = args.branch_rule_id.get_output(context);
-        let branch_rule_id_binding = branch_rule_id_binding_1.get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let include_pattern_binding_1 = args.include_pattern.get_output(context);
-        let include_pattern_binding = include_pattern_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let minimum_approvals_count_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_stale_reviews_binding = args.allow_stale_reviews.get_output(context);
+        let branch_rule_id_binding = args.branch_rule_id.get_output(context);
+        let disabled_binding = args.disabled.get_output(context);
+        let include_pattern_binding = args.include_pattern.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let minimum_approvals_count_binding = args
             .minimum_approvals_count
             .get_output(context);
-        let minimum_approvals_count_binding = minimum_approvals_count_binding_1
-            .get_inner();
-        let minimum_reviews_count_binding_1 = args
+        let minimum_reviews_count_binding = args
             .minimum_reviews_count
             .get_output(context);
-        let minimum_reviews_count_binding = minimum_reviews_count_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let repository_id_binding_1 = args.repository_id.get_output(context);
-        let repository_id_binding = repository_id_binding_1.get_inner();
-        let require_comments_resolved_binding_1 = args
+        let project_binding = args.project.get_output(context);
+        let repository_id_binding = args.repository_id.get_output(context);
+        let require_comments_resolved_binding = args
             .require_comments_resolved
             .get_output(context);
-        let require_comments_resolved_binding = require_comments_resolved_binding_1
-            .get_inner();
-        let require_linear_history_binding_1 = args
+        let require_linear_history_binding = args
             .require_linear_history
             .get_output(context);
-        let require_linear_history_binding = require_linear_history_binding_1
-            .get_inner();
-        let require_pull_request_binding_1 = args
-            .require_pull_request
-            .get_output(context);
-        let require_pull_request_binding = require_pull_request_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let require_pull_request_binding = args.require_pull_request.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:securesourcemanager/branchRule:BranchRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowStaleReviews".into(),
-                    value: &allow_stale_reviews_binding,
+                    value: allow_stale_reviews_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "branchRuleId".into(),
-                    value: &branch_rule_id_binding,
+                    value: branch_rule_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includePattern".into(),
-                    value: &include_pattern_binding,
+                    value: include_pattern_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumApprovalsCount".into(),
-                    value: &minimum_approvals_count_binding,
+                    value: minimum_approvals_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumReviewsCount".into(),
-                    value: &minimum_reviews_count_binding,
+                    value: minimum_reviews_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryId".into(),
-                    value: &repository_id_binding,
+                    value: repository_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireCommentsResolved".into(),
-                    value: &require_comments_resolved_binding,
+                    value: require_comments_resolved_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireLinearHistory".into(),
-                    value: &require_linear_history_binding,
+                    value: require_linear_history_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requirePullRequest".into(),
-                    value: &require_pull_request_binding,
+                    value: require_pull_request_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BranchRuleResult {
-            allow_stale_reviews: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowStaleReviews"),
-            ),
-            branch_rule_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("branchRuleId"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            include_pattern: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includePattern"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            minimum_approvals_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumApprovalsCount"),
-            ),
-            minimum_reviews_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumReviewsCount"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            repository_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryId"),
-            ),
-            require_comments_resolved: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requireCommentsResolved"),
-            ),
-            require_linear_history: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requireLinearHistory"),
-            ),
-            require_pull_request: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requirePullRequest"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            allow_stale_reviews: o.get_field("allowStaleReviews"),
+            branch_rule_id: o.get_field("branchRuleId"),
+            create_time: o.get_field("createTime"),
+            disabled: o.get_field("disabled"),
+            include_pattern: o.get_field("includePattern"),
+            location: o.get_field("location"),
+            minimum_approvals_count: o.get_field("minimumApprovalsCount"),
+            minimum_reviews_count: o.get_field("minimumReviewsCount"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            repository_id: o.get_field("repositoryId"),
+            require_comments_resolved: o.get_field("requireCommentsResolved"),
+            require_linear_history: o.get_field("requireLinearHistory"),
+            require_pull_request: o.get_field("requirePullRequest"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

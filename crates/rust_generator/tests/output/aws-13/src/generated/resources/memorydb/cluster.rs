@@ -203,276 +203,191 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let acl_name_binding_1 = args.acl_name.get_output(context);
-        let acl_name_binding = acl_name_binding_1.get_inner();
-        let auto_minor_version_upgrade_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let acl_name_binding = args.acl_name.get_output(context);
+        let auto_minor_version_upgrade_binding = args
             .auto_minor_version_upgrade
             .get_output(context);
-        let auto_minor_version_upgrade_binding = auto_minor_version_upgrade_binding_1
-            .get_inner();
-        let data_tiering_binding_1 = args.data_tiering.get_output(context);
-        let data_tiering_binding = data_tiering_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let engine_binding_1 = args.engine.get_output(context);
-        let engine_binding = engine_binding_1.get_inner();
-        let engine_version_binding_1 = args.engine_version.get_output(context);
-        let engine_version_binding = engine_version_binding_1.get_inner();
-        let final_snapshot_name_binding_1 = args.final_snapshot_name.get_output(context);
-        let final_snapshot_name_binding = final_snapshot_name_binding_1.get_inner();
-        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
-        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
-        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
-        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
-        let multi_region_cluster_name_binding_1 = args
+        let data_tiering_binding = args.data_tiering.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let engine_binding = args.engine.get_output(context);
+        let engine_version_binding = args.engine_version.get_output(context);
+        let final_snapshot_name_binding = args.final_snapshot_name.get_output(context);
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context);
+        let maintenance_window_binding = args.maintenance_window.get_output(context);
+        let multi_region_cluster_name_binding = args
             .multi_region_cluster_name
             .get_output(context);
-        let multi_region_cluster_name_binding = multi_region_cluster_name_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let node_type_binding_1 = args.node_type.get_output(context);
-        let node_type_binding = node_type_binding_1.get_inner();
-        let num_replicas_per_shard_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let node_type_binding = args.node_type.get_output(context);
+        let num_replicas_per_shard_binding = args
             .num_replicas_per_shard
             .get_output(context);
-        let num_replicas_per_shard_binding = num_replicas_per_shard_binding_1
-            .get_inner();
-        let num_shards_binding_1 = args.num_shards.get_output(context);
-        let num_shards_binding = num_shards_binding_1.get_inner();
-        let parameter_group_name_binding_1 = args
-            .parameter_group_name
-            .get_output(context);
-        let parameter_group_name_binding = parameter_group_name_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
-        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
-        let snapshot_arns_binding_1 = args.snapshot_arns.get_output(context);
-        let snapshot_arns_binding = snapshot_arns_binding_1.get_inner();
-        let snapshot_name_binding_1 = args.snapshot_name.get_output(context);
-        let snapshot_name_binding = snapshot_name_binding_1.get_inner();
-        let snapshot_retention_limit_binding_1 = args
+        let num_shards_binding = args.num_shards.get_output(context);
+        let parameter_group_name_binding = args.parameter_group_name.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let security_group_ids_binding = args.security_group_ids.get_output(context);
+        let snapshot_arns_binding = args.snapshot_arns.get_output(context);
+        let snapshot_name_binding = args.snapshot_name.get_output(context);
+        let snapshot_retention_limit_binding = args
             .snapshot_retention_limit
             .get_output(context);
-        let snapshot_retention_limit_binding = snapshot_retention_limit_binding_1
-            .get_inner();
-        let snapshot_window_binding_1 = args.snapshot_window.get_output(context);
-        let snapshot_window_binding = snapshot_window_binding_1.get_inner();
-        let sns_topic_arn_binding_1 = args.sns_topic_arn.get_output(context);
-        let sns_topic_arn_binding = sns_topic_arn_binding_1.get_inner();
-        let subnet_group_name_binding_1 = args.subnet_group_name.get_output(context);
-        let subnet_group_name_binding = subnet_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tls_enabled_binding_1 = args.tls_enabled.get_output(context);
-        let tls_enabled_binding = tls_enabled_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let snapshot_window_binding = args.snapshot_window.get_output(context);
+        let sns_topic_arn_binding = args.sns_topic_arn.get_output(context);
+        let subnet_group_name_binding = args.subnet_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tls_enabled_binding = args.tls_enabled.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:memorydb/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aclName".into(),
-                    value: &acl_name_binding,
+                    value: acl_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoMinorVersionUpgrade".into(),
-                    value: &auto_minor_version_upgrade_binding,
+                    value: auto_minor_version_upgrade_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataTiering".into(),
-                    value: &data_tiering_binding,
+                    value: data_tiering_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: &engine_binding,
+                    value: engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: &engine_version_binding,
+                    value: engine_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "finalSnapshotName".into(),
-                    value: &final_snapshot_name_binding,
+                    value: final_snapshot_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: &kms_key_arn_binding,
+                    value: kms_key_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceWindow".into(),
-                    value: &maintenance_window_binding,
+                    value: maintenance_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiRegionClusterName".into(),
-                    value: &multi_region_cluster_name_binding,
+                    value: multi_region_cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeType".into(),
-                    value: &node_type_binding,
+                    value: node_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numReplicasPerShard".into(),
-                    value: &num_replicas_per_shard_binding,
+                    value: num_replicas_per_shard_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numShards".into(),
-                    value: &num_shards_binding,
+                    value: num_shards_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameterGroupName".into(),
-                    value: &parameter_group_name_binding,
+                    value: parameter_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: &security_group_ids_binding,
+                    value: security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotArns".into(),
-                    value: &snapshot_arns_binding,
+                    value: snapshot_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotName".into(),
-                    value: &snapshot_name_binding,
+                    value: snapshot_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotRetentionLimit".into(),
-                    value: &snapshot_retention_limit_binding,
+                    value: snapshot_retention_limit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotWindow".into(),
-                    value: &snapshot_window_binding,
+                    value: snapshot_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snsTopicArn".into(),
-                    value: &sns_topic_arn_binding,
+                    value: sns_topic_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetGroupName".into(),
-                    value: &subnet_group_name_binding,
+                    value: subnet_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsEnabled".into(),
-                    value: &tls_enabled_binding,
+                    value: tls_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            acl_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aclName"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_minor_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoMinorVersionUpgrade"),
-            ),
-            cluster_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterEndpoints"),
-            ),
-            data_tiering: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataTiering"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_patch_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enginePatchVersion"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            final_snapshot_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("finalSnapshotName"),
-            ),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindow"),
-            ),
-            multi_region_cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiRegionClusterName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeType"),
-            ),
-            num_replicas_per_shard: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numReplicasPerShard"),
-            ),
-            num_shards: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numShards"),
-            ),
-            parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameterGroupName"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            shards: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shards"),
-            ),
-            snapshot_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotArns"),
-            ),
-            snapshot_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotName"),
-            ),
-            snapshot_retention_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotRetentionLimit"),
-            ),
-            snapshot_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotWindow"),
-            ),
-            sns_topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snsTopicArn"),
-            ),
-            subnet_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tls_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsEnabled"),
-            ),
+            acl_name: o.get_field("aclName"),
+            arn: o.get_field("arn"),
+            auto_minor_version_upgrade: o.get_field("autoMinorVersionUpgrade"),
+            cluster_endpoints: o.get_field("clusterEndpoints"),
+            data_tiering: o.get_field("dataTiering"),
+            description: o.get_field("description"),
+            engine: o.get_field("engine"),
+            engine_patch_version: o.get_field("enginePatchVersion"),
+            engine_version: o.get_field("engineVersion"),
+            final_snapshot_name: o.get_field("finalSnapshotName"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            maintenance_window: o.get_field("maintenanceWindow"),
+            multi_region_cluster_name: o.get_field("multiRegionClusterName"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            node_type: o.get_field("nodeType"),
+            num_replicas_per_shard: o.get_field("numReplicasPerShard"),
+            num_shards: o.get_field("numShards"),
+            parameter_group_name: o.get_field("parameterGroupName"),
+            port: o.get_field("port"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            shards: o.get_field("shards"),
+            snapshot_arns: o.get_field("snapshotArns"),
+            snapshot_name: o.get_field("snapshotName"),
+            snapshot_retention_limit: o.get_field("snapshotRetentionLimit"),
+            snapshot_window: o.get_field("snapshotWindow"),
+            sns_topic_arn: o.get_field("snsTopicArn"),
+            subnet_group_name: o.get_field("subnetGroupName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tls_enabled: o.get_field("tlsEnabled"),
         }
     }
 }

@@ -37,56 +37,44 @@ pub mod get_user {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetUserArgs,
     ) -> GetUserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding_1 = args.api_management_name.get_output(context);
-        let api_management_name_binding = api_management_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let user_id_binding_1 = args.user_id.get_output(context);
-        let user_id_binding = user_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_management_name_binding = args.api_management_name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let user_id_binding = args.user_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:apimanagement/getUser:getUser".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: &api_management_name_binding,
+                    value: api_management_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userId".into(),
-                    value: &user_id_binding,
+                    value: user_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetUserResult {
-            api_management_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementName"),
-            ),
-            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
-            first_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firstName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            last_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastName"),
-            ),
-            note: pulumi_gestalt_rust::__private::into_domain(o.extract_field("note")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userId"),
-            ),
+            api_management_name: o.get_field("apiManagementName"),
+            email: o.get_field("email"),
+            first_name: o.get_field("firstName"),
+            id: o.get_field("id"),
+            last_name: o.get_field("lastName"),
+            note: o.get_field("note"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            state: o.get_field("state"),
+            user_id: o.get_field("userId"),
         }
     }
 }

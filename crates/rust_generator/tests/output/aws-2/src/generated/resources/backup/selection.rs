@@ -211,82 +211,64 @@ pub mod selection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SelectionArgs,
     ) -> SelectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let conditions_binding_1 = args.conditions.get_output(context);
-        let conditions_binding = conditions_binding_1.get_inner();
-        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
-        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let not_resources_binding_1 = args.not_resources.get_output(context);
-        let not_resources_binding = not_resources_binding_1.get_inner();
-        let plan_id_binding_1 = args.plan_id.get_output(context);
-        let plan_id_binding = plan_id_binding_1.get_inner();
-        let resources_binding_1 = args.resources.get_output(context);
-        let resources_binding = resources_binding_1.get_inner();
-        let selection_tags_binding_1 = args.selection_tags.get_output(context);
-        let selection_tags_binding = selection_tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let conditions_binding = args.conditions.get_output(context);
+        let iam_role_arn_binding = args.iam_role_arn.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let not_resources_binding = args.not_resources.get_output(context);
+        let plan_id_binding = args.plan_id.get_output(context);
+        let resources_binding = args.resources.get_output(context);
+        let selection_tags_binding = args.selection_tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:backup/selection:Selection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conditions".into(),
-                    value: &conditions_binding,
+                    value: conditions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: &iam_role_arn_binding,
+                    value: iam_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notResources".into(),
-                    value: &not_resources_binding,
+                    value: not_resources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "planId".into(),
-                    value: &plan_id_binding,
+                    value: plan_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resources".into(),
-                    value: &resources_binding,
+                    value: resources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selectionTags".into(),
-                    value: &selection_tags_binding,
+                    value: selection_tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SelectionResult {
-            conditions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("conditions"),
-            ),
-            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoleArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            not_resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notResources"),
-            ),
-            plan_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("planId"),
-            ),
-            resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resources"),
-            ),
-            selection_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selectionTags"),
-            ),
+            conditions: o.get_field("conditions"),
+            iam_role_arn: o.get_field("iamRoleArn"),
+            name: o.get_field("name"),
+            not_resources: o.get_field("notResources"),
+            plan_id: o.get_field("planId"),
+            resources: o.get_field("resources"),
+            selection_tags: o.get_field("selectionTags"),
         }
     }
 }

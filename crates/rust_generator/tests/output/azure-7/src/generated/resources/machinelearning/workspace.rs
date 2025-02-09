@@ -497,238 +497,168 @@ pub mod workspace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkspaceArgs,
     ) -> WorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_insights_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_insights_id_binding = args
             .application_insights_id
             .get_output(context);
-        let application_insights_id_binding = application_insights_id_binding_1
-            .get_inner();
-        let container_registry_id_binding_1 = args
+        let container_registry_id_binding = args
             .container_registry_id
             .get_output(context);
-        let container_registry_id_binding = container_registry_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let encryption_binding_1 = args.encryption.get_output(context);
-        let encryption_binding = encryption_binding_1.get_inner();
-        let feature_store_binding_1 = args.feature_store.get_output(context);
-        let feature_store_binding = feature_store_binding_1.get_inner();
-        let friendly_name_binding_1 = args.friendly_name.get_output(context);
-        let friendly_name_binding = friendly_name_binding_1.get_inner();
-        let high_business_impact_binding_1 = args
-            .high_business_impact
-            .get_output(context);
-        let high_business_impact_binding = high_business_impact_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let image_build_compute_name_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let encryption_binding = args.encryption.get_output(context);
+        let feature_store_binding = args.feature_store.get_output(context);
+        let friendly_name_binding = args.friendly_name.get_output(context);
+        let high_business_impact_binding = args.high_business_impact.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let image_build_compute_name_binding = args
             .image_build_compute_name
             .get_output(context);
-        let image_build_compute_name_binding = image_build_compute_name_binding_1
-            .get_inner();
-        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
-        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
-        let kind_binding_1 = args.kind.get_output(context);
-        let kind_binding = kind_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let managed_network_binding_1 = args.managed_network.get_output(context);
-        let managed_network_binding = managed_network_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let primary_user_assigned_identity_binding_1 = args
+        let key_vault_id_binding = args.key_vault_id.get_output(context);
+        let kind_binding = args.kind.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let managed_network_binding = args.managed_network.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let primary_user_assigned_identity_binding = args
             .primary_user_assigned_identity
             .get_output(context);
-        let primary_user_assigned_identity_binding = primary_user_assigned_identity_binding_1
-            .get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let serverless_compute_binding_1 = args.serverless_compute.get_output(context);
-        let serverless_compute_binding = serverless_compute_binding_1.get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let v1_legacy_mode_enabled_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let serverless_compute_binding = args.serverless_compute.get_output(context);
+        let sku_name_binding = args.sku_name.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let v1_legacy_mode_enabled_binding = args
             .v1_legacy_mode_enabled
             .get_output(context);
-        let v1_legacy_mode_enabled_binding = v1_legacy_mode_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:machinelearning/workspace:Workspace".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationInsightsId".into(),
-                    value: &application_insights_id_binding,
+                    value: application_insights_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRegistryId".into(),
-                    value: &container_registry_id_binding,
+                    value: container_registry_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryption".into(),
-                    value: &encryption_binding,
+                    value: encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featureStore".into(),
-                    value: &feature_store_binding,
+                    value: feature_store_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "friendlyName".into(),
-                    value: &friendly_name_binding,
+                    value: friendly_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "highBusinessImpact".into(),
-                    value: &high_business_impact_binding,
+                    value: high_business_impact_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageBuildComputeName".into(),
-                    value: &image_build_compute_name_binding,
+                    value: image_build_compute_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: &key_vault_id_binding,
+                    value: key_vault_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kind".into(),
-                    value: &kind_binding,
+                    value: kind_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedNetwork".into(),
-                    value: &managed_network_binding,
+                    value: managed_network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryUserAssignedIdentity".into(),
-                    value: &primary_user_assigned_identity_binding,
+                    value: primary_user_assigned_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverlessCompute".into(),
-                    value: &serverless_compute_binding,
+                    value: serverless_compute_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "v1LegacyModeEnabled".into(),
-                    value: &v1_legacy_mode_enabled_binding,
+                    value: v1_legacy_mode_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkspaceResult {
-            application_insights_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationInsightsId"),
-            ),
-            container_registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerRegistryId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            discovery_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("discoveryUrl"),
-            ),
-            encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryption"),
-            ),
-            feature_store: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("featureStore"),
-            ),
-            friendly_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("friendlyName"),
-            ),
-            high_business_impact: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("highBusinessImpact"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            image_build_compute_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageBuildComputeName"),
-            ),
-            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultId"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            managed_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedNetwork"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            primary_user_assigned_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryUserAssignedIdentity"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            serverless_compute: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverlessCompute"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            v1_legacy_mode_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("v1LegacyModeEnabled"),
-            ),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            application_insights_id: o.get_field("applicationInsightsId"),
+            container_registry_id: o.get_field("containerRegistryId"),
+            description: o.get_field("description"),
+            discovery_url: o.get_field("discoveryUrl"),
+            encryption: o.get_field("encryption"),
+            feature_store: o.get_field("featureStore"),
+            friendly_name: o.get_field("friendlyName"),
+            high_business_impact: o.get_field("highBusinessImpact"),
+            identity: o.get_field("identity"),
+            image_build_compute_name: o.get_field("imageBuildComputeName"),
+            key_vault_id: o.get_field("keyVaultId"),
+            kind: o.get_field("kind"),
+            location: o.get_field("location"),
+            managed_network: o.get_field("managedNetwork"),
+            name: o.get_field("name"),
+            primary_user_assigned_identity: o.get_field("primaryUserAssignedIdentity"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            serverless_compute: o.get_field("serverlessCompute"),
+            sku_name: o.get_field("skuName"),
+            storage_account_id: o.get_field("storageAccountId"),
+            tags: o.get_field("tags"),
+            v1_legacy_mode_enabled: o.get_field("v1LegacyModeEnabled"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

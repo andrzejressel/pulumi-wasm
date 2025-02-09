@@ -67,100 +67,76 @@ pub mod get_account_sas {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAccountSasArgs,
     ) -> GetAccountSasResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_string_binding_1 = args.connection_string.get_output(context);
-        let connection_string_binding = connection_string_binding_1.get_inner();
-        let expiry_binding_1 = args.expiry.get_output(context);
-        let expiry_binding = expiry_binding_1.get_inner();
-        let https_only_binding_1 = args.https_only.get_output(context);
-        let https_only_binding = https_only_binding_1.get_inner();
-        let ip_addresses_binding_1 = args.ip_addresses.get_output(context);
-        let ip_addresses_binding = ip_addresses_binding_1.get_inner();
-        let permissions_binding_1 = args.permissions.get_output(context);
-        let permissions_binding = permissions_binding_1.get_inner();
-        let resource_types_binding_1 = args.resource_types.get_output(context);
-        let resource_types_binding = resource_types_binding_1.get_inner();
-        let services_binding_1 = args.services.get_output(context);
-        let services_binding = services_binding_1.get_inner();
-        let signed_version_binding_1 = args.signed_version.get_output(context);
-        let signed_version_binding = signed_version_binding_1.get_inner();
-        let start_binding_1 = args.start.get_output(context);
-        let start_binding = start_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let connection_string_binding = args.connection_string.get_output(context);
+        let expiry_binding = args.expiry.get_output(context);
+        let https_only_binding = args.https_only.get_output(context);
+        let ip_addresses_binding = args.ip_addresses.get_output(context);
+        let permissions_binding = args.permissions.get_output(context);
+        let resource_types_binding = args.resource_types.get_output(context);
+        let services_binding = args.services.get_output(context);
+        let signed_version_binding = args.signed_version.get_output(context);
+        let start_binding = args.start.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:storage/getAccountSAS:getAccountSAS".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionString".into(),
-                    value: &connection_string_binding,
+                    value: connection_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiry".into(),
-                    value: &expiry_binding,
+                    value: expiry_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsOnly".into(),
-                    value: &https_only_binding,
+                    value: https_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddresses".into(),
-                    value: &ip_addresses_binding,
+                    value: ip_addresses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissions".into(),
-                    value: &permissions_binding,
+                    value: permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTypes".into(),
-                    value: &resource_types_binding,
+                    value: resource_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "services".into(),
-                    value: &services_binding,
+                    value: services_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signedVersion".into(),
-                    value: &signed_version_binding,
+                    value: signed_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "start".into(),
-                    value: &start_binding,
+                    value: start_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAccountSasResult {
-            connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionString"),
-            ),
-            expiry: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiry"),
-            ),
-            https_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsOnly"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddresses"),
-            ),
-            permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissions"),
-            ),
-            resource_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceTypes"),
-            ),
-            sas: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sas")),
-            services: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("services"),
-            ),
-            signed_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signedVersion"),
-            ),
-            start: pulumi_gestalt_rust::__private::into_domain(o.extract_field("start")),
+            connection_string: o.get_field("connectionString"),
+            expiry: o.get_field("expiry"),
+            https_only: o.get_field("httpsOnly"),
+            id: o.get_field("id"),
+            ip_addresses: o.get_field("ipAddresses"),
+            permissions: o.get_field("permissions"),
+            resource_types: o.get_field("resourceTypes"),
+            sas: o.get_field("sas"),
+            services: o.get_field("services"),
+            signed_version: o.get_field("signedVersion"),
+            start: o.get_field("start"),
         }
     }
 }

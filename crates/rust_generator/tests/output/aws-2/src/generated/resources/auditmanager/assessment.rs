@@ -139,89 +139,70 @@ pub mod assessment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AssessmentArgs,
     ) -> AssessmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assessment_reports_destination_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let assessment_reports_destination_binding = args
             .assessment_reports_destination
             .get_output(context);
-        let assessment_reports_destination_binding = assessment_reports_destination_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let framework_id_binding_1 = args.framework_id.get_output(context);
-        let framework_id_binding = framework_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let roles_binding_1 = args.roles.get_output(context);
-        let roles_binding = roles_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let framework_id_binding = args.framework_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let roles_binding = args.roles.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:auditmanager/assessment:Assessment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assessmentReportsDestination".into(),
-                    value: &assessment_reports_destination_binding,
+                    value: assessment_reports_destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frameworkId".into(),
-                    value: &framework_id_binding,
+                    value: framework_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roles".into(),
-                    value: &roles_binding,
+                    value: roles_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AssessmentResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            assessment_reports_destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assessmentReportsDestination"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            framework_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frameworkId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            roles: pulumi_gestalt_rust::__private::into_domain(o.extract_field("roles")),
-            roles_alls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rolesAlls"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            assessment_reports_destination: o.get_field("assessmentReportsDestination"),
+            description: o.get_field("description"),
+            framework_id: o.get_field("frameworkId"),
+            name: o.get_field("name"),
+            roles: o.get_field("roles"),
+            roles_alls: o.get_field("rolesAlls"),
+            scope: o.get_field("scope"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

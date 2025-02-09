@@ -62,55 +62,45 @@ pub mod pull_through_cache_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PullThroughCacheRuleArgs,
     ) -> PullThroughCacheRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let credential_arn_binding_1 = args.credential_arn.get_output(context);
-        let credential_arn_binding = credential_arn_binding_1.get_inner();
-        let ecr_repository_prefix_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let credential_arn_binding = args.credential_arn.get_output(context);
+        let ecr_repository_prefix_binding = args
             .ecr_repository_prefix
             .get_output(context);
-        let ecr_repository_prefix_binding = ecr_repository_prefix_binding_1.get_inner();
-        let upstream_registry_url_binding_1 = args
+        let upstream_registry_url_binding = args
             .upstream_registry_url
             .get_output(context);
-        let upstream_registry_url_binding = upstream_registry_url_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ecr/pullThroughCacheRule:PullThroughCacheRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credentialArn".into(),
-                    value: &credential_arn_binding,
+                    value: credential_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ecrRepositoryPrefix".into(),
-                    value: &ecr_repository_prefix_binding,
+                    value: ecr_repository_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upstreamRegistryUrl".into(),
-                    value: &upstream_registry_url_binding,
+                    value: upstream_registry_url_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PullThroughCacheRuleResult {
-            credential_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("credentialArn"),
-            ),
-            ecr_repository_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ecrRepositoryPrefix"),
-            ),
-            registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryId"),
-            ),
-            upstream_registry_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("upstreamRegistryUrl"),
-            ),
+            credential_arn: o.get_field("credentialArn"),
+            ecr_repository_prefix: o.get_field("ecrRepositoryPrefix"),
+            registry_id: o.get_field("registryId"),
+            upstream_registry_url: o.get_field("upstreamRegistryUrl"),
         }
     }
 }

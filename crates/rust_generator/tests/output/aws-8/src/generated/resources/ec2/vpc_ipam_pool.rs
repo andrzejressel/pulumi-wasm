@@ -188,179 +188,128 @@ pub mod vpc_ipam_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcIpamPoolArgs,
     ) -> VpcIpamPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_family_binding_1 = args.address_family.get_output(context);
-        let address_family_binding = address_family_binding_1.get_inner();
-        let allocation_default_netmask_length_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let address_family_binding = args.address_family.get_output(context);
+        let allocation_default_netmask_length_binding = args
             .allocation_default_netmask_length
             .get_output(context);
-        let allocation_default_netmask_length_binding = allocation_default_netmask_length_binding_1
-            .get_inner();
-        let allocation_max_netmask_length_binding_1 = args
+        let allocation_max_netmask_length_binding = args
             .allocation_max_netmask_length
             .get_output(context);
-        let allocation_max_netmask_length_binding = allocation_max_netmask_length_binding_1
-            .get_inner();
-        let allocation_min_netmask_length_binding_1 = args
+        let allocation_min_netmask_length_binding = args
             .allocation_min_netmask_length
             .get_output(context);
-        let allocation_min_netmask_length_binding = allocation_min_netmask_length_binding_1
-            .get_inner();
-        let allocation_resource_tags_binding_1 = args
+        let allocation_resource_tags_binding = args
             .allocation_resource_tags
             .get_output(context);
-        let allocation_resource_tags_binding = allocation_resource_tags_binding_1
-            .get_inner();
-        let auto_import_binding_1 = args.auto_import.get_output(context);
-        let auto_import_binding = auto_import_binding_1.get_inner();
-        let aws_service_binding_1 = args.aws_service.get_output(context);
-        let aws_service_binding = aws_service_binding_1.get_inner();
-        let cascade_binding_1 = args.cascade.get_output(context);
-        let cascade_binding = cascade_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let ipam_scope_id_binding_1 = args.ipam_scope_id.get_output(context);
-        let ipam_scope_id_binding = ipam_scope_id_binding_1.get_inner();
-        let locale_binding_1 = args.locale.get_output(context);
-        let locale_binding = locale_binding_1.get_inner();
-        let public_ip_source_binding_1 = args.public_ip_source.get_output(context);
-        let public_ip_source_binding = public_ip_source_binding_1.get_inner();
-        let publicly_advertisable_binding_1 = args
+        let auto_import_binding = args.auto_import.get_output(context);
+        let aws_service_binding = args.aws_service.get_output(context);
+        let cascade_binding = args.cascade.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let ipam_scope_id_binding = args.ipam_scope_id.get_output(context);
+        let locale_binding = args.locale.get_output(context);
+        let public_ip_source_binding = args.public_ip_source.get_output(context);
+        let publicly_advertisable_binding = args
             .publicly_advertisable
             .get_output(context);
-        let publicly_advertisable_binding = publicly_advertisable_binding_1.get_inner();
-        let source_ipam_pool_id_binding_1 = args.source_ipam_pool_id.get_output(context);
-        let source_ipam_pool_id_binding = source_ipam_pool_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let source_ipam_pool_id_binding = args.source_ipam_pool_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpamPool:VpcIpamPool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressFamily".into(),
-                    value: &address_family_binding,
+                    value: address_family_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationDefaultNetmaskLength".into(),
-                    value: &allocation_default_netmask_length_binding,
+                    value: allocation_default_netmask_length_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationMaxNetmaskLength".into(),
-                    value: &allocation_max_netmask_length_binding,
+                    value: allocation_max_netmask_length_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationMinNetmaskLength".into(),
-                    value: &allocation_min_netmask_length_binding,
+                    value: allocation_min_netmask_length_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationResourceTags".into(),
-                    value: &allocation_resource_tags_binding,
+                    value: allocation_resource_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoImport".into(),
-                    value: &auto_import_binding,
+                    value: auto_import_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsService".into(),
-                    value: &aws_service_binding,
+                    value: aws_service_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cascade".into(),
-                    value: &cascade_binding,
+                    value: cascade_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamScopeId".into(),
-                    value: &ipam_scope_id_binding,
+                    value: ipam_scope_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locale".into(),
-                    value: &locale_binding,
+                    value: locale_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIpSource".into(),
-                    value: &public_ip_source_binding,
+                    value: public_ip_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publiclyAdvertisable".into(),
-                    value: &publicly_advertisable_binding,
+                    value: publicly_advertisable_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceIpamPoolId".into(),
-                    value: &source_ipam_pool_id_binding,
+                    value: source_ipam_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcIpamPoolResult {
-            address_family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addressFamily"),
-            ),
-            allocation_default_netmask_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocationDefaultNetmaskLength"),
-            ),
-            allocation_max_netmask_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocationMaxNetmaskLength"),
-            ),
-            allocation_min_netmask_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocationMinNetmaskLength"),
-            ),
-            allocation_resource_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocationResourceTags"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_import: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoImport"),
-            ),
-            aws_service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsService"),
-            ),
-            cascade: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cascade"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            ipam_scope_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamScopeId"),
-            ),
-            ipam_scope_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamScopeType"),
-            ),
-            locale: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locale"),
-            ),
-            pool_depth: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("poolDepth"),
-            ),
-            public_ip_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIpSource"),
-            ),
-            publicly_advertisable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publiclyAdvertisable"),
-            ),
-            source_ipam_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceIpamPoolId"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            address_family: o.get_field("addressFamily"),
+            allocation_default_netmask_length: o
+                .get_field("allocationDefaultNetmaskLength"),
+            allocation_max_netmask_length: o.get_field("allocationMaxNetmaskLength"),
+            allocation_min_netmask_length: o.get_field("allocationMinNetmaskLength"),
+            allocation_resource_tags: o.get_field("allocationResourceTags"),
+            arn: o.get_field("arn"),
+            auto_import: o.get_field("autoImport"),
+            aws_service: o.get_field("awsService"),
+            cascade: o.get_field("cascade"),
+            description: o.get_field("description"),
+            ipam_scope_id: o.get_field("ipamScopeId"),
+            ipam_scope_type: o.get_field("ipamScopeType"),
+            locale: o.get_field("locale"),
+            pool_depth: o.get_field("poolDepth"),
+            public_ip_source: o.get_field("publicIpSource"),
+            publicly_advertisable: o.get_field("publiclyAdvertisable"),
+            source_ipam_pool_id: o.get_field("sourceIpamPoolId"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

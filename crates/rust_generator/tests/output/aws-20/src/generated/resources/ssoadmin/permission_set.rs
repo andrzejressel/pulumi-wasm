@@ -86,78 +86,61 @@ pub mod permission_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PermissionSetArgs,
     ) -> PermissionSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let instance_arn_binding_1 = args.instance_arn.get_output(context);
-        let instance_arn_binding = instance_arn_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let relay_state_binding_1 = args.relay_state.get_output(context);
-        let relay_state_binding = relay_state_binding_1.get_inner();
-        let session_duration_binding_1 = args.session_duration.get_output(context);
-        let session_duration_binding = session_duration_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let instance_arn_binding = args.instance_arn.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let relay_state_binding = args.relay_state.get_output(context);
+        let session_duration_binding = args.session_duration.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssoadmin/permissionSet:PermissionSet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceArn".into(),
-                    value: &instance_arn_binding,
+                    value: instance_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "relayState".into(),
-                    value: &relay_state_binding,
+                    value: relay_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionDuration".into(),
-                    value: &session_duration_binding,
+                    value: session_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PermissionSetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            instance_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            relay_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("relayState"),
-            ),
-            session_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionDuration"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            created_date: o.get_field("createdDate"),
+            description: o.get_field("description"),
+            instance_arn: o.get_field("instanceArn"),
+            name: o.get_field("name"),
+            relay_state: o.get_field("relayState"),
+            session_duration: o.get_field("sessionDuration"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

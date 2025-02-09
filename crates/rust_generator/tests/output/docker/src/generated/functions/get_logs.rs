@@ -56,117 +56,90 @@ pub mod get_logs {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetLogsArgs,
     ) -> GetLogsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let details_binding_1 = args.details.get_output(context);
-        let details_binding = details_binding_1.get_inner();
-        let discard_headers_binding_1 = args.discard_headers.get_output(context);
-        let discard_headers_binding = discard_headers_binding_1.get_inner();
-        let follow_binding_1 = args.follow.get_output(context);
-        let follow_binding = follow_binding_1.get_inner();
-        let logs_list_string_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let details_binding = args.details.get_output(context);
+        let discard_headers_binding = args.discard_headers.get_output(context);
+        let follow_binding = args.follow.get_output(context);
+        let logs_list_string_enabled_binding = args
             .logs_list_string_enabled
             .get_output(context);
-        let logs_list_string_enabled_binding = logs_list_string_enabled_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let show_stderr_binding_1 = args.show_stderr.get_output(context);
-        let show_stderr_binding = show_stderr_binding_1.get_inner();
-        let show_stdout_binding_1 = args.show_stdout.get_output(context);
-        let show_stdout_binding = show_stdout_binding_1.get_inner();
-        let since_binding_1 = args.since.get_output(context);
-        let since_binding = since_binding_1.get_inner();
-        let tail_binding_1 = args.tail.get_output(context);
-        let tail_binding = tail_binding_1.get_inner();
-        let timestamps_binding_1 = args.timestamps.get_output(context);
-        let timestamps_binding = timestamps_binding_1.get_inner();
-        let until_binding_1 = args.until.get_output(context);
-        let until_binding = until_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let name_binding = args.name.get_output(context);
+        let show_stderr_binding = args.show_stderr.get_output(context);
+        let show_stdout_binding = args.show_stdout.get_output(context);
+        let since_binding = args.since.get_output(context);
+        let tail_binding = args.tail.get_output(context);
+        let timestamps_binding = args.timestamps.get_output(context);
+        let until_binding = args.until.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "docker:index/getLogs:getLogs".into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "details".into(),
-                    value: &details_binding,
+                    value: details_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "discardHeaders".into(),
-                    value: &discard_headers_binding,
+                    value: discard_headers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "follow".into(),
-                    value: &follow_binding,
+                    value: follow_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logsListStringEnabled".into(),
-                    value: &logs_list_string_enabled_binding,
+                    value: logs_list_string_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "showStderr".into(),
-                    value: &show_stderr_binding,
+                    value: show_stderr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "showStdout".into(),
-                    value: &show_stdout_binding,
+                    value: show_stdout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "since".into(),
-                    value: &since_binding,
+                    value: since_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tail".into(),
-                    value: &tail_binding,
+                    value: tail_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timestamps".into(),
-                    value: &timestamps_binding,
+                    value: timestamps_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "until".into(),
-                    value: &until_binding,
+                    value: until_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetLogsResult {
-            details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("details"),
-            ),
-            discard_headers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("discardHeaders"),
-            ),
-            follow: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("follow"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            logs_list_string_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logsListStringEnabled"),
-            ),
-            logs_list_strings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logsListStrings"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            show_stderr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("showStderr"),
-            ),
-            show_stdout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("showStdout"),
-            ),
-            since: pulumi_gestalt_rust::__private::into_domain(o.extract_field("since")),
-            tail: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tail")),
-            timestamps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timestamps"),
-            ),
-            until: pulumi_gestalt_rust::__private::into_domain(o.extract_field("until")),
+            details: o.get_field("details"),
+            discard_headers: o.get_field("discardHeaders"),
+            follow: o.get_field("follow"),
+            id: o.get_field("id"),
+            logs_list_string_enabled: o.get_field("logsListStringEnabled"),
+            logs_list_strings: o.get_field("logsListStrings"),
+            name: o.get_field("name"),
+            show_stderr: o.get_field("showStderr"),
+            show_stdout: o.get_field("showStdout"),
+            since: o.get_field("since"),
+            tail: o.get_field("tail"),
+            timestamps: o.get_field("timestamps"),
+            until: o.get_field("until"),
         }
     }
 }

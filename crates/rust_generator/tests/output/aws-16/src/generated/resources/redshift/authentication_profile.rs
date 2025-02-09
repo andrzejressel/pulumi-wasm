@@ -47,45 +47,38 @@ pub mod authentication_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AuthenticationProfileArgs,
     ) -> AuthenticationProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_profile_content_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_profile_content_binding = args
             .authentication_profile_content
             .get_output(context);
-        let authentication_profile_content_binding = authentication_profile_content_binding_1
-            .get_inner();
-        let authentication_profile_name_binding_1 = args
+        let authentication_profile_name_binding = args
             .authentication_profile_name
             .get_output(context);
-        let authentication_profile_name_binding = authentication_profile_name_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshift/authenticationProfile:AuthenticationProfile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationProfileContent".into(),
-                    value: &authentication_profile_content_binding,
+                    value: authentication_profile_content_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationProfileName".into(),
-                    value: &authentication_profile_name_binding,
+                    value: authentication_profile_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AuthenticationProfileResult {
-            authentication_profile_content: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationProfileContent"),
-            ),
-            authentication_profile_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationProfileName"),
-            ),
+            authentication_profile_content: o.get_field("authenticationProfileContent"),
+            authentication_profile_name: o.get_field("authenticationProfileName"),
         }
     }
 }

@@ -115,94 +115,72 @@ pub mod access {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccessArgs,
     ) -> AccessResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let external_id_binding_1 = args.external_id.get_output(context);
-        let external_id_binding = external_id_binding_1.get_inner();
-        let home_directory_binding_1 = args.home_directory.get_output(context);
-        let home_directory_binding = home_directory_binding_1.get_inner();
-        let home_directory_mappings_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let external_id_binding = args.external_id.get_output(context);
+        let home_directory_binding = args.home_directory.get_output(context);
+        let home_directory_mappings_binding = args
             .home_directory_mappings
             .get_output(context);
-        let home_directory_mappings_binding = home_directory_mappings_binding_1
-            .get_inner();
-        let home_directory_type_binding_1 = args.home_directory_type.get_output(context);
-        let home_directory_type_binding = home_directory_type_binding_1.get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let posix_profile_binding_1 = args.posix_profile.get_output(context);
-        let posix_profile_binding = posix_profile_binding_1.get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let server_id_binding_1 = args.server_id.get_output(context);
-        let server_id_binding = server_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let home_directory_type_binding = args.home_directory_type.get_output(context);
+        let policy_binding = args.policy.get_output(context);
+        let posix_profile_binding = args.posix_profile.get_output(context);
+        let role_binding = args.role.get_output(context);
+        let server_id_binding = args.server_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:transfer/access:Access".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalId".into(),
-                    value: &external_id_binding,
+                    value: external_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "homeDirectory".into(),
-                    value: &home_directory_binding,
+                    value: home_directory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "homeDirectoryMappings".into(),
-                    value: &home_directory_mappings_binding,
+                    value: home_directory_mappings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "homeDirectoryType".into(),
-                    value: &home_directory_type_binding,
+                    value: home_directory_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "posixProfile".into(),
-                    value: &posix_profile_binding,
+                    value: posix_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: &server_id_binding,
+                    value: server_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccessResult {
-            external_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalId"),
-            ),
-            home_directory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("homeDirectory"),
-            ),
-            home_directory_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("homeDirectoryMappings"),
-            ),
-            home_directory_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("homeDirectoryType"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            posix_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("posixProfile"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
-            server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverId"),
-            ),
+            external_id: o.get_field("externalId"),
+            home_directory: o.get_field("homeDirectory"),
+            home_directory_mappings: o.get_field("homeDirectoryMappings"),
+            home_directory_type: o.get_field("homeDirectoryType"),
+            policy: o.get_field("policy"),
+            posix_profile: o.get_field("posixProfile"),
+            role: o.get_field("role"),
+            server_id: o.get_field("serverId"),
         }
     }
 }

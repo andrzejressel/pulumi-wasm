@@ -105,107 +105,80 @@ pub mod composite_alarm {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CompositeAlarmArgs,
     ) -> CompositeAlarmResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_enabled_binding_1 = args.actions_enabled.get_output(context);
-        let actions_enabled_binding = actions_enabled_binding_1.get_inner();
-        let actions_suppressor_binding_1 = args.actions_suppressor.get_output(context);
-        let actions_suppressor_binding = actions_suppressor_binding_1.get_inner();
-        let alarm_actions_binding_1 = args.alarm_actions.get_output(context);
-        let alarm_actions_binding = alarm_actions_binding_1.get_inner();
-        let alarm_description_binding_1 = args.alarm_description.get_output(context);
-        let alarm_description_binding = alarm_description_binding_1.get_inner();
-        let alarm_name_binding_1 = args.alarm_name.get_output(context);
-        let alarm_name_binding = alarm_name_binding_1.get_inner();
-        let alarm_rule_binding_1 = args.alarm_rule.get_output(context);
-        let alarm_rule_binding = alarm_rule_binding_1.get_inner();
-        let insufficient_data_actions_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let actions_enabled_binding = args.actions_enabled.get_output(context);
+        let actions_suppressor_binding = args.actions_suppressor.get_output(context);
+        let alarm_actions_binding = args.alarm_actions.get_output(context);
+        let alarm_description_binding = args.alarm_description.get_output(context);
+        let alarm_name_binding = args.alarm_name.get_output(context);
+        let alarm_rule_binding = args.alarm_rule.get_output(context);
+        let insufficient_data_actions_binding = args
             .insufficient_data_actions
             .get_output(context);
-        let insufficient_data_actions_binding = insufficient_data_actions_binding_1
-            .get_inner();
-        let ok_actions_binding_1 = args.ok_actions.get_output(context);
-        let ok_actions_binding = ok_actions_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ok_actions_binding = args.ok_actions.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudwatch/compositeAlarm:CompositeAlarm".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionsEnabled".into(),
-                    value: &actions_enabled_binding,
+                    value: actions_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionsSuppressor".into(),
-                    value: &actions_suppressor_binding,
+                    value: actions_suppressor_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alarmActions".into(),
-                    value: &alarm_actions_binding,
+                    value: alarm_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alarmDescription".into(),
-                    value: &alarm_description_binding,
+                    value: alarm_description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alarmName".into(),
-                    value: &alarm_name_binding,
+                    value: alarm_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alarmRule".into(),
-                    value: &alarm_rule_binding,
+                    value: alarm_rule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insufficientDataActions".into(),
-                    value: &insufficient_data_actions_binding,
+                    value: insufficient_data_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "okActions".into(),
-                    value: &ok_actions_binding,
+                    value: ok_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CompositeAlarmResult {
-            actions_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionsEnabled"),
-            ),
-            actions_suppressor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionsSuppressor"),
-            ),
-            alarm_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alarmActions"),
-            ),
-            alarm_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alarmDescription"),
-            ),
-            alarm_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alarmName"),
-            ),
-            alarm_rule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alarmRule"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            insufficient_data_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("insufficientDataActions"),
-            ),
-            ok_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("okActions"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            actions_enabled: o.get_field("actionsEnabled"),
+            actions_suppressor: o.get_field("actionsSuppressor"),
+            alarm_actions: o.get_field("alarmActions"),
+            alarm_description: o.get_field("alarmDescription"),
+            alarm_name: o.get_field("alarmName"),
+            alarm_rule: o.get_field("alarmRule"),
+            arn: o.get_field("arn"),
+            insufficient_data_actions: o.get_field("insufficientDataActions"),
+            ok_actions: o.get_field("okActions"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

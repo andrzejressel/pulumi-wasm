@@ -69,65 +69,44 @@ pub mod zone_dnssec {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ZoneDnssecArgs,
     ) -> ZoneDnssecResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let modified_on_binding_1 = args.modified_on.get_output(context);
-        let modified_on_binding = modified_on_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let modified_on_binding = args.modified_on.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/zoneDnssec:ZoneDnssec".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modifiedOn".into(),
-                    value: &modified_on_binding,
+                    value: modified_on_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ZoneDnssecResult {
-            algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("algorithm"),
-            ),
-            digest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("digest"),
-            ),
-            digest_algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("digestAlgorithm"),
-            ),
-            digest_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("digestType"),
-            ),
-            ds: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ds")),
-            flags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("flags")),
-            key_tag: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyTag"),
-            ),
-            key_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyType"),
-            ),
-            modified_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modifiedOn"),
-            ),
-            public_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKey"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            algorithm: o.get_field("algorithm"),
+            digest: o.get_field("digest"),
+            digest_algorithm: o.get_field("digestAlgorithm"),
+            digest_type: o.get_field("digestType"),
+            ds: o.get_field("ds"),
+            flags: o.get_field("flags"),
+            key_tag: o.get_field("keyTag"),
+            key_type: o.get_field("keyType"),
+            modified_on: o.get_field("modifiedOn"),
+            public_key: o.get_field("publicKey"),
+            status: o.get_field("status"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

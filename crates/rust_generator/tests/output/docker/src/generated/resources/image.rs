@@ -187,72 +187,54 @@ pub mod image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ImageArgs,
     ) -> ImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let build_binding_1 = args.build.get_output(context);
-        let build_binding = build_binding_1.get_inner();
-        let build_on_preview_binding_1 = args.build_on_preview.get_output(context);
-        let build_on_preview_binding = build_on_preview_binding_1.get_inner();
-        let image_name_binding_1 = args.image_name.get_output(context);
-        let image_name_binding = image_name_binding_1.get_inner();
-        let registry_binding_1 = args.registry.get_output(context);
-        let registry_binding = registry_binding_1.get_inner();
-        let skip_push_binding_1 = args.skip_push.get_output(context);
-        let skip_push_binding = skip_push_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let build_binding = args.build.get_output(context);
+        let build_on_preview_binding = args.build_on_preview.get_output(context);
+        let image_name_binding = args.image_name.get_output(context);
+        let registry_binding = args.registry.get_output(context);
+        let skip_push_binding = args.skip_push.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "docker:index/image:Image".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "build".into(),
-                    value: &build_binding,
+                    value: build_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildOnPreview".into(),
-                    value: &build_on_preview_binding,
+                    value: build_on_preview_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageName".into(),
-                    value: &image_name_binding,
+                    value: image_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registry".into(),
-                    value: &registry_binding,
+                    value: registry_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipPush".into(),
-                    value: &skip_push_binding,
+                    value: skip_push_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ImageResult {
-            base_image_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseImageName"),
-            ),
-            context: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("context"),
-            ),
-            dockerfile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dockerfile"),
-            ),
-            image_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageName"),
-            ),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            registry_server: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryServer"),
-            ),
-            repo_digest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repoDigest"),
-            ),
+            base_image_name: o.get_field("baseImageName"),
+            context: o.get_field("context"),
+            dockerfile: o.get_field("dockerfile"),
+            image_name: o.get_field("imageName"),
+            platform: o.get_field("platform"),
+            registry_server: o.get_field("registryServer"),
+            repo_digest: o.get_field("repoDigest"),
         }
     }
 }

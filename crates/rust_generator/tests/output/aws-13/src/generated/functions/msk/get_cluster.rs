@@ -56,76 +56,49 @@ pub mod get_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetClusterArgs,
     ) -> GetClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:msk/getCluster:getCluster".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetClusterResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bootstrap_brokers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokers"),
-            ),
-            bootstrap_brokers_public_sasl_iam: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokersPublicSaslIam"),
-            ),
-            bootstrap_brokers_public_sasl_scram: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokersPublicSaslScram"),
-            ),
-            bootstrap_brokers_public_tls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokersPublicTls"),
-            ),
-            bootstrap_brokers_sasl_iam: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokersSaslIam"),
-            ),
-            bootstrap_brokers_sasl_scram: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokersSaslScram"),
-            ),
-            bootstrap_brokers_tls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootstrapBrokersTls"),
-            ),
-            broker_node_group_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("brokerNodeGroupInfos"),
-            ),
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            cluster_uuid: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterUuid"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kafka_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kafkaVersion"),
-            ),
-            number_of_broker_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberOfBrokerNodes"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            zookeeper_connect_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zookeeperConnectString"),
-            ),
-            zookeeper_connect_string_tls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zookeeperConnectStringTls"),
-            ),
+            arn: o.get_field("arn"),
+            bootstrap_brokers: o.get_field("bootstrapBrokers"),
+            bootstrap_brokers_public_sasl_iam: o
+                .get_field("bootstrapBrokersPublicSaslIam"),
+            bootstrap_brokers_public_sasl_scram: o
+                .get_field("bootstrapBrokersPublicSaslScram"),
+            bootstrap_brokers_public_tls: o.get_field("bootstrapBrokersPublicTls"),
+            bootstrap_brokers_sasl_iam: o.get_field("bootstrapBrokersSaslIam"),
+            bootstrap_brokers_sasl_scram: o.get_field("bootstrapBrokersSaslScram"),
+            bootstrap_brokers_tls: o.get_field("bootstrapBrokersTls"),
+            broker_node_group_infos: o.get_field("brokerNodeGroupInfos"),
+            cluster_name: o.get_field("clusterName"),
+            cluster_uuid: o.get_field("clusterUuid"),
+            id: o.get_field("id"),
+            kafka_version: o.get_field("kafkaVersion"),
+            number_of_broker_nodes: o.get_field("numberOfBrokerNodes"),
+            tags: o.get_field("tags"),
+            zookeeper_connect_string: o.get_field("zookeeperConnectString"),
+            zookeeper_connect_string_tls: o.get_field("zookeeperConnectStringTls"),
         }
     }
 }

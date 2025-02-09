@@ -133,165 +133,80 @@ pub mod get_instance_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetInstanceTypeArgs,
     ) -> GetInstanceTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_type_binding_1 = args.instance_type.get_output(context);
-        let instance_type_binding = instance_type_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let instance_type_binding = args.instance_type.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getInstanceType:getInstanceType".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: &instance_type_binding,
+                    value: instance_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetInstanceTypeResult {
-            auto_recovery_supported: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoRecoverySupported"),
-            ),
-            bare_metal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bareMetal"),
-            ),
-            burstable_performance_supported: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("burstablePerformanceSupported"),
-            ),
-            current_generation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("currentGeneration"),
-            ),
-            dedicated_hosts_supported: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dedicatedHostsSupported"),
-            ),
-            default_cores: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultCores"),
-            ),
-            default_threads_per_core: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultThreadsPerCore"),
-            ),
-            default_vcpus: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultVcpus"),
-            ),
-            ebs_encryption_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsEncryptionSupport"),
-            ),
-            ebs_nvme_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsNvmeSupport"),
-            ),
-            ebs_optimized_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsOptimizedSupport"),
-            ),
-            ebs_performance_baseline_bandwidth: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsPerformanceBaselineBandwidth"),
-            ),
-            ebs_performance_baseline_iops: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsPerformanceBaselineIops"),
-            ),
-            ebs_performance_baseline_throughput: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsPerformanceBaselineThroughput"),
-            ),
-            ebs_performance_maximum_bandwidth: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsPerformanceMaximumBandwidth"),
-            ),
-            ebs_performance_maximum_iops: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsPerformanceMaximumIops"),
-            ),
-            ebs_performance_maximum_throughput: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsPerformanceMaximumThroughput"),
-            ),
-            efa_supported: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("efaSupported"),
-            ),
-            ena_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enaSupport"),
-            ),
-            encryption_in_transit_supported: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionInTransitSupported"),
-            ),
-            fpgas: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fpgas")),
-            free_tier_eligible: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("freeTierEligible"),
-            ),
-            gpuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gpuses"),
-            ),
-            hibernation_supported: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hibernationSupported"),
-            ),
-            hypervisor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hypervisor"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            inference_accelerators: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inferenceAccelerators"),
-            ),
-            instance_disks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceDisks"),
-            ),
-            instance_storage_supported: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceStorageSupported"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            ipv6_supported: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6Supported"),
-            ),
-            maximum_ipv4_addresses_per_interface: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumIpv4AddressesPerInterface"),
-            ),
-            maximum_ipv6_addresses_per_interface: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumIpv6AddressesPerInterface"),
-            ),
-            maximum_network_cards: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumNetworkCards"),
-            ),
-            maximum_network_interfaces: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumNetworkInterfaces"),
-            ),
-            memory_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memorySize"),
-            ),
-            network_performance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkPerformance"),
-            ),
-            supported_architectures: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedArchitectures"),
-            ),
-            supported_placement_strategies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedPlacementStrategies"),
-            ),
-            supported_root_device_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedRootDeviceTypes"),
-            ),
-            supported_usages_classes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedUsagesClasses"),
-            ),
-            supported_virtualization_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedVirtualizationTypes"),
-            ),
-            sustained_clock_speed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sustainedClockSpeed"),
-            ),
-            total_fpga_memory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("totalFpgaMemory"),
-            ),
-            total_gpu_memory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("totalGpuMemory"),
-            ),
-            total_instance_storage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("totalInstanceStorage"),
-            ),
-            valid_cores: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validCores"),
-            ),
-            valid_threads_per_cores: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validThreadsPerCores"),
-            ),
+            auto_recovery_supported: o.get_field("autoRecoverySupported"),
+            bare_metal: o.get_field("bareMetal"),
+            burstable_performance_supported: o
+                .get_field("burstablePerformanceSupported"),
+            current_generation: o.get_field("currentGeneration"),
+            dedicated_hosts_supported: o.get_field("dedicatedHostsSupported"),
+            default_cores: o.get_field("defaultCores"),
+            default_threads_per_core: o.get_field("defaultThreadsPerCore"),
+            default_vcpus: o.get_field("defaultVcpus"),
+            ebs_encryption_support: o.get_field("ebsEncryptionSupport"),
+            ebs_nvme_support: o.get_field("ebsNvmeSupport"),
+            ebs_optimized_support: o.get_field("ebsOptimizedSupport"),
+            ebs_performance_baseline_bandwidth: o
+                .get_field("ebsPerformanceBaselineBandwidth"),
+            ebs_performance_baseline_iops: o.get_field("ebsPerformanceBaselineIops"),
+            ebs_performance_baseline_throughput: o
+                .get_field("ebsPerformanceBaselineThroughput"),
+            ebs_performance_maximum_bandwidth: o
+                .get_field("ebsPerformanceMaximumBandwidth"),
+            ebs_performance_maximum_iops: o.get_field("ebsPerformanceMaximumIops"),
+            ebs_performance_maximum_throughput: o
+                .get_field("ebsPerformanceMaximumThroughput"),
+            efa_supported: o.get_field("efaSupported"),
+            ena_support: o.get_field("enaSupport"),
+            encryption_in_transit_supported: o.get_field("encryptionInTransitSupported"),
+            fpgas: o.get_field("fpgas"),
+            free_tier_eligible: o.get_field("freeTierEligible"),
+            gpuses: o.get_field("gpuses"),
+            hibernation_supported: o.get_field("hibernationSupported"),
+            hypervisor: o.get_field("hypervisor"),
+            id: o.get_field("id"),
+            inference_accelerators: o.get_field("inferenceAccelerators"),
+            instance_disks: o.get_field("instanceDisks"),
+            instance_storage_supported: o.get_field("instanceStorageSupported"),
+            instance_type: o.get_field("instanceType"),
+            ipv6_supported: o.get_field("ipv6Supported"),
+            maximum_ipv4_addresses_per_interface: o
+                .get_field("maximumIpv4AddressesPerInterface"),
+            maximum_ipv6_addresses_per_interface: o
+                .get_field("maximumIpv6AddressesPerInterface"),
+            maximum_network_cards: o.get_field("maximumNetworkCards"),
+            maximum_network_interfaces: o.get_field("maximumNetworkInterfaces"),
+            memory_size: o.get_field("memorySize"),
+            network_performance: o.get_field("networkPerformance"),
+            supported_architectures: o.get_field("supportedArchitectures"),
+            supported_placement_strategies: o.get_field("supportedPlacementStrategies"),
+            supported_root_device_types: o.get_field("supportedRootDeviceTypes"),
+            supported_usages_classes: o.get_field("supportedUsagesClasses"),
+            supported_virtualization_types: o.get_field("supportedVirtualizationTypes"),
+            sustained_clock_speed: o.get_field("sustainedClockSpeed"),
+            total_fpga_memory: o.get_field("totalFpgaMemory"),
+            total_gpu_memory: o.get_field("totalGpuMemory"),
+            total_instance_storage: o.get_field("totalInstanceStorage"),
+            valid_cores: o.get_field("validCores"),
+            valid_threads_per_cores: o.get_field("validThreadsPerCores"),
         }
     }
 }

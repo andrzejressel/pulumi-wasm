@@ -177,119 +177,86 @@ pub mod budget_action {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BudgetActionArgs,
     ) -> BudgetActionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let action_threshold_binding_1 = args.action_threshold.get_output(context);
-        let action_threshold_binding = action_threshold_binding_1.get_inner();
-        let action_type_binding_1 = args.action_type.get_output(context);
-        let action_type_binding = action_type_binding_1.get_inner();
-        let approval_model_binding_1 = args.approval_model.get_output(context);
-        let approval_model_binding = approval_model_binding_1.get_inner();
-        let budget_name_binding_1 = args.budget_name.get_output(context);
-        let budget_name_binding = budget_name_binding_1.get_inner();
-        let definition_binding_1 = args.definition.get_output(context);
-        let definition_binding = definition_binding_1.get_inner();
-        let execution_role_arn_binding_1 = args.execution_role_arn.get_output(context);
-        let execution_role_arn_binding = execution_role_arn_binding_1.get_inner();
-        let notification_type_binding_1 = args.notification_type.get_output(context);
-        let notification_type_binding = notification_type_binding_1.get_inner();
-        let subscribers_binding_1 = args.subscribers.get_output(context);
-        let subscribers_binding = subscribers_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let action_threshold_binding = args.action_threshold.get_output(context);
+        let action_type_binding = args.action_type.get_output(context);
+        let approval_model_binding = args.approval_model.get_output(context);
+        let budget_name_binding = args.budget_name.get_output(context);
+        let definition_binding = args.definition.get_output(context);
+        let execution_role_arn_binding = args.execution_role_arn.get_output(context);
+        let notification_type_binding = args.notification_type.get_output(context);
+        let subscribers_binding = args.subscribers.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:budgets/budgetAction:BudgetAction".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionThreshold".into(),
-                    value: &action_threshold_binding,
+                    value: action_threshold_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionType".into(),
-                    value: &action_type_binding,
+                    value: action_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvalModel".into(),
-                    value: &approval_model_binding,
+                    value: approval_model_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "budgetName".into(),
-                    value: &budget_name_binding,
+                    value: budget_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "definition".into(),
-                    value: &definition_binding,
+                    value: definition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionRoleArn".into(),
-                    value: &execution_role_arn_binding,
+                    value: execution_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationType".into(),
-                    value: &notification_type_binding,
+                    value: notification_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscribers".into(),
-                    value: &subscribers_binding,
+                    value: subscribers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BudgetActionResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            action_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionId"),
-            ),
-            action_threshold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionThreshold"),
-            ),
-            action_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionType"),
-            ),
-            approval_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvalModel"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            budget_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("budgetName"),
-            ),
-            definition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("definition"),
-            ),
-            execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionRoleArn"),
-            ),
-            notification_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationType"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            subscribers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscribers"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            account_id: o.get_field("accountId"),
+            action_id: o.get_field("actionId"),
+            action_threshold: o.get_field("actionThreshold"),
+            action_type: o.get_field("actionType"),
+            approval_model: o.get_field("approvalModel"),
+            arn: o.get_field("arn"),
+            budget_name: o.get_field("budgetName"),
+            definition: o.get_field("definition"),
+            execution_role_arn: o.get_field("executionRoleArn"),
+            notification_type: o.get_field("notificationType"),
+            status: o.get_field("status"),
+            subscribers: o.get_field("subscribers"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

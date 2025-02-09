@@ -43,38 +43,30 @@ pub mod get_netblock_ip_ranges {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetNetblockIpRangesArgs,
     ) -> GetNetblockIpRangesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let range_type_binding_1 = args.range_type.get_output(context);
-        let range_type_binding = range_type_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let range_type_binding = args.range_type.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:compute/getNetblockIPRanges:getNetblockIPRanges".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rangeType".into(),
-                    value: &range_type_binding,
+                    value: range_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetNetblockIpRangesResult {
-            cidr_blocks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrBlocks"),
-            ),
-            cidr_blocks_ipv4s: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrBlocksIpv4s"),
-            ),
-            cidr_blocks_ipv6s: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrBlocksIpv6s"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            range_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rangeType"),
-            ),
+            cidr_blocks: o.get_field("cidrBlocks"),
+            cidr_blocks_ipv4s: o.get_field("cidrBlocksIpv4s"),
+            cidr_blocks_ipv6s: o.get_field("cidrBlocksIpv6s"),
+            id: o.get_field("id"),
+            range_type: o.get_field("rangeType"),
         }
     }
 }

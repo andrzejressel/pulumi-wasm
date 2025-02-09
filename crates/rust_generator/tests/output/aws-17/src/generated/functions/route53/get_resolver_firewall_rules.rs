@@ -33,54 +33,43 @@ pub mod get_resolver_firewall_rules {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetResolverFirewallRulesArgs,
     ) -> GetResolverFirewallRulesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let firewall_rule_group_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let firewall_rule_group_id_binding = args
             .firewall_rule_group_id
             .get_output(context);
-        let firewall_rule_group_id_binding = firewall_rule_group_id_binding_1
-            .get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let priority_binding = args.priority.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:route53/getResolverFirewallRules:getResolverFirewallRules"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallRuleGroupId".into(),
-                    value: &firewall_rule_group_id_binding,
+                    value: firewall_rule_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetResolverFirewallRulesResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            firewall_rule_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallRuleGroupId"),
-            ),
-            firewall_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallRules"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
+            action: o.get_field("action"),
+            firewall_rule_group_id: o.get_field("firewallRuleGroupId"),
+            firewall_rules: o.get_field("firewallRules"),
+            id: o.get_field("id"),
+            priority: o.get_field("priority"),
         }
     }
 }

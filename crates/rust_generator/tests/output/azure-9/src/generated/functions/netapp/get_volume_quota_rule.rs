@@ -31,48 +31,37 @@ pub mod get_volume_quota_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVolumeQuotaRuleArgs,
     ) -> GetVolumeQuotaRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let volume_id_binding_1 = args.volume_id.get_output(context);
-        let volume_id_binding = volume_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let volume_id_binding = args.volume_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeId".into(),
-                    value: &volume_id_binding,
+                    value: volume_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVolumeQuotaRuleResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            quota_size_in_kib: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("quotaSizeInKib"),
-            ),
-            quota_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("quotaTarget"),
-            ),
-            quota_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("quotaType"),
-            ),
-            volume_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeId"),
-            ),
+            id: o.get_field("id"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            quota_size_in_kib: o.get_field("quotaSizeInKib"),
+            quota_target: o.get_field("quotaTarget"),
+            quota_type: o.get_field("quotaType"),
+            volume_id: o.get_field("volumeId"),
         }
     }
 }

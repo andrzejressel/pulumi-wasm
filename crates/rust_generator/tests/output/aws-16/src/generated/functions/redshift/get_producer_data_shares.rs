@@ -39,47 +39,39 @@ pub mod get_producer_data_shares {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetProducerDataSharesArgs,
     ) -> GetProducerDataSharesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_shares_binding_1 = args.data_shares.get_output(context);
-        let data_shares_binding = data_shares_binding_1.get_inner();
-        let producer_arn_binding_1 = args.producer_arn.get_output(context);
-        let producer_arn_binding = producer_arn_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_shares_binding = args.data_shares.get_output(context);
+        let producer_arn_binding = args.producer_arn.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:redshift/getProducerDataShares:getProducerDataShares".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataShares".into(),
-                    value: &data_shares_binding,
+                    value: data_shares_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "producerArn".into(),
-                    value: &producer_arn_binding,
+                    value: producer_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetProducerDataSharesResult {
-            data_shares: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataShares"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            producer_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("producerArn"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            data_shares: o.get_field("dataShares"),
+            id: o.get_field("id"),
+            producer_arn: o.get_field("producerArn"),
+            status: o.get_field("status"),
         }
     }
 }

@@ -367,98 +367,77 @@ pub mod connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectionArgs,
     ) -> ConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding_1 = args.catalog_id.get_output(context);
-        let catalog_id_binding = catalog_id_binding_1.get_inner();
-        let connection_properties_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_id_binding = args.catalog_id.get_output(context);
+        let connection_properties_binding = args
             .connection_properties
             .get_output(context);
-        let connection_properties_binding = connection_properties_binding_1.get_inner();
-        let connection_type_binding_1 = args.connection_type.get_output(context);
-        let connection_type_binding = connection_type_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let match_criterias_binding_1 = args.match_criterias.get_output(context);
-        let match_criterias_binding = match_criterias_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let physical_connection_requirements_binding_1 = args
+        let connection_type_binding = args.connection_type.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let match_criterias_binding = args.match_criterias.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let physical_connection_requirements_binding = args
             .physical_connection_requirements
             .get_output(context);
-        let physical_connection_requirements_binding = physical_connection_requirements_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:glue/connection:Connection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: &catalog_id_binding,
+                    value: catalog_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionProperties".into(),
-                    value: &connection_properties_binding,
+                    value: connection_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionType".into(),
-                    value: &connection_type_binding,
+                    value: connection_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "matchCriterias".into(),
-                    value: &match_criterias_binding,
+                    value: match_criterias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "physicalConnectionRequirements".into(),
-                    value: &physical_connection_requirements_binding,
+                    value: physical_connection_requirements_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            catalog_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogId"),
-            ),
-            connection_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionProperties"),
-            ),
-            connection_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionType"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            match_criterias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("matchCriterias"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            physical_connection_requirements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("physicalConnectionRequirements"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            catalog_id: o.get_field("catalogId"),
+            connection_properties: o.get_field("connectionProperties"),
+            connection_type: o.get_field("connectionType"),
+            description: o.get_field("description"),
+            match_criterias: o.get_field("matchCriterias"),
+            name: o.get_field("name"),
+            physical_connection_requirements: o
+                .get_field("physicalConnectionRequirements"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

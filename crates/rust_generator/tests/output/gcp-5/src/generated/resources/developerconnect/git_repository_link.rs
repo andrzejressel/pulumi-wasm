@@ -191,117 +191,81 @@ pub mod git_repository_link {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GitRepositoryLinkArgs,
     ) -> GitRepositoryLinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let clone_uri_binding_1 = args.clone_uri.get_output(context);
-        let clone_uri_binding = clone_uri_binding_1.get_inner();
-        let etag_binding_1 = args.etag.get_output(context);
-        let etag_binding = etag_binding_1.get_inner();
-        let git_repository_link_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let annotations_binding = args.annotations.get_output(context);
+        let clone_uri_binding = args.clone_uri.get_output(context);
+        let etag_binding = args.etag.get_output(context);
+        let git_repository_link_id_binding = args
             .git_repository_link_id
             .get_output(context);
-        let git_repository_link_id_binding = git_repository_link_id_binding_1
-            .get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let parent_connection_binding_1 = args.parent_connection.get_output(context);
-        let parent_connection_binding = parent_connection_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let parent_connection_binding = args.parent_connection.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:developerconnect/gitRepositoryLink:GitRepositoryLink".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloneUri".into(),
-                    value: &clone_uri_binding,
+                    value: clone_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "etag".into(),
-                    value: &etag_binding,
+                    value: etag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gitRepositoryLinkId".into(),
-                    value: &git_repository_link_id_binding,
+                    value: git_repository_link_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentConnection".into(),
-                    value: &parent_connection_binding,
+                    value: parent_connection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GitRepositoryLinkResult {
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            clone_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloneUri"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            delete_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteTime"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            git_repository_link_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gitRepositoryLinkId"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent_connection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentConnection"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            reconciling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciling"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            annotations: o.get_field("annotations"),
+            clone_uri: o.get_field("cloneUri"),
+            create_time: o.get_field("createTime"),
+            delete_time: o.get_field("deleteTime"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            effective_labels: o.get_field("effectiveLabels"),
+            etag: o.get_field("etag"),
+            git_repository_link_id: o.get_field("gitRepositoryLinkId"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            parent_connection: o.get_field("parentConnection"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            reconciling: o.get_field("reconciling"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

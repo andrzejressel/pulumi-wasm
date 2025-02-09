@@ -75,86 +75,58 @@ pub mod get_data_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDataSetArgs,
     ) -> GetDataSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
-        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
-        let data_set_id_binding_1 = args.data_set_id.get_output(context);
-        let data_set_id_binding = data_set_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tags_all_binding_1 = args.tags_all.get_output(context);
-        let tags_all_binding = tags_all_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_account_id_binding = args.aws_account_id.get_output(context);
+        let data_set_id_binding = args.data_set_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tags_all_binding = args.tags_all.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:quicksight/getDataSet:getDataSet".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: &aws_account_id_binding,
+                    value: aws_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSetId".into(),
-                    value: &data_set_id_binding,
+                    value: data_set_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagsAll".into(),
-                    value: &tags_all_binding,
+                    value: tags_all_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDataSetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            column_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("columnGroups"),
-            ),
-            column_level_permission_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("columnLevelPermissionRules"),
-            ),
-            data_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSetId"),
-            ),
-            data_set_usage_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSetUsageConfigurations"),
-            ),
-            field_folders: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fieldFolders"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            import_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importMode"),
-            ),
-            logical_table_maps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logicalTableMaps"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissions"),
-            ),
-            physical_table_maps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("physicalTableMaps"),
-            ),
-            row_level_permission_data_sets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rowLevelPermissionDataSets"),
-            ),
-            row_level_permission_tag_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rowLevelPermissionTagConfigurations"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            aws_account_id: o.get_field("awsAccountId"),
+            column_groups: o.get_field("columnGroups"),
+            column_level_permission_rules: o.get_field("columnLevelPermissionRules"),
+            data_set_id: o.get_field("dataSetId"),
+            data_set_usage_configurations: o.get_field("dataSetUsageConfigurations"),
+            field_folders: o.get_field("fieldFolders"),
+            id: o.get_field("id"),
+            import_mode: o.get_field("importMode"),
+            logical_table_maps: o.get_field("logicalTableMaps"),
+            name: o.get_field("name"),
+            permissions: o.get_field("permissions"),
+            physical_table_maps: o.get_field("physicalTableMaps"),
+            row_level_permission_data_sets: o.get_field("rowLevelPermissionDataSets"),
+            row_level_permission_tag_configurations: o
+                .get_field("rowLevelPermissionTagConfigurations"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

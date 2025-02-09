@@ -80,66 +80,49 @@ pub mod service_network_service_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceNetworkServiceAssociationArgs,
     ) -> ServiceNetworkServiceAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let service_identifier_binding_1 = args.service_identifier.get_output(context);
-        let service_identifier_binding = service_identifier_binding_1.get_inner();
-        let service_network_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let service_identifier_binding = args.service_identifier.get_output(context);
+        let service_network_identifier_binding = args
             .service_network_identifier
             .get_output(context);
-        let service_network_identifier_binding = service_network_identifier_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceIdentifier".into(),
-                    value: &service_identifier_binding,
+                    value: service_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceNetworkIdentifier".into(),
-                    value: &service_network_identifier_binding,
+                    value: service_network_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceNetworkServiceAssociationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_by: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdBy"),
-            ),
-            custom_domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDomainName"),
-            ),
-            dns_entries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsEntries"),
-            ),
-            service_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceIdentifier"),
-            ),
-            service_network_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceNetworkIdentifier"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            created_by: o.get_field("createdBy"),
+            custom_domain_name: o.get_field("customDomainName"),
+            dns_entries: o.get_field("dnsEntries"),
+            service_identifier: o.get_field("serviceIdentifier"),
+            service_network_identifier: o.get_field("serviceNetworkIdentifier"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

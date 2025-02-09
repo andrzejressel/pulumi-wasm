@@ -134,101 +134,79 @@ pub mod flux_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FluxConfigurationArgs,
     ) -> FluxConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let blob_storage_binding_1 = args.blob_storage.get_output(context);
-        let blob_storage_binding = blob_storage_binding_1.get_inner();
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let cluster_id_binding_1 = args.cluster_id.get_output(context);
-        let cluster_id_binding = cluster_id_binding_1.get_inner();
-        let continuous_reconciliation_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let blob_storage_binding = args.blob_storage.get_output(context);
+        let bucket_binding = args.bucket.get_output(context);
+        let cluster_id_binding = args.cluster_id.get_output(context);
+        let continuous_reconciliation_enabled_binding = args
             .continuous_reconciliation_enabled
             .get_output(context);
-        let continuous_reconciliation_enabled_binding = continuous_reconciliation_enabled_binding_1
-            .get_inner();
-        let git_repository_binding_1 = args.git_repository.get_output(context);
-        let git_repository_binding = git_repository_binding_1.get_inner();
-        let kustomizations_binding_1 = args.kustomizations.get_output(context);
-        let kustomizations_binding = kustomizations_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let namespace_binding_1 = args.namespace.get_output(context);
-        let namespace_binding = namespace_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let git_repository_binding = args.git_repository.get_output(context);
+        let kustomizations_binding = args.kustomizations.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let namespace_binding = args.namespace.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerservice/fluxConfiguration:FluxConfiguration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blobStorage".into(),
-                    value: &blob_storage_binding,
+                    value: blob_storage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: &cluster_id_binding,
+                    value: cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "continuousReconciliationEnabled".into(),
-                    value: &continuous_reconciliation_enabled_binding,
+                    value: continuous_reconciliation_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gitRepository".into(),
-                    value: &git_repository_binding,
+                    value: git_repository_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kustomizations".into(),
-                    value: &kustomizations_binding,
+                    value: kustomizations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespace".into(),
-                    value: &namespace_binding,
+                    value: namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FluxConfigurationResult {
-            blob_storage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blobStorage"),
-            ),
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterId"),
-            ),
-            continuous_reconciliation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("continuousReconciliationEnabled"),
-            ),
-            git_repository: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gitRepository"),
-            ),
-            kustomizations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kustomizations"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespace"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            blob_storage: o.get_field("blobStorage"),
+            bucket: o.get_field("bucket"),
+            cluster_id: o.get_field("clusterId"),
+            continuous_reconciliation_enabled: o
+                .get_field("continuousReconciliationEnabled"),
+            git_repository: o.get_field("gitRepository"),
+            kustomizations: o.get_field("kustomizations"),
+            name: o.get_field("name"),
+            namespace: o.get_field("namespace"),
+            scope: o.get_field("scope"),
         }
     }
 }

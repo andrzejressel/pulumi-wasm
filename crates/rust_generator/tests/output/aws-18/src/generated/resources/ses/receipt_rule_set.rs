@@ -43,31 +43,29 @@ pub mod receipt_rule_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ReceiptRuleSetArgs,
     ) -> ReceiptRuleSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let rule_set_name_binding_1 = args.rule_set_name.get_output(context);
-        let rule_set_name_binding = rule_set_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let rule_set_name_binding = args.rule_set_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ses/receiptRuleSet:ReceiptRuleSet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleSetName".into(),
-                    value: &rule_set_name_binding,
+                    value: rule_set_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ReceiptRuleSetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            rule_set_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleSetName"),
-            ),
+            arn: o.get_field("arn"),
+            rule_set_name: o.get_field("ruleSetName"),
         }
     }
 }

@@ -61,38 +61,35 @@ pub mod ip_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IpSetArgs,
     ) -> IpSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ip_set_descriptors_binding_1 = args.ip_set_descriptors.get_output(context);
-        let ip_set_descriptors_binding = ip_set_descriptors_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let ip_set_descriptors_binding = args.ip_set_descriptors.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:waf/ipSet:IpSet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipSetDescriptors".into(),
-                    value: &ip_set_descriptors_binding,
+                    value: ip_set_descriptors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IpSetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            ip_set_descriptors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipSetDescriptors"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            arn: o.get_field("arn"),
+            ip_set_descriptors: o.get_field("ipSetDescriptors"),
+            name: o.get_field("name"),
         }
     }
 }

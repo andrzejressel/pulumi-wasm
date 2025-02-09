@@ -98,89 +98,66 @@ pub mod repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RepositoryArgs,
     ) -> RepositoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let encryption_configurations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let encryption_configurations_binding = args
             .encryption_configurations
             .get_output(context);
-        let encryption_configurations_binding = encryption_configurations_binding_1
-            .get_inner();
-        let force_delete_binding_1 = args.force_delete.get_output(context);
-        let force_delete_binding = force_delete_binding_1.get_inner();
-        let image_scanning_configuration_binding_1 = args
+        let force_delete_binding = args.force_delete.get_output(context);
+        let image_scanning_configuration_binding = args
             .image_scanning_configuration
             .get_output(context);
-        let image_scanning_configuration_binding = image_scanning_configuration_binding_1
-            .get_inner();
-        let image_tag_mutability_binding_1 = args
-            .image_tag_mutability
-            .get_output(context);
-        let image_tag_mutability_binding = image_tag_mutability_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let image_tag_mutability_binding = args.image_tag_mutability.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ecr/repository:Repository".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfigurations".into(),
-                    value: &encryption_configurations_binding,
+                    value: encryption_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDelete".into(),
-                    value: &force_delete_binding,
+                    value: force_delete_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageScanningConfiguration".into(),
-                    value: &image_scanning_configuration_binding,
+                    value: image_scanning_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageTagMutability".into(),
-                    value: &image_tag_mutability_binding,
+                    value: image_tag_mutability_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RepositoryResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            encryption_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionConfigurations"),
-            ),
-            force_delete: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDelete"),
-            ),
-            image_scanning_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageScanningConfiguration"),
-            ),
-            image_tag_mutability: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageTagMutability"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryId"),
-            ),
-            repository_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryUrl"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            encryption_configurations: o.get_field("encryptionConfigurations"),
+            force_delete: o.get_field("forceDelete"),
+            image_scanning_configuration: o.get_field("imageScanningConfiguration"),
+            image_tag_mutability: o.get_field("imageTagMutability"),
+            name: o.get_field("name"),
+            registry_id: o.get_field("registryId"),
+            repository_url: o.get_field("repositoryUrl"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

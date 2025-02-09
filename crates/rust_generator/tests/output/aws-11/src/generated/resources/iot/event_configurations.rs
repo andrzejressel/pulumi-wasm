@@ -54,32 +54,28 @@ pub mod event_configurations {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EventConfigurationsArgs,
     ) -> EventConfigurationsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let event_configurations_binding_1 = args
-            .event_configurations
-            .get_output(context);
-        let event_configurations_binding = event_configurations_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let event_configurations_binding = args.event_configurations.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iot/eventConfigurations:EventConfigurations".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventConfigurations".into(),
-                    value: &event_configurations_binding,
+                    value: event_configurations_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EventConfigurationsResult {
-            event_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventConfigurations"),
-            ),
+            event_configurations: o.get_field("eventConfigurations"),
         }
     }
 }

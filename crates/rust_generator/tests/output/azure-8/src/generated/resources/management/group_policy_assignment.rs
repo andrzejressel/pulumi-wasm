@@ -164,150 +164,108 @@ pub mod group_policy_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GroupPolicyAssignmentArgs,
     ) -> GroupPolicyAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enforce_binding_1 = args.enforce.get_output(context);
-        let enforce_binding = enforce_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let management_group_id_binding_1 = args.management_group_id.get_output(context);
-        let management_group_id_binding = management_group_id_binding_1.get_inner();
-        let metadata_binding_1 = args.metadata.get_output(context);
-        let metadata_binding = metadata_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let non_compliance_messages_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let enforce_binding = args.enforce.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let management_group_id_binding = args.management_group_id.get_output(context);
+        let metadata_binding = args.metadata.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let non_compliance_messages_binding = args
             .non_compliance_messages
             .get_output(context);
-        let non_compliance_messages_binding = non_compliance_messages_binding_1
-            .get_inner();
-        let not_scopes_binding_1 = args.not_scopes.get_output(context);
-        let not_scopes_binding = not_scopes_binding_1.get_inner();
-        let overrides_binding_1 = args.overrides.get_output(context);
-        let overrides_binding = overrides_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let policy_definition_id_binding_1 = args
-            .policy_definition_id
-            .get_output(context);
-        let policy_definition_id_binding = policy_definition_id_binding_1.get_inner();
-        let resource_selectors_binding_1 = args.resource_selectors.get_output(context);
-        let resource_selectors_binding = resource_selectors_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let not_scopes_binding = args.not_scopes.get_output(context);
+        let overrides_binding = args.overrides.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let policy_definition_id_binding = args.policy_definition_id.get_output(context);
+        let resource_selectors_binding = args.resource_selectors.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:management/groupPolicyAssignment:GroupPolicyAssignment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enforce".into(),
-                    value: &enforce_binding,
+                    value: enforce_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managementGroupId".into(),
-                    value: &management_group_id_binding,
+                    value: management_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: &metadata_binding,
+                    value: metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nonComplianceMessages".into(),
-                    value: &non_compliance_messages_binding,
+                    value: non_compliance_messages_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notScopes".into(),
-                    value: &not_scopes_binding,
+                    value: not_scopes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrides".into(),
-                    value: &overrides_binding,
+                    value: overrides_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDefinitionId".into(),
-                    value: &policy_definition_id_binding,
+                    value: policy_definition_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceSelectors".into(),
-                    value: &resource_selectors_binding,
+                    value: resource_selectors_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GroupPolicyAssignmentResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enforce: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enforce"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            management_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementGroupId"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            non_compliance_messages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nonComplianceMessages"),
-            ),
-            not_scopes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notScopes"),
-            ),
-            overrides: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("overrides"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            policy_definition_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyDefinitionId"),
-            ),
-            resource_selectors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceSelectors"),
-            ),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            enforce: o.get_field("enforce"),
+            identity: o.get_field("identity"),
+            location: o.get_field("location"),
+            management_group_id: o.get_field("managementGroupId"),
+            metadata: o.get_field("metadata"),
+            name: o.get_field("name"),
+            non_compliance_messages: o.get_field("nonComplianceMessages"),
+            not_scopes: o.get_field("notScopes"),
+            overrides: o.get_field("overrides"),
+            parameters: o.get_field("parameters"),
+            policy_definition_id: o.get_field("policyDefinitionId"),
+            resource_selectors: o.get_field("resourceSelectors"),
         }
     }
 }

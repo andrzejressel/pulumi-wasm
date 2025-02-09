@@ -86,49 +86,41 @@ pub mod notification_recipient_user {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NotificationRecipientUserArgs,
     ) -> NotificationRecipientUserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding_1 = args.api_management_id.get_output(context);
-        let api_management_id_binding = api_management_id_binding_1.get_inner();
-        let notification_type_binding_1 = args.notification_type.get_output(context);
-        let notification_type_binding = notification_type_binding_1.get_inner();
-        let user_id_binding_1 = args.user_id.get_output(context);
-        let user_id_binding = user_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_management_id_binding = args.api_management_id.get_output(context);
+        let notification_type_binding = args.notification_type.get_output(context);
+        let user_id_binding = args.user_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/notificationRecipientUser:NotificationRecipientUser"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementId".into(),
-                    value: &api_management_id_binding,
+                    value: api_management_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationType".into(),
-                    value: &notification_type_binding,
+                    value: notification_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userId".into(),
-                    value: &user_id_binding,
+                    value: user_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NotificationRecipientUserResult {
-            api_management_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementId"),
-            ),
-            notification_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationType"),
-            ),
-            user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userId"),
-            ),
+            api_management_id: o.get_field("apiManagementId"),
+            notification_type: o.get_field("notificationType"),
+            user_id: o.get_field("userId"),
         }
     }
 }

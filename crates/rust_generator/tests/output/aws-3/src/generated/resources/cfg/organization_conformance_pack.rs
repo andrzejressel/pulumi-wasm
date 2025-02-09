@@ -148,87 +148,68 @@ pub mod organization_conformance_pack {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OrganizationConformancePackArgs,
     ) -> OrganizationConformancePackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delivery_s3_bucket_binding_1 = args.delivery_s3_bucket.get_output(context);
-        let delivery_s3_bucket_binding = delivery_s3_bucket_binding_1.get_inner();
-        let delivery_s3_key_prefix_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let delivery_s3_bucket_binding = args.delivery_s3_bucket.get_output(context);
+        let delivery_s3_key_prefix_binding = args
             .delivery_s3_key_prefix
             .get_output(context);
-        let delivery_s3_key_prefix_binding = delivery_s3_key_prefix_binding_1
-            .get_inner();
-        let excluded_accounts_binding_1 = args.excluded_accounts.get_output(context);
-        let excluded_accounts_binding = excluded_accounts_binding_1.get_inner();
-        let input_parameters_binding_1 = args.input_parameters.get_output(context);
-        let input_parameters_binding = input_parameters_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let template_body_binding_1 = args.template_body.get_output(context);
-        let template_body_binding = template_body_binding_1.get_inner();
-        let template_s3_uri_binding_1 = args.template_s3_uri.get_output(context);
-        let template_s3_uri_binding = template_s3_uri_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let excluded_accounts_binding = args.excluded_accounts.get_output(context);
+        let input_parameters_binding = args.input_parameters.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let template_body_binding = args.template_body.get_output(context);
+        let template_s3_uri_binding = args.template_s3_uri.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cfg/organizationConformancePack:OrganizationConformancePack"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryS3Bucket".into(),
-                    value: &delivery_s3_bucket_binding,
+                    value: delivery_s3_bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryS3KeyPrefix".into(),
-                    value: &delivery_s3_key_prefix_binding,
+                    value: delivery_s3_key_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludedAccounts".into(),
-                    value: &excluded_accounts_binding,
+                    value: excluded_accounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputParameters".into(),
-                    value: &input_parameters_binding,
+                    value: input_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateBody".into(),
-                    value: &template_body_binding,
+                    value: template_body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateS3Uri".into(),
-                    value: &template_s3_uri_binding,
+                    value: template_s3_uri_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OrganizationConformancePackResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            delivery_s3_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deliveryS3Bucket"),
-            ),
-            delivery_s3_key_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deliveryS3KeyPrefix"),
-            ),
-            excluded_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludedAccounts"),
-            ),
-            input_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputParameters"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            template_body: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateBody"),
-            ),
-            template_s3_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateS3Uri"),
-            ),
+            arn: o.get_field("arn"),
+            delivery_s3_bucket: o.get_field("deliveryS3Bucket"),
+            delivery_s3_key_prefix: o.get_field("deliveryS3KeyPrefix"),
+            excluded_accounts: o.get_field("excludedAccounts"),
+            input_parameters: o.get_field("inputParameters"),
+            name: o.get_field("name"),
+            template_body: o.get_field("templateBody"),
+            template_s3_uri: o.get_field("templateS3Uri"),
         }
     }
 }

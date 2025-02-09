@@ -199,193 +199,144 @@ pub mod network_packet_core_control_plane {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkPacketCoreControlPlaneArgs,
     ) -> NetworkPacketCoreControlPlaneResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let control_plane_access_ipv4_address_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let control_plane_access_ipv4_address_binding = args
             .control_plane_access_ipv4_address
             .get_output(context);
-        let control_plane_access_ipv4_address_binding = control_plane_access_ipv4_address_binding_1
-            .get_inner();
-        let control_plane_access_ipv4_gateway_binding_1 = args
+        let control_plane_access_ipv4_gateway_binding = args
             .control_plane_access_ipv4_gateway
             .get_output(context);
-        let control_plane_access_ipv4_gateway_binding = control_plane_access_ipv4_gateway_binding_1
-            .get_inner();
-        let control_plane_access_ipv4_subnet_binding_1 = args
+        let control_plane_access_ipv4_subnet_binding = args
             .control_plane_access_ipv4_subnet
             .get_output(context);
-        let control_plane_access_ipv4_subnet_binding = control_plane_access_ipv4_subnet_binding_1
-            .get_inner();
-        let control_plane_access_name_binding_1 = args
+        let control_plane_access_name_binding = args
             .control_plane_access_name
             .get_output(context);
-        let control_plane_access_name_binding = control_plane_access_name_binding_1
-            .get_inner();
-        let core_network_technology_binding_1 = args
+        let core_network_technology_binding = args
             .core_network_technology
             .get_output(context);
-        let core_network_technology_binding = core_network_technology_binding_1
-            .get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let interoperability_settings_json_binding_1 = args
+        let identity_binding = args.identity.get_output(context);
+        let interoperability_settings_json_binding = args
             .interoperability_settings_json
             .get_output(context);
-        let interoperability_settings_json_binding = interoperability_settings_json_binding_1
-            .get_inner();
-        let local_diagnostics_access_binding_1 = args
+        let local_diagnostics_access_binding = args
             .local_diagnostics_access
             .get_output(context);
-        let local_diagnostics_access_binding = local_diagnostics_access_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let platform_binding_1 = args.platform.get_output(context);
-        let platform_binding = platform_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let site_ids_binding_1 = args.site_ids.get_output(context);
-        let site_ids_binding = site_ids_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let software_version_binding_1 = args.software_version.get_output(context);
-        let software_version_binding = software_version_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_equipment_mtu_in_bytes_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let platform_binding = args.platform.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let site_ids_binding = args.site_ids.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let software_version_binding = args.software_version.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let user_equipment_mtu_in_bytes_binding = args
             .user_equipment_mtu_in_bytes
             .get_output(context);
-        let user_equipment_mtu_in_bytes_binding = user_equipment_mtu_in_bytes_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlaneAccessIpv4Address".into(),
-                    value: &control_plane_access_ipv4_address_binding,
+                    value: control_plane_access_ipv4_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlaneAccessIpv4Gateway".into(),
-                    value: &control_plane_access_ipv4_gateway_binding,
+                    value: control_plane_access_ipv4_gateway_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlaneAccessIpv4Subnet".into(),
-                    value: &control_plane_access_ipv4_subnet_binding,
+                    value: control_plane_access_ipv4_subnet_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlaneAccessName".into(),
-                    value: &control_plane_access_name_binding,
+                    value: control_plane_access_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreNetworkTechnology".into(),
-                    value: &core_network_technology_binding,
+                    value: core_network_technology_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interoperabilitySettingsJson".into(),
-                    value: &interoperability_settings_json_binding,
+                    value: interoperability_settings_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localDiagnosticsAccess".into(),
-                    value: &local_diagnostics_access_binding,
+                    value: local_diagnostics_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platform".into(),
-                    value: &platform_binding,
+                    value: platform_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteIds".into(),
-                    value: &site_ids_binding,
+                    value: site_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "softwareVersion".into(),
-                    value: &software_version_binding,
+                    value: software_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userEquipmentMtuInBytes".into(),
-                    value: &user_equipment_mtu_in_bytes_binding,
+                    value: user_equipment_mtu_in_bytes_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkPacketCoreControlPlaneResult {
-            control_plane_access_ipv4_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlaneAccessIpv4Address"),
-            ),
-            control_plane_access_ipv4_gateway: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlaneAccessIpv4Gateway"),
-            ),
-            control_plane_access_ipv4_subnet: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlaneAccessIpv4Subnet"),
-            ),
-            control_plane_access_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlaneAccessName"),
-            ),
-            core_network_technology: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("coreNetworkTechnology"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            interoperability_settings_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interoperabilitySettingsJson"),
-            ),
-            local_diagnostics_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localDiagnosticsAccess"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            site_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteIds"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            software_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("softwareVersion"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            user_equipment_mtu_in_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userEquipmentMtuInBytes"),
-            ),
+            control_plane_access_ipv4_address: o
+                .get_field("controlPlaneAccessIpv4Address"),
+            control_plane_access_ipv4_gateway: o
+                .get_field("controlPlaneAccessIpv4Gateway"),
+            control_plane_access_ipv4_subnet: o
+                .get_field("controlPlaneAccessIpv4Subnet"),
+            control_plane_access_name: o.get_field("controlPlaneAccessName"),
+            core_network_technology: o.get_field("coreNetworkTechnology"),
+            identity: o.get_field("identity"),
+            interoperability_settings_json: o.get_field("interoperabilitySettingsJson"),
+            local_diagnostics_access: o.get_field("localDiagnosticsAccess"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            platform: o.get_field("platform"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            site_ids: o.get_field("siteIds"),
+            sku: o.get_field("sku"),
+            software_version: o.get_field("softwareVersion"),
+            tags: o.get_field("tags"),
+            user_equipment_mtu_in_bytes: o.get_field("userEquipmentMtuInBytes"),
         }
     }
 }

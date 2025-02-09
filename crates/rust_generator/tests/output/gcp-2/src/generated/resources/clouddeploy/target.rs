@@ -277,170 +277,120 @@ pub mod target {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TargetArgs,
     ) -> TargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let anthos_cluster_binding_1 = args.anthos_cluster.get_output(context);
-        let anthos_cluster_binding = anthos_cluster_binding_1.get_inner();
-        let associated_entities_binding_1 = args.associated_entities.get_output(context);
-        let associated_entities_binding = associated_entities_binding_1.get_inner();
-        let custom_target_binding_1 = args.custom_target.get_output(context);
-        let custom_target_binding = custom_target_binding_1.get_inner();
-        let deploy_parameters_binding_1 = args.deploy_parameters.get_output(context);
-        let deploy_parameters_binding = deploy_parameters_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let execution_configs_binding_1 = args.execution_configs.get_output(context);
-        let execution_configs_binding = execution_configs_binding_1.get_inner();
-        let gke_binding_1 = args.gke.get_output(context);
-        let gke_binding = gke_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let multi_target_binding_1 = args.multi_target.get_output(context);
-        let multi_target_binding = multi_target_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let require_approval_binding_1 = args.require_approval.get_output(context);
-        let require_approval_binding = require_approval_binding_1.get_inner();
-        let run_binding_1 = args.run.get_output(context);
-        let run_binding = run_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let annotations_binding = args.annotations.get_output(context);
+        let anthos_cluster_binding = args.anthos_cluster.get_output(context);
+        let associated_entities_binding = args.associated_entities.get_output(context);
+        let custom_target_binding = args.custom_target.get_output(context);
+        let deploy_parameters_binding = args.deploy_parameters.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let execution_configs_binding = args.execution_configs.get_output(context);
+        let gke_binding = args.gke.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let multi_target_binding = args.multi_target.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let require_approval_binding = args.require_approval.get_output(context);
+        let run_binding = args.run.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:clouddeploy/target:Target".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "anthosCluster".into(),
-                    value: &anthos_cluster_binding,
+                    value: anthos_cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associatedEntities".into(),
-                    value: &associated_entities_binding,
+                    value: associated_entities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customTarget".into(),
-                    value: &custom_target_binding,
+                    value: custom_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deployParameters".into(),
-                    value: &deploy_parameters_binding,
+                    value: deploy_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionConfigs".into(),
-                    value: &execution_configs_binding,
+                    value: execution_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gke".into(),
-                    value: &gke_binding,
+                    value: gke_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiTarget".into(),
-                    value: &multi_target_binding,
+                    value: multi_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireApproval".into(),
-                    value: &require_approval_binding,
+                    value: require_approval_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "run".into(),
-                    value: &run_binding,
+                    value: run_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TargetResult {
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            anthos_cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("anthosCluster"),
-            ),
-            associated_entities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associatedEntities"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            custom_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customTarget"),
-            ),
-            deploy_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deployParameters"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            execution_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionConfigs"),
-            ),
-            gke: pulumi_gestalt_rust::__private::into_domain(o.extract_field("gke")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            multi_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiTarget"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            require_approval: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requireApproval"),
-            ),
-            run: pulumi_gestalt_rust::__private::into_domain(o.extract_field("run")),
-            target_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetId"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            annotations: o.get_field("annotations"),
+            anthos_cluster: o.get_field("anthosCluster"),
+            associated_entities: o.get_field("associatedEntities"),
+            create_time: o.get_field("createTime"),
+            custom_target: o.get_field("customTarget"),
+            deploy_parameters: o.get_field("deployParameters"),
+            description: o.get_field("description"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            effective_labels: o.get_field("effectiveLabels"),
+            etag: o.get_field("etag"),
+            execution_configs: o.get_field("executionConfigs"),
+            gke: o.get_field("gke"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            multi_target: o.get_field("multiTarget"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            require_approval: o.get_field("requireApproval"),
+            run: o.get_field("run"),
+            target_id: o.get_field("targetId"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

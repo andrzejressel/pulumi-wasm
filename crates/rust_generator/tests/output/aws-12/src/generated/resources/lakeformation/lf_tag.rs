@@ -54,46 +54,40 @@ pub mod lf_tag {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LfTagArgs,
     ) -> LfTagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding_1 = args.catalog_id.get_output(context);
-        let catalog_id_binding = catalog_id_binding_1.get_inner();
-        let key_binding_1 = args.key.get_output(context);
-        let key_binding = key_binding_1.get_inner();
-        let values_binding_1 = args.values.get_output(context);
-        let values_binding = values_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_id_binding = args.catalog_id.get_output(context);
+        let key_binding = args.key.get_output(context);
+        let values_binding = args.values.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lakeformation/lfTag:LfTag".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: &catalog_id_binding,
+                    value: catalog_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: &key_binding,
+                    value: key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "values".into(),
-                    value: &values_binding,
+                    value: values_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LfTagResult {
-            catalog_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogId"),
-            ),
-            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
-            values: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("values"),
-            ),
+            catalog_id: o.get_field("catalogId"),
+            key: o.get_field("key"),
+            values: o.get_field("values"),
         }
     }
 }

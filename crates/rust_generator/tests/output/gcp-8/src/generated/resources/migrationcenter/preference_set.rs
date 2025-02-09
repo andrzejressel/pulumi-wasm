@@ -203,85 +203,63 @@ pub mod preference_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PreferenceSetArgs,
     ) -> PreferenceSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let preference_set_id_binding_1 = args.preference_set_id.get_output(context);
-        let preference_set_id_binding = preference_set_id_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let virtual_machine_preferences_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let preference_set_id_binding = args.preference_set_id.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let virtual_machine_preferences_binding = args
             .virtual_machine_preferences
             .get_output(context);
-        let virtual_machine_preferences_binding = virtual_machine_preferences_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:migrationcenter/preferenceSet:PreferenceSet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferenceSetId".into(),
-                    value: &preference_set_id_binding,
+                    value: preference_set_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachinePreferences".into(),
-                    value: &virtual_machine_preferences_binding,
+                    value: virtual_machine_preferences_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PreferenceSetResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            preference_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferenceSetId"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            virtual_machine_preferences: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachinePreferences"),
-            ),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            preference_set_id: o.get_field("preferenceSetId"),
+            project: o.get_field("project"),
+            update_time: o.get_field("updateTime"),
+            virtual_machine_preferences: o.get_field("virtualMachinePreferences"),
         }
     }
 }

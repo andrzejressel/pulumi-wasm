@@ -115,70 +115,54 @@ pub mod public_advertised_prefix {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PublicAdvertisedPrefixArgs,
     ) -> PublicAdvertisedPrefixResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dns_verification_ip_binding_1 = args.dns_verification_ip.get_output(context);
-        let dns_verification_ip_binding = dns_verification_ip_binding_1.get_inner();
-        let ip_cidr_range_binding_1 = args.ip_cidr_range.get_output(context);
-        let ip_cidr_range_binding = ip_cidr_range_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let dns_verification_ip_binding = args.dns_verification_ip.get_output(context);
+        let ip_cidr_range_binding = args.ip_cidr_range.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/publicAdvertisedPrefix:PublicAdvertisedPrefix".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsVerificationIp".into(),
-                    value: &dns_verification_ip_binding,
+                    value: dns_verification_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipCidrRange".into(),
-                    value: &ip_cidr_range_binding,
+                    value: ip_cidr_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PublicAdvertisedPrefixResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dns_verification_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsVerificationIp"),
-            ),
-            ip_cidr_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipCidrRange"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            shared_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharedSecret"),
-            ),
+            description: o.get_field("description"),
+            dns_verification_ip: o.get_field("dnsVerificationIp"),
+            ip_cidr_range: o.get_field("ipCidrRange"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            self_link: o.get_field("selfLink"),
+            shared_secret: o.get_field("sharedSecret"),
         }
     }
 }

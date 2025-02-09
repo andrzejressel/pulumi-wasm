@@ -68,50 +68,42 @@ pub mod human_task_ui {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HumanTaskUIArgs,
     ) -> HumanTaskUIResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let human_task_ui_name_binding_1 = args.human_task_ui_name.get_output(context);
-        let human_task_ui_name_binding = human_task_ui_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let ui_template_binding_1 = args.ui_template.get_output(context);
-        let ui_template_binding = ui_template_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let human_task_ui_name_binding = args.human_task_ui_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let ui_template_binding = args.ui_template.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/humanTaskUI:HumanTaskUI".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "humanTaskUiName".into(),
-                    value: &human_task_ui_name_binding,
+                    value: human_task_ui_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uiTemplate".into(),
-                    value: &ui_template_binding,
+                    value: ui_template_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HumanTaskUIResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            human_task_ui_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("humanTaskUiName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            ui_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uiTemplate"),
-            ),
+            arn: o.get_field("arn"),
+            human_task_ui_name: o.get_field("humanTaskUiName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            ui_template: o.get_field("uiTemplate"),
         }
     }
 }

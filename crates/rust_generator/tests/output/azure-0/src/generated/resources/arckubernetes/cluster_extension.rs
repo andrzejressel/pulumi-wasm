@@ -122,118 +122,88 @@ pub mod cluster_extension {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterExtensionArgs,
     ) -> ClusterExtensionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding_1 = args.cluster_id.get_output(context);
-        let cluster_id_binding = cluster_id_binding_1.get_inner();
-        let configuration_protected_settings_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_id_binding = args.cluster_id.get_output(context);
+        let configuration_protected_settings_binding = args
             .configuration_protected_settings
             .get_output(context);
-        let configuration_protected_settings_binding = configuration_protected_settings_binding_1
-            .get_inner();
-        let configuration_settings_binding_1 = args
+        let configuration_settings_binding = args
             .configuration_settings
             .get_output(context);
-        let configuration_settings_binding = configuration_settings_binding_1
-            .get_inner();
-        let extension_type_binding_1 = args.extension_type.get_output(context);
-        let extension_type_binding = extension_type_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let release_namespace_binding_1 = args.release_namespace.get_output(context);
-        let release_namespace_binding = release_namespace_binding_1.get_inner();
-        let release_train_binding_1 = args.release_train.get_output(context);
-        let release_train_binding = release_train_binding_1.get_inner();
-        let target_namespace_binding_1 = args.target_namespace.get_output(context);
-        let target_namespace_binding = target_namespace_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let extension_type_binding = args.extension_type.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let release_namespace_binding = args.release_namespace.get_output(context);
+        let release_train_binding = args.release_train.get_output(context);
+        let target_namespace_binding = args.target_namespace.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:arckubernetes/clusterExtension:ClusterExtension".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: &cluster_id_binding,
+                    value: cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationProtectedSettings".into(),
-                    value: &configuration_protected_settings_binding,
+                    value: configuration_protected_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationSettings".into(),
-                    value: &configuration_settings_binding,
+                    value: configuration_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extensionType".into(),
-                    value: &extension_type_binding,
+                    value: extension_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseNamespace".into(),
-                    value: &release_namespace_binding,
+                    value: release_namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseTrain".into(),
-                    value: &release_train_binding,
+                    value: release_train_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetNamespace".into(),
-                    value: &target_namespace_binding,
+                    value: target_namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterExtensionResult {
-            cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterId"),
-            ),
-            configuration_protected_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationProtectedSettings"),
-            ),
-            configuration_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationSettings"),
-            ),
-            current_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("currentVersion"),
-            ),
-            extension_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extensionType"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            release_namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseNamespace"),
-            ),
-            release_train: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseTrain"),
-            ),
-            target_namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetNamespace"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            cluster_id: o.get_field("clusterId"),
+            configuration_protected_settings: o
+                .get_field("configurationProtectedSettings"),
+            configuration_settings: o.get_field("configurationSettings"),
+            current_version: o.get_field("currentVersion"),
+            extension_type: o.get_field("extensionType"),
+            identity: o.get_field("identity"),
+            name: o.get_field("name"),
+            release_namespace: o.get_field("releaseNamespace"),
+            release_train: o.get_field("releaseTrain"),
+            target_namespace: o.get_field("targetNamespace"),
+            version: o.get_field("version"),
         }
     }
 }

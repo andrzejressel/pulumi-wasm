@@ -78,65 +78,53 @@ pub mod email_routing_catch_all {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EmailRoutingCatchAllArgs,
     ) -> EmailRoutingCatchAllResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding_1 = args.actions.get_output(context);
-        let actions_binding = actions_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let matchers_binding_1 = args.matchers.get_output(context);
-        let matchers_binding = matchers_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let actions_binding = args.actions.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let matchers_binding = args.matchers.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/emailRoutingCatchAll:EmailRoutingCatchAll".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actions".into(),
-                    value: &actions_binding,
+                    value: actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "matchers".into(),
-                    value: &matchers_binding,
+                    value: matchers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EmailRoutingCatchAllResult {
-            actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actions"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            matchers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("matchers"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tag")),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            actions: o.get_field("actions"),
+            enabled: o.get_field("enabled"),
+            matchers: o.get_field("matchers"),
+            name: o.get_field("name"),
+            tag: o.get_field("tag"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

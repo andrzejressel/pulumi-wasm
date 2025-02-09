@@ -82,81 +82,50 @@ pub mod get_configuration_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetConfigurationStoreArgs,
     ) -> GetConfigurationStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:appconfiguration/getConfigurationStore:getConfigurationStore"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetConfigurationStoreResult {
-            encryptions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptions"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            local_auth_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAuthEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            primary_read_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryReadKeys"),
-            ),
-            primary_write_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryWriteKeys"),
-            ),
-            public_network_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccess"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            purge_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("purgeProtectionEnabled"),
-            ),
-            replicas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicas"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_read_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryReadKeys"),
-            ),
-            secondary_write_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryWriteKeys"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            soft_delete_retention_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("softDeleteRetentionDays"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            encryptions: o.get_field("encryptions"),
+            endpoint: o.get_field("endpoint"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            local_auth_enabled: o.get_field("localAuthEnabled"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            primary_read_keys: o.get_field("primaryReadKeys"),
+            primary_write_keys: o.get_field("primaryWriteKeys"),
+            public_network_access: o.get_field("publicNetworkAccess"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            purge_protection_enabled: o.get_field("purgeProtectionEnabled"),
+            replicas: o.get_field("replicas"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_read_keys: o.get_field("secondaryReadKeys"),
+            secondary_write_keys: o.get_field("secondaryWriteKeys"),
+            sku: o.get_field("sku"),
+            soft_delete_retention_days: o.get_field("softDeleteRetentionDays"),
+            tags: o.get_field("tags"),
         }
     }
 }

@@ -189,100 +189,73 @@ pub mod transfer_job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TransferJobArgs,
     ) -> TransferJobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let event_stream_binding_1 = args.event_stream.get_output(context);
-        let event_stream_binding = event_stream_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let notification_config_binding_1 = args.notification_config.get_output(context);
-        let notification_config_binding = notification_config_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let schedule_binding_1 = args.schedule.get_output(context);
-        let schedule_binding = schedule_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let transfer_spec_binding_1 = args.transfer_spec.get_output(context);
-        let transfer_spec_binding = transfer_spec_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let event_stream_binding = args.event_stream.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let notification_config_binding = args.notification_config.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let schedule_binding = args.schedule.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let transfer_spec_binding = args.transfer_spec.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:storage/transferJob:TransferJob".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventStream".into(),
-                    value: &event_stream_binding,
+                    value: event_stream_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationConfig".into(),
-                    value: &notification_config_binding,
+                    value: notification_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: &schedule_binding,
+                    value: schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transferSpec".into(),
-                    value: &transfer_spec_binding,
+                    value: transfer_spec_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TransferJobResult {
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            deletion_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            event_stream: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventStream"),
-            ),
-            last_modification_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModificationTime"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationConfig"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedule"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            transfer_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transferSpec"),
-            ),
+            creation_time: o.get_field("creationTime"),
+            deletion_time: o.get_field("deletionTime"),
+            description: o.get_field("description"),
+            event_stream: o.get_field("eventStream"),
+            last_modification_time: o.get_field("lastModificationTime"),
+            name: o.get_field("name"),
+            notification_config: o.get_field("notificationConfig"),
+            project: o.get_field("project"),
+            schedule: o.get_field("schedule"),
+            status: o.get_field("status"),
+            transfer_spec: o.get_field("transferSpec"),
         }
     }
 }

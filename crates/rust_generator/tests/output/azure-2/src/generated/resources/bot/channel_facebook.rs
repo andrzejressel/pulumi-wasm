@@ -96,79 +96,62 @@ pub mod channel_facebook {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ChannelFacebookArgs,
     ) -> ChannelFacebookResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_name_binding_1 = args.bot_name.get_output(context);
-        let bot_name_binding = bot_name_binding_1.get_inner();
-        let facebook_application_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bot_name_binding = args.bot_name.get_output(context);
+        let facebook_application_id_binding = args
             .facebook_application_id
             .get_output(context);
-        let facebook_application_id_binding = facebook_application_id_binding_1
-            .get_inner();
-        let facebook_application_secret_binding_1 = args
+        let facebook_application_secret_binding = args
             .facebook_application_secret
             .get_output(context);
-        let facebook_application_secret_binding = facebook_application_secret_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let pages_binding_1 = args.pages.get_output(context);
-        let pages_binding = pages_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let pages_binding = args.pages.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:bot/channelFacebook:ChannelFacebook".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botName".into(),
-                    value: &bot_name_binding,
+                    value: bot_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "facebookApplicationId".into(),
-                    value: &facebook_application_id_binding,
+                    value: facebook_application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "facebookApplicationSecret".into(),
-                    value: &facebook_application_secret_binding,
+                    value: facebook_application_secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pages".into(),
-                    value: &pages_binding,
+                    value: pages_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ChannelFacebookResult {
-            bot_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botName"),
-            ),
-            facebook_application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("facebookApplicationId"),
-            ),
-            facebook_application_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("facebookApplicationSecret"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            pages: pulumi_gestalt_rust::__private::into_domain(o.extract_field("pages")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            bot_name: o.get_field("botName"),
+            facebook_application_id: o.get_field("facebookApplicationId"),
+            facebook_application_secret: o.get_field("facebookApplicationSecret"),
+            location: o.get_field("location"),
+            pages: o.get_field("pages"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

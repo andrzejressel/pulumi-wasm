@@ -147,140 +147,103 @@ pub mod standard_web_test {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StandardWebTestArgs,
     ) -> StandardWebTestResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_insights_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_insights_id_binding = args
             .application_insights_id
             .get_output(context);
-        let application_insights_id_binding = application_insights_id_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let frequency_binding_1 = args.frequency.get_output(context);
-        let frequency_binding = frequency_binding_1.get_inner();
-        let geo_locations_binding_1 = args.geo_locations.get_output(context);
-        let geo_locations_binding = geo_locations_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request_binding_1 = args.request.get_output(context);
-        let request_binding = request_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let retry_enabled_binding_1 = args.retry_enabled.get_output(context);
-        let retry_enabled_binding = retry_enabled_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeout_binding_1 = args.timeout.get_output(context);
-        let timeout_binding = timeout_binding_1.get_inner();
-        let validation_rules_binding_1 = args.validation_rules.get_output(context);
-        let validation_rules_binding = validation_rules_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let frequency_binding = args.frequency.get_output(context);
+        let geo_locations_binding = args.geo_locations.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request_binding = args.request.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let retry_enabled_binding = args.retry_enabled.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeout_binding = args.timeout.get_output(context);
+        let validation_rules_binding = args.validation_rules.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appinsights/standardWebTest:StandardWebTest".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationInsightsId".into(),
-                    value: &application_insights_id_binding,
+                    value: application_insights_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frequency".into(),
-                    value: &frequency_binding,
+                    value: frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geoLocations".into(),
-                    value: &geo_locations_binding,
+                    value: geo_locations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "request".into(),
-                    value: &request_binding,
+                    value: request_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retryEnabled".into(),
-                    value: &retry_enabled_binding,
+                    value: retry_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeout".into(),
-                    value: &timeout_binding,
+                    value: timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationRules".into(),
-                    value: &validation_rules_binding,
+                    value: validation_rules_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StandardWebTestResult {
-            application_insights_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationInsightsId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frequency"),
-            ),
-            geo_locations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("geoLocations"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            request: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("request"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            retry_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retryEnabled"),
-            ),
-            synthetic_monitor_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("syntheticMonitorId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeout"),
-            ),
-            validation_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationRules"),
-            ),
+            application_insights_id: o.get_field("applicationInsightsId"),
+            description: o.get_field("description"),
+            enabled: o.get_field("enabled"),
+            frequency: o.get_field("frequency"),
+            geo_locations: o.get_field("geoLocations"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            request: o.get_field("request"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            retry_enabled: o.get_field("retryEnabled"),
+            synthetic_monitor_id: o.get_field("syntheticMonitorId"),
+            tags: o.get_field("tags"),
+            timeout: o.get_field("timeout"),
+            validation_rules: o.get_field("validationRules"),
         }
     }
 }

@@ -73,68 +73,53 @@ pub mod cluster_snapshot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterSnapshotArgs,
     ) -> ClusterSnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
-        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
-        let manual_snapshot_retention_period_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_identifier_binding = args.cluster_identifier.get_output(context);
+        let manual_snapshot_retention_period_binding = args
             .manual_snapshot_retention_period
             .get_output(context);
-        let manual_snapshot_retention_period_binding = manual_snapshot_retention_period_binding_1
-            .get_inner();
-        let snapshot_identifier_binding_1 = args.snapshot_identifier.get_output(context);
-        let snapshot_identifier_binding = snapshot_identifier_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let snapshot_identifier_binding = args.snapshot_identifier.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshift/clusterSnapshot:ClusterSnapshot".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: &cluster_identifier_binding,
+                    value: cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manualSnapshotRetentionPeriod".into(),
-                    value: &manual_snapshot_retention_period_binding,
+                    value: manual_snapshot_retention_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotIdentifier".into(),
-                    value: &snapshot_identifier_binding,
+                    value: snapshot_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterSnapshotResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterIdentifier"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            manual_snapshot_retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manualSnapshotRetentionPeriod"),
-            ),
-            owner_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerAccount"),
-            ),
-            snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotIdentifier"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            cluster_identifier: o.get_field("clusterIdentifier"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            manual_snapshot_retention_period: o
+                .get_field("manualSnapshotRetentionPeriod"),
+            owner_account: o.get_field("ownerAccount"),
+            snapshot_identifier: o.get_field("snapshotIdentifier"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

@@ -67,45 +67,39 @@ pub mod preferences {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PreferencesArgs,
     ) -> PreferencesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let member_account_discount_visibility_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let member_account_discount_visibility_binding = args
             .member_account_discount_visibility
             .get_output(context);
-        let member_account_discount_visibility_binding = member_account_discount_visibility_binding_1
-            .get_inner();
-        let savings_estimation_mode_binding_1 = args
+        let savings_estimation_mode_binding = args
             .savings_estimation_mode
             .get_output(context);
-        let savings_estimation_mode_binding = savings_estimation_mode_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:costoptimizationhub/preferences:Preferences".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memberAccountDiscountVisibility".into(),
-                    value: &member_account_discount_visibility_binding,
+                    value: member_account_discount_visibility_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "savingsEstimationMode".into(),
-                    value: &savings_estimation_mode_binding,
+                    value: savings_estimation_mode_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PreferencesResult {
-            member_account_discount_visibility: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memberAccountDiscountVisibility"),
-            ),
-            savings_estimation_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("savingsEstimationMode"),
-            ),
+            member_account_discount_visibility: o
+                .get_field("memberAccountDiscountVisibility"),
+            savings_estimation_mode: o.get_field("savingsEstimationMode"),
         }
     }
 }

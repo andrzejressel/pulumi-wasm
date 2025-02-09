@@ -131,117 +131,90 @@ pub mod output_mssql {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OutputMssqlArgs,
     ) -> OutputMssqlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_mode_binding_1 = args.authentication_mode.get_output(context);
-        let authentication_mode_binding = authentication_mode_binding_1.get_inner();
-        let database_binding_1 = args.database.get_output(context);
-        let database_binding = database_binding_1.get_inner();
-        let max_batch_count_binding_1 = args.max_batch_count.get_output(context);
-        let max_batch_count_binding = max_batch_count_binding_1.get_inner();
-        let max_writer_count_binding_1 = args.max_writer_count.get_output(context);
-        let max_writer_count_binding = max_writer_count_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let server_binding_1 = args.server.get_output(context);
-        let server_binding = server_binding_1.get_inner();
-        let stream_analytics_job_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_mode_binding = args.authentication_mode.get_output(context);
+        let database_binding = args.database.get_output(context);
+        let max_batch_count_binding = args.max_batch_count.get_output(context);
+        let max_writer_count_binding = args.max_writer_count.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let server_binding = args.server.get_output(context);
+        let stream_analytics_job_name_binding = args
             .stream_analytics_job_name
             .get_output(context);
-        let stream_analytics_job_name_binding = stream_analytics_job_name_binding_1
-            .get_inner();
-        let table_binding_1 = args.table.get_output(context);
-        let table_binding = table_binding_1.get_inner();
-        let user_binding_1 = args.user.get_output(context);
-        let user_binding = user_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let table_binding = args.table.get_output(context);
+        let user_binding = args.user.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:streamanalytics/outputMssql:OutputMssql".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationMode".into(),
-                    value: &authentication_mode_binding,
+                    value: authentication_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "database".into(),
-                    value: &database_binding,
+                    value: database_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxBatchCount".into(),
-                    value: &max_batch_count_binding,
+                    value: max_batch_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxWriterCount".into(),
-                    value: &max_writer_count_binding,
+                    value: max_writer_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "server".into(),
-                    value: &server_binding,
+                    value: server_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobName".into(),
-                    value: &stream_analytics_job_name_binding,
+                    value: stream_analytics_job_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "table".into(),
-                    value: &table_binding,
+                    value: table_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "user".into(),
-                    value: &user_binding,
+                    value: user_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OutputMssqlResult {
-            authentication_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationMode"),
-            ),
-            database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("database"),
-            ),
-            max_batch_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxBatchCount"),
-            ),
-            max_writer_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxWriterCount"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            server: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("server"),
-            ),
-            stream_analytics_job_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamAnalyticsJobName"),
-            ),
-            table: pulumi_gestalt_rust::__private::into_domain(o.extract_field("table")),
-            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
+            authentication_mode: o.get_field("authenticationMode"),
+            database: o.get_field("database"),
+            max_batch_count: o.get_field("maxBatchCount"),
+            max_writer_count: o.get_field("maxWriterCount"),
+            name: o.get_field("name"),
+            password: o.get_field("password"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            server: o.get_field("server"),
+            stream_analytics_job_name: o.get_field("streamAnalyticsJobName"),
+            table: o.get_field("table"),
+            user: o.get_field("user"),
         }
     }
 }

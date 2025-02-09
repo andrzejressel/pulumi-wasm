@@ -97,98 +97,70 @@ pub mod schema {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SchemaArgs,
     ) -> SchemaResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compatibility_binding_1 = args.compatibility.get_output(context);
-        let compatibility_binding = compatibility_binding_1.get_inner();
-        let data_format_binding_1 = args.data_format.get_output(context);
-        let data_format_binding = data_format_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let registry_arn_binding_1 = args.registry_arn.get_output(context);
-        let registry_arn_binding = registry_arn_binding_1.get_inner();
-        let schema_definition_binding_1 = args.schema_definition.get_output(context);
-        let schema_definition_binding = schema_definition_binding_1.get_inner();
-        let schema_name_binding_1 = args.schema_name.get_output(context);
-        let schema_name_binding = schema_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let compatibility_binding = args.compatibility.get_output(context);
+        let data_format_binding = args.data_format.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let registry_arn_binding = args.registry_arn.get_output(context);
+        let schema_definition_binding = args.schema_definition.get_output(context);
+        let schema_name_binding = args.schema_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:glue/schema:Schema".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compatibility".into(),
-                    value: &compatibility_binding,
+                    value: compatibility_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFormat".into(),
-                    value: &data_format_binding,
+                    value: data_format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registryArn".into(),
-                    value: &registry_arn_binding,
+                    value: registry_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaDefinition".into(),
-                    value: &schema_definition_binding,
+                    value: schema_definition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaName".into(),
-                    value: &schema_name_binding,
+                    value: schema_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SchemaResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            compatibility: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compatibility"),
-            ),
-            data_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFormat"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            latest_schema_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latestSchemaVersion"),
-            ),
-            next_schema_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextSchemaVersion"),
-            ),
-            registry_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryArn"),
-            ),
-            registry_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryName"),
-            ),
-            schema_checkpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schemaCheckpoint"),
-            ),
-            schema_definition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schemaDefinition"),
-            ),
-            schema_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schemaName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            compatibility: o.get_field("compatibility"),
+            data_format: o.get_field("dataFormat"),
+            description: o.get_field("description"),
+            latest_schema_version: o.get_field("latestSchemaVersion"),
+            next_schema_version: o.get_field("nextSchemaVersion"),
+            registry_arn: o.get_field("registryArn"),
+            registry_name: o.get_field("registryName"),
+            schema_checkpoint: o.get_field("schemaCheckpoint"),
+            schema_definition: o.get_field("schemaDefinition"),
+            schema_name: o.get_field("schemaName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

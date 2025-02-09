@@ -201,43 +201,37 @@ pub mod instance_logging_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceLoggingConfigurationArgs,
     ) -> InstanceLoggingConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_logs_binding_1 = args.access_logs.get_output(context);
-        let access_logs_binding = access_logs_binding_1.get_inner();
-        let verifiedaccess_instance_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_logs_binding = args.access_logs.get_output(context);
+        let verifiedaccess_instance_id_binding = args
             .verifiedaccess_instance_id
             .get_output(context);
-        let verifiedaccess_instance_id_binding = verifiedaccess_instance_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessLogs".into(),
-                    value: &access_logs_binding,
+                    value: access_logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verifiedaccessInstanceId".into(),
-                    value: &verifiedaccess_instance_id_binding,
+                    value: verifiedaccess_instance_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceLoggingConfigurationResult {
-            access_logs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessLogs"),
-            ),
-            verifiedaccess_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verifiedaccessInstanceId"),
-            ),
+            access_logs: o.get_field("accessLogs"),
+            verifiedaccess_instance_id: o.get_field("verifiedaccessInstanceId"),
         }
     }
 }

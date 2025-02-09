@@ -141,71 +141,54 @@ pub mod email_identity {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EmailIdentityArgs,
     ) -> EmailIdentityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_set_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let configuration_set_name_binding = args
             .configuration_set_name
             .get_output(context);
-        let configuration_set_name_binding = configuration_set_name_binding_1
-            .get_inner();
-        let dkim_signing_attributes_binding_1 = args
+        let dkim_signing_attributes_binding = args
             .dkim_signing_attributes
             .get_output(context);
-        let dkim_signing_attributes_binding = dkim_signing_attributes_binding_1
-            .get_inner();
-        let email_identity_binding_1 = args.email_identity.get_output(context);
-        let email_identity_binding = email_identity_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let email_identity_binding = args.email_identity.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sesv2/emailIdentity:EmailIdentity".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationSetName".into(),
-                    value: &configuration_set_name_binding,
+                    value: configuration_set_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dkimSigningAttributes".into(),
-                    value: &dkim_signing_attributes_binding,
+                    value: dkim_signing_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailIdentity".into(),
-                    value: &email_identity_binding,
+                    value: email_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EmailIdentityResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            configuration_set_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationSetName"),
-            ),
-            dkim_signing_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dkimSigningAttributes"),
-            ),
-            email_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailIdentity"),
-            ),
-            identity_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            verified_for_sending_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verifiedForSendingStatus"),
-            ),
+            arn: o.get_field("arn"),
+            configuration_set_name: o.get_field("configurationSetName"),
+            dkim_signing_attributes: o.get_field("dkimSigningAttributes"),
+            email_identity: o.get_field("emailIdentity"),
+            identity_type: o.get_field("identityType"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            verified_for_sending_status: o.get_field("verifiedForSendingStatus"),
         }
     }
 }

@@ -312,140 +312,104 @@ pub mod pipe {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PipeArgs,
     ) -> PipeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let desired_state_binding_1 = args.desired_state.get_output(context);
-        let desired_state_binding = desired_state_binding_1.get_inner();
-        let enrichment_binding_1 = args.enrichment.get_output(context);
-        let enrichment_binding = enrichment_binding_1.get_inner();
-        let enrichment_parameters_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let desired_state_binding = args.desired_state.get_output(context);
+        let enrichment_binding = args.enrichment.get_output(context);
+        let enrichment_parameters_binding = args
             .enrichment_parameters
             .get_output(context);
-        let enrichment_parameters_binding = enrichment_parameters_binding_1.get_inner();
-        let log_configuration_binding_1 = args.log_configuration.get_output(context);
-        let log_configuration_binding = log_configuration_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let source_parameters_binding_1 = args.source_parameters.get_output(context);
-        let source_parameters_binding = source_parameters_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_binding_1 = args.target.get_output(context);
-        let target_binding = target_binding_1.get_inner();
-        let target_parameters_binding_1 = args.target_parameters.get_output(context);
-        let target_parameters_binding = target_parameters_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let log_configuration_binding = args.log_configuration.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let source_binding = args.source.get_output(context);
+        let source_parameters_binding = args.source_parameters.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_binding = args.target.get_output(context);
+        let target_parameters_binding = args.target_parameters.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:pipes/pipe:Pipe".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredState".into(),
-                    value: &desired_state_binding,
+                    value: desired_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enrichment".into(),
-                    value: &enrichment_binding,
+                    value: enrichment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enrichmentParameters".into(),
-                    value: &enrichment_parameters_binding,
+                    value: enrichment_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfiguration".into(),
-                    value: &log_configuration_binding,
+                    value: log_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceParameters".into(),
-                    value: &source_parameters_binding,
+                    value: source_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "target".into(),
-                    value: &target_binding,
+                    value: target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetParameters".into(),
-                    value: &target_parameters_binding,
+                    value: target_parameters_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PipeResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            desired_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredState"),
-            ),
-            enrichment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enrichment"),
-            ),
-            enrichment_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enrichmentParameters"),
-            ),
-            log_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logConfiguration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            source_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceParameters"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("target"),
-            ),
-            target_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetParameters"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            desired_state: o.get_field("desiredState"),
+            enrichment: o.get_field("enrichment"),
+            enrichment_parameters: o.get_field("enrichmentParameters"),
+            log_configuration: o.get_field("logConfiguration"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            role_arn: o.get_field("roleArn"),
+            source: o.get_field("source"),
+            source_parameters: o.get_field("sourceParameters"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target: o.get_field("target"),
+            target_parameters: o.get_field("targetParameters"),
         }
     }
 }

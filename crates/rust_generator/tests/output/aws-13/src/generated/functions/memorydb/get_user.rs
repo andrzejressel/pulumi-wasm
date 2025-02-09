@@ -36,46 +36,37 @@ pub mod get_user {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetUserArgs,
     ) -> GetUserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_name_binding_1 = args.user_name.get_output(context);
-        let user_name_binding = user_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let tags_binding = args.tags.get_output(context);
+        let user_name_binding = args.user_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:memorydb/getUser:getUser".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userName".into(),
-                    value: &user_name_binding,
+                    value: user_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetUserResult {
-            access_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessString"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_modes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationModes"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            minimum_engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumEngineVersion"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            user_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userName"),
-            ),
+            access_string: o.get_field("accessString"),
+            arn: o.get_field("arn"),
+            authentication_modes: o.get_field("authenticationModes"),
+            id: o.get_field("id"),
+            minimum_engine_version: o.get_field("minimumEngineVersion"),
+            tags: o.get_field("tags"),
+            user_name: o.get_field("userName"),
         }
     }
 }

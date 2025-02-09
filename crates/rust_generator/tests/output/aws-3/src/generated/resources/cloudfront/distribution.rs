@@ -366,249 +366,167 @@ pub mod distribution {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DistributionArgs,
     ) -> DistributionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aliases_binding_1 = args.aliases.get_output(context);
-        let aliases_binding = aliases_binding_1.get_inner();
-        let comment_binding_1 = args.comment.get_output(context);
-        let comment_binding = comment_binding_1.get_inner();
-        let continuous_deployment_policy_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aliases_binding = args.aliases.get_output(context);
+        let comment_binding = args.comment.get_output(context);
+        let continuous_deployment_policy_id_binding = args
             .continuous_deployment_policy_id
             .get_output(context);
-        let continuous_deployment_policy_id_binding = continuous_deployment_policy_id_binding_1
-            .get_inner();
-        let custom_error_responses_binding_1 = args
+        let custom_error_responses_binding = args
             .custom_error_responses
             .get_output(context);
-        let custom_error_responses_binding = custom_error_responses_binding_1
-            .get_inner();
-        let default_cache_behavior_binding_1 = args
+        let default_cache_behavior_binding = args
             .default_cache_behavior
             .get_output(context);
-        let default_cache_behavior_binding = default_cache_behavior_binding_1
-            .get_inner();
-        let default_root_object_binding_1 = args.default_root_object.get_output(context);
-        let default_root_object_binding = default_root_object_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let http_version_binding_1 = args.http_version.get_output(context);
-        let http_version_binding = http_version_binding_1.get_inner();
-        let is_ipv6_enabled_binding_1 = args.is_ipv6_enabled.get_output(context);
-        let is_ipv6_enabled_binding = is_ipv6_enabled_binding_1.get_inner();
-        let logging_config_binding_1 = args.logging_config.get_output(context);
-        let logging_config_binding = logging_config_binding_1.get_inner();
-        let ordered_cache_behaviors_binding_1 = args
+        let default_root_object_binding = args.default_root_object.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let http_version_binding = args.http_version.get_output(context);
+        let is_ipv6_enabled_binding = args.is_ipv6_enabled.get_output(context);
+        let logging_config_binding = args.logging_config.get_output(context);
+        let ordered_cache_behaviors_binding = args
             .ordered_cache_behaviors
             .get_output(context);
-        let ordered_cache_behaviors_binding = ordered_cache_behaviors_binding_1
-            .get_inner();
-        let origin_groups_binding_1 = args.origin_groups.get_output(context);
-        let origin_groups_binding = origin_groups_binding_1.get_inner();
-        let origins_binding_1 = args.origins.get_output(context);
-        let origins_binding = origins_binding_1.get_inner();
-        let price_class_binding_1 = args.price_class.get_output(context);
-        let price_class_binding = price_class_binding_1.get_inner();
-        let restrictions_binding_1 = args.restrictions.get_output(context);
-        let restrictions_binding = restrictions_binding_1.get_inner();
-        let retain_on_delete_binding_1 = args.retain_on_delete.get_output(context);
-        let retain_on_delete_binding = retain_on_delete_binding_1.get_inner();
-        let staging_binding_1 = args.staging.get_output(context);
-        let staging_binding = staging_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let viewer_certificate_binding_1 = args.viewer_certificate.get_output(context);
-        let viewer_certificate_binding = viewer_certificate_binding_1.get_inner();
-        let wait_for_deployment_binding_1 = args.wait_for_deployment.get_output(context);
-        let wait_for_deployment_binding = wait_for_deployment_binding_1.get_inner();
-        let web_acl_id_binding_1 = args.web_acl_id.get_output(context);
-        let web_acl_id_binding = web_acl_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let origin_groups_binding = args.origin_groups.get_output(context);
+        let origins_binding = args.origins.get_output(context);
+        let price_class_binding = args.price_class.get_output(context);
+        let restrictions_binding = args.restrictions.get_output(context);
+        let retain_on_delete_binding = args.retain_on_delete.get_output(context);
+        let staging_binding = args.staging.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let viewer_certificate_binding = args.viewer_certificate.get_output(context);
+        let wait_for_deployment_binding = args.wait_for_deployment.get_output(context);
+        let web_acl_id_binding = args.web_acl_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudfront/distribution:Distribution".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aliases".into(),
-                    value: &aliases_binding,
+                    value: aliases_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: &comment_binding,
+                    value: comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "continuousDeploymentPolicyId".into(),
-                    value: &continuous_deployment_policy_id_binding,
+                    value: continuous_deployment_policy_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customErrorResponses".into(),
-                    value: &custom_error_responses_binding,
+                    value: custom_error_responses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultCacheBehavior".into(),
-                    value: &default_cache_behavior_binding,
+                    value: default_cache_behavior_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRootObject".into(),
-                    value: &default_root_object_binding,
+                    value: default_root_object_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpVersion".into(),
-                    value: &http_version_binding,
+                    value: http_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isIpv6Enabled".into(),
-                    value: &is_ipv6_enabled_binding,
+                    value: is_ipv6_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingConfig".into(),
-                    value: &logging_config_binding,
+                    value: logging_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orderedCacheBehaviors".into(),
-                    value: &ordered_cache_behaviors_binding,
+                    value: ordered_cache_behaviors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originGroups".into(),
-                    value: &origin_groups_binding,
+                    value: origin_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "origins".into(),
-                    value: &origins_binding,
+                    value: origins_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priceClass".into(),
-                    value: &price_class_binding,
+                    value: price_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restrictions".into(),
-                    value: &restrictions_binding,
+                    value: restrictions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retainOnDelete".into(),
-                    value: &retain_on_delete_binding,
+                    value: retain_on_delete_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staging".into(),
-                    value: &staging_binding,
+                    value: staging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "viewerCertificate".into(),
-                    value: &viewer_certificate_binding,
+                    value: viewer_certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForDeployment".into(),
-                    value: &wait_for_deployment_binding,
+                    value: wait_for_deployment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webAclId".into(),
-                    value: &web_acl_id_binding,
+                    value: web_acl_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DistributionResult {
-            aliases: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aliases"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            caller_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("callerReference"),
-            ),
-            comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comment"),
-            ),
-            continuous_deployment_policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("continuousDeploymentPolicyId"),
-            ),
-            custom_error_responses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customErrorResponses"),
-            ),
-            default_cache_behavior: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultCacheBehavior"),
-            ),
-            default_root_object: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultRootObject"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            hosted_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostedZoneId"),
-            ),
-            http_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpVersion"),
-            ),
-            in_progress_validation_batches: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inProgressValidationBatches"),
-            ),
-            is_ipv6_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isIpv6Enabled"),
-            ),
-            last_modified_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedTime"),
-            ),
-            logging_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingConfig"),
-            ),
-            ordered_cache_behaviors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orderedCacheBehaviors"),
-            ),
-            origin_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originGroups"),
-            ),
-            origins: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("origins"),
-            ),
-            price_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priceClass"),
-            ),
-            restrictions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restrictions"),
-            ),
-            retain_on_delete: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retainOnDelete"),
-            ),
-            staging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("staging"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            trusted_key_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustedKeyGroups"),
-            ),
-            trusted_signers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustedSigners"),
-            ),
-            viewer_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("viewerCertificate"),
-            ),
-            wait_for_deployment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForDeployment"),
-            ),
-            web_acl_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webAclId"),
-            ),
+            aliases: o.get_field("aliases"),
+            arn: o.get_field("arn"),
+            caller_reference: o.get_field("callerReference"),
+            comment: o.get_field("comment"),
+            continuous_deployment_policy_id: o.get_field("continuousDeploymentPolicyId"),
+            custom_error_responses: o.get_field("customErrorResponses"),
+            default_cache_behavior: o.get_field("defaultCacheBehavior"),
+            default_root_object: o.get_field("defaultRootObject"),
+            domain_name: o.get_field("domainName"),
+            enabled: o.get_field("enabled"),
+            etag: o.get_field("etag"),
+            hosted_zone_id: o.get_field("hostedZoneId"),
+            http_version: o.get_field("httpVersion"),
+            in_progress_validation_batches: o.get_field("inProgressValidationBatches"),
+            is_ipv6_enabled: o.get_field("isIpv6Enabled"),
+            last_modified_time: o.get_field("lastModifiedTime"),
+            logging_config: o.get_field("loggingConfig"),
+            ordered_cache_behaviors: o.get_field("orderedCacheBehaviors"),
+            origin_groups: o.get_field("originGroups"),
+            origins: o.get_field("origins"),
+            price_class: o.get_field("priceClass"),
+            restrictions: o.get_field("restrictions"),
+            retain_on_delete: o.get_field("retainOnDelete"),
+            staging: o.get_field("staging"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            trusted_key_groups: o.get_field("trustedKeyGroups"),
+            trusted_signers: o.get_field("trustedSigners"),
+            viewer_certificate: o.get_field("viewerCertificate"),
+            wait_for_deployment: o.get_field("waitForDeployment"),
+            web_acl_id: o.get_field("webAclId"),
         }
     }
 }

@@ -127,65 +127,53 @@ pub mod private_link_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PrivateLinkAssociationArgs,
     ) -> PrivateLinkAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let management_group_id_binding_1 = args.management_group_id.get_output(context);
-        let management_group_id_binding = management_group_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let management_group_id_binding = args.management_group_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_management_private_link_id_binding_1 = args
+        let resource_management_private_link_id_binding = args
             .resource_management_private_link_id
             .get_output(context);
-        let resource_management_private_link_id_binding = resource_management_private_link_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:management/privateLinkAssociation:PrivateLinkAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managementGroupId".into(),
-                    value: &management_group_id_binding,
+                    value: management_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceManagementPrivateLinkId".into(),
-                    value: &resource_management_private_link_id_binding,
+                    value: resource_management_private_link_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PrivateLinkAssociationResult {
-            management_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementGroupId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            resource_management_private_link_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceManagementPrivateLinkId"),
-            ),
-            tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantId"),
-            ),
+            management_group_id: o.get_field("managementGroupId"),
+            name: o.get_field("name"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            resource_management_private_link_id: o
+                .get_field("resourceManagementPrivateLinkId"),
+            tenant_id: o.get_field("tenantId"),
         }
     }
 }

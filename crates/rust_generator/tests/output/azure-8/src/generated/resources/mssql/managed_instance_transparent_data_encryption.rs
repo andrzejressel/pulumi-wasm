@@ -212,51 +212,43 @@ pub mod managed_instance_transparent_data_encryption {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagedInstanceTransparentDataEncryptionArgs,
     ) -> ManagedInstanceTransparentDataEncryptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_rotation_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_rotation_enabled_binding = args
             .auto_rotation_enabled
             .get_output(context);
-        let auto_rotation_enabled_binding = auto_rotation_enabled_binding_1.get_inner();
-        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
-        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
-        let managed_instance_id_binding_1 = args.managed_instance_id.get_output(context);
-        let managed_instance_id_binding = managed_instance_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let key_vault_key_id_binding = args.key_vault_key_id.get_output(context);
+        let managed_instance_id_binding = args.managed_instance_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRotationEnabled".into(),
-                    value: &auto_rotation_enabled_binding,
+                    value: auto_rotation_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyId".into(),
-                    value: &key_vault_key_id_binding,
+                    value: key_vault_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedInstanceId".into(),
-                    value: &managed_instance_id_binding,
+                    value: managed_instance_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagedInstanceTransparentDataEncryptionResult {
-            auto_rotation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoRotationEnabled"),
-            ),
-            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultKeyId"),
-            ),
-            managed_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedInstanceId"),
-            ),
+            auto_rotation_enabled: o.get_field("autoRotationEnabled"),
+            key_vault_key_id: o.get_field("keyVaultKeyId"),
+            managed_instance_id: o.get_field("managedInstanceId"),
         }
     }
 }

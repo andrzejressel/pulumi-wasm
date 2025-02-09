@@ -115,117 +115,90 @@ pub mod discovery_virtual_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DiscoveryVirtualInstanceArgs,
     ) -> DiscoveryVirtualInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let central_server_virtual_machine_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let central_server_virtual_machine_id_binding = args
             .central_server_virtual_machine_id
             .get_output(context);
-        let central_server_virtual_machine_id_binding = central_server_virtual_machine_id_binding_1
-            .get_inner();
-        let environment_binding_1 = args.environment.get_output(context);
-        let environment_binding = environment_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let managed_resource_group_name_binding_1 = args
+        let environment_binding = args.environment.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let managed_resource_group_name_binding = args
             .managed_resource_group_name
             .get_output(context);
-        let managed_resource_group_name_binding = managed_resource_group_name_binding_1
-            .get_inner();
-        let managed_storage_account_name_binding_1 = args
+        let managed_storage_account_name_binding = args
             .managed_storage_account_name
             .get_output(context);
-        let managed_storage_account_name_binding = managed_storage_account_name_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sap_product_binding_1 = args.sap_product.get_output(context);
-        let sap_product_binding = sap_product_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sap_product_binding = args.sap_product.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:workloadssap/discoveryVirtualInstance:DiscoveryVirtualInstance"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "centralServerVirtualMachineId".into(),
-                    value: &central_server_virtual_machine_id_binding,
+                    value: central_server_virtual_machine_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environment".into(),
-                    value: &environment_binding,
+                    value: environment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedResourceGroupName".into(),
-                    value: &managed_resource_group_name_binding,
+                    value: managed_resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedStorageAccountName".into(),
-                    value: &managed_storage_account_name_binding,
+                    value: managed_storage_account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sapProduct".into(),
-                    value: &sap_product_binding,
+                    value: sap_product_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DiscoveryVirtualInstanceResult {
-            central_server_virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("centralServerVirtualMachineId"),
-            ),
-            environment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environment"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            managed_resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedResourceGroupName"),
-            ),
-            managed_storage_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedStorageAccountName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sap_product: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sapProduct"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            central_server_virtual_machine_id: o
+                .get_field("centralServerVirtualMachineId"),
+            environment: o.get_field("environment"),
+            identity: o.get_field("identity"),
+            location: o.get_field("location"),
+            managed_resource_group_name: o.get_field("managedResourceGroupName"),
+            managed_storage_account_name: o.get_field("managedStorageAccountName"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sap_product: o.get_field("sapProduct"),
+            tags: o.get_field("tags"),
         }
     }
 }

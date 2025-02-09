@@ -32,52 +32,40 @@ pub mod get_workload_identity_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetWorkloadIdentityPoolArgs,
     ) -> GetWorkloadIdentityPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let workload_identity_pool_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let project_binding = args.project.get_output(context);
+        let workload_identity_pool_id_binding = args
             .workload_identity_pool_id
             .get_output(context);
-        let workload_identity_pool_id_binding = workload_identity_pool_id_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:iam/getWorkloadIdentityPool:getWorkloadIdentityPool".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadIdentityPoolId".into(),
-                    value: &workload_identity_pool_id_binding,
+                    value: workload_identity_pool_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetWorkloadIdentityPoolResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            workload_identity_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadIdentityPoolId"),
-            ),
+            description: o.get_field("description"),
+            disabled: o.get_field("disabled"),
+            display_name: o.get_field("displayName"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            state: o.get_field("state"),
+            workload_identity_pool_id: o.get_field("workloadIdentityPoolId"),
         }
     }
 }

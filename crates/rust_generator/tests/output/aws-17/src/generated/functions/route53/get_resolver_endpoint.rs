@@ -39,58 +39,41 @@ pub mod get_resolver_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetResolverEndpointArgs,
     ) -> GetResolverEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let resolver_endpoint_id_binding_1 = args
-            .resolver_endpoint_id
-            .get_output(context);
-        let resolver_endpoint_id_binding = resolver_endpoint_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let resolver_endpoint_id_binding = args.resolver_endpoint_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:route53/getResolverEndpoint:getResolverEndpoint".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolverEndpointId".into(),
-                    value: &resolver_endpoint_id_binding,
+                    value: resolver_endpoint_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetResolverEndpointResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            direction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("direction"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddresses"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            protocols: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocols"),
-            ),
-            resolver_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resolverEndpointId"),
-            ),
-            resolver_endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resolverEndpointType"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            arn: o.get_field("arn"),
+            direction: o.get_field("direction"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            ip_addresses: o.get_field("ipAddresses"),
+            name: o.get_field("name"),
+            protocols: o.get_field("protocols"),
+            resolver_endpoint_id: o.get_field("resolverEndpointId"),
+            resolver_endpoint_type: o.get_field("resolverEndpointType"),
+            status: o.get_field("status"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

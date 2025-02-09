@@ -245,142 +245,101 @@ pub mod intent {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IntentArgs,
     ) -> IntentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let default_response_platforms_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let default_response_platforms_binding = args
             .default_response_platforms
             .get_output(context);
-        let default_response_platforms_binding = default_response_platforms_binding_1
-            .get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let events_binding_1 = args.events.get_output(context);
-        let events_binding = events_binding_1.get_inner();
-        let input_context_names_binding_1 = args.input_context_names.get_output(context);
-        let input_context_names_binding = input_context_names_binding_1.get_inner();
-        let is_fallback_binding_1 = args.is_fallback.get_output(context);
-        let is_fallback_binding = is_fallback_binding_1.get_inner();
-        let ml_disabled_binding_1 = args.ml_disabled.get_output(context);
-        let ml_disabled_binding = ml_disabled_binding_1.get_inner();
-        let parent_followup_intent_name_binding_1 = args
+        let display_name_binding = args.display_name.get_output(context);
+        let events_binding = args.events.get_output(context);
+        let input_context_names_binding = args.input_context_names.get_output(context);
+        let is_fallback_binding = args.is_fallback.get_output(context);
+        let ml_disabled_binding = args.ml_disabled.get_output(context);
+        let parent_followup_intent_name_binding = args
             .parent_followup_intent_name
             .get_output(context);
-        let parent_followup_intent_name_binding = parent_followup_intent_name_binding_1
-            .get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let reset_contexts_binding_1 = args.reset_contexts.get_output(context);
-        let reset_contexts_binding = reset_contexts_binding_1.get_inner();
-        let webhook_state_binding_1 = args.webhook_state.get_output(context);
-        let webhook_state_binding = webhook_state_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let priority_binding = args.priority.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let reset_contexts_binding = args.reset_contexts.get_output(context);
+        let webhook_state_binding = args.webhook_state.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:diagflow/intent:Intent".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultResponsePlatforms".into(),
-                    value: &default_response_platforms_binding,
+                    value: default_response_platforms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "events".into(),
-                    value: &events_binding,
+                    value: events_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputContextNames".into(),
-                    value: &input_context_names_binding,
+                    value: input_context_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isFallback".into(),
-                    value: &is_fallback_binding,
+                    value: is_fallback_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mlDisabled".into(),
-                    value: &ml_disabled_binding,
+                    value: ml_disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentFollowupIntentName".into(),
-                    value: &parent_followup_intent_name_binding,
+                    value: parent_followup_intent_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resetContexts".into(),
-                    value: &reset_contexts_binding,
+                    value: reset_contexts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webhookState".into(),
-                    value: &webhook_state_binding,
+                    value: webhook_state_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IntentResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            default_response_platforms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultResponsePlatforms"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            events: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("events"),
-            ),
-            followup_intent_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("followupIntentInfos"),
-            ),
-            input_context_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputContextNames"),
-            ),
-            is_fallback: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isFallback"),
-            ),
-            ml_disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mlDisabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent_followup_intent_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentFollowupIntentName"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            reset_contexts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resetContexts"),
-            ),
-            root_followup_intent_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootFollowupIntentName"),
-            ),
-            webhook_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webhookState"),
-            ),
+            action: o.get_field("action"),
+            default_response_platforms: o.get_field("defaultResponsePlatforms"),
+            display_name: o.get_field("displayName"),
+            events: o.get_field("events"),
+            followup_intent_infos: o.get_field("followupIntentInfos"),
+            input_context_names: o.get_field("inputContextNames"),
+            is_fallback: o.get_field("isFallback"),
+            ml_disabled: o.get_field("mlDisabled"),
+            name: o.get_field("name"),
+            parent_followup_intent_name: o.get_field("parentFollowupIntentName"),
+            priority: o.get_field("priority"),
+            project: o.get_field("project"),
+            reset_contexts: o.get_field("resetContexts"),
+            root_followup_intent_name: o.get_field("rootFollowupIntentName"),
+            webhook_state: o.get_field("webhookState"),
         }
     }
 }

@@ -54,51 +54,41 @@ pub mod scaling_plan {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ScalingPlanArgs,
     ) -> ScalingPlanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_source_binding_1 = args.application_source.get_output(context);
-        let application_source_binding = application_source_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let scaling_instructions_binding_1 = args
-            .scaling_instructions
-            .get_output(context);
-        let scaling_instructions_binding = scaling_instructions_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_source_binding = args.application_source.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let scaling_instructions_binding = args.scaling_instructions.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:autoscalingplans/scalingPlan:ScalingPlan".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationSource".into(),
-                    value: &application_source_binding,
+                    value: application_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingInstructions".into(),
-                    value: &scaling_instructions_binding,
+                    value: scaling_instructions_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ScalingPlanResult {
-            application_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationSource"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            scaling_instructions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalingInstructions"),
-            ),
-            scaling_plan_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalingPlanVersion"),
-            ),
+            application_source: o.get_field("applicationSource"),
+            name: o.get_field("name"),
+            scaling_instructions: o.get_field("scalingInstructions"),
+            scaling_plan_version: o.get_field("scalingPlanVersion"),
         }
     }
 }

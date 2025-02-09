@@ -58,60 +58,52 @@ pub mod rubber_tree {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RubberTreeArgs,
     ) -> RubberTreeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_binding_1 = args.container.get_output(context);
-        let container_binding = container_binding_1.get_inner();
-        let diameter_binding_1 = args.diameter.get_output(context);
-        let diameter_binding = diameter_binding_1.get_inner();
-        let farm_binding_1 = args.farm.get_output(context);
-        let farm_binding = farm_binding_1.get_inner();
-        let size_binding_1 = args.size.get_output(context);
-        let size_binding = size_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let container_binding = args.container.get_output(context);
+        let diameter_binding = args.diameter.get_output(context);
+        let farm_binding = args.farm.get_output(context);
+        let size_binding = args.size.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "plant:tree/v1:RubberTree".into(),
             name: name.to_string(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "container".into(),
-                    value: &container_binding,
+                    value: container_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diameter".into(),
-                    value: &diameter_binding,
+                    value: diameter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "farm".into(),
-                    value: &farm_binding,
+                    value: farm_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "size".into(),
-                    value: &size_binding,
+                    value: size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RubberTreeResult {
-            container: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("container"),
-            ),
-            diameter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diameter"),
-            ),
-            farm: pulumi_gestalt_rust::__private::into_domain(o.extract_field("farm")),
-            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            container: o.get_field("container"),
+            diameter: o.get_field("diameter"),
+            farm: o.get_field("farm"),
+            size: o.get_field("size"),
+            type_: o.get_field("type"),
         }
     }
 }

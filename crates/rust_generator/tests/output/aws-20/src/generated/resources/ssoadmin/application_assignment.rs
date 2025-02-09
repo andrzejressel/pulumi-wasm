@@ -75,48 +75,40 @@ pub mod application_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApplicationAssignmentArgs,
     ) -> ApplicationAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_arn_binding_1 = args.application_arn.get_output(context);
-        let application_arn_binding = application_arn_binding_1.get_inner();
-        let principal_id_binding_1 = args.principal_id.get_output(context);
-        let principal_id_binding = principal_id_binding_1.get_inner();
-        let principal_type_binding_1 = args.principal_type.get_output(context);
-        let principal_type_binding = principal_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_arn_binding = args.application_arn.get_output(context);
+        let principal_id_binding = args.principal_id.get_output(context);
+        let principal_type_binding = args.principal_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssoadmin/applicationAssignment:ApplicationAssignment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationArn".into(),
-                    value: &application_arn_binding,
+                    value: application_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalId".into(),
-                    value: &principal_id_binding,
+                    value: principal_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalType".into(),
-                    value: &principal_type_binding,
+                    value: principal_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApplicationAssignmentResult {
-            application_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationArn"),
-            ),
-            principal_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalId"),
-            ),
-            principal_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalType"),
-            ),
+            application_arn: o.get_field("applicationArn"),
+            principal_id: o.get_field("principalId"),
+            principal_type: o.get_field("principalType"),
         }
     }
 }

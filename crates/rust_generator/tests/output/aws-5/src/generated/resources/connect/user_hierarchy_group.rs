@@ -101,66 +101,51 @@ pub mod user_hierarchy_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserHierarchyGroupArgs,
     ) -> UserHierarchyGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parent_group_id_binding_1 = args.parent_group_id.get_output(context);
-        let parent_group_id_binding = parent_group_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let instance_id_binding = args.instance_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parent_group_id_binding = args.parent_group_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:connect/userHierarchyGroup:UserHierarchyGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentGroupId".into(),
-                    value: &parent_group_id_binding,
+                    value: parent_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserHierarchyGroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            hierarchy_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hierarchyGroupId"),
-            ),
-            hierarchy_paths: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hierarchyPaths"),
-            ),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            level_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("levelId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentGroupId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            hierarchy_group_id: o.get_field("hierarchyGroupId"),
+            hierarchy_paths: o.get_field("hierarchyPaths"),
+            instance_id: o.get_field("instanceId"),
+            level_id: o.get_field("levelId"),
+            name: o.get_field("name"),
+            parent_group_id: o.get_field("parentGroupId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

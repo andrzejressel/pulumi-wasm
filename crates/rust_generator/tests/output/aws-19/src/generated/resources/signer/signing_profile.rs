@@ -101,93 +101,67 @@ pub mod signing_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SigningProfileArgs,
     ) -> SigningProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let platform_id_binding_1 = args.platform_id.get_output(context);
-        let platform_id_binding = platform_id_binding_1.get_inner();
-        let signature_validity_period_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let platform_id_binding = args.platform_id.get_output(context);
+        let signature_validity_period_binding = args
             .signature_validity_period
             .get_output(context);
-        let signature_validity_period_binding = signature_validity_period_binding_1
-            .get_inner();
-        let signing_material_binding_1 = args.signing_material.get_output(context);
-        let signing_material_binding = signing_material_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let signing_material_binding = args.signing_material.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:signer/signingProfile:SigningProfile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformId".into(),
-                    value: &platform_id_binding,
+                    value: platform_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signatureValidityPeriod".into(),
-                    value: &signature_validity_period_binding,
+                    value: signature_validity_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signingMaterial".into(),
-                    value: &signing_material_binding,
+                    value: signing_material_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SigningProfileResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            platform_display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformDisplayName"),
-            ),
-            platform_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformId"),
-            ),
-            revocation_records: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revocationRecords"),
-            ),
-            signature_validity_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signatureValidityPeriod"),
-            ),
-            signing_material: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingMaterial"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            version_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionArn"),
-            ),
+            arn: o.get_field("arn"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            platform_display_name: o.get_field("platformDisplayName"),
+            platform_id: o.get_field("platformId"),
+            revocation_records: o.get_field("revocationRecords"),
+            signature_validity_period: o.get_field("signatureValidityPeriod"),
+            signing_material: o.get_field("signingMaterial"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            version: o.get_field("version"),
+            version_arn: o.get_field("versionArn"),
         }
     }
 }

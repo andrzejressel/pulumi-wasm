@@ -41,60 +41,43 @@ pub mod get_managed_hardware_security_module_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetManagedHardwareSecurityModuleKeyArgs,
     ) -> GetManagedHardwareSecurityModuleKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let managed_hsm_id_binding_1 = args.managed_hsm_id.get_output(context);
-        let managed_hsm_id_binding = managed_hsm_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let managed_hsm_id_binding = args.managed_hsm_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedHsmId".into(),
-                    value: &managed_hsm_id_binding,
+                    value: managed_hsm_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetManagedHardwareSecurityModuleKeyResult {
-            curve: pulumi_gestalt_rust::__private::into_domain(o.extract_field("curve")),
-            expiration_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationDate"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_opts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyOpts"),
-            ),
-            key_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keySize"),
-            ),
-            key_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyType"),
-            ),
-            managed_hsm_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedHsmId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            not_before_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notBeforeDate"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            versioned_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionedId"),
-            ),
+            curve: o.get_field("curve"),
+            expiration_date: o.get_field("expirationDate"),
+            id: o.get_field("id"),
+            key_opts: o.get_field("keyOpts"),
+            key_size: o.get_field("keySize"),
+            key_type: o.get_field("keyType"),
+            managed_hsm_id: o.get_field("managedHsmId"),
+            name: o.get_field("name"),
+            not_before_date: o.get_field("notBeforeDate"),
+            tags: o.get_field("tags"),
+            version: o.get_field("version"),
+            versioned_id: o.get_field("versionedId"),
         }
     }
 }

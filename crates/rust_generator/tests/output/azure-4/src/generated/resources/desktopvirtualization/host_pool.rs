@@ -180,186 +180,137 @@ pub mod host_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HostPoolArgs,
     ) -> HostPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_rdp_properties_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let custom_rdp_properties_binding = args
             .custom_rdp_properties
             .get_output(context);
-        let custom_rdp_properties_binding = custom_rdp_properties_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let friendly_name_binding_1 = args.friendly_name.get_output(context);
-        let friendly_name_binding = friendly_name_binding_1.get_inner();
-        let load_balancer_type_binding_1 = args.load_balancer_type.get_output(context);
-        let load_balancer_type_binding = load_balancer_type_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let maximum_sessions_allowed_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let friendly_name_binding = args.friendly_name.get_output(context);
+        let load_balancer_type_binding = args.load_balancer_type.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let maximum_sessions_allowed_binding = args
             .maximum_sessions_allowed
             .get_output(context);
-        let maximum_sessions_allowed_binding = maximum_sessions_allowed_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let personal_desktop_assignment_type_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let personal_desktop_assignment_type_binding = args
             .personal_desktop_assignment_type
             .get_output(context);
-        let personal_desktop_assignment_type_binding = personal_desktop_assignment_type_binding_1
-            .get_inner();
-        let preferred_app_group_type_binding_1 = args
+        let preferred_app_group_type_binding = args
             .preferred_app_group_type
             .get_output(context);
-        let preferred_app_group_type_binding = preferred_app_group_type_binding_1
-            .get_inner();
-        let public_network_access_binding_1 = args
+        let public_network_access_binding = args
             .public_network_access
             .get_output(context);
-        let public_network_access_binding = public_network_access_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let scheduled_agent_updates_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let scheduled_agent_updates_binding = args
             .scheduled_agent_updates
             .get_output(context);
-        let scheduled_agent_updates_binding = scheduled_agent_updates_binding_1
-            .get_inner();
-        let start_vm_on_connect_binding_1 = args.start_vm_on_connect.get_output(context);
-        let start_vm_on_connect_binding = start_vm_on_connect_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let validate_environment_binding_1 = args
-            .validate_environment
-            .get_output(context);
-        let validate_environment_binding = validate_environment_binding_1.get_inner();
-        let vm_template_binding_1 = args.vm_template.get_output(context);
-        let vm_template_binding = vm_template_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let start_vm_on_connect_binding = args.start_vm_on_connect.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let validate_environment_binding = args.validate_environment.get_output(context);
+        let vm_template_binding = args.vm_template.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:desktopvirtualization/hostPool:HostPool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customRdpProperties".into(),
-                    value: &custom_rdp_properties_binding,
+                    value: custom_rdp_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "friendlyName".into(),
-                    value: &friendly_name_binding,
+                    value: friendly_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerType".into(),
-                    value: &load_balancer_type_binding,
+                    value: load_balancer_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumSessionsAllowed".into(),
-                    value: &maximum_sessions_allowed_binding,
+                    value: maximum_sessions_allowed_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "personalDesktopAssignmentType".into(),
-                    value: &personal_desktop_assignment_type_binding,
+                    value: personal_desktop_assignment_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredAppGroupType".into(),
-                    value: &preferred_app_group_type_binding,
+                    value: preferred_app_group_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccess".into(),
-                    value: &public_network_access_binding,
+                    value: public_network_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduledAgentUpdates".into(),
-                    value: &scheduled_agent_updates_binding,
+                    value: scheduled_agent_updates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startVmOnConnect".into(),
-                    value: &start_vm_on_connect_binding,
+                    value: start_vm_on_connect_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validateEnvironment".into(),
-                    value: &validate_environment_binding,
+                    value: validate_environment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmTemplate".into(),
-                    value: &vm_template_binding,
+                    value: vm_template_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HostPoolResult {
-            custom_rdp_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customRdpProperties"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            friendly_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("friendlyName"),
-            ),
-            load_balancer_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerType"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maximum_sessions_allowed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumSessionsAllowed"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            personal_desktop_assignment_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("personalDesktopAssignmentType"),
-            ),
-            preferred_app_group_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredAppGroupType"),
-            ),
-            public_network_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccess"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            scheduled_agent_updates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduledAgentUpdates"),
-            ),
-            start_vm_on_connect: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startVmOnConnect"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            validate_environment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validateEnvironment"),
-            ),
-            vm_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmTemplate"),
-            ),
+            custom_rdp_properties: o.get_field("customRdpProperties"),
+            description: o.get_field("description"),
+            friendly_name: o.get_field("friendlyName"),
+            load_balancer_type: o.get_field("loadBalancerType"),
+            location: o.get_field("location"),
+            maximum_sessions_allowed: o.get_field("maximumSessionsAllowed"),
+            name: o.get_field("name"),
+            personal_desktop_assignment_type: o
+                .get_field("personalDesktopAssignmentType"),
+            preferred_app_group_type: o.get_field("preferredAppGroupType"),
+            public_network_access: o.get_field("publicNetworkAccess"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            scheduled_agent_updates: o.get_field("scheduledAgentUpdates"),
+            start_vm_on_connect: o.get_field("startVmOnConnect"),
+            tags: o.get_field("tags"),
+            type_: o.get_field("type"),
+            validate_environment: o.get_field("validateEnvironment"),
+            vm_template: o.get_field("vmTemplate"),
         }
     }
 }

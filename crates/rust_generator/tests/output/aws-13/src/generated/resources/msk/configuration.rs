@@ -66,59 +66,48 @@ pub mod configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConfigurationArgs,
     ) -> ConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let kafka_versions_binding_1 = args.kafka_versions.get_output(context);
-        let kafka_versions_binding = kafka_versions_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let server_properties_binding_1 = args.server_properties.get_output(context);
-        let server_properties_binding = server_properties_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let kafka_versions_binding = args.kafka_versions.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let server_properties_binding = args.server_properties.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:msk/configuration:Configuration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkaVersions".into(),
-                    value: &kafka_versions_binding,
+                    value: kafka_versions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverProperties".into(),
-                    value: &server_properties_binding,
+                    value: server_properties_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConfigurationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            kafka_versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kafkaVersions"),
-            ),
-            latest_revision: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latestRevision"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            server_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverProperties"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            kafka_versions: o.get_field("kafkaVersions"),
+            latest_revision: o.get_field("latestRevision"),
+            name: o.get_field("name"),
+            server_properties: o.get_field("serverProperties"),
         }
     }
 }

@@ -101,61 +101,50 @@ pub mod cluster_activity_stream {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterActivityStreamArgs,
     ) -> ClusterActivityStreamResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let engine_native_audit_fields_included_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let engine_native_audit_fields_included_binding = args
             .engine_native_audit_fields_included
             .get_output(context);
-        let engine_native_audit_fields_included_binding = engine_native_audit_fields_included_binding_1
-            .get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let mode_binding_1 = args.mode.get_output(context);
-        let mode_binding = mode_binding_1.get_inner();
-        let resource_arn_binding_1 = args.resource_arn.get_output(context);
-        let resource_arn_binding = resource_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let mode_binding = args.mode.get_output(context);
+        let resource_arn_binding = args.resource_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rds/clusterActivityStream:ClusterActivityStream".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineNativeAuditFieldsIncluded".into(),
-                    value: &engine_native_audit_fields_included_binding,
+                    value: engine_native_audit_fields_included_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: &mode_binding,
+                    value: mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: &resource_arn_binding,
+                    value: resource_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterActivityStreamResult {
-            engine_native_audit_fields_included: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineNativeAuditFieldsIncluded"),
-            ),
-            kinesis_stream_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kinesisStreamName"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
-            resource_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceArn"),
-            ),
+            engine_native_audit_fields_included: o
+                .get_field("engineNativeAuditFieldsIncluded"),
+            kinesis_stream_name: o.get_field("kinesisStreamName"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            mode: o.get_field("mode"),
+            resource_arn: o.get_field("resourceArn"),
         }
     }
 }

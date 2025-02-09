@@ -235,94 +235,68 @@ pub mod app_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AppGroupArgs,
     ) -> AppGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attributes_binding_1 = args.attributes.get_output(context);
-        let attributes_binding = attributes_binding_1.get_inner();
-        let channel_id_binding_1 = args.channel_id.get_output(context);
-        let channel_id_binding = channel_id_binding_1.get_inner();
-        let channel_uri_binding_1 = args.channel_uri.get_output(context);
-        let channel_uri_binding = channel_uri_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let org_id_binding_1 = args.org_id.get_output(context);
-        let org_id_binding = org_id_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attributes_binding = args.attributes.get_output(context);
+        let channel_id_binding = args.channel_id.get_output(context);
+        let channel_uri_binding = args.channel_uri.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let org_id_binding = args.org_id.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apigee/appGroup:AppGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributes".into(),
-                    value: &attributes_binding,
+                    value: attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "channelId".into(),
-                    value: &channel_id_binding,
+                    value: channel_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "channelUri".into(),
-                    value: &channel_uri_binding,
+                    value: channel_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: &org_id_binding,
+                    value: org_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AppGroupResult {
-            app_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appGroupId"),
-            ),
-            attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attributes"),
-            ),
-            channel_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("channelId"),
-            ),
-            channel_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("channelUri"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            last_modified_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedAt"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            org_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orgId"),
-            ),
-            organization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organization"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            app_group_id: o.get_field("appGroupId"),
+            attributes: o.get_field("attributes"),
+            channel_id: o.get_field("channelId"),
+            channel_uri: o.get_field("channelUri"),
+            created_at: o.get_field("createdAt"),
+            display_name: o.get_field("displayName"),
+            last_modified_at: o.get_field("lastModifiedAt"),
+            name: o.get_field("name"),
+            org_id: o.get_field("orgId"),
+            organization: o.get_field("organization"),
+            status: o.get_field("status"),
         }
     }
 }

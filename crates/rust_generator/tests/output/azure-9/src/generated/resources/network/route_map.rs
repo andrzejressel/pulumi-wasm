@@ -96,44 +96,40 @@ pub mod route_map {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RouteMapArgs,
     ) -> RouteMapResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let rules_binding_1 = args.rules.get_output(context);
-        let rules_binding = rules_binding_1.get_inner();
-        let virtual_hub_id_binding_1 = args.virtual_hub_id.get_output(context);
-        let virtual_hub_id_binding = virtual_hub_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let rules_binding = args.rules.get_output(context);
+        let virtual_hub_id_binding = args.virtual_hub_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/routeMap:RouteMap".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: &rules_binding,
+                    value: rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualHubId".into(),
-                    value: &virtual_hub_id_binding,
+                    value: virtual_hub_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RouteMapResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
-            virtual_hub_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualHubId"),
-            ),
+            name: o.get_field("name"),
+            rules: o.get_field("rules"),
+            virtual_hub_id: o.get_field("virtualHubId"),
         }
     }
 }

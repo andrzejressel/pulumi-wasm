@@ -81,83 +81,64 @@ pub mod vpc_ipv_6_cidr_block_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcIpv6CidrBlockAssociationArgs,
     ) -> VpcIpv6CidrBlockAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assign_generated_ipv6_cidr_block_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let assign_generated_ipv6_cidr_block_binding = args
             .assign_generated_ipv6_cidr_block
             .get_output(context);
-        let assign_generated_ipv6_cidr_block_binding = assign_generated_ipv6_cidr_block_binding_1
-            .get_inner();
-        let ipv6_cidr_block_binding_1 = args.ipv6_cidr_block.get_output(context);
-        let ipv6_cidr_block_binding = ipv6_cidr_block_binding_1.get_inner();
-        let ipv6_ipam_pool_id_binding_1 = args.ipv6_ipam_pool_id.get_output(context);
-        let ipv6_ipam_pool_id_binding = ipv6_ipam_pool_id_binding_1.get_inner();
-        let ipv6_netmask_length_binding_1 = args.ipv6_netmask_length.get_output(context);
-        let ipv6_netmask_length_binding = ipv6_netmask_length_binding_1.get_inner();
-        let ipv6_pool_binding_1 = args.ipv6_pool.get_output(context);
-        let ipv6_pool_binding = ipv6_pool_binding_1.get_inner();
-        let vpc_id_binding_1 = args.vpc_id.get_output(context);
-        let vpc_id_binding = vpc_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ipv6_cidr_block_binding = args.ipv6_cidr_block.get_output(context);
+        let ipv6_ipam_pool_id_binding = args.ipv6_ipam_pool_id.get_output(context);
+        let ipv6_netmask_length_binding = args.ipv6_netmask_length.get_output(context);
+        let ipv6_pool_binding = args.ipv6_pool.get_output(context);
+        let vpc_id_binding = args.vpc_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignGeneratedIpv6CidrBlock".into(),
-                    value: &assign_generated_ipv6_cidr_block_binding,
+                    value: assign_generated_ipv6_cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6CidrBlock".into(),
-                    value: &ipv6_cidr_block_binding,
+                    value: ipv6_cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6IpamPoolId".into(),
-                    value: &ipv6_ipam_pool_id_binding,
+                    value: ipv6_ipam_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6NetmaskLength".into(),
-                    value: &ipv6_netmask_length_binding,
+                    value: ipv6_netmask_length_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6Pool".into(),
-                    value: &ipv6_pool_binding,
+                    value: ipv6_pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: &vpc_id_binding,
+                    value: vpc_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcIpv6CidrBlockAssociationResult {
-            assign_generated_ipv6_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assignGeneratedIpv6CidrBlock"),
-            ),
-            ip_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipSource"),
-            ),
-            ipv6_address_attribute: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6AddressAttribute"),
-            ),
-            ipv6_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6CidrBlock"),
-            ),
-            ipv6_ipam_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6IpamPoolId"),
-            ),
-            ipv6_netmask_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6NetmaskLength"),
-            ),
-            ipv6_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6Pool"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            assign_generated_ipv6_cidr_block: o
+                .get_field("assignGeneratedIpv6CidrBlock"),
+            ip_source: o.get_field("ipSource"),
+            ipv6_address_attribute: o.get_field("ipv6AddressAttribute"),
+            ipv6_cidr_block: o.get_field("ipv6CidrBlock"),
+            ipv6_ipam_pool_id: o.get_field("ipv6IpamPoolId"),
+            ipv6_netmask_length: o.get_field("ipv6NetmaskLength"),
+            ipv6_pool: o.get_field("ipv6Pool"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

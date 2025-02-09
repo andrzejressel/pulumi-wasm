@@ -358,332 +358,230 @@ pub mod function {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FunctionArgs,
     ) -> FunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let available_memory_mb_binding_1 = args.available_memory_mb.get_output(context);
-        let available_memory_mb_binding = available_memory_mb_binding_1.get_inner();
-        let build_environment_variables_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let available_memory_mb_binding = args.available_memory_mb.get_output(context);
+        let build_environment_variables_binding = args
             .build_environment_variables
             .get_output(context);
-        let build_environment_variables_binding = build_environment_variables_binding_1
-            .get_inner();
-        let build_service_account_binding_1 = args
+        let build_service_account_binding = args
             .build_service_account
             .get_output(context);
-        let build_service_account_binding = build_service_account_binding_1.get_inner();
-        let build_worker_pool_binding_1 = args.build_worker_pool.get_output(context);
-        let build_worker_pool_binding = build_worker_pool_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let docker_registry_binding_1 = args.docker_registry.get_output(context);
-        let docker_registry_binding = docker_registry_binding_1.get_inner();
-        let docker_repository_binding_1 = args.docker_repository.get_output(context);
-        let docker_repository_binding = docker_repository_binding_1.get_inner();
-        let entry_point_binding_1 = args.entry_point.get_output(context);
-        let entry_point_binding = entry_point_binding_1.get_inner();
-        let environment_variables_binding_1 = args
+        let build_worker_pool_binding = args.build_worker_pool.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let docker_registry_binding = args.docker_registry.get_output(context);
+        let docker_repository_binding = args.docker_repository.get_output(context);
+        let entry_point_binding = args.entry_point.get_output(context);
+        let environment_variables_binding = args
             .environment_variables
             .get_output(context);
-        let environment_variables_binding = environment_variables_binding_1.get_inner();
-        let event_trigger_binding_1 = args.event_trigger.get_output(context);
-        let event_trigger_binding = event_trigger_binding_1.get_inner();
-        let https_trigger_security_level_binding_1 = args
+        let event_trigger_binding = args.event_trigger.get_output(context);
+        let https_trigger_security_level_binding = args
             .https_trigger_security_level
             .get_output(context);
-        let https_trigger_security_level_binding = https_trigger_security_level_binding_1
-            .get_inner();
-        let https_trigger_url_binding_1 = args.https_trigger_url.get_output(context);
-        let https_trigger_url_binding = https_trigger_url_binding_1.get_inner();
-        let ingress_settings_binding_1 = args.ingress_settings.get_output(context);
-        let ingress_settings_binding = ingress_settings_binding_1.get_inner();
-        let kms_key_name_binding_1 = args.kms_key_name.get_output(context);
-        let kms_key_name_binding = kms_key_name_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let max_instances_binding_1 = args.max_instances.get_output(context);
-        let max_instances_binding = max_instances_binding_1.get_inner();
-        let min_instances_binding_1 = args.min_instances.get_output(context);
-        let min_instances_binding = min_instances_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let runtime_binding_1 = args.runtime.get_output(context);
-        let runtime_binding = runtime_binding_1.get_inner();
-        let secret_environment_variables_binding_1 = args
+        let https_trigger_url_binding = args.https_trigger_url.get_output(context);
+        let ingress_settings_binding = args.ingress_settings.get_output(context);
+        let kms_key_name_binding = args.kms_key_name.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let max_instances_binding = args.max_instances.get_output(context);
+        let min_instances_binding = args.min_instances.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let runtime_binding = args.runtime.get_output(context);
+        let secret_environment_variables_binding = args
             .secret_environment_variables
             .get_output(context);
-        let secret_environment_variables_binding = secret_environment_variables_binding_1
-            .get_inner();
-        let secret_volumes_binding_1 = args.secret_volumes.get_output(context);
-        let secret_volumes_binding = secret_volumes_binding_1.get_inner();
-        let service_account_email_binding_1 = args
+        let secret_volumes_binding = args.secret_volumes.get_output(context);
+        let service_account_email_binding = args
             .service_account_email
             .get_output(context);
-        let service_account_email_binding = service_account_email_binding_1.get_inner();
-        let source_archive_bucket_binding_1 = args
+        let source_archive_bucket_binding = args
             .source_archive_bucket
             .get_output(context);
-        let source_archive_bucket_binding = source_archive_bucket_binding_1.get_inner();
-        let source_archive_object_binding_1 = args
+        let source_archive_object_binding = args
             .source_archive_object
             .get_output(context);
-        let source_archive_object_binding = source_archive_object_binding_1.get_inner();
-        let source_repository_binding_1 = args.source_repository.get_output(context);
-        let source_repository_binding = source_repository_binding_1.get_inner();
-        let timeout_binding_1 = args.timeout.get_output(context);
-        let timeout_binding = timeout_binding_1.get_inner();
-        let trigger_http_binding_1 = args.trigger_http.get_output(context);
-        let trigger_http_binding = trigger_http_binding_1.get_inner();
-        let vpc_connector_binding_1 = args.vpc_connector.get_output(context);
-        let vpc_connector_binding = vpc_connector_binding_1.get_inner();
-        let vpc_connector_egress_settings_binding_1 = args
+        let source_repository_binding = args.source_repository.get_output(context);
+        let timeout_binding = args.timeout.get_output(context);
+        let trigger_http_binding = args.trigger_http.get_output(context);
+        let vpc_connector_binding = args.vpc_connector.get_output(context);
+        let vpc_connector_egress_settings_binding = args
             .vpc_connector_egress_settings
             .get_output(context);
-        let vpc_connector_egress_settings_binding = vpc_connector_egress_settings_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:cloudfunctions/function:Function".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availableMemoryMb".into(),
-                    value: &available_memory_mb_binding,
+                    value: available_memory_mb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildEnvironmentVariables".into(),
-                    value: &build_environment_variables_binding,
+                    value: build_environment_variables_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildServiceAccount".into(),
-                    value: &build_service_account_binding,
+                    value: build_service_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildWorkerPool".into(),
-                    value: &build_worker_pool_binding,
+                    value: build_worker_pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dockerRegistry".into(),
-                    value: &docker_registry_binding,
+                    value: docker_registry_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dockerRepository".into(),
-                    value: &docker_repository_binding,
+                    value: docker_repository_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entryPoint".into(),
-                    value: &entry_point_binding,
+                    value: entry_point_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentVariables".into(),
-                    value: &environment_variables_binding,
+                    value: environment_variables_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventTrigger".into(),
-                    value: &event_trigger_binding,
+                    value: event_trigger_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsTriggerSecurityLevel".into(),
-                    value: &https_trigger_security_level_binding,
+                    value: https_trigger_security_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsTriggerUrl".into(),
-                    value: &https_trigger_url_binding,
+                    value: https_trigger_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingressSettings".into(),
-                    value: &ingress_settings_binding,
+                    value: ingress_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyName".into(),
-                    value: &kms_key_name_binding,
+                    value: kms_key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxInstances".into(),
-                    value: &max_instances_binding,
+                    value: max_instances_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minInstances".into(),
-                    value: &min_instances_binding,
+                    value: min_instances_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtime".into(),
-                    value: &runtime_binding,
+                    value: runtime_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretEnvironmentVariables".into(),
-                    value: &secret_environment_variables_binding,
+                    value: secret_environment_variables_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretVolumes".into(),
-                    value: &secret_volumes_binding,
+                    value: secret_volumes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountEmail".into(),
-                    value: &service_account_email_binding,
+                    value: service_account_email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceArchiveBucket".into(),
-                    value: &source_archive_bucket_binding,
+                    value: source_archive_bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceArchiveObject".into(),
-                    value: &source_archive_object_binding,
+                    value: source_archive_object_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceRepository".into(),
-                    value: &source_repository_binding,
+                    value: source_repository_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeout".into(),
-                    value: &timeout_binding,
+                    value: timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerHttp".into(),
-                    value: &trigger_http_binding,
+                    value: trigger_http_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConnector".into(),
-                    value: &vpc_connector_binding,
+                    value: vpc_connector_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConnectorEgressSettings".into(),
-                    value: &vpc_connector_egress_settings_binding,
+                    value: vpc_connector_egress_settings_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FunctionResult {
-            available_memory_mb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availableMemoryMb"),
-            ),
-            build_environment_variables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("buildEnvironmentVariables"),
-            ),
-            build_service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("buildServiceAccount"),
-            ),
-            build_worker_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("buildWorkerPool"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            docker_registry: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dockerRegistry"),
-            ),
-            docker_repository: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dockerRepository"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            entry_point: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entryPoint"),
-            ),
-            environment_variables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentVariables"),
-            ),
-            event_trigger: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventTrigger"),
-            ),
-            https_trigger_security_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsTriggerSecurityLevel"),
-            ),
-            https_trigger_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsTriggerUrl"),
-            ),
-            ingress_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingressSettings"),
-            ),
-            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyName"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            max_instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxInstances"),
-            ),
-            min_instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minInstances"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            runtime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtime"),
-            ),
-            secret_environment_variables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretEnvironmentVariables"),
-            ),
-            secret_volumes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretVolumes"),
-            ),
-            service_account_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountEmail"),
-            ),
-            source_archive_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceArchiveBucket"),
-            ),
-            source_archive_object: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceArchiveObject"),
-            ),
-            source_repository: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceRepository"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeout"),
-            ),
-            trigger_http: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggerHttp"),
-            ),
-            version_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionId"),
-            ),
-            vpc_connector: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConnector"),
-            ),
-            vpc_connector_egress_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConnectorEgressSettings"),
-            ),
+            available_memory_mb: o.get_field("availableMemoryMb"),
+            build_environment_variables: o.get_field("buildEnvironmentVariables"),
+            build_service_account: o.get_field("buildServiceAccount"),
+            build_worker_pool: o.get_field("buildWorkerPool"),
+            description: o.get_field("description"),
+            docker_registry: o.get_field("dockerRegistry"),
+            docker_repository: o.get_field("dockerRepository"),
+            effective_labels: o.get_field("effectiveLabels"),
+            entry_point: o.get_field("entryPoint"),
+            environment_variables: o.get_field("environmentVariables"),
+            event_trigger: o.get_field("eventTrigger"),
+            https_trigger_security_level: o.get_field("httpsTriggerSecurityLevel"),
+            https_trigger_url: o.get_field("httpsTriggerUrl"),
+            ingress_settings: o.get_field("ingressSettings"),
+            kms_key_name: o.get_field("kmsKeyName"),
+            labels: o.get_field("labels"),
+            max_instances: o.get_field("maxInstances"),
+            min_instances: o.get_field("minInstances"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            region: o.get_field("region"),
+            runtime: o.get_field("runtime"),
+            secret_environment_variables: o.get_field("secretEnvironmentVariables"),
+            secret_volumes: o.get_field("secretVolumes"),
+            service_account_email: o.get_field("serviceAccountEmail"),
+            source_archive_bucket: o.get_field("sourceArchiveBucket"),
+            source_archive_object: o.get_field("sourceArchiveObject"),
+            source_repository: o.get_field("sourceRepository"),
+            status: o.get_field("status"),
+            timeout: o.get_field("timeout"),
+            trigger_http: o.get_field("triggerHttp"),
+            version_id: o.get_field("versionId"),
+            vpc_connector: o.get_field("vpcConnector"),
+            vpc_connector_egress_settings: o.get_field("vpcConnectorEgressSettings"),
         }
     }
 }

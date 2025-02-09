@@ -75,82 +75,61 @@ pub mod pages_project {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PagesProjectArgs,
     ) -> PagesProjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let build_config_binding_1 = args.build_config.get_output(context);
-        let build_config_binding = build_config_binding_1.get_inner();
-        let deployment_configs_binding_1 = args.deployment_configs.get_output(context);
-        let deployment_configs_binding = deployment_configs_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let production_branch_binding_1 = args.production_branch.get_output(context);
-        let production_branch_binding = production_branch_binding_1.get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let build_config_binding = args.build_config.get_output(context);
+        let deployment_configs_binding = args.deployment_configs.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let production_branch_binding = args.production_branch.get_output(context);
+        let source_binding = args.source.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/pagesProject:PagesProject".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildConfig".into(),
-                    value: &build_config_binding,
+                    value: build_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentConfigs".into(),
-                    value: &deployment_configs_binding,
+                    value: deployment_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productionBranch".into(),
-                    value: &production_branch_binding,
+                    value: production_branch_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PagesProjectResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            build_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("buildConfig"),
-            ),
-            created_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdOn"),
-            ),
-            deployment_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentConfigs"),
-            ),
-            domains: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domains"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            production_branch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productionBranch"),
-            ),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            subdomain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subdomain"),
-            ),
+            account_id: o.get_field("accountId"),
+            build_config: o.get_field("buildConfig"),
+            created_on: o.get_field("createdOn"),
+            deployment_configs: o.get_field("deploymentConfigs"),
+            domains: o.get_field("domains"),
+            name: o.get_field("name"),
+            production_branch: o.get_field("productionBranch"),
+            source: o.get_field("source"),
+            subdomain: o.get_field("subdomain"),
         }
     }
 }

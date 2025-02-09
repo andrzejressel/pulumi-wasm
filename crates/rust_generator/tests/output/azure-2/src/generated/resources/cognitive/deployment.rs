@@ -108,86 +108,68 @@ pub mod deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DeploymentArgs,
     ) -> DeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cognitive_account_id_binding_1 = args
-            .cognitive_account_id
-            .get_output(context);
-        let cognitive_account_id_binding = cognitive_account_id_binding_1.get_inner();
-        let dynamic_throttling_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cognitive_account_id_binding = args.cognitive_account_id.get_output(context);
+        let dynamic_throttling_enabled_binding = args
             .dynamic_throttling_enabled
             .get_output(context);
-        let dynamic_throttling_enabled_binding = dynamic_throttling_enabled_binding_1
-            .get_inner();
-        let model_binding_1 = args.model.get_output(context);
-        let model_binding = model_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let rai_policy_name_binding_1 = args.rai_policy_name.get_output(context);
-        let rai_policy_name_binding = rai_policy_name_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let version_upgrade_option_binding_1 = args
+        let model_binding = args.model.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let rai_policy_name_binding = args.rai_policy_name.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let version_upgrade_option_binding = args
             .version_upgrade_option
             .get_output(context);
-        let version_upgrade_option_binding = version_upgrade_option_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cognitive/deployment:Deployment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cognitiveAccountId".into(),
-                    value: &cognitive_account_id_binding,
+                    value: cognitive_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamicThrottlingEnabled".into(),
-                    value: &dynamic_throttling_enabled_binding,
+                    value: dynamic_throttling_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "model".into(),
-                    value: &model_binding,
+                    value: model_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "raiPolicyName".into(),
-                    value: &rai_policy_name_binding,
+                    value: rai_policy_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionUpgradeOption".into(),
-                    value: &version_upgrade_option_binding,
+                    value: version_upgrade_option_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DeploymentResult {
-            cognitive_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cognitiveAccountId"),
-            ),
-            dynamic_throttling_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dynamicThrottlingEnabled"),
-            ),
-            model: pulumi_gestalt_rust::__private::into_domain(o.extract_field("model")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            rai_policy_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("raiPolicyName"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            version_upgrade_option: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionUpgradeOption"),
-            ),
+            cognitive_account_id: o.get_field("cognitiveAccountId"),
+            dynamic_throttling_enabled: o.get_field("dynamicThrottlingEnabled"),
+            model: o.get_field("model"),
+            name: o.get_field("name"),
+            rai_policy_name: o.get_field("raiPolicyName"),
+            sku: o.get_field("sku"),
+            version_upgrade_option: o.get_field("versionUpgradeOption"),
         }
     }
 }

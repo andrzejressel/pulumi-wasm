@@ -54,57 +54,45 @@ pub mod account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_enable_controls_binding_1 = args
-            .auto_enable_controls
-            .get_output(context);
-        let auto_enable_controls_binding = auto_enable_controls_binding_1.get_inner();
-        let control_finding_generator_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_enable_controls_binding = args.auto_enable_controls.get_output(context);
+        let control_finding_generator_binding = args
             .control_finding_generator
             .get_output(context);
-        let control_finding_generator_binding = control_finding_generator_binding_1
-            .get_inner();
-        let enable_default_standards_binding_1 = args
+        let enable_default_standards_binding = args
             .enable_default_standards
             .get_output(context);
-        let enable_default_standards_binding = enable_default_standards_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:securityhub/account:Account".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoEnableControls".into(),
-                    value: &auto_enable_controls_binding,
+                    value: auto_enable_controls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlFindingGenerator".into(),
-                    value: &control_finding_generator_binding,
+                    value: control_finding_generator_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableDefaultStandards".into(),
-                    value: &enable_default_standards_binding,
+                    value: enable_default_standards_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_enable_controls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoEnableControls"),
-            ),
-            control_finding_generator: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlFindingGenerator"),
-            ),
-            enable_default_standards: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableDefaultStandards"),
-            ),
+            arn: o.get_field("arn"),
+            auto_enable_controls: o.get_field("autoEnableControls"),
+            control_finding_generator: o.get_field("controlFindingGenerator"),
+            enable_default_standards: o.get_field("enableDefaultStandards"),
         }
     }
 }

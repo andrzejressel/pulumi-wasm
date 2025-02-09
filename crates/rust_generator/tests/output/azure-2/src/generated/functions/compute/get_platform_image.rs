@@ -35,61 +35,51 @@ pub mod get_platform_image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPlatformImageArgs,
     ) -> GetPlatformImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let offer_binding_1 = args.offer.get_output(context);
-        let offer_binding = offer_binding_1.get_inner();
-        let publisher_binding_1 = args.publisher.get_output(context);
-        let publisher_binding = publisher_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let location_binding = args.location.get_output(context);
+        let offer_binding = args.offer.get_output(context);
+        let publisher_binding = args.publisher.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:compute/getPlatformImage:getPlatformImage".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "offer".into(),
-                    value: &offer_binding,
+                    value: offer_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publisher".into(),
-                    value: &publisher_binding,
+                    value: publisher_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPlatformImageResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            offer: pulumi_gestalt_rust::__private::into_domain(o.extract_field("offer")),
-            publisher: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publisher"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            id: o.get_field("id"),
+            location: o.get_field("location"),
+            offer: o.get_field("offer"),
+            publisher: o.get_field("publisher"),
+            sku: o.get_field("sku"),
+            version: o.get_field("version"),
         }
     }
 }

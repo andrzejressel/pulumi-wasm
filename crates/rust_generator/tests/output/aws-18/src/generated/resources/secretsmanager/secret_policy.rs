@@ -76,48 +76,40 @@ pub mod secret_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SecretPolicyArgs,
     ) -> SecretPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let block_public_policy_binding_1 = args.block_public_policy.get_output(context);
-        let block_public_policy_binding = block_public_policy_binding_1.get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let secret_arn_binding_1 = args.secret_arn.get_output(context);
-        let secret_arn_binding = secret_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let block_public_policy_binding = args.block_public_policy.get_output(context);
+        let policy_binding = args.policy.get_output(context);
+        let secret_arn_binding = args.secret_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:secretsmanager/secretPolicy:SecretPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockPublicPolicy".into(),
-                    value: &block_public_policy_binding,
+                    value: block_public_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretArn".into(),
-                    value: &secret_arn_binding,
+                    value: secret_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SecretPolicyResult {
-            block_public_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockPublicPolicy"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            secret_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretArn"),
-            ),
+            block_public_policy: o.get_field("blockPublicPolicy"),
+            policy: o.get_field("policy"),
+            secret_arn: o.get_field("secretArn"),
         }
     }
 }

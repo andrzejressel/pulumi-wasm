@@ -181,166 +181,118 @@ pub mod account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowed_authentication_modes_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allowed_authentication_modes_binding = args
             .allowed_authentication_modes
             .get_output(context);
-        let allowed_authentication_modes_binding = allowed_authentication_modes_binding_1
-            .get_inner();
-        let encryption_binding_1 = args.encryption.get_output(context);
-        let encryption_binding = encryption_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let key_vault_reference_binding_1 = args.key_vault_reference.get_output(context);
-        let key_vault_reference_binding = key_vault_reference_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_profile_binding_1 = args.network_profile.get_output(context);
-        let network_profile_binding = network_profile_binding_1.get_inner();
-        let pool_allocation_mode_binding_1 = args
-            .pool_allocation_mode
-            .get_output(context);
-        let pool_allocation_mode_binding = pool_allocation_mode_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let encryption_binding = args.encryption.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let key_vault_reference_binding = args.key_vault_reference.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_profile_binding = args.network_profile.get_output(context);
+        let pool_allocation_mode_binding = args.pool_allocation_mode.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let storage_account_authentication_mode_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let storage_account_authentication_mode_binding = args
             .storage_account_authentication_mode
             .get_output(context);
-        let storage_account_authentication_mode_binding = storage_account_authentication_mode_binding_1
-            .get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let storage_account_node_identity_binding_1 = args
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let storage_account_node_identity_binding = args
             .storage_account_node_identity
             .get_output(context);
-        let storage_account_node_identity_binding = storage_account_node_identity_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:batch/account:Account".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedAuthenticationModes".into(),
-                    value: &allowed_authentication_modes_binding,
+                    value: allowed_authentication_modes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryption".into(),
-                    value: &encryption_binding,
+                    value: encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultReference".into(),
-                    value: &key_vault_reference_binding,
+                    value: key_vault_reference_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkProfile".into(),
-                    value: &network_profile_binding,
+                    value: network_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "poolAllocationMode".into(),
-                    value: &pool_allocation_mode_binding,
+                    value: pool_allocation_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountAuthenticationMode".into(),
-                    value: &storage_account_authentication_mode_binding,
+                    value: storage_account_authentication_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountNodeIdentity".into(),
-                    value: &storage_account_node_identity_binding,
+                    value: storage_account_node_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountResult {
-            account_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountEndpoint"),
-            ),
-            allowed_authentication_modes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedAuthenticationModes"),
-            ),
-            encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryption"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            key_vault_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultReference"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkProfile"),
-            ),
-            pool_allocation_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("poolAllocationMode"),
-            ),
-            primary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryAccessKey"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryAccessKey"),
-            ),
-            storage_account_authentication_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountAuthenticationMode"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
-            storage_account_node_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountNodeIdentity"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            account_endpoint: o.get_field("accountEndpoint"),
+            allowed_authentication_modes: o.get_field("allowedAuthenticationModes"),
+            encryption: o.get_field("encryption"),
+            identity: o.get_field("identity"),
+            key_vault_reference: o.get_field("keyVaultReference"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            network_profile: o.get_field("networkProfile"),
+            pool_allocation_mode: o.get_field("poolAllocationMode"),
+            primary_access_key: o.get_field("primaryAccessKey"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_access_key: o.get_field("secondaryAccessKey"),
+            storage_account_authentication_mode: o
+                .get_field("storageAccountAuthenticationMode"),
+            storage_account_id: o.get_field("storageAccountId"),
+            storage_account_node_identity: o.get_field("storageAccountNodeIdentity"),
+            tags: o.get_field("tags"),
         }
     }
 }

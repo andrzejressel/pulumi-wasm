@@ -103,54 +103,47 @@ pub mod flexible_server_virtual_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FlexibleServerVirtualEndpointArgs,
     ) -> FlexibleServerVirtualEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let replica_server_id_binding_1 = args.replica_server_id.get_output(context);
-        let replica_server_id_binding = replica_server_id_binding_1.get_inner();
-        let source_server_id_binding_1 = args.source_server_id.get_output(context);
-        let source_server_id_binding = source_server_id_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let replica_server_id_binding = args.replica_server_id.get_output(context);
+        let source_server_id_binding = args.source_server_id.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaServerId".into(),
-                    value: &replica_server_id_binding,
+                    value: replica_server_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceServerId".into(),
-                    value: &source_server_id_binding,
+                    value: source_server_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FlexibleServerVirtualEndpointResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            replica_server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaServerId"),
-            ),
-            source_server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceServerId"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            name: o.get_field("name"),
+            replica_server_id: o.get_field("replicaServerId"),
+            source_server_id: o.get_field("sourceServerId"),
+            type_: o.get_field("type"),
         }
     }
 }

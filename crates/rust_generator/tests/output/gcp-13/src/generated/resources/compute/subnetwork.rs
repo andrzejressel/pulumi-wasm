@@ -510,217 +510,148 @@ pub mod subnetwork {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SubnetworkArgs,
     ) -> SubnetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_subnet_cidr_routes_overlap_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_subnet_cidr_routes_overlap_binding = args
             .allow_subnet_cidr_routes_overlap
             .get_output(context);
-        let allow_subnet_cidr_routes_overlap_binding = allow_subnet_cidr_routes_overlap_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let external_ipv6_prefix_binding_1 = args
-            .external_ipv6_prefix
-            .get_output(context);
-        let external_ipv6_prefix_binding = external_ipv6_prefix_binding_1.get_inner();
-        let ip_cidr_range_binding_1 = args.ip_cidr_range.get_output(context);
-        let ip_cidr_range_binding = ip_cidr_range_binding_1.get_inner();
-        let ipv6_access_type_binding_1 = args.ipv6_access_type.get_output(context);
-        let ipv6_access_type_binding = ipv6_access_type_binding_1.get_inner();
-        let log_config_binding_1 = args.log_config.get_output(context);
-        let log_config_binding = log_config_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let private_ip_google_access_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let external_ipv6_prefix_binding = args.external_ipv6_prefix.get_output(context);
+        let ip_cidr_range_binding = args.ip_cidr_range.get_output(context);
+        let ipv6_access_type_binding = args.ipv6_access_type.get_output(context);
+        let log_config_binding = args.log_config.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let private_ip_google_access_binding = args
             .private_ip_google_access
             .get_output(context);
-        let private_ip_google_access_binding = private_ip_google_access_binding_1
-            .get_inner();
-        let private_ipv6_google_access_binding_1 = args
+        let private_ipv6_google_access_binding = args
             .private_ipv6_google_access
             .get_output(context);
-        let private_ipv6_google_access_binding = private_ipv6_google_access_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let purpose_binding_1 = args.purpose.get_output(context);
-        let purpose_binding = purpose_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let reserved_internal_range_binding_1 = args
+        let project_binding = args.project.get_output(context);
+        let purpose_binding = args.purpose.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let reserved_internal_range_binding = args
             .reserved_internal_range
             .get_output(context);
-        let reserved_internal_range_binding = reserved_internal_range_binding_1
-            .get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let secondary_ip_ranges_binding_1 = args.secondary_ip_ranges.get_output(context);
-        let secondary_ip_ranges_binding = secondary_ip_ranges_binding_1.get_inner();
-        let send_secondary_ip_range_if_empty_binding_1 = args
+        let role_binding = args.role.get_output(context);
+        let secondary_ip_ranges_binding = args.secondary_ip_ranges.get_output(context);
+        let send_secondary_ip_range_if_empty_binding = args
             .send_secondary_ip_range_if_empty
             .get_output(context);
-        let send_secondary_ip_range_if_empty_binding = send_secondary_ip_range_if_empty_binding_1
-            .get_inner();
-        let stack_type_binding_1 = args.stack_type.get_output(context);
-        let stack_type_binding = stack_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let stack_type_binding = args.stack_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/subnetwork:Subnetwork".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowSubnetCidrRoutesOverlap".into(),
-                    value: &allow_subnet_cidr_routes_overlap_binding,
+                    value: allow_subnet_cidr_routes_overlap_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalIpv6Prefix".into(),
-                    value: &external_ipv6_prefix_binding,
+                    value: external_ipv6_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipCidrRange".into(),
-                    value: &ip_cidr_range_binding,
+                    value: ip_cidr_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6AccessType".into(),
-                    value: &ipv6_access_type_binding,
+                    value: ipv6_access_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfig".into(),
-                    value: &log_config_binding,
+                    value: log_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpGoogleAccess".into(),
-                    value: &private_ip_google_access_binding,
+                    value: private_ip_google_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpv6GoogleAccess".into(),
-                    value: &private_ipv6_google_access_binding,
+                    value: private_ipv6_google_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purpose".into(),
-                    value: &purpose_binding,
+                    value: purpose_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservedInternalRange".into(),
-                    value: &reserved_internal_range_binding,
+                    value: reserved_internal_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryIpRanges".into(),
-                    value: &secondary_ip_ranges_binding,
+                    value: secondary_ip_ranges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sendSecondaryIpRangeIfEmpty".into(),
-                    value: &send_secondary_ip_range_if_empty_binding,
+                    value: send_secondary_ip_range_if_empty_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackType".into(),
-                    value: &stack_type_binding,
+                    value: stack_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SubnetworkResult {
-            allow_subnet_cidr_routes_overlap: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowSubnetCidrRoutesOverlap"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            external_ipv6_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalIpv6Prefix"),
-            ),
-            fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fingerprint"),
-            ),
-            gateway_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayAddress"),
-            ),
-            internal_ipv6_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internalIpv6Prefix"),
-            ),
-            ip_cidr_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipCidrRange"),
-            ),
-            ipv6_access_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6AccessType"),
-            ),
-            ipv6_cidr_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6CidrRange"),
-            ),
-            log_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            private_ip_google_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpGoogleAccess"),
-            ),
-            private_ipv6_google_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpv6GoogleAccess"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            purpose: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("purpose"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            reserved_internal_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservedInternalRange"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
-            secondary_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryIpRanges"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            send_secondary_ip_range_if_empty: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sendSecondaryIpRangeIfEmpty"),
-            ),
-            stack_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackType"),
-            ),
-            subnetwork_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetworkId"),
-            ),
+            allow_subnet_cidr_routes_overlap: o
+                .get_field("allowSubnetCidrRoutesOverlap"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            external_ipv6_prefix: o.get_field("externalIpv6Prefix"),
+            fingerprint: o.get_field("fingerprint"),
+            gateway_address: o.get_field("gatewayAddress"),
+            internal_ipv6_prefix: o.get_field("internalIpv6Prefix"),
+            ip_cidr_range: o.get_field("ipCidrRange"),
+            ipv6_access_type: o.get_field("ipv6AccessType"),
+            ipv6_cidr_range: o.get_field("ipv6CidrRange"),
+            log_config: o.get_field("logConfig"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            private_ip_google_access: o.get_field("privateIpGoogleAccess"),
+            private_ipv6_google_access: o.get_field("privateIpv6GoogleAccess"),
+            project: o.get_field("project"),
+            purpose: o.get_field("purpose"),
+            region: o.get_field("region"),
+            reserved_internal_range: o.get_field("reservedInternalRange"),
+            role: o.get_field("role"),
+            secondary_ip_ranges: o.get_field("secondaryIpRanges"),
+            self_link: o.get_field("selfLink"),
+            send_secondary_ip_range_if_empty: o.get_field("sendSecondaryIpRangeIfEmpty"),
+            stack_type: o.get_field("stackType"),
+            subnetwork_id: o.get_field("subnetworkId"),
         }
     }
 }

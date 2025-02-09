@@ -189,138 +189,101 @@ pub mod agent {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AgentArgs,
     ) -> AgentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_version_binding_1 = args.api_version.get_output(context);
-        let api_version_binding = api_version_binding_1.get_inner();
-        let avatar_uri_binding_1 = args.avatar_uri.get_output(context);
-        let avatar_uri_binding = avatar_uri_binding_1.get_inner();
-        let classification_threshold_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_version_binding = args.api_version.get_output(context);
+        let avatar_uri_binding = args.avatar_uri.get_output(context);
+        let classification_threshold_binding = args
             .classification_threshold
             .get_output(context);
-        let classification_threshold_binding = classification_threshold_binding_1
-            .get_inner();
-        let default_language_code_binding_1 = args
+        let default_language_code_binding = args
             .default_language_code
             .get_output(context);
-        let default_language_code_binding = default_language_code_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enable_logging_binding_1 = args.enable_logging.get_output(context);
-        let enable_logging_binding = enable_logging_binding_1.get_inner();
-        let match_mode_binding_1 = args.match_mode.get_output(context);
-        let match_mode_binding = match_mode_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let supported_language_codes_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let enable_logging_binding = args.enable_logging.get_output(context);
+        let match_mode_binding = args.match_mode.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let supported_language_codes_binding = args
             .supported_language_codes
             .get_output(context);
-        let supported_language_codes_binding = supported_language_codes_binding_1
-            .get_inner();
-        let tier_binding_1 = args.tier.get_output(context);
-        let tier_binding = tier_binding_1.get_inner();
-        let time_zone_binding_1 = args.time_zone.get_output(context);
-        let time_zone_binding = time_zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tier_binding = args.tier.get_output(context);
+        let time_zone_binding = args.time_zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:diagflow/agent:Agent".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiVersion".into(),
-                    value: &api_version_binding,
+                    value: api_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "avatarUri".into(),
-                    value: &avatar_uri_binding,
+                    value: avatar_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "classificationThreshold".into(),
-                    value: &classification_threshold_binding,
+                    value: classification_threshold_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultLanguageCode".into(),
-                    value: &default_language_code_binding,
+                    value: default_language_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableLogging".into(),
-                    value: &enable_logging_binding,
+                    value: enable_logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "matchMode".into(),
-                    value: &match_mode_binding,
+                    value: match_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedLanguageCodes".into(),
-                    value: &supported_language_codes_binding,
+                    value: supported_language_codes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tier".into(),
-                    value: &tier_binding,
+                    value: tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZone".into(),
-                    value: &time_zone_binding,
+                    value: time_zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AgentResult {
-            api_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiVersion"),
-            ),
-            avatar_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("avatarUri"),
-            ),
-            avatar_uri_backend: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("avatarUriBackend"),
-            ),
-            classification_threshold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("classificationThreshold"),
-            ),
-            default_language_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultLanguageCode"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enable_logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableLogging"),
-            ),
-            match_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("matchMode"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            supported_language_codes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedLanguageCodes"),
-            ),
-            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
-            time_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeZone"),
-            ),
+            api_version: o.get_field("apiVersion"),
+            avatar_uri: o.get_field("avatarUri"),
+            avatar_uri_backend: o.get_field("avatarUriBackend"),
+            classification_threshold: o.get_field("classificationThreshold"),
+            default_language_code: o.get_field("defaultLanguageCode"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            enable_logging: o.get_field("enableLogging"),
+            match_mode: o.get_field("matchMode"),
+            project: o.get_field("project"),
+            supported_language_codes: o.get_field("supportedLanguageCodes"),
+            tier: o.get_field("tier"),
+            time_zone: o.get_field("timeZone"),
         }
     }
 }

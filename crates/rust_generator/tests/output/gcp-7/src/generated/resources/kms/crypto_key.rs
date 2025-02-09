@@ -225,136 +225,98 @@ pub mod crypto_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CryptoKeyArgs,
     ) -> CryptoKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let crypto_key_backend_binding_1 = args.crypto_key_backend.get_output(context);
-        let crypto_key_backend_binding = crypto_key_backend_binding_1.get_inner();
-        let destroy_scheduled_duration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let crypto_key_backend_binding = args.crypto_key_backend.get_output(context);
+        let destroy_scheduled_duration_binding = args
             .destroy_scheduled_duration
             .get_output(context);
-        let destroy_scheduled_duration_binding = destroy_scheduled_duration_binding_1
-            .get_inner();
-        let import_only_binding_1 = args.import_only.get_output(context);
-        let import_only_binding = import_only_binding_1.get_inner();
-        let key_access_justifications_policy_binding_1 = args
+        let import_only_binding = args.import_only.get_output(context);
+        let key_access_justifications_policy_binding = args
             .key_access_justifications_policy
             .get_output(context);
-        let key_access_justifications_policy_binding = key_access_justifications_policy_binding_1
-            .get_inner();
-        let key_ring_binding_1 = args.key_ring.get_output(context);
-        let key_ring_binding = key_ring_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let purpose_binding_1 = args.purpose.get_output(context);
-        let purpose_binding = purpose_binding_1.get_inner();
-        let rotation_period_binding_1 = args.rotation_period.get_output(context);
-        let rotation_period_binding = rotation_period_binding_1.get_inner();
-        let skip_initial_version_creation_binding_1 = args
+        let key_ring_binding = args.key_ring.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let purpose_binding = args.purpose.get_output(context);
+        let rotation_period_binding = args.rotation_period.get_output(context);
+        let skip_initial_version_creation_binding = args
             .skip_initial_version_creation
             .get_output(context);
-        let skip_initial_version_creation_binding = skip_initial_version_creation_binding_1
-            .get_inner();
-        let version_template_binding_1 = args.version_template.get_output(context);
-        let version_template_binding = version_template_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let version_template_binding = args.version_template.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:kms/cryptoKey:CryptoKey".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoKeyBackend".into(),
-                    value: &crypto_key_backend_binding,
+                    value: crypto_key_backend_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destroyScheduledDuration".into(),
-                    value: &destroy_scheduled_duration_binding,
+                    value: destroy_scheduled_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importOnly".into(),
-                    value: &import_only_binding,
+                    value: import_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyAccessJustificationsPolicy".into(),
-                    value: &key_access_justifications_policy_binding,
+                    value: key_access_justifications_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyRing".into(),
-                    value: &key_ring_binding,
+                    value: key_ring_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purpose".into(),
-                    value: &purpose_binding,
+                    value: purpose_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rotationPeriod".into(),
-                    value: &rotation_period_binding,
+                    value: rotation_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipInitialVersionCreation".into(),
-                    value: &skip_initial_version_creation_binding,
+                    value: skip_initial_version_creation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionTemplate".into(),
-                    value: &version_template_binding,
+                    value: version_template_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CryptoKeyResult {
-            crypto_key_backend: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cryptoKeyBackend"),
-            ),
-            destroy_scheduled_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destroyScheduledDuration"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            import_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importOnly"),
-            ),
-            key_access_justifications_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyAccessJustificationsPolicy"),
-            ),
-            key_ring: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyRing"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            primaries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaries"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            purpose: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("purpose"),
-            ),
-            rotation_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rotationPeriod"),
-            ),
-            skip_initial_version_creation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipInitialVersionCreation"),
-            ),
-            version_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionTemplate"),
-            ),
+            crypto_key_backend: o.get_field("cryptoKeyBackend"),
+            destroy_scheduled_duration: o.get_field("destroyScheduledDuration"),
+            effective_labels: o.get_field("effectiveLabels"),
+            import_only: o.get_field("importOnly"),
+            key_access_justifications_policy: o
+                .get_field("keyAccessJustificationsPolicy"),
+            key_ring: o.get_field("keyRing"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            primaries: o.get_field("primaries"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            purpose: o.get_field("purpose"),
+            rotation_period: o.get_field("rotationPeriod"),
+            skip_initial_version_creation: o.get_field("skipInitialVersionCreation"),
+            version_template: o.get_field("versionTemplate"),
         }
     }
 }

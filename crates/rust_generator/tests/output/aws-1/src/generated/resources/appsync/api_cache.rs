@@ -78,79 +78,62 @@ pub mod api_cache {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiCacheArgs,
     ) -> ApiCacheResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_caching_behavior_binding_1 = args
-            .api_caching_behavior
-            .get_output(context);
-        let api_caching_behavior_binding = api_caching_behavior_binding_1.get_inner();
-        let api_id_binding_1 = args.api_id.get_output(context);
-        let api_id_binding = api_id_binding_1.get_inner();
-        let at_rest_encryption_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_caching_behavior_binding = args.api_caching_behavior.get_output(context);
+        let api_id_binding = args.api_id.get_output(context);
+        let at_rest_encryption_enabled_binding = args
             .at_rest_encryption_enabled
             .get_output(context);
-        let at_rest_encryption_enabled_binding = at_rest_encryption_enabled_binding_1
-            .get_inner();
-        let transit_encryption_enabled_binding_1 = args
+        let transit_encryption_enabled_binding = args
             .transit_encryption_enabled
             .get_output(context);
-        let transit_encryption_enabled_binding = transit_encryption_enabled_binding_1
-            .get_inner();
-        let ttl_binding_1 = args.ttl.get_output(context);
-        let ttl_binding = ttl_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ttl_binding = args.ttl.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appsync/apiCache:ApiCache".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiCachingBehavior".into(),
-                    value: &api_caching_behavior_binding,
+                    value: api_caching_behavior_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: &api_id_binding,
+                    value: api_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "atRestEncryptionEnabled".into(),
-                    value: &at_rest_encryption_enabled_binding,
+                    value: at_rest_encryption_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitEncryptionEnabled".into(),
-                    value: &transit_encryption_enabled_binding,
+                    value: transit_encryption_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: &ttl_binding,
+                    value: ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiCacheResult {
-            api_caching_behavior: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiCachingBehavior"),
-            ),
-            api_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiId"),
-            ),
-            at_rest_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("atRestEncryptionEnabled"),
-            ),
-            transit_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitEncryptionEnabled"),
-            ),
-            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            api_caching_behavior: o.get_field("apiCachingBehavior"),
+            api_id: o.get_field("apiId"),
+            at_rest_encryption_enabled: o.get_field("atRestEncryptionEnabled"),
+            transit_encryption_enabled: o.get_field("transitEncryptionEnabled"),
+            ttl: o.get_field("ttl"),
+            type_: o.get_field("type"),
         }
     }
 }

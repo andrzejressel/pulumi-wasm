@@ -68,42 +68,35 @@ pub mod cluster_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterPolicyArgs,
     ) -> ClusterPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_arn_binding_1 = args.cluster_arn.get_output(context);
-        let cluster_arn_binding = cluster_arn_binding_1.get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_arn_binding = args.cluster_arn.get_output(context);
+        let policy_binding = args.policy.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:msk/clusterPolicy:ClusterPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterArn".into(),
-                    value: &cluster_arn_binding,
+                    value: cluster_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterPolicyResult {
-            cluster_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterArn"),
-            ),
-            current_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("currentVersion"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
+            cluster_arn: o.get_field("clusterArn"),
+            current_version: o.get_field("currentVersion"),
+            policy: o.get_field("policy"),
         }
     }
 }

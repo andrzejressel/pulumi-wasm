@@ -105,43 +105,37 @@ pub mod cluster_customer_managed_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterCustomerManagedKeyArgs,
     ) -> ClusterCustomerManagedKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_vault_key_id_binding_1 = args.key_vault_key_id.get_output(context);
-        let key_vault_key_id_binding = key_vault_key_id_binding_1.get_inner();
-        let log_analytics_cluster_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let key_vault_key_id_binding = args.key_vault_key_id.get_output(context);
+        let log_analytics_cluster_id_binding = args
             .log_analytics_cluster_id
             .get_output(context);
-        let log_analytics_cluster_id_binding = log_analytics_cluster_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyId".into(),
-                    value: &key_vault_key_id_binding,
+                    value: key_vault_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsClusterId".into(),
-                    value: &log_analytics_cluster_id_binding,
+                    value: log_analytics_cluster_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterCustomerManagedKeyResult {
-            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultKeyId"),
-            ),
-            log_analytics_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logAnalyticsClusterId"),
-            ),
+            key_vault_key_id: o.get_field("keyVaultKeyId"),
+            log_analytics_cluster_id: o.get_field("logAnalyticsClusterId"),
         }
     }
 }

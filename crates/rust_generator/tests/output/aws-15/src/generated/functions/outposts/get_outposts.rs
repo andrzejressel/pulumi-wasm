@@ -35,60 +35,47 @@ pub mod get_outposts {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetOutpostsArgs,
     ) -> GetOutpostsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding_1 = args.availability_zone.get_output(context);
-        let availability_zone_binding = availability_zone_binding_1.get_inner();
-        let availability_zone_id_binding_1 = args
-            .availability_zone_id
-            .get_output(context);
-        let availability_zone_id_binding = availability_zone_id_binding_1.get_inner();
-        let owner_id_binding_1 = args.owner_id.get_output(context);
-        let owner_id_binding = owner_id_binding_1.get_inner();
-        let site_id_binding_1 = args.site_id.get_output(context);
-        let site_id_binding = site_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let availability_zone_binding = args.availability_zone.get_output(context);
+        let availability_zone_id_binding = args.availability_zone_id.get_output(context);
+        let owner_id_binding = args.owner_id.get_output(context);
+        let site_id_binding = args.site_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:outposts/getOutposts:getOutposts".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: &availability_zone_binding,
+                    value: availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneId".into(),
-                    value: &availability_zone_id_binding,
+                    value: availability_zone_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerId".into(),
-                    value: &owner_id_binding,
+                    value: owner_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteId".into(),
-                    value: &site_id_binding,
+                    value: site_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetOutpostsResult {
-            arns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arns")),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            availability_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ids: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ids")),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            site_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteId"),
-            ),
+            arns: o.get_field("arns"),
+            availability_zone: o.get_field("availabilityZone"),
+            availability_zone_id: o.get_field("availabilityZoneId"),
+            id: o.get_field("id"),
+            ids: o.get_field("ids"),
+            owner_id: o.get_field("ownerId"),
+            site_id: o.get_field("siteId"),
         }
     }
 }

@@ -175,119 +175,94 @@ pub mod link_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LinkServiceArgs,
     ) -> LinkServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_approval_subscription_ids_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_approval_subscription_ids_binding = args
             .auto_approval_subscription_ids
             .get_output(context);
-        let auto_approval_subscription_ids_binding = auto_approval_subscription_ids_binding_1
-            .get_inner();
-        let enable_proxy_protocol_binding_1 = args
+        let enable_proxy_protocol_binding = args
             .enable_proxy_protocol
             .get_output(context);
-        let enable_proxy_protocol_binding = enable_proxy_protocol_binding_1.get_inner();
-        let fqdns_binding_1 = args.fqdns.get_output(context);
-        let fqdns_binding = fqdns_binding_1.get_inner();
-        let load_balancer_frontend_ip_configuration_ids_binding_1 = args
+        let fqdns_binding = args.fqdns.get_output(context);
+        let load_balancer_frontend_ip_configuration_ids_binding = args
             .load_balancer_frontend_ip_configuration_ids
             .get_output(context);
-        let load_balancer_frontend_ip_configuration_ids_binding = load_balancer_frontend_ip_configuration_ids_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let nat_ip_configurations_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let nat_ip_configurations_binding = args
             .nat_ip_configurations
             .get_output(context);
-        let nat_ip_configurations_binding = nat_ip_configurations_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let visibility_subscription_ids_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let visibility_subscription_ids_binding = args
             .visibility_subscription_ids
             .get_output(context);
-        let visibility_subscription_ids_binding = visibility_subscription_ids_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:privatedns/linkService:LinkService".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoApprovalSubscriptionIds".into(),
-                    value: &auto_approval_subscription_ids_binding,
+                    value: auto_approval_subscription_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableProxyProtocol".into(),
-                    value: &enable_proxy_protocol_binding,
+                    value: enable_proxy_protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fqdns".into(),
-                    value: &fqdns_binding,
+                    value: fqdns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerFrontendIpConfigurationIds".into(),
-                    value: &load_balancer_frontend_ip_configuration_ids_binding,
+                    value: load_balancer_frontend_ip_configuration_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "natIpConfigurations".into(),
-                    value: &nat_ip_configurations_binding,
+                    value: nat_ip_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "visibilitySubscriptionIds".into(),
-                    value: &visibility_subscription_ids_binding,
+                    value: visibility_subscription_ids_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LinkServiceResult {
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            auto_approval_subscription_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoApprovalSubscriptionIds"),
-            ),
-            enable_proxy_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableProxyProtocol"),
-            ),
-            fqdns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdns")),
-            load_balancer_frontend_ip_configuration_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerFrontendIpConfigurationIds"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nat_ip_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("natIpConfigurations"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            visibility_subscription_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("visibilitySubscriptionIds"),
-            ),
+            alias: o.get_field("alias"),
+            auto_approval_subscription_ids: o.get_field("autoApprovalSubscriptionIds"),
+            enable_proxy_protocol: o.get_field("enableProxyProtocol"),
+            fqdns: o.get_field("fqdns"),
+            load_balancer_frontend_ip_configuration_ids: o
+                .get_field("loadBalancerFrontendIpConfigurationIds"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            nat_ip_configurations: o.get_field("natIpConfigurations"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
+            visibility_subscription_ids: o.get_field("visibilitySubscriptionIds"),
         }
     }
 }

@@ -27,40 +27,35 @@ pub mod get_users {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetUsersArgs,
     ) -> GetUsersResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_regex_binding_1 = args.name_regex.get_output(context);
-        let name_regex_binding = name_regex_binding_1.get_inner();
-        let path_prefix_binding_1 = args.path_prefix.get_output(context);
-        let path_prefix_binding = path_prefix_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_regex_binding = args.name_regex.get_output(context);
+        let path_prefix_binding = args.path_prefix.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:iam/getUsers:getUsers".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nameRegex".into(),
-                    value: &name_regex_binding,
+                    value: name_regex_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pathPrefix".into(),
-                    value: &path_prefix_binding,
+                    value: path_prefix_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetUsersResult {
-            arns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arns")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name_regex: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nameRegex"),
-            ),
-            names: pulumi_gestalt_rust::__private::into_domain(o.extract_field("names")),
-            path_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pathPrefix"),
-            ),
+            arns: o.get_field("arns"),
+            id: o.get_field("id"),
+            name_regex: o.get_field("nameRegex"),
+            names: o.get_field("names"),
+            path_prefix: o.get_field("pathPrefix"),
         }
     }
 }

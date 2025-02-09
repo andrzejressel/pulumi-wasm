@@ -61,86 +61,51 @@ pub mod get_workspace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetWorkspaceArgs,
     ) -> GetWorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let tags_binding = args.tags.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:grafana/getWorkspace:getWorkspace".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetWorkspaceResult {
-            account_access_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountAccessType"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_providers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationProviders"),
-            ),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            data_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSources"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            grafana_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grafanaVersion"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            last_updated_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedDate"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_destinations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationDestinations"),
-            ),
-            organization_role_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organizationRoleName"),
-            ),
-            organizational_units: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organizationalUnits"),
-            ),
-            permission_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissionType"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            saml_configuration_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("samlConfigurationStatus"),
-            ),
-            stack_set_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackSetName"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            account_access_type: o.get_field("accountAccessType"),
+            arn: o.get_field("arn"),
+            authentication_providers: o.get_field("authenticationProviders"),
+            created_date: o.get_field("createdDate"),
+            data_sources: o.get_field("dataSources"),
+            description: o.get_field("description"),
+            endpoint: o.get_field("endpoint"),
+            grafana_version: o.get_field("grafanaVersion"),
+            id: o.get_field("id"),
+            last_updated_date: o.get_field("lastUpdatedDate"),
+            name: o.get_field("name"),
+            notification_destinations: o.get_field("notificationDestinations"),
+            organization_role_name: o.get_field("organizationRoleName"),
+            organizational_units: o.get_field("organizationalUnits"),
+            permission_type: o.get_field("permissionType"),
+            role_arn: o.get_field("roleArn"),
+            saml_configuration_status: o.get_field("samlConfigurationStatus"),
+            stack_set_name: o.get_field("stackSetName"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

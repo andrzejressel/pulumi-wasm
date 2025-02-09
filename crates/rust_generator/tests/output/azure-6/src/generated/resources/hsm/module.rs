@@ -184,99 +184,78 @@ pub mod module {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ModuleArgs,
     ) -> ModuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let management_network_profile_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let location_binding = args.location.get_output(context);
+        let management_network_profile_binding = args
             .management_network_profile
             .get_output(context);
-        let management_network_profile_binding = management_network_profile_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_profile_binding_1 = args.network_profile.get_output(context);
-        let network_profile_binding = network_profile_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let stamp_id_binding_1 = args.stamp_id.get_output(context);
-        let stamp_id_binding = stamp_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let zones_binding_1 = args.zones.get_output(context);
-        let zones_binding = zones_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let network_profile_binding = args.network_profile.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_name_binding = args.sku_name.get_output(context);
+        let stamp_id_binding = args.stamp_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let zones_binding = args.zones.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:hsm/module:Module".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managementNetworkProfile".into(),
-                    value: &management_network_profile_binding,
+                    value: management_network_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkProfile".into(),
-                    value: &network_profile_binding,
+                    value: network_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stampId".into(),
-                    value: &stamp_id_binding,
+                    value: stamp_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zones".into(),
-                    value: &zones_binding,
+                    value: zones_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ModuleResult {
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            management_network_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementNetworkProfile"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkProfile"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            stamp_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stampId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
+            location: o.get_field("location"),
+            management_network_profile: o.get_field("managementNetworkProfile"),
+            name: o.get_field("name"),
+            network_profile: o.get_field("networkProfile"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku_name: o.get_field("skuName"),
+            stamp_id: o.get_field("stampId"),
+            tags: o.get_field("tags"),
+            zones: o.get_field("zones"),
         }
     }
 }

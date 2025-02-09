@@ -162,67 +162,54 @@ pub mod certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CertificateArgs,
     ) -> CertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_virtual_path_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_virtual_path_binding = args
             .certificate_virtual_path
             .get_output(context);
-        let certificate_virtual_path_binding = certificate_virtual_path_binding_1
-            .get_inner();
-        let key_vault_secret_id_binding_1 = args.key_vault_secret_id.get_output(context);
-        let key_vault_secret_id_binding = key_vault_secret_id_binding_1.get_inner();
-        let key_virtual_path_binding_1 = args.key_virtual_path.get_output(context);
-        let key_virtual_path_binding = key_virtual_path_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let nginx_deployment_id_binding_1 = args.nginx_deployment_id.get_output(context);
-        let nginx_deployment_id_binding = nginx_deployment_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let key_vault_secret_id_binding = args.key_vault_secret_id.get_output(context);
+        let key_virtual_path_binding = args.key_virtual_path.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let nginx_deployment_id_binding = args.nginx_deployment_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:nginx/certificate:Certificate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateVirtualPath".into(),
-                    value: &certificate_virtual_path_binding,
+                    value: certificate_virtual_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultSecretId".into(),
-                    value: &key_vault_secret_id_binding,
+                    value: key_vault_secret_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVirtualPath".into(),
-                    value: &key_virtual_path_binding,
+                    value: key_virtual_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nginxDeploymentId".into(),
-                    value: &nginx_deployment_id_binding,
+                    value: nginx_deployment_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CertificateResult {
-            certificate_virtual_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateVirtualPath"),
-            ),
-            key_vault_secret_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultSecretId"),
-            ),
-            key_virtual_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVirtualPath"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nginx_deployment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nginxDeploymentId"),
-            ),
+            certificate_virtual_path: o.get_field("certificateVirtualPath"),
+            key_vault_secret_id: o.get_field("keyVaultSecretId"),
+            key_virtual_path: o.get_field("keyVirtualPath"),
+            name: o.get_field("name"),
+            nginx_deployment_id: o.get_field("nginxDeploymentId"),
         }
     }
 }

@@ -62,64 +62,50 @@ pub mod custom_key_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomKeyStoreArgs,
     ) -> CustomKeyStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloud_hsm_cluster_id_binding_1 = args
-            .cloud_hsm_cluster_id
-            .get_output(context);
-        let cloud_hsm_cluster_id_binding = cloud_hsm_cluster_id_binding_1.get_inner();
-        let custom_key_store_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cloud_hsm_cluster_id_binding = args.cloud_hsm_cluster_id.get_output(context);
+        let custom_key_store_name_binding = args
             .custom_key_store_name
             .get_output(context);
-        let custom_key_store_name_binding = custom_key_store_name_binding_1.get_inner();
-        let key_store_password_binding_1 = args.key_store_password.get_output(context);
-        let key_store_password_binding = key_store_password_binding_1.get_inner();
-        let trust_anchor_certificate_binding_1 = args
+        let key_store_password_binding = args.key_store_password.get_output(context);
+        let trust_anchor_certificate_binding = args
             .trust_anchor_certificate
             .get_output(context);
-        let trust_anchor_certificate_binding = trust_anchor_certificate_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:kms/customKeyStore:CustomKeyStore".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudHsmClusterId".into(),
-                    value: &cloud_hsm_cluster_id_binding,
+                    value: cloud_hsm_cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customKeyStoreName".into(),
-                    value: &custom_key_store_name_binding,
+                    value: custom_key_store_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyStorePassword".into(),
-                    value: &key_store_password_binding,
+                    value: key_store_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustAnchorCertificate".into(),
-                    value: &trust_anchor_certificate_binding,
+                    value: trust_anchor_certificate_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomKeyStoreResult {
-            cloud_hsm_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudHsmClusterId"),
-            ),
-            custom_key_store_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customKeyStoreName"),
-            ),
-            key_store_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyStorePassword"),
-            ),
-            trust_anchor_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustAnchorCertificate"),
-            ),
+            cloud_hsm_cluster_id: o.get_field("cloudHsmClusterId"),
+            custom_key_store_name: o.get_field("customKeyStoreName"),
+            key_store_password: o.get_field("keyStorePassword"),
+            trust_anchor_certificate: o.get_field("trustAnchorCertificate"),
         }
     }
 }

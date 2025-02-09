@@ -276,211 +276,146 @@ pub mod io_t_hub {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IoTHubArgs,
     ) -> IoTHubResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloud_to_device_binding_1 = args.cloud_to_device.get_output(context);
-        let cloud_to_device_binding = cloud_to_device_binding_1.get_inner();
-        let endpoints_binding_1 = args.endpoints.get_output(context);
-        let endpoints_binding = endpoints_binding_1.get_inner();
-        let enrichments_binding_1 = args.enrichments.get_output(context);
-        let enrichments_binding = enrichments_binding_1.get_inner();
-        let event_hub_partition_count_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cloud_to_device_binding = args.cloud_to_device.get_output(context);
+        let endpoints_binding = args.endpoints.get_output(context);
+        let enrichments_binding = args.enrichments.get_output(context);
+        let event_hub_partition_count_binding = args
             .event_hub_partition_count
             .get_output(context);
-        let event_hub_partition_count_binding = event_hub_partition_count_binding_1
-            .get_inner();
-        let event_hub_retention_in_days_binding_1 = args
+        let event_hub_retention_in_days_binding = args
             .event_hub_retention_in_days
             .get_output(context);
-        let event_hub_retention_in_days_binding = event_hub_retention_in_days_binding_1
-            .get_inner();
-        let fallback_route_binding_1 = args.fallback_route.get_output(context);
-        let fallback_route_binding = fallback_route_binding_1.get_inner();
-        let file_upload_binding_1 = args.file_upload.get_output(context);
-        let file_upload_binding = file_upload_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let local_authentication_enabled_binding_1 = args
+        let fallback_route_binding = args.fallback_route.get_output(context);
+        let file_upload_binding = args.file_upload.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let local_authentication_enabled_binding = args
             .local_authentication_enabled
             .get_output(context);
-        let local_authentication_enabled_binding = local_authentication_enabled_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let min_tls_version_binding_1 = args.min_tls_version.get_output(context);
-        let min_tls_version_binding = min_tls_version_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_rule_sets_binding_1 = args.network_rule_sets.get_output(context);
-        let network_rule_sets_binding = network_rule_sets_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let min_tls_version_binding = args.min_tls_version.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_rule_sets_binding = args.network_rule_sets.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let routes_binding_1 = args.routes.get_output(context);
-        let routes_binding = routes_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let routes_binding = args.routes.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:iot/ioTHub:IoTHub".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudToDevice".into(),
-                    value: &cloud_to_device_binding,
+                    value: cloud_to_device_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoints".into(),
-                    value: &endpoints_binding,
+                    value: endpoints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enrichments".into(),
-                    value: &enrichments_binding,
+                    value: enrichments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventHubPartitionCount".into(),
-                    value: &event_hub_partition_count_binding,
+                    value: event_hub_partition_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventHubRetentionInDays".into(),
-                    value: &event_hub_retention_in_days_binding,
+                    value: event_hub_retention_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fallbackRoute".into(),
-                    value: &fallback_route_binding,
+                    value: fallback_route_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileUpload".into(),
-                    value: &file_upload_binding,
+                    value: file_upload_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthenticationEnabled".into(),
-                    value: &local_authentication_enabled_binding,
+                    value: local_authentication_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minTlsVersion".into(),
-                    value: &min_tls_version_binding,
+                    value: min_tls_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkRuleSets".into(),
-                    value: &network_rule_sets_binding,
+                    value: network_rule_sets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routes".into(),
-                    value: &routes_binding,
+                    value: routes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IoTHubResult {
-            cloud_to_device: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudToDevice"),
-            ),
-            endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoints"),
-            ),
-            enrichments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enrichments"),
-            ),
-            event_hub_events_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventHubEventsEndpoint"),
-            ),
-            event_hub_events_namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventHubEventsNamespace"),
-            ),
-            event_hub_events_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventHubEventsPath"),
-            ),
-            event_hub_operations_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventHubOperationsEndpoint"),
-            ),
-            event_hub_operations_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventHubOperationsPath"),
-            ),
-            event_hub_partition_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventHubPartitionCount"),
-            ),
-            event_hub_retention_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventHubRetentionInDays"),
-            ),
-            fallback_route: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fallbackRoute"),
-            ),
-            file_upload: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileUpload"),
-            ),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            local_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAuthenticationEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            min_tls_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minTlsVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_rule_sets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkRuleSets"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routes"),
-            ),
-            shared_access_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharedAccessPolicies"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            cloud_to_device: o.get_field("cloudToDevice"),
+            endpoints: o.get_field("endpoints"),
+            enrichments: o.get_field("enrichments"),
+            event_hub_events_endpoint: o.get_field("eventHubEventsEndpoint"),
+            event_hub_events_namespace: o.get_field("eventHubEventsNamespace"),
+            event_hub_events_path: o.get_field("eventHubEventsPath"),
+            event_hub_operations_endpoint: o.get_field("eventHubOperationsEndpoint"),
+            event_hub_operations_path: o.get_field("eventHubOperationsPath"),
+            event_hub_partition_count: o.get_field("eventHubPartitionCount"),
+            event_hub_retention_in_days: o.get_field("eventHubRetentionInDays"),
+            fallback_route: o.get_field("fallbackRoute"),
+            file_upload: o.get_field("fileUpload"),
+            hostname: o.get_field("hostname"),
+            identity: o.get_field("identity"),
+            local_authentication_enabled: o.get_field("localAuthenticationEnabled"),
+            location: o.get_field("location"),
+            min_tls_version: o.get_field("minTlsVersion"),
+            name: o.get_field("name"),
+            network_rule_sets: o.get_field("networkRuleSets"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            routes: o.get_field("routes"),
+            shared_access_policies: o.get_field("sharedAccessPolicies"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
+            type_: o.get_field("type"),
         }
     }
 }

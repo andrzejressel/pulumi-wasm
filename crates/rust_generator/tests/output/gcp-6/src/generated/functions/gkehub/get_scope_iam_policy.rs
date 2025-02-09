@@ -28,42 +28,35 @@ pub mod get_scope_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetScopeIamPolicyArgs,
     ) -> GetScopeIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let scope_id_binding_1 = args.scope_id.get_output(context);
-        let scope_id_binding = scope_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let project_binding = args.project.get_output(context);
+        let scope_id_binding = args.scope_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:gkehub/getScopeIamPolicy:getScopeIamPolicy".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopeId".into(),
-                    value: &scope_id_binding,
+                    value: scope_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetScopeIamPolicyResult {
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            policy_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyData"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            scope_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopeId"),
-            ),
+            etag: o.get_field("etag"),
+            id: o.get_field("id"),
+            policy_data: o.get_field("policyData"),
+            project: o.get_field("project"),
+            scope_id: o.get_field("scopeId"),
         }
     }
 }

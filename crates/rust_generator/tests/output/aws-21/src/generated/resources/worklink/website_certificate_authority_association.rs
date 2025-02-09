@@ -61,52 +61,42 @@ pub mod website_certificate_authority_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WebsiteCertificateAuthorityAssociationArgs,
     ) -> WebsiteCertificateAuthorityAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_binding_1 = args.certificate.get_output(context);
-        let certificate_binding = certificate_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let fleet_arn_binding_1 = args.fleet_arn.get_output(context);
-        let fleet_arn_binding = fleet_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_binding = args.certificate.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let fleet_arn_binding = args.fleet_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificate".into(),
-                    value: &certificate_binding,
+                    value: certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetArn".into(),
-                    value: &fleet_arn_binding,
+                    value: fleet_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WebsiteCertificateAuthorityAssociationResult {
-            certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificate"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            fleet_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fleetArn"),
-            ),
-            website_ca_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("websiteCaId"),
-            ),
+            certificate: o.get_field("certificate"),
+            display_name: o.get_field("displayName"),
+            fleet_arn: o.get_field("fleetArn"),
+            website_ca_id: o.get_field("websiteCaId"),
         }
     }
 }

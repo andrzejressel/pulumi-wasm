@@ -160,91 +160,67 @@ pub mod region_target_tcp_proxy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegionTargetTcpProxyArgs,
     ) -> RegionTargetTcpProxyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backend_service_binding_1 = args.backend_service.get_output(context);
-        let backend_service_binding = backend_service_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let proxy_bind_binding_1 = args.proxy_bind.get_output(context);
-        let proxy_bind_binding = proxy_bind_binding_1.get_inner();
-        let proxy_header_binding_1 = args.proxy_header.get_output(context);
-        let proxy_header_binding = proxy_header_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backend_service_binding = args.backend_service.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let proxy_bind_binding = args.proxy_bind.get_output(context);
+        let proxy_header_binding = args.proxy_header.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/regionTargetTcpProxy:RegionTargetTcpProxy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendService".into(),
-                    value: &backend_service_binding,
+                    value: backend_service_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyBind".into(),
-                    value: &proxy_bind_binding,
+                    value: proxy_bind_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyHeader".into(),
-                    value: &proxy_header_binding,
+                    value: proxy_header_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegionTargetTcpProxyResult {
-            backend_service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendService"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            proxy_bind: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proxyBind"),
-            ),
-            proxy_header: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proxyHeader"),
-            ),
-            proxy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proxyId"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
+            backend_service: o.get_field("backendService"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            proxy_bind: o.get_field("proxyBind"),
+            proxy_header: o.get_field("proxyHeader"),
+            proxy_id: o.get_field("proxyId"),
+            region: o.get_field("region"),
+            self_link: o.get_field("selfLink"),
         }
     }
 }

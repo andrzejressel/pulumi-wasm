@@ -83,69 +83,55 @@ pub mod placement_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PlacementGroupArgs,
     ) -> PlacementGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let partition_count_binding_1 = args.partition_count.get_output(context);
-        let partition_count_binding = partition_count_binding_1.get_inner();
-        let spread_level_binding_1 = args.spread_level.get_output(context);
-        let spread_level_binding = spread_level_binding_1.get_inner();
-        let strategy_binding_1 = args.strategy.get_output(context);
-        let strategy_binding = strategy_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let partition_count_binding = args.partition_count.get_output(context);
+        let spread_level_binding = args.spread_level.get_output(context);
+        let strategy_binding = args.strategy.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/placementGroup:PlacementGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionCount".into(),
-                    value: &partition_count_binding,
+                    value: partition_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spreadLevel".into(),
-                    value: &spread_level_binding,
+                    value: spread_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "strategy".into(),
-                    value: &strategy_binding,
+                    value: strategy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PlacementGroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            partition_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionCount"),
-            ),
-            placement_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementGroupId"),
-            ),
-            spread_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spreadLevel"),
-            ),
-            strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("strategy"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            name: o.get_field("name"),
+            partition_count: o.get_field("partitionCount"),
+            placement_group_id: o.get_field("placementGroupId"),
+            spread_level: o.get_field("spreadLevel"),
+            strategy: o.get_field("strategy"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

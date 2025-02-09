@@ -185,135 +185,98 @@ pub mod ml_transform {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MLTransformArgs,
     ) -> MLTransformResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let glue_version_binding_1 = args.glue_version.get_output(context);
-        let glue_version_binding = glue_version_binding_1.get_inner();
-        let input_record_tables_binding_1 = args.input_record_tables.get_output(context);
-        let input_record_tables_binding = input_record_tables_binding_1.get_inner();
-        let max_capacity_binding_1 = args.max_capacity.get_output(context);
-        let max_capacity_binding = max_capacity_binding_1.get_inner();
-        let max_retries_binding_1 = args.max_retries.get_output(context);
-        let max_retries_binding = max_retries_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let number_of_workers_binding_1 = args.number_of_workers.get_output(context);
-        let number_of_workers_binding = number_of_workers_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeout_binding_1 = args.timeout.get_output(context);
-        let timeout_binding = timeout_binding_1.get_inner();
-        let worker_type_binding_1 = args.worker_type.get_output(context);
-        let worker_type_binding = worker_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let glue_version_binding = args.glue_version.get_output(context);
+        let input_record_tables_binding = args.input_record_tables.get_output(context);
+        let max_capacity_binding = args.max_capacity.get_output(context);
+        let max_retries_binding = args.max_retries.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let number_of_workers_binding = args.number_of_workers.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeout_binding = args.timeout.get_output(context);
+        let worker_type_binding = args.worker_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:glue/mLTransform:MLTransform".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "glueVersion".into(),
-                    value: &glue_version_binding,
+                    value: glue_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputRecordTables".into(),
-                    value: &input_record_tables_binding,
+                    value: input_record_tables_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxCapacity".into(),
-                    value: &max_capacity_binding,
+                    value: max_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxRetries".into(),
-                    value: &max_retries_binding,
+                    value: max_retries_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberOfWorkers".into(),
-                    value: &number_of_workers_binding,
+                    value: number_of_workers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeout".into(),
-                    value: &timeout_binding,
+                    value: timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerType".into(),
-                    value: &worker_type_binding,
+                    value: worker_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MLTransformResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            glue_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("glueVersion"),
-            ),
-            input_record_tables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputRecordTables"),
-            ),
-            label_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labelCount"),
-            ),
-            max_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxCapacity"),
-            ),
-            max_retries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxRetries"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            number_of_workers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberOfWorkers"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            schemas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schemas"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeout"),
-            ),
-            worker_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workerType"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            glue_version: o.get_field("glueVersion"),
+            input_record_tables: o.get_field("inputRecordTables"),
+            label_count: o.get_field("labelCount"),
+            max_capacity: o.get_field("maxCapacity"),
+            max_retries: o.get_field("maxRetries"),
+            name: o.get_field("name"),
+            number_of_workers: o.get_field("numberOfWorkers"),
+            parameters: o.get_field("parameters"),
+            role_arn: o.get_field("roleArn"),
+            schemas: o.get_field("schemas"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeout: o.get_field("timeout"),
+            worker_type: o.get_field("workerType"),
         }
     }
 }

@@ -310,167 +310,120 @@ pub mod flow_log {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FlowLogArgs,
     ) -> FlowLogResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deliver_cross_account_role_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let deliver_cross_account_role_binding = args
             .deliver_cross_account_role
             .get_output(context);
-        let deliver_cross_account_role_binding = deliver_cross_account_role_binding_1
-            .get_inner();
-        let destination_options_binding_1 = args.destination_options.get_output(context);
-        let destination_options_binding = destination_options_binding_1.get_inner();
-        let eni_id_binding_1 = args.eni_id.get_output(context);
-        let eni_id_binding = eni_id_binding_1.get_inner();
-        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
-        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
-        let log_destination_binding_1 = args.log_destination.get_output(context);
-        let log_destination_binding = log_destination_binding_1.get_inner();
-        let log_destination_type_binding_1 = args
-            .log_destination_type
-            .get_output(context);
-        let log_destination_type_binding = log_destination_type_binding_1.get_inner();
-        let log_format_binding_1 = args.log_format.get_output(context);
-        let log_format_binding = log_format_binding_1.get_inner();
-        let log_group_name_binding_1 = args.log_group_name.get_output(context);
-        let log_group_name_binding = log_group_name_binding_1.get_inner();
-        let max_aggregation_interval_binding_1 = args
+        let destination_options_binding = args.destination_options.get_output(context);
+        let eni_id_binding = args.eni_id.get_output(context);
+        let iam_role_arn_binding = args.iam_role_arn.get_output(context);
+        let log_destination_binding = args.log_destination.get_output(context);
+        let log_destination_type_binding = args.log_destination_type.get_output(context);
+        let log_format_binding = args.log_format.get_output(context);
+        let log_group_name_binding = args.log_group_name.get_output(context);
+        let max_aggregation_interval_binding = args
             .max_aggregation_interval
             .get_output(context);
-        let max_aggregation_interval_binding = max_aggregation_interval_binding_1
-            .get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let traffic_type_binding_1 = args.traffic_type.get_output(context);
-        let traffic_type_binding = traffic_type_binding_1.get_inner();
-        let transit_gateway_attachment_id_binding_1 = args
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let traffic_type_binding = args.traffic_type.get_output(context);
+        let transit_gateway_attachment_id_binding = args
             .transit_gateway_attachment_id
             .get_output(context);
-        let transit_gateway_attachment_id_binding = transit_gateway_attachment_id_binding_1
-            .get_inner();
-        let transit_gateway_id_binding_1 = args.transit_gateway_id.get_output(context);
-        let transit_gateway_id_binding = transit_gateway_id_binding_1.get_inner();
-        let vpc_id_binding_1 = args.vpc_id.get_output(context);
-        let vpc_id_binding = vpc_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let transit_gateway_id_binding = args.transit_gateway_id.get_output(context);
+        let vpc_id_binding = args.vpc_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/flowLog:FlowLog".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliverCrossAccountRole".into(),
-                    value: &deliver_cross_account_role_binding,
+                    value: deliver_cross_account_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationOptions".into(),
-                    value: &destination_options_binding,
+                    value: destination_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eniId".into(),
-                    value: &eni_id_binding,
+                    value: eni_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: &iam_role_arn_binding,
+                    value: iam_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logDestination".into(),
-                    value: &log_destination_binding,
+                    value: log_destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logDestinationType".into(),
-                    value: &log_destination_type_binding,
+                    value: log_destination_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logFormat".into(),
-                    value: &log_format_binding,
+                    value: log_format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logGroupName".into(),
-                    value: &log_group_name_binding,
+                    value: log_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxAggregationInterval".into(),
-                    value: &max_aggregation_interval_binding,
+                    value: max_aggregation_interval_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficType".into(),
-                    value: &traffic_type_binding,
+                    value: traffic_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayAttachmentId".into(),
-                    value: &transit_gateway_attachment_id_binding,
+                    value: transit_gateway_attachment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayId".into(),
-                    value: &transit_gateway_id_binding,
+                    value: transit_gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: &vpc_id_binding,
+                    value: vpc_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FlowLogResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            deliver_cross_account_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deliverCrossAccountRole"),
-            ),
-            destination_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationOptions"),
-            ),
-            eni_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eniId"),
-            ),
-            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoleArn"),
-            ),
-            log_destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logDestination"),
-            ),
-            log_destination_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logDestinationType"),
-            ),
-            log_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logFormat"),
-            ),
-            log_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logGroupName"),
-            ),
-            max_aggregation_interval: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxAggregationInterval"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            traffic_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficType"),
-            ),
-            transit_gateway_attachment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayAttachmentId"),
-            ),
-            transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayId"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            arn: o.get_field("arn"),
+            deliver_cross_account_role: o.get_field("deliverCrossAccountRole"),
+            destination_options: o.get_field("destinationOptions"),
+            eni_id: o.get_field("eniId"),
+            iam_role_arn: o.get_field("iamRoleArn"),
+            log_destination: o.get_field("logDestination"),
+            log_destination_type: o.get_field("logDestinationType"),
+            log_format: o.get_field("logFormat"),
+            log_group_name: o.get_field("logGroupName"),
+            max_aggregation_interval: o.get_field("maxAggregationInterval"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            traffic_type: o.get_field("trafficType"),
+            transit_gateway_attachment_id: o.get_field("transitGatewayAttachmentId"),
+            transit_gateway_id: o.get_field("transitGatewayId"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

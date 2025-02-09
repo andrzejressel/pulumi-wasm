@@ -416,155 +416,114 @@ pub mod policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PolicyArgs,
     ) -> PolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let adjustment_type_binding_1 = args.adjustment_type.get_output(context);
-        let adjustment_type_binding = adjustment_type_binding_1.get_inner();
-        let autoscaling_group_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let adjustment_type_binding = args.adjustment_type.get_output(context);
+        let autoscaling_group_name_binding = args
             .autoscaling_group_name
             .get_output(context);
-        let autoscaling_group_name_binding = autoscaling_group_name_binding_1
-            .get_inner();
-        let cooldown_binding_1 = args.cooldown.get_output(context);
-        let cooldown_binding = cooldown_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let estimated_instance_warmup_binding_1 = args
+        let cooldown_binding = args.cooldown.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let estimated_instance_warmup_binding = args
             .estimated_instance_warmup
             .get_output(context);
-        let estimated_instance_warmup_binding = estimated_instance_warmup_binding_1
-            .get_inner();
-        let metric_aggregation_type_binding_1 = args
+        let metric_aggregation_type_binding = args
             .metric_aggregation_type
             .get_output(context);
-        let metric_aggregation_type_binding = metric_aggregation_type_binding_1
-            .get_inner();
-        let min_adjustment_magnitude_binding_1 = args
+        let min_adjustment_magnitude_binding = args
             .min_adjustment_magnitude
             .get_output(context);
-        let min_adjustment_magnitude_binding = min_adjustment_magnitude_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let policy_type_binding_1 = args.policy_type.get_output(context);
-        let policy_type_binding = policy_type_binding_1.get_inner();
-        let predictive_scaling_configuration_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let policy_type_binding = args.policy_type.get_output(context);
+        let predictive_scaling_configuration_binding = args
             .predictive_scaling_configuration
             .get_output(context);
-        let predictive_scaling_configuration_binding = predictive_scaling_configuration_binding_1
-            .get_inner();
-        let scaling_adjustment_binding_1 = args.scaling_adjustment.get_output(context);
-        let scaling_adjustment_binding = scaling_adjustment_binding_1.get_inner();
-        let step_adjustments_binding_1 = args.step_adjustments.get_output(context);
-        let step_adjustments_binding = step_adjustments_binding_1.get_inner();
-        let target_tracking_configuration_binding_1 = args
+        let scaling_adjustment_binding = args.scaling_adjustment.get_output(context);
+        let step_adjustments_binding = args.step_adjustments.get_output(context);
+        let target_tracking_configuration_binding = args
             .target_tracking_configuration
             .get_output(context);
-        let target_tracking_configuration_binding = target_tracking_configuration_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:autoscaling/policy:Policy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adjustmentType".into(),
-                    value: &adjustment_type_binding,
+                    value: adjustment_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingGroupName".into(),
-                    value: &autoscaling_group_name_binding,
+                    value: autoscaling_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cooldown".into(),
-                    value: &cooldown_binding,
+                    value: cooldown_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "estimatedInstanceWarmup".into(),
-                    value: &estimated_instance_warmup_binding,
+                    value: estimated_instance_warmup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricAggregationType".into(),
-                    value: &metric_aggregation_type_binding,
+                    value: metric_aggregation_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minAdjustmentMagnitude".into(),
-                    value: &min_adjustment_magnitude_binding,
+                    value: min_adjustment_magnitude_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyType".into(),
-                    value: &policy_type_binding,
+                    value: policy_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "predictiveScalingConfiguration".into(),
-                    value: &predictive_scaling_configuration_binding,
+                    value: predictive_scaling_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingAdjustment".into(),
-                    value: &scaling_adjustment_binding,
+                    value: scaling_adjustment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stepAdjustments".into(),
-                    value: &step_adjustments_binding,
+                    value: step_adjustments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetTrackingConfiguration".into(),
-                    value: &target_tracking_configuration_binding,
+                    value: target_tracking_configuration_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PolicyResult {
-            adjustment_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adjustmentType"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            autoscaling_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscalingGroupName"),
-            ),
-            cooldown: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cooldown"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            estimated_instance_warmup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("estimatedInstanceWarmup"),
-            ),
-            metric_aggregation_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metricAggregationType"),
-            ),
-            min_adjustment_magnitude: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minAdjustmentMagnitude"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            policy_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyType"),
-            ),
-            predictive_scaling_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("predictiveScalingConfiguration"),
-            ),
-            scaling_adjustment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalingAdjustment"),
-            ),
-            step_adjustments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stepAdjustments"),
-            ),
-            target_tracking_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetTrackingConfiguration"),
-            ),
+            adjustment_type: o.get_field("adjustmentType"),
+            arn: o.get_field("arn"),
+            autoscaling_group_name: o.get_field("autoscalingGroupName"),
+            cooldown: o.get_field("cooldown"),
+            enabled: o.get_field("enabled"),
+            estimated_instance_warmup: o.get_field("estimatedInstanceWarmup"),
+            metric_aggregation_type: o.get_field("metricAggregationType"),
+            min_adjustment_magnitude: o.get_field("minAdjustmentMagnitude"),
+            name: o.get_field("name"),
+            policy_type: o.get_field("policyType"),
+            predictive_scaling_configuration: o
+                .get_field("predictiveScalingConfiguration"),
+            scaling_adjustment: o.get_field("scalingAdjustment"),
+            step_adjustments: o.get_field("stepAdjustments"),
+            target_tracking_configuration: o.get_field("targetTrackingConfiguration"),
         }
     }
 }

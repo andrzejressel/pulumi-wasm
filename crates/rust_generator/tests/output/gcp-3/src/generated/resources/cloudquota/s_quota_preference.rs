@@ -140,112 +140,80 @@ pub mod s_quota_preference {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SQuotaPreferenceArgs,
     ) -> SQuotaPreferenceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let contact_email_binding_1 = args.contact_email.get_output(context);
-        let contact_email_binding = contact_email_binding_1.get_inner();
-        let dimensions_binding_1 = args.dimensions.get_output(context);
-        let dimensions_binding = dimensions_binding_1.get_inner();
-        let ignore_safety_checks_binding_1 = args
-            .ignore_safety_checks
-            .get_output(context);
-        let ignore_safety_checks_binding = ignore_safety_checks_binding_1.get_inner();
-        let justification_binding_1 = args.justification.get_output(context);
-        let justification_binding = justification_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let quota_config_binding_1 = args.quota_config.get_output(context);
-        let quota_config_binding = quota_config_binding_1.get_inner();
-        let quota_id_binding_1 = args.quota_id.get_output(context);
-        let quota_id_binding = quota_id_binding_1.get_inner();
-        let service_binding_1 = args.service.get_output(context);
-        let service_binding = service_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let contact_email_binding = args.contact_email.get_output(context);
+        let dimensions_binding = args.dimensions.get_output(context);
+        let ignore_safety_checks_binding = args.ignore_safety_checks.get_output(context);
+        let justification_binding = args.justification.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let quota_config_binding = args.quota_config.get_output(context);
+        let quota_id_binding = args.quota_id.get_output(context);
+        let service_binding = args.service.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:cloudquota/sQuotaPreference:SQuotaPreference".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactEmail".into(),
-                    value: &contact_email_binding,
+                    value: contact_email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dimensions".into(),
-                    value: &dimensions_binding,
+                    value: dimensions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreSafetyChecks".into(),
-                    value: &ignore_safety_checks_binding,
+                    value: ignore_safety_checks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "justification".into(),
-                    value: &justification_binding,
+                    value: justification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quotaConfig".into(),
-                    value: &quota_config_binding,
+                    value: quota_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quotaId".into(),
-                    value: &quota_id_binding,
+                    value: quota_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: &service_binding,
+                    value: service_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SQuotaPreferenceResult {
-            contact_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contactEmail"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            dimensions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dimensions"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            ignore_safety_checks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoreSafetyChecks"),
-            ),
-            justification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("justification"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            quota_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("quotaConfig"),
-            ),
-            quota_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("quotaId"),
-            ),
-            reconciling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciling"),
-            ),
-            service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("service"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            contact_email: o.get_field("contactEmail"),
+            create_time: o.get_field("createTime"),
+            dimensions: o.get_field("dimensions"),
+            etag: o.get_field("etag"),
+            ignore_safety_checks: o.get_field("ignoreSafetyChecks"),
+            justification: o.get_field("justification"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            quota_config: o.get_field("quotaConfig"),
+            quota_id: o.get_field("quotaId"),
+            reconciling: o.get_field("reconciling"),
+            service: o.get_field("service"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

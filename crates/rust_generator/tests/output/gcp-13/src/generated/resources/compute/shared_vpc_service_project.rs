@@ -71,48 +71,40 @@ pub mod shared_vpc_service_project {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SharedVPCServiceProjectArgs,
     ) -> SharedVPCServiceProjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
-        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
-        let host_project_binding_1 = args.host_project.get_output(context);
-        let host_project_binding = host_project_binding_1.get_inner();
-        let service_project_binding_1 = args.service_project.get_output(context);
-        let service_project_binding = service_project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let deletion_policy_binding = args.deletion_policy.get_output(context);
+        let host_project_binding = args.host_project.get_output(context);
+        let service_project_binding = args.service_project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/sharedVPCServiceProject:SharedVPCServiceProject".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: &deletion_policy_binding,
+                    value: deletion_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostProject".into(),
-                    value: &host_project_binding,
+                    value: host_project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceProject".into(),
-                    value: &service_project_binding,
+                    value: service_project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SharedVPCServiceProjectResult {
-            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionPolicy"),
-            ),
-            host_project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostProject"),
-            ),
-            service_project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceProject"),
-            ),
+            deletion_policy: o.get_field("deletionPolicy"),
+            host_project: o.get_field("hostProject"),
+            service_project: o.get_field("serviceProject"),
         }
     }
 }

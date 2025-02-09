@@ -74,67 +74,50 @@ pub mod vpc_ipam_resource_discovery_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcIpamResourceDiscoveryAssociationArgs,
     ) -> VpcIpamResourceDiscoveryAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ipam_id_binding_1 = args.ipam_id.get_output(context);
-        let ipam_id_binding = ipam_id_binding_1.get_inner();
-        let ipam_resource_discovery_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let ipam_id_binding = args.ipam_id.get_output(context);
+        let ipam_resource_discovery_id_binding = args
             .ipam_resource_discovery_id
             .get_output(context);
-        let ipam_resource_discovery_id_binding = ipam_resource_discovery_id_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamId".into(),
-                    value: &ipam_id_binding,
+                    value: ipam_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamResourceDiscoveryId".into(),
-                    value: &ipam_resource_discovery_id_binding,
+                    value: ipam_resource_discovery_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcIpamResourceDiscoveryAssociationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            ipam_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamArn"),
-            ),
-            ipam_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamId"),
-            ),
-            ipam_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamRegion"),
-            ),
-            ipam_resource_discovery_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamResourceDiscoveryId"),
-            ),
-            is_default: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isDefault"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            ipam_arn: o.get_field("ipamArn"),
+            ipam_id: o.get_field("ipamId"),
+            ipam_region: o.get_field("ipamRegion"),
+            ipam_resource_discovery_id: o.get_field("ipamResourceDiscoveryId"),
+            is_default: o.get_field("isDefault"),
+            owner_id: o.get_field("ownerId"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

@@ -120,84 +120,66 @@ pub mod notification_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NotificationRuleArgs,
     ) -> NotificationRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let detail_type_binding_1 = args.detail_type.get_output(context);
-        let detail_type_binding = detail_type_binding_1.get_inner();
-        let event_type_ids_binding_1 = args.event_type_ids.get_output(context);
-        let event_type_ids_binding = event_type_ids_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_binding_1 = args.resource.get_output(context);
-        let resource_binding = resource_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let targets_binding_1 = args.targets.get_output(context);
-        let targets_binding = targets_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let detail_type_binding = args.detail_type.get_output(context);
+        let event_type_ids_binding = args.event_type_ids.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_binding = args.resource.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let targets_binding = args.targets.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:codestarnotifications/notificationRule:NotificationRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detailType".into(),
-                    value: &detail_type_binding,
+                    value: detail_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventTypeIds".into(),
-                    value: &event_type_ids_binding,
+                    value: event_type_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resource".into(),
-                    value: &resource_binding,
+                    value: resource_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targets".into(),
-                    value: &targets_binding,
+                    value: targets_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NotificationRuleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            detail_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("detailType"),
-            ),
-            event_type_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventTypeIds"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resource"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targets"),
-            ),
+            arn: o.get_field("arn"),
+            detail_type: o.get_field("detailType"),
+            event_type_ids: o.get_field("eventTypeIds"),
+            name: o.get_field("name"),
+            resource: o.get_field("resource"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            targets: o.get_field("targets"),
         }
     }
 }

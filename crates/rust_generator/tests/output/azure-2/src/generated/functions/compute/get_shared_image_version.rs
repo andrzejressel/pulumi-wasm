@@ -63,91 +63,65 @@ pub mod get_shared_image_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSharedImageVersionArgs,
     ) -> GetSharedImageVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let gallery_name_binding_1 = args.gallery_name.get_output(context);
-        let gallery_name_binding = gallery_name_binding_1.get_inner();
-        let image_name_binding_1 = args.image_name.get_output(context);
-        let image_name_binding = image_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sort_versions_by_semver_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let gallery_name_binding = args.gallery_name.get_output(context);
+        let image_name_binding = args.image_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sort_versions_by_semver_binding = args
             .sort_versions_by_semver
             .get_output(context);
-        let sort_versions_by_semver_binding = sort_versions_by_semver_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:compute/getSharedImageVersion:getSharedImageVersion".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "galleryName".into(),
-                    value: &gallery_name_binding,
+                    value: gallery_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageName".into(),
-                    value: &image_name_binding,
+                    value: image_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sortVersionsBySemver".into(),
-                    value: &sort_versions_by_semver_binding,
+                    value: sort_versions_by_semver_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSharedImageVersionResult {
-            exclude_from_latest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludeFromLatest"),
-            ),
-            gallery_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("galleryName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            image_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageName"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            managed_image_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedImageId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            os_disk_image_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osDiskImageSizeGb"),
-            ),
-            os_disk_snapshot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osDiskSnapshotId"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sort_versions_by_semver: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sortVersionsBySemver"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            target_regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetRegions"),
-            ),
+            exclude_from_latest: o.get_field("excludeFromLatest"),
+            gallery_name: o.get_field("galleryName"),
+            id: o.get_field("id"),
+            image_name: o.get_field("imageName"),
+            location: o.get_field("location"),
+            managed_image_id: o.get_field("managedImageId"),
+            name: o.get_field("name"),
+            os_disk_image_size_gb: o.get_field("osDiskImageSizeGb"),
+            os_disk_snapshot_id: o.get_field("osDiskSnapshotId"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sort_versions_by_semver: o.get_field("sortVersionsBySemver"),
+            tags: o.get_field("tags"),
+            target_regions: o.get_field("targetRegions"),
         }
     }
 }

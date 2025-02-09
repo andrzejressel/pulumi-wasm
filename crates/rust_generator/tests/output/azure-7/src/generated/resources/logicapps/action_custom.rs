@@ -77,44 +77,40 @@ pub mod action_custom {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ActionCustomArgs,
     ) -> ActionCustomResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let body_binding_1 = args.body.get_output(context);
-        let body_binding = body_binding_1.get_inner();
-        let logic_app_id_binding_1 = args.logic_app_id.get_output(context);
-        let logic_app_id_binding = logic_app_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let body_binding = args.body.get_output(context);
+        let logic_app_id_binding = args.logic_app_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:logicapps/actionCustom:ActionCustom".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "body".into(),
-                    value: &body_binding,
+                    value: body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logicAppId".into(),
-                    value: &logic_app_id_binding,
+                    value: logic_app_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ActionCustomResult {
-            body: pulumi_gestalt_rust::__private::into_domain(o.extract_field("body")),
-            logic_app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logicAppId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            body: o.get_field("body"),
+            logic_app_id: o.get_field("logicAppId"),
+            name: o.get_field("name"),
         }
     }
 }

@@ -117,73 +117,58 @@ pub mod policy_vm_workload {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PolicyVMWorkloadArgs,
     ) -> PolicyVMWorkloadResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let protection_policies_binding_1 = args.protection_policies.get_output(context);
-        let protection_policies_binding = protection_policies_binding_1.get_inner();
-        let recovery_vault_name_binding_1 = args.recovery_vault_name.get_output(context);
-        let recovery_vault_name_binding = recovery_vault_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let settings_binding_1 = args.settings.get_output(context);
-        let settings_binding = settings_binding_1.get_inner();
-        let workload_type_binding_1 = args.workload_type.get_output(context);
-        let workload_type_binding = workload_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let protection_policies_binding = args.protection_policies.get_output(context);
+        let recovery_vault_name_binding = args.recovery_vault_name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let settings_binding = args.settings.get_output(context);
+        let workload_type_binding = args.workload_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:backup/policyVMWorkload:PolicyVMWorkload".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectionPolicies".into(),
-                    value: &protection_policies_binding,
+                    value: protection_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultName".into(),
-                    value: &recovery_vault_name_binding,
+                    value: recovery_vault_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: &settings_binding,
+                    value: settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadType".into(),
-                    value: &workload_type_binding,
+                    value: workload_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PolicyVMWorkloadResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            protection_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectionPolicies"),
-            ),
-            recovery_vault_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recoveryVaultName"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("settings"),
-            ),
-            workload_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadType"),
-            ),
+            name: o.get_field("name"),
+            protection_policies: o.get_field("protectionPolicies"),
+            recovery_vault_name: o.get_field("recoveryVaultName"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            settings: o.get_field("settings"),
+            workload_type: o.get_field("workloadType"),
         }
     }
 }

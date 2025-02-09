@@ -175,62 +175,49 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_settings_binding_1 = args
-            .autoscaling_settings
-            .get_output(context);
-        let autoscaling_settings_binding = autoscaling_settings_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let node_type_configs_binding_1 = args.node_type_configs.get_output(context);
-        let node_type_configs_binding = node_type_configs_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let autoscaling_settings_binding = args.autoscaling_settings.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let node_type_configs_binding = args.node_type_configs.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:vmwareengine/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingSettings".into(),
-                    value: &autoscaling_settings_binding,
+                    value: autoscaling_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeTypeConfigs".into(),
-                    value: &node_type_configs_binding,
+                    value: node_type_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            autoscaling_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscalingSettings"),
-            ),
-            management: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("management"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_type_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeTypeConfigs"),
-            ),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            autoscaling_settings: o.get_field("autoscalingSettings"),
+            management: o.get_field("management"),
+            name: o.get_field("name"),
+            node_type_configs: o.get_field("nodeTypeConfigs"),
+            parent: o.get_field("parent"),
+            state: o.get_field("state"),
+            uid: o.get_field("uid"),
         }
     }
 }

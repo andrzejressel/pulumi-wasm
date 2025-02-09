@@ -61,39 +61,34 @@ pub mod proxy_protocol_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProxyProtocolPolicyArgs,
     ) -> ProxyProtocolPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_ports_binding_1 = args.instance_ports.get_output(context);
-        let instance_ports_binding = instance_ports_binding_1.get_inner();
-        let load_balancer_binding_1 = args.load_balancer.get_output(context);
-        let load_balancer_binding = load_balancer_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let instance_ports_binding = args.instance_ports.get_output(context);
+        let load_balancer_binding = args.load_balancer.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instancePorts".into(),
-                    value: &instance_ports_binding,
+                    value: instance_ports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancer".into(),
-                    value: &load_balancer_binding,
+                    value: load_balancer_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProxyProtocolPolicyResult {
-            instance_ports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instancePorts"),
-            ),
-            load_balancer: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancer"),
-            ),
+            instance_ports: o.get_field("instancePorts"),
+            load_balancer: o.get_field("loadBalancer"),
         }
     }
 }

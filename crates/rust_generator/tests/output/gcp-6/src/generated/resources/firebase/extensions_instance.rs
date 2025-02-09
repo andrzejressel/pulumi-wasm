@@ -132,72 +132,50 @@ pub mod extensions_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ExtensionsInstanceArgs,
     ) -> ExtensionsInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let config_binding_1 = args.config.get_output(context);
-        let config_binding = config_binding_1.get_inner();
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let config_binding = args.config.get_output(context);
+        let instance_id_binding = args.instance_id.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:firebase/extensionsInstance:ExtensionsInstance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "config".into(),
-                    value: &config_binding,
+                    value: config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ExtensionsInstanceResult {
-            config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("config"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            error_statuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errorStatuses"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            last_operation_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastOperationName"),
-            ),
-            last_operation_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastOperationType"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            runtime_datas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtimeDatas"),
-            ),
-            service_account_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountEmail"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            config: o.get_field("config"),
+            create_time: o.get_field("createTime"),
+            error_statuses: o.get_field("errorStatuses"),
+            etag: o.get_field("etag"),
+            instance_id: o.get_field("instanceId"),
+            last_operation_name: o.get_field("lastOperationName"),
+            last_operation_type: o.get_field("lastOperationType"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            runtime_datas: o.get_field("runtimeDatas"),
+            service_account_email: o.get_field("serviceAccountEmail"),
+            state: o.get_field("state"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

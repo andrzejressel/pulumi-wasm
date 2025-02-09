@@ -117,52 +117,43 @@ pub mod certificate_authority_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CertificateAuthorityCertificateArgs,
     ) -> CertificateAuthorityCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_binding_1 = args.certificate.get_output(context);
-        let certificate_binding = certificate_binding_1.get_inner();
-        let certificate_authority_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_binding = args.certificate.get_output(context);
+        let certificate_authority_arn_binding = args
             .certificate_authority_arn
             .get_output(context);
-        let certificate_authority_arn_binding = certificate_authority_arn_binding_1
-            .get_inner();
-        let certificate_chain_binding_1 = args.certificate_chain.get_output(context);
-        let certificate_chain_binding = certificate_chain_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let certificate_chain_binding = args.certificate_chain.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificate".into(),
-                    value: &certificate_binding,
+                    value: certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthorityArn".into(),
-                    value: &certificate_authority_arn_binding,
+                    value: certificate_authority_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateChain".into(),
-                    value: &certificate_chain_binding,
+                    value: certificate_chain_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CertificateAuthorityCertificateResult {
-            certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificate"),
-            ),
-            certificate_authority_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateAuthorityArn"),
-            ),
-            certificate_chain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateChain"),
-            ),
+            certificate: o.get_field("certificate"),
+            certificate_authority_arn: o.get_field("certificateAuthorityArn"),
+            certificate_chain: o.get_field("certificateChain"),
         }
     }
 }

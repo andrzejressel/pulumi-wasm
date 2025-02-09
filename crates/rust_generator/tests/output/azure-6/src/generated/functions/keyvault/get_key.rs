@@ -55,69 +55,48 @@ pub mod get_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetKeyArgs,
     ) -> GetKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
-        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let key_vault_id_binding = args.key_vault_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:keyvault/getKey:getKey".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: &key_vault_id_binding,
+                    value: key_vault_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetKeyResult {
-            curve: pulumi_gestalt_rust::__private::into_domain(o.extract_field("curve")),
-            e: pulumi_gestalt_rust::__private::into_domain(o.extract_field("e")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_opts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyOpts"),
-            ),
-            key_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keySize"),
-            ),
-            key_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyType"),
-            ),
-            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultId"),
-            ),
-            n: pulumi_gestalt_rust::__private::into_domain(o.extract_field("n")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            public_key_openssh: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKeyOpenssh"),
-            ),
-            public_key_pem: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKeyPem"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            resource_versionless_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceVersionlessId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            versionless_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionlessId"),
-            ),
-            x: pulumi_gestalt_rust::__private::into_domain(o.extract_field("x")),
-            y: pulumi_gestalt_rust::__private::into_domain(o.extract_field("y")),
+            curve: o.get_field("curve"),
+            e: o.get_field("e"),
+            id: o.get_field("id"),
+            key_opts: o.get_field("keyOpts"),
+            key_size: o.get_field("keySize"),
+            key_type: o.get_field("keyType"),
+            key_vault_id: o.get_field("keyVaultId"),
+            n: o.get_field("n"),
+            name: o.get_field("name"),
+            public_key_openssh: o.get_field("publicKeyOpenssh"),
+            public_key_pem: o.get_field("publicKeyPem"),
+            resource_id: o.get_field("resourceId"),
+            resource_versionless_id: o.get_field("resourceVersionlessId"),
+            tags: o.get_field("tags"),
+            version: o.get_field("version"),
+            versionless_id: o.get_field("versionlessId"),
+            x: o.get_field("x"),
+            y: o.get_field("y"),
         }
     }
 }

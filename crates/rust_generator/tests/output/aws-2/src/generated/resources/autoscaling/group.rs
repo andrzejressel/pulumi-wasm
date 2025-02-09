@@ -823,428 +823,294 @@ pub mod group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GroupArgs,
     ) -> GroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_distribution_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let availability_zone_distribution_binding = args
             .availability_zone_distribution
             .get_output(context);
-        let availability_zone_distribution_binding = availability_zone_distribution_binding_1
-            .get_inner();
-        let availability_zones_binding_1 = args.availability_zones.get_output(context);
-        let availability_zones_binding = availability_zones_binding_1.get_inner();
-        let capacity_rebalance_binding_1 = args.capacity_rebalance.get_output(context);
-        let capacity_rebalance_binding = capacity_rebalance_binding_1.get_inner();
-        let context_binding_1 = args.context.get_output(context);
-        let context_binding = context_binding_1.get_inner();
-        let default_cooldown_binding_1 = args.default_cooldown.get_output(context);
-        let default_cooldown_binding = default_cooldown_binding_1.get_inner();
-        let default_instance_warmup_binding_1 = args
+        let availability_zones_binding = args.availability_zones.get_output(context);
+        let capacity_rebalance_binding = args.capacity_rebalance.get_output(context);
+        let context_binding = args.context.get_output(context);
+        let default_cooldown_binding = args.default_cooldown.get_output(context);
+        let default_instance_warmup_binding = args
             .default_instance_warmup
             .get_output(context);
-        let default_instance_warmup_binding = default_instance_warmup_binding_1
-            .get_inner();
-        let desired_capacity_binding_1 = args.desired_capacity.get_output(context);
-        let desired_capacity_binding = desired_capacity_binding_1.get_inner();
-        let desired_capacity_type_binding_1 = args
+        let desired_capacity_binding = args.desired_capacity.get_output(context);
+        let desired_capacity_type_binding = args
             .desired_capacity_type
             .get_output(context);
-        let desired_capacity_type_binding = desired_capacity_type_binding_1.get_inner();
-        let enabled_metrics_binding_1 = args.enabled_metrics.get_output(context);
-        let enabled_metrics_binding = enabled_metrics_binding_1.get_inner();
-        let force_delete_binding_1 = args.force_delete.get_output(context);
-        let force_delete_binding = force_delete_binding_1.get_inner();
-        let force_delete_warm_pool_binding_1 = args
+        let enabled_metrics_binding = args.enabled_metrics.get_output(context);
+        let force_delete_binding = args.force_delete.get_output(context);
+        let force_delete_warm_pool_binding = args
             .force_delete_warm_pool
             .get_output(context);
-        let force_delete_warm_pool_binding = force_delete_warm_pool_binding_1
-            .get_inner();
-        let health_check_grace_period_binding_1 = args
+        let health_check_grace_period_binding = args
             .health_check_grace_period
             .get_output(context);
-        let health_check_grace_period_binding = health_check_grace_period_binding_1
-            .get_inner();
-        let health_check_type_binding_1 = args.health_check_type.get_output(context);
-        let health_check_type_binding = health_check_type_binding_1.get_inner();
-        let ignore_failed_scaling_activities_binding_1 = args
+        let health_check_type_binding = args.health_check_type.get_output(context);
+        let ignore_failed_scaling_activities_binding = args
             .ignore_failed_scaling_activities
             .get_output(context);
-        let ignore_failed_scaling_activities_binding = ignore_failed_scaling_activities_binding_1
-            .get_inner();
-        let initial_lifecycle_hooks_binding_1 = args
+        let initial_lifecycle_hooks_binding = args
             .initial_lifecycle_hooks
             .get_output(context);
-        let initial_lifecycle_hooks_binding = initial_lifecycle_hooks_binding_1
-            .get_inner();
-        let instance_maintenance_policy_binding_1 = args
+        let instance_maintenance_policy_binding = args
             .instance_maintenance_policy
             .get_output(context);
-        let instance_maintenance_policy_binding = instance_maintenance_policy_binding_1
-            .get_inner();
-        let instance_refresh_binding_1 = args.instance_refresh.get_output(context);
-        let instance_refresh_binding = instance_refresh_binding_1.get_inner();
-        let launch_configuration_binding_1 = args
-            .launch_configuration
-            .get_output(context);
-        let launch_configuration_binding = launch_configuration_binding_1.get_inner();
-        let launch_template_binding_1 = args.launch_template.get_output(context);
-        let launch_template_binding = launch_template_binding_1.get_inner();
-        let load_balancers_binding_1 = args.load_balancers.get_output(context);
-        let load_balancers_binding = load_balancers_binding_1.get_inner();
-        let max_instance_lifetime_binding_1 = args
+        let instance_refresh_binding = args.instance_refresh.get_output(context);
+        let launch_configuration_binding = args.launch_configuration.get_output(context);
+        let launch_template_binding = args.launch_template.get_output(context);
+        let load_balancers_binding = args.load_balancers.get_output(context);
+        let max_instance_lifetime_binding = args
             .max_instance_lifetime
             .get_output(context);
-        let max_instance_lifetime_binding = max_instance_lifetime_binding_1.get_inner();
-        let max_size_binding_1 = args.max_size.get_output(context);
-        let max_size_binding = max_size_binding_1.get_inner();
-        let metrics_granularity_binding_1 = args.metrics_granularity.get_output(context);
-        let metrics_granularity_binding = metrics_granularity_binding_1.get_inner();
-        let min_elb_capacity_binding_1 = args.min_elb_capacity.get_output(context);
-        let min_elb_capacity_binding = min_elb_capacity_binding_1.get_inner();
-        let min_size_binding_1 = args.min_size.get_output(context);
-        let min_size_binding = min_size_binding_1.get_inner();
-        let mixed_instances_policy_binding_1 = args
+        let max_size_binding = args.max_size.get_output(context);
+        let metrics_granularity_binding = args.metrics_granularity.get_output(context);
+        let min_elb_capacity_binding = args.min_elb_capacity.get_output(context);
+        let min_size_binding = args.min_size.get_output(context);
+        let mixed_instances_policy_binding = args
             .mixed_instances_policy
             .get_output(context);
-        let mixed_instances_policy_binding = mixed_instances_policy_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let placement_group_binding_1 = args.placement_group.get_output(context);
-        let placement_group_binding = placement_group_binding_1.get_inner();
-        let protect_from_scale_in_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let placement_group_binding = args.placement_group.get_output(context);
+        let protect_from_scale_in_binding = args
             .protect_from_scale_in
             .get_output(context);
-        let protect_from_scale_in_binding = protect_from_scale_in_binding_1.get_inner();
-        let service_linked_role_arn_binding_1 = args
+        let service_linked_role_arn_binding = args
             .service_linked_role_arn
             .get_output(context);
-        let service_linked_role_arn_binding = service_linked_role_arn_binding_1
-            .get_inner();
-        let suspended_processes_binding_1 = args.suspended_processes.get_output(context);
-        let suspended_processes_binding = suspended_processes_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_group_arns_binding_1 = args.target_group_arns.get_output(context);
-        let target_group_arns_binding = target_group_arns_binding_1.get_inner();
-        let termination_policies_binding_1 = args
-            .termination_policies
-            .get_output(context);
-        let termination_policies_binding = termination_policies_binding_1.get_inner();
-        let traffic_sources_binding_1 = args.traffic_sources.get_output(context);
-        let traffic_sources_binding = traffic_sources_binding_1.get_inner();
-        let vpc_zone_identifiers_binding_1 = args
-            .vpc_zone_identifiers
-            .get_output(context);
-        let vpc_zone_identifiers_binding = vpc_zone_identifiers_binding_1.get_inner();
-        let wait_for_capacity_timeout_binding_1 = args
+        let suspended_processes_binding = args.suspended_processes.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_group_arns_binding = args.target_group_arns.get_output(context);
+        let termination_policies_binding = args.termination_policies.get_output(context);
+        let traffic_sources_binding = args.traffic_sources.get_output(context);
+        let vpc_zone_identifiers_binding = args.vpc_zone_identifiers.get_output(context);
+        let wait_for_capacity_timeout_binding = args
             .wait_for_capacity_timeout
             .get_output(context);
-        let wait_for_capacity_timeout_binding = wait_for_capacity_timeout_binding_1
-            .get_inner();
-        let wait_for_elb_capacity_binding_1 = args
+        let wait_for_elb_capacity_binding = args
             .wait_for_elb_capacity
             .get_output(context);
-        let wait_for_elb_capacity_binding = wait_for_elb_capacity_binding_1.get_inner();
-        let warm_pool_binding_1 = args.warm_pool.get_output(context);
-        let warm_pool_binding = warm_pool_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let warm_pool_binding = args.warm_pool.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:autoscaling/group:Group".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneDistribution".into(),
-                    value: &availability_zone_distribution_binding,
+                    value: availability_zone_distribution_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZones".into(),
-                    value: &availability_zones_binding,
+                    value: availability_zones_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityRebalance".into(),
-                    value: &capacity_rebalance_binding,
+                    value: capacity_rebalance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "context".into(),
-                    value: &context_binding,
+                    value: context_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultCooldown".into(),
-                    value: &default_cooldown_binding,
+                    value: default_cooldown_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultInstanceWarmup".into(),
-                    value: &default_instance_warmup_binding,
+                    value: default_instance_warmup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredCapacity".into(),
-                    value: &desired_capacity_binding,
+                    value: desired_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredCapacityType".into(),
-                    value: &desired_capacity_type_binding,
+                    value: desired_capacity_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabledMetrics".into(),
-                    value: &enabled_metrics_binding,
+                    value: enabled_metrics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDelete".into(),
-                    value: &force_delete_binding,
+                    value: force_delete_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDeleteWarmPool".into(),
-                    value: &force_delete_warm_pool_binding,
+                    value: force_delete_warm_pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckGracePeriod".into(),
-                    value: &health_check_grace_period_binding,
+                    value: health_check_grace_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckType".into(),
-                    value: &health_check_type_binding,
+                    value: health_check_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreFailedScalingActivities".into(),
-                    value: &ignore_failed_scaling_activities_binding,
+                    value: ignore_failed_scaling_activities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialLifecycleHooks".into(),
-                    value: &initial_lifecycle_hooks_binding,
+                    value: initial_lifecycle_hooks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceMaintenancePolicy".into(),
-                    value: &instance_maintenance_policy_binding,
+                    value: instance_maintenance_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceRefresh".into(),
-                    value: &instance_refresh_binding,
+                    value: instance_refresh_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchConfiguration".into(),
-                    value: &launch_configuration_binding,
+                    value: launch_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchTemplate".into(),
-                    value: &launch_template_binding,
+                    value: launch_template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancers".into(),
-                    value: &load_balancers_binding,
+                    value: load_balancers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxInstanceLifetime".into(),
-                    value: &max_instance_lifetime_binding,
+                    value: max_instance_lifetime_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxSize".into(),
-                    value: &max_size_binding,
+                    value: max_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricsGranularity".into(),
-                    value: &metrics_granularity_binding,
+                    value: metrics_granularity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minElbCapacity".into(),
-                    value: &min_elb_capacity_binding,
+                    value: min_elb_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minSize".into(),
-                    value: &min_size_binding,
+                    value: min_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mixedInstancesPolicy".into(),
-                    value: &mixed_instances_policy_binding,
+                    value: mixed_instances_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementGroup".into(),
-                    value: &placement_group_binding,
+                    value: placement_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectFromScaleIn".into(),
-                    value: &protect_from_scale_in_binding,
+                    value: protect_from_scale_in_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceLinkedRoleArn".into(),
-                    value: &service_linked_role_arn_binding,
+                    value: service_linked_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suspendedProcesses".into(),
-                    value: &suspended_processes_binding,
+                    value: suspended_processes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetGroupArns".into(),
-                    value: &target_group_arns_binding,
+                    value: target_group_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terminationPolicies".into(),
-                    value: &termination_policies_binding,
+                    value: termination_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficSources".into(),
-                    value: &traffic_sources_binding,
+                    value: traffic_sources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcZoneIdentifiers".into(),
-                    value: &vpc_zone_identifiers_binding,
+                    value: vpc_zone_identifiers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForCapacityTimeout".into(),
-                    value: &wait_for_capacity_timeout_binding,
+                    value: wait_for_capacity_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForElbCapacity".into(),
-                    value: &wait_for_elb_capacity_binding,
+                    value: wait_for_elb_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "warmPool".into(),
-                    value: &warm_pool_binding,
+                    value: warm_pool_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone_distribution: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneDistribution"),
-            ),
-            availability_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZones"),
-            ),
-            capacity_rebalance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityRebalance"),
-            ),
-            context: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("context"),
-            ),
-            default_cooldown: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultCooldown"),
-            ),
-            default_instance_warmup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultInstanceWarmup"),
-            ),
-            desired_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredCapacity"),
-            ),
-            desired_capacity_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredCapacityType"),
-            ),
-            enabled_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabledMetrics"),
-            ),
-            force_delete: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDelete"),
-            ),
-            force_delete_warm_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDeleteWarmPool"),
-            ),
-            health_check_grace_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckGracePeriod"),
-            ),
-            health_check_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckType"),
-            ),
-            ignore_failed_scaling_activities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoreFailedScalingActivities"),
-            ),
-            initial_lifecycle_hooks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initialLifecycleHooks"),
-            ),
-            instance_maintenance_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceMaintenancePolicy"),
-            ),
-            instance_refresh: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceRefresh"),
-            ),
-            launch_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchConfiguration"),
-            ),
-            launch_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchTemplate"),
-            ),
-            load_balancers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancers"),
-            ),
-            max_instance_lifetime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxInstanceLifetime"),
-            ),
-            max_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxSize"),
-            ),
-            metrics_granularity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metricsGranularity"),
-            ),
-            min_elb_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minElbCapacity"),
-            ),
-            min_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minSize"),
-            ),
-            mixed_instances_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mixedInstancesPolicy"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            placement_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementGroup"),
-            ),
-            predicted_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("predictedCapacity"),
-            ),
-            protect_from_scale_in: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectFromScaleIn"),
-            ),
-            service_linked_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceLinkedRoleArn"),
-            ),
-            suspended_processes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("suspendedProcesses"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            target_group_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetGroupArns"),
-            ),
-            termination_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("terminationPolicies"),
-            ),
-            traffic_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficSources"),
-            ),
-            vpc_zone_identifiers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcZoneIdentifiers"),
-            ),
-            wait_for_capacity_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForCapacityTimeout"),
-            ),
-            wait_for_elb_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForElbCapacity"),
-            ),
-            warm_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("warmPool"),
-            ),
-            warm_pool_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("warmPoolSize"),
-            ),
+            arn: o.get_field("arn"),
+            availability_zone_distribution: o.get_field("availabilityZoneDistribution"),
+            availability_zones: o.get_field("availabilityZones"),
+            capacity_rebalance: o.get_field("capacityRebalance"),
+            context: o.get_field("context"),
+            default_cooldown: o.get_field("defaultCooldown"),
+            default_instance_warmup: o.get_field("defaultInstanceWarmup"),
+            desired_capacity: o.get_field("desiredCapacity"),
+            desired_capacity_type: o.get_field("desiredCapacityType"),
+            enabled_metrics: o.get_field("enabledMetrics"),
+            force_delete: o.get_field("forceDelete"),
+            force_delete_warm_pool: o.get_field("forceDeleteWarmPool"),
+            health_check_grace_period: o.get_field("healthCheckGracePeriod"),
+            health_check_type: o.get_field("healthCheckType"),
+            ignore_failed_scaling_activities: o
+                .get_field("ignoreFailedScalingActivities"),
+            initial_lifecycle_hooks: o.get_field("initialLifecycleHooks"),
+            instance_maintenance_policy: o.get_field("instanceMaintenancePolicy"),
+            instance_refresh: o.get_field("instanceRefresh"),
+            launch_configuration: o.get_field("launchConfiguration"),
+            launch_template: o.get_field("launchTemplate"),
+            load_balancers: o.get_field("loadBalancers"),
+            max_instance_lifetime: o.get_field("maxInstanceLifetime"),
+            max_size: o.get_field("maxSize"),
+            metrics_granularity: o.get_field("metricsGranularity"),
+            min_elb_capacity: o.get_field("minElbCapacity"),
+            min_size: o.get_field("minSize"),
+            mixed_instances_policy: o.get_field("mixedInstancesPolicy"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            placement_group: o.get_field("placementGroup"),
+            predicted_capacity: o.get_field("predictedCapacity"),
+            protect_from_scale_in: o.get_field("protectFromScaleIn"),
+            service_linked_role_arn: o.get_field("serviceLinkedRoleArn"),
+            suspended_processes: o.get_field("suspendedProcesses"),
+            tags: o.get_field("tags"),
+            target_group_arns: o.get_field("targetGroupArns"),
+            termination_policies: o.get_field("terminationPolicies"),
+            traffic_sources: o.get_field("trafficSources"),
+            vpc_zone_identifiers: o.get_field("vpcZoneIdentifiers"),
+            wait_for_capacity_timeout: o.get_field("waitForCapacityTimeout"),
+            wait_for_elb_capacity: o.get_field("waitForElbCapacity"),
+            warm_pool: o.get_field("warmPool"),
+            warm_pool_size: o.get_field("warmPoolSize"),
         }
     }
 }

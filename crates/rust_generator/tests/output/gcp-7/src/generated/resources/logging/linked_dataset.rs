@@ -148,82 +148,61 @@ pub mod linked_dataset {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LinkedDatasetArgs,
     ) -> LinkedDatasetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bigquery_datasets_binding_1 = args.bigquery_datasets.get_output(context);
-        let bigquery_datasets_binding = bigquery_datasets_binding_1.get_inner();
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let link_id_binding_1 = args.link_id.get_output(context);
-        let link_id_binding = link_id_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bigquery_datasets_binding = args.bigquery_datasets.get_output(context);
+        let bucket_binding = args.bucket.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let link_id_binding = args.link_id.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:logging/linkedDataset:LinkedDataset".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bigqueryDatasets".into(),
-                    value: &bigquery_datasets_binding,
+                    value: bigquery_datasets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkId".into(),
-                    value: &link_id_binding,
+                    value: link_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LinkedDatasetResult {
-            bigquery_datasets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bigqueryDatasets"),
-            ),
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            lifecycle_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecycleState"),
-            ),
-            link_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
+            bigquery_datasets: o.get_field("bigqueryDatasets"),
+            bucket: o.get_field("bucket"),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            lifecycle_state: o.get_field("lifecycleState"),
+            link_id: o.get_field("linkId"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
         }
     }
 }

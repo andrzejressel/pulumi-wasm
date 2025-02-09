@@ -144,94 +144,72 @@ pub mod inventory {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InventoryArgs,
     ) -> InventoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let destination_binding_1 = args.destination.get_output(context);
-        let destination_binding = destination_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let filter_binding_1 = args.filter.get_output(context);
-        let filter_binding = filter_binding_1.get_inner();
-        let included_object_versions_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_binding = args.bucket.get_output(context);
+        let destination_binding = args.destination.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let filter_binding = args.filter.get_output(context);
+        let included_object_versions_binding = args
             .included_object_versions
             .get_output(context);
-        let included_object_versions_binding = included_object_versions_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let optional_fields_binding_1 = args.optional_fields.get_output(context);
-        let optional_fields_binding = optional_fields_binding_1.get_inner();
-        let schedule_binding_1 = args.schedule.get_output(context);
-        let schedule_binding = schedule_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let optional_fields_binding = args.optional_fields.get_output(context);
+        let schedule_binding = args.schedule.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:s3/inventory:Inventory".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: &destination_binding,
+                    value: destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: &filter_binding,
+                    value: filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includedObjectVersions".into(),
-                    value: &included_object_versions_binding,
+                    value: included_object_versions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "optionalFields".into(),
-                    value: &optional_fields_binding,
+                    value: optional_fields_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: &schedule_binding,
+                    value: schedule_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InventoryResult {
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destination"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            included_object_versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includedObjectVersions"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            optional_fields: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("optionalFields"),
-            ),
-            schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedule"),
-            ),
+            bucket: o.get_field("bucket"),
+            destination: o.get_field("destination"),
+            enabled: o.get_field("enabled"),
+            filter: o.get_field("filter"),
+            included_object_versions: o.get_field("includedObjectVersions"),
+            name: o.get_field("name"),
+            optional_fields: o.get_field("optionalFields"),
+            schedule: o.get_field("schedule"),
         }
     }
 }

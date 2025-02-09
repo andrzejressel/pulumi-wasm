@@ -97,84 +97,64 @@ pub mod firewall_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FirewallRuleArgs,
     ) -> FirewallRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let filter_id_binding_1 = args.filter_id.get_output(context);
-        let filter_id_binding = filter_id_binding_1.get_inner();
-        let paused_binding_1 = args.paused.get_output(context);
-        let paused_binding = paused_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let products_binding_1 = args.products.get_output(context);
-        let products_binding = products_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let filter_id_binding = args.filter_id.get_output(context);
+        let paused_binding = args.paused.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let products_binding = args.products.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/firewallRule:FirewallRule".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterId".into(),
-                    value: &filter_id_binding,
+                    value: filter_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "paused".into(),
-                    value: &paused_binding,
+                    value: paused_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "products".into(),
-                    value: &products_binding,
+                    value: products_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FirewallRuleResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            filter_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filterId"),
-            ),
-            paused: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("paused"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            products: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("products"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            action: o.get_field("action"),
+            description: o.get_field("description"),
+            filter_id: o.get_field("filterId"),
+            paused: o.get_field("paused"),
+            priority: o.get_field("priority"),
+            products: o.get_field("products"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

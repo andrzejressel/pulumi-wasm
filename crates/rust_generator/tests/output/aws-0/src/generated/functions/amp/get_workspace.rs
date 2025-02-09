@@ -38,50 +38,39 @@ pub mod get_workspace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetWorkspaceArgs,
     ) -> GetWorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let tags_binding = args.tags.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:amp/getWorkspace:getWorkspace".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetWorkspaceResult {
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDate"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            prometheus_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prometheusEndpoint"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            alias: o.get_field("alias"),
+            arn: o.get_field("arn"),
+            created_date: o.get_field("createdDate"),
+            id: o.get_field("id"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            prometheus_endpoint: o.get_field("prometheusEndpoint"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

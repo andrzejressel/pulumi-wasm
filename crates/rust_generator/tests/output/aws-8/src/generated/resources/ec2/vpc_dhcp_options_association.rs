@@ -54,37 +54,34 @@ pub mod vpc_dhcp_options_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcDhcpOptionsAssociationArgs,
     ) -> VpcDhcpOptionsAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dhcp_options_id_binding_1 = args.dhcp_options_id.get_output(context);
-        let dhcp_options_id_binding = dhcp_options_id_binding_1.get_inner();
-        let vpc_id_binding_1 = args.vpc_id.get_output(context);
-        let vpc_id_binding = vpc_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dhcp_options_id_binding = args.dhcp_options_id.get_output(context);
+        let vpc_id_binding = args.vpc_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dhcpOptionsId".into(),
-                    value: &dhcp_options_id_binding,
+                    value: dhcp_options_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: &vpc_id_binding,
+                    value: vpc_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcDhcpOptionsAssociationResult {
-            dhcp_options_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dhcpOptionsId"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            dhcp_options_id: o.get_field("dhcpOptionsId"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

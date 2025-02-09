@@ -84,49 +84,41 @@ pub mod service_perimeter_dry_run_ingress_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServicePerimeterDryRunIngressPolicyArgs,
     ) -> ServicePerimeterDryRunIngressPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ingress_from_binding_1 = args.ingress_from.get_output(context);
-        let ingress_from_binding = ingress_from_binding_1.get_inner();
-        let ingress_to_binding_1 = args.ingress_to.get_output(context);
-        let ingress_to_binding = ingress_to_binding_1.get_inner();
-        let perimeter_binding_1 = args.perimeter.get_output(context);
-        let perimeter_binding = perimeter_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let ingress_from_binding = args.ingress_from.get_output(context);
+        let ingress_to_binding = args.ingress_to.get_output(context);
+        let perimeter_binding = args.perimeter.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/servicePerimeterDryRunIngressPolicy:ServicePerimeterDryRunIngressPolicy"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingressFrom".into(),
-                    value: &ingress_from_binding,
+                    value: ingress_from_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingressTo".into(),
-                    value: &ingress_to_binding,
+                    value: ingress_to_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "perimeter".into(),
-                    value: &perimeter_binding,
+                    value: perimeter_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServicePerimeterDryRunIngressPolicyResult {
-            ingress_from: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingressFrom"),
-            ),
-            ingress_to: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingressTo"),
-            ),
-            perimeter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("perimeter"),
-            ),
+            ingress_from: o.get_field("ingressFrom"),
+            ingress_to: o.get_field("ingressTo"),
+            perimeter: o.get_field("perimeter"),
         }
     }
 }

@@ -90,105 +90,78 @@ pub mod radius_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RadiusSettingsArgs,
     ) -> RadiusSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_protocol_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_protocol_binding = args
             .authentication_protocol
             .get_output(context);
-        let authentication_protocol_binding = authentication_protocol_binding_1
-            .get_inner();
-        let directory_id_binding_1 = args.directory_id.get_output(context);
-        let directory_id_binding = directory_id_binding_1.get_inner();
-        let display_label_binding_1 = args.display_label.get_output(context);
-        let display_label_binding = display_label_binding_1.get_inner();
-        let radius_port_binding_1 = args.radius_port.get_output(context);
-        let radius_port_binding = radius_port_binding_1.get_inner();
-        let radius_retries_binding_1 = args.radius_retries.get_output(context);
-        let radius_retries_binding = radius_retries_binding_1.get_inner();
-        let radius_servers_binding_1 = args.radius_servers.get_output(context);
-        let radius_servers_binding = radius_servers_binding_1.get_inner();
-        let radius_timeout_binding_1 = args.radius_timeout.get_output(context);
-        let radius_timeout_binding = radius_timeout_binding_1.get_inner();
-        let shared_secret_binding_1 = args.shared_secret.get_output(context);
-        let shared_secret_binding = shared_secret_binding_1.get_inner();
-        let use_same_username_binding_1 = args.use_same_username.get_output(context);
-        let use_same_username_binding = use_same_username_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let directory_id_binding = args.directory_id.get_output(context);
+        let display_label_binding = args.display_label.get_output(context);
+        let radius_port_binding = args.radius_port.get_output(context);
+        let radius_retries_binding = args.radius_retries.get_output(context);
+        let radius_servers_binding = args.radius_servers.get_output(context);
+        let radius_timeout_binding = args.radius_timeout.get_output(context);
+        let shared_secret_binding = args.shared_secret.get_output(context);
+        let use_same_username_binding = args.use_same_username.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:directoryservice/radiusSettings:RadiusSettings".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationProtocol".into(),
-                    value: &authentication_protocol_binding,
+                    value: authentication_protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: &directory_id_binding,
+                    value: directory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayLabel".into(),
-                    value: &display_label_binding,
+                    value: display_label_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "radiusPort".into(),
-                    value: &radius_port_binding,
+                    value: radius_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "radiusRetries".into(),
-                    value: &radius_retries_binding,
+                    value: radius_retries_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "radiusServers".into(),
-                    value: &radius_servers_binding,
+                    value: radius_servers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "radiusTimeout".into(),
-                    value: &radius_timeout_binding,
+                    value: radius_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedSecret".into(),
-                    value: &shared_secret_binding,
+                    value: shared_secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useSameUsername".into(),
-                    value: &use_same_username_binding,
+                    value: use_same_username_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RadiusSettingsResult {
-            authentication_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationProtocol"),
-            ),
-            directory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryId"),
-            ),
-            display_label: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayLabel"),
-            ),
-            radius_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("radiusPort"),
-            ),
-            radius_retries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("radiusRetries"),
-            ),
-            radius_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("radiusServers"),
-            ),
-            radius_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("radiusTimeout"),
-            ),
-            shared_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharedSecret"),
-            ),
-            use_same_username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useSameUsername"),
-            ),
+            authentication_protocol: o.get_field("authenticationProtocol"),
+            directory_id: o.get_field("directoryId"),
+            display_label: o.get_field("displayLabel"),
+            radius_port: o.get_field("radiusPort"),
+            radius_retries: o.get_field("radiusRetries"),
+            radius_servers: o.get_field("radiusServers"),
+            radius_timeout: o.get_field("radiusTimeout"),
+            shared_secret: o.get_field("sharedSecret"),
+            use_same_username: o.get_field("useSameUsername"),
         }
     }
 }

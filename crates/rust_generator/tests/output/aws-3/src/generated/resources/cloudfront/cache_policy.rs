@@ -112,77 +112,63 @@ pub mod cache_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CachePolicyArgs,
     ) -> CachePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding_1 = args.comment.get_output(context);
-        let comment_binding = comment_binding_1.get_inner();
-        let default_ttl_binding_1 = args.default_ttl.get_output(context);
-        let default_ttl_binding = default_ttl_binding_1.get_inner();
-        let max_ttl_binding_1 = args.max_ttl.get_output(context);
-        let max_ttl_binding = max_ttl_binding_1.get_inner();
-        let min_ttl_binding_1 = args.min_ttl.get_output(context);
-        let min_ttl_binding = min_ttl_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parameters_in_cache_key_and_forwarded_to_origin_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let comment_binding = args.comment.get_output(context);
+        let default_ttl_binding = args.default_ttl.get_output(context);
+        let max_ttl_binding = args.max_ttl.get_output(context);
+        let min_ttl_binding = args.min_ttl.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parameters_in_cache_key_and_forwarded_to_origin_binding = args
             .parameters_in_cache_key_and_forwarded_to_origin
             .get_output(context);
-        let parameters_in_cache_key_and_forwarded_to_origin_binding = parameters_in_cache_key_and_forwarded_to_origin_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudfront/cachePolicy:CachePolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: &comment_binding,
+                    value: comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTtl".into(),
-                    value: &default_ttl_binding,
+                    value: default_ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxTtl".into(),
-                    value: &max_ttl_binding,
+                    value: max_ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minTtl".into(),
-                    value: &min_ttl_binding,
+                    value: min_ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parametersInCacheKeyAndForwardedToOrigin".into(),
-                    value: &parameters_in_cache_key_and_forwarded_to_origin_binding,
+                    value: parameters_in_cache_key_and_forwarded_to_origin_binding
+                        .get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CachePolicyResult {
-            comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comment"),
-            ),
-            default_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultTtl"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            max_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxTtl"),
-            ),
-            min_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minTtl"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parameters_in_cache_key_and_forwarded_to_origin: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parametersInCacheKeyAndForwardedToOrigin"),
-            ),
+            comment: o.get_field("comment"),
+            default_ttl: o.get_field("defaultTtl"),
+            etag: o.get_field("etag"),
+            max_ttl: o.get_field("maxTtl"),
+            min_ttl: o.get_field("minTtl"),
+            name: o.get_field("name"),
+            parameters_in_cache_key_and_forwarded_to_origin: o
+                .get_field("parametersInCacheKeyAndForwardedToOrigin"),
         }
     }
 }

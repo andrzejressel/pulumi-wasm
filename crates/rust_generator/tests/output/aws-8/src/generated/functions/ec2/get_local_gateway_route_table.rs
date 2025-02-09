@@ -50,73 +50,59 @@ pub mod get_local_gateway_route_table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetLocalGatewayRouteTableArgs,
     ) -> GetLocalGatewayRouteTableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let local_gateway_id_binding_1 = args.local_gateway_id.get_output(context);
-        let local_gateway_id_binding = local_gateway_id_binding_1.get_inner();
-        let local_gateway_route_table_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let local_gateway_id_binding = args.local_gateway_id.get_output(context);
+        let local_gateway_route_table_id_binding = args
             .local_gateway_route_table_id
             .get_output(context);
-        let local_gateway_route_table_id_binding = local_gateway_route_table_id_binding_1
-            .get_inner();
-        let outpost_arn_binding_1 = args.outpost_arn.get_output(context);
-        let outpost_arn_binding = outpost_arn_binding_1.get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let outpost_arn_binding = args.outpost_arn.get_output(context);
+        let state_binding = args.state.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localGatewayId".into(),
-                    value: &local_gateway_id_binding,
+                    value: local_gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localGatewayRouteTableId".into(),
-                    value: &local_gateway_route_table_id_binding,
+                    value: local_gateway_route_table_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outpostArn".into(),
-                    value: &outpost_arn_binding,
+                    value: outpost_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetLocalGatewayRouteTableResult {
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            local_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localGatewayId"),
-            ),
-            local_gateway_route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localGatewayRouteTableId"),
-            ),
-            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostArn"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            local_gateway_id: o.get_field("localGatewayId"),
+            local_gateway_route_table_id: o.get_field("localGatewayRouteTableId"),
+            outpost_arn: o.get_field("outpostArn"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
         }
     }
 }

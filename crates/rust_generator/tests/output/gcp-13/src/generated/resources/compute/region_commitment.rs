@@ -237,137 +237,97 @@ pub mod region_commitment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegionCommitmentArgs,
     ) -> RegionCommitmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_renew_binding_1 = args.auto_renew.get_output(context);
-        let auto_renew_binding = auto_renew_binding_1.get_inner();
-        let category_binding_1 = args.category.get_output(context);
-        let category_binding = category_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let existing_reservations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_renew_binding = args.auto_renew.get_output(context);
+        let category_binding = args.category.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let existing_reservations_binding = args
             .existing_reservations
             .get_output(context);
-        let existing_reservations_binding = existing_reservations_binding_1.get_inner();
-        let license_resource_binding_1 = args.license_resource.get_output(context);
-        let license_resource_binding = license_resource_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let plan_binding_1 = args.plan.get_output(context);
-        let plan_binding = plan_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let resources_binding_1 = args.resources.get_output(context);
-        let resources_binding = resources_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let license_resource_binding = args.license_resource.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let plan_binding = args.plan.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let resources_binding = args.resources.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/regionCommitment:RegionCommitment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRenew".into(),
-                    value: &auto_renew_binding,
+                    value: auto_renew_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "category".into(),
-                    value: &category_binding,
+                    value: category_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "existingReservations".into(),
-                    value: &existing_reservations_binding,
+                    value: existing_reservations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseResource".into(),
-                    value: &license_resource_binding,
+                    value: license_resource_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plan".into(),
-                    value: &plan_binding,
+                    value: plan_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resources".into(),
-                    value: &resources_binding,
+                    value: resources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegionCommitmentResult {
-            auto_renew: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoRenew"),
-            ),
-            category: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("category"),
-            ),
-            commitment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("commitmentId"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            end_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endTimestamp"),
-            ),
-            existing_reservations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("existingReservations"),
-            ),
-            license_resource: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseResource"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resources"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            start_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startTimestamp"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusMessage"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            auto_renew: o.get_field("autoRenew"),
+            category: o.get_field("category"),
+            commitment_id: o.get_field("commitmentId"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            end_timestamp: o.get_field("endTimestamp"),
+            existing_reservations: o.get_field("existingReservations"),
+            license_resource: o.get_field("licenseResource"),
+            name: o.get_field("name"),
+            plan: o.get_field("plan"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            resources: o.get_field("resources"),
+            self_link: o.get_field("selfLink"),
+            start_timestamp: o.get_field("startTimestamp"),
+            status: o.get_field("status"),
+            status_message: o.get_field("statusMessage"),
+            type_: o.get_field("type"),
         }
     }
 }

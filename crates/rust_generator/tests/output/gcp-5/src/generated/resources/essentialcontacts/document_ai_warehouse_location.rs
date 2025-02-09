@@ -101,79 +101,61 @@ pub mod document_ai_warehouse_location {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DocumentAiWarehouseLocationArgs,
     ) -> DocumentAiWarehouseLocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_control_mode_binding_1 = args.access_control_mode.get_output(context);
-        let access_control_mode_binding = access_control_mode_binding_1.get_inner();
-        let database_type_binding_1 = args.database_type.get_output(context);
-        let database_type_binding = database_type_binding_1.get_inner();
-        let document_creator_default_role_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_control_mode_binding = args.access_control_mode.get_output(context);
+        let database_type_binding = args.database_type.get_output(context);
+        let document_creator_default_role_binding = args
             .document_creator_default_role
             .get_output(context);
-        let document_creator_default_role_binding = document_creator_default_role_binding_1
-            .get_inner();
-        let kms_key_binding_1 = args.kms_key.get_output(context);
-        let kms_key_binding = kms_key_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_number_binding_1 = args.project_number.get_output(context);
-        let project_number_binding = project_number_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let kms_key_binding = args.kms_key.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let project_number_binding = args.project_number.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:essentialcontacts/documentAiWarehouseLocation:DocumentAiWarehouseLocation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessControlMode".into(),
-                    value: &access_control_mode_binding,
+                    value: access_control_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseType".into(),
-                    value: &database_type_binding,
+                    value: database_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentCreatorDefaultRole".into(),
-                    value: &document_creator_default_role_binding,
+                    value: document_creator_default_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKey".into(),
-                    value: &kms_key_binding,
+                    value: kms_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectNumber".into(),
-                    value: &project_number_binding,
+                    value: project_number_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DocumentAiWarehouseLocationResult {
-            access_control_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessControlMode"),
-            ),
-            database_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseType"),
-            ),
-            document_creator_default_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentCreatorDefaultRole"),
-            ),
-            kms_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKey"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            project_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectNumber"),
-            ),
+            access_control_mode: o.get_field("accessControlMode"),
+            database_type: o.get_field("databaseType"),
+            document_creator_default_role: o.get_field("documentCreatorDefaultRole"),
+            kms_key: o.get_field("kmsKey"),
+            location: o.get_field("location"),
+            project_number: o.get_field("projectNumber"),
         }
     }
 }

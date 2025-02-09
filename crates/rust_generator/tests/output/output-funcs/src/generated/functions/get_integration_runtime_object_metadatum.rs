@@ -40,50 +40,44 @@ pub mod get_integration_runtime_object_metadatum {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetIntegrationRuntimeObjectMetadatumArgs,
     ) -> GetIntegrationRuntimeObjectMetadatumResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let factory_name_binding_1 = args.factory_name.get_output(context);
-        let factory_name_binding = factory_name_binding_1.get_inner();
-        let integration_runtime_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let factory_name_binding = args.factory_name.get_output(context);
+        let integration_runtime_name_binding = args
             .integration_runtime_name
             .get_output(context);
-        let integration_runtime_name_binding = integration_runtime_name_binding_1
-            .get_inner();
-        let metadata_path_binding_1 = args.metadata_path.get_output(context);
-        let metadata_path_binding = metadata_path_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let metadata_path_binding = args.metadata_path.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "mypkg::getIntegrationRuntimeObjectMetadatum".into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "factoryName".into(),
-                    value: &factory_name_binding,
+                    value: factory_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationRuntimeName".into(),
-                    value: &integration_runtime_name_binding,
+                    value: integration_runtime_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadataPath".into(),
-                    value: &metadata_path_binding,
+                    value: metadata_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetIntegrationRuntimeObjectMetadatumResult {
-            next_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextLink"),
-            ),
-            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
+            next_link: o.get_field("nextLink"),
+            value: o.get_field("value"),
         }
     }
 }

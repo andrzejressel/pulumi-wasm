@@ -70,59 +70,48 @@ pub mod host {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HostArgs,
     ) -> HostResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let provider_endpoint_binding_1 = args.provider_endpoint.get_output(context);
-        let provider_endpoint_binding = provider_endpoint_binding_1.get_inner();
-        let provider_type_binding_1 = args.provider_type.get_output(context);
-        let provider_type_binding = provider_type_binding_1.get_inner();
-        let vpc_configuration_binding_1 = args.vpc_configuration.get_output(context);
-        let vpc_configuration_binding = vpc_configuration_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let provider_endpoint_binding = args.provider_endpoint.get_output(context);
+        let provider_type_binding = args.provider_type.get_output(context);
+        let vpc_configuration_binding = args.vpc_configuration.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:codestarconnections/host:Host".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerEndpoint".into(),
-                    value: &provider_endpoint_binding,
+                    value: provider_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerType".into(),
-                    value: &provider_type_binding,
+                    value: provider_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfiguration".into(),
-                    value: &vpc_configuration_binding,
+                    value: vpc_configuration_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HostResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            provider_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("providerEndpoint"),
-            ),
-            provider_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("providerType"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            vpc_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfiguration"),
-            ),
+            arn: o.get_field("arn"),
+            name: o.get_field("name"),
+            provider_endpoint: o.get_field("providerEndpoint"),
+            provider_type: o.get_field("providerType"),
+            status: o.get_field("status"),
+            vpc_configuration: o.get_field("vpcConfiguration"),
         }
     }
 }

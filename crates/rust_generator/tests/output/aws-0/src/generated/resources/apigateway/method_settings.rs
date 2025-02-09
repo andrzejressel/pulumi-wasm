@@ -149,57 +149,46 @@ pub mod method_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MethodSettingsArgs,
     ) -> MethodSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let method_path_binding_1 = args.method_path.get_output(context);
-        let method_path_binding = method_path_binding_1.get_inner();
-        let rest_api_binding_1 = args.rest_api.get_output(context);
-        let rest_api_binding = rest_api_binding_1.get_inner();
-        let settings_binding_1 = args.settings.get_output(context);
-        let settings_binding = settings_binding_1.get_inner();
-        let stage_name_binding_1 = args.stage_name.get_output(context);
-        let stage_name_binding = stage_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let method_path_binding = args.method_path.get_output(context);
+        let rest_api_binding = args.rest_api.get_output(context);
+        let settings_binding = args.settings.get_output(context);
+        let stage_name_binding = args.stage_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigateway/methodSettings:MethodSettings".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "methodPath".into(),
-                    value: &method_path_binding,
+                    value: method_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApi".into(),
-                    value: &rest_api_binding,
+                    value: rest_api_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: &settings_binding,
+                    value: settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stageName".into(),
-                    value: &stage_name_binding,
+                    value: stage_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MethodSettingsResult {
-            method_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("methodPath"),
-            ),
-            rest_api: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restApi"),
-            ),
-            settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("settings"),
-            ),
-            stage_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stageName"),
-            ),
+            method_path: o.get_field("methodPath"),
+            rest_api: o.get_field("restApi"),
+            settings: o.get_field("settings"),
+            stage_name: o.get_field("stageName"),
         }
     }
 }

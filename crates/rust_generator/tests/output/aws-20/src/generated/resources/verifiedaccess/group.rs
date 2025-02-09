@@ -113,86 +113,61 @@ pub mod group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GroupArgs,
     ) -> GroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let policy_document_binding_1 = args.policy_document.get_output(context);
-        let policy_document_binding = policy_document_binding_1.get_inner();
-        let sse_configuration_binding_1 = args.sse_configuration.get_output(context);
-        let sse_configuration_binding = sse_configuration_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let verifiedaccess_instance_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let policy_document_binding = args.policy_document.get_output(context);
+        let sse_configuration_binding = args.sse_configuration.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let verifiedaccess_instance_id_binding = args
             .verifiedaccess_instance_id
             .get_output(context);
-        let verifiedaccess_instance_id_binding = verifiedaccess_instance_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:verifiedaccess/group:Group".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDocument".into(),
-                    value: &policy_document_binding,
+                    value: policy_document_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sseConfiguration".into(),
-                    value: &sse_configuration_binding,
+                    value: sse_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verifiedaccessInstanceId".into(),
-                    value: &verifiedaccess_instance_id_binding,
+                    value: verifiedaccess_instance_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GroupResult {
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            deletion_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            last_updated_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedTime"),
-            ),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            policy_document: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyDocument"),
-            ),
-            sse_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sseConfiguration"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            verifiedaccess_group_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verifiedaccessGroupArn"),
-            ),
-            verifiedaccess_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verifiedaccessGroupId"),
-            ),
-            verifiedaccess_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verifiedaccessInstanceId"),
-            ),
+            creation_time: o.get_field("creationTime"),
+            deletion_time: o.get_field("deletionTime"),
+            description: o.get_field("description"),
+            last_updated_time: o.get_field("lastUpdatedTime"),
+            owner: o.get_field("owner"),
+            policy_document: o.get_field("policyDocument"),
+            sse_configuration: o.get_field("sseConfiguration"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            verifiedaccess_group_arn: o.get_field("verifiedaccessGroupArn"),
+            verifiedaccess_group_id: o.get_field("verifiedaccessGroupId"),
+            verifiedaccess_instance_id: o.get_field("verifiedaccessInstanceId"),
         }
     }
 }

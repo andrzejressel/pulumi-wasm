@@ -125,106 +125,80 @@ pub mod policy_set_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PolicySetDefinitionArgs,
     ) -> PolicySetDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let management_group_id_binding_1 = args.management_group_id.get_output(context);
-        let management_group_id_binding = management_group_id_binding_1.get_inner();
-        let metadata_binding_1 = args.metadata.get_output(context);
-        let metadata_binding = metadata_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let policy_definition_groups_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let management_group_id_binding = args.management_group_id.get_output(context);
+        let metadata_binding = args.metadata.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let policy_definition_groups_binding = args
             .policy_definition_groups
             .get_output(context);
-        let policy_definition_groups_binding = policy_definition_groups_binding_1
-            .get_inner();
-        let policy_definition_references_binding_1 = args
+        let policy_definition_references_binding = args
             .policy_definition_references
             .get_output(context);
-        let policy_definition_references_binding = policy_definition_references_binding_1
-            .get_inner();
-        let policy_type_binding_1 = args.policy_type.get_output(context);
-        let policy_type_binding = policy_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let policy_type_binding = args.policy_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:policy/policySetDefinition:PolicySetDefinition".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managementGroupId".into(),
-                    value: &management_group_id_binding,
+                    value: management_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: &metadata_binding,
+                    value: metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDefinitionGroups".into(),
-                    value: &policy_definition_groups_binding,
+                    value: policy_definition_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDefinitionReferences".into(),
-                    value: &policy_definition_references_binding,
+                    value: policy_definition_references_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyType".into(),
-                    value: &policy_type_binding,
+                    value: policy_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PolicySetDefinitionResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            management_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementGroupId"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            policy_definition_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyDefinitionGroups"),
-            ),
-            policy_definition_references: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyDefinitionReferences"),
-            ),
-            policy_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyType"),
-            ),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            management_group_id: o.get_field("managementGroupId"),
+            metadata: o.get_field("metadata"),
+            name: o.get_field("name"),
+            parameters: o.get_field("parameters"),
+            policy_definition_groups: o.get_field("policyDefinitionGroups"),
+            policy_definition_references: o.get_field("policyDefinitionReferences"),
+            policy_type: o.get_field("policyType"),
         }
     }
 }

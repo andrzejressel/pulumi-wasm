@@ -305,123 +305,90 @@ pub mod permission {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PermissionArgs,
     ) -> PermissionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let event_source_token_binding_1 = args.event_source_token.get_output(context);
-        let event_source_token_binding = event_source_token_binding_1.get_inner();
-        let function_binding_1 = args.function.get_output(context);
-        let function_binding = function_binding_1.get_inner();
-        let function_url_auth_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let event_source_token_binding = args.event_source_token.get_output(context);
+        let function_binding = args.function.get_output(context);
+        let function_url_auth_type_binding = args
             .function_url_auth_type
             .get_output(context);
-        let function_url_auth_type_binding = function_url_auth_type_binding_1
-            .get_inner();
-        let principal_binding_1 = args.principal.get_output(context);
-        let principal_binding = principal_binding_1.get_inner();
-        let principal_org_id_binding_1 = args.principal_org_id.get_output(context);
-        let principal_org_id_binding = principal_org_id_binding_1.get_inner();
-        let qualifier_binding_1 = args.qualifier.get_output(context);
-        let qualifier_binding = qualifier_binding_1.get_inner();
-        let source_account_binding_1 = args.source_account.get_output(context);
-        let source_account_binding = source_account_binding_1.get_inner();
-        let source_arn_binding_1 = args.source_arn.get_output(context);
-        let source_arn_binding = source_arn_binding_1.get_inner();
-        let statement_id_binding_1 = args.statement_id.get_output(context);
-        let statement_id_binding = statement_id_binding_1.get_inner();
-        let statement_id_prefix_binding_1 = args.statement_id_prefix.get_output(context);
-        let statement_id_prefix_binding = statement_id_prefix_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let principal_binding = args.principal.get_output(context);
+        let principal_org_id_binding = args.principal_org_id.get_output(context);
+        let qualifier_binding = args.qualifier.get_output(context);
+        let source_account_binding = args.source_account.get_output(context);
+        let source_arn_binding = args.source_arn.get_output(context);
+        let statement_id_binding = args.statement_id.get_output(context);
+        let statement_id_prefix_binding = args.statement_id_prefix.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lambda/permission:Permission".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventSourceToken".into(),
-                    value: &event_source_token_binding,
+                    value: event_source_token_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "function".into(),
-                    value: &function_binding,
+                    value: function_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionUrlAuthType".into(),
-                    value: &function_url_auth_type_binding,
+                    value: function_url_auth_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: &principal_binding,
+                    value: principal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalOrgId".into(),
-                    value: &principal_org_id_binding,
+                    value: principal_org_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qualifier".into(),
-                    value: &qualifier_binding,
+                    value: qualifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceAccount".into(),
-                    value: &source_account_binding,
+                    value: source_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceArn".into(),
-                    value: &source_arn_binding,
+                    value: source_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statementId".into(),
-                    value: &statement_id_binding,
+                    value: statement_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statementIdPrefix".into(),
-                    value: &statement_id_prefix_binding,
+                    value: statement_id_prefix_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PermissionResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            event_source_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventSourceToken"),
-            ),
-            function: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("function"),
-            ),
-            function_url_auth_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionUrlAuthType"),
-            ),
-            principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principal"),
-            ),
-            principal_org_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalOrgId"),
-            ),
-            qualifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qualifier"),
-            ),
-            source_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceAccount"),
-            ),
-            source_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceArn"),
-            ),
-            statement_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statementId"),
-            ),
-            statement_id_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statementIdPrefix"),
-            ),
+            action: o.get_field("action"),
+            event_source_token: o.get_field("eventSourceToken"),
+            function: o.get_field("function"),
+            function_url_auth_type: o.get_field("functionUrlAuthType"),
+            principal: o.get_field("principal"),
+            principal_org_id: o.get_field("principalOrgId"),
+            qualifier: o.get_field("qualifier"),
+            source_account: o.get_field("sourceAccount"),
+            source_arn: o.get_field("sourceArn"),
+            statement_id: o.get_field("statementId"),
+            statement_id_prefix: o.get_field("statementIdPrefix"),
         }
     }
 }

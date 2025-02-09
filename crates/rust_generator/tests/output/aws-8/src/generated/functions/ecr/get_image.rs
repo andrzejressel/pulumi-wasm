@@ -43,77 +43,55 @@ pub mod get_image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetImageArgs,
     ) -> GetImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let image_digest_binding_1 = args.image_digest.get_output(context);
-        let image_digest_binding = image_digest_binding_1.get_inner();
-        let image_tag_binding_1 = args.image_tag.get_output(context);
-        let image_tag_binding = image_tag_binding_1.get_inner();
-        let most_recent_binding_1 = args.most_recent.get_output(context);
-        let most_recent_binding = most_recent_binding_1.get_inner();
-        let registry_id_binding_1 = args.registry_id.get_output(context);
-        let registry_id_binding = registry_id_binding_1.get_inner();
-        let repository_name_binding_1 = args.repository_name.get_output(context);
-        let repository_name_binding = repository_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let image_digest_binding = args.image_digest.get_output(context);
+        let image_tag_binding = args.image_tag.get_output(context);
+        let most_recent_binding = args.most_recent.get_output(context);
+        let registry_id_binding = args.registry_id.get_output(context);
+        let repository_name_binding = args.repository_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ecr/getImage:getImage".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageDigest".into(),
-                    value: &image_digest_binding,
+                    value: image_digest_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageTag".into(),
-                    value: &image_tag_binding,
+                    value: image_tag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mostRecent".into(),
-                    value: &most_recent_binding,
+                    value: most_recent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registryId".into(),
-                    value: &registry_id_binding,
+                    value: registry_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryName".into(),
-                    value: &repository_name_binding,
+                    value: repository_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetImageResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            image_digest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageDigest"),
-            ),
-            image_pushed_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imagePushedAt"),
-            ),
-            image_size_in_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageSizeInBytes"),
-            ),
-            image_tag: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageTag"),
-            ),
-            image_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageTags"),
-            ),
-            image_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageUri"),
-            ),
-            most_recent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mostRecent"),
-            ),
-            registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryId"),
-            ),
-            repository_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryName"),
-            ),
+            id: o.get_field("id"),
+            image_digest: o.get_field("imageDigest"),
+            image_pushed_at: o.get_field("imagePushedAt"),
+            image_size_in_bytes: o.get_field("imageSizeInBytes"),
+            image_tag: o.get_field("imageTag"),
+            image_tags: o.get_field("imageTags"),
+            image_uri: o.get_field("imageUri"),
+            most_recent: o.get_field("mostRecent"),
+            registry_id: o.get_field("registryId"),
+            repository_name: o.get_field("repositoryName"),
         }
     }
 }

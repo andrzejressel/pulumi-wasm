@@ -557,144 +557,106 @@ pub mod region_network_endpoint_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegionNetworkEndpointGroupArgs,
     ) -> RegionNetworkEndpointGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_engine_binding_1 = args.app_engine.get_output(context);
-        let app_engine_binding = app_engine_binding_1.get_inner();
-        let cloud_function_binding_1 = args.cloud_function.get_output(context);
-        let cloud_function_binding = cloud_function_binding_1.get_inner();
-        let cloud_run_binding_1 = args.cloud_run.get_output(context);
-        let cloud_run_binding = cloud_run_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let network_endpoint_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_engine_binding = args.app_engine.get_output(context);
+        let cloud_function_binding = args.cloud_function.get_output(context);
+        let cloud_run_binding = args.cloud_run.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let network_endpoint_type_binding = args
             .network_endpoint_type
             .get_output(context);
-        let network_endpoint_type_binding = network_endpoint_type_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let psc_data_binding_1 = args.psc_data.get_output(context);
-        let psc_data_binding = psc_data_binding_1.get_inner();
-        let psc_target_service_binding_1 = args.psc_target_service.get_output(context);
-        let psc_target_service_binding = psc_target_service_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let serverless_deployment_binding_1 = args
+        let project_binding = args.project.get_output(context);
+        let psc_data_binding = args.psc_data.get_output(context);
+        let psc_target_service_binding = args.psc_target_service.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let serverless_deployment_binding = args
             .serverless_deployment
             .get_output(context);
-        let serverless_deployment_binding = serverless_deployment_binding_1.get_inner();
-        let subnetwork_binding_1 = args.subnetwork.get_output(context);
-        let subnetwork_binding = subnetwork_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let subnetwork_binding = args.subnetwork.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/regionNetworkEndpointGroup:RegionNetworkEndpointGroup"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appEngine".into(),
-                    value: &app_engine_binding,
+                    value: app_engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudFunction".into(),
-                    value: &cloud_function_binding,
+                    value: cloud_function_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudRun".into(),
-                    value: &cloud_run_binding,
+                    value: cloud_run_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkEndpointType".into(),
-                    value: &network_endpoint_type_binding,
+                    value: network_endpoint_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pscData".into(),
-                    value: &psc_data_binding,
+                    value: psc_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pscTargetService".into(),
-                    value: &psc_target_service_binding,
+                    value: psc_target_service_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverlessDeployment".into(),
-                    value: &serverless_deployment_binding,
+                    value: serverless_deployment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetwork".into(),
-                    value: &subnetwork_binding,
+                    value: subnetwork_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegionNetworkEndpointGroupResult {
-            app_engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appEngine"),
-            ),
-            cloud_function: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudFunction"),
-            ),
-            cloud_run: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudRun"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            network_endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkEndpointType"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            psc_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pscData"),
-            ),
-            psc_target_service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pscTargetService"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            serverless_deployment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverlessDeployment"),
-            ),
-            subnetwork: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetwork"),
-            ),
+            app_engine: o.get_field("appEngine"),
+            cloud_function: o.get_field("cloudFunction"),
+            cloud_run: o.get_field("cloudRun"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            network_endpoint_type: o.get_field("networkEndpointType"),
+            project: o.get_field("project"),
+            psc_data: o.get_field("pscData"),
+            psc_target_service: o.get_field("pscTargetService"),
+            region: o.get_field("region"),
+            self_link: o.get_field("selfLink"),
+            serverless_deployment: o.get_field("serverlessDeployment"),
+            subnetwork: o.get_field("subnetwork"),
         }
     }
 }

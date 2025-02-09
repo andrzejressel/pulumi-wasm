@@ -54,68 +54,51 @@ pub mod get_traffic_manager_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTrafficManagerProfileArgs,
     ) -> GetTrafficManagerProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let traffic_view_enabled_binding_1 = args
-            .traffic_view_enabled
-            .get_output(context);
-        let traffic_view_enabled_binding = traffic_view_enabled_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let traffic_view_enabled_binding = args.traffic_view_enabled.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:network/getTrafficManagerProfile:getTrafficManagerProfile"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficViewEnabled".into(),
-                    value: &traffic_view_enabled_binding,
+                    value: traffic_view_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTrafficManagerProfileResult {
-            dns_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsConfigs"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            monitor_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitorConfigs"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            profile_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("profileStatus"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            traffic_routing_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficRoutingMethod"),
-            ),
-            traffic_view_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficViewEnabled"),
-            ),
+            dns_configs: o.get_field("dnsConfigs"),
+            fqdn: o.get_field("fqdn"),
+            id: o.get_field("id"),
+            monitor_configs: o.get_field("monitorConfigs"),
+            name: o.get_field("name"),
+            profile_status: o.get_field("profileStatus"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
+            traffic_routing_method: o.get_field("trafficRoutingMethod"),
+            traffic_view_enabled: o.get_field("trafficViewEnabled"),
         }
     }
 }

@@ -77,104 +77,73 @@ pub mod get_vpc {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVpcArgs,
     ) -> GetVpcResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_block_binding_1 = args.cidr_block.get_output(context);
-        let cidr_block_binding = cidr_block_binding_1.get_inner();
-        let default_binding_1 = args.default.get_output(context);
-        let default_binding = default_binding_1.get_inner();
-        let dhcp_options_id_binding_1 = args.dhcp_options_id.get_output(context);
-        let dhcp_options_id_binding = dhcp_options_id_binding_1.get_inner();
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cidr_block_binding = args.cidr_block.get_output(context);
+        let default_binding = args.default.get_output(context);
+        let dhcp_options_id_binding = args.dhcp_options_id.get_output(context);
+        let filters_binding = args.filters.get_output(context);
+        let id_binding = args.id.get_output(context);
+        let state_binding = args.state.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getVpc:getVpc".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrBlock".into(),
-                    value: &cidr_block_binding,
+                    value: cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "default".into(),
-                    value: &default_binding,
+                    value: default_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dhcpOptionsId".into(),
-                    value: &dhcp_options_id_binding,
+                    value: dhcp_options_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVpcResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrBlock"),
-            ),
-            cidr_block_associations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrBlockAssociations"),
-            ),
-            default: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("default"),
-            ),
-            dhcp_options_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dhcpOptionsId"),
-            ),
-            enable_dns_hostnames: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableDnsHostnames"),
-            ),
-            enable_dns_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableDnsSupport"),
-            ),
-            enable_network_address_usage_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableNetworkAddressUsageMetrics"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_tenancy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceTenancy"),
-            ),
-            ipv6_association_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6AssociationId"),
-            ),
-            ipv6_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6CidrBlock"),
-            ),
-            main_route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mainRouteTableId"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            arn: o.get_field("arn"),
+            cidr_block: o.get_field("cidrBlock"),
+            cidr_block_associations: o.get_field("cidrBlockAssociations"),
+            default: o.get_field("default"),
+            dhcp_options_id: o.get_field("dhcpOptionsId"),
+            enable_dns_hostnames: o.get_field("enableDnsHostnames"),
+            enable_dns_support: o.get_field("enableDnsSupport"),
+            enable_network_address_usage_metrics: o
+                .get_field("enableNetworkAddressUsageMetrics"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            instance_tenancy: o.get_field("instanceTenancy"),
+            ipv6_association_id: o.get_field("ipv6AssociationId"),
+            ipv6_cidr_block: o.get_field("ipv6CidrBlock"),
+            main_route_table_id: o.get_field("mainRouteTableId"),
+            owner_id: o.get_field("ownerId"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
         }
     }
 }

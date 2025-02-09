@@ -95,97 +95,75 @@ pub mod custom_data_identifier {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomDataIdentifierArgs,
     ) -> CustomDataIdentifierResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let ignore_words_binding_1 = args.ignore_words.get_output(context);
-        let ignore_words_binding = ignore_words_binding_1.get_inner();
-        let keywords_binding_1 = args.keywords.get_output(context);
-        let keywords_binding = keywords_binding_1.get_inner();
-        let maximum_match_distance_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let ignore_words_binding = args.ignore_words.get_output(context);
+        let keywords_binding = args.keywords.get_output(context);
+        let maximum_match_distance_binding = args
             .maximum_match_distance
             .get_output(context);
-        let maximum_match_distance_binding = maximum_match_distance_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let regex_binding_1 = args.regex.get_output(context);
-        let regex_binding = regex_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let regex_binding = args.regex.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:macie/customDataIdentifier:CustomDataIdentifier".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreWords".into(),
-                    value: &ignore_words_binding,
+                    value: ignore_words_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keywords".into(),
-                    value: &keywords_binding,
+                    value: keywords_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumMatchDistance".into(),
-                    value: &maximum_match_distance_binding,
+                    value: maximum_match_distance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regex".into(),
-                    value: &regex_binding,
+                    value: regex_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomDataIdentifierResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            ignore_words: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoreWords"),
-            ),
-            keywords: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keywords"),
-            ),
-            maximum_match_distance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumMatchDistance"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            regex: pulumi_gestalt_rust::__private::into_domain(o.extract_field("regex")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            created_at: o.get_field("createdAt"),
+            description: o.get_field("description"),
+            ignore_words: o.get_field("ignoreWords"),
+            keywords: o.get_field("keywords"),
+            maximum_match_distance: o.get_field("maximumMatchDistance"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            regex: o.get_field("regex"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

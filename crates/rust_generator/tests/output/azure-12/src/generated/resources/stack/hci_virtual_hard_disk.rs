@@ -130,140 +130,104 @@ pub mod hci_virtual_hard_disk {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HciVirtualHardDiskArgs,
     ) -> HciVirtualHardDiskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let block_size_in_bytes_binding_1 = args.block_size_in_bytes.get_output(context);
-        let block_size_in_bytes_binding = block_size_in_bytes_binding_1.get_inner();
-        let custom_location_id_binding_1 = args.custom_location_id.get_output(context);
-        let custom_location_id_binding = custom_location_id_binding_1.get_inner();
-        let disk_file_format_binding_1 = args.disk_file_format.get_output(context);
-        let disk_file_format_binding = disk_file_format_binding_1.get_inner();
-        let disk_size_in_gb_binding_1 = args.disk_size_in_gb.get_output(context);
-        let disk_size_in_gb_binding = disk_size_in_gb_binding_1.get_inner();
-        let dynamic_enabled_binding_1 = args.dynamic_enabled.get_output(context);
-        let dynamic_enabled_binding = dynamic_enabled_binding_1.get_inner();
-        let hyperv_generation_binding_1 = args.hyperv_generation.get_output(context);
-        let hyperv_generation_binding = hyperv_generation_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let logical_sector_in_bytes_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let block_size_in_bytes_binding = args.block_size_in_bytes.get_output(context);
+        let custom_location_id_binding = args.custom_location_id.get_output(context);
+        let disk_file_format_binding = args.disk_file_format.get_output(context);
+        let disk_size_in_gb_binding = args.disk_size_in_gb.get_output(context);
+        let dynamic_enabled_binding = args.dynamic_enabled.get_output(context);
+        let hyperv_generation_binding = args.hyperv_generation.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let logical_sector_in_bytes_binding = args
             .logical_sector_in_bytes
             .get_output(context);
-        let logical_sector_in_bytes_binding = logical_sector_in_bytes_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let physical_sector_in_bytes_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let physical_sector_in_bytes_binding = args
             .physical_sector_in_bytes
             .get_output(context);
-        let physical_sector_in_bytes_binding = physical_sector_in_bytes_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let storage_path_id_binding_1 = args.storage_path_id.get_output(context);
-        let storage_path_id_binding = storage_path_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let storage_path_id_binding = args.storage_path_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:stack/hciVirtualHardDisk:HciVirtualHardDisk".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockSizeInBytes".into(),
-                    value: &block_size_in_bytes_binding,
+                    value: block_size_in_bytes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customLocationId".into(),
-                    value: &custom_location_id_binding,
+                    value: custom_location_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskFileFormat".into(),
-                    value: &disk_file_format_binding,
+                    value: disk_file_format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskSizeInGb".into(),
-                    value: &disk_size_in_gb_binding,
+                    value: disk_size_in_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamicEnabled".into(),
-                    value: &dynamic_enabled_binding,
+                    value: dynamic_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hypervGeneration".into(),
-                    value: &hyperv_generation_binding,
+                    value: hyperv_generation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logicalSectorInBytes".into(),
-                    value: &logical_sector_in_bytes_binding,
+                    value: logical_sector_in_bytes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "physicalSectorInBytes".into(),
-                    value: &physical_sector_in_bytes_binding,
+                    value: physical_sector_in_bytes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storagePathId".into(),
-                    value: &storage_path_id_binding,
+                    value: storage_path_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HciVirtualHardDiskResult {
-            block_size_in_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockSizeInBytes"),
-            ),
-            custom_location_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customLocationId"),
-            ),
-            disk_file_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskFileFormat"),
-            ),
-            disk_size_in_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskSizeInGb"),
-            ),
-            dynamic_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dynamicEnabled"),
-            ),
-            hyperv_generation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hypervGeneration"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            logical_sector_in_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logicalSectorInBytes"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            physical_sector_in_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("physicalSectorInBytes"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            storage_path_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storagePathId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            block_size_in_bytes: o.get_field("blockSizeInBytes"),
+            custom_location_id: o.get_field("customLocationId"),
+            disk_file_format: o.get_field("diskFileFormat"),
+            disk_size_in_gb: o.get_field("diskSizeInGb"),
+            dynamic_enabled: o.get_field("dynamicEnabled"),
+            hyperv_generation: o.get_field("hypervGeneration"),
+            location: o.get_field("location"),
+            logical_sector_in_bytes: o.get_field("logicalSectorInBytes"),
+            name: o.get_field("name"),
+            physical_sector_in_bytes: o.get_field("physicalSectorInBytes"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            storage_path_id: o.get_field("storagePathId"),
+            tags: o.get_field("tags"),
         }
     }
 }

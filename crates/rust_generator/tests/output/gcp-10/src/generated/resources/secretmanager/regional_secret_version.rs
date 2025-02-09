@@ -189,85 +189,61 @@ pub mod regional_secret_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegionalSecretVersionArgs,
     ) -> RegionalSecretVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
-        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let is_secret_data_base64_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let deletion_policy_binding = args.deletion_policy.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let is_secret_data_base64_binding = args
             .is_secret_data_base64
             .get_output(context);
-        let is_secret_data_base64_binding = is_secret_data_base64_binding_1.get_inner();
-        let secret_binding_1 = args.secret.get_output(context);
-        let secret_binding = secret_binding_1.get_inner();
-        let secret_data_binding_1 = args.secret_data.get_output(context);
-        let secret_data_binding = secret_data_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let secret_binding = args.secret.get_output(context);
+        let secret_data_binding = args.secret_data.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:secretmanager/regionalSecretVersion:RegionalSecretVersion"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: &deletion_policy_binding,
+                    value: deletion_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isSecretDataBase64".into(),
-                    value: &is_secret_data_base64_binding,
+                    value: is_secret_data_base64_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secret".into(),
-                    value: &secret_binding,
+                    value: secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretData".into(),
-                    value: &secret_data_binding,
+                    value: secret_data_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegionalSecretVersionResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            customer_managed_encryptions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerManagedEncryptions"),
-            ),
-            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionPolicy"),
-            ),
-            destroy_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destroyTime"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            is_secret_data_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isSecretDataBase64"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secret"),
-            ),
-            secret_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretData"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            create_time: o.get_field("createTime"),
+            customer_managed_encryptions: o.get_field("customerManagedEncryptions"),
+            deletion_policy: o.get_field("deletionPolicy"),
+            destroy_time: o.get_field("destroyTime"),
+            enabled: o.get_field("enabled"),
+            is_secret_data_base64: o.get_field("isSecretDataBase64"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            secret: o.get_field("secret"),
+            secret_data: o.get_field("secretData"),
+            version: o.get_field("version"),
         }
     }
 }

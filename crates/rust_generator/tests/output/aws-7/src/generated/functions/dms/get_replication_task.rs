@@ -51,69 +51,44 @@ pub mod get_replication_task {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetReplicationTaskArgs,
     ) -> GetReplicationTaskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let replication_task_id_binding_1 = args.replication_task_id.get_output(context);
-        let replication_task_id_binding = replication_task_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let replication_task_id_binding = args.replication_task_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:dms/getReplicationTask:getReplicationTask".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationTaskId".into(),
-                    value: &replication_task_id_binding,
+                    value: replication_task_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetReplicationTaskResult {
-            cdc_start_position: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdcStartPosition"),
-            ),
-            cdc_start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdcStartTime"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            migration_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("migrationType"),
-            ),
-            replication_instance_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationInstanceArn"),
-            ),
-            replication_task_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationTaskArn"),
-            ),
-            replication_task_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationTaskId"),
-            ),
-            replication_task_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationTaskSettings"),
-            ),
-            source_endpoint_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceEndpointArn"),
-            ),
-            start_replication_task: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startReplicationTask"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            table_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableMappings"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            target_endpoint_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetEndpointArn"),
-            ),
+            cdc_start_position: o.get_field("cdcStartPosition"),
+            cdc_start_time: o.get_field("cdcStartTime"),
+            id: o.get_field("id"),
+            migration_type: o.get_field("migrationType"),
+            replication_instance_arn: o.get_field("replicationInstanceArn"),
+            replication_task_arn: o.get_field("replicationTaskArn"),
+            replication_task_id: o.get_field("replicationTaskId"),
+            replication_task_settings: o.get_field("replicationTaskSettings"),
+            source_endpoint_arn: o.get_field("sourceEndpointArn"),
+            start_replication_task: o.get_field("startReplicationTask"),
+            status: o.get_field("status"),
+            table_mappings: o.get_field("tableMappings"),
+            tags: o.get_field("tags"),
+            target_endpoint_arn: o.get_field("targetEndpointArn"),
         }
     }
 }

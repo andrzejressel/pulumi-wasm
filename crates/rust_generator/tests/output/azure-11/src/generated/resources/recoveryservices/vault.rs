@@ -156,150 +156,113 @@ pub mod vault {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VaultArgs,
     ) -> VaultResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let classic_vmware_replication_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let classic_vmware_replication_enabled_binding = args
             .classic_vmware_replication_enabled
             .get_output(context);
-        let classic_vmware_replication_enabled_binding = classic_vmware_replication_enabled_binding_1
-            .get_inner();
-        let cross_region_restore_enabled_binding_1 = args
+        let cross_region_restore_enabled_binding = args
             .cross_region_restore_enabled
             .get_output(context);
-        let cross_region_restore_enabled_binding = cross_region_restore_enabled_binding_1
-            .get_inner();
-        let encryption_binding_1 = args.encryption.get_output(context);
-        let encryption_binding = encryption_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let immutability_binding_1 = args.immutability.get_output(context);
-        let immutability_binding = immutability_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let monitoring_binding_1 = args.monitoring.get_output(context);
-        let monitoring_binding = monitoring_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let encryption_binding = args.encryption.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let immutability_binding = args.immutability.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let monitoring_binding = args.monitoring.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let soft_delete_enabled_binding_1 = args.soft_delete_enabled.get_output(context);
-        let soft_delete_enabled_binding = soft_delete_enabled_binding_1.get_inner();
-        let storage_mode_type_binding_1 = args.storage_mode_type.get_output(context);
-        let storage_mode_type_binding = storage_mode_type_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let soft_delete_enabled_binding = args.soft_delete_enabled.get_output(context);
+        let storage_mode_type_binding = args.storage_mode_type.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:recoveryservices/vault:Vault".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "classicVmwareReplicationEnabled".into(),
-                    value: &classic_vmware_replication_enabled_binding,
+                    value: classic_vmware_replication_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "crossRegionRestoreEnabled".into(),
-                    value: &cross_region_restore_enabled_binding,
+                    value: cross_region_restore_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryption".into(),
-                    value: &encryption_binding,
+                    value: encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "immutability".into(),
-                    value: &immutability_binding,
+                    value: immutability_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitoring".into(),
-                    value: &monitoring_binding,
+                    value: monitoring_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "softDeleteEnabled".into(),
-                    value: &soft_delete_enabled_binding,
+                    value: soft_delete_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageModeType".into(),
-                    value: &storage_mode_type_binding,
+                    value: storage_mode_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VaultResult {
-            classic_vmware_replication_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("classicVmwareReplicationEnabled"),
-            ),
-            cross_region_restore_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("crossRegionRestoreEnabled"),
-            ),
-            encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryption"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            immutability: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("immutability"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            monitoring: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoring"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            soft_delete_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("softDeleteEnabled"),
-            ),
-            storage_mode_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageModeType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            classic_vmware_replication_enabled: o
+                .get_field("classicVmwareReplicationEnabled"),
+            cross_region_restore_enabled: o.get_field("crossRegionRestoreEnabled"),
+            encryption: o.get_field("encryption"),
+            identity: o.get_field("identity"),
+            immutability: o.get_field("immutability"),
+            location: o.get_field("location"),
+            monitoring: o.get_field("monitoring"),
+            name: o.get_field("name"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku: o.get_field("sku"),
+            soft_delete_enabled: o.get_field("softDeleteEnabled"),
+            storage_mode_type: o.get_field("storageModeType"),
+            tags: o.get_field("tags"),
         }
     }
 }

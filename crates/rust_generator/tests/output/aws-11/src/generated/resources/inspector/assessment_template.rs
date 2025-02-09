@@ -103,75 +103,60 @@ pub mod assessment_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AssessmentTemplateArgs,
     ) -> AssessmentTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let duration_binding_1 = args.duration.get_output(context);
-        let duration_binding = duration_binding_1.get_inner();
-        let event_subscriptions_binding_1 = args.event_subscriptions.get_output(context);
-        let event_subscriptions_binding = event_subscriptions_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let rules_package_arns_binding_1 = args.rules_package_arns.get_output(context);
-        let rules_package_arns_binding = rules_package_arns_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_arn_binding_1 = args.target_arn.get_output(context);
-        let target_arn_binding = target_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let duration_binding = args.duration.get_output(context);
+        let event_subscriptions_binding = args.event_subscriptions.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let rules_package_arns_binding = args.rules_package_arns.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_arn_binding = args.target_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:inspector/assessmentTemplate:AssessmentTemplate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "duration".into(),
-                    value: &duration_binding,
+                    value: duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventSubscriptions".into(),
-                    value: &event_subscriptions_binding,
+                    value: event_subscriptions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rulesPackageArns".into(),
-                    value: &rules_package_arns_binding,
+                    value: rules_package_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetArn".into(),
-                    value: &target_arn_binding,
+                    value: target_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AssessmentTemplateResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("duration"),
-            ),
-            event_subscriptions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventSubscriptions"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            rules_package_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rulesPackageArns"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetArn"),
-            ),
+            arn: o.get_field("arn"),
+            duration: o.get_field("duration"),
+            event_subscriptions: o.get_field("eventSubscriptions"),
+            name: o.get_field("name"),
+            rules_package_arns: o.get_field("rulesPackageArns"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_arn: o.get_field("targetArn"),
         }
     }
 }

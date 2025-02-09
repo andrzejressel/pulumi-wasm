@@ -50,40 +50,35 @@ pub mod vpc_ipam_organization_admin_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcIpamOrganizationAdminAccountArgs,
     ) -> VpcIpamOrganizationAdminAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delegated_admin_account_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let delegated_admin_account_id_binding = args
             .delegated_admin_account_id
             .get_output(context);
-        let delegated_admin_account_id_binding = delegated_admin_account_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegatedAdminAccountId".into(),
-                    value: &delegated_admin_account_id_binding,
+                    value: delegated_admin_account_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcIpamOrganizationAdminAccountResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            delegated_admin_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delegatedAdminAccountId"),
-            ),
-            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            service_principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicePrincipal"),
-            ),
+            arn: o.get_field("arn"),
+            delegated_admin_account_id: o.get_field("delegatedAdminAccountId"),
+            email: o.get_field("email"),
+            name: o.get_field("name"),
+            service_principal: o.get_field("servicePrincipal"),
         }
     }
 }

@@ -87,66 +87,54 @@ pub mod registry_cache_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegistryCacheRuleArgs,
     ) -> RegistryCacheRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_registry_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let container_registry_id_binding = args
             .container_registry_id
             .get_output(context);
-        let container_registry_id_binding = container_registry_id_binding_1.get_inner();
-        let credential_set_id_binding_1 = args.credential_set_id.get_output(context);
-        let credential_set_id_binding = credential_set_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let source_repo_binding_1 = args.source_repo.get_output(context);
-        let source_repo_binding = source_repo_binding_1.get_inner();
-        let target_repo_binding_1 = args.target_repo.get_output(context);
-        let target_repo_binding = target_repo_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let credential_set_id_binding = args.credential_set_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let source_repo_binding = args.source_repo.get_output(context);
+        let target_repo_binding = args.target_repo.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerservice/registryCacheRule:RegistryCacheRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRegistryId".into(),
-                    value: &container_registry_id_binding,
+                    value: container_registry_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credentialSetId".into(),
-                    value: &credential_set_id_binding,
+                    value: credential_set_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceRepo".into(),
-                    value: &source_repo_binding,
+                    value: source_repo_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetRepo".into(),
-                    value: &target_repo_binding,
+                    value: target_repo_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegistryCacheRuleResult {
-            container_registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerRegistryId"),
-            ),
-            credential_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("credentialSetId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            source_repo: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceRepo"),
-            ),
-            target_repo: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetRepo"),
-            ),
+            container_registry_id: o.get_field("containerRegistryId"),
+            credential_set_id: o.get_field("credentialSetId"),
+            name: o.get_field("name"),
+            source_repo: o.get_field("sourceRepo"),
+            target_repo: o.get_field("targetRepo"),
         }
     }
 }

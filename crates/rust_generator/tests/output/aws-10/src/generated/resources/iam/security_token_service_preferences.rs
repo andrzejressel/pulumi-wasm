@@ -35,34 +35,31 @@ pub mod security_token_service_preferences {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SecurityTokenServicePreferencesArgs,
     ) -> SecurityTokenServicePreferencesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let global_endpoint_token_version_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let global_endpoint_token_version_binding = args
             .global_endpoint_token_version
             .get_output(context);
-        let global_endpoint_token_version_binding = global_endpoint_token_version_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalEndpointTokenVersion".into(),
-                    value: &global_endpoint_token_version_binding,
+                    value: global_endpoint_token_version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SecurityTokenServicePreferencesResult {
-            global_endpoint_token_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalEndpointTokenVersion"),
-            ),
+            global_endpoint_token_version: o.get_field("globalEndpointTokenVersion"),
         }
     }
 }

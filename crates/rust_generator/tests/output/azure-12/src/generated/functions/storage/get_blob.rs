@@ -48,73 +48,53 @@ pub mod get_blob {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBlobArgs,
     ) -> GetBlobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let metadata_binding_1 = args.metadata.get_output(context);
-        let metadata_binding = metadata_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let storage_account_name_binding_1 = args
-            .storage_account_name
-            .get_output(context);
-        let storage_account_name_binding = storage_account_name_binding_1.get_inner();
-        let storage_container_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let metadata_binding = args.metadata.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let storage_account_name_binding = args.storage_account_name.get_output(context);
+        let storage_container_name_binding = args
             .storage_container_name
             .get_output(context);
-        let storage_container_name_binding = storage_container_name_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:storage/getBlob:getBlob".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: &metadata_binding,
+                    value: metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountName".into(),
-                    value: &storage_account_name_binding,
+                    value: storage_account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageContainerName".into(),
-                    value: &storage_container_name_binding,
+                    value: storage_container_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBlobResult {
-            access_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessTier"),
-            ),
-            content_md5: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentMd5"),
-            ),
-            content_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentType"),
-            ),
-            encryption_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionScope"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountName"),
-            ),
-            storage_container_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageContainerName"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            access_tier: o.get_field("accessTier"),
+            content_md5: o.get_field("contentMd5"),
+            content_type: o.get_field("contentType"),
+            encryption_scope: o.get_field("encryptionScope"),
+            id: o.get_field("id"),
+            metadata: o.get_field("metadata"),
+            name: o.get_field("name"),
+            storage_account_name: o.get_field("storageAccountName"),
+            storage_container_name: o.get_field("storageContainerName"),
+            type_: o.get_field("type"),
+            url: o.get_field("url"),
         }
     }
 }

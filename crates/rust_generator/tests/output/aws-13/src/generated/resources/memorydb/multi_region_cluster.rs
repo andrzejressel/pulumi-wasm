@@ -129,134 +129,98 @@ pub mod multi_region_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MultiRegionClusterArgs,
     ) -> MultiRegionClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let engine_binding_1 = args.engine.get_output(context);
-        let engine_binding = engine_binding_1.get_inner();
-        let engine_version_binding_1 = args.engine_version.get_output(context);
-        let engine_version_binding = engine_version_binding_1.get_inner();
-        let multi_region_cluster_name_suffix_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let engine_binding = args.engine.get_output(context);
+        let engine_version_binding = args.engine_version.get_output(context);
+        let multi_region_cluster_name_suffix_binding = args
             .multi_region_cluster_name_suffix
             .get_output(context);
-        let multi_region_cluster_name_suffix_binding = multi_region_cluster_name_suffix_binding_1
-            .get_inner();
-        let multi_region_parameter_group_name_binding_1 = args
+        let multi_region_parameter_group_name_binding = args
             .multi_region_parameter_group_name
             .get_output(context);
-        let multi_region_parameter_group_name_binding = multi_region_parameter_group_name_binding_1
-            .get_inner();
-        let node_type_binding_1 = args.node_type.get_output(context);
-        let node_type_binding = node_type_binding_1.get_inner();
-        let num_shards_binding_1 = args.num_shards.get_output(context);
-        let num_shards_binding = num_shards_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let tls_enabled_binding_1 = args.tls_enabled.get_output(context);
-        let tls_enabled_binding = tls_enabled_binding_1.get_inner();
-        let update_strategy_binding_1 = args.update_strategy.get_output(context);
-        let update_strategy_binding = update_strategy_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let node_type_binding = args.node_type.get_output(context);
+        let num_shards_binding = args.num_shards.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let tls_enabled_binding = args.tls_enabled.get_output(context);
+        let update_strategy_binding = args.update_strategy.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:memorydb/multiRegionCluster:MultiRegionCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: &engine_binding,
+                    value: engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: &engine_version_binding,
+                    value: engine_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiRegionClusterNameSuffix".into(),
-                    value: &multi_region_cluster_name_suffix_binding,
+                    value: multi_region_cluster_name_suffix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiRegionParameterGroupName".into(),
-                    value: &multi_region_parameter_group_name_binding,
+                    value: multi_region_parameter_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeType".into(),
-                    value: &node_type_binding,
+                    value: node_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numShards".into(),
-                    value: &num_shards_binding,
+                    value: num_shards_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsEnabled".into(),
-                    value: &tls_enabled_binding,
+                    value: tls_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "updateStrategy".into(),
-                    value: &update_strategy_binding,
+                    value: update_strategy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MultiRegionClusterResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            multi_region_cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiRegionClusterName"),
-            ),
-            multi_region_cluster_name_suffix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiRegionClusterNameSuffix"),
-            ),
-            multi_region_parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiRegionParameterGroupName"),
-            ),
-            node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeType"),
-            ),
-            num_shards: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numShards"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            tls_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsEnabled"),
-            ),
-            update_strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateStrategy"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            engine: o.get_field("engine"),
+            engine_version: o.get_field("engineVersion"),
+            multi_region_cluster_name: o.get_field("multiRegionClusterName"),
+            multi_region_cluster_name_suffix: o
+                .get_field("multiRegionClusterNameSuffix"),
+            multi_region_parameter_group_name: o
+                .get_field("multiRegionParameterGroupName"),
+            node_type: o.get_field("nodeType"),
+            num_shards: o.get_field("numShards"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
+            tls_enabled: o.get_field("tlsEnabled"),
+            update_strategy: o.get_field("updateStrategy"),
         }
     }
 }

@@ -46,61 +46,42 @@ pub mod get_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAccountArgs,
     ) -> GetAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:batch/getAccount:getAccount".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAccountResult {
-            account_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountEndpoint"),
-            ),
-            encryptions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptions"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_vault_references: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultReferences"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pool_allocation_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("poolAllocationMode"),
-            ),
-            primary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryAccessKey"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryAccessKey"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            account_endpoint: o.get_field("accountEndpoint"),
+            encryptions: o.get_field("encryptions"),
+            id: o.get_field("id"),
+            key_vault_references: o.get_field("keyVaultReferences"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            pool_allocation_mode: o.get_field("poolAllocationMode"),
+            primary_access_key: o.get_field("primaryAccessKey"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_access_key: o.get_field("secondaryAccessKey"),
+            storage_account_id: o.get_field("storageAccountId"),
+            tags: o.get_field("tags"),
         }
     }
 }

@@ -122,98 +122,74 @@ pub mod option_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OptionGroupArgs,
     ) -> OptionGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let engine_name_binding_1 = args.engine_name.get_output(context);
-        let engine_name_binding = engine_name_binding_1.get_inner();
-        let major_engine_version_binding_1 = args
-            .major_engine_version
-            .get_output(context);
-        let major_engine_version_binding = major_engine_version_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let option_group_description_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let engine_name_binding = args.engine_name.get_output(context);
+        let major_engine_version_binding = args.major_engine_version.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let option_group_description_binding = args
             .option_group_description
             .get_output(context);
-        let option_group_description_binding = option_group_description_binding_1
-            .get_inner();
-        let options_binding_1 = args.options.get_output(context);
-        let options_binding = options_binding_1.get_inner();
-        let skip_destroy_binding_1 = args.skip_destroy.get_output(context);
-        let skip_destroy_binding = skip_destroy_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let options_binding = args.options.get_output(context);
+        let skip_destroy_binding = args.skip_destroy.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rds/optionGroup:OptionGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineName".into(),
-                    value: &engine_name_binding,
+                    value: engine_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "majorEngineVersion".into(),
-                    value: &major_engine_version_binding,
+                    value: major_engine_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "optionGroupDescription".into(),
-                    value: &option_group_description_binding,
+                    value: option_group_description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "options".into(),
-                    value: &options_binding,
+                    value: options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: &skip_destroy_binding,
+                    value: skip_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OptionGroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            engine_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineName"),
-            ),
-            major_engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("majorEngineVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            option_group_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("optionGroupDescription"),
-            ),
-            options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("options"),
-            ),
-            skip_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipDestroy"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            engine_name: o.get_field("engineName"),
+            major_engine_version: o.get_field("majorEngineVersion"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            option_group_description: o.get_field("optionGroupDescription"),
+            options: o.get_field("options"),
+            skip_destroy: o.get_field("skipDestroy"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

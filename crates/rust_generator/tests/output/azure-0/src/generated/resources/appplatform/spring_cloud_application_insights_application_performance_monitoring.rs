@@ -115,98 +115,75 @@ pub mod spring_cloud_application_insights_application_performance_monitoring {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs,
     ) -> SpringCloudApplicationInsightsApplicationPerformanceMonitoringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_string_binding_1 = args.connection_string.get_output(context);
-        let connection_string_binding = connection_string_binding_1.get_inner();
-        let globally_enabled_binding_1 = args.globally_enabled.get_output(context);
-        let globally_enabled_binding = globally_enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let role_instance_binding_1 = args.role_instance.get_output(context);
-        let role_instance_binding = role_instance_binding_1.get_inner();
-        let role_name_binding_1 = args.role_name.get_output(context);
-        let role_name_binding = role_name_binding_1.get_inner();
-        let sampling_percentage_binding_1 = args.sampling_percentage.get_output(context);
-        let sampling_percentage_binding = sampling_percentage_binding_1.get_inner();
-        let sampling_requests_per_second_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let connection_string_binding = args.connection_string.get_output(context);
+        let globally_enabled_binding = args.globally_enabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let role_instance_binding = args.role_instance.get_output(context);
+        let role_name_binding = args.role_name.get_output(context);
+        let sampling_percentage_binding = args.sampling_percentage.get_output(context);
+        let sampling_requests_per_second_binding = args
             .sampling_requests_per_second
             .get_output(context);
-        let sampling_requests_per_second_binding = sampling_requests_per_second_binding_1
-            .get_inner();
-        let spring_cloud_service_id_binding_1 = args
+        let spring_cloud_service_id_binding = args
             .spring_cloud_service_id
             .get_output(context);
-        let spring_cloud_service_id_binding = spring_cloud_service_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring:SpringCloudApplicationInsightsApplicationPerformanceMonitoring"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionString".into(),
-                    value: &connection_string_binding,
+                    value: connection_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globallyEnabled".into(),
-                    value: &globally_enabled_binding,
+                    value: globally_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleInstance".into(),
-                    value: &role_instance_binding,
+                    value: role_instance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleName".into(),
-                    value: &role_name_binding,
+                    value: role_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "samplingPercentage".into(),
-                    value: &sampling_percentage_binding,
+                    value: sampling_percentage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "samplingRequestsPerSecond".into(),
-                    value: &sampling_requests_per_second_binding,
+                    value: sampling_requests_per_second_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: &spring_cloud_service_id_binding,
+                    value: spring_cloud_service_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudApplicationInsightsApplicationPerformanceMonitoringResult {
-            connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionString"),
-            ),
-            globally_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globallyEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            role_instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleInstance"),
-            ),
-            role_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleName"),
-            ),
-            sampling_percentage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("samplingPercentage"),
-            ),
-            sampling_requests_per_second: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("samplingRequestsPerSecond"),
-            ),
-            spring_cloud_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudServiceId"),
-            ),
+            connection_string: o.get_field("connectionString"),
+            globally_enabled: o.get_field("globallyEnabled"),
+            name: o.get_field("name"),
+            role_instance: o.get_field("roleInstance"),
+            role_name: o.get_field("roleName"),
+            sampling_percentage: o.get_field("samplingPercentage"),
+            sampling_requests_per_second: o.get_field("samplingRequestsPerSecond"),
+            spring_cloud_service_id: o.get_field("springCloudServiceId"),
         }
     }
 }

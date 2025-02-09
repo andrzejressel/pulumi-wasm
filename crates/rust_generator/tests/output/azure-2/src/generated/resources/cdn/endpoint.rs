@@ -188,191 +188,137 @@ pub mod endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointArgs,
     ) -> EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let content_types_to_compresses_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let content_types_to_compresses_binding = args
             .content_types_to_compresses
             .get_output(context);
-        let content_types_to_compresses_binding = content_types_to_compresses_binding_1
-            .get_inner();
-        let delivery_rules_binding_1 = args.delivery_rules.get_output(context);
-        let delivery_rules_binding = delivery_rules_binding_1.get_inner();
-        let geo_filters_binding_1 = args.geo_filters.get_output(context);
-        let geo_filters_binding = geo_filters_binding_1.get_inner();
-        let global_delivery_rule_binding_1 = args
-            .global_delivery_rule
-            .get_output(context);
-        let global_delivery_rule_binding = global_delivery_rule_binding_1.get_inner();
-        let is_compression_enabled_binding_1 = args
+        let delivery_rules_binding = args.delivery_rules.get_output(context);
+        let geo_filters_binding = args.geo_filters.get_output(context);
+        let global_delivery_rule_binding = args.global_delivery_rule.get_output(context);
+        let is_compression_enabled_binding = args
             .is_compression_enabled
             .get_output(context);
-        let is_compression_enabled_binding = is_compression_enabled_binding_1
-            .get_inner();
-        let is_http_allowed_binding_1 = args.is_http_allowed.get_output(context);
-        let is_http_allowed_binding = is_http_allowed_binding_1.get_inner();
-        let is_https_allowed_binding_1 = args.is_https_allowed.get_output(context);
-        let is_https_allowed_binding = is_https_allowed_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let optimization_type_binding_1 = args.optimization_type.get_output(context);
-        let optimization_type_binding = optimization_type_binding_1.get_inner();
-        let origin_host_header_binding_1 = args.origin_host_header.get_output(context);
-        let origin_host_header_binding = origin_host_header_binding_1.get_inner();
-        let origin_path_binding_1 = args.origin_path.get_output(context);
-        let origin_path_binding = origin_path_binding_1.get_inner();
-        let origins_binding_1 = args.origins.get_output(context);
-        let origins_binding = origins_binding_1.get_inner();
-        let probe_path_binding_1 = args.probe_path.get_output(context);
-        let probe_path_binding = probe_path_binding_1.get_inner();
-        let profile_name_binding_1 = args.profile_name.get_output(context);
-        let profile_name_binding = profile_name_binding_1.get_inner();
-        let querystring_caching_behaviour_binding_1 = args
+        let is_http_allowed_binding = args.is_http_allowed.get_output(context);
+        let is_https_allowed_binding = args.is_https_allowed.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let optimization_type_binding = args.optimization_type.get_output(context);
+        let origin_host_header_binding = args.origin_host_header.get_output(context);
+        let origin_path_binding = args.origin_path.get_output(context);
+        let origins_binding = args.origins.get_output(context);
+        let probe_path_binding = args.probe_path.get_output(context);
+        let profile_name_binding = args.profile_name.get_output(context);
+        let querystring_caching_behaviour_binding = args
             .querystring_caching_behaviour
             .get_output(context);
-        let querystring_caching_behaviour_binding = querystring_caching_behaviour_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cdn/endpoint:Endpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentTypesToCompresses".into(),
-                    value: &content_types_to_compresses_binding,
+                    value: content_types_to_compresses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryRules".into(),
-                    value: &delivery_rules_binding,
+                    value: delivery_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geoFilters".into(),
-                    value: &geo_filters_binding,
+                    value: geo_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalDeliveryRule".into(),
-                    value: &global_delivery_rule_binding,
+                    value: global_delivery_rule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isCompressionEnabled".into(),
-                    value: &is_compression_enabled_binding,
+                    value: is_compression_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isHttpAllowed".into(),
-                    value: &is_http_allowed_binding,
+                    value: is_http_allowed_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isHttpsAllowed".into(),
-                    value: &is_https_allowed_binding,
+                    value: is_https_allowed_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "optimizationType".into(),
-                    value: &optimization_type_binding,
+                    value: optimization_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originHostHeader".into(),
-                    value: &origin_host_header_binding,
+                    value: origin_host_header_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originPath".into(),
-                    value: &origin_path_binding,
+                    value: origin_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "origins".into(),
-                    value: &origins_binding,
+                    value: origins_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "probePath".into(),
-                    value: &probe_path_binding,
+                    value: probe_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileName".into(),
-                    value: &profile_name_binding,
+                    value: profile_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "querystringCachingBehaviour".into(),
-                    value: &querystring_caching_behaviour_binding,
+                    value: querystring_caching_behaviour_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointResult {
-            content_types_to_compresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentTypesToCompresses"),
-            ),
-            delivery_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deliveryRules"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            geo_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("geoFilters"),
-            ),
-            global_delivery_rule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalDeliveryRule"),
-            ),
-            is_compression_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isCompressionEnabled"),
-            ),
-            is_http_allowed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isHttpAllowed"),
-            ),
-            is_https_allowed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isHttpsAllowed"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            optimization_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("optimizationType"),
-            ),
-            origin_host_header: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originHostHeader"),
-            ),
-            origin_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originPath"),
-            ),
-            origins: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("origins"),
-            ),
-            probe_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("probePath"),
-            ),
-            profile_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("profileName"),
-            ),
-            querystring_caching_behaviour: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("querystringCachingBehaviour"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            content_types_to_compresses: o.get_field("contentTypesToCompresses"),
+            delivery_rules: o.get_field("deliveryRules"),
+            fqdn: o.get_field("fqdn"),
+            geo_filters: o.get_field("geoFilters"),
+            global_delivery_rule: o.get_field("globalDeliveryRule"),
+            is_compression_enabled: o.get_field("isCompressionEnabled"),
+            is_http_allowed: o.get_field("isHttpAllowed"),
+            is_https_allowed: o.get_field("isHttpsAllowed"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            optimization_type: o.get_field("optimizationType"),
+            origin_host_header: o.get_field("originHostHeader"),
+            origin_path: o.get_field("originPath"),
+            origins: o.get_field("origins"),
+            probe_path: o.get_field("probePath"),
+            profile_name: o.get_field("profileName"),
+            querystring_caching_behaviour: o.get_field("querystringCachingBehaviour"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
         }
     }
 }

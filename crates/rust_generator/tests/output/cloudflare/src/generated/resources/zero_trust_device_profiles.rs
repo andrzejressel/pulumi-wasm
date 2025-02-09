@@ -151,197 +151,139 @@ pub mod zero_trust_device_profiles {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ZeroTrustDeviceProfilesArgs,
     ) -> ZeroTrustDeviceProfilesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let allow_mode_switch_binding_1 = args.allow_mode_switch.get_output(context);
-        let allow_mode_switch_binding = allow_mode_switch_binding_1.get_inner();
-        let allow_updates_binding_1 = args.allow_updates.get_output(context);
-        let allow_updates_binding = allow_updates_binding_1.get_inner();
-        let allowed_to_leave_binding_1 = args.allowed_to_leave.get_output(context);
-        let allowed_to_leave_binding = allowed_to_leave_binding_1.get_inner();
-        let auto_connect_binding_1 = args.auto_connect.get_output(context);
-        let auto_connect_binding = auto_connect_binding_1.get_inner();
-        let captive_portal_binding_1 = args.captive_portal.get_output(context);
-        let captive_portal_binding = captive_portal_binding_1.get_inner();
-        let default_binding_1 = args.default.get_output(context);
-        let default_binding = default_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disable_auto_fallback_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let allow_mode_switch_binding = args.allow_mode_switch.get_output(context);
+        let allow_updates_binding = args.allow_updates.get_output(context);
+        let allowed_to_leave_binding = args.allowed_to_leave.get_output(context);
+        let auto_connect_binding = args.auto_connect.get_output(context);
+        let captive_portal_binding = args.captive_portal.get_output(context);
+        let default_binding = args.default.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let disable_auto_fallback_binding = args
             .disable_auto_fallback
             .get_output(context);
-        let disable_auto_fallback_binding = disable_auto_fallback_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let exclude_office_ips_binding_1 = args.exclude_office_ips.get_output(context);
-        let exclude_office_ips_binding = exclude_office_ips_binding_1.get_inner();
-        let match__binding_1 = args.match_.get_output(context);
-        let match__binding = match__binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let precedence_binding_1 = args.precedence.get_output(context);
-        let precedence_binding = precedence_binding_1.get_inner();
-        let service_mode_v2_mode_binding_1 = args
-            .service_mode_v2_mode
-            .get_output(context);
-        let service_mode_v2_mode_binding = service_mode_v2_mode_binding_1.get_inner();
-        let service_mode_v2_port_binding_1 = args
-            .service_mode_v2_port
-            .get_output(context);
-        let service_mode_v2_port_binding = service_mode_v2_port_binding_1.get_inner();
-        let support_url_binding_1 = args.support_url.get_output(context);
-        let support_url_binding = support_url_binding_1.get_inner();
-        let switch_locked_binding_1 = args.switch_locked.get_output(context);
-        let switch_locked_binding = switch_locked_binding_1.get_inner();
-        let tunnel_protocol_binding_1 = args.tunnel_protocol.get_output(context);
-        let tunnel_protocol_binding = tunnel_protocol_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let enabled_binding = args.enabled.get_output(context);
+        let exclude_office_ips_binding = args.exclude_office_ips.get_output(context);
+        let match__binding = args.match_.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let precedence_binding = args.precedence.get_output(context);
+        let service_mode_v2_mode_binding = args.service_mode_v2_mode.get_output(context);
+        let service_mode_v2_port_binding = args.service_mode_v2_port.get_output(context);
+        let support_url_binding = args.support_url.get_output(context);
+        let switch_locked_binding = args.switch_locked.get_output(context);
+        let tunnel_protocol_binding = args.tunnel_protocol.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustDeviceProfiles:ZeroTrustDeviceProfiles"
                 .into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowModeSwitch".into(),
-                    value: &allow_mode_switch_binding,
+                    value: allow_mode_switch_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowUpdates".into(),
-                    value: &allow_updates_binding,
+                    value: allow_updates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedToLeave".into(),
-                    value: &allowed_to_leave_binding,
+                    value: allowed_to_leave_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoConnect".into(),
-                    value: &auto_connect_binding,
+                    value: auto_connect_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "captivePortal".into(),
-                    value: &captive_portal_binding,
+                    value: captive_portal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "default".into(),
-                    value: &default_binding,
+                    value: default_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableAutoFallback".into(),
-                    value: &disable_auto_fallback_binding,
+                    value: disable_auto_fallback_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeOfficeIps".into(),
-                    value: &exclude_office_ips_binding,
+                    value: exclude_office_ips_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "match".into(),
-                    value: &match__binding,
+                    value: match__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "precedence".into(),
-                    value: &precedence_binding,
+                    value: precedence_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceModeV2Mode".into(),
-                    value: &service_mode_v2_mode_binding,
+                    value: service_mode_v2_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceModeV2Port".into(),
-                    value: &service_mode_v2_port_binding,
+                    value: service_mode_v2_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportUrl".into(),
-                    value: &support_url_binding,
+                    value: support_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "switchLocked".into(),
-                    value: &switch_locked_binding,
+                    value: switch_locked_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnelProtocol".into(),
-                    value: &tunnel_protocol_binding,
+                    value: tunnel_protocol_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ZeroTrustDeviceProfilesResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            allow_mode_switch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowModeSwitch"),
-            ),
-            allow_updates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowUpdates"),
-            ),
-            allowed_to_leave: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedToLeave"),
-            ),
-            auto_connect: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoConnect"),
-            ),
-            captive_portal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("captivePortal"),
-            ),
-            default: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("default"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disable_auto_fallback: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableAutoFallback"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            exclude_office_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludeOfficeIps"),
-            ),
-            match_: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("match"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            precedence: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("precedence"),
-            ),
-            service_mode_v2_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceModeV2Mode"),
-            ),
-            service_mode_v2_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceModeV2Port"),
-            ),
-            support_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportUrl"),
-            ),
-            switch_locked: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("switchLocked"),
-            ),
-            tunnel_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnelProtocol"),
-            ),
+            account_id: o.get_field("accountId"),
+            allow_mode_switch: o.get_field("allowModeSwitch"),
+            allow_updates: o.get_field("allowUpdates"),
+            allowed_to_leave: o.get_field("allowedToLeave"),
+            auto_connect: o.get_field("autoConnect"),
+            captive_portal: o.get_field("captivePortal"),
+            default: o.get_field("default"),
+            description: o.get_field("description"),
+            disable_auto_fallback: o.get_field("disableAutoFallback"),
+            enabled: o.get_field("enabled"),
+            exclude_office_ips: o.get_field("excludeOfficeIps"),
+            match_: o.get_field("match"),
+            name: o.get_field("name"),
+            precedence: o.get_field("precedence"),
+            service_mode_v2_mode: o.get_field("serviceModeV2Mode"),
+            service_mode_v2_port: o.get_field("serviceModeV2Port"),
+            support_url: o.get_field("supportUrl"),
+            switch_locked: o.get_field("switchLocked"),
+            tunnel_protocol: o.get_field("tunnelProtocol"),
         }
     }
 }

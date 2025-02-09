@@ -87,60 +87,48 @@ pub mod spring_cloud_storage {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudStorageArgs,
     ) -> SpringCloudStorageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let spring_cloud_service_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let spring_cloud_service_id_binding = args
             .spring_cloud_service_id
             .get_output(context);
-        let spring_cloud_service_id_binding = spring_cloud_service_id_binding_1
-            .get_inner();
-        let storage_account_key_binding_1 = args.storage_account_key.get_output(context);
-        let storage_account_key_binding = storage_account_key_binding_1.get_inner();
-        let storage_account_name_binding_1 = args
-            .storage_account_name
-            .get_output(context);
-        let storage_account_name_binding = storage_account_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let storage_account_key_binding = args.storage_account_key.get_output(context);
+        let storage_account_name_binding = args.storage_account_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudStorage:SpringCloudStorage".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: &spring_cloud_service_id_binding,
+                    value: spring_cloud_service_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountKey".into(),
-                    value: &storage_account_key_binding,
+                    value: storage_account_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountName".into(),
-                    value: &storage_account_name_binding,
+                    value: storage_account_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudStorageResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            spring_cloud_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudServiceId"),
-            ),
-            storage_account_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountKey"),
-            ),
-            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountName"),
-            ),
+            name: o.get_field("name"),
+            spring_cloud_service_id: o.get_field("springCloudServiceId"),
+            storage_account_key: o.get_field("storageAccountKey"),
+            storage_account_name: o.get_field("storageAccountName"),
         }
     }
 }

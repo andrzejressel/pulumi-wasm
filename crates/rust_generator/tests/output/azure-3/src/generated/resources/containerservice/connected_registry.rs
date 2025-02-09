@@ -158,127 +158,96 @@ pub mod connected_registry {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectedRegistryArgs,
     ) -> ConnectedRegistryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audit_log_enabled_binding_1 = args.audit_log_enabled.get_output(context);
-        let audit_log_enabled_binding = audit_log_enabled_binding_1.get_inner();
-        let client_token_ids_binding_1 = args.client_token_ids.get_output(context);
-        let client_token_ids_binding = client_token_ids_binding_1.get_inner();
-        let container_registry_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let audit_log_enabled_binding = args.audit_log_enabled.get_output(context);
+        let client_token_ids_binding = args.client_token_ids.get_output(context);
+        let container_registry_id_binding = args
             .container_registry_id
             .get_output(context);
-        let container_registry_id_binding = container_registry_id_binding_1.get_inner();
-        let log_level_binding_1 = args.log_level.get_output(context);
-        let log_level_binding = log_level_binding_1.get_inner();
-        let mode_binding_1 = args.mode.get_output(context);
-        let mode_binding = mode_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let notifications_binding_1 = args.notifications.get_output(context);
-        let notifications_binding = notifications_binding_1.get_inner();
-        let parent_registry_id_binding_1 = args.parent_registry_id.get_output(context);
-        let parent_registry_id_binding = parent_registry_id_binding_1.get_inner();
-        let sync_message_ttl_binding_1 = args.sync_message_ttl.get_output(context);
-        let sync_message_ttl_binding = sync_message_ttl_binding_1.get_inner();
-        let sync_schedule_binding_1 = args.sync_schedule.get_output(context);
-        let sync_schedule_binding = sync_schedule_binding_1.get_inner();
-        let sync_token_id_binding_1 = args.sync_token_id.get_output(context);
-        let sync_token_id_binding = sync_token_id_binding_1.get_inner();
-        let sync_window_binding_1 = args.sync_window.get_output(context);
-        let sync_window_binding = sync_window_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let log_level_binding = args.log_level.get_output(context);
+        let mode_binding = args.mode.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let notifications_binding = args.notifications.get_output(context);
+        let parent_registry_id_binding = args.parent_registry_id.get_output(context);
+        let sync_message_ttl_binding = args.sync_message_ttl.get_output(context);
+        let sync_schedule_binding = args.sync_schedule.get_output(context);
+        let sync_token_id_binding = args.sync_token_id.get_output(context);
+        let sync_window_binding = args.sync_window.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerservice/connectedRegistry:ConnectedRegistry".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditLogEnabled".into(),
-                    value: &audit_log_enabled_binding,
+                    value: audit_log_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientTokenIds".into(),
-                    value: &client_token_ids_binding,
+                    value: client_token_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRegistryId".into(),
-                    value: &container_registry_id_binding,
+                    value: container_registry_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logLevel".into(),
-                    value: &log_level_binding,
+                    value: log_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: &mode_binding,
+                    value: mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notifications".into(),
-                    value: &notifications_binding,
+                    value: notifications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentRegistryId".into(),
-                    value: &parent_registry_id_binding,
+                    value: parent_registry_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "syncMessageTtl".into(),
-                    value: &sync_message_ttl_binding,
+                    value: sync_message_ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "syncSchedule".into(),
-                    value: &sync_schedule_binding,
+                    value: sync_schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "syncTokenId".into(),
-                    value: &sync_token_id_binding,
+                    value: sync_token_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "syncWindow".into(),
-                    value: &sync_window_binding,
+                    value: sync_window_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectedRegistryResult {
-            audit_log_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("auditLogEnabled"),
-            ),
-            client_token_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientTokenIds"),
-            ),
-            container_registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerRegistryId"),
-            ),
-            log_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logLevel"),
-            ),
-            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notifications"),
-            ),
-            parent_registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentRegistryId"),
-            ),
-            sync_message_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("syncMessageTtl"),
-            ),
-            sync_schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("syncSchedule"),
-            ),
-            sync_token_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("syncTokenId"),
-            ),
-            sync_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("syncWindow"),
-            ),
+            audit_log_enabled: o.get_field("auditLogEnabled"),
+            client_token_ids: o.get_field("clientTokenIds"),
+            container_registry_id: o.get_field("containerRegistryId"),
+            log_level: o.get_field("logLevel"),
+            mode: o.get_field("mode"),
+            name: o.get_field("name"),
+            notifications: o.get_field("notifications"),
+            parent_registry_id: o.get_field("parentRegistryId"),
+            sync_message_ttl: o.get_field("syncMessageTtl"),
+            sync_schedule: o.get_field("syncSchedule"),
+            sync_token_id: o.get_field("syncTokenId"),
+            sync_window: o.get_field("syncWindow"),
         }
     }
 }

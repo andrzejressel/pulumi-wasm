@@ -32,52 +32,41 @@ pub mod get_replication_subnet_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetReplicationSubnetGroupArgs,
     ) -> GetReplicationSubnetGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let replication_subnet_group_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let replication_subnet_group_id_binding = args
             .replication_subnet_group_id
             .get_output(context);
-        let replication_subnet_group_id_binding = replication_subnet_group_id_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationSubnetGroupId".into(),
-                    value: &replication_subnet_group_id_binding,
+                    value: replication_subnet_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetReplicationSubnetGroupResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            replication_subnet_group_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationSubnetGroupArn"),
-            ),
-            replication_subnet_group_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationSubnetGroupDescription"),
-            ),
-            replication_subnet_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationSubnetGroupId"),
-            ),
-            subnet_group_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetGroupStatus"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            id: o.get_field("id"),
+            replication_subnet_group_arn: o.get_field("replicationSubnetGroupArn"),
+            replication_subnet_group_description: o
+                .get_field("replicationSubnetGroupDescription"),
+            replication_subnet_group_id: o.get_field("replicationSubnetGroupId"),
+            subnet_group_status: o.get_field("subnetGroupStatus"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

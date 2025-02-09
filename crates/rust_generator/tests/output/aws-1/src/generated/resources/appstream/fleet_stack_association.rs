@@ -64,39 +64,34 @@ pub mod fleet_stack_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FleetStackAssociationArgs,
     ) -> FleetStackAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let fleet_name_binding_1 = args.fleet_name.get_output(context);
-        let fleet_name_binding = fleet_name_binding_1.get_inner();
-        let stack_name_binding_1 = args.stack_name.get_output(context);
-        let stack_name_binding = stack_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let fleet_name_binding = args.fleet_name.get_output(context);
+        let stack_name_binding = args.stack_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appstream/fleetStackAssociation:FleetStackAssociation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetName".into(),
-                    value: &fleet_name_binding,
+                    value: fleet_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackName".into(),
-                    value: &stack_name_binding,
+                    value: stack_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FleetStackAssociationResult {
-            fleet_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fleetName"),
-            ),
-            stack_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackName"),
-            ),
+            fleet_name: o.get_field("fleetName"),
+            stack_name: o.get_field("stackName"),
         }
     }
 }

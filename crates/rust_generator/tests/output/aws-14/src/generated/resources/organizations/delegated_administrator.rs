@@ -63,55 +63,42 @@ pub mod delegated_administrator {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DelegatedAdministratorArgs,
     ) -> DelegatedAdministratorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let service_principal_binding_1 = args.service_principal.get_output(context);
-        let service_principal_binding = service_principal_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let service_principal_binding = args.service_principal.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:organizations/delegatedAdministrator:DelegatedAdministrator"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrincipal".into(),
-                    value: &service_principal_binding,
+                    value: service_principal_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DelegatedAdministratorResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            delegation_enabled_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delegationEnabledDate"),
-            ),
-            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
-            joined_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("joinedMethod"),
-            ),
-            joined_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("joinedTimestamp"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            service_principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicePrincipal"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            account_id: o.get_field("accountId"),
+            arn: o.get_field("arn"),
+            delegation_enabled_date: o.get_field("delegationEnabledDate"),
+            email: o.get_field("email"),
+            joined_method: o.get_field("joinedMethod"),
+            joined_timestamp: o.get_field("joinedTimestamp"),
+            name: o.get_field("name"),
+            service_principal: o.get_field("servicePrincipal"),
+            status: o.get_field("status"),
         }
     }
 }

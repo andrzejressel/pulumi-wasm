@@ -104,96 +104,74 @@ pub mod profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProfileArgs,
     ) -> ProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let duration_seconds_binding_1 = args.duration_seconds.get_output(context);
-        let duration_seconds_binding = duration_seconds_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let managed_policy_arns_binding_1 = args.managed_policy_arns.get_output(context);
-        let managed_policy_arns_binding = managed_policy_arns_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let require_instance_properties_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let duration_seconds_binding = args.duration_seconds.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let managed_policy_arns_binding = args.managed_policy_arns.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let require_instance_properties_binding = args
             .require_instance_properties
             .get_output(context);
-        let require_instance_properties_binding = require_instance_properties_binding_1
-            .get_inner();
-        let role_arns_binding_1 = args.role_arns.get_output(context);
-        let role_arns_binding = role_arns_binding_1.get_inner();
-        let session_policy_binding_1 = args.session_policy.get_output(context);
-        let session_policy_binding = session_policy_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let role_arns_binding = args.role_arns.get_output(context);
+        let session_policy_binding = args.session_policy.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rolesanywhere/profile:Profile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "durationSeconds".into(),
-                    value: &duration_seconds_binding,
+                    value: duration_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedPolicyArns".into(),
-                    value: &managed_policy_arns_binding,
+                    value: managed_policy_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireInstanceProperties".into(),
-                    value: &require_instance_properties_binding,
+                    value: require_instance_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArns".into(),
-                    value: &role_arns_binding,
+                    value: role_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionPolicy".into(),
-                    value: &session_policy_binding,
+                    value: session_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProfileResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            duration_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("durationSeconds"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            managed_policy_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedPolicyArns"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            require_instance_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requireInstanceProperties"),
-            ),
-            role_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArns"),
-            ),
-            session_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionPolicy"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            duration_seconds: o.get_field("durationSeconds"),
+            enabled: o.get_field("enabled"),
+            managed_policy_arns: o.get_field("managedPolicyArns"),
+            name: o.get_field("name"),
+            require_instance_properties: o.get_field("requireInstanceProperties"),
+            role_arns: o.get_field("roleArns"),
+            session_policy: o.get_field("sessionPolicy"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

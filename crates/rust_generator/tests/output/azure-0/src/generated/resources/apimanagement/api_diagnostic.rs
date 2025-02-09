@@ -225,164 +225,118 @@ pub mod api_diagnostic {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiDiagnosticArgs,
     ) -> ApiDiagnosticResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let always_log_errors_binding_1 = args.always_log_errors.get_output(context);
-        let always_log_errors_binding = always_log_errors_binding_1.get_inner();
-        let api_management_logger_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let always_log_errors_binding = args.always_log_errors.get_output(context);
+        let api_management_logger_id_binding = args
             .api_management_logger_id
             .get_output(context);
-        let api_management_logger_id_binding = api_management_logger_id_binding_1
-            .get_inner();
-        let api_management_name_binding_1 = args.api_management_name.get_output(context);
-        let api_management_name_binding = api_management_name_binding_1.get_inner();
-        let api_name_binding_1 = args.api_name.get_output(context);
-        let api_name_binding = api_name_binding_1.get_inner();
-        let backend_request_binding_1 = args.backend_request.get_output(context);
-        let backend_request_binding = backend_request_binding_1.get_inner();
-        let backend_response_binding_1 = args.backend_response.get_output(context);
-        let backend_response_binding = backend_response_binding_1.get_inner();
-        let frontend_request_binding_1 = args.frontend_request.get_output(context);
-        let frontend_request_binding = frontend_request_binding_1.get_inner();
-        let frontend_response_binding_1 = args.frontend_response.get_output(context);
-        let frontend_response_binding = frontend_response_binding_1.get_inner();
-        let http_correlation_protocol_binding_1 = args
+        let api_management_name_binding = args.api_management_name.get_output(context);
+        let api_name_binding = args.api_name.get_output(context);
+        let backend_request_binding = args.backend_request.get_output(context);
+        let backend_response_binding = args.backend_response.get_output(context);
+        let frontend_request_binding = args.frontend_request.get_output(context);
+        let frontend_response_binding = args.frontend_response.get_output(context);
+        let http_correlation_protocol_binding = args
             .http_correlation_protocol
             .get_output(context);
-        let http_correlation_protocol_binding = http_correlation_protocol_binding_1
-            .get_inner();
-        let identifier_binding_1 = args.identifier.get_output(context);
-        let identifier_binding = identifier_binding_1.get_inner();
-        let log_client_ip_binding_1 = args.log_client_ip.get_output(context);
-        let log_client_ip_binding = log_client_ip_binding_1.get_inner();
-        let operation_name_format_binding_1 = args
+        let identifier_binding = args.identifier.get_output(context);
+        let log_client_ip_binding = args.log_client_ip.get_output(context);
+        let operation_name_format_binding = args
             .operation_name_format
             .get_output(context);
-        let operation_name_format_binding = operation_name_format_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sampling_percentage_binding_1 = args.sampling_percentage.get_output(context);
-        let sampling_percentage_binding = sampling_percentage_binding_1.get_inner();
-        let verbosity_binding_1 = args.verbosity.get_output(context);
-        let verbosity_binding = verbosity_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sampling_percentage_binding = args.sampling_percentage.get_output(context);
+        let verbosity_binding = args.verbosity.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/apiDiagnostic:ApiDiagnostic".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alwaysLogErrors".into(),
-                    value: &always_log_errors_binding,
+                    value: always_log_errors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementLoggerId".into(),
-                    value: &api_management_logger_id_binding,
+                    value: api_management_logger_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: &api_management_name_binding,
+                    value: api_management_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiName".into(),
-                    value: &api_name_binding,
+                    value: api_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendRequest".into(),
-                    value: &backend_request_binding,
+                    value: backend_request_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendResponse".into(),
-                    value: &backend_response_binding,
+                    value: backend_response_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendRequest".into(),
-                    value: &frontend_request_binding,
+                    value: frontend_request_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendResponse".into(),
-                    value: &frontend_response_binding,
+                    value: frontend_response_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpCorrelationProtocol".into(),
-                    value: &http_correlation_protocol_binding,
+                    value: http_correlation_protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identifier".into(),
-                    value: &identifier_binding,
+                    value: identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logClientIp".into(),
-                    value: &log_client_ip_binding,
+                    value: log_client_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operationNameFormat".into(),
-                    value: &operation_name_format_binding,
+                    value: operation_name_format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "samplingPercentage".into(),
-                    value: &sampling_percentage_binding,
+                    value: sampling_percentage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verbosity".into(),
-                    value: &verbosity_binding,
+                    value: verbosity_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiDiagnosticResult {
-            always_log_errors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alwaysLogErrors"),
-            ),
-            api_management_logger_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementLoggerId"),
-            ),
-            api_management_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementName"),
-            ),
-            api_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiName"),
-            ),
-            backend_request: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendRequest"),
-            ),
-            backend_response: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendResponse"),
-            ),
-            frontend_request: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendRequest"),
-            ),
-            frontend_response: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendResponse"),
-            ),
-            http_correlation_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpCorrelationProtocol"),
-            ),
-            identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identifier"),
-            ),
-            log_client_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logClientIp"),
-            ),
-            operation_name_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operationNameFormat"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sampling_percentage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("samplingPercentage"),
-            ),
-            verbosity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verbosity"),
-            ),
+            always_log_errors: o.get_field("alwaysLogErrors"),
+            api_management_logger_id: o.get_field("apiManagementLoggerId"),
+            api_management_name: o.get_field("apiManagementName"),
+            api_name: o.get_field("apiName"),
+            backend_request: o.get_field("backendRequest"),
+            backend_response: o.get_field("backendResponse"),
+            frontend_request: o.get_field("frontendRequest"),
+            frontend_response: o.get_field("frontendResponse"),
+            http_correlation_protocol: o.get_field("httpCorrelationProtocol"),
+            identifier: o.get_field("identifier"),
+            log_client_ip: o.get_field("logClientIp"),
+            operation_name_format: o.get_field("operationNameFormat"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sampling_percentage: o.get_field("samplingPercentage"),
+            verbosity: o.get_field("verbosity"),
         }
     }
 }

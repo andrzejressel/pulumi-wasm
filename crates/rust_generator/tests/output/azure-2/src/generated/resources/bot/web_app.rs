@@ -125,141 +125,107 @@ pub mod web_app {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WebAppArgs,
     ) -> WebAppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let developer_app_insights_api_key_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let developer_app_insights_api_key_binding = args
             .developer_app_insights_api_key
             .get_output(context);
-        let developer_app_insights_api_key_binding = developer_app_insights_api_key_binding_1
-            .get_inner();
-        let developer_app_insights_application_id_binding_1 = args
+        let developer_app_insights_application_id_binding = args
             .developer_app_insights_application_id
             .get_output(context);
-        let developer_app_insights_application_id_binding = developer_app_insights_application_id_binding_1
-            .get_inner();
-        let developer_app_insights_key_binding_1 = args
+        let developer_app_insights_key_binding = args
             .developer_app_insights_key
             .get_output(context);
-        let developer_app_insights_key_binding = developer_app_insights_key_binding_1
-            .get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let endpoint_binding_1 = args.endpoint.get_output(context);
-        let endpoint_binding = endpoint_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let luis_app_ids_binding_1 = args.luis_app_ids.get_output(context);
-        let luis_app_ids_binding = luis_app_ids_binding_1.get_inner();
-        let luis_key_binding_1 = args.luis_key.get_output(context);
-        let luis_key_binding = luis_key_binding_1.get_inner();
-        let microsoft_app_id_binding_1 = args.microsoft_app_id.get_output(context);
-        let microsoft_app_id_binding = microsoft_app_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let display_name_binding = args.display_name.get_output(context);
+        let endpoint_binding = args.endpoint.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let luis_app_ids_binding = args.luis_app_ids.get_output(context);
+        let luis_key_binding = args.luis_key.get_output(context);
+        let microsoft_app_id_binding = args.microsoft_app_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:bot/webApp:WebApp".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "developerAppInsightsApiKey".into(),
-                    value: &developer_app_insights_api_key_binding,
+                    value: developer_app_insights_api_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "developerAppInsightsApplicationId".into(),
-                    value: &developer_app_insights_application_id_binding,
+                    value: developer_app_insights_application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "developerAppInsightsKey".into(),
-                    value: &developer_app_insights_key_binding,
+                    value: developer_app_insights_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoint".into(),
-                    value: &endpoint_binding,
+                    value: endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "luisAppIds".into(),
-                    value: &luis_app_ids_binding,
+                    value: luis_app_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "luisKey".into(),
-                    value: &luis_key_binding,
+                    value: luis_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "microsoftAppId".into(),
-                    value: &microsoft_app_id_binding,
+                    value: microsoft_app_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WebAppResult {
-            developer_app_insights_api_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("developerAppInsightsApiKey"),
-            ),
-            developer_app_insights_application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("developerAppInsightsApplicationId"),
-            ),
-            developer_app_insights_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("developerAppInsightsKey"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            luis_app_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("luisAppIds"),
-            ),
-            luis_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("luisKey"),
-            ),
-            microsoft_app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("microsoftAppId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            developer_app_insights_api_key: o.get_field("developerAppInsightsApiKey"),
+            developer_app_insights_application_id: o
+                .get_field("developerAppInsightsApplicationId"),
+            developer_app_insights_key: o.get_field("developerAppInsightsKey"),
+            display_name: o.get_field("displayName"),
+            endpoint: o.get_field("endpoint"),
+            location: o.get_field("location"),
+            luis_app_ids: o.get_field("luisAppIds"),
+            luis_key: o.get_field("luisKey"),
+            microsoft_app_id: o.get_field("microsoftAppId"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
         }
     }
 }

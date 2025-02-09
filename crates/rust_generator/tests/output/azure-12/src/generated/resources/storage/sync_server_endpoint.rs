@@ -148,115 +148,86 @@ pub mod sync_server_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SyncServerEndpointArgs,
     ) -> SyncServerEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloud_tiering_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cloud_tiering_enabled_binding = args
             .cloud_tiering_enabled
             .get_output(context);
-        let cloud_tiering_enabled_binding = cloud_tiering_enabled_binding_1.get_inner();
-        let initial_download_policy_binding_1 = args
+        let initial_download_policy_binding = args
             .initial_download_policy
             .get_output(context);
-        let initial_download_policy_binding = initial_download_policy_binding_1
-            .get_inner();
-        let local_cache_mode_binding_1 = args.local_cache_mode.get_output(context);
-        let local_cache_mode_binding = local_cache_mode_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let registered_server_id_binding_1 = args
-            .registered_server_id
-            .get_output(context);
-        let registered_server_id_binding = registered_server_id_binding_1.get_inner();
-        let server_local_path_binding_1 = args.server_local_path.get_output(context);
-        let server_local_path_binding = server_local_path_binding_1.get_inner();
-        let storage_sync_group_id_binding_1 = args
+        let local_cache_mode_binding = args.local_cache_mode.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let registered_server_id_binding = args.registered_server_id.get_output(context);
+        let server_local_path_binding = args.server_local_path.get_output(context);
+        let storage_sync_group_id_binding = args
             .storage_sync_group_id
             .get_output(context);
-        let storage_sync_group_id_binding = storage_sync_group_id_binding_1.get_inner();
-        let tier_files_older_than_days_binding_1 = args
+        let tier_files_older_than_days_binding = args
             .tier_files_older_than_days
             .get_output(context);
-        let tier_files_older_than_days_binding = tier_files_older_than_days_binding_1
-            .get_inner();
-        let volume_free_space_percent_binding_1 = args
+        let volume_free_space_percent_binding = args
             .volume_free_space_percent
             .get_output(context);
-        let volume_free_space_percent_binding = volume_free_space_percent_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/syncServerEndpoint:SyncServerEndpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudTieringEnabled".into(),
-                    value: &cloud_tiering_enabled_binding,
+                    value: cloud_tiering_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialDownloadPolicy".into(),
-                    value: &initial_download_policy_binding,
+                    value: initial_download_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localCacheMode".into(),
-                    value: &local_cache_mode_binding,
+                    value: local_cache_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registeredServerId".into(),
-                    value: &registered_server_id_binding,
+                    value: registered_server_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverLocalPath".into(),
-                    value: &server_local_path_binding,
+                    value: server_local_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageSyncGroupId".into(),
-                    value: &storage_sync_group_id_binding,
+                    value: storage_sync_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tierFilesOlderThanDays".into(),
-                    value: &tier_files_older_than_days_binding,
+                    value: tier_files_older_than_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeFreeSpacePercent".into(),
-                    value: &volume_free_space_percent_binding,
+                    value: volume_free_space_percent_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SyncServerEndpointResult {
-            cloud_tiering_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudTieringEnabled"),
-            ),
-            initial_download_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initialDownloadPolicy"),
-            ),
-            local_cache_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localCacheMode"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            registered_server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registeredServerId"),
-            ),
-            server_local_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverLocalPath"),
-            ),
-            storage_sync_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageSyncGroupId"),
-            ),
-            tier_files_older_than_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tierFilesOlderThanDays"),
-            ),
-            volume_free_space_percent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeFreeSpacePercent"),
-            ),
+            cloud_tiering_enabled: o.get_field("cloudTieringEnabled"),
+            initial_download_policy: o.get_field("initialDownloadPolicy"),
+            local_cache_mode: o.get_field("localCacheMode"),
+            name: o.get_field("name"),
+            registered_server_id: o.get_field("registeredServerId"),
+            server_local_path: o.get_field("serverLocalPath"),
+            storage_sync_group_id: o.get_field("storageSyncGroupId"),
+            tier_files_older_than_days: o.get_field("tierFilesOlderThanDays"),
+            volume_free_space_percent: o.get_field("volumeFreeSpacePercent"),
         }
     }
 }

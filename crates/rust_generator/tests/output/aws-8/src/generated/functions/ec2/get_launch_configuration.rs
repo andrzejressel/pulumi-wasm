@@ -62,73 +62,43 @@ pub mod get_launch_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetLaunchConfigurationArgs,
     ) -> GetLaunchConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getLaunchConfiguration:getLaunchConfiguration".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetLaunchConfigurationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            associate_public_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associatePublicIpAddress"),
-            ),
-            ebs_block_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsBlockDevices"),
-            ),
-            ebs_optimized: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsOptimized"),
-            ),
-            enable_monitoring: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableMonitoring"),
-            ),
-            ephemeral_block_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ephemeralBlockDevices"),
-            ),
-            iam_instance_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamInstanceProfile"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            image_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageId"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyName"),
-            ),
-            metadata_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadataOptions"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            placement_tenancy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementTenancy"),
-            ),
-            root_block_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootBlockDevices"),
-            ),
-            security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroups"),
-            ),
-            spot_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spotPrice"),
-            ),
-            user_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userData"),
-            ),
+            arn: o.get_field("arn"),
+            associate_public_ip_address: o.get_field("associatePublicIpAddress"),
+            ebs_block_devices: o.get_field("ebsBlockDevices"),
+            ebs_optimized: o.get_field("ebsOptimized"),
+            enable_monitoring: o.get_field("enableMonitoring"),
+            ephemeral_block_devices: o.get_field("ephemeralBlockDevices"),
+            iam_instance_profile: o.get_field("iamInstanceProfile"),
+            id: o.get_field("id"),
+            image_id: o.get_field("imageId"),
+            instance_type: o.get_field("instanceType"),
+            key_name: o.get_field("keyName"),
+            metadata_options: o.get_field("metadataOptions"),
+            name: o.get_field("name"),
+            placement_tenancy: o.get_field("placementTenancy"),
+            root_block_devices: o.get_field("rootBlockDevices"),
+            security_groups: o.get_field("securityGroups"),
+            spot_price: o.get_field("spotPrice"),
+            user_data: o.get_field("userData"),
         }
     }
 }

@@ -175,127 +175,91 @@ pub mod pipeline {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PipelineArgs,
     ) -> PipelineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let buffer_options_binding_1 = args.buffer_options.get_output(context);
-        let buffer_options_binding = buffer_options_binding_1.get_inner();
-        let encryption_at_rest_options_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let buffer_options_binding = args.buffer_options.get_output(context);
+        let encryption_at_rest_options_binding = args
             .encryption_at_rest_options
             .get_output(context);
-        let encryption_at_rest_options_binding = encryption_at_rest_options_binding_1
-            .get_inner();
-        let log_publishing_options_binding_1 = args
+        let log_publishing_options_binding = args
             .log_publishing_options
             .get_output(context);
-        let log_publishing_options_binding = log_publishing_options_binding_1
-            .get_inner();
-        let max_units_binding_1 = args.max_units.get_output(context);
-        let max_units_binding = max_units_binding_1.get_inner();
-        let min_units_binding_1 = args.min_units.get_output(context);
-        let min_units_binding = min_units_binding_1.get_inner();
-        let pipeline_configuration_body_binding_1 = args
+        let max_units_binding = args.max_units.get_output(context);
+        let min_units_binding = args.min_units.get_output(context);
+        let pipeline_configuration_body_binding = args
             .pipeline_configuration_body
             .get_output(context);
-        let pipeline_configuration_body_binding = pipeline_configuration_body_binding_1
-            .get_inner();
-        let pipeline_name_binding_1 = args.pipeline_name.get_output(context);
-        let pipeline_name_binding = pipeline_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let vpc_options_binding_1 = args.vpc_options.get_output(context);
-        let vpc_options_binding = vpc_options_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let pipeline_name_binding = args.pipeline_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let vpc_options_binding = args.vpc_options.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:opensearchingest/pipeline:Pipeline".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bufferOptions".into(),
-                    value: &buffer_options_binding,
+                    value: buffer_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionAtRestOptions".into(),
-                    value: &encryption_at_rest_options_binding,
+                    value: encryption_at_rest_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logPublishingOptions".into(),
-                    value: &log_publishing_options_binding,
+                    value: log_publishing_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxUnits".into(),
-                    value: &max_units_binding,
+                    value: max_units_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minUnits".into(),
-                    value: &min_units_binding,
+                    value: min_units_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineConfigurationBody".into(),
-                    value: &pipeline_configuration_body_binding,
+                    value: pipeline_configuration_body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineName".into(),
-                    value: &pipeline_name_binding,
+                    value: pipeline_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcOptions".into(),
-                    value: &vpc_options_binding,
+                    value: vpc_options_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PipelineResult {
-            buffer_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bufferOptions"),
-            ),
-            encryption_at_rest_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionAtRestOptions"),
-            ),
-            ingest_endpoint_urls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingestEndpointUrls"),
-            ),
-            log_publishing_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logPublishingOptions"),
-            ),
-            max_units: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxUnits"),
-            ),
-            min_units: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minUnits"),
-            ),
-            pipeline_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pipelineArn"),
-            ),
-            pipeline_configuration_body: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pipelineConfigurationBody"),
-            ),
-            pipeline_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pipelineName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            vpc_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcOptions"),
-            ),
+            buffer_options: o.get_field("bufferOptions"),
+            encryption_at_rest_options: o.get_field("encryptionAtRestOptions"),
+            ingest_endpoint_urls: o.get_field("ingestEndpointUrls"),
+            log_publishing_options: o.get_field("logPublishingOptions"),
+            max_units: o.get_field("maxUnits"),
+            min_units: o.get_field("minUnits"),
+            pipeline_arn: o.get_field("pipelineArn"),
+            pipeline_configuration_body: o.get_field("pipelineConfigurationBody"),
+            pipeline_name: o.get_field("pipelineName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
+            vpc_options: o.get_field("vpcOptions"),
         }
     }
 }

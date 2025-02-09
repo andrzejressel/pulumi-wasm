@@ -193,77 +193,59 @@ pub mod multicast_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MulticastDomainArgs,
     ) -> MulticastDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_accept_shared_associations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_accept_shared_associations_binding = args
             .auto_accept_shared_associations
             .get_output(context);
-        let auto_accept_shared_associations_binding = auto_accept_shared_associations_binding_1
-            .get_inner();
-        let igmpv2_support_binding_1 = args.igmpv2_support.get_output(context);
-        let igmpv2_support_binding = igmpv2_support_binding_1.get_inner();
-        let static_sources_support_binding_1 = args
+        let igmpv2_support_binding = args.igmpv2_support.get_output(context);
+        let static_sources_support_binding = args
             .static_sources_support
             .get_output(context);
-        let static_sources_support_binding = static_sources_support_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let transit_gateway_id_binding_1 = args.transit_gateway_id.get_output(context);
-        let transit_gateway_id_binding = transit_gateway_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let transit_gateway_id_binding = args.transit_gateway_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/multicastDomain:MulticastDomain".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoAcceptSharedAssociations".into(),
-                    value: &auto_accept_shared_associations_binding,
+                    value: auto_accept_shared_associations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "igmpv2Support".into(),
-                    value: &igmpv2_support_binding,
+                    value: igmpv2_support_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staticSourcesSupport".into(),
-                    value: &static_sources_support_binding,
+                    value: static_sources_support_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayId".into(),
-                    value: &transit_gateway_id_binding,
+                    value: transit_gateway_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MulticastDomainResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_accept_shared_associations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoAcceptSharedAssociations"),
-            ),
-            igmpv2_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("igmpv2Support"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            static_sources_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("staticSourcesSupport"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayId"),
-            ),
+            arn: o.get_field("arn"),
+            auto_accept_shared_associations: o.get_field("autoAcceptSharedAssociations"),
+            igmpv2_support: o.get_field("igmpv2Support"),
+            owner_id: o.get_field("ownerId"),
+            static_sources_support: o.get_field("staticSourcesSupport"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            transit_gateway_id: o.get_field("transitGatewayId"),
         }
     }
 }

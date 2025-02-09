@@ -488,231 +488,154 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerators_binding_1 = args.accelerators.get_output(context);
-        let accelerators_binding = accelerators_binding_1.get_inner();
-        let crypto_key_config_binding_1 = args.crypto_key_config.get_output(context);
-        let crypto_key_config_binding = crypto_key_config_binding_1.get_inner();
-        let dataproc_service_account_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accelerators_binding = args.accelerators.get_output(context);
+        let crypto_key_config_binding = args.crypto_key_config.get_output(context);
+        let dataproc_service_account_binding = args
             .dataproc_service_account
             .get_output(context);
-        let dataproc_service_account_binding = dataproc_service_account_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enable_rbac_binding_1 = args.enable_rbac.get_output(context);
-        let enable_rbac_binding = enable_rbac_binding_1.get_inner();
-        let enable_stackdriver_logging_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let enable_rbac_binding = args.enable_rbac.get_output(context);
+        let enable_stackdriver_logging_binding = args
             .enable_stackdriver_logging
             .get_output(context);
-        let enable_stackdriver_logging_binding = enable_stackdriver_logging_binding_1
-            .get_inner();
-        let enable_stackdriver_monitoring_binding_1 = args
+        let enable_stackdriver_monitoring_binding = args
             .enable_stackdriver_monitoring
             .get_output(context);
-        let enable_stackdriver_monitoring_binding = enable_stackdriver_monitoring_binding_1
-            .get_inner();
-        let event_publish_config_binding_1 = args
-            .event_publish_config
-            .get_output(context);
-        let event_publish_config_binding = event_publish_config_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_config_binding_1 = args.network_config.get_output(context);
-        let network_config_binding = network_config_binding_1.get_inner();
-        let options_binding_1 = args.options.get_output(context);
-        let options_binding = options_binding_1.get_inner();
-        let private_instance_binding_1 = args.private_instance.get_output(context);
-        let private_instance_binding = private_instance_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let event_publish_config_binding = args.event_publish_config.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_config_binding = args.network_config.get_output(context);
+        let options_binding = args.options.get_output(context);
+        let private_instance_binding = args.private_instance.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:datafusion/instance:Instance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accelerators".into(),
-                    value: &accelerators_binding,
+                    value: accelerators_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoKeyConfig".into(),
-                    value: &crypto_key_config_binding,
+                    value: crypto_key_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataprocServiceAccount".into(),
-                    value: &dataproc_service_account_binding,
+                    value: dataproc_service_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableRbac".into(),
-                    value: &enable_rbac_binding,
+                    value: enable_rbac_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableStackdriverLogging".into(),
-                    value: &enable_stackdriver_logging_binding,
+                    value: enable_stackdriver_logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableStackdriverMonitoring".into(),
-                    value: &enable_stackdriver_monitoring_binding,
+                    value: enable_stackdriver_monitoring_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventPublishConfig".into(),
-                    value: &event_publish_config_binding,
+                    value: event_publish_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfig".into(),
-                    value: &network_config_binding,
+                    value: network_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "options".into(),
-                    value: &options_binding,
+                    value: options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateInstance".into(),
-                    value: &private_instance_binding,
+                    value: private_instance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceResult {
-            accelerators: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accelerators"),
-            ),
-            api_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiEndpoint"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            crypto_key_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cryptoKeyConfig"),
-            ),
-            dataproc_service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataprocServiceAccount"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            enable_rbac: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableRbac"),
-            ),
-            enable_stackdriver_logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableStackdriverLogging"),
-            ),
-            enable_stackdriver_monitoring: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableStackdriverMonitoring"),
-            ),
-            event_publish_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventPublishConfig"),
-            ),
-            gcs_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gcsBucket"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfig"),
-            ),
-            options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("options"),
-            ),
-            p4_service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("p4ServiceAccount"),
-            ),
-            private_instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateInstance"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccount"),
-            ),
-            service_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceEndpoint"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateMessage"),
-            ),
-            tenant_project_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantProjectId"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            accelerators: o.get_field("accelerators"),
+            api_endpoint: o.get_field("apiEndpoint"),
+            create_time: o.get_field("createTime"),
+            crypto_key_config: o.get_field("cryptoKeyConfig"),
+            dataproc_service_account: o.get_field("dataprocServiceAccount"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            enable_rbac: o.get_field("enableRbac"),
+            enable_stackdriver_logging: o.get_field("enableStackdriverLogging"),
+            enable_stackdriver_monitoring: o.get_field("enableStackdriverMonitoring"),
+            event_publish_config: o.get_field("eventPublishConfig"),
+            gcs_bucket: o.get_field("gcsBucket"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            network_config: o.get_field("networkConfig"),
+            options: o.get_field("options"),
+            p4_service_account: o.get_field("p4ServiceAccount"),
+            private_instance: o.get_field("privateInstance"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            region: o.get_field("region"),
+            service_account: o.get_field("serviceAccount"),
+            service_endpoint: o.get_field("serviceEndpoint"),
+            state: o.get_field("state"),
+            state_message: o.get_field("stateMessage"),
+            tenant_project_id: o.get_field("tenantProjectId"),
+            type_: o.get_field("type"),
+            update_time: o.get_field("updateTime"),
+            version: o.get_field("version"),
+            zone: o.get_field("zone"),
         }
     }
 }

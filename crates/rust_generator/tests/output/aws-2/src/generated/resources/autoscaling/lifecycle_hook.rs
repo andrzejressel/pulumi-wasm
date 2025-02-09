@@ -107,101 +107,76 @@ pub mod lifecycle_hook {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LifecycleHookArgs,
     ) -> LifecycleHookResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_group_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let autoscaling_group_name_binding = args
             .autoscaling_group_name
             .get_output(context);
-        let autoscaling_group_name_binding = autoscaling_group_name_binding_1
-            .get_inner();
-        let default_result_binding_1 = args.default_result.get_output(context);
-        let default_result_binding = default_result_binding_1.get_inner();
-        let heartbeat_timeout_binding_1 = args.heartbeat_timeout.get_output(context);
-        let heartbeat_timeout_binding = heartbeat_timeout_binding_1.get_inner();
-        let lifecycle_transition_binding_1 = args
-            .lifecycle_transition
-            .get_output(context);
-        let lifecycle_transition_binding = lifecycle_transition_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let notification_metadata_binding_1 = args
+        let default_result_binding = args.default_result.get_output(context);
+        let heartbeat_timeout_binding = args.heartbeat_timeout.get_output(context);
+        let lifecycle_transition_binding = args.lifecycle_transition.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let notification_metadata_binding = args
             .notification_metadata
             .get_output(context);
-        let notification_metadata_binding = notification_metadata_binding_1.get_inner();
-        let notification_target_arn_binding_1 = args
+        let notification_target_arn_binding = args
             .notification_target_arn
             .get_output(context);
-        let notification_target_arn_binding = notification_target_arn_binding_1
-            .get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let role_arn_binding = args.role_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:autoscaling/lifecycleHook:LifecycleHook".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingGroupName".into(),
-                    value: &autoscaling_group_name_binding,
+                    value: autoscaling_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultResult".into(),
-                    value: &default_result_binding,
+                    value: default_result_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "heartbeatTimeout".into(),
-                    value: &heartbeat_timeout_binding,
+                    value: heartbeat_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifecycleTransition".into(),
-                    value: &lifecycle_transition_binding,
+                    value: lifecycle_transition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationMetadata".into(),
-                    value: &notification_metadata_binding,
+                    value: notification_metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationTargetArn".into(),
-                    value: &notification_target_arn_binding,
+                    value: notification_target_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LifecycleHookResult {
-            autoscaling_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscalingGroupName"),
-            ),
-            default_result: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultResult"),
-            ),
-            heartbeat_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("heartbeatTimeout"),
-            ),
-            lifecycle_transition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecycleTransition"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationMetadata"),
-            ),
-            notification_target_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationTargetArn"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
+            autoscaling_group_name: o.get_field("autoscalingGroupName"),
+            default_result: o.get_field("defaultResult"),
+            heartbeat_timeout: o.get_field("heartbeatTimeout"),
+            lifecycle_transition: o.get_field("lifecycleTransition"),
+            name: o.get_field("name"),
+            notification_metadata: o.get_field("notificationMetadata"),
+            notification_target_arn: o.get_field("notificationTargetArn"),
+            role_arn: o.get_field("roleArn"),
         }
     }
 }

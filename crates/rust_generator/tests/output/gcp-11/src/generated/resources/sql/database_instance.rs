@@ -454,192 +454,127 @@ pub mod database_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DatabaseInstanceArgs,
     ) -> DatabaseInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let clone_binding_1 = args.clone.get_output(context);
-        let clone_binding = clone_binding_1.get_inner();
-        let database_version_binding_1 = args.database_version.get_output(context);
-        let database_version_binding = database_version_binding_1.get_inner();
-        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
-        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
-        let encryption_key_name_binding_1 = args.encryption_key_name.get_output(context);
-        let encryption_key_name_binding = encryption_key_name_binding_1.get_inner();
-        let instance_type_binding_1 = args.instance_type.get_output(context);
-        let instance_type_binding = instance_type_binding_1.get_inner();
-        let maintenance_version_binding_1 = args.maintenance_version.get_output(context);
-        let maintenance_version_binding = maintenance_version_binding_1.get_inner();
-        let master_instance_name_binding_1 = args
-            .master_instance_name
-            .get_output(context);
-        let master_instance_name_binding = master_instance_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let replica_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let clone_binding = args.clone.get_output(context);
+        let database_version_binding = args.database_version.get_output(context);
+        let deletion_protection_binding = args.deletion_protection.get_output(context);
+        let encryption_key_name_binding = args.encryption_key_name.get_output(context);
+        let instance_type_binding = args.instance_type.get_output(context);
+        let maintenance_version_binding = args.maintenance_version.get_output(context);
+        let master_instance_name_binding = args.master_instance_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let replica_configuration_binding = args
             .replica_configuration
             .get_output(context);
-        let replica_configuration_binding = replica_configuration_binding_1.get_inner();
-        let replica_names_binding_1 = args.replica_names.get_output(context);
-        let replica_names_binding = replica_names_binding_1.get_inner();
-        let restore_backup_context_binding_1 = args
+        let replica_names_binding = args.replica_names.get_output(context);
+        let restore_backup_context_binding = args
             .restore_backup_context
             .get_output(context);
-        let restore_backup_context_binding = restore_backup_context_binding_1
-            .get_inner();
-        let root_password_binding_1 = args.root_password.get_output(context);
-        let root_password_binding = root_password_binding_1.get_inner();
-        let settings_binding_1 = args.settings.get_output(context);
-        let settings_binding = settings_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let root_password_binding = args.root_password.get_output(context);
+        let settings_binding = args.settings.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:sql/databaseInstance:DatabaseInstance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clone".into(),
-                    value: &clone_binding,
+                    value: clone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseVersion".into(),
-                    value: &database_version_binding,
+                    value: database_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: &deletion_protection_binding,
+                    value: deletion_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionKeyName".into(),
-                    value: &encryption_key_name_binding,
+                    value: encryption_key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: &instance_type_binding,
+                    value: instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceVersion".into(),
-                    value: &maintenance_version_binding,
+                    value: maintenance_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterInstanceName".into(),
-                    value: &master_instance_name_binding,
+                    value: master_instance_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaConfiguration".into(),
-                    value: &replica_configuration_binding,
+                    value: replica_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaNames".into(),
-                    value: &replica_names_binding,
+                    value: replica_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreBackupContext".into(),
-                    value: &restore_backup_context_binding,
+                    value: restore_backup_context_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rootPassword".into(),
-                    value: &root_password_binding,
+                    value: root_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: &settings_binding,
+                    value: settings_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DatabaseInstanceResult {
-            available_maintenance_versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availableMaintenanceVersions"),
-            ),
-            clone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("clone")),
-            connection_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionName"),
-            ),
-            database_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseVersion"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            encryption_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionKeyName"),
-            ),
-            first_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firstIpAddress"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddresses"),
-            ),
-            maintenance_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceVersion"),
-            ),
-            master_instance_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterInstanceName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpAddress"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            psc_service_attachment_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pscServiceAttachmentLink"),
-            ),
-            public_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIpAddress"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            replica_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaConfiguration"),
-            ),
-            replica_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaNames"),
-            ),
-            restore_backup_context: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restoreBackupContext"),
-            ),
-            root_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootPassword"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            server_ca_certs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverCaCerts"),
-            ),
-            service_account_email_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountEmailAddress"),
-            ),
-            settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("settings"),
-            ),
+            available_maintenance_versions: o.get_field("availableMaintenanceVersions"),
+            clone: o.get_field("clone"),
+            connection_name: o.get_field("connectionName"),
+            database_version: o.get_field("databaseVersion"),
+            deletion_protection: o.get_field("deletionProtection"),
+            dns_name: o.get_field("dnsName"),
+            encryption_key_name: o.get_field("encryptionKeyName"),
+            first_ip_address: o.get_field("firstIpAddress"),
+            instance_type: o.get_field("instanceType"),
+            ip_addresses: o.get_field("ipAddresses"),
+            maintenance_version: o.get_field("maintenanceVersion"),
+            master_instance_name: o.get_field("masterInstanceName"),
+            name: o.get_field("name"),
+            private_ip_address: o.get_field("privateIpAddress"),
+            project: o.get_field("project"),
+            psc_service_attachment_link: o.get_field("pscServiceAttachmentLink"),
+            public_ip_address: o.get_field("publicIpAddress"),
+            region: o.get_field("region"),
+            replica_configuration: o.get_field("replicaConfiguration"),
+            replica_names: o.get_field("replicaNames"),
+            restore_backup_context: o.get_field("restoreBackupContext"),
+            root_password: o.get_field("rootPassword"),
+            self_link: o.get_field("selfLink"),
+            server_ca_certs: o.get_field("serverCaCerts"),
+            service_account_email_address: o.get_field("serviceAccountEmailAddress"),
+            settings: o.get_field("settings"),
         }
     }
 }

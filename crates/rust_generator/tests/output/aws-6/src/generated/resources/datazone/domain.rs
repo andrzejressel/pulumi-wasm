@@ -129,98 +129,75 @@ pub mod domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DomainArgs,
     ) -> DomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let domain_execution_role_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let domain_execution_role_binding = args
             .domain_execution_role
             .get_output(context);
-        let domain_execution_role_binding = domain_execution_role_binding_1.get_inner();
-        let kms_key_identifier_binding_1 = args.kms_key_identifier.get_output(context);
-        let kms_key_identifier_binding = kms_key_identifier_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let single_sign_on_binding_1 = args.single_sign_on.get_output(context);
-        let single_sign_on_binding = single_sign_on_binding_1.get_inner();
-        let skip_deletion_check_binding_1 = args.skip_deletion_check.get_output(context);
-        let skip_deletion_check_binding = skip_deletion_check_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let kms_key_identifier_binding = args.kms_key_identifier.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let single_sign_on_binding = args.single_sign_on.get_output(context);
+        let skip_deletion_check_binding = args.skip_deletion_check.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datazone/domain:Domain".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainExecutionRole".into(),
-                    value: &domain_execution_role_binding,
+                    value: domain_execution_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyIdentifier".into(),
-                    value: &kms_key_identifier_binding,
+                    value: kms_key_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "singleSignOn".into(),
-                    value: &single_sign_on_binding,
+                    value: single_sign_on_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDeletionCheck".into(),
-                    value: &skip_deletion_check_binding,
+                    value: skip_deletion_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DomainResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            domain_execution_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainExecutionRole"),
-            ),
-            kms_key_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyIdentifier"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            portal_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("portalUrl"),
-            ),
-            single_sign_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("singleSignOn"),
-            ),
-            skip_deletion_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipDeletionCheck"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            domain_execution_role: o.get_field("domainExecutionRole"),
+            kms_key_identifier: o.get_field("kmsKeyIdentifier"),
+            name: o.get_field("name"),
+            portal_url: o.get_field("portalUrl"),
+            single_sign_on: o.get_field("singleSignOn"),
+            skip_deletion_check: o.get_field("skipDeletionCheck"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

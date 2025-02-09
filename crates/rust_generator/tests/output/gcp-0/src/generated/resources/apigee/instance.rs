@@ -362,110 +362,83 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let consumer_accept_lists_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let consumer_accept_lists_binding = args
             .consumer_accept_lists
             .get_output(context);
-        let consumer_accept_lists_binding = consumer_accept_lists_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disk_encryption_key_name_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let disk_encryption_key_name_binding = args
             .disk_encryption_key_name
             .get_output(context);
-        let disk_encryption_key_name_binding = disk_encryption_key_name_binding_1
-            .get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let ip_range_binding_1 = args.ip_range.get_output(context);
-        let ip_range_binding = ip_range_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let org_id_binding_1 = args.org_id.get_output(context);
-        let org_id_binding = org_id_binding_1.get_inner();
-        let peering_cidr_range_binding_1 = args.peering_cidr_range.get_output(context);
-        let peering_cidr_range_binding = peering_cidr_range_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let display_name_binding = args.display_name.get_output(context);
+        let ip_range_binding = args.ip_range.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let org_id_binding = args.org_id.get_output(context);
+        let peering_cidr_range_binding = args.peering_cidr_range.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apigee/instance:Instance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consumerAcceptLists".into(),
-                    value: &consumer_accept_lists_binding,
+                    value: consumer_accept_lists_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskEncryptionKeyName".into(),
-                    value: &disk_encryption_key_name_binding,
+                    value: disk_encryption_key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipRange".into(),
-                    value: &ip_range_binding,
+                    value: ip_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: &org_id_binding,
+                    value: org_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeringCidrRange".into(),
-                    value: &peering_cidr_range_binding,
+                    value: peering_cidr_range_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceResult {
-            consumer_accept_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consumerAcceptLists"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disk_encryption_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskEncryptionKeyName"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
-            ip_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipRange"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            org_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orgId"),
-            ),
-            peering_cidr_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peeringCidrRange"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            service_attachment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAttachment"),
-            ),
+            consumer_accept_lists: o.get_field("consumerAcceptLists"),
+            description: o.get_field("description"),
+            disk_encryption_key_name: o.get_field("diskEncryptionKeyName"),
+            display_name: o.get_field("displayName"),
+            host: o.get_field("host"),
+            ip_range: o.get_field("ipRange"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            org_id: o.get_field("orgId"),
+            peering_cidr_range: o.get_field("peeringCidrRange"),
+            port: o.get_field("port"),
+            service_attachment: o.get_field("serviceAttachment"),
         }
     }
 }

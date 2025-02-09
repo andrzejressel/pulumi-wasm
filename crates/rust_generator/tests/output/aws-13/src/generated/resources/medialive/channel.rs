@@ -217,142 +217,105 @@ pub mod channel {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ChannelArgs,
     ) -> ChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cdi_input_specification_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cdi_input_specification_binding = args
             .cdi_input_specification
             .get_output(context);
-        let cdi_input_specification_binding = cdi_input_specification_binding_1
-            .get_inner();
-        let channel_class_binding_1 = args.channel_class.get_output(context);
-        let channel_class_binding = channel_class_binding_1.get_inner();
-        let destinations_binding_1 = args.destinations.get_output(context);
-        let destinations_binding = destinations_binding_1.get_inner();
-        let encoder_settings_binding_1 = args.encoder_settings.get_output(context);
-        let encoder_settings_binding = encoder_settings_binding_1.get_inner();
-        let input_attachments_binding_1 = args.input_attachments.get_output(context);
-        let input_attachments_binding = input_attachments_binding_1.get_inner();
-        let input_specification_binding_1 = args.input_specification.get_output(context);
-        let input_specification_binding = input_specification_binding_1.get_inner();
-        let log_level_binding_1 = args.log_level.get_output(context);
-        let log_level_binding = log_level_binding_1.get_inner();
-        let maintenance_binding_1 = args.maintenance.get_output(context);
-        let maintenance_binding = maintenance_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let start_channel_binding_1 = args.start_channel.get_output(context);
-        let start_channel_binding = start_channel_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_binding_1 = args.vpc.get_output(context);
-        let vpc_binding = vpc_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let channel_class_binding = args.channel_class.get_output(context);
+        let destinations_binding = args.destinations.get_output(context);
+        let encoder_settings_binding = args.encoder_settings.get_output(context);
+        let input_attachments_binding = args.input_attachments.get_output(context);
+        let input_specification_binding = args.input_specification.get_output(context);
+        let log_level_binding = args.log_level.get_output(context);
+        let maintenance_binding = args.maintenance.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let start_channel_binding = args.start_channel.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_binding = args.vpc.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:medialive/channel:Channel".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdiInputSpecification".into(),
-                    value: &cdi_input_specification_binding,
+                    value: cdi_input_specification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "channelClass".into(),
-                    value: &channel_class_binding,
+                    value: channel_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinations".into(),
-                    value: &destinations_binding,
+                    value: destinations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encoderSettings".into(),
-                    value: &encoder_settings_binding,
+                    value: encoder_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputAttachments".into(),
-                    value: &input_attachments_binding,
+                    value: input_attachments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputSpecification".into(),
-                    value: &input_specification_binding,
+                    value: input_specification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logLevel".into(),
-                    value: &log_level_binding,
+                    value: log_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenance".into(),
-                    value: &maintenance_binding,
+                    value: maintenance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startChannel".into(),
-                    value: &start_channel_binding,
+                    value: start_channel_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpc".into(),
-                    value: &vpc_binding,
+                    value: vpc_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ChannelResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cdi_input_specification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdiInputSpecification"),
-            ),
-            channel_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("channelClass"),
-            ),
-            channel_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("channelId"),
-            ),
-            destinations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinations"),
-            ),
-            encoder_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encoderSettings"),
-            ),
-            input_attachments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputAttachments"),
-            ),
-            input_specification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputSpecification"),
-            ),
-            log_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logLevel"),
-            ),
-            maintenance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenance"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            start_channel: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startChannel"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpc")),
+            arn: o.get_field("arn"),
+            cdi_input_specification: o.get_field("cdiInputSpecification"),
+            channel_class: o.get_field("channelClass"),
+            channel_id: o.get_field("channelId"),
+            destinations: o.get_field("destinations"),
+            encoder_settings: o.get_field("encoderSettings"),
+            input_attachments: o.get_field("inputAttachments"),
+            input_specification: o.get_field("inputSpecification"),
+            log_level: o.get_field("logLevel"),
+            maintenance: o.get_field("maintenance"),
+            name: o.get_field("name"),
+            role_arn: o.get_field("roleArn"),
+            start_channel: o.get_field("startChannel"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc: o.get_field("vpc"),
         }
     }
 }

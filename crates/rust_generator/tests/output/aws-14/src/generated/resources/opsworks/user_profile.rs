@@ -51,59 +51,48 @@ pub mod user_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserProfileArgs,
     ) -> UserProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_self_management_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_self_management_binding = args
             .allow_self_management
             .get_output(context);
-        let allow_self_management_binding = allow_self_management_binding_1.get_inner();
-        let ssh_public_key_binding_1 = args.ssh_public_key.get_output(context);
-        let ssh_public_key_binding = ssh_public_key_binding_1.get_inner();
-        let ssh_username_binding_1 = args.ssh_username.get_output(context);
-        let ssh_username_binding = ssh_username_binding_1.get_inner();
-        let user_arn_binding_1 = args.user_arn.get_output(context);
-        let user_arn_binding = user_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ssh_public_key_binding = args.ssh_public_key.get_output(context);
+        let ssh_username_binding = args.ssh_username.get_output(context);
+        let user_arn_binding = args.user_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:opsworks/userProfile:UserProfile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowSelfManagement".into(),
-                    value: &allow_self_management_binding,
+                    value: allow_self_management_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshPublicKey".into(),
-                    value: &ssh_public_key_binding,
+                    value: ssh_public_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshUsername".into(),
-                    value: &ssh_username_binding,
+                    value: ssh_username_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userArn".into(),
-                    value: &user_arn_binding,
+                    value: user_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserProfileResult {
-            allow_self_management: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowSelfManagement"),
-            ),
-            ssh_public_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sshPublicKey"),
-            ),
-            ssh_username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sshUsername"),
-            ),
-            user_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userArn"),
-            ),
+            allow_self_management: o.get_field("allowSelfManagement"),
+            ssh_public_key: o.get_field("sshPublicKey"),
+            ssh_username: o.get_field("sshUsername"),
+            user_arn: o.get_field("userArn"),
         }
     }
 }

@@ -257,100 +257,73 @@ pub mod guest_policies {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GuestPoliciesArgs,
     ) -> GuestPoliciesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assignment_binding_1 = args.assignment.get_output(context);
-        let assignment_binding = assignment_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let etag_binding_1 = args.etag.get_output(context);
-        let etag_binding = etag_binding_1.get_inner();
-        let guest_policy_id_binding_1 = args.guest_policy_id.get_output(context);
-        let guest_policy_id_binding = guest_policy_id_binding_1.get_inner();
-        let package_repositories_binding_1 = args
-            .package_repositories
-            .get_output(context);
-        let package_repositories_binding = package_repositories_binding_1.get_inner();
-        let packages_binding_1 = args.packages.get_output(context);
-        let packages_binding = packages_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let recipes_binding_1 = args.recipes.get_output(context);
-        let recipes_binding = recipes_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let assignment_binding = args.assignment.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let etag_binding = args.etag.get_output(context);
+        let guest_policy_id_binding = args.guest_policy_id.get_output(context);
+        let package_repositories_binding = args.package_repositories.get_output(context);
+        let packages_binding = args.packages.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let recipes_binding = args.recipes.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:osconfig/guestPolicies:GuestPolicies".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignment".into(),
-                    value: &assignment_binding,
+                    value: assignment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "etag".into(),
-                    value: &etag_binding,
+                    value: etag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guestPolicyId".into(),
-                    value: &guest_policy_id_binding,
+                    value: guest_policy_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageRepositories".into(),
-                    value: &package_repositories_binding,
+                    value: package_repositories_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packages".into(),
-                    value: &packages_binding,
+                    value: packages_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recipes".into(),
-                    value: &recipes_binding,
+                    value: recipes_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GuestPoliciesResult {
-            assignment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assignment"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            guest_policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("guestPolicyId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            package_repositories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("packageRepositories"),
-            ),
-            packages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("packages"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            recipes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recipes"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            assignment: o.get_field("assignment"),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            etag: o.get_field("etag"),
+            guest_policy_id: o.get_field("guestPolicyId"),
+            name: o.get_field("name"),
+            package_repositories: o.get_field("packageRepositories"),
+            packages: o.get_field("packages"),
+            project: o.get_field("project"),
+            recipes: o.get_field("recipes"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

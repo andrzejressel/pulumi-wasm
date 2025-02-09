@@ -58,31 +58,29 @@ pub mod local_rulestack_outbound_trust_certificate_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LocalRulestackOutboundTrustCertificateAssociationArgs,
     ) -> LocalRulestackOutboundTrustCertificateAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_id_binding_1 = args.certificate_id.get_output(context);
-        let certificate_id_binding = certificate_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_id_binding = args.certificate_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:paloalto/localRulestackOutboundTrustCertificateAssociation:LocalRulestackOutboundTrustCertificateAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateId".into(),
-                    value: &certificate_id_binding,
+                    value: certificate_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LocalRulestackOutboundTrustCertificateAssociationResult {
-            certificate_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateId"),
-            ),
+            certificate_id: o.get_field("certificateId"),
         }
     }
 }

@@ -315,116 +315,85 @@ pub mod endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointArgs,
     ) -> EndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_network_interface_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let custom_network_interface_name_binding = args
             .custom_network_interface_name
             .get_output(context);
-        let custom_network_interface_name_binding = custom_network_interface_name_binding_1
-            .get_inner();
-        let ip_configurations_binding_1 = args.ip_configurations.get_output(context);
-        let ip_configurations_binding = ip_configurations_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let private_dns_zone_group_binding_1 = args
+        let ip_configurations_binding = args.ip_configurations.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let private_dns_zone_group_binding = args
             .private_dns_zone_group
             .get_output(context);
-        let private_dns_zone_group_binding = private_dns_zone_group_binding_1
-            .get_inner();
-        let private_service_connection_binding_1 = args
+        let private_service_connection_binding = args
             .private_service_connection
             .get_output(context);
-        let private_service_connection_binding = private_service_connection_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:privatelink/endpoint:Endpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customNetworkInterfaceName".into(),
-                    value: &custom_network_interface_name_binding,
+                    value: custom_network_interface_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipConfigurations".into(),
-                    value: &ip_configurations_binding,
+                    value: ip_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateDnsZoneGroup".into(),
-                    value: &private_dns_zone_group_binding,
+                    value: private_dns_zone_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateServiceConnection".into(),
-                    value: &private_service_connection_binding,
+                    value: private_service_connection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointResult {
-            custom_dns_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDnsConfigs"),
-            ),
-            custom_network_interface_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customNetworkInterfaceName"),
-            ),
-            ip_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipConfigurations"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_interfaces: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaces"),
-            ),
-            private_dns_zone_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDnsZoneConfigs"),
-            ),
-            private_dns_zone_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDnsZoneGroup"),
-            ),
-            private_service_connection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateServiceConnection"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            custom_dns_configs: o.get_field("customDnsConfigs"),
+            custom_network_interface_name: o.get_field("customNetworkInterfaceName"),
+            ip_configurations: o.get_field("ipConfigurations"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            network_interfaces: o.get_field("networkInterfaces"),
+            private_dns_zone_configs: o.get_field("privateDnsZoneConfigs"),
+            private_dns_zone_group: o.get_field("privateDnsZoneGroup"),
+            private_service_connection: o.get_field("privateServiceConnection"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
         }
     }
 }

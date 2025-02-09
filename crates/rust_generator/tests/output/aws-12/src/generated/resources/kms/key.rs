@@ -391,155 +391,112 @@ pub mod key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KeyArgs,
     ) -> KeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bypass_policy_lockout_safety_check_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bypass_policy_lockout_safety_check_binding = args
             .bypass_policy_lockout_safety_check
             .get_output(context);
-        let bypass_policy_lockout_safety_check_binding = bypass_policy_lockout_safety_check_binding_1
-            .get_inner();
-        let custom_key_store_id_binding_1 = args.custom_key_store_id.get_output(context);
-        let custom_key_store_id_binding = custom_key_store_id_binding_1.get_inner();
-        let customer_master_key_spec_binding_1 = args
+        let custom_key_store_id_binding = args.custom_key_store_id.get_output(context);
+        let customer_master_key_spec_binding = args
             .customer_master_key_spec
             .get_output(context);
-        let customer_master_key_spec_binding = customer_master_key_spec_binding_1
-            .get_inner();
-        let deletion_window_in_days_binding_1 = args
+        let deletion_window_in_days_binding = args
             .deletion_window_in_days
             .get_output(context);
-        let deletion_window_in_days_binding = deletion_window_in_days_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enable_key_rotation_binding_1 = args.enable_key_rotation.get_output(context);
-        let enable_key_rotation_binding = enable_key_rotation_binding_1.get_inner();
-        let is_enabled_binding_1 = args.is_enabled.get_output(context);
-        let is_enabled_binding = is_enabled_binding_1.get_inner();
-        let key_usage_binding_1 = args.key_usage.get_output(context);
-        let key_usage_binding = key_usage_binding_1.get_inner();
-        let multi_region_binding_1 = args.multi_region.get_output(context);
-        let multi_region_binding = multi_region_binding_1.get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let rotation_period_in_days_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let enable_key_rotation_binding = args.enable_key_rotation.get_output(context);
+        let is_enabled_binding = args.is_enabled.get_output(context);
+        let key_usage_binding = args.key_usage.get_output(context);
+        let multi_region_binding = args.multi_region.get_output(context);
+        let policy_binding = args.policy.get_output(context);
+        let rotation_period_in_days_binding = args
             .rotation_period_in_days
             .get_output(context);
-        let rotation_period_in_days_binding = rotation_period_in_days_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let xks_key_id_binding_1 = args.xks_key_id.get_output(context);
-        let xks_key_id_binding = xks_key_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let xks_key_id_binding = args.xks_key_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:kms/key:Key".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bypassPolicyLockoutSafetyCheck".into(),
-                    value: &bypass_policy_lockout_safety_check_binding,
+                    value: bypass_policy_lockout_safety_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customKeyStoreId".into(),
-                    value: &custom_key_store_id_binding,
+                    value: custom_key_store_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerMasterKeySpec".into(),
-                    value: &customer_master_key_spec_binding,
+                    value: customer_master_key_spec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionWindowInDays".into(),
-                    value: &deletion_window_in_days_binding,
+                    value: deletion_window_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableKeyRotation".into(),
-                    value: &enable_key_rotation_binding,
+                    value: enable_key_rotation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isEnabled".into(),
-                    value: &is_enabled_binding,
+                    value: is_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyUsage".into(),
-                    value: &key_usage_binding,
+                    value: key_usage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiRegion".into(),
-                    value: &multi_region_binding,
+                    value: multi_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rotationPeriodInDays".into(),
-                    value: &rotation_period_in_days_binding,
+                    value: rotation_period_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "xksKeyId".into(),
-                    value: &xks_key_id_binding,
+                    value: xks_key_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KeyResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bypass_policy_lockout_safety_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bypassPolicyLockoutSafetyCheck"),
-            ),
-            custom_key_store_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customKeyStoreId"),
-            ),
-            customer_master_key_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerMasterKeySpec"),
-            ),
-            deletion_window_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionWindowInDays"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enable_key_rotation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableKeyRotation"),
-            ),
-            is_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isEnabled"),
-            ),
-            key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyId"),
-            ),
-            key_usage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyUsage"),
-            ),
-            multi_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiRegion"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            rotation_period_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rotationPeriodInDays"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            xks_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("xksKeyId"),
-            ),
+            arn: o.get_field("arn"),
+            bypass_policy_lockout_safety_check: o
+                .get_field("bypassPolicyLockoutSafetyCheck"),
+            custom_key_store_id: o.get_field("customKeyStoreId"),
+            customer_master_key_spec: o.get_field("customerMasterKeySpec"),
+            deletion_window_in_days: o.get_field("deletionWindowInDays"),
+            description: o.get_field("description"),
+            enable_key_rotation: o.get_field("enableKeyRotation"),
+            is_enabled: o.get_field("isEnabled"),
+            key_id: o.get_field("keyId"),
+            key_usage: o.get_field("keyUsage"),
+            multi_region: o.get_field("multiRegion"),
+            policy: o.get_field("policy"),
+            rotation_period_in_days: o.get_field("rotationPeriodInDays"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            xks_key_id: o.get_field("xksKeyId"),
         }
     }
 }

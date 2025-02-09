@@ -155,155 +155,111 @@ pub mod workflow {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkflowArgs,
     ) -> WorkflowResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_control_binding_1 = args.access_control.get_output(context);
-        let access_control_binding = access_control_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let integration_service_environment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_control_binding = args.access_control.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let integration_service_environment_id_binding = args
             .integration_service_environment_id
             .get_output(context);
-        let integration_service_environment_id_binding = integration_service_environment_id_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let logic_app_integration_account_id_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let logic_app_integration_account_id_binding = args
             .logic_app_integration_account_id
             .get_output(context);
-        let logic_app_integration_account_id_binding = logic_app_integration_account_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let workflow_parameters_binding_1 = args.workflow_parameters.get_output(context);
-        let workflow_parameters_binding = workflow_parameters_binding_1.get_inner();
-        let workflow_schema_binding_1 = args.workflow_schema.get_output(context);
-        let workflow_schema_binding = workflow_schema_binding_1.get_inner();
-        let workflow_version_binding_1 = args.workflow_version.get_output(context);
-        let workflow_version_binding = workflow_version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let workflow_parameters_binding = args.workflow_parameters.get_output(context);
+        let workflow_schema_binding = args.workflow_schema.get_output(context);
+        let workflow_version_binding = args.workflow_version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:logicapps/workflow:Workflow".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessControl".into(),
-                    value: &access_control_binding,
+                    value: access_control_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationServiceEnvironmentId".into(),
-                    value: &integration_service_environment_id_binding,
+                    value: integration_service_environment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logicAppIntegrationAccountId".into(),
-                    value: &logic_app_integration_account_id_binding,
+                    value: logic_app_integration_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workflowParameters".into(),
-                    value: &workflow_parameters_binding,
+                    value: workflow_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workflowSchema".into(),
-                    value: &workflow_schema_binding,
+                    value: workflow_schema_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workflowVersion".into(),
-                    value: &workflow_version_binding,
+                    value: workflow_version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkflowResult {
-            access_control: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessControl"),
-            ),
-            access_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessEndpoint"),
-            ),
-            connector_endpoint_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectorEndpointIpAddresses"),
-            ),
-            connector_outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectorOutboundIpAddresses"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            integration_service_environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("integrationServiceEnvironmentId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            logic_app_integration_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logicAppIntegrationAccountId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            workflow_endpoint_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workflowEndpointIpAddresses"),
-            ),
-            workflow_outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workflowOutboundIpAddresses"),
-            ),
-            workflow_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workflowParameters"),
-            ),
-            workflow_schema: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workflowSchema"),
-            ),
-            workflow_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workflowVersion"),
-            ),
+            access_control: o.get_field("accessControl"),
+            access_endpoint: o.get_field("accessEndpoint"),
+            connector_endpoint_ip_addresses: o.get_field("connectorEndpointIpAddresses"),
+            connector_outbound_ip_addresses: o.get_field("connectorOutboundIpAddresses"),
+            enabled: o.get_field("enabled"),
+            identity: o.get_field("identity"),
+            integration_service_environment_id: o
+                .get_field("integrationServiceEnvironmentId"),
+            location: o.get_field("location"),
+            logic_app_integration_account_id: o
+                .get_field("logicAppIntegrationAccountId"),
+            name: o.get_field("name"),
+            parameters: o.get_field("parameters"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
+            workflow_endpoint_ip_addresses: o.get_field("workflowEndpointIpAddresses"),
+            workflow_outbound_ip_addresses: o.get_field("workflowOutboundIpAddresses"),
+            workflow_parameters: o.get_field("workflowParameters"),
+            workflow_schema: o.get_field("workflowSchema"),
+            workflow_version: o.get_field("workflowVersion"),
         }
     }
 }

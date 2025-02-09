@@ -115,73 +115,58 @@ pub mod backend_address_pool_address {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BackendAddressPoolAddressArgs,
     ) -> BackendAddressPoolAddressResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backend_address_ip_configuration_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backend_address_ip_configuration_id_binding = args
             .backend_address_ip_configuration_id
             .get_output(context);
-        let backend_address_ip_configuration_id_binding = backend_address_ip_configuration_id_binding_1
-            .get_inner();
-        let backend_address_pool_id_binding_1 = args
+        let backend_address_pool_id_binding = args
             .backend_address_pool_id
             .get_output(context);
-        let backend_address_pool_id_binding = backend_address_pool_id_binding_1
-            .get_inner();
-        let ip_address_binding_1 = args.ip_address.get_output(context);
-        let ip_address_binding = ip_address_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
-        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ip_address_binding = args.ip_address.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let virtual_network_id_binding = args.virtual_network_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendAddressIpConfigurationId".into(),
-                    value: &backend_address_ip_configuration_id_binding,
+                    value: backend_address_ip_configuration_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendAddressPoolId".into(),
-                    value: &backend_address_pool_id_binding,
+                    value: backend_address_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: &ip_address_binding,
+                    value: ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkId".into(),
-                    value: &virtual_network_id_binding,
+                    value: virtual_network_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BackendAddressPoolAddressResult {
-            backend_address_ip_configuration_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendAddressIpConfigurationId"),
-            ),
-            backend_address_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendAddressPoolId"),
-            ),
-            inbound_nat_rule_port_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inboundNatRulePortMappings"),
-            ),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkId"),
-            ),
+            backend_address_ip_configuration_id: o
+                .get_field("backendAddressIpConfigurationId"),
+            backend_address_pool_id: o.get_field("backendAddressPoolId"),
+            inbound_nat_rule_port_mappings: o.get_field("inboundNatRulePortMappings"),
+            ip_address: o.get_field("ipAddress"),
+            name: o.get_field("name"),
+            virtual_network_id: o.get_field("virtualNetworkId"),
         }
     }
 }

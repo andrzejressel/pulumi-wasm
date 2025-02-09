@@ -91,91 +91,68 @@ pub mod source_api_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SourceApiAssociationArgs,
     ) -> SourceApiAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let merged_api_arn_binding_1 = args.merged_api_arn.get_output(context);
-        let merged_api_arn_binding = merged_api_arn_binding_1.get_inner();
-        let merged_api_id_binding_1 = args.merged_api_id.get_output(context);
-        let merged_api_id_binding = merged_api_id_binding_1.get_inner();
-        let source_api_arn_binding_1 = args.source_api_arn.get_output(context);
-        let source_api_arn_binding = source_api_arn_binding_1.get_inner();
-        let source_api_association_configs_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let merged_api_arn_binding = args.merged_api_arn.get_output(context);
+        let merged_api_id_binding = args.merged_api_id.get_output(context);
+        let source_api_arn_binding = args.source_api_arn.get_output(context);
+        let source_api_association_configs_binding = args
             .source_api_association_configs
             .get_output(context);
-        let source_api_association_configs_binding = source_api_association_configs_binding_1
-            .get_inner();
-        let source_api_id_binding_1 = args.source_api_id.get_output(context);
-        let source_api_id_binding = source_api_id_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let source_api_id_binding = args.source_api_id.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appsync/sourceApiAssociation:SourceApiAssociation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mergedApiArn".into(),
-                    value: &merged_api_arn_binding,
+                    value: merged_api_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mergedApiId".into(),
-                    value: &merged_api_id_binding,
+                    value: merged_api_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceApiArn".into(),
-                    value: &source_api_arn_binding,
+                    value: source_api_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceApiAssociationConfigs".into(),
-                    value: &source_api_association_configs_binding,
+                    value: source_api_association_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceApiId".into(),
-                    value: &source_api_id_binding,
+                    value: source_api_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SourceApiAssociationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            association_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associationId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            merged_api_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mergedApiArn"),
-            ),
-            merged_api_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mergedApiId"),
-            ),
-            source_api_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceApiArn"),
-            ),
-            source_api_association_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceApiAssociationConfigs"),
-            ),
-            source_api_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceApiId"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            arn: o.get_field("arn"),
+            association_id: o.get_field("associationId"),
+            description: o.get_field("description"),
+            merged_api_arn: o.get_field("mergedApiArn"),
+            merged_api_id: o.get_field("mergedApiId"),
+            source_api_arn: o.get_field("sourceApiArn"),
+            source_api_association_configs: o.get_field("sourceApiAssociationConfigs"),
+            source_api_id: o.get_field("sourceApiId"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

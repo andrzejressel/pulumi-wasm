@@ -172,124 +172,88 @@ pub mod method {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MethodArgs,
     ) -> MethodResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_required_binding_1 = args.api_key_required.get_output(context);
-        let api_key_required_binding = api_key_required_binding_1.get_inner();
-        let authorization_binding_1 = args.authorization.get_output(context);
-        let authorization_binding = authorization_binding_1.get_inner();
-        let authorization_scopes_binding_1 = args
-            .authorization_scopes
-            .get_output(context);
-        let authorization_scopes_binding = authorization_scopes_binding_1.get_inner();
-        let authorizer_id_binding_1 = args.authorizer_id.get_output(context);
-        let authorizer_id_binding = authorizer_id_binding_1.get_inner();
-        let http_method_binding_1 = args.http_method.get_output(context);
-        let http_method_binding = http_method_binding_1.get_inner();
-        let operation_name_binding_1 = args.operation_name.get_output(context);
-        let operation_name_binding = operation_name_binding_1.get_inner();
-        let request_models_binding_1 = args.request_models.get_output(context);
-        let request_models_binding = request_models_binding_1.get_inner();
-        let request_parameters_binding_1 = args.request_parameters.get_output(context);
-        let request_parameters_binding = request_parameters_binding_1.get_inner();
-        let request_validator_id_binding_1 = args
-            .request_validator_id
-            .get_output(context);
-        let request_validator_id_binding = request_validator_id_binding_1.get_inner();
-        let resource_id_binding_1 = args.resource_id.get_output(context);
-        let resource_id_binding = resource_id_binding_1.get_inner();
-        let rest_api_binding_1 = args.rest_api.get_output(context);
-        let rest_api_binding = rest_api_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_key_required_binding = args.api_key_required.get_output(context);
+        let authorization_binding = args.authorization.get_output(context);
+        let authorization_scopes_binding = args.authorization_scopes.get_output(context);
+        let authorizer_id_binding = args.authorizer_id.get_output(context);
+        let http_method_binding = args.http_method.get_output(context);
+        let operation_name_binding = args.operation_name.get_output(context);
+        let request_models_binding = args.request_models.get_output(context);
+        let request_parameters_binding = args.request_parameters.get_output(context);
+        let request_validator_id_binding = args.request_validator_id.get_output(context);
+        let resource_id_binding = args.resource_id.get_output(context);
+        let rest_api_binding = args.rest_api.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigateway/method:Method".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiKeyRequired".into(),
-                    value: &api_key_required_binding,
+                    value: api_key_required_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorization".into(),
-                    value: &authorization_binding,
+                    value: authorization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationScopes".into(),
-                    value: &authorization_scopes_binding,
+                    value: authorization_scopes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizerId".into(),
-                    value: &authorizer_id_binding,
+                    value: authorizer_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpMethod".into(),
-                    value: &http_method_binding,
+                    value: http_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operationName".into(),
-                    value: &operation_name_binding,
+                    value: operation_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestModels".into(),
-                    value: &request_models_binding,
+                    value: request_models_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestParameters".into(),
-                    value: &request_parameters_binding,
+                    value: request_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestValidatorId".into(),
-                    value: &request_validator_id_binding,
+                    value: request_validator_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: &resource_id_binding,
+                    value: resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApi".into(),
-                    value: &rest_api_binding,
+                    value: rest_api_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MethodResult {
-            api_key_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiKeyRequired"),
-            ),
-            authorization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorization"),
-            ),
-            authorization_scopes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationScopes"),
-            ),
-            authorizer_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizerId"),
-            ),
-            http_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpMethod"),
-            ),
-            operation_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operationName"),
-            ),
-            request_models: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestModels"),
-            ),
-            request_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestParameters"),
-            ),
-            request_validator_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestValidatorId"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            rest_api: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restApi"),
-            ),
+            api_key_required: o.get_field("apiKeyRequired"),
+            authorization: o.get_field("authorization"),
+            authorization_scopes: o.get_field("authorizationScopes"),
+            authorizer_id: o.get_field("authorizerId"),
+            http_method: o.get_field("httpMethod"),
+            operation_name: o.get_field("operationName"),
+            request_models: o.get_field("requestModels"),
+            request_parameters: o.get_field("requestParameters"),
+            request_validator_id: o.get_field("requestValidatorId"),
+            resource_id: o.get_field("resourceId"),
+            rest_api: o.get_field("restApi"),
         }
     }
 }

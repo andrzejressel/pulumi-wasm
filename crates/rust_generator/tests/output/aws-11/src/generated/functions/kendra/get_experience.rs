@@ -47,64 +47,43 @@ pub mod get_experience {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetExperienceArgs,
     ) -> GetExperienceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let experience_id_binding_1 = args.experience_id.get_output(context);
-        let experience_id_binding = experience_id_binding_1.get_inner();
-        let index_id_binding_1 = args.index_id.get_output(context);
-        let index_id_binding = index_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let experience_id_binding = args.experience_id.get_output(context);
+        let index_id_binding = args.index_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:kendra/getExperience:getExperience".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "experienceId".into(),
-                    value: &experience_id_binding,
+                    value: experience_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexId".into(),
-                    value: &index_id_binding,
+                    value: index_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetExperienceResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurations"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoints"),
-            ),
-            error_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errorMessage"),
-            ),
-            experience_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("experienceId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            index_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("indexId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            updated_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatedAt"),
-            ),
+            arn: o.get_field("arn"),
+            configurations: o.get_field("configurations"),
+            created_at: o.get_field("createdAt"),
+            description: o.get_field("description"),
+            endpoints: o.get_field("endpoints"),
+            error_message: o.get_field("errorMessage"),
+            experience_id: o.get_field("experienceId"),
+            id: o.get_field("id"),
+            index_id: o.get_field("indexId"),
+            name: o.get_field("name"),
+            role_arn: o.get_field("roleArn"),
+            status: o.get_field("status"),
+            updated_at: o.get_field("updatedAt"),
         }
     }
 }

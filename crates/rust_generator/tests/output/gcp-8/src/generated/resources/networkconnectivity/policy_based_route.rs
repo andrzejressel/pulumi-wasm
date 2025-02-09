@@ -219,139 +219,98 @@ pub mod policy_based_route {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PolicyBasedRouteArgs,
     ) -> PolicyBasedRouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let filter_binding_1 = args.filter.get_output(context);
-        let filter_binding = filter_binding_1.get_inner();
-        let interconnect_attachment_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let filter_binding = args.filter.get_output(context);
+        let interconnect_attachment_binding = args
             .interconnect_attachment
             .get_output(context);
-        let interconnect_attachment_binding = interconnect_attachment_binding_1
-            .get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let next_hop_ilb_ip_binding_1 = args.next_hop_ilb_ip.get_output(context);
-        let next_hop_ilb_ip_binding = next_hop_ilb_ip_binding_1.get_inner();
-        let next_hop_other_routes_binding_1 = args
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let next_hop_ilb_ip_binding = args.next_hop_ilb_ip.get_output(context);
+        let next_hop_other_routes_binding = args
             .next_hop_other_routes
             .get_output(context);
-        let next_hop_other_routes_binding = next_hop_other_routes_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let virtual_machine_binding_1 = args.virtual_machine.get_output(context);
-        let virtual_machine_binding = virtual_machine_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let priority_binding = args.priority.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let virtual_machine_binding = args.virtual_machine.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:networkconnectivity/policyBasedRoute:PolicyBasedRoute".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: &filter_binding,
+                    value: filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interconnectAttachment".into(),
-                    value: &interconnect_attachment_binding,
+                    value: interconnect_attachment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nextHopIlbIp".into(),
-                    value: &next_hop_ilb_ip_binding,
+                    value: next_hop_ilb_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nextHopOtherRoutes".into(),
-                    value: &next_hop_other_routes_binding,
+                    value: next_hop_other_routes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachine".into(),
-                    value: &virtual_machine_binding,
+                    value: virtual_machine_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PolicyBasedRouteResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            interconnect_attachment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interconnectAttachment"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            next_hop_ilb_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextHopIlbIp"),
-            ),
-            next_hop_other_routes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextHopOtherRoutes"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            virtual_machine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachine"),
-            ),
-            warnings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("warnings"),
-            ),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            filter: o.get_field("filter"),
+            interconnect_attachment: o.get_field("interconnectAttachment"),
+            kind: o.get_field("kind"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            next_hop_ilb_ip: o.get_field("nextHopIlbIp"),
+            next_hop_other_routes: o.get_field("nextHopOtherRoutes"),
+            priority: o.get_field("priority"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            update_time: o.get_field("updateTime"),
+            virtual_machine: o.get_field("virtualMachine"),
+            warnings: o.get_field("warnings"),
         }
     }
 }

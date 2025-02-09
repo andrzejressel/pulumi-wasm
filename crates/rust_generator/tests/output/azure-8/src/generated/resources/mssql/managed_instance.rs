@@ -364,236 +364,166 @@ pub mod managed_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagedInstanceArgs,
     ) -> ManagedInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administrator_login_binding_1 = args.administrator_login.get_output(context);
-        let administrator_login_binding = administrator_login_binding_1.get_inner();
-        let administrator_login_password_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let administrator_login_binding = args.administrator_login.get_output(context);
+        let administrator_login_password_binding = args
             .administrator_login_password
             .get_output(context);
-        let administrator_login_password_binding = administrator_login_password_binding_1
-            .get_inner();
-        let collation_binding_1 = args.collation.get_output(context);
-        let collation_binding = collation_binding_1.get_inner();
-        let dns_zone_partner_id_binding_1 = args.dns_zone_partner_id.get_output(context);
-        let dns_zone_partner_id_binding = dns_zone_partner_id_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let license_type_binding_1 = args.license_type.get_output(context);
-        let license_type_binding = license_type_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let maintenance_configuration_name_binding_1 = args
+        let collation_binding = args.collation.get_output(context);
+        let dns_zone_partner_id_binding = args.dns_zone_partner_id.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let license_type_binding = args.license_type.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let maintenance_configuration_name_binding = args
             .maintenance_configuration_name
             .get_output(context);
-        let maintenance_configuration_name_binding = maintenance_configuration_name_binding_1
-            .get_inner();
-        let minimum_tls_version_binding_1 = args.minimum_tls_version.get_output(context);
-        let minimum_tls_version_binding = minimum_tls_version_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let proxy_override_binding_1 = args.proxy_override.get_output(context);
-        let proxy_override_binding = proxy_override_binding_1.get_inner();
-        let public_data_endpoint_enabled_binding_1 = args
+        let minimum_tls_version_binding = args.minimum_tls_version.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let proxy_override_binding = args.proxy_override.get_output(context);
+        let public_data_endpoint_enabled_binding = args
             .public_data_endpoint_enabled
             .get_output(context);
-        let public_data_endpoint_enabled_binding = public_data_endpoint_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let service_principal_type_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let service_principal_type_binding = args
             .service_principal_type
             .get_output(context);
-        let service_principal_type_binding = service_principal_type_binding_1
-            .get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let storage_account_type_binding_1 = args
-            .storage_account_type
-            .get_output(context);
-        let storage_account_type_binding = storage_account_type_binding_1.get_inner();
-        let storage_size_in_gb_binding_1 = args.storage_size_in_gb.get_output(context);
-        let storage_size_in_gb_binding = storage_size_in_gb_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timezone_id_binding_1 = args.timezone_id.get_output(context);
-        let timezone_id_binding = timezone_id_binding_1.get_inner();
-        let vcores_binding_1 = args.vcores.get_output(context);
-        let vcores_binding = vcores_binding_1.get_inner();
-        let zone_redundant_enabled_binding_1 = args
+        let sku_name_binding = args.sku_name.get_output(context);
+        let storage_account_type_binding = args.storage_account_type.get_output(context);
+        let storage_size_in_gb_binding = args.storage_size_in_gb.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timezone_id_binding = args.timezone_id.get_output(context);
+        let vcores_binding = args.vcores.get_output(context);
+        let zone_redundant_enabled_binding = args
             .zone_redundant_enabled
             .get_output(context);
-        let zone_redundant_enabled_binding = zone_redundant_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mssql/managedInstance:ManagedInstance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorLogin".into(),
-                    value: &administrator_login_binding,
+                    value: administrator_login_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorLoginPassword".into(),
-                    value: &administrator_login_password_binding,
+                    value: administrator_login_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "collation".into(),
-                    value: &collation_binding,
+                    value: collation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsZonePartnerId".into(),
-                    value: &dns_zone_partner_id_binding,
+                    value: dns_zone_partner_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseType".into(),
-                    value: &license_type_binding,
+                    value: license_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceConfigurationName".into(),
-                    value: &maintenance_configuration_name_binding,
+                    value: maintenance_configuration_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumTlsVersion".into(),
-                    value: &minimum_tls_version_binding,
+                    value: minimum_tls_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyOverride".into(),
-                    value: &proxy_override_binding,
+                    value: proxy_override_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicDataEndpointEnabled".into(),
-                    value: &public_data_endpoint_enabled_binding,
+                    value: public_data_endpoint_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrincipalType".into(),
-                    value: &service_principal_type_binding,
+                    value: service_principal_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountType".into(),
-                    value: &storage_account_type_binding,
+                    value: storage_account_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageSizeInGb".into(),
-                    value: &storage_size_in_gb_binding,
+                    value: storage_size_in_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timezoneId".into(),
-                    value: &timezone_id_binding,
+                    value: timezone_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vcores".into(),
-                    value: &vcores_binding,
+                    value: vcores_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneRedundantEnabled".into(),
-                    value: &zone_redundant_enabled_binding,
+                    value: zone_redundant_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagedInstanceResult {
-            administrator_login: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorLogin"),
-            ),
-            administrator_login_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorLoginPassword"),
-            ),
-            collation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("collation"),
-            ),
-            dns_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsZone"),
-            ),
-            dns_zone_partner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsZonePartnerId"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            license_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseType"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maintenance_configuration_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceConfigurationName"),
-            ),
-            minimum_tls_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumTlsVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            proxy_override: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proxyOverride"),
-            ),
-            public_data_endpoint_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicDataEndpointEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            service_principal_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicePrincipalType"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            storage_account_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountType"),
-            ),
-            storage_size_in_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageSizeInGb"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            timezone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timezoneId"),
-            ),
-            vcores: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vcores"),
-            ),
-            zone_redundant_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneRedundantEnabled"),
-            ),
+            administrator_login: o.get_field("administratorLogin"),
+            administrator_login_password: o.get_field("administratorLoginPassword"),
+            collation: o.get_field("collation"),
+            dns_zone: o.get_field("dnsZone"),
+            dns_zone_partner_id: o.get_field("dnsZonePartnerId"),
+            fqdn: o.get_field("fqdn"),
+            identity: o.get_field("identity"),
+            license_type: o.get_field("licenseType"),
+            location: o.get_field("location"),
+            maintenance_configuration_name: o.get_field("maintenanceConfigurationName"),
+            minimum_tls_version: o.get_field("minimumTlsVersion"),
+            name: o.get_field("name"),
+            proxy_override: o.get_field("proxyOverride"),
+            public_data_endpoint_enabled: o.get_field("publicDataEndpointEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            service_principal_type: o.get_field("servicePrincipalType"),
+            sku_name: o.get_field("skuName"),
+            storage_account_type: o.get_field("storageAccountType"),
+            storage_size_in_gb: o.get_field("storageSizeInGb"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            timezone_id: o.get_field("timezoneId"),
+            vcores: o.get_field("vcores"),
+            zone_redundant_enabled: o.get_field("zoneRedundantEnabled"),
         }
     }
 }

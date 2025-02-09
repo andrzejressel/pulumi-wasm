@@ -74,48 +74,40 @@ pub mod disk_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: Disk_attachmentArgs,
     ) -> Disk_attachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disk_name_binding_1 = args.disk_name.get_output(context);
-        let disk_name_binding = disk_name_binding_1.get_inner();
-        let disk_path_binding_1 = args.disk_path.get_output(context);
-        let disk_path_binding = disk_path_binding_1.get_inner();
-        let instance_name_binding_1 = args.instance_name.get_output(context);
-        let instance_name_binding = instance_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let disk_name_binding = args.disk_name.get_output(context);
+        let disk_path_binding = args.disk_path.get_output(context);
+        let instance_name_binding = args.instance_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lightsail/disk_attachment:Disk_attachment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskName".into(),
-                    value: &disk_name_binding,
+                    value: disk_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskPath".into(),
-                    value: &disk_path_binding,
+                    value: disk_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceName".into(),
-                    value: &instance_name_binding,
+                    value: instance_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         Disk_attachmentResult {
-            disk_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskName"),
-            ),
-            disk_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskPath"),
-            ),
-            instance_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceName"),
-            ),
+            disk_name: o.get_field("diskName"),
+            disk_path: o.get_field("diskPath"),
+            instance_name: o.get_field("instanceName"),
         }
     }
 }

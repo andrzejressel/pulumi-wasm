@@ -126,91 +126,70 @@ pub mod endpoint_servicebus_queue {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointServicebusQueueArgs,
     ) -> EndpointServicebusQueueResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_type_binding_1 = args.authentication_type.get_output(context);
-        let authentication_type_binding = authentication_type_binding_1.get_inner();
-        let connection_string_binding_1 = args.connection_string.get_output(context);
-        let connection_string_binding = connection_string_binding_1.get_inner();
-        let endpoint_uri_binding_1 = args.endpoint_uri.get_output(context);
-        let endpoint_uri_binding = endpoint_uri_binding_1.get_inner();
-        let entity_path_binding_1 = args.entity_path.get_output(context);
-        let entity_path_binding = entity_path_binding_1.get_inner();
-        let identity_id_binding_1 = args.identity_id.get_output(context);
-        let identity_id_binding = identity_id_binding_1.get_inner();
-        let iothub_id_binding_1 = args.iothub_id.get_output(context);
-        let iothub_id_binding = iothub_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_type_binding = args.authentication_type.get_output(context);
+        let connection_string_binding = args.connection_string.get_output(context);
+        let endpoint_uri_binding = args.endpoint_uri.get_output(context);
+        let entity_path_binding = args.entity_path.get_output(context);
+        let identity_id_binding = args.identity_id.get_output(context);
+        let iothub_id_binding = args.iothub_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:iot/endpointServicebusQueue:EndpointServicebusQueue".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationType".into(),
-                    value: &authentication_type_binding,
+                    value: authentication_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionString".into(),
-                    value: &connection_string_binding,
+                    value: connection_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointUri".into(),
-                    value: &endpoint_uri_binding,
+                    value: endpoint_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entityPath".into(),
-                    value: &entity_path_binding,
+                    value: entity_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityId".into(),
-                    value: &identity_id_binding,
+                    value: identity_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubId".into(),
-                    value: &iothub_id_binding,
+                    value: iothub_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointServicebusQueueResult {
-            authentication_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationType"),
-            ),
-            connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionString"),
-            ),
-            endpoint_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointUri"),
-            ),
-            entity_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entityPath"),
-            ),
-            identity_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityId"),
-            ),
-            iothub_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iothubId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            authentication_type: o.get_field("authenticationType"),
+            connection_string: o.get_field("connectionString"),
+            endpoint_uri: o.get_field("endpointUri"),
+            entity_path: o.get_field("entityPath"),
+            identity_id: o.get_field("identityId"),
+            iothub_id: o.get_field("iothubId"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

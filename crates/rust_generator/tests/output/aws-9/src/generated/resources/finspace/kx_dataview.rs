@@ -140,134 +140,95 @@ pub mod kx_dataview {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KxDataviewArgs,
     ) -> KxDataviewResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_update_binding_1 = args.auto_update.get_output(context);
-        let auto_update_binding = auto_update_binding_1.get_inner();
-        let availability_zone_id_binding_1 = args
-            .availability_zone_id
-            .get_output(context);
-        let availability_zone_id_binding = availability_zone_id_binding_1.get_inner();
-        let az_mode_binding_1 = args.az_mode.get_output(context);
-        let az_mode_binding = az_mode_binding_1.get_inner();
-        let changeset_id_binding_1 = args.changeset_id.get_output(context);
-        let changeset_id_binding = changeset_id_binding_1.get_inner();
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let environment_id_binding_1 = args.environment_id.get_output(context);
-        let environment_id_binding = environment_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let read_write_binding_1 = args.read_write.get_output(context);
-        let read_write_binding = read_write_binding_1.get_inner();
-        let segment_configurations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_update_binding = args.auto_update.get_output(context);
+        let availability_zone_id_binding = args.availability_zone_id.get_output(context);
+        let az_mode_binding = args.az_mode.get_output(context);
+        let changeset_id_binding = args.changeset_id.get_output(context);
+        let database_name_binding = args.database_name.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let environment_id_binding = args.environment_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let read_write_binding = args.read_write.get_output(context);
+        let segment_configurations_binding = args
             .segment_configurations
             .get_output(context);
-        let segment_configurations_binding = segment_configurations_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:finspace/kxDataview:KxDataview".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoUpdate".into(),
-                    value: &auto_update_binding,
+                    value: auto_update_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneId".into(),
-                    value: &availability_zone_id_binding,
+                    value: availability_zone_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azMode".into(),
-                    value: &az_mode_binding,
+                    value: az_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "changesetId".into(),
-                    value: &changeset_id_binding,
+                    value: changeset_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentId".into(),
-                    value: &environment_id_binding,
+                    value: environment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readWrite".into(),
-                    value: &read_write_binding,
+                    value: read_write_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "segmentConfigurations".into(),
-                    value: &segment_configurations_binding,
+                    value: segment_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KxDataviewResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_update: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoUpdate"),
-            ),
-            availability_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneId"),
-            ),
-            az_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azMode"),
-            ),
-            changeset_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("changesetId"),
-            ),
-            created_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTimestamp"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentId"),
-            ),
-            last_modified_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedTimestamp"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            read_write: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readWrite"),
-            ),
-            segment_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("segmentConfigurations"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            auto_update: o.get_field("autoUpdate"),
+            availability_zone_id: o.get_field("availabilityZoneId"),
+            az_mode: o.get_field("azMode"),
+            changeset_id: o.get_field("changesetId"),
+            created_timestamp: o.get_field("createdTimestamp"),
+            database_name: o.get_field("databaseName"),
+            description: o.get_field("description"),
+            environment_id: o.get_field("environmentId"),
+            last_modified_timestamp: o.get_field("lastModifiedTimestamp"),
+            name: o.get_field("name"),
+            read_write: o.get_field("readWrite"),
+            segment_configurations: o.get_field("segmentConfigurations"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

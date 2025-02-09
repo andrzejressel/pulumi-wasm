@@ -54,39 +54,34 @@ pub mod endpoint_private_dns {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointPrivateDnsArgs,
     ) -> EndpointPrivateDnsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let private_dns_enabled_binding_1 = args.private_dns_enabled.get_output(context);
-        let private_dns_enabled_binding = private_dns_enabled_binding_1.get_inner();
-        let vpc_endpoint_id_binding_1 = args.vpc_endpoint_id.get_output(context);
-        let vpc_endpoint_id_binding = vpc_endpoint_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let private_dns_enabled_binding = args.private_dns_enabled.get_output(context);
+        let vpc_endpoint_id_binding = args.vpc_endpoint_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:vpc/endpointPrivateDns:EndpointPrivateDns".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateDnsEnabled".into(),
-                    value: &private_dns_enabled_binding,
+                    value: private_dns_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointId".into(),
-                    value: &vpc_endpoint_id_binding,
+                    value: vpc_endpoint_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointPrivateDnsResult {
-            private_dns_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDnsEnabled"),
-            ),
-            vpc_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcEndpointId"),
-            ),
+            private_dns_enabled: o.get_field("privateDnsEnabled"),
+            vpc_endpoint_id: o.get_field("vpcEndpointId"),
         }
     }
 }

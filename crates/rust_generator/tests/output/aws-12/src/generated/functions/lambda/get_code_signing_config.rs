@@ -33,42 +33,32 @@ pub mod get_code_signing_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCodeSigningConfigArgs,
     ) -> GetCodeSigningConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:lambda/getCodeSigningConfig:getCodeSigningConfig".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCodeSigningConfigResult {
-            allowed_publishers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedPublishers"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            config_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            last_modified: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModified"),
-            ),
-            policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policies"),
-            ),
+            allowed_publishers: o.get_field("allowedPublishers"),
+            arn: o.get_field("arn"),
+            config_id: o.get_field("configId"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            last_modified: o.get_field("lastModified"),
+            policies: o.get_field("policies"),
         }
     }
 }

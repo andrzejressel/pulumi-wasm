@@ -29,45 +29,36 @@ pub mod get_selection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSelectionArgs,
     ) -> GetSelectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let plan_id_binding_1 = args.plan_id.get_output(context);
-        let plan_id_binding = plan_id_binding_1.get_inner();
-        let selection_id_binding_1 = args.selection_id.get_output(context);
-        let selection_id_binding = selection_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let plan_id_binding = args.plan_id.get_output(context);
+        let selection_id_binding = args.selection_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:backup/getSelection:getSelection".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "planId".into(),
-                    value: &plan_id_binding,
+                    value: plan_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selectionId".into(),
-                    value: &selection_id_binding,
+                    value: selection_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSelectionResult {
-            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoleArn"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            plan_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("planId"),
-            ),
-            resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resources"),
-            ),
-            selection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selectionId"),
-            ),
+            iam_role_arn: o.get_field("iamRoleArn"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            plan_id: o.get_field("planId"),
+            resources: o.get_field("resources"),
+            selection_id: o.get_field("selectionId"),
         }
     }
 }

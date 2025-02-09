@@ -129,122 +129,91 @@ pub mod image_recipe {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ImageRecipeArgs,
     ) -> ImageRecipeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let block_device_mappings_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let block_device_mappings_binding = args
             .block_device_mappings
             .get_output(context);
-        let block_device_mappings_binding = block_device_mappings_binding_1.get_inner();
-        let components_binding_1 = args.components.get_output(context);
-        let components_binding = components_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parent_image_binding_1 = args.parent_image.get_output(context);
-        let parent_image_binding = parent_image_binding_1.get_inner();
-        let systems_manager_agent_binding_1 = args
+        let components_binding = args.components.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parent_image_binding = args.parent_image.get_output(context);
+        let systems_manager_agent_binding = args
             .systems_manager_agent
             .get_output(context);
-        let systems_manager_agent_binding = systems_manager_agent_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_data_base64_binding_1 = args.user_data_base64.get_output(context);
-        let user_data_base64_binding = user_data_base64_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let working_directory_binding_1 = args.working_directory.get_output(context);
-        let working_directory_binding = working_directory_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let user_data_base64_binding = args.user_data_base64.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let working_directory_binding = args.working_directory.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:imagebuilder/imageRecipe:ImageRecipe".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockDeviceMappings".into(),
-                    value: &block_device_mappings_binding,
+                    value: block_device_mappings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "components".into(),
-                    value: &components_binding,
+                    value: components_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentImage".into(),
-                    value: &parent_image_binding,
+                    value: parent_image_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "systemsManagerAgent".into(),
-                    value: &systems_manager_agent_binding,
+                    value: systems_manager_agent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userDataBase64".into(),
-                    value: &user_data_base64_binding,
+                    value: user_data_base64_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workingDirectory".into(),
-                    value: &working_directory_binding,
+                    value: working_directory_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ImageRecipeResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            block_device_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockDeviceMappings"),
-            ),
-            components: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("components"),
-            ),
-            date_created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dateCreated"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            parent_image: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentImage"),
-            ),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            systems_manager_agent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("systemsManagerAgent"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            user_data_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userDataBase64"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            working_directory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workingDirectory"),
-            ),
+            arn: o.get_field("arn"),
+            block_device_mappings: o.get_field("blockDeviceMappings"),
+            components: o.get_field("components"),
+            date_created: o.get_field("dateCreated"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            owner: o.get_field("owner"),
+            parent_image: o.get_field("parentImage"),
+            platform: o.get_field("platform"),
+            systems_manager_agent: o.get_field("systemsManagerAgent"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            user_data_base64: o.get_field("userDataBase64"),
+            version: o.get_field("version"),
+            working_directory: o.get_field("workingDirectory"),
         }
     }
 }

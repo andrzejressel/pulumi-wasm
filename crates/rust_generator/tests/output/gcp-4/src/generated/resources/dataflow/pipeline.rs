@@ -207,117 +207,87 @@ pub mod pipeline {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PipelineArgs,
     ) -> PipelineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let pipeline_sources_binding_1 = args.pipeline_sources.get_output(context);
-        let pipeline_sources_binding = pipeline_sources_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let schedule_info_binding_1 = args.schedule_info.get_output(context);
-        let schedule_info_binding = schedule_info_binding_1.get_inner();
-        let scheduler_service_account_email_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let display_name_binding = args.display_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let pipeline_sources_binding = args.pipeline_sources.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let schedule_info_binding = args.schedule_info.get_output(context);
+        let scheduler_service_account_email_binding = args
             .scheduler_service_account_email
             .get_output(context);
-        let scheduler_service_account_email_binding = scheduler_service_account_email_binding_1
-            .get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let workload_binding_1 = args.workload.get_output(context);
-        let workload_binding = workload_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let state_binding = args.state.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let workload_binding = args.workload.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dataflow/pipeline:Pipeline".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineSources".into(),
-                    value: &pipeline_sources_binding,
+                    value: pipeline_sources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleInfo".into(),
-                    value: &schedule_info_binding,
+                    value: schedule_info_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedulerServiceAccountEmail".into(),
-                    value: &scheduler_service_account_email_binding,
+                    value: scheduler_service_account_email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workload".into(),
-                    value: &workload_binding,
+                    value: workload_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PipelineResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            job_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobCount"),
-            ),
-            last_update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdateTime"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pipeline_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pipelineSources"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            schedule_info: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduleInfo"),
-            ),
-            scheduler_service_account_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedulerServiceAccountEmail"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            workload: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workload"),
-            ),
+            create_time: o.get_field("createTime"),
+            display_name: o.get_field("displayName"),
+            job_count: o.get_field("jobCount"),
+            last_update_time: o.get_field("lastUpdateTime"),
+            name: o.get_field("name"),
+            pipeline_sources: o.get_field("pipelineSources"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            schedule_info: o.get_field("scheduleInfo"),
+            scheduler_service_account_email: o.get_field("schedulerServiceAccountEmail"),
+            state: o.get_field("state"),
+            type_: o.get_field("type"),
+            workload: o.get_field("workload"),
         }
     }
 }

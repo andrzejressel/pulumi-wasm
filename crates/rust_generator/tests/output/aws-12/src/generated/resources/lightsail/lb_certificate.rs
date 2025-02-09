@@ -73,68 +73,52 @@ pub mod lb_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LbCertificateArgs,
     ) -> LbCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let lb_name_binding_1 = args.lb_name.get_output(context);
-        let lb_name_binding = lb_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let subject_alternative_names_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_name_binding = args.domain_name.get_output(context);
+        let lb_name_binding = args.lb_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let subject_alternative_names_binding = args
             .subject_alternative_names
             .get_output(context);
-        let subject_alternative_names_binding = subject_alternative_names_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lightsail/lbCertificate:LbCertificate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lbName".into(),
-                    value: &lb_name_binding,
+                    value: lb_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subjectAlternativeNames".into(),
-                    value: &subject_alternative_names_binding,
+                    value: subject_alternative_names_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LbCertificateResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            domain_validation_records: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainValidationRecords"),
-            ),
-            lb_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lbName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            subject_alternative_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subjectAlternativeNames"),
-            ),
-            support_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportCode"),
-            ),
+            arn: o.get_field("arn"),
+            created_at: o.get_field("createdAt"),
+            domain_name: o.get_field("domainName"),
+            domain_validation_records: o.get_field("domainValidationRecords"),
+            lb_name: o.get_field("lbName"),
+            name: o.get_field("name"),
+            subject_alternative_names: o.get_field("subjectAlternativeNames"),
+            support_code: o.get_field("supportCode"),
         }
     }
 }

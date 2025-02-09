@@ -277,342 +277,221 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_version_binding_1 = args.agent_version.get_output(context);
-        let agent_version_binding = agent_version_binding_1.get_inner();
-        let ami_id_binding_1 = args.ami_id.get_output(context);
-        let ami_id_binding = ami_id_binding_1.get_inner();
-        let architecture_binding_1 = args.architecture.get_output(context);
-        let architecture_binding = architecture_binding_1.get_inner();
-        let auto_scaling_type_binding_1 = args.auto_scaling_type.get_output(context);
-        let auto_scaling_type_binding = auto_scaling_type_binding_1.get_inner();
-        let availability_zone_binding_1 = args.availability_zone.get_output(context);
-        let availability_zone_binding = availability_zone_binding_1.get_inner();
-        let created_at_binding_1 = args.created_at.get_output(context);
-        let created_at_binding = created_at_binding_1.get_inner();
-        let delete_ebs_binding_1 = args.delete_ebs.get_output(context);
-        let delete_ebs_binding = delete_ebs_binding_1.get_inner();
-        let delete_eip_binding_1 = args.delete_eip.get_output(context);
-        let delete_eip_binding = delete_eip_binding_1.get_inner();
-        let ebs_block_devices_binding_1 = args.ebs_block_devices.get_output(context);
-        let ebs_block_devices_binding = ebs_block_devices_binding_1.get_inner();
-        let ebs_optimized_binding_1 = args.ebs_optimized.get_output(context);
-        let ebs_optimized_binding = ebs_optimized_binding_1.get_inner();
-        let ecs_cluster_arn_binding_1 = args.ecs_cluster_arn.get_output(context);
-        let ecs_cluster_arn_binding = ecs_cluster_arn_binding_1.get_inner();
-        let elastic_ip_binding_1 = args.elastic_ip.get_output(context);
-        let elastic_ip_binding = elastic_ip_binding_1.get_inner();
-        let ephemeral_block_devices_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let agent_version_binding = args.agent_version.get_output(context);
+        let ami_id_binding = args.ami_id.get_output(context);
+        let architecture_binding = args.architecture.get_output(context);
+        let auto_scaling_type_binding = args.auto_scaling_type.get_output(context);
+        let availability_zone_binding = args.availability_zone.get_output(context);
+        let created_at_binding = args.created_at.get_output(context);
+        let delete_ebs_binding = args.delete_ebs.get_output(context);
+        let delete_eip_binding = args.delete_eip.get_output(context);
+        let ebs_block_devices_binding = args.ebs_block_devices.get_output(context);
+        let ebs_optimized_binding = args.ebs_optimized.get_output(context);
+        let ecs_cluster_arn_binding = args.ecs_cluster_arn.get_output(context);
+        let elastic_ip_binding = args.elastic_ip.get_output(context);
+        let ephemeral_block_devices_binding = args
             .ephemeral_block_devices
             .get_output(context);
-        let ephemeral_block_devices_binding = ephemeral_block_devices_binding_1
-            .get_inner();
-        let hostname_binding_1 = args.hostname.get_output(context);
-        let hostname_binding = hostname_binding_1.get_inner();
-        let infrastructure_class_binding_1 = args
-            .infrastructure_class
-            .get_output(context);
-        let infrastructure_class_binding = infrastructure_class_binding_1.get_inner();
-        let install_updates_on_boot_binding_1 = args
+        let hostname_binding = args.hostname.get_output(context);
+        let infrastructure_class_binding = args.infrastructure_class.get_output(context);
+        let install_updates_on_boot_binding = args
             .install_updates_on_boot
             .get_output(context);
-        let install_updates_on_boot_binding = install_updates_on_boot_binding_1
-            .get_inner();
-        let instance_profile_arn_binding_1 = args
-            .instance_profile_arn
-            .get_output(context);
-        let instance_profile_arn_binding = instance_profile_arn_binding_1.get_inner();
-        let instance_type_binding_1 = args.instance_type.get_output(context);
-        let instance_type_binding = instance_type_binding_1.get_inner();
-        let layer_ids_binding_1 = args.layer_ids.get_output(context);
-        let layer_ids_binding = layer_ids_binding_1.get_inner();
-        let os_binding_1 = args.os.get_output(context);
-        let os_binding = os_binding_1.get_inner();
-        let root_block_devices_binding_1 = args.root_block_devices.get_output(context);
-        let root_block_devices_binding = root_block_devices_binding_1.get_inner();
-        let root_device_type_binding_1 = args.root_device_type.get_output(context);
-        let root_device_type_binding = root_device_type_binding_1.get_inner();
-        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
-        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
-        let ssh_key_name_binding_1 = args.ssh_key_name.get_output(context);
-        let ssh_key_name_binding = ssh_key_name_binding_1.get_inner();
-        let stack_id_binding_1 = args.stack_id.get_output(context);
-        let stack_id_binding = stack_id_binding_1.get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let tenancy_binding_1 = args.tenancy.get_output(context);
-        let tenancy_binding = tenancy_binding_1.get_inner();
-        let virtualization_type_binding_1 = args.virtualization_type.get_output(context);
-        let virtualization_type_binding = virtualization_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let instance_profile_arn_binding = args.instance_profile_arn.get_output(context);
+        let instance_type_binding = args.instance_type.get_output(context);
+        let layer_ids_binding = args.layer_ids.get_output(context);
+        let os_binding = args.os.get_output(context);
+        let root_block_devices_binding = args.root_block_devices.get_output(context);
+        let root_device_type_binding = args.root_device_type.get_output(context);
+        let security_group_ids_binding = args.security_group_ids.get_output(context);
+        let ssh_key_name_binding = args.ssh_key_name.get_output(context);
+        let stack_id_binding = args.stack_id.get_output(context);
+        let state_binding = args.state.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let tenancy_binding = args.tenancy.get_output(context);
+        let virtualization_type_binding = args.virtualization_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:opsworks/instance:Instance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentVersion".into(),
-                    value: &agent_version_binding,
+                    value: agent_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amiId".into(),
-                    value: &ami_id_binding,
+                    value: ami_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "architecture".into(),
-                    value: &architecture_binding,
+                    value: architecture_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScalingType".into(),
-                    value: &auto_scaling_type_binding,
+                    value: auto_scaling_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: &availability_zone_binding,
+                    value: availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createdAt".into(),
-                    value: &created_at_binding,
+                    value: created_at_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteEbs".into(),
-                    value: &delete_ebs_binding,
+                    value: delete_ebs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteEip".into(),
-                    value: &delete_eip_binding,
+                    value: delete_eip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsBlockDevices".into(),
-                    value: &ebs_block_devices_binding,
+                    value: ebs_block_devices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsOptimized".into(),
-                    value: &ebs_optimized_binding,
+                    value: ebs_optimized_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ecsClusterArn".into(),
-                    value: &ecs_cluster_arn_binding,
+                    value: ecs_cluster_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticIp".into(),
-                    value: &elastic_ip_binding,
+                    value: elastic_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ephemeralBlockDevices".into(),
-                    value: &ephemeral_block_devices_binding,
+                    value: ephemeral_block_devices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostname".into(),
-                    value: &hostname_binding,
+                    value: hostname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "infrastructureClass".into(),
-                    value: &infrastructure_class_binding,
+                    value: infrastructure_class_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "installUpdatesOnBoot".into(),
-                    value: &install_updates_on_boot_binding,
+                    value: install_updates_on_boot_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceProfileArn".into(),
-                    value: &instance_profile_arn_binding,
+                    value: instance_profile_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: &instance_type_binding,
+                    value: instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "layerIds".into(),
-                    value: &layer_ids_binding,
+                    value: layer_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "os".into(),
-                    value: &os_binding,
+                    value: os_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rootBlockDevices".into(),
-                    value: &root_block_devices_binding,
+                    value: root_block_devices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rootDeviceType".into(),
-                    value: &root_device_type_binding,
+                    value: root_device_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: &security_group_ids_binding,
+                    value: security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshKeyName".into(),
-                    value: &ssh_key_name_binding,
+                    value: ssh_key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackId".into(),
-                    value: &stack_id_binding,
+                    value: stack_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenancy".into(),
-                    value: &tenancy_binding,
+                    value: tenancy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualizationType".into(),
-                    value: &virtualization_type_binding,
+                    value: virtualization_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceResult {
-            agent_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentVersion"),
-            ),
-            ami_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("amiId"),
-            ),
-            architecture: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("architecture"),
-            ),
-            auto_scaling_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScalingType"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            delete_ebs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteEbs"),
-            ),
-            delete_eip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteEip"),
-            ),
-            ebs_block_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsBlockDevices"),
-            ),
-            ebs_optimized: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsOptimized"),
-            ),
-            ec2_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ec2InstanceId"),
-            ),
-            ecs_cluster_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ecsClusterArn"),
-            ),
-            elastic_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticIp"),
-            ),
-            ephemeral_block_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ephemeralBlockDevices"),
-            ),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            infrastructure_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("infrastructureClass"),
-            ),
-            install_updates_on_boot: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("installUpdatesOnBoot"),
-            ),
-            instance_profile_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceProfileArn"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            last_service_error_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastServiceErrorId"),
-            ),
-            layer_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("layerIds"),
-            ),
-            os: pulumi_gestalt_rust::__private::into_domain(o.extract_field("os")),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            private_dns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDns"),
-            ),
-            private_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIp"),
-            ),
-            public_dns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicDns"),
-            ),
-            public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIp"),
-            ),
-            registered_by: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registeredBy"),
-            ),
-            reported_agent_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reportedAgentVersion"),
-            ),
-            reported_os_family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reportedOsFamily"),
-            ),
-            reported_os_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reportedOsName"),
-            ),
-            reported_os_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reportedOsVersion"),
-            ),
-            root_block_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootBlockDevices"),
-            ),
-            root_device_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootDeviceType"),
-            ),
-            root_device_volume_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootDeviceVolumeId"),
-            ),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            ssh_host_dsa_key_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sshHostDsaKeyFingerprint"),
-            ),
-            ssh_host_rsa_key_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sshHostRsaKeyFingerprint"),
-            ),
-            ssh_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sshKeyName"),
-            ),
-            stack_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackId"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tenancy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenancy"),
-            ),
-            virtualization_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualizationType"),
-            ),
+            agent_version: o.get_field("agentVersion"),
+            ami_id: o.get_field("amiId"),
+            architecture: o.get_field("architecture"),
+            auto_scaling_type: o.get_field("autoScalingType"),
+            availability_zone: o.get_field("availabilityZone"),
+            created_at: o.get_field("createdAt"),
+            delete_ebs: o.get_field("deleteEbs"),
+            delete_eip: o.get_field("deleteEip"),
+            ebs_block_devices: o.get_field("ebsBlockDevices"),
+            ebs_optimized: o.get_field("ebsOptimized"),
+            ec2_instance_id: o.get_field("ec2InstanceId"),
+            ecs_cluster_arn: o.get_field("ecsClusterArn"),
+            elastic_ip: o.get_field("elasticIp"),
+            ephemeral_block_devices: o.get_field("ephemeralBlockDevices"),
+            hostname: o.get_field("hostname"),
+            infrastructure_class: o.get_field("infrastructureClass"),
+            install_updates_on_boot: o.get_field("installUpdatesOnBoot"),
+            instance_profile_arn: o.get_field("instanceProfileArn"),
+            instance_type: o.get_field("instanceType"),
+            last_service_error_id: o.get_field("lastServiceErrorId"),
+            layer_ids: o.get_field("layerIds"),
+            os: o.get_field("os"),
+            platform: o.get_field("platform"),
+            private_dns: o.get_field("privateDns"),
+            private_ip: o.get_field("privateIp"),
+            public_dns: o.get_field("publicDns"),
+            public_ip: o.get_field("publicIp"),
+            registered_by: o.get_field("registeredBy"),
+            reported_agent_version: o.get_field("reportedAgentVersion"),
+            reported_os_family: o.get_field("reportedOsFamily"),
+            reported_os_name: o.get_field("reportedOsName"),
+            reported_os_version: o.get_field("reportedOsVersion"),
+            root_block_devices: o.get_field("rootBlockDevices"),
+            root_device_type: o.get_field("rootDeviceType"),
+            root_device_volume_id: o.get_field("rootDeviceVolumeId"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            ssh_host_dsa_key_fingerprint: o.get_field("sshHostDsaKeyFingerprint"),
+            ssh_host_rsa_key_fingerprint: o.get_field("sshHostRsaKeyFingerprint"),
+            ssh_key_name: o.get_field("sshKeyName"),
+            stack_id: o.get_field("stackId"),
+            state: o.get_field("state"),
+            status: o.get_field("status"),
+            subnet_id: o.get_field("subnetId"),
+            tenancy: o.get_field("tenancy"),
+            virtualization_type: o.get_field("virtualizationType"),
         }
     }
 }

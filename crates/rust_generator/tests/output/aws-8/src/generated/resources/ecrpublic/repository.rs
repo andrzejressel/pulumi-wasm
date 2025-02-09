@@ -86,65 +86,50 @@ pub mod repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RepositoryArgs,
     ) -> RepositoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_data_binding_1 = args.catalog_data.get_output(context);
-        let catalog_data_binding = catalog_data_binding_1.get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let repository_name_binding_1 = args.repository_name.get_output(context);
-        let repository_name_binding = repository_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_data_binding = args.catalog_data.get_output(context);
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let repository_name_binding = args.repository_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ecrpublic/repository:Repository".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogData".into(),
-                    value: &catalog_data_binding,
+                    value: catalog_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryName".into(),
-                    value: &repository_name_binding,
+                    value: repository_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RepositoryResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            catalog_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogData"),
-            ),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            registry_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registryId"),
-            ),
-            repository_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryName"),
-            ),
-            repository_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryUri"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            catalog_data: o.get_field("catalogData"),
+            force_destroy: o.get_field("forceDestroy"),
+            registry_id: o.get_field("registryId"),
+            repository_name: o.get_field("repositoryName"),
+            repository_uri: o.get_field("repositoryUri"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

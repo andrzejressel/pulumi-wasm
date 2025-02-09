@@ -61,60 +61,48 @@ pub mod identity_notification_topic {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IdentityNotificationTopicArgs,
     ) -> IdentityNotificationTopicResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let include_original_headers_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let identity_binding = args.identity.get_output(context);
+        let include_original_headers_binding = args
             .include_original_headers
             .get_output(context);
-        let include_original_headers_binding = include_original_headers_binding_1
-            .get_inner();
-        let notification_type_binding_1 = args.notification_type.get_output(context);
-        let notification_type_binding = notification_type_binding_1.get_inner();
-        let topic_arn_binding_1 = args.topic_arn.get_output(context);
-        let topic_arn_binding = topic_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let notification_type_binding = args.notification_type.get_output(context);
+        let topic_arn_binding = args.topic_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ses/identityNotificationTopic:IdentityNotificationTopic".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeOriginalHeaders".into(),
-                    value: &include_original_headers_binding,
+                    value: include_original_headers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationType".into(),
-                    value: &notification_type_binding,
+                    value: notification_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topicArn".into(),
-                    value: &topic_arn_binding,
+                    value: topic_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IdentityNotificationTopicResult {
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            include_original_headers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeOriginalHeaders"),
-            ),
-            notification_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationType"),
-            ),
-            topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("topicArn"),
-            ),
+            identity: o.get_field("identity"),
+            include_original_headers: o.get_field("includeOriginalHeaders"),
+            notification_type: o.get_field("notificationType"),
+            topic_arn: o.get_field("topicArn"),
         }
     }
 }

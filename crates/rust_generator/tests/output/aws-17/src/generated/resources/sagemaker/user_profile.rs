@@ -91,86 +91,65 @@ pub mod user_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserProfileArgs,
     ) -> UserProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_id_binding_1 = args.domain_id.get_output(context);
-        let domain_id_binding = domain_id_binding_1.get_inner();
-        let single_sign_on_user_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_id_binding = args.domain_id.get_output(context);
+        let single_sign_on_user_identifier_binding = args
             .single_sign_on_user_identifier
             .get_output(context);
-        let single_sign_on_user_identifier_binding = single_sign_on_user_identifier_binding_1
-            .get_inner();
-        let single_sign_on_user_value_binding_1 = args
+        let single_sign_on_user_value_binding = args
             .single_sign_on_user_value
             .get_output(context);
-        let single_sign_on_user_value_binding = single_sign_on_user_value_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_profile_name_binding_1 = args.user_profile_name.get_output(context);
-        let user_profile_name_binding = user_profile_name_binding_1.get_inner();
-        let user_settings_binding_1 = args.user_settings.get_output(context);
-        let user_settings_binding = user_settings_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let user_profile_name_binding = args.user_profile_name.get_output(context);
+        let user_settings_binding = args.user_settings.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/userProfile:UserProfile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainId".into(),
-                    value: &domain_id_binding,
+                    value: domain_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "singleSignOnUserIdentifier".into(),
-                    value: &single_sign_on_user_identifier_binding,
+                    value: single_sign_on_user_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "singleSignOnUserValue".into(),
-                    value: &single_sign_on_user_value_binding,
+                    value: single_sign_on_user_value_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userProfileName".into(),
-                    value: &user_profile_name_binding,
+                    value: user_profile_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userSettings".into(),
-                    value: &user_settings_binding,
+                    value: user_settings_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserProfileResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            domain_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainId"),
-            ),
-            home_efs_file_system_uid: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("homeEfsFileSystemUid"),
-            ),
-            single_sign_on_user_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("singleSignOnUserIdentifier"),
-            ),
-            single_sign_on_user_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("singleSignOnUserValue"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            user_profile_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userProfileName"),
-            ),
-            user_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userSettings"),
-            ),
+            arn: o.get_field("arn"),
+            domain_id: o.get_field("domainId"),
+            home_efs_file_system_uid: o.get_field("homeEfsFileSystemUid"),
+            single_sign_on_user_identifier: o.get_field("singleSignOnUserIdentifier"),
+            single_sign_on_user_value: o.get_field("singleSignOnUserValue"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            user_profile_name: o.get_field("userProfileName"),
+            user_settings: o.get_field("userSettings"),
         }
     }
 }

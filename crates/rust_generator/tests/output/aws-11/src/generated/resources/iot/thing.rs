@@ -59,53 +59,43 @@ pub mod thing {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ThingArgs,
     ) -> ThingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attributes_binding_1 = args.attributes.get_output(context);
-        let attributes_binding = attributes_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let thing_type_name_binding_1 = args.thing_type_name.get_output(context);
-        let thing_type_name_binding = thing_type_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attributes_binding = args.attributes.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let thing_type_name_binding = args.thing_type_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iot/thing:Thing".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributes".into(),
-                    value: &attributes_binding,
+                    value: attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thingTypeName".into(),
-                    value: &thing_type_name_binding,
+                    value: thing_type_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ThingResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attributes"),
-            ),
-            default_client_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultClientId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            thing_type_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thingTypeName"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            arn: o.get_field("arn"),
+            attributes: o.get_field("attributes"),
+            default_client_id: o.get_field("defaultClientId"),
+            name: o.get_field("name"),
+            thing_type_name: o.get_field("thingTypeName"),
+            version: o.get_field("version"),
         }
     }
 }

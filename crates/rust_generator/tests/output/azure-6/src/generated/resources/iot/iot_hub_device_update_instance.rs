@@ -115,78 +115,63 @@ pub mod iot_hub_device_update_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IotHubDeviceUpdateInstanceArgs,
     ) -> IotHubDeviceUpdateInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let device_update_account_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let device_update_account_id_binding = args
             .device_update_account_id
             .get_output(context);
-        let device_update_account_id_binding = device_update_account_id_binding_1
-            .get_inner();
-        let diagnostic_enabled_binding_1 = args.diagnostic_enabled.get_output(context);
-        let diagnostic_enabled_binding = diagnostic_enabled_binding_1.get_inner();
-        let diagnostic_storage_account_binding_1 = args
+        let diagnostic_enabled_binding = args.diagnostic_enabled.get_output(context);
+        let diagnostic_storage_account_binding = args
             .diagnostic_storage_account
             .get_output(context);
-        let diagnostic_storage_account_binding = diagnostic_storage_account_binding_1
-            .get_inner();
-        let iothub_id_binding_1 = args.iothub_id.get_output(context);
-        let iothub_id_binding = iothub_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let iothub_id_binding = args.iothub_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceUpdateAccountId".into(),
-                    value: &device_update_account_id_binding,
+                    value: device_update_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diagnosticEnabled".into(),
-                    value: &diagnostic_enabled_binding,
+                    value: diagnostic_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diagnosticStorageAccount".into(),
-                    value: &diagnostic_storage_account_binding,
+                    value: diagnostic_storage_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubId".into(),
-                    value: &iothub_id_binding,
+                    value: iothub_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IotHubDeviceUpdateInstanceResult {
-            device_update_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deviceUpdateAccountId"),
-            ),
-            diagnostic_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diagnosticEnabled"),
-            ),
-            diagnostic_storage_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diagnosticStorageAccount"),
-            ),
-            iothub_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iothubId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            device_update_account_id: o.get_field("deviceUpdateAccountId"),
+            diagnostic_enabled: o.get_field("diagnosticEnabled"),
+            diagnostic_storage_account: o.get_field("diagnosticStorageAccount"),
+            iothub_id: o.get_field("iothubId"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
         }
     }
 }

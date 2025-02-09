@@ -13,26 +13,22 @@ pub mod type_ {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
-        name: &str,
-        args: TypeArgs,
-    ) {
+    pub fn create(context: &pulumi_gestalt_rust::Context, name: &str, args: TypeArgs) {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "example:impl/let/loop:Type".into(),
             name: name.to_string(),
             version: super::super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        register_interface::register(context.get_inner(), &request);
+        context.register_resource(request);
     }
 }

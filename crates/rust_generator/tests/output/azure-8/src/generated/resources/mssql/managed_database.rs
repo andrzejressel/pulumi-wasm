@@ -120,79 +120,64 @@ pub mod managed_database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagedDatabaseArgs,
     ) -> ManagedDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let long_term_retention_policy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let long_term_retention_policy_binding = args
             .long_term_retention_policy
             .get_output(context);
-        let long_term_retention_policy_binding = long_term_retention_policy_binding_1
-            .get_inner();
-        let managed_instance_id_binding_1 = args.managed_instance_id.get_output(context);
-        let managed_instance_id_binding = managed_instance_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let point_in_time_restore_binding_1 = args
+        let managed_instance_id_binding = args.managed_instance_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let point_in_time_restore_binding = args
             .point_in_time_restore
             .get_output(context);
-        let point_in_time_restore_binding = point_in_time_restore_binding_1.get_inner();
-        let short_term_retention_days_binding_1 = args
+        let short_term_retention_days_binding = args
             .short_term_retention_days
             .get_output(context);
-        let short_term_retention_days_binding = short_term_retention_days_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mssql/managedDatabase:ManagedDatabase".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "longTermRetentionPolicy".into(),
-                    value: &long_term_retention_policy_binding,
+                    value: long_term_retention_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedInstanceId".into(),
-                    value: &managed_instance_id_binding,
+                    value: managed_instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pointInTimeRestore".into(),
-                    value: &point_in_time_restore_binding,
+                    value: point_in_time_restore_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shortTermRetentionDays".into(),
-                    value: &short_term_retention_days_binding,
+                    value: short_term_retention_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagedDatabaseResult {
-            long_term_retention_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("longTermRetentionPolicy"),
-            ),
-            managed_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedInstanceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            point_in_time_restore: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pointInTimeRestore"),
-            ),
-            short_term_retention_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shortTermRetentionDays"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            long_term_retention_policy: o.get_field("longTermRetentionPolicy"),
+            managed_instance_id: o.get_field("managedInstanceId"),
+            name: o.get_field("name"),
+            point_in_time_restore: o.get_field("pointInTimeRestore"),
+            short_term_retention_days: o.get_field("shortTermRetentionDays"),
+            tags: o.get_field("tags"),
         }
     }
 }

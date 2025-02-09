@@ -11,22 +11,19 @@ pub mod get_default_kms_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
-    ) -> GetDefaultKmsKeyResult {
+    pub fn invoke(context: &pulumi_gestalt_rust::Context) -> GetDefaultKmsKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ebs/getDefaultKmsKey:getDefaultKmsKey".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([]),
+            object: &[],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDefaultKmsKeyResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyArn"),
-            ),
+            id: o.get_field("id"),
+            key_arn: o.get_field("keyArn"),
         }
     }
 }

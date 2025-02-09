@@ -128,117 +128,91 @@ pub mod express_route_port {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ExpressRoutePortArgs,
     ) -> ExpressRoutePortResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bandwidth_in_gbps_binding_1 = args.bandwidth_in_gbps.get_output(context);
-        let bandwidth_in_gbps_binding = bandwidth_in_gbps_binding_1.get_inner();
-        let billing_type_binding_1 = args.billing_type.get_output(context);
-        let billing_type_binding = billing_type_binding_1.get_inner();
-        let encapsulation_binding_1 = args.encapsulation.get_output(context);
-        let encapsulation_binding = encapsulation_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let link1_binding_1 = args.link1.get_output(context);
-        let link1_binding = link1_binding_1.get_inner();
-        let link2_binding_1 = args.link2.get_output(context);
-        let link2_binding = link2_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let peering_location_binding_1 = args.peering_location.get_output(context);
-        let peering_location_binding = peering_location_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bandwidth_in_gbps_binding = args.bandwidth_in_gbps.get_output(context);
+        let billing_type_binding = args.billing_type.get_output(context);
+        let encapsulation_binding = args.encapsulation.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let link1_binding = args.link1.get_output(context);
+        let link2_binding = args.link2.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let peering_location_binding = args.peering_location.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/expressRoutePort:ExpressRoutePort".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bandwidthInGbps".into(),
-                    value: &bandwidth_in_gbps_binding,
+                    value: bandwidth_in_gbps_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingType".into(),
-                    value: &billing_type_binding,
+                    value: billing_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encapsulation".into(),
-                    value: &encapsulation_binding,
+                    value: encapsulation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "link1".into(),
-                    value: &link1_binding,
+                    value: link1_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "link2".into(),
-                    value: &link2_binding,
+                    value: link2_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeringLocation".into(),
-                    value: &peering_location_binding,
+                    value: peering_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ExpressRoutePortResult {
-            bandwidth_in_gbps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bandwidthInGbps"),
-            ),
-            billing_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingType"),
-            ),
-            encapsulation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encapsulation"),
-            ),
-            ethertype: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ethertype"),
-            ),
-            guid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("guid")),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            link1: pulumi_gestalt_rust::__private::into_domain(o.extract_field("link1")),
-            link2: pulumi_gestalt_rust::__private::into_domain(o.extract_field("link2")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mtu: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mtu")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            peering_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peeringLocation"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            bandwidth_in_gbps: o.get_field("bandwidthInGbps"),
+            billing_type: o.get_field("billingType"),
+            encapsulation: o.get_field("encapsulation"),
+            ethertype: o.get_field("ethertype"),
+            guid: o.get_field("guid"),
+            identity: o.get_field("identity"),
+            link1: o.get_field("link1"),
+            link2: o.get_field("link2"),
+            location: o.get_field("location"),
+            mtu: o.get_field("mtu"),
+            name: o.get_field("name"),
+            peering_location: o.get_field("peeringLocation"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
         }
     }
 }

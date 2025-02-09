@@ -50,73 +50,57 @@ pub mod get_resource_share {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetResourceShareArgs,
     ) -> GetResourceShareResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_owner_binding_1 = args.resource_owner.get_output(context);
-        let resource_owner_binding = resource_owner_binding_1.get_inner();
-        let resource_share_status_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_owner_binding = args.resource_owner.get_output(context);
+        let resource_share_status_binding = args
             .resource_share_status
             .get_output(context);
-        let resource_share_status_binding = resource_share_status_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ram/getResourceShare:getResourceShare".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceOwner".into(),
-                    value: &resource_owner_binding,
+                    value: resource_owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceShareStatus".into(),
-                    value: &resource_share_status_binding,
+                    value: resource_share_status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetResourceShareResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owning_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("owningAccountId"),
-            ),
-            resource_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceArns"),
-            ),
-            resource_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceOwner"),
-            ),
-            resource_share_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceShareStatus"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            arn: o.get_field("arn"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            owning_account_id: o.get_field("owningAccountId"),
+            resource_arns: o.get_field("resourceArns"),
+            resource_owner: o.get_field("resourceOwner"),
+            resource_share_status: o.get_field("resourceShareStatus"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
         }
     }
 }

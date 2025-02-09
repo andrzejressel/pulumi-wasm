@@ -59,42 +59,35 @@ pub mod static_ip_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StaticIpAttachmentArgs,
     ) -> StaticIpAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_name_binding_1 = args.instance_name.get_output(context);
-        let instance_name_binding = instance_name_binding_1.get_inner();
-        let static_ip_name_binding_1 = args.static_ip_name.get_output(context);
-        let static_ip_name_binding = static_ip_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let instance_name_binding = args.instance_name.get_output(context);
+        let static_ip_name_binding = args.static_ip_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lightsail/staticIpAttachment:StaticIpAttachment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceName".into(),
-                    value: &instance_name_binding,
+                    value: instance_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staticIpName".into(),
-                    value: &static_ip_name_binding,
+                    value: static_ip_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StaticIpAttachmentResult {
-            instance_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceName"),
-            ),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            static_ip_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("staticIpName"),
-            ),
+            instance_name: o.get_field("instanceName"),
+            ip_address: o.get_field("ipAddress"),
+            static_ip_name: o.get_field("staticIpName"),
         }
     }
 }

@@ -107,84 +107,64 @@ pub mod storage_insights {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StorageInsightsArgs,
     ) -> StorageInsightsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let blob_container_names_binding_1 = args
-            .blob_container_names
-            .get_output(context);
-        let blob_container_names_binding = blob_container_names_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let storage_account_key_binding_1 = args.storage_account_key.get_output(context);
-        let storage_account_key_binding = storage_account_key_binding_1.get_inner();
-        let table_names_binding_1 = args.table_names.get_output(context);
-        let table_names_binding = table_names_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let blob_container_names_binding = args.blob_container_names.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let storage_account_key_binding = args.storage_account_key.get_output(context);
+        let table_names_binding = args.table_names.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:loganalytics/storageInsights:StorageInsights".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blobContainerNames".into(),
-                    value: &blob_container_names_binding,
+                    value: blob_container_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountKey".into(),
-                    value: &storage_account_key_binding,
+                    value: storage_account_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableNames".into(),
-                    value: &table_names_binding,
+                    value: table_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StorageInsightsResult {
-            blob_container_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blobContainerNames"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
-            storage_account_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountKey"),
-            ),
-            table_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableNames"),
-            ),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            blob_container_names: o.get_field("blobContainerNames"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            storage_account_id: o.get_field("storageAccountId"),
+            storage_account_key: o.get_field("storageAccountKey"),
+            table_names: o.get_field("tableNames"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

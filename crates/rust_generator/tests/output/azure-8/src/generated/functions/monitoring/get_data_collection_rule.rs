@@ -57,65 +57,44 @@ pub mod get_data_collection_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDataCollectionRuleArgs,
     ) -> GetDataCollectionRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:monitoring/getDataCollectionRule:getDataCollectionRule".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDataCollectionRuleResult {
-            data_collection_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataCollectionEndpointId"),
-            ),
-            data_flows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFlows"),
-            ),
-            data_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSources"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            destinations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinations"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            immutable_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("immutableId"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            stream_declarations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamDeclarations"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            data_collection_endpoint_id: o.get_field("dataCollectionEndpointId"),
+            data_flows: o.get_field("dataFlows"),
+            data_sources: o.get_field("dataSources"),
+            description: o.get_field("description"),
+            destinations: o.get_field("destinations"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            immutable_id: o.get_field("immutableId"),
+            kind: o.get_field("kind"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            stream_declarations: o.get_field("streamDeclarations"),
+            tags: o.get_field("tags"),
         }
     }
 }

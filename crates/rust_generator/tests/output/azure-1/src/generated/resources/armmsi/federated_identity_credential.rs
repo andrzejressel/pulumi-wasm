@@ -89,74 +89,59 @@ pub mod federated_identity_credential {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FederatedIdentityCredentialArgs,
     ) -> FederatedIdentityCredentialResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audience_binding_1 = args.audience.get_output(context);
-        let audience_binding = audience_binding_1.get_inner();
-        let issuer_binding_1 = args.issuer.get_output(context);
-        let issuer_binding = issuer_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parent_id_binding_1 = args.parent_id.get_output(context);
-        let parent_id_binding = parent_id_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let subject_binding_1 = args.subject.get_output(context);
-        let subject_binding = subject_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let audience_binding = args.audience.get_output(context);
+        let issuer_binding = args.issuer.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parent_id_binding = args.parent_id.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let subject_binding = args.subject.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "audience".into(),
-                    value: &audience_binding,
+                    value: audience_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "issuer".into(),
-                    value: &issuer_binding,
+                    value: issuer_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentId".into(),
-                    value: &parent_id_binding,
+                    value: parent_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subject".into(),
-                    value: &subject_binding,
+                    value: subject_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FederatedIdentityCredentialResult {
-            audience: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("audience"),
-            ),
-            issuer: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issuer"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentId"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            subject: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subject"),
-            ),
+            audience: o.get_field("audience"),
+            issuer: o.get_field("issuer"),
+            name: o.get_field("name"),
+            parent_id: o.get_field("parentId"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            subject: o.get_field("subject"),
         }
     }
 }

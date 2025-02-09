@@ -95,76 +95,57 @@ pub mod data_share_consumer_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataShareConsumerAssociationArgs,
     ) -> DataShareConsumerAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_writes_binding_1 = args.allow_writes.get_output(context);
-        let allow_writes_binding = allow_writes_binding_1.get_inner();
-        let associate_entire_account_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_writes_binding = args.allow_writes.get_output(context);
+        let associate_entire_account_binding = args
             .associate_entire_account
             .get_output(context);
-        let associate_entire_account_binding = associate_entire_account_binding_1
-            .get_inner();
-        let consumer_arn_binding_1 = args.consumer_arn.get_output(context);
-        let consumer_arn_binding = consumer_arn_binding_1.get_inner();
-        let consumer_region_binding_1 = args.consumer_region.get_output(context);
-        let consumer_region_binding = consumer_region_binding_1.get_inner();
-        let data_share_arn_binding_1 = args.data_share_arn.get_output(context);
-        let data_share_arn_binding = data_share_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let consumer_arn_binding = args.consumer_arn.get_output(context);
+        let consumer_region_binding = args.consumer_region.get_output(context);
+        let data_share_arn_binding = args.data_share_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowWrites".into(),
-                    value: &allow_writes_binding,
+                    value: allow_writes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associateEntireAccount".into(),
-                    value: &associate_entire_account_binding,
+                    value: associate_entire_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consumerArn".into(),
-                    value: &consumer_arn_binding,
+                    value: consumer_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consumerRegion".into(),
-                    value: &consumer_region_binding,
+                    value: consumer_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataShareArn".into(),
-                    value: &data_share_arn_binding,
+                    value: data_share_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataShareConsumerAssociationResult {
-            allow_writes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowWrites"),
-            ),
-            associate_entire_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associateEntireAccount"),
-            ),
-            consumer_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consumerArn"),
-            ),
-            consumer_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consumerRegion"),
-            ),
-            data_share_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataShareArn"),
-            ),
-            managed_by: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedBy"),
-            ),
-            producer_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("producerArn"),
-            ),
+            allow_writes: o.get_field("allowWrites"),
+            associate_entire_account: o.get_field("associateEntireAccount"),
+            consumer_arn: o.get_field("consumerArn"),
+            consumer_region: o.get_field("consumerRegion"),
+            data_share_arn: o.get_field("dataShareArn"),
+            managed_by: o.get_field("managedBy"),
+            producer_arn: o.get_field("producerArn"),
         }
     }
 }

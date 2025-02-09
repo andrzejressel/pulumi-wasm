@@ -41,61 +41,45 @@ pub mod get_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetServiceArgs,
     ) -> GetServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_arn_binding_1 = args.cluster_arn.get_output(context);
-        let cluster_arn_binding = cluster_arn_binding_1.get_inner();
-        let service_name_binding_1 = args.service_name.get_output(context);
-        let service_name_binding = service_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_arn_binding = args.cluster_arn.get_output(context);
+        let service_name_binding = args.service_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ecs/getService:getService".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterArn".into(),
-                    value: &cluster_arn_binding,
+                    value: cluster_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: &service_name_binding,
+                    value: service_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetServiceResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone_rebalancing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneRebalancing"),
-            ),
-            cluster_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterArn"),
-            ),
-            desired_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredCount"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            launch_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchType"),
-            ),
-            scheduling_strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedulingStrategy"),
-            ),
-            service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            task_definition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskDefinition"),
-            ),
+            arn: o.get_field("arn"),
+            availability_zone_rebalancing: o.get_field("availabilityZoneRebalancing"),
+            cluster_arn: o.get_field("clusterArn"),
+            desired_count: o.get_field("desiredCount"),
+            id: o.get_field("id"),
+            launch_type: o.get_field("launchType"),
+            scheduling_strategy: o.get_field("schedulingStrategy"),
+            service_name: o.get_field("serviceName"),
+            tags: o.get_field("tags"),
+            task_definition: o.get_field("taskDefinition"),
         }
     }
 }

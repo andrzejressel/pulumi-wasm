@@ -91,114 +91,58 @@ pub mod get {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
-        args: GetArgs,
-    ) -> GetResult {
+    pub fn invoke(context: &pulumi_gestalt_rust::Context, args: GetArgs) -> GetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:arcmachine/get:get".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetResult {
-            active_directory_fqdn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activeDirectoryFqdn"),
-            ),
-            agent_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentVersion"),
-            ),
-            agents: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agents"),
-            ),
-            client_public_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientPublicKey"),
-            ),
-            cloud_metadatas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudMetadatas"),
-            ),
-            detected_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("detectedProperties"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            dns_fqdn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsFqdn"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            last_status_change_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastStatusChangeTime"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            location_datas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationDatas"),
-            ),
-            machine_fqdn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("machineFqdn"),
-            ),
-            mssql_discovered: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mssqlDiscovered"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            os_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osName"),
-            ),
-            os_profiles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osProfiles"),
-            ),
-            os_sku: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osSku"),
-            ),
-            os_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osType"),
-            ),
-            os_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osVersion"),
-            ),
-            parent_cluster_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentClusterResourceId"),
-            ),
-            private_link_scope_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateLinkScopeResourceId"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            service_statuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceStatuses"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vm_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vmId")),
-            vm_uuid: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmUuid"),
-            ),
+            active_directory_fqdn: o.get_field("activeDirectoryFqdn"),
+            agent_version: o.get_field("agentVersion"),
+            agents: o.get_field("agents"),
+            client_public_key: o.get_field("clientPublicKey"),
+            cloud_metadatas: o.get_field("cloudMetadatas"),
+            detected_properties: o.get_field("detectedProperties"),
+            display_name: o.get_field("displayName"),
+            dns_fqdn: o.get_field("dnsFqdn"),
+            domain_name: o.get_field("domainName"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            last_status_change_time: o.get_field("lastStatusChangeTime"),
+            location: o.get_field("location"),
+            location_datas: o.get_field("locationDatas"),
+            machine_fqdn: o.get_field("machineFqdn"),
+            mssql_discovered: o.get_field("mssqlDiscovered"),
+            name: o.get_field("name"),
+            os_name: o.get_field("osName"),
+            os_profiles: o.get_field("osProfiles"),
+            os_sku: o.get_field("osSku"),
+            os_type: o.get_field("osType"),
+            os_version: o.get_field("osVersion"),
+            parent_cluster_resource_id: o.get_field("parentClusterResourceId"),
+            private_link_scope_resource_id: o.get_field("privateLinkScopeResourceId"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            service_statuses: o.get_field("serviceStatuses"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            vm_id: o.get_field("vmId"),
+            vm_uuid: o.get_field("vmUuid"),
         }
     }
 }

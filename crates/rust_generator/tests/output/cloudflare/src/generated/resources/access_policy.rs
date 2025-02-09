@@ -131,169 +131,122 @@ pub mod access_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccessPolicyArgs,
     ) -> AccessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let application_id_binding_1 = args.application_id.get_output(context);
-        let application_id_binding = application_id_binding_1.get_inner();
-        let approval_groups_binding_1 = args.approval_groups.get_output(context);
-        let approval_groups_binding = approval_groups_binding_1.get_inner();
-        let approval_required_binding_1 = args.approval_required.get_output(context);
-        let approval_required_binding = approval_required_binding_1.get_inner();
-        let connection_rules_binding_1 = args.connection_rules.get_output(context);
-        let connection_rules_binding = connection_rules_binding_1.get_inner();
-        let decision_binding_1 = args.decision.get_output(context);
-        let decision_binding = decision_binding_1.get_inner();
-        let excludes_binding_1 = args.excludes.get_output(context);
-        let excludes_binding = excludes_binding_1.get_inner();
-        let includes_binding_1 = args.includes.get_output(context);
-        let includes_binding = includes_binding_1.get_inner();
-        let isolation_required_binding_1 = args.isolation_required.get_output(context);
-        let isolation_required_binding = isolation_required_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let precedence_binding_1 = args.precedence.get_output(context);
-        let precedence_binding = precedence_binding_1.get_inner();
-        let purpose_justification_prompt_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let application_id_binding = args.application_id.get_output(context);
+        let approval_groups_binding = args.approval_groups.get_output(context);
+        let approval_required_binding = args.approval_required.get_output(context);
+        let connection_rules_binding = args.connection_rules.get_output(context);
+        let decision_binding = args.decision.get_output(context);
+        let excludes_binding = args.excludes.get_output(context);
+        let includes_binding = args.includes.get_output(context);
+        let isolation_required_binding = args.isolation_required.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let precedence_binding = args.precedence.get_output(context);
+        let purpose_justification_prompt_binding = args
             .purpose_justification_prompt
             .get_output(context);
-        let purpose_justification_prompt_binding = purpose_justification_prompt_binding_1
-            .get_inner();
-        let purpose_justification_required_binding_1 = args
+        let purpose_justification_required_binding = args
             .purpose_justification_required
             .get_output(context);
-        let purpose_justification_required_binding = purpose_justification_required_binding_1
-            .get_inner();
-        let requires_binding_1 = args.requires.get_output(context);
-        let requires_binding = requires_binding_1.get_inner();
-        let session_duration_binding_1 = args.session_duration.get_output(context);
-        let session_duration_binding = session_duration_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let requires_binding = args.requires.get_output(context);
+        let session_duration_binding = args.session_duration.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/accessPolicy:AccessPolicy".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: &application_id_binding,
+                    value: application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvalGroups".into(),
-                    value: &approval_groups_binding,
+                    value: approval_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvalRequired".into(),
-                    value: &approval_required_binding,
+                    value: approval_required_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionRules".into(),
-                    value: &connection_rules_binding,
+                    value: connection_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "decision".into(),
-                    value: &decision_binding,
+                    value: decision_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludes".into(),
-                    value: &excludes_binding,
+                    value: excludes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includes".into(),
-                    value: &includes_binding,
+                    value: includes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isolationRequired".into(),
-                    value: &isolation_required_binding,
+                    value: isolation_required_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "precedence".into(),
-                    value: &precedence_binding,
+                    value: precedence_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purposeJustificationPrompt".into(),
-                    value: &purpose_justification_prompt_binding,
+                    value: purpose_justification_prompt_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purposeJustificationRequired".into(),
-                    value: &purpose_justification_required_binding,
+                    value: purpose_justification_required_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requires".into(),
-                    value: &requires_binding,
+                    value: requires_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionDuration".into(),
-                    value: &session_duration_binding,
+                    value: session_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccessPolicyResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationId"),
-            ),
-            approval_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvalGroups"),
-            ),
-            approval_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvalRequired"),
-            ),
-            connection_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionRules"),
-            ),
-            decision: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("decision"),
-            ),
-            excludes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludes"),
-            ),
-            includes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includes"),
-            ),
-            isolation_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isolationRequired"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            precedence: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("precedence"),
-            ),
-            purpose_justification_prompt: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("purposeJustificationPrompt"),
-            ),
-            purpose_justification_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("purposeJustificationRequired"),
-            ),
-            requires: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requires"),
-            ),
-            session_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionDuration"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            account_id: o.get_field("accountId"),
+            application_id: o.get_field("applicationId"),
+            approval_groups: o.get_field("approvalGroups"),
+            approval_required: o.get_field("approvalRequired"),
+            connection_rules: o.get_field("connectionRules"),
+            decision: o.get_field("decision"),
+            excludes: o.get_field("excludes"),
+            includes: o.get_field("includes"),
+            isolation_required: o.get_field("isolationRequired"),
+            name: o.get_field("name"),
+            precedence: o.get_field("precedence"),
+            purpose_justification_prompt: o.get_field("purposeJustificationPrompt"),
+            purpose_justification_required: o.get_field("purposeJustificationRequired"),
+            requires: o.get_field("requires"),
+            session_duration: o.get_field("sessionDuration"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

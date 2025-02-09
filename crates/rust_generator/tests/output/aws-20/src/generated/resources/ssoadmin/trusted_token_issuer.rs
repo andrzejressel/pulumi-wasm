@@ -100,81 +100,65 @@ pub mod trusted_token_issuer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TrustedTokenIssuerArgs,
     ) -> TrustedTokenIssuerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_token_binding_1 = args.client_token.get_output(context);
-        let client_token_binding = client_token_binding_1.get_inner();
-        let instance_arn_binding_1 = args.instance_arn.get_output(context);
-        let instance_arn_binding = instance_arn_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let trusted_token_issuer_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let client_token_binding = args.client_token.get_output(context);
+        let instance_arn_binding = args.instance_arn.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let trusted_token_issuer_configuration_binding = args
             .trusted_token_issuer_configuration
             .get_output(context);
-        let trusted_token_issuer_configuration_binding = trusted_token_issuer_configuration_binding_1
-            .get_inner();
-        let trusted_token_issuer_type_binding_1 = args
+        let trusted_token_issuer_type_binding = args
             .trusted_token_issuer_type
             .get_output(context);
-        let trusted_token_issuer_type_binding = trusted_token_issuer_type_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientToken".into(),
-                    value: &client_token_binding,
+                    value: client_token_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceArn".into(),
-                    value: &instance_arn_binding,
+                    value: instance_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustedTokenIssuerConfiguration".into(),
-                    value: &trusted_token_issuer_configuration_binding,
+                    value: trusted_token_issuer_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustedTokenIssuerType".into(),
-                    value: &trusted_token_issuer_type_binding,
+                    value: trusted_token_issuer_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TrustedTokenIssuerResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            client_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientToken"),
-            ),
-            instance_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            trusted_token_issuer_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustedTokenIssuerConfiguration"),
-            ),
-            trusted_token_issuer_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustedTokenIssuerType"),
-            ),
+            arn: o.get_field("arn"),
+            client_token: o.get_field("clientToken"),
+            instance_arn: o.get_field("instanceArn"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            trusted_token_issuer_configuration: o
+                .get_field("trustedTokenIssuerConfiguration"),
+            trusted_token_issuer_type: o.get_field("trustedTokenIssuerType"),
         }
     }
 }

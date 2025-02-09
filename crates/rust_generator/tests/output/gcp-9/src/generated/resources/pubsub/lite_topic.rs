@@ -148,80 +148,64 @@ pub mod lite_topic {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LiteTopicArgs,
     ) -> LiteTopicResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let partition_config_binding_1 = args.partition_config.get_output(context);
-        let partition_config_binding = partition_config_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let reservation_config_binding_1 = args.reservation_config.get_output(context);
-        let reservation_config_binding = reservation_config_binding_1.get_inner();
-        let retention_config_binding_1 = args.retention_config.get_output(context);
-        let retention_config_binding = retention_config_binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let partition_config_binding = args.partition_config.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let reservation_config_binding = args.reservation_config.get_output(context);
+        let retention_config_binding = args.retention_config.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:pubsub/liteTopic:LiteTopic".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionConfig".into(),
-                    value: &partition_config_binding,
+                    value: partition_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservationConfig".into(),
-                    value: &reservation_config_binding,
+                    value: reservation_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionConfig".into(),
-                    value: &retention_config_binding,
+                    value: retention_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LiteTopicResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            partition_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionConfig"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            reservation_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservationConfig"),
-            ),
-            retention_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionConfig"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            name: o.get_field("name"),
+            partition_config: o.get_field("partitionConfig"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            reservation_config: o.get_field("reservationConfig"),
+            retention_config: o.get_field("retentionConfig"),
+            zone: o.get_field("zone"),
         }
     }
 }

@@ -165,126 +165,66 @@ pub mod get_application_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetApplicationGatewayArgs,
     ) -> GetApplicationGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:network/getApplicationGateway:getApplicationGateway".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetApplicationGatewayResult {
-            authentication_certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationCertificates"),
-            ),
-            autoscale_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscaleConfigurations"),
-            ),
-            backend_address_pools: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendAddressPools"),
-            ),
-            backend_http_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendHttpSettings"),
-            ),
-            custom_error_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customErrorConfigurations"),
-            ),
-            fips_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fipsEnabled"),
-            ),
-            firewall_policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallPolicyId"),
-            ),
-            force_firewall_policy_association: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceFirewallPolicyAssociation"),
-            ),
-            frontend_ip_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendIpConfigurations"),
-            ),
-            frontend_ports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendPorts"),
-            ),
-            gateway_ip_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayIpConfigurations"),
-            ),
-            globals: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globals"),
-            ),
-            http2_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("http2Enabled"),
-            ),
-            http_listeners: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpListeners"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_endpoint_connections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateEndpointConnections"),
-            ),
-            private_link_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateLinkConfigurations"),
-            ),
-            probes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("probes"),
-            ),
-            redirect_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redirectConfigurations"),
-            ),
-            request_routing_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestRoutingRules"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            rewrite_rule_sets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rewriteRuleSets"),
-            ),
-            skus: pulumi_gestalt_rust::__private::into_domain(o.extract_field("skus")),
-            ssl_certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslCertificates"),
-            ),
-            ssl_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslPolicies"),
-            ),
-            ssl_profiles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslProfiles"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            trusted_client_certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustedClientCertificates"),
-            ),
-            trusted_root_certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustedRootCertificates"),
-            ),
-            url_path_maps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("urlPathMaps"),
-            ),
-            waf_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("wafConfigurations"),
-            ),
-            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
+            authentication_certificates: o.get_field("authenticationCertificates"),
+            autoscale_configurations: o.get_field("autoscaleConfigurations"),
+            backend_address_pools: o.get_field("backendAddressPools"),
+            backend_http_settings: o.get_field("backendHttpSettings"),
+            custom_error_configurations: o.get_field("customErrorConfigurations"),
+            fips_enabled: o.get_field("fipsEnabled"),
+            firewall_policy_id: o.get_field("firewallPolicyId"),
+            force_firewall_policy_association: o
+                .get_field("forceFirewallPolicyAssociation"),
+            frontend_ip_configurations: o.get_field("frontendIpConfigurations"),
+            frontend_ports: o.get_field("frontendPorts"),
+            gateway_ip_configurations: o.get_field("gatewayIpConfigurations"),
+            globals: o.get_field("globals"),
+            http2_enabled: o.get_field("http2Enabled"),
+            http_listeners: o.get_field("httpListeners"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            private_endpoint_connections: o.get_field("privateEndpointConnections"),
+            private_link_configurations: o.get_field("privateLinkConfigurations"),
+            probes: o.get_field("probes"),
+            redirect_configurations: o.get_field("redirectConfigurations"),
+            request_routing_rules: o.get_field("requestRoutingRules"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            rewrite_rule_sets: o.get_field("rewriteRuleSets"),
+            skus: o.get_field("skus"),
+            ssl_certificates: o.get_field("sslCertificates"),
+            ssl_policies: o.get_field("sslPolicies"),
+            ssl_profiles: o.get_field("sslProfiles"),
+            tags: o.get_field("tags"),
+            trusted_client_certificates: o.get_field("trustedClientCertificates"),
+            trusted_root_certificates: o.get_field("trustedRootCertificates"),
+            url_path_maps: o.get_field("urlPathMaps"),
+            waf_configurations: o.get_field("wafConfigurations"),
+            zones: o.get_field("zones"),
         }
     }
 }

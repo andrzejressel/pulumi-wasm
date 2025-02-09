@@ -59,79 +59,51 @@ pub mod get_database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDatabaseArgs,
     ) -> GetDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let server_id_binding_1 = args.server_id.get_output(context);
-        let server_id_binding = server_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let server_id_binding = args.server_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:mssql/getDatabase:getDatabase".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: &server_id_binding,
+                    value: server_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDatabaseResult {
-            collation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("collation"),
-            ),
-            elastic_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticPoolId"),
-            ),
-            enclave_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enclaveType"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            license_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseType"),
-            ),
-            max_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxSizeGb"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            read_replica_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readReplicaCount"),
-            ),
-            read_scale: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readScale"),
-            ),
-            server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverId"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            storage_account_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            transparent_data_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transparentDataEncryptionEnabled"),
-            ),
-            transparent_data_encryption_key_automatic_rotation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transparentDataEncryptionKeyAutomaticRotationEnabled"),
-            ),
-            transparent_data_encryption_key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transparentDataEncryptionKeyVaultKeyId"),
-            ),
-            zone_redundant: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneRedundant"),
-            ),
+            collation: o.get_field("collation"),
+            elastic_pool_id: o.get_field("elasticPoolId"),
+            enclave_type: o.get_field("enclaveType"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            license_type: o.get_field("licenseType"),
+            max_size_gb: o.get_field("maxSizeGb"),
+            name: o.get_field("name"),
+            read_replica_count: o.get_field("readReplicaCount"),
+            read_scale: o.get_field("readScale"),
+            server_id: o.get_field("serverId"),
+            sku_name: o.get_field("skuName"),
+            storage_account_type: o.get_field("storageAccountType"),
+            tags: o.get_field("tags"),
+            transparent_data_encryption_enabled: o
+                .get_field("transparentDataEncryptionEnabled"),
+            transparent_data_encryption_key_automatic_rotation_enabled: o
+                .get_field("transparentDataEncryptionKeyAutomaticRotationEnabled"),
+            transparent_data_encryption_key_vault_key_id: o
+                .get_field("transparentDataEncryptionKeyVaultKeyId"),
+            zone_redundant: o.get_field("zoneRedundant"),
         }
     }
 }

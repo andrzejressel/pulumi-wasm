@@ -59,76 +59,56 @@ pub mod zero_trust_access_service_token {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ZeroTrustAccessServiceTokenArgs,
     ) -> ZeroTrustAccessServiceTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let duration_binding_1 = args.duration.get_output(context);
-        let duration_binding = duration_binding_1.get_inner();
-        let min_days_for_renewal_binding_1 = args
-            .min_days_for_renewal
-            .get_output(context);
-        let min_days_for_renewal_binding = min_days_for_renewal_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let duration_binding = args.duration.get_output(context);
+        let min_days_for_renewal_binding = args.min_days_for_renewal.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustAccessServiceToken:ZeroTrustAccessServiceToken"
                 .into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "duration".into(),
-                    value: &duration_binding,
+                    value: duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minDaysForRenewal".into(),
-                    value: &min_days_for_renewal_binding,
+                    value: min_days_for_renewal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ZeroTrustAccessServiceTokenResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            client_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientId"),
-            ),
-            client_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientSecret"),
-            ),
-            duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("duration"),
-            ),
-            expires_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiresAt"),
-            ),
-            min_days_for_renewal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minDaysForRenewal"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            account_id: o.get_field("accountId"),
+            client_id: o.get_field("clientId"),
+            client_secret: o.get_field("clientSecret"),
+            duration: o.get_field("duration"),
+            expires_at: o.get_field("expiresAt"),
+            min_days_for_renewal: o.get_field("minDaysForRenewal"),
+            name: o.get_field("name"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

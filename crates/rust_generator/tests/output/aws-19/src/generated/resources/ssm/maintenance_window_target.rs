@@ -129,73 +129,58 @@ pub mod maintenance_window_target {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MaintenanceWindowTargetArgs,
     ) -> MaintenanceWindowTargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let owner_information_binding_1 = args.owner_information.get_output(context);
-        let owner_information_binding = owner_information_binding_1.get_inner();
-        let resource_type_binding_1 = args.resource_type.get_output(context);
-        let resource_type_binding = resource_type_binding_1.get_inner();
-        let targets_binding_1 = args.targets.get_output(context);
-        let targets_binding = targets_binding_1.get_inner();
-        let window_id_binding_1 = args.window_id.get_output(context);
-        let window_id_binding = window_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let owner_information_binding = args.owner_information.get_output(context);
+        let resource_type_binding = args.resource_type.get_output(context);
+        let targets_binding = args.targets.get_output(context);
+        let window_id_binding = args.window_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerInformation".into(),
-                    value: &owner_information_binding,
+                    value: owner_information_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceType".into(),
-                    value: &resource_type_binding,
+                    value: resource_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targets".into(),
-                    value: &targets_binding,
+                    value: targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "windowId".into(),
-                    value: &window_id_binding,
+                    value: window_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MaintenanceWindowTargetResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner_information: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerInformation"),
-            ),
-            resource_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceType"),
-            ),
-            targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targets"),
-            ),
-            window_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("windowId"),
-            ),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            owner_information: o.get_field("ownerInformation"),
+            resource_type: o.get_field("resourceType"),
+            targets: o.get_field("targets"),
+            window_id: o.get_field("windowId"),
         }
     }
 }

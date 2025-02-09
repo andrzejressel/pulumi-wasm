@@ -26,32 +26,28 @@ pub mod get_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetEndpointArgs,
     ) -> GetEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_type_binding_1 = args.endpoint_type.get_output(context);
-        let endpoint_type_binding = endpoint_type_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let endpoint_type_binding = args.endpoint_type.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:iot/getEndpoint:getEndpoint".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointType".into(),
-                    value: &endpoint_type_binding,
+                    value: endpoint_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetEndpointResult {
-            endpoint_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointAddress"),
-            ),
-            endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointType"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            endpoint_address: o.get_field("endpointAddress"),
+            endpoint_type: o.get_field("endpointType"),
+            id: o.get_field("id"),
         }
     }
 }

@@ -59,57 +59,43 @@ pub mod network_interface_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkInterfaceAttachmentArgs,
     ) -> NetworkInterfaceAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let device_index_binding_1 = args.device_index.get_output(context);
-        let device_index_binding = device_index_binding_1.get_inner();
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let network_interface_id_binding_1 = args
-            .network_interface_id
-            .get_output(context);
-        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let device_index_binding = args.device_index.get_output(context);
+        let instance_id_binding = args.instance_id.get_output(context);
+        let network_interface_id_binding = args.network_interface_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceIndex".into(),
-                    value: &device_index_binding,
+                    value: device_index_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: &network_interface_id_binding,
+                    value: network_interface_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkInterfaceAttachmentResult {
-            attachment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachmentId"),
-            ),
-            device_index: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deviceIndex"),
-            ),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceId"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            attachment_id: o.get_field("attachmentId"),
+            device_index: o.get_field("deviceIndex"),
+            instance_id: o.get_field("instanceId"),
+            network_interface_id: o.get_field("networkInterfaceId"),
+            status: o.get_field("status"),
         }
     }
 }

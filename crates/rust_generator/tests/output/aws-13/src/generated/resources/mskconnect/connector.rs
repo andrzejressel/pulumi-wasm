@@ -180,157 +180,113 @@ pub mod connector {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectorArgs,
     ) -> ConnectorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_binding_1 = args.capacity.get_output(context);
-        let capacity_binding = capacity_binding_1.get_inner();
-        let connector_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let capacity_binding = args.capacity.get_output(context);
+        let connector_configuration_binding = args
             .connector_configuration
             .get_output(context);
-        let connector_configuration_binding = connector_configuration_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let kafka_cluster_binding_1 = args.kafka_cluster.get_output(context);
-        let kafka_cluster_binding = kafka_cluster_binding_1.get_inner();
-        let kafka_cluster_client_authentication_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let kafka_cluster_binding = args.kafka_cluster.get_output(context);
+        let kafka_cluster_client_authentication_binding = args
             .kafka_cluster_client_authentication
             .get_output(context);
-        let kafka_cluster_client_authentication_binding = kafka_cluster_client_authentication_binding_1
-            .get_inner();
-        let kafka_cluster_encryption_in_transit_binding_1 = args
+        let kafka_cluster_encryption_in_transit_binding = args
             .kafka_cluster_encryption_in_transit
             .get_output(context);
-        let kafka_cluster_encryption_in_transit_binding = kafka_cluster_encryption_in_transit_binding_1
-            .get_inner();
-        let kafkaconnect_version_binding_1 = args
-            .kafkaconnect_version
-            .get_output(context);
-        let kafkaconnect_version_binding = kafkaconnect_version_binding_1.get_inner();
-        let log_delivery_binding_1 = args.log_delivery.get_output(context);
-        let log_delivery_binding = log_delivery_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let plugins_binding_1 = args.plugins.get_output(context);
-        let plugins_binding = plugins_binding_1.get_inner();
-        let service_execution_role_arn_binding_1 = args
+        let kafkaconnect_version_binding = args.kafkaconnect_version.get_output(context);
+        let log_delivery_binding = args.log_delivery.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let plugins_binding = args.plugins.get_output(context);
+        let service_execution_role_arn_binding = args
             .service_execution_role_arn
             .get_output(context);
-        let service_execution_role_arn_binding = service_execution_role_arn_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let worker_configuration_binding_1 = args
-            .worker_configuration
-            .get_output(context);
-        let worker_configuration_binding = worker_configuration_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let worker_configuration_binding = args.worker_configuration.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:mskconnect/connector:Connector".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacity".into(),
-                    value: &capacity_binding,
+                    value: capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectorConfiguration".into(),
-                    value: &connector_configuration_binding,
+                    value: connector_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkaCluster".into(),
-                    value: &kafka_cluster_binding,
+                    value: kafka_cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkaClusterClientAuthentication".into(),
-                    value: &kafka_cluster_client_authentication_binding,
+                    value: kafka_cluster_client_authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkaClusterEncryptionInTransit".into(),
-                    value: &kafka_cluster_encryption_in_transit_binding,
+                    value: kafka_cluster_encryption_in_transit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkaconnectVersion".into(),
-                    value: &kafkaconnect_version_binding,
+                    value: kafkaconnect_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logDelivery".into(),
-                    value: &log_delivery_binding,
+                    value: log_delivery_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plugins".into(),
-                    value: &plugins_binding,
+                    value: plugins_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceExecutionRoleArn".into(),
-                    value: &service_execution_role_arn_binding,
+                    value: service_execution_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerConfiguration".into(),
-                    value: &worker_configuration_binding,
+                    value: worker_configuration_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectorResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacity"),
-            ),
-            connector_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectorConfiguration"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            kafka_cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kafkaCluster"),
-            ),
-            kafka_cluster_client_authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kafkaClusterClientAuthentication"),
-            ),
-            kafka_cluster_encryption_in_transit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kafkaClusterEncryptionInTransit"),
-            ),
-            kafkaconnect_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kafkaconnectVersion"),
-            ),
-            log_delivery: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logDelivery"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            plugins: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("plugins"),
-            ),
-            service_execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceExecutionRoleArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            worker_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workerConfiguration"),
-            ),
+            arn: o.get_field("arn"),
+            capacity: o.get_field("capacity"),
+            connector_configuration: o.get_field("connectorConfiguration"),
+            description: o.get_field("description"),
+            kafka_cluster: o.get_field("kafkaCluster"),
+            kafka_cluster_client_authentication: o
+                .get_field("kafkaClusterClientAuthentication"),
+            kafka_cluster_encryption_in_transit: o
+                .get_field("kafkaClusterEncryptionInTransit"),
+            kafkaconnect_version: o.get_field("kafkaconnectVersion"),
+            log_delivery: o.get_field("logDelivery"),
+            name: o.get_field("name"),
+            plugins: o.get_field("plugins"),
+            service_execution_role_arn: o.get_field("serviceExecutionRoleArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            version: o.get_field("version"),
+            worker_configuration: o.get_field("workerConfiguration"),
         }
     }
 }

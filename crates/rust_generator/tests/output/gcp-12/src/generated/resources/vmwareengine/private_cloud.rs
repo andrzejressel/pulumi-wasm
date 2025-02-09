@@ -205,110 +205,84 @@ pub mod private_cloud {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PrivateCloudArgs,
     ) -> PrivateCloudResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_delay_hours_binding_1 = args
-            .deletion_delay_hours
-            .get_output(context);
-        let deletion_delay_hours_binding = deletion_delay_hours_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let management_cluster_binding_1 = args.management_cluster.get_output(context);
-        let management_cluster_binding = management_cluster_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_config_binding_1 = args.network_config.get_output(context);
-        let network_config_binding = network_config_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let send_deletion_delay_hours_if_zero_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let deletion_delay_hours_binding = args.deletion_delay_hours.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let management_cluster_binding = args.management_cluster.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_config_binding = args.network_config.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let send_deletion_delay_hours_if_zero_binding = args
             .send_deletion_delay_hours_if_zero
             .get_output(context);
-        let send_deletion_delay_hours_if_zero_binding = send_deletion_delay_hours_if_zero_binding_1
-            .get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:vmwareengine/privateCloud:PrivateCloud".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionDelayHours".into(),
-                    value: &deletion_delay_hours_binding,
+                    value: deletion_delay_hours_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managementCluster".into(),
-                    value: &management_cluster_binding,
+                    value: management_cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfig".into(),
-                    value: &network_config_binding,
+                    value: network_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sendDeletionDelayHoursIfZero".into(),
-                    value: &send_deletion_delay_hours_if_zero_binding,
+                    value: send_deletion_delay_hours_if_zero_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PrivateCloudResult {
-            deletion_delay_hours: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionDelayHours"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            hcxes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hcxes")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            management_cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementCluster"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfig"),
-            ),
-            nsxes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("nsxes")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            send_deletion_delay_hours_if_zero: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sendDeletionDelayHoursIfZero"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            vcenters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vcenters"),
-            ),
+            deletion_delay_hours: o.get_field("deletionDelayHours"),
+            description: o.get_field("description"),
+            hcxes: o.get_field("hcxes"),
+            location: o.get_field("location"),
+            management_cluster: o.get_field("managementCluster"),
+            name: o.get_field("name"),
+            network_config: o.get_field("networkConfig"),
+            nsxes: o.get_field("nsxes"),
+            project: o.get_field("project"),
+            send_deletion_delay_hours_if_zero: o
+                .get_field("sendDeletionDelayHoursIfZero"),
+            state: o.get_field("state"),
+            type_: o.get_field("type"),
+            uid: o.get_field("uid"),
+            vcenters: o.get_field("vcenters"),
         }
     }
 }

@@ -182,173 +182,123 @@ pub mod task_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TaskSetArgs,
     ) -> TaskSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_provider_strategies_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let capacity_provider_strategies_binding = args
             .capacity_provider_strategies
             .get_output(context);
-        let capacity_provider_strategies_binding = capacity_provider_strategies_binding_1
-            .get_inner();
-        let cluster_binding_1 = args.cluster.get_output(context);
-        let cluster_binding = cluster_binding_1.get_inner();
-        let external_id_binding_1 = args.external_id.get_output(context);
-        let external_id_binding = external_id_binding_1.get_inner();
-        let force_delete_binding_1 = args.force_delete.get_output(context);
-        let force_delete_binding = force_delete_binding_1.get_inner();
-        let launch_type_binding_1 = args.launch_type.get_output(context);
-        let launch_type_binding = launch_type_binding_1.get_inner();
-        let load_balancers_binding_1 = args.load_balancers.get_output(context);
-        let load_balancers_binding = load_balancers_binding_1.get_inner();
-        let network_configuration_binding_1 = args
+        let cluster_binding = args.cluster.get_output(context);
+        let external_id_binding = args.external_id.get_output(context);
+        let force_delete_binding = args.force_delete.get_output(context);
+        let launch_type_binding = args.launch_type.get_output(context);
+        let load_balancers_binding = args.load_balancers.get_output(context);
+        let network_configuration_binding = args
             .network_configuration
             .get_output(context);
-        let network_configuration_binding = network_configuration_binding_1.get_inner();
-        let platform_version_binding_1 = args.platform_version.get_output(context);
-        let platform_version_binding = platform_version_binding_1.get_inner();
-        let scale_binding_1 = args.scale.get_output(context);
-        let scale_binding = scale_binding_1.get_inner();
-        let service_binding_1 = args.service.get_output(context);
-        let service_binding = service_binding_1.get_inner();
-        let service_registries_binding_1 = args.service_registries.get_output(context);
-        let service_registries_binding = service_registries_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let task_definition_binding_1 = args.task_definition.get_output(context);
-        let task_definition_binding = task_definition_binding_1.get_inner();
-        let wait_until_stable_binding_1 = args.wait_until_stable.get_output(context);
-        let wait_until_stable_binding = wait_until_stable_binding_1.get_inner();
-        let wait_until_stable_timeout_binding_1 = args
+        let platform_version_binding = args.platform_version.get_output(context);
+        let scale_binding = args.scale.get_output(context);
+        let service_binding = args.service.get_output(context);
+        let service_registries_binding = args.service_registries.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let task_definition_binding = args.task_definition.get_output(context);
+        let wait_until_stable_binding = args.wait_until_stable.get_output(context);
+        let wait_until_stable_timeout_binding = args
             .wait_until_stable_timeout
             .get_output(context);
-        let wait_until_stable_timeout_binding = wait_until_stable_timeout_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ecs/taskSet:TaskSet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityProviderStrategies".into(),
-                    value: &capacity_provider_strategies_binding,
+                    value: capacity_provider_strategies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cluster".into(),
-                    value: &cluster_binding,
+                    value: cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalId".into(),
-                    value: &external_id_binding,
+                    value: external_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDelete".into(),
-                    value: &force_delete_binding,
+                    value: force_delete_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchType".into(),
-                    value: &launch_type_binding,
+                    value: launch_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancers".into(),
-                    value: &load_balancers_binding,
+                    value: load_balancers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfiguration".into(),
-                    value: &network_configuration_binding,
+                    value: network_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformVersion".into(),
-                    value: &platform_version_binding,
+                    value: platform_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scale".into(),
-                    value: &scale_binding,
+                    value: scale_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: &service_binding,
+                    value: service_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRegistries".into(),
-                    value: &service_registries_binding,
+                    value: service_registries_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskDefinition".into(),
-                    value: &task_definition_binding,
+                    value: task_definition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitUntilStable".into(),
-                    value: &wait_until_stable_binding,
+                    value: wait_until_stable_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitUntilStableTimeout".into(),
-                    value: &wait_until_stable_timeout_binding,
+                    value: wait_until_stable_timeout_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TaskSetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            capacity_provider_strategies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityProviderStrategies"),
-            ),
-            cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cluster"),
-            ),
-            external_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalId"),
-            ),
-            force_delete: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDelete"),
-            ),
-            launch_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchType"),
-            ),
-            load_balancers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancers"),
-            ),
-            network_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfiguration"),
-            ),
-            platform_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformVersion"),
-            ),
-            scale: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scale")),
-            service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("service"),
-            ),
-            service_registries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRegistries"),
-            ),
-            stability_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stabilityStatus"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            task_definition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskDefinition"),
-            ),
-            task_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskSetId"),
-            ),
-            wait_until_stable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitUntilStable"),
-            ),
-            wait_until_stable_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitUntilStableTimeout"),
-            ),
+            arn: o.get_field("arn"),
+            capacity_provider_strategies: o.get_field("capacityProviderStrategies"),
+            cluster: o.get_field("cluster"),
+            external_id: o.get_field("externalId"),
+            force_delete: o.get_field("forceDelete"),
+            launch_type: o.get_field("launchType"),
+            load_balancers: o.get_field("loadBalancers"),
+            network_configuration: o.get_field("networkConfiguration"),
+            platform_version: o.get_field("platformVersion"),
+            scale: o.get_field("scale"),
+            service: o.get_field("service"),
+            service_registries: o.get_field("serviceRegistries"),
+            stability_status: o.get_field("stabilityStatus"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            task_definition: o.get_field("taskDefinition"),
+            task_set_id: o.get_field("taskSetId"),
+            wait_until_stable: o.get_field("waitUntilStable"),
+            wait_until_stable_timeout: o.get_field("waitUntilStableTimeout"),
         }
     }
 }

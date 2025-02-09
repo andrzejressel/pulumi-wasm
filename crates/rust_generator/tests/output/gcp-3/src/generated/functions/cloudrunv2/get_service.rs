@@ -90,145 +90,75 @@ pub mod get_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetServiceArgs,
     ) -> GetServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:cloudrunv2/getService:getService".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetServiceResult {
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            binary_authorizations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("binaryAuthorizations"),
-            ),
-            client: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("client"),
-            ),
-            client_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientVersion"),
-            ),
-            conditions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("conditions"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            creator: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creator"),
-            ),
-            custom_audiences: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customAudiences"),
-            ),
-            default_uri_disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultUriDisabled"),
-            ),
-            delete_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteTime"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            expire_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expireTime"),
-            ),
-            generation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("generation"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ingress: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingress"),
-            ),
-            invoker_iam_disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invokerIamDisabled"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            last_modifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifier"),
-            ),
-            latest_created_revision: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latestCreatedRevision"),
-            ),
-            latest_ready_revision: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latestReadyRevision"),
-            ),
-            launch_stage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchStage"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            observed_generation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("observedGeneration"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            reconciling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciling"),
-            ),
-            scalings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalings"),
-            ),
-            templates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templates"),
-            ),
-            terminal_conditions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("terminalConditions"),
-            ),
-            traffic_statuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficStatuses"),
-            ),
-            traffics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("traffics"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
-            urls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("urls")),
+            annotations: o.get_field("annotations"),
+            binary_authorizations: o.get_field("binaryAuthorizations"),
+            client: o.get_field("client"),
+            client_version: o.get_field("clientVersion"),
+            conditions: o.get_field("conditions"),
+            create_time: o.get_field("createTime"),
+            creator: o.get_field("creator"),
+            custom_audiences: o.get_field("customAudiences"),
+            default_uri_disabled: o.get_field("defaultUriDisabled"),
+            delete_time: o.get_field("deleteTime"),
+            deletion_protection: o.get_field("deletionProtection"),
+            description: o.get_field("description"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            effective_labels: o.get_field("effectiveLabels"),
+            etag: o.get_field("etag"),
+            expire_time: o.get_field("expireTime"),
+            generation: o.get_field("generation"),
+            id: o.get_field("id"),
+            ingress: o.get_field("ingress"),
+            invoker_iam_disabled: o.get_field("invokerIamDisabled"),
+            labels: o.get_field("labels"),
+            last_modifier: o.get_field("lastModifier"),
+            latest_created_revision: o.get_field("latestCreatedRevision"),
+            latest_ready_revision: o.get_field("latestReadyRevision"),
+            launch_stage: o.get_field("launchStage"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            observed_generation: o.get_field("observedGeneration"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            reconciling: o.get_field("reconciling"),
+            scalings: o.get_field("scalings"),
+            templates: o.get_field("templates"),
+            terminal_conditions: o.get_field("terminalConditions"),
+            traffic_statuses: o.get_field("trafficStatuses"),
+            traffics: o.get_field("traffics"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
+            uri: o.get_field("uri"),
+            urls: o.get_field("urls"),
         }
     }
 }

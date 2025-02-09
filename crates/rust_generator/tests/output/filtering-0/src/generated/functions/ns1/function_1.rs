@@ -22,34 +22,31 @@ pub mod function_1 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: Function1Args,
     ) -> Function1Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let common_type_binding_1 = args.common_type.get_output(context);
-        let common_type_binding = common_type_binding_1.get_inner();
-        let type1_binding_1 = args.type1.get_output(context);
-        let type1_binding = type1_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let common_type_binding = args.common_type.get_output(context);
+        let type1_binding = args.type1.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "example:ns1:Function1".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "commonType".into(),
-                    value: &common_type_binding,
+                    value: common_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type1".into(),
-                    value: &type1_binding,
+                    value: type1_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         Function1Result {
-            result: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("result"),
-            ),
+            result: o.get_field("result"),
         }
     }
 }

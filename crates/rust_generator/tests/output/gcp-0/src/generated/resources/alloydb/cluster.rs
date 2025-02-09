@@ -521,252 +521,171 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let automated_backup_policy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let annotations_binding = args.annotations.get_output(context);
+        let automated_backup_policy_binding = args
             .automated_backup_policy
             .get_output(context);
-        let automated_backup_policy_binding = automated_backup_policy_binding_1
-            .get_inner();
-        let cluster_id_binding_1 = args.cluster_id.get_output(context);
-        let cluster_id_binding = cluster_id_binding_1.get_inner();
-        let cluster_type_binding_1 = args.cluster_type.get_output(context);
-        let cluster_type_binding = cluster_type_binding_1.get_inner();
-        let continuous_backup_config_binding_1 = args
+        let cluster_id_binding = args.cluster_id.get_output(context);
+        let cluster_type_binding = args.cluster_type.get_output(context);
+        let continuous_backup_config_binding = args
             .continuous_backup_config
             .get_output(context);
-        let continuous_backup_config_binding = continuous_backup_config_binding_1
-            .get_inner();
-        let database_version_binding_1 = args.database_version.get_output(context);
-        let database_version_binding = database_version_binding_1.get_inner();
-        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
-        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let encryption_config_binding_1 = args.encryption_config.get_output(context);
-        let encryption_config_binding = encryption_config_binding_1.get_inner();
-        let etag_binding_1 = args.etag.get_output(context);
-        let etag_binding = etag_binding_1.get_inner();
-        let initial_user_binding_1 = args.initial_user.get_output(context);
-        let initial_user_binding = initial_user_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let maintenance_update_policy_binding_1 = args
+        let database_version_binding = args.database_version.get_output(context);
+        let deletion_policy_binding = args.deletion_policy.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let encryption_config_binding = args.encryption_config.get_output(context);
+        let etag_binding = args.etag.get_output(context);
+        let initial_user_binding = args.initial_user.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let maintenance_update_policy_binding = args
             .maintenance_update_policy
             .get_output(context);
-        let maintenance_update_policy_binding = maintenance_update_policy_binding_1
-            .get_inner();
-        let network_config_binding_1 = args.network_config.get_output(context);
-        let network_config_binding = network_config_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let psc_config_binding_1 = args.psc_config.get_output(context);
-        let psc_config_binding = psc_config_binding_1.get_inner();
-        let restore_backup_source_binding_1 = args
+        let network_config_binding = args.network_config.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let psc_config_binding = args.psc_config.get_output(context);
+        let restore_backup_source_binding = args
             .restore_backup_source
             .get_output(context);
-        let restore_backup_source_binding = restore_backup_source_binding_1.get_inner();
-        let restore_continuous_backup_source_binding_1 = args
+        let restore_continuous_backup_source_binding = args
             .restore_continuous_backup_source
             .get_output(context);
-        let restore_continuous_backup_source_binding = restore_continuous_backup_source_binding_1
-            .get_inner();
-        let secondary_config_binding_1 = args.secondary_config.get_output(context);
-        let secondary_config_binding = secondary_config_binding_1.get_inner();
-        let subscription_type_binding_1 = args.subscription_type.get_output(context);
-        let subscription_type_binding = subscription_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let secondary_config_binding = args.secondary_config.get_output(context);
+        let subscription_type_binding = args.subscription_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:alloydb/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automatedBackupPolicy".into(),
-                    value: &automated_backup_policy_binding,
+                    value: automated_backup_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: &cluster_id_binding,
+                    value: cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterType".into(),
-                    value: &cluster_type_binding,
+                    value: cluster_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "continuousBackupConfig".into(),
-                    value: &continuous_backup_config_binding,
+                    value: continuous_backup_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseVersion".into(),
-                    value: &database_version_binding,
+                    value: database_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: &deletion_policy_binding,
+                    value: deletion_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfig".into(),
-                    value: &encryption_config_binding,
+                    value: encryption_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "etag".into(),
-                    value: &etag_binding,
+                    value: etag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialUser".into(),
-                    value: &initial_user_binding,
+                    value: initial_user_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceUpdatePolicy".into(),
-                    value: &maintenance_update_policy_binding,
+                    value: maintenance_update_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfig".into(),
-                    value: &network_config_binding,
+                    value: network_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pscConfig".into(),
-                    value: &psc_config_binding,
+                    value: psc_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreBackupSource".into(),
-                    value: &restore_backup_source_binding,
+                    value: restore_backup_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreContinuousBackupSource".into(),
-                    value: &restore_continuous_backup_source_binding,
+                    value: restore_continuous_backup_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryConfig".into(),
-                    value: &secondary_config_binding,
+                    value: secondary_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionType".into(),
-                    value: &subscription_type_binding,
+                    value: subscription_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            automated_backup_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automatedBackupPolicy"),
-            ),
-            backup_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupSources"),
-            ),
-            cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterId"),
-            ),
-            cluster_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterType"),
-            ),
-            continuous_backup_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("continuousBackupConfig"),
-            ),
-            continuous_backup_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("continuousBackupInfos"),
-            ),
-            database_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseVersion"),
-            ),
-            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionPolicy"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            encryption_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionConfig"),
-            ),
-            encryption_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionInfos"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            initial_user: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initialUser"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maintenance_update_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceUpdatePolicy"),
-            ),
-            migration_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("migrationSources"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfig"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            psc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pscConfig"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            reconciling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciling"),
-            ),
-            restore_backup_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restoreBackupSource"),
-            ),
-            restore_continuous_backup_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restoreContinuousBackupSource"),
-            ),
-            secondary_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryConfig"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            subscription_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionType"),
-            ),
-            trial_metadatas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trialMetadatas"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            annotations: o.get_field("annotations"),
+            automated_backup_policy: o.get_field("automatedBackupPolicy"),
+            backup_sources: o.get_field("backupSources"),
+            cluster_id: o.get_field("clusterId"),
+            cluster_type: o.get_field("clusterType"),
+            continuous_backup_config: o.get_field("continuousBackupConfig"),
+            continuous_backup_infos: o.get_field("continuousBackupInfos"),
+            database_version: o.get_field("databaseVersion"),
+            deletion_policy: o.get_field("deletionPolicy"),
+            display_name: o.get_field("displayName"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            effective_labels: o.get_field("effectiveLabels"),
+            encryption_config: o.get_field("encryptionConfig"),
+            encryption_infos: o.get_field("encryptionInfos"),
+            etag: o.get_field("etag"),
+            initial_user: o.get_field("initialUser"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            maintenance_update_policy: o.get_field("maintenanceUpdatePolicy"),
+            migration_sources: o.get_field("migrationSources"),
+            name: o.get_field("name"),
+            network_config: o.get_field("networkConfig"),
+            project: o.get_field("project"),
+            psc_config: o.get_field("pscConfig"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            reconciling: o.get_field("reconciling"),
+            restore_backup_source: o.get_field("restoreBackupSource"),
+            restore_continuous_backup_source: o
+                .get_field("restoreContinuousBackupSource"),
+            secondary_config: o.get_field("secondaryConfig"),
+            state: o.get_field("state"),
+            subscription_type: o.get_field("subscriptionType"),
+            trial_metadatas: o.get_field("trialMetadatas"),
+            uid: o.get_field("uid"),
         }
     }
 }

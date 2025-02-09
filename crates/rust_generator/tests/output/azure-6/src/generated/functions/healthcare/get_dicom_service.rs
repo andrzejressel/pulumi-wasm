@@ -39,52 +39,39 @@ pub mod get_dicom_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDicomServiceArgs,
     ) -> GetDicomServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:healthcare/getDicomService:getDicomService".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDicomServiceResult {
-            authentications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authentications"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateEndpoints"),
-            ),
-            service_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceUrl"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            authentications: o.get_field("authentications"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            private_endpoints: o.get_field("privateEndpoints"),
+            service_url: o.get_field("serviceUrl"),
+            tags: o.get_field("tags"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

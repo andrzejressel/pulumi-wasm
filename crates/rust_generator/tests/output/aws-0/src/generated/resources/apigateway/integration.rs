@@ -335,179 +335,126 @@ pub mod integration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IntegrationArgs,
     ) -> IntegrationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cache_key_parameters_binding_1 = args
-            .cache_key_parameters
-            .get_output(context);
-        let cache_key_parameters_binding = cache_key_parameters_binding_1.get_inner();
-        let cache_namespace_binding_1 = args.cache_namespace.get_output(context);
-        let cache_namespace_binding = cache_namespace_binding_1.get_inner();
-        let connection_id_binding_1 = args.connection_id.get_output(context);
-        let connection_id_binding = connection_id_binding_1.get_inner();
-        let connection_type_binding_1 = args.connection_type.get_output(context);
-        let connection_type_binding = connection_type_binding_1.get_inner();
-        let content_handling_binding_1 = args.content_handling.get_output(context);
-        let content_handling_binding = content_handling_binding_1.get_inner();
-        let credentials_binding_1 = args.credentials.get_output(context);
-        let credentials_binding = credentials_binding_1.get_inner();
-        let http_method_binding_1 = args.http_method.get_output(context);
-        let http_method_binding = http_method_binding_1.get_inner();
-        let integration_http_method_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cache_key_parameters_binding = args.cache_key_parameters.get_output(context);
+        let cache_namespace_binding = args.cache_namespace.get_output(context);
+        let connection_id_binding = args.connection_id.get_output(context);
+        let connection_type_binding = args.connection_type.get_output(context);
+        let content_handling_binding = args.content_handling.get_output(context);
+        let credentials_binding = args.credentials.get_output(context);
+        let http_method_binding = args.http_method.get_output(context);
+        let integration_http_method_binding = args
             .integration_http_method
             .get_output(context);
-        let integration_http_method_binding = integration_http_method_binding_1
-            .get_inner();
-        let passthrough_behavior_binding_1 = args
-            .passthrough_behavior
-            .get_output(context);
-        let passthrough_behavior_binding = passthrough_behavior_binding_1.get_inner();
-        let request_parameters_binding_1 = args.request_parameters.get_output(context);
-        let request_parameters_binding = request_parameters_binding_1.get_inner();
-        let request_templates_binding_1 = args.request_templates.get_output(context);
-        let request_templates_binding = request_templates_binding_1.get_inner();
-        let resource_id_binding_1 = args.resource_id.get_output(context);
-        let resource_id_binding = resource_id_binding_1.get_inner();
-        let rest_api_binding_1 = args.rest_api.get_output(context);
-        let rest_api_binding = rest_api_binding_1.get_inner();
-        let timeout_milliseconds_binding_1 = args
-            .timeout_milliseconds
-            .get_output(context);
-        let timeout_milliseconds_binding = timeout_milliseconds_binding_1.get_inner();
-        let tls_config_binding_1 = args.tls_config.get_output(context);
-        let tls_config_binding = tls_config_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let uri_binding_1 = args.uri.get_output(context);
-        let uri_binding = uri_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let passthrough_behavior_binding = args.passthrough_behavior.get_output(context);
+        let request_parameters_binding = args.request_parameters.get_output(context);
+        let request_templates_binding = args.request_templates.get_output(context);
+        let resource_id_binding = args.resource_id.get_output(context);
+        let rest_api_binding = args.rest_api.get_output(context);
+        let timeout_milliseconds_binding = args.timeout_milliseconds.get_output(context);
+        let tls_config_binding = args.tls_config.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let uri_binding = args.uri.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigateway/integration:Integration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheKeyParameters".into(),
-                    value: &cache_key_parameters_binding,
+                    value: cache_key_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheNamespace".into(),
-                    value: &cache_namespace_binding,
+                    value: cache_namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionId".into(),
-                    value: &connection_id_binding,
+                    value: connection_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionType".into(),
-                    value: &connection_type_binding,
+                    value: connection_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentHandling".into(),
-                    value: &content_handling_binding,
+                    value: content_handling_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credentials".into(),
-                    value: &credentials_binding,
+                    value: credentials_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpMethod".into(),
-                    value: &http_method_binding,
+                    value: http_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationHttpMethod".into(),
-                    value: &integration_http_method_binding,
+                    value: integration_http_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "passthroughBehavior".into(),
-                    value: &passthrough_behavior_binding,
+                    value: passthrough_behavior_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestParameters".into(),
-                    value: &request_parameters_binding,
+                    value: request_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestTemplates".into(),
-                    value: &request_templates_binding,
+                    value: request_templates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: &resource_id_binding,
+                    value: resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApi".into(),
-                    value: &rest_api_binding,
+                    value: rest_api_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeoutMilliseconds".into(),
-                    value: &timeout_milliseconds_binding,
+                    value: timeout_milliseconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsConfig".into(),
-                    value: &tls_config_binding,
+                    value: tls_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uri".into(),
-                    value: &uri_binding,
+                    value: uri_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IntegrationResult {
-            cache_key_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheKeyParameters"),
-            ),
-            cache_namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheNamespace"),
-            ),
-            connection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionId"),
-            ),
-            connection_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionType"),
-            ),
-            content_handling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentHandling"),
-            ),
-            credentials: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("credentials"),
-            ),
-            http_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpMethod"),
-            ),
-            integration_http_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("integrationHttpMethod"),
-            ),
-            passthrough_behavior: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("passthroughBehavior"),
-            ),
-            request_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestParameters"),
-            ),
-            request_templates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestTemplates"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            rest_api: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restApi"),
-            ),
-            timeout_milliseconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeoutMilliseconds"),
-            ),
-            tls_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsConfig"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
+            cache_key_parameters: o.get_field("cacheKeyParameters"),
+            cache_namespace: o.get_field("cacheNamespace"),
+            connection_id: o.get_field("connectionId"),
+            connection_type: o.get_field("connectionType"),
+            content_handling: o.get_field("contentHandling"),
+            credentials: o.get_field("credentials"),
+            http_method: o.get_field("httpMethod"),
+            integration_http_method: o.get_field("integrationHttpMethod"),
+            passthrough_behavior: o.get_field("passthroughBehavior"),
+            request_parameters: o.get_field("requestParameters"),
+            request_templates: o.get_field("requestTemplates"),
+            resource_id: o.get_field("resourceId"),
+            rest_api: o.get_field("restApi"),
+            timeout_milliseconds: o.get_field("timeoutMilliseconds"),
+            tls_config: o.get_field("tlsConfig"),
+            type_: o.get_field("type"),
+            uri: o.get_field("uri"),
         }
     }
 }

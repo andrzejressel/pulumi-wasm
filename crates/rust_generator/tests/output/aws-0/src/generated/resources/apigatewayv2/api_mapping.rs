@@ -63,55 +63,46 @@ pub mod api_mapping {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiMappingArgs,
     ) -> ApiMappingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding_1 = args.api_id.get_output(context);
-        let api_id_binding = api_id_binding_1.get_inner();
-        let api_mapping_key_binding_1 = args.api_mapping_key.get_output(context);
-        let api_mapping_key_binding = api_mapping_key_binding_1.get_inner();
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let stage_binding_1 = args.stage.get_output(context);
-        let stage_binding = stage_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_id_binding = args.api_id.get_output(context);
+        let api_mapping_key_binding = args.api_mapping_key.get_output(context);
+        let domain_name_binding = args.domain_name.get_output(context);
+        let stage_binding = args.stage.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigatewayv2/apiMapping:ApiMapping".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: &api_id_binding,
+                    value: api_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiMappingKey".into(),
-                    value: &api_mapping_key_binding,
+                    value: api_mapping_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stage".into(),
-                    value: &stage_binding,
+                    value: stage_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiMappingResult {
-            api_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiId"),
-            ),
-            api_mapping_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiMappingKey"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            stage: pulumi_gestalt_rust::__private::into_domain(o.extract_field("stage")),
+            api_id: o.get_field("apiId"),
+            api_mapping_key: o.get_field("apiMappingKey"),
+            domain_name: o.get_field("domainName"),
+            stage: o.get_field("stage"),
         }
     }
 }

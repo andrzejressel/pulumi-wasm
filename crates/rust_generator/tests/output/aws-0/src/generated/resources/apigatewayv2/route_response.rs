@@ -80,69 +80,54 @@ pub mod route_response {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RouteResponseArgs,
     ) -> RouteResponseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding_1 = args.api_id.get_output(context);
-        let api_id_binding = api_id_binding_1.get_inner();
-        let model_selection_expression_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_id_binding = args.api_id.get_output(context);
+        let model_selection_expression_binding = args
             .model_selection_expression
             .get_output(context);
-        let model_selection_expression_binding = model_selection_expression_binding_1
-            .get_inner();
-        let response_models_binding_1 = args.response_models.get_output(context);
-        let response_models_binding = response_models_binding_1.get_inner();
-        let route_id_binding_1 = args.route_id.get_output(context);
-        let route_id_binding = route_id_binding_1.get_inner();
-        let route_response_key_binding_1 = args.route_response_key.get_output(context);
-        let route_response_key_binding = route_response_key_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let response_models_binding = args.response_models.get_output(context);
+        let route_id_binding = args.route_id.get_output(context);
+        let route_response_key_binding = args.route_response_key.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigatewayv2/routeResponse:RouteResponse".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: &api_id_binding,
+                    value: api_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelSelectionExpression".into(),
-                    value: &model_selection_expression_binding,
+                    value: model_selection_expression_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseModels".into(),
-                    value: &response_models_binding,
+                    value: response_models_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeId".into(),
-                    value: &route_id_binding,
+                    value: route_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeResponseKey".into(),
-                    value: &route_response_key_binding,
+                    value: route_response_key_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RouteResponseResult {
-            api_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiId"),
-            ),
-            model_selection_expression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelSelectionExpression"),
-            ),
-            response_models: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("responseModels"),
-            ),
-            route_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routeId"),
-            ),
-            route_response_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routeResponseKey"),
-            ),
+            api_id: o.get_field("apiId"),
+            model_selection_expression: o.get_field("modelSelectionExpression"),
+            response_models: o.get_field("responseModels"),
+            route_id: o.get_field("routeId"),
+            route_response_key: o.get_field("routeResponseKey"),
         }
     }
 }

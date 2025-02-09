@@ -117,95 +117,76 @@ pub mod spring_cloud_build_deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudBuildDeploymentArgs,
     ) -> SpringCloudBuildDeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addon_json_binding_1 = args.addon_json.get_output(context);
-        let addon_json_binding = addon_json_binding_1.get_inner();
-        let application_performance_monitoring_ids_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let addon_json_binding = args.addon_json.get_output(context);
+        let application_performance_monitoring_ids_binding = args
             .application_performance_monitoring_ids
             .get_output(context);
-        let application_performance_monitoring_ids_binding = application_performance_monitoring_ids_binding_1
-            .get_inner();
-        let build_result_id_binding_1 = args.build_result_id.get_output(context);
-        let build_result_id_binding = build_result_id_binding_1.get_inner();
-        let environment_variables_binding_1 = args
+        let build_result_id_binding = args.build_result_id.get_output(context);
+        let environment_variables_binding = args
             .environment_variables
             .get_output(context);
-        let environment_variables_binding = environment_variables_binding_1.get_inner();
-        let instance_count_binding_1 = args.instance_count.get_output(context);
-        let instance_count_binding = instance_count_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let quota_binding_1 = args.quota.get_output(context);
-        let quota_binding = quota_binding_1.get_inner();
-        let spring_cloud_app_id_binding_1 = args.spring_cloud_app_id.get_output(context);
-        let spring_cloud_app_id_binding = spring_cloud_app_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let instance_count_binding = args.instance_count.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let quota_binding = args.quota.get_output(context);
+        let spring_cloud_app_id_binding = args.spring_cloud_app_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addonJson".into(),
-                    value: &addon_json_binding,
+                    value: addon_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationPerformanceMonitoringIds".into(),
-                    value: &application_performance_monitoring_ids_binding,
+                    value: application_performance_monitoring_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildResultId".into(),
-                    value: &build_result_id_binding,
+                    value: build_result_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentVariables".into(),
-                    value: &environment_variables_binding,
+                    value: environment_variables_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceCount".into(),
-                    value: &instance_count_binding,
+                    value: instance_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quota".into(),
-                    value: &quota_binding,
+                    value: quota_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudAppId".into(),
-                    value: &spring_cloud_app_id_binding,
+                    value: spring_cloud_app_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudBuildDeploymentResult {
-            addon_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addonJson"),
-            ),
-            application_performance_monitoring_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationPerformanceMonitoringIds"),
-            ),
-            build_result_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("buildResultId"),
-            ),
-            environment_variables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentVariables"),
-            ),
-            instance_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceCount"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            quota: pulumi_gestalt_rust::__private::into_domain(o.extract_field("quota")),
-            spring_cloud_app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudAppId"),
-            ),
+            addon_json: o.get_field("addonJson"),
+            application_performance_monitoring_ids: o
+                .get_field("applicationPerformanceMonitoringIds"),
+            build_result_id: o.get_field("buildResultId"),
+            environment_variables: o.get_field("environmentVariables"),
+            instance_count: o.get_field("instanceCount"),
+            name: o.get_field("name"),
+            quota: o.get_field("quota"),
+            spring_cloud_app_id: o.get_field("springCloudAppId"),
         }
     }
 }

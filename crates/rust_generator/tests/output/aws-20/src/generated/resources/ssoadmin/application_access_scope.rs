@@ -69,46 +69,40 @@ pub mod application_access_scope {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApplicationAccessScopeArgs,
     ) -> ApplicationAccessScopeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_arn_binding_1 = args.application_arn.get_output(context);
-        let application_arn_binding = application_arn_binding_1.get_inner();
-        let authorized_targets_binding_1 = args.authorized_targets.get_output(context);
-        let authorized_targets_binding = authorized_targets_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_arn_binding = args.application_arn.get_output(context);
+        let authorized_targets_binding = args.authorized_targets.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssoadmin/applicationAccessScope:ApplicationAccessScope".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationArn".into(),
-                    value: &application_arn_binding,
+                    value: application_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedTargets".into(),
-                    value: &authorized_targets_binding,
+                    value: authorized_targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApplicationAccessScopeResult {
-            application_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationArn"),
-            ),
-            authorized_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizedTargets"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            application_arn: o.get_field("applicationArn"),
+            authorized_targets: o.get_field("authorizedTargets"),
+            scope: o.get_field("scope"),
         }
     }
 }

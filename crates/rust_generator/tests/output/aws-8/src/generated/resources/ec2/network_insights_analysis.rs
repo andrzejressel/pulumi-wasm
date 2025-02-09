@@ -106,89 +106,59 @@ pub mod network_insights_analysis {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkInsightsAnalysisArgs,
     ) -> NetworkInsightsAnalysisResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filter_in_arns_binding_1 = args.filter_in_arns.get_output(context);
-        let filter_in_arns_binding = filter_in_arns_binding_1.get_inner();
-        let network_insights_path_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filter_in_arns_binding = args.filter_in_arns.get_output(context);
+        let network_insights_path_id_binding = args
             .network_insights_path_id
             .get_output(context);
-        let network_insights_path_id_binding = network_insights_path_id_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let wait_for_completion_binding_1 = args.wait_for_completion.get_output(context);
-        let wait_for_completion_binding = wait_for_completion_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let wait_for_completion_binding = args.wait_for_completion.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterInArns".into(),
-                    value: &filter_in_arns_binding,
+                    value: filter_in_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInsightsPathId".into(),
-                    value: &network_insights_path_id_binding,
+                    value: network_insights_path_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForCompletion".into(),
-                    value: &wait_for_completion_binding,
+                    value: wait_for_completion_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkInsightsAnalysisResult {
-            alternate_path_hints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alternatePathHints"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            explanations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("explanations"),
-            ),
-            filter_in_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filterInArns"),
-            ),
-            forward_path_components: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forwardPathComponents"),
-            ),
-            network_insights_path_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInsightsPathId"),
-            ),
-            path_found: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pathFound"),
-            ),
-            return_path_components: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("returnPathComponents"),
-            ),
-            start_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startDate"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusMessage"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            wait_for_completion: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForCompletion"),
-            ),
-            warning_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("warningMessage"),
-            ),
+            alternate_path_hints: o.get_field("alternatePathHints"),
+            arn: o.get_field("arn"),
+            explanations: o.get_field("explanations"),
+            filter_in_arns: o.get_field("filterInArns"),
+            forward_path_components: o.get_field("forwardPathComponents"),
+            network_insights_path_id: o.get_field("networkInsightsPathId"),
+            path_found: o.get_field("pathFound"),
+            return_path_components: o.get_field("returnPathComponents"),
+            start_date: o.get_field("startDate"),
+            status: o.get_field("status"),
+            status_message: o.get_field("statusMessage"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            wait_for_completion: o.get_field("waitForCompletion"),
+            warning_message: o.get_field("warningMessage"),
         }
     }
 }

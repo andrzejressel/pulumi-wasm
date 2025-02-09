@@ -222,87 +222,66 @@ pub mod policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PolicyArgs,
     ) -> PolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admission_whitelist_patterns_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let admission_whitelist_patterns_binding = args
             .admission_whitelist_patterns
             .get_output(context);
-        let admission_whitelist_patterns_binding = admission_whitelist_patterns_binding_1
-            .get_inner();
-        let cluster_admission_rules_binding_1 = args
+        let cluster_admission_rules_binding = args
             .cluster_admission_rules
             .get_output(context);
-        let cluster_admission_rules_binding = cluster_admission_rules_binding_1
-            .get_inner();
-        let default_admission_rule_binding_1 = args
+        let default_admission_rule_binding = args
             .default_admission_rule
             .get_output(context);
-        let default_admission_rule_binding = default_admission_rule_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let global_policy_evaluation_mode_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let global_policy_evaluation_mode_binding = args
             .global_policy_evaluation_mode
             .get_output(context);
-        let global_policy_evaluation_mode_binding = global_policy_evaluation_mode_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:binaryauthorization/policy:Policy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "admissionWhitelistPatterns".into(),
-                    value: &admission_whitelist_patterns_binding,
+                    value: admission_whitelist_patterns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterAdmissionRules".into(),
-                    value: &cluster_admission_rules_binding,
+                    value: cluster_admission_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAdmissionRule".into(),
-                    value: &default_admission_rule_binding,
+                    value: default_admission_rule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalPolicyEvaluationMode".into(),
-                    value: &global_policy_evaluation_mode_binding,
+                    value: global_policy_evaluation_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PolicyResult {
-            admission_whitelist_patterns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("admissionWhitelistPatterns"),
-            ),
-            cluster_admission_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterAdmissionRules"),
-            ),
-            default_admission_rule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultAdmissionRule"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            global_policy_evaluation_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalPolicyEvaluationMode"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
+            admission_whitelist_patterns: o.get_field("admissionWhitelistPatterns"),
+            cluster_admission_rules: o.get_field("clusterAdmissionRules"),
+            default_admission_rule: o.get_field("defaultAdmissionRule"),
+            description: o.get_field("description"),
+            global_policy_evaluation_mode: o.get_field("globalPolicyEvaluationMode"),
+            project: o.get_field("project"),
         }
     }
 }

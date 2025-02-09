@@ -75,51 +75,43 @@ pub mod key_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KeyPolicyArgs,
     ) -> KeyPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bypass_policy_lockout_safety_check_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bypass_policy_lockout_safety_check_binding = args
             .bypass_policy_lockout_safety_check
             .get_output(context);
-        let bypass_policy_lockout_safety_check_binding = bypass_policy_lockout_safety_check_binding_1
-            .get_inner();
-        let key_id_binding_1 = args.key_id.get_output(context);
-        let key_id_binding = key_id_binding_1.get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let key_id_binding = args.key_id.get_output(context);
+        let policy_binding = args.policy.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:kms/keyPolicy:KeyPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bypassPolicyLockoutSafetyCheck".into(),
-                    value: &bypass_policy_lockout_safety_check_binding,
+                    value: bypass_policy_lockout_safety_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyId".into(),
-                    value: &key_id_binding,
+                    value: key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KeyPolicyResult {
-            bypass_policy_lockout_safety_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bypassPolicyLockoutSafetyCheck"),
-            ),
-            key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyId"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
+            bypass_policy_lockout_safety_check: o
+                .get_field("bypassPolicyLockoutSafetyCheck"),
+            key_id: o.get_field("keyId"),
+            policy: o.get_field("policy"),
         }
     }
 }

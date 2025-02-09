@@ -118,83 +118,64 @@ pub mod ingestion_destination {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IngestionDestinationArgs,
     ) -> IngestionDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_bundle_arn_binding_1 = args.app_bundle_arn.get_output(context);
-        let app_bundle_arn_binding = app_bundle_arn_binding_1.get_inner();
-        let destination_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_bundle_arn_binding = args.app_bundle_arn.get_output(context);
+        let destination_configuration_binding = args
             .destination_configuration
             .get_output(context);
-        let destination_configuration_binding = destination_configuration_binding_1
-            .get_inner();
-        let ingestion_arn_binding_1 = args.ingestion_arn.get_output(context);
-        let ingestion_arn_binding = ingestion_arn_binding_1.get_inner();
-        let processing_configuration_binding_1 = args
+        let ingestion_arn_binding = args.ingestion_arn.get_output(context);
+        let processing_configuration_binding = args
             .processing_configuration
             .get_output(context);
-        let processing_configuration_binding = processing_configuration_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appfabric/ingestionDestination:IngestionDestination".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appBundleArn".into(),
-                    value: &app_bundle_arn_binding,
+                    value: app_bundle_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationConfiguration".into(),
-                    value: &destination_configuration_binding,
+                    value: destination_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingestionArn".into(),
-                    value: &ingestion_arn_binding,
+                    value: ingestion_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "processingConfiguration".into(),
-                    value: &processing_configuration_binding,
+                    value: processing_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IngestionDestinationResult {
-            app_bundle_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appBundleArn"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            destination_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationConfiguration"),
-            ),
-            ingestion_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingestionArn"),
-            ),
-            processing_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("processingConfiguration"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            app_bundle_arn: o.get_field("appBundleArn"),
+            arn: o.get_field("arn"),
+            destination_configuration: o.get_field("destinationConfiguration"),
+            ingestion_arn: o.get_field("ingestionArn"),
+            processing_configuration: o.get_field("processingConfiguration"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

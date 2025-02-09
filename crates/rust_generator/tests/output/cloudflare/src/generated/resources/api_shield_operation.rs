@@ -53,55 +53,46 @@ pub mod api_shield_operation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApiShieldOperationArgs,
     ) -> ApiShieldOperationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_binding_1 = args.endpoint.get_output(context);
-        let endpoint_binding = endpoint_binding_1.get_inner();
-        let host_binding_1 = args.host.get_output(context);
-        let host_binding = host_binding_1.get_inner();
-        let method_binding_1 = args.method.get_output(context);
-        let method_binding = method_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let endpoint_binding = args.endpoint.get_output(context);
+        let host_binding = args.host.get_output(context);
+        let method_binding = args.method.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/apiShieldOperation:ApiShieldOperation".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoint".into(),
-                    value: &endpoint_binding,
+                    value: endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: &host_binding,
+                    value: host_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "method".into(),
-                    value: &method_binding,
+                    value: method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApiShieldOperationResult {
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
-            method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("method"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            endpoint: o.get_field("endpoint"),
+            host: o.get_field("host"),
+            method: o.get_field("method"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

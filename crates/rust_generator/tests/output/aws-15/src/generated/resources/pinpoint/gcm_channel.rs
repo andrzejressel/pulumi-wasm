@@ -46,69 +46,54 @@ pub mod gcm_channel {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GcmChannelArgs,
     ) -> GcmChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_key_binding_1 = args.api_key.get_output(context);
-        let api_key_binding = api_key_binding_1.get_inner();
-        let application_id_binding_1 = args.application_id.get_output(context);
-        let application_id_binding = application_id_binding_1.get_inner();
-        let default_authentication_method_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_key_binding = args.api_key.get_output(context);
+        let application_id_binding = args.application_id.get_output(context);
+        let default_authentication_method_binding = args
             .default_authentication_method
             .get_output(context);
-        let default_authentication_method_binding = default_authentication_method_binding_1
-            .get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let service_json_binding_1 = args.service_json.get_output(context);
-        let service_json_binding = service_json_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let enabled_binding = args.enabled.get_output(context);
+        let service_json_binding = args.service_json.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:pinpoint/gcmChannel:GcmChannel".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiKey".into(),
-                    value: &api_key_binding,
+                    value: api_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: &application_id_binding,
+                    value: application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAuthenticationMethod".into(),
-                    value: &default_authentication_method_binding,
+                    value: default_authentication_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceJson".into(),
-                    value: &service_json_binding,
+                    value: service_json_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GcmChannelResult {
-            api_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiKey"),
-            ),
-            application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationId"),
-            ),
-            default_authentication_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultAuthenticationMethod"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            service_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceJson"),
-            ),
+            api_key: o.get_field("apiKey"),
+            application_id: o.get_field("applicationId"),
+            default_authentication_method: o.get_field("defaultAuthenticationMethod"),
+            enabled: o.get_field("enabled"),
+            service_json: o.get_field("serviceJson"),
         }
     }
 }

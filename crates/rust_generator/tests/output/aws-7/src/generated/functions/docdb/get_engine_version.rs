@@ -41,74 +41,53 @@ pub mod get_engine_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetEngineVersionArgs,
     ) -> GetEngineVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let engine_binding_1 = args.engine.get_output(context);
-        let engine_binding = engine_binding_1.get_inner();
-        let parameter_group_family_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let engine_binding = args.engine.get_output(context);
+        let parameter_group_family_binding = args
             .parameter_group_family
             .get_output(context);
-        let parameter_group_family_binding = parameter_group_family_binding_1
-            .get_inner();
-        let preferred_versions_binding_1 = args.preferred_versions.get_output(context);
-        let preferred_versions_binding = preferred_versions_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let preferred_versions_binding = args.preferred_versions.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:docdb/getEngineVersion:getEngineVersion".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: &engine_binding,
+                    value: engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameterGroupFamily".into(),
-                    value: &parameter_group_family_binding,
+                    value: parameter_group_family_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredVersions".into(),
-                    value: &preferred_versions_binding,
+                    value: preferred_versions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetEngineVersionResult {
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineDescription"),
-            ),
-            exportable_log_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportableLogTypes"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            parameter_group_family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameterGroupFamily"),
-            ),
-            preferred_versions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredVersions"),
-            ),
-            supports_log_exports_to_cloudwatch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportsLogExportsToCloudwatch"),
-            ),
-            valid_upgrade_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validUpgradeTargets"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            version_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionDescription"),
-            ),
+            engine: o.get_field("engine"),
+            engine_description: o.get_field("engineDescription"),
+            exportable_log_types: o.get_field("exportableLogTypes"),
+            id: o.get_field("id"),
+            parameter_group_family: o.get_field("parameterGroupFamily"),
+            preferred_versions: o.get_field("preferredVersions"),
+            supports_log_exports_to_cloudwatch: o
+                .get_field("supportsLogExportsToCloudwatch"),
+            valid_upgrade_targets: o.get_field("validUpgradeTargets"),
+            version: o.get_field("version"),
+            version_description: o.get_field("versionDescription"),
         }
     }
 }

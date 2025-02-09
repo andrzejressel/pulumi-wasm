@@ -436,111 +436,81 @@ pub mod job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: JobArgs,
     ) -> JobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let copy_binding_1 = args.copy.get_output(context);
-        let copy_binding = copy_binding_1.get_inner();
-        let extract_binding_1 = args.extract.get_output(context);
-        let extract_binding = extract_binding_1.get_inner();
-        let job_id_binding_1 = args.job_id.get_output(context);
-        let job_id_binding = job_id_binding_1.get_inner();
-        let job_timeout_ms_binding_1 = args.job_timeout_ms.get_output(context);
-        let job_timeout_ms_binding = job_timeout_ms_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let load_binding_1 = args.load.get_output(context);
-        let load_binding = load_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let query_binding_1 = args.query.get_output(context);
-        let query_binding = query_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let copy_binding = args.copy.get_output(context);
+        let extract_binding = args.extract.get_output(context);
+        let job_id_binding = args.job_id.get_output(context);
+        let job_timeout_ms_binding = args.job_timeout_ms.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let load_binding = args.load.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let query_binding = args.query.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:bigquery/job:Job".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copy".into(),
-                    value: &copy_binding,
+                    value: copy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extract".into(),
-                    value: &extract_binding,
+                    value: extract_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobId".into(),
-                    value: &job_id_binding,
+                    value: job_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobTimeoutMs".into(),
-                    value: &job_timeout_ms_binding,
+                    value: job_timeout_ms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "load".into(),
-                    value: &load_binding,
+                    value: load_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "query".into(),
-                    value: &query_binding,
+                    value: query_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         JobResult {
-            copy: pulumi_gestalt_rust::__private::into_domain(o.extract_field("copy")),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            extract: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extract"),
-            ),
-            job_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobId"),
-            ),
-            job_timeout_ms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobTimeoutMs"),
-            ),
-            job_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobType"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            load: pulumi_gestalt_rust::__private::into_domain(o.extract_field("load")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            query: pulumi_gestalt_rust::__private::into_domain(o.extract_field("query")),
-            statuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statuses"),
-            ),
-            user_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userEmail"),
-            ),
+            copy: o.get_field("copy"),
+            effective_labels: o.get_field("effectiveLabels"),
+            extract: o.get_field("extract"),
+            job_id: o.get_field("jobId"),
+            job_timeout_ms: o.get_field("jobTimeoutMs"),
+            job_type: o.get_field("jobType"),
+            labels: o.get_field("labels"),
+            load: o.get_field("load"),
+            location: o.get_field("location"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            query: o.get_field("query"),
+            statuses: o.get_field("statuses"),
+            user_email: o.get_field("userEmail"),
         }
     }
 }

@@ -48,44 +48,35 @@ pub mod get_pipeline_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPipelineDefinitionArgs,
     ) -> GetPipelineDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let parameter_values_binding_1 = args.parameter_values.get_output(context);
-        let parameter_values_binding = parameter_values_binding_1.get_inner();
-        let pipeline_id_binding_1 = args.pipeline_id.get_output(context);
-        let pipeline_id_binding = pipeline_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let parameter_values_binding = args.parameter_values.get_output(context);
+        let pipeline_id_binding = args.pipeline_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:datapipeline/getPipelineDefinition:getPipelineDefinition".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameterValues".into(),
-                    value: &parameter_values_binding,
+                    value: parameter_values_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineId".into(),
-                    value: &pipeline_id_binding,
+                    value: pipeline_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPipelineDefinitionResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            parameter_objects: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameterObjects"),
-            ),
-            parameter_values: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameterValues"),
-            ),
-            pipeline_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pipelineId"),
-            ),
-            pipeline_objects: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pipelineObjects"),
-            ),
+            id: o.get_field("id"),
+            parameter_objects: o.get_field("parameterObjects"),
+            parameter_values: o.get_field("parameterValues"),
+            pipeline_id: o.get_field("pipelineId"),
+            pipeline_objects: o.get_field("pipelineObjects"),
         }
     }
 }

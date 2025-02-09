@@ -187,129 +187,97 @@ pub mod gallery_application_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GalleryApplicationVersionArgs,
     ) -> GalleryApplicationVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let config_file_binding_1 = args.config_file.get_output(context);
-        let config_file_binding = config_file_binding_1.get_inner();
-        let enable_health_check_binding_1 = args.enable_health_check.get_output(context);
-        let enable_health_check_binding = enable_health_check_binding_1.get_inner();
-        let end_of_life_date_binding_1 = args.end_of_life_date.get_output(context);
-        let end_of_life_date_binding = end_of_life_date_binding_1.get_inner();
-        let exclude_from_latest_binding_1 = args.exclude_from_latest.get_output(context);
-        let exclude_from_latest_binding = exclude_from_latest_binding_1.get_inner();
-        let gallery_application_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let config_file_binding = args.config_file.get_output(context);
+        let enable_health_check_binding = args.enable_health_check.get_output(context);
+        let end_of_life_date_binding = args.end_of_life_date.get_output(context);
+        let exclude_from_latest_binding = args.exclude_from_latest.get_output(context);
+        let gallery_application_id_binding = args
             .gallery_application_id
             .get_output(context);
-        let gallery_application_id_binding = gallery_application_id_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let manage_action_binding_1 = args.manage_action.get_output(context);
-        let manage_action_binding = manage_action_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let package_file_binding_1 = args.package_file.get_output(context);
-        let package_file_binding = package_file_binding_1.get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_regions_binding_1 = args.target_regions.get_output(context);
-        let target_regions_binding = target_regions_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let manage_action_binding = args.manage_action.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let package_file_binding = args.package_file.get_output(context);
+        let source_binding = args.source.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_regions_binding = args.target_regions.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:compute/galleryApplicationVersion:GalleryApplicationVersion"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configFile".into(),
-                    value: &config_file_binding,
+                    value: config_file_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableHealthCheck".into(),
-                    value: &enable_health_check_binding,
+                    value: enable_health_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endOfLifeDate".into(),
-                    value: &end_of_life_date_binding,
+                    value: end_of_life_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeFromLatest".into(),
-                    value: &exclude_from_latest_binding,
+                    value: exclude_from_latest_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "galleryApplicationId".into(),
-                    value: &gallery_application_id_binding,
+                    value: gallery_application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manageAction".into(),
-                    value: &manage_action_binding,
+                    value: manage_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageFile".into(),
-                    value: &package_file_binding,
+                    value: package_file_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetRegions".into(),
-                    value: &target_regions_binding,
+                    value: target_regions_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GalleryApplicationVersionResult {
-            config_file: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configFile"),
-            ),
-            enable_health_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableHealthCheck"),
-            ),
-            end_of_life_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endOfLifeDate"),
-            ),
-            exclude_from_latest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludeFromLatest"),
-            ),
-            gallery_application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("galleryApplicationId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            manage_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manageAction"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            package_file: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("packageFile"),
-            ),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            target_regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetRegions"),
-            ),
+            config_file: o.get_field("configFile"),
+            enable_health_check: o.get_field("enableHealthCheck"),
+            end_of_life_date: o.get_field("endOfLifeDate"),
+            exclude_from_latest: o.get_field("excludeFromLatest"),
+            gallery_application_id: o.get_field("galleryApplicationId"),
+            location: o.get_field("location"),
+            manage_action: o.get_field("manageAction"),
+            name: o.get_field("name"),
+            package_file: o.get_field("packageFile"),
+            source: o.get_field("source"),
+            tags: o.get_field("tags"),
+            target_regions: o.get_field("targetRegions"),
         }
     }
 }

@@ -112,70 +112,54 @@ pub mod document_ai_warehouse_document_schema {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DocumentAiWarehouseDocumentSchemaArgs,
     ) -> DocumentAiWarehouseDocumentSchemaResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let document_is_folder_binding_1 = args.document_is_folder.get_output(context);
-        let document_is_folder_binding = document_is_folder_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_number_binding_1 = args.project_number.get_output(context);
-        let project_number_binding = project_number_binding_1.get_inner();
-        let property_definitions_binding_1 = args
-            .property_definitions
-            .get_output(context);
-        let property_definitions_binding = property_definitions_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let display_name_binding = args.display_name.get_output(context);
+        let document_is_folder_binding = args.document_is_folder.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let project_number_binding = args.project_number.get_output(context);
+        let property_definitions_binding = args.property_definitions.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:essentialcontacts/documentAiWarehouseDocumentSchema:DocumentAiWarehouseDocumentSchema"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentIsFolder".into(),
-                    value: &document_is_folder_binding,
+                    value: document_is_folder_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectNumber".into(),
-                    value: &project_number_binding,
+                    value: project_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "propertyDefinitions".into(),
-                    value: &property_definitions_binding,
+                    value: property_definitions_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DocumentAiWarehouseDocumentSchemaResult {
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            document_is_folder: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentIsFolder"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectNumber"),
-            ),
-            property_definitions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("propertyDefinitions"),
-            ),
+            display_name: o.get_field("displayName"),
+            document_is_folder: o.get_field("documentIsFolder"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project_number: o.get_field("projectNumber"),
+            property_definitions: o.get_field("propertyDefinitions"),
         }
     }
 }

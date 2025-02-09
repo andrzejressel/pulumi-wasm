@@ -32,46 +32,41 @@ pub mod list_configurations {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: ListConfigurationsArgs,
     ) -> ListConfigurationsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_filters_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let configuration_filters_binding = args
             .configuration_filters
             .get_output(context);
-        let configuration_filters_binding = configuration_filters_binding_1.get_inner();
-        let customer_subscription_details_binding_1 = args
+        let customer_subscription_details_binding = args
             .customer_subscription_details
             .get_output(context);
-        let customer_subscription_details_binding = customer_subscription_details_binding_1
-            .get_inner();
-        let skip_token_binding_1 = args.skip_token.get_output(context);
-        let skip_token_binding = skip_token_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let skip_token_binding = args.skip_token.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "myedgeorder::listConfigurations".into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationFilters".into(),
-                    value: &configuration_filters_binding,
+                    value: configuration_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerSubscriptionDetails".into(),
-                    value: &customer_subscription_details_binding,
+                    value: customer_subscription_details_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipToken".into(),
-                    value: &skip_token_binding,
+                    value: skip_token_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         ListConfigurationsResult {
-            next_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nextLink"),
-            ),
-            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
+            next_link: o.get_field("nextLink"),
+            value: o.get_field("value"),
         }
     }
 }

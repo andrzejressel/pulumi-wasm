@@ -147,115 +147,86 @@ pub mod datastore_datalake_gen_2 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DatastoreDatalakeGen2Args,
     ) -> DatastoreDatalakeGen2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authority_url_binding_1 = args.authority_url.get_output(context);
-        let authority_url_binding = authority_url_binding_1.get_inner();
-        let client_id_binding_1 = args.client_id.get_output(context);
-        let client_id_binding = client_id_binding_1.get_inner();
-        let client_secret_binding_1 = args.client_secret.get_output(context);
-        let client_secret_binding = client_secret_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let service_data_identity_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authority_url_binding = args.authority_url.get_output(context);
+        let client_id_binding = args.client_id.get_output(context);
+        let client_secret_binding = args.client_secret.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let service_data_identity_binding = args
             .service_data_identity
             .get_output(context);
-        let service_data_identity_binding = service_data_identity_binding_1.get_inner();
-        let storage_container_id_binding_1 = args
-            .storage_container_id
-            .get_output(context);
-        let storage_container_id_binding = storage_container_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tenant_id_binding_1 = args.tenant_id.get_output(context);
-        let tenant_id_binding = tenant_id_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let storage_container_id_binding = args.storage_container_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tenant_id_binding = args.tenant_id.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorityUrl".into(),
-                    value: &authority_url_binding,
+                    value: authority_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientId".into(),
-                    value: &client_id_binding,
+                    value: client_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientSecret".into(),
-                    value: &client_secret_binding,
+                    value: client_secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceDataIdentity".into(),
-                    value: &service_data_identity_binding,
+                    value: service_data_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageContainerId".into(),
-                    value: &storage_container_id_binding,
+                    value: storage_container_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: &tenant_id_binding,
+                    value: tenant_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DatastoreDatalakeGen2Result {
-            authority_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorityUrl"),
-            ),
-            client_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientId"),
-            ),
-            client_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientSecret"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            is_default: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isDefault"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            service_data_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceDataIdentity"),
-            ),
-            storage_container_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageContainerId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantId"),
-            ),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            authority_url: o.get_field("authorityUrl"),
+            client_id: o.get_field("clientId"),
+            client_secret: o.get_field("clientSecret"),
+            description: o.get_field("description"),
+            is_default: o.get_field("isDefault"),
+            name: o.get_field("name"),
+            service_data_identity: o.get_field("serviceDataIdentity"),
+            storage_container_id: o.get_field("storageContainerId"),
+            tags: o.get_field("tags"),
+            tenant_id: o.get_field("tenantId"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

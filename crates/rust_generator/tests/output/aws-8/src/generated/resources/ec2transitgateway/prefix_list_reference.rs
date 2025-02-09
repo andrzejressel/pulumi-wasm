@@ -93,67 +93,52 @@ pub mod prefix_list_reference {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PrefixListReferenceArgs,
     ) -> PrefixListReferenceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let blackhole_binding_1 = args.blackhole.get_output(context);
-        let blackhole_binding = blackhole_binding_1.get_inner();
-        let prefix_list_id_binding_1 = args.prefix_list_id.get_output(context);
-        let prefix_list_id_binding = prefix_list_id_binding_1.get_inner();
-        let transit_gateway_attachment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let blackhole_binding = args.blackhole.get_output(context);
+        let prefix_list_id_binding = args.prefix_list_id.get_output(context);
+        let transit_gateway_attachment_id_binding = args
             .transit_gateway_attachment_id
             .get_output(context);
-        let transit_gateway_attachment_id_binding = transit_gateway_attachment_id_binding_1
-            .get_inner();
-        let transit_gateway_route_table_id_binding_1 = args
+        let transit_gateway_route_table_id_binding = args
             .transit_gateway_route_table_id
             .get_output(context);
-        let transit_gateway_route_table_id_binding = transit_gateway_route_table_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/prefixListReference:PrefixListReference"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blackhole".into(),
-                    value: &blackhole_binding,
+                    value: blackhole_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefixListId".into(),
-                    value: &prefix_list_id_binding,
+                    value: prefix_list_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayAttachmentId".into(),
-                    value: &transit_gateway_attachment_id_binding,
+                    value: transit_gateway_attachment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayRouteTableId".into(),
-                    value: &transit_gateway_route_table_id_binding,
+                    value: transit_gateway_route_table_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PrefixListReferenceResult {
-            blackhole: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blackhole"),
-            ),
-            prefix_list_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefixListId"),
-            ),
-            prefix_list_owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefixListOwnerId"),
-            ),
-            transit_gateway_attachment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayAttachmentId"),
-            ),
-            transit_gateway_route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayRouteTableId"),
-            ),
+            blackhole: o.get_field("blackhole"),
+            prefix_list_id: o.get_field("prefixListId"),
+            prefix_list_owner_id: o.get_field("prefixListOwnerId"),
+            transit_gateway_attachment_id: o.get_field("transitGatewayAttachmentId"),
+            transit_gateway_route_table_id: o.get_field("transitGatewayRouteTableId"),
         }
     }
 }

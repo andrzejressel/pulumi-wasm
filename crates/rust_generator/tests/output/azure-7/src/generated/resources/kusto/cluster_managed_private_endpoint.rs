@@ -106,89 +106,69 @@ pub mod cluster_managed_private_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterManagedPrivateEndpointArgs,
     ) -> ClusterManagedPrivateEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let group_id_binding_1 = args.group_id.get_output(context);
-        let group_id_binding = group_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let private_link_resource_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let group_id_binding = args.group_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let private_link_resource_id_binding = args
             .private_link_resource_id
             .get_output(context);
-        let private_link_resource_id_binding = private_link_resource_id_binding_1
-            .get_inner();
-        let private_link_resource_region_binding_1 = args
+        let private_link_resource_region_binding = args
             .private_link_resource_region
             .get_output(context);
-        let private_link_resource_region_binding = private_link_resource_region_binding_1
-            .get_inner();
-        let request_message_binding_1 = args.request_message.get_output(context);
-        let request_message_binding = request_message_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request_message_binding = args.request_message.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupId".into(),
-                    value: &group_id_binding,
+                    value: group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkResourceId".into(),
-                    value: &private_link_resource_id_binding,
+                    value: private_link_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkResourceRegion".into(),
-                    value: &private_link_resource_region_binding,
+                    value: private_link_resource_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestMessage".into(),
-                    value: &request_message_binding,
+                    value: request_message_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterManagedPrivateEndpointResult {
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_link_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateLinkResourceId"),
-            ),
-            private_link_resource_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateLinkResourceRegion"),
-            ),
-            request_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestMessage"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            cluster_name: o.get_field("clusterName"),
+            group_id: o.get_field("groupId"),
+            name: o.get_field("name"),
+            private_link_resource_id: o.get_field("privateLinkResourceId"),
+            private_link_resource_region: o.get_field("privateLinkResourceRegion"),
+            request_message: o.get_field("requestMessage"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

@@ -48,62 +48,46 @@ pub mod get_security_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSecurityPolicyArgs,
     ) -> GetSecurityPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let self_link_binding_1 = args.self_link.get_output(context);
-        let self_link_binding = self_link_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let self_link_binding = args.self_link.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:compute/getSecurityPolicy:getSecurityPolicy".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfLink".into(),
-                    value: &self_link_binding,
+                    value: self_link_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSecurityPolicyResult {
-            adaptive_protection_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adaptiveProtectionConfigs"),
-            ),
-            advanced_options_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advancedOptionsConfigs"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fingerprint"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            recaptcha_options_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recaptchaOptionsConfigs"),
-            ),
-            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            adaptive_protection_configs: o.get_field("adaptiveProtectionConfigs"),
+            advanced_options_configs: o.get_field("advancedOptionsConfigs"),
+            description: o.get_field("description"),
+            fingerprint: o.get_field("fingerprint"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            recaptcha_options_configs: o.get_field("recaptchaOptionsConfigs"),
+            rules: o.get_field("rules"),
+            self_link: o.get_field("selfLink"),
+            type_: o.get_field("type"),
         }
     }
 }

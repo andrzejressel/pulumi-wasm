@@ -174,123 +174,88 @@ pub mod endpoint_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointPolicyArgs,
     ) -> EndpointPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorization_policy_binding_1 = args
-            .authorization_policy
-            .get_output(context);
-        let authorization_policy_binding = authorization_policy_binding_1.get_inner();
-        let client_tls_policy_binding_1 = args.client_tls_policy.get_output(context);
-        let client_tls_policy_binding = client_tls_policy_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let endpoint_matcher_binding_1 = args.endpoint_matcher.get_output(context);
-        let endpoint_matcher_binding = endpoint_matcher_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let server_tls_policy_binding_1 = args.server_tls_policy.get_output(context);
-        let server_tls_policy_binding = server_tls_policy_binding_1.get_inner();
-        let traffic_port_selector_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authorization_policy_binding = args.authorization_policy.get_output(context);
+        let client_tls_policy_binding = args.client_tls_policy.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let endpoint_matcher_binding = args.endpoint_matcher.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let server_tls_policy_binding = args.server_tls_policy.get_output(context);
+        let traffic_port_selector_binding = args
             .traffic_port_selector
             .get_output(context);
-        let traffic_port_selector_binding = traffic_port_selector_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:networkservices/endpointPolicy:EndpointPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationPolicy".into(),
-                    value: &authorization_policy_binding,
+                    value: authorization_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientTlsPolicy".into(),
-                    value: &client_tls_policy_binding,
+                    value: client_tls_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointMatcher".into(),
-                    value: &endpoint_matcher_binding,
+                    value: endpoint_matcher_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverTlsPolicy".into(),
-                    value: &server_tls_policy_binding,
+                    value: server_tls_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficPortSelector".into(),
-                    value: &traffic_port_selector_binding,
+                    value: traffic_port_selector_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointPolicyResult {
-            authorization_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationPolicy"),
-            ),
-            client_tls_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientTlsPolicy"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            endpoint_matcher: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointMatcher"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            server_tls_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverTlsPolicy"),
-            ),
-            traffic_port_selector: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficPortSelector"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            authorization_policy: o.get_field("authorizationPolicy"),
+            client_tls_policy: o.get_field("clientTlsPolicy"),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            endpoint_matcher: o.get_field("endpointMatcher"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            server_tls_policy: o.get_field("serverTlsPolicy"),
+            traffic_port_selector: o.get_field("trafficPortSelector"),
+            type_: o.get_field("type"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

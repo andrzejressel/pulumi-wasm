@@ -160,126 +160,94 @@ pub mod function {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FunctionArgs,
     ) -> FunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding_1 = args.api_id.get_output(context);
-        let api_id_binding = api_id_binding_1.get_inner();
-        let code_binding_1 = args.code.get_output(context);
-        let code_binding = code_binding_1.get_inner();
-        let data_source_binding_1 = args.data_source.get_output(context);
-        let data_source_binding = data_source_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let function_version_binding_1 = args.function_version.get_output(context);
-        let function_version_binding = function_version_binding_1.get_inner();
-        let max_batch_size_binding_1 = args.max_batch_size.get_output(context);
-        let max_batch_size_binding = max_batch_size_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request_mapping_template_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_id_binding = args.api_id.get_output(context);
+        let code_binding = args.code.get_output(context);
+        let data_source_binding = args.data_source.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let function_version_binding = args.function_version.get_output(context);
+        let max_batch_size_binding = args.max_batch_size.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request_mapping_template_binding = args
             .request_mapping_template
             .get_output(context);
-        let request_mapping_template_binding = request_mapping_template_binding_1
-            .get_inner();
-        let response_mapping_template_binding_1 = args
+        let response_mapping_template_binding = args
             .response_mapping_template
             .get_output(context);
-        let response_mapping_template_binding = response_mapping_template_binding_1
-            .get_inner();
-        let runtime_binding_1 = args.runtime.get_output(context);
-        let runtime_binding = runtime_binding_1.get_inner();
-        let sync_config_binding_1 = args.sync_config.get_output(context);
-        let sync_config_binding = sync_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let runtime_binding = args.runtime.get_output(context);
+        let sync_config_binding = args.sync_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appsync/function:Function".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: &api_id_binding,
+                    value: api_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "code".into(),
-                    value: &code_binding,
+                    value: code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSource".into(),
-                    value: &data_source_binding,
+                    value: data_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionVersion".into(),
-                    value: &function_version_binding,
+                    value: function_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxBatchSize".into(),
-                    value: &max_batch_size_binding,
+                    value: max_batch_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestMappingTemplate".into(),
-                    value: &request_mapping_template_binding,
+                    value: request_mapping_template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseMappingTemplate".into(),
-                    value: &response_mapping_template_binding,
+                    value: response_mapping_template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtime".into(),
-                    value: &runtime_binding,
+                    value: runtime_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "syncConfig".into(),
-                    value: &sync_config_binding,
+                    value: sync_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FunctionResult {
-            api_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            code: pulumi_gestalt_rust::__private::into_domain(o.extract_field("code")),
-            data_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSource"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            function_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionId"),
-            ),
-            function_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionVersion"),
-            ),
-            max_batch_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxBatchSize"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            request_mapping_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestMappingTemplate"),
-            ),
-            response_mapping_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("responseMappingTemplate"),
-            ),
-            runtime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtime"),
-            ),
-            sync_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("syncConfig"),
-            ),
+            api_id: o.get_field("apiId"),
+            arn: o.get_field("arn"),
+            code: o.get_field("code"),
+            data_source: o.get_field("dataSource"),
+            description: o.get_field("description"),
+            function_id: o.get_field("functionId"),
+            function_version: o.get_field("functionVersion"),
+            max_batch_size: o.get_field("maxBatchSize"),
+            name: o.get_field("name"),
+            request_mapping_template: o.get_field("requestMappingTemplate"),
+            response_mapping_template: o.get_field("responseMappingTemplate"),
+            runtime: o.get_field("runtime"),
+            sync_config: o.get_field("syncConfig"),
         }
     }
 }

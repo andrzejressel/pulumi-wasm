@@ -277,74 +277,59 @@ pub mod entry_type_iam_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EntryTypeIamBindingArgs,
     ) -> EntryTypeIamBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding_1 = args.condition.get_output(context);
-        let condition_binding = condition_binding_1.get_inner();
-        let entry_type_id_binding_1 = args.entry_type_id.get_output(context);
-        let entry_type_id_binding = entry_type_id_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let members_binding_1 = args.members.get_output(context);
-        let members_binding = members_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let condition_binding = args.condition.get_output(context);
+        let entry_type_id_binding = args.entry_type_id.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let members_binding = args.members.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let role_binding = args.role.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dataplex/entryTypeIamBinding:EntryTypeIamBinding".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: &condition_binding,
+                    value: condition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entryTypeId".into(),
-                    value: &entry_type_id_binding,
+                    value: entry_type_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "members".into(),
-                    value: &members_binding,
+                    value: members_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EntryTypeIamBindingResult {
-            condition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("condition"),
-            ),
-            entry_type_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entryTypeId"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            members: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("members"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
+            condition: o.get_field("condition"),
+            entry_type_id: o.get_field("entryTypeId"),
+            etag: o.get_field("etag"),
+            location: o.get_field("location"),
+            members: o.get_field("members"),
+            project: o.get_field("project"),
+            role: o.get_field("role"),
         }
     }
 }

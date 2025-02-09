@@ -524,225 +524,159 @@ pub mod bucket {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BucketArgs,
     ) -> BucketResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let acceleration_status_binding_1 = args.acceleration_status.get_output(context);
-        let acceleration_status_binding = acceleration_status_binding_1.get_inner();
-        let acl_binding_1 = args.acl.get_output(context);
-        let acl_binding = acl_binding_1.get_inner();
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let bucket_prefix_binding_1 = args.bucket_prefix.get_output(context);
-        let bucket_prefix_binding = bucket_prefix_binding_1.get_inner();
-        let cors_rules_binding_1 = args.cors_rules.get_output(context);
-        let cors_rules_binding = cors_rules_binding_1.get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let grants_binding_1 = args.grants.get_output(context);
-        let grants_binding = grants_binding_1.get_inner();
-        let hosted_zone_id_binding_1 = args.hosted_zone_id.get_output(context);
-        let hosted_zone_id_binding = hosted_zone_id_binding_1.get_inner();
-        let lifecycle_rules_binding_1 = args.lifecycle_rules.get_output(context);
-        let lifecycle_rules_binding = lifecycle_rules_binding_1.get_inner();
-        let loggings_binding_1 = args.loggings.get_output(context);
-        let loggings_binding = loggings_binding_1.get_inner();
-        let object_lock_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let acceleration_status_binding = args.acceleration_status.get_output(context);
+        let acl_binding = args.acl.get_output(context);
+        let arn_binding = args.arn.get_output(context);
+        let bucket_binding = args.bucket.get_output(context);
+        let bucket_prefix_binding = args.bucket_prefix.get_output(context);
+        let cors_rules_binding = args.cors_rules.get_output(context);
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let grants_binding = args.grants.get_output(context);
+        let hosted_zone_id_binding = args.hosted_zone_id.get_output(context);
+        let lifecycle_rules_binding = args.lifecycle_rules.get_output(context);
+        let loggings_binding = args.loggings.get_output(context);
+        let object_lock_configuration_binding = args
             .object_lock_configuration
             .get_output(context);
-        let object_lock_configuration_binding = object_lock_configuration_binding_1
-            .get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let replication_configuration_binding_1 = args
+        let policy_binding = args.policy.get_output(context);
+        let replication_configuration_binding = args
             .replication_configuration
             .get_output(context);
-        let replication_configuration_binding = replication_configuration_binding_1
-            .get_inner();
-        let request_payer_binding_1 = args.request_payer.get_output(context);
-        let request_payer_binding = request_payer_binding_1.get_inner();
-        let server_side_encryption_configuration_binding_1 = args
+        let request_payer_binding = args.request_payer.get_output(context);
+        let server_side_encryption_configuration_binding = args
             .server_side_encryption_configuration
             .get_output(context);
-        let server_side_encryption_configuration_binding = server_side_encryption_configuration_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let versioning_binding_1 = args.versioning.get_output(context);
-        let versioning_binding = versioning_binding_1.get_inner();
-        let website_binding_1 = args.website.get_output(context);
-        let website_binding = website_binding_1.get_inner();
-        let website_domain_binding_1 = args.website_domain.get_output(context);
-        let website_domain_binding = website_domain_binding_1.get_inner();
-        let website_endpoint_binding_1 = args.website_endpoint.get_output(context);
-        let website_endpoint_binding = website_endpoint_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let versioning_binding = args.versioning.get_output(context);
+        let website_binding = args.website.get_output(context);
+        let website_domain_binding = args.website_domain.get_output(context);
+        let website_endpoint_binding = args.website_endpoint.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:s3/bucket:Bucket".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accelerationStatus".into(),
-                    value: &acceleration_status_binding,
+                    value: acceleration_status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acl".into(),
-                    value: &acl_binding,
+                    value: acl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketPrefix".into(),
-                    value: &bucket_prefix_binding,
+                    value: bucket_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "corsRules".into(),
-                    value: &cors_rules_binding,
+                    value: cors_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grants".into(),
-                    value: &grants_binding,
+                    value: grants_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostedZoneId".into(),
-                    value: &hosted_zone_id_binding,
+                    value: hosted_zone_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifecycleRules".into(),
-                    value: &lifecycle_rules_binding,
+                    value: lifecycle_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggings".into(),
-                    value: &loggings_binding,
+                    value: loggings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectLockConfiguration".into(),
-                    value: &object_lock_configuration_binding,
+                    value: object_lock_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationConfiguration".into(),
-                    value: &replication_configuration_binding,
+                    value: replication_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestPayer".into(),
-                    value: &request_payer_binding,
+                    value: request_payer_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverSideEncryptionConfiguration".into(),
-                    value: &server_side_encryption_configuration_binding,
+                    value: server_side_encryption_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versioning".into(),
-                    value: &versioning_binding,
+                    value: versioning_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "website".into(),
-                    value: &website_binding,
+                    value: website_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "websiteDomain".into(),
-                    value: &website_domain_binding,
+                    value: website_domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "websiteEndpoint".into(),
-                    value: &website_endpoint_binding,
+                    value: website_endpoint_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BucketResult {
-            acceleration_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accelerationStatus"),
-            ),
-            acl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("acl")),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            bucket_domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketDomainName"),
-            ),
-            bucket_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketPrefix"),
-            ),
-            bucket_regional_domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketRegionalDomainName"),
-            ),
-            cors_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("corsRules"),
-            ),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            grants: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grants"),
-            ),
-            hosted_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostedZoneId"),
-            ),
-            lifecycle_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecycleRules"),
-            ),
-            loggings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggings"),
-            ),
-            object_lock_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectLockConfiguration"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            replication_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationConfiguration"),
-            ),
-            request_payer: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestPayer"),
-            ),
-            server_side_encryption_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverSideEncryptionConfiguration"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            versioning: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versioning"),
-            ),
-            website: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("website"),
-            ),
-            website_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("websiteDomain"),
-            ),
-            website_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("websiteEndpoint"),
-            ),
+            acceleration_status: o.get_field("accelerationStatus"),
+            acl: o.get_field("acl"),
+            arn: o.get_field("arn"),
+            bucket: o.get_field("bucket"),
+            bucket_domain_name: o.get_field("bucketDomainName"),
+            bucket_prefix: o.get_field("bucketPrefix"),
+            bucket_regional_domain_name: o.get_field("bucketRegionalDomainName"),
+            cors_rules: o.get_field("corsRules"),
+            force_destroy: o.get_field("forceDestroy"),
+            grants: o.get_field("grants"),
+            hosted_zone_id: o.get_field("hostedZoneId"),
+            lifecycle_rules: o.get_field("lifecycleRules"),
+            loggings: o.get_field("loggings"),
+            object_lock_configuration: o.get_field("objectLockConfiguration"),
+            policy: o.get_field("policy"),
+            region: o.get_field("region"),
+            replication_configuration: o.get_field("replicationConfiguration"),
+            request_payer: o.get_field("requestPayer"),
+            server_side_encryption_configuration: o
+                .get_field("serverSideEncryptionConfiguration"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            versioning: o.get_field("versioning"),
+            website: o.get_field("website"),
+            website_domain: o.get_field("websiteDomain"),
+            website_endpoint: o.get_field("websiteEndpoint"),
         }
     }
 }

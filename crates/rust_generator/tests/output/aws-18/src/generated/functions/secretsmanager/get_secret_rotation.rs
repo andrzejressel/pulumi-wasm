@@ -29,38 +29,30 @@ pub mod get_secret_rotation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSecretRotationArgs,
     ) -> GetSecretRotationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let secret_id_binding_1 = args.secret_id.get_output(context);
-        let secret_id_binding = secret_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let secret_id_binding = args.secret_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:secretsmanager/getSecretRotation:getSecretRotation".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretId".into(),
-                    value: &secret_id_binding,
+                    value: secret_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSecretRotationResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            rotation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rotationEnabled"),
-            ),
-            rotation_lambda_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rotationLambdaArn"),
-            ),
-            rotation_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rotationRules"),
-            ),
-            secret_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretId"),
-            ),
+            id: o.get_field("id"),
+            rotation_enabled: o.get_field("rotationEnabled"),
+            rotation_lambda_arn: o.get_field("rotationLambdaArn"),
+            rotation_rules: o.get_field("rotationRules"),
+            secret_id: o.get_field("secretId"),
         }
     }
 }

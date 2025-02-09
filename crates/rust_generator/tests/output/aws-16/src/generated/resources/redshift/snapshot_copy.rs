@@ -72,72 +72,57 @@ pub mod snapshot_copy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SnapshotCopyArgs,
     ) -> SnapshotCopyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
-        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
-        let destination_region_binding_1 = args.destination_region.get_output(context);
-        let destination_region_binding = destination_region_binding_1.get_inner();
-        let manual_snapshot_retention_period_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_identifier_binding = args.cluster_identifier.get_output(context);
+        let destination_region_binding = args.destination_region.get_output(context);
+        let manual_snapshot_retention_period_binding = args
             .manual_snapshot_retention_period
             .get_output(context);
-        let manual_snapshot_retention_period_binding = manual_snapshot_retention_period_binding_1
-            .get_inner();
-        let retention_period_binding_1 = args.retention_period.get_output(context);
-        let retention_period_binding = retention_period_binding_1.get_inner();
-        let snapshot_copy_grant_name_binding_1 = args
+        let retention_period_binding = args.retention_period.get_output(context);
+        let snapshot_copy_grant_name_binding = args
             .snapshot_copy_grant_name
             .get_output(context);
-        let snapshot_copy_grant_name_binding = snapshot_copy_grant_name_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshift/snapshotCopy:SnapshotCopy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: &cluster_identifier_binding,
+                    value: cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationRegion".into(),
-                    value: &destination_region_binding,
+                    value: destination_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manualSnapshotRetentionPeriod".into(),
-                    value: &manual_snapshot_retention_period_binding,
+                    value: manual_snapshot_retention_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPeriod".into(),
-                    value: &retention_period_binding,
+                    value: retention_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotCopyGrantName".into(),
-                    value: &snapshot_copy_grant_name_binding,
+                    value: snapshot_copy_grant_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SnapshotCopyResult {
-            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterIdentifier"),
-            ),
-            destination_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationRegion"),
-            ),
-            manual_snapshot_retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manualSnapshotRetentionPeriod"),
-            ),
-            retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionPeriod"),
-            ),
-            snapshot_copy_grant_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotCopyGrantName"),
-            ),
+            cluster_identifier: o.get_field("clusterIdentifier"),
+            destination_region: o.get_field("destinationRegion"),
+            manual_snapshot_retention_period: o
+                .get_field("manualSnapshotRetentionPeriod"),
+            retention_period: o.get_field("retentionPeriod"),
+            snapshot_copy_grant_name: o.get_field("snapshotCopyGrantName"),
         }
     }
 }

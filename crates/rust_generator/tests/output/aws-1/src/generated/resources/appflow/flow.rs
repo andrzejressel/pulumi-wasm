@@ -201,109 +201,83 @@ pub mod flow {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FlowArgs,
     ) -> FlowResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let destination_flow_configs_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let destination_flow_configs_binding = args
             .destination_flow_configs
             .get_output(context);
-        let destination_flow_configs_binding = destination_flow_configs_binding_1
-            .get_inner();
-        let kms_arn_binding_1 = args.kms_arn.get_output(context);
-        let kms_arn_binding = kms_arn_binding_1.get_inner();
-        let metadata_catalog_config_binding_1 = args
+        let kms_arn_binding = args.kms_arn.get_output(context);
+        let metadata_catalog_config_binding = args
             .metadata_catalog_config
             .get_output(context);
-        let metadata_catalog_config_binding = metadata_catalog_config_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let source_flow_config_binding_1 = args.source_flow_config.get_output(context);
-        let source_flow_config_binding = source_flow_config_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tasks_binding_1 = args.tasks.get_output(context);
-        let tasks_binding = tasks_binding_1.get_inner();
-        let trigger_config_binding_1 = args.trigger_config.get_output(context);
-        let trigger_config_binding = trigger_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let source_flow_config_binding = args.source_flow_config.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tasks_binding = args.tasks.get_output(context);
+        let trigger_config_binding = args.trigger_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appflow/flow:Flow".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationFlowConfigs".into(),
-                    value: &destination_flow_configs_binding,
+                    value: destination_flow_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsArn".into(),
-                    value: &kms_arn_binding,
+                    value: kms_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadataCatalogConfig".into(),
-                    value: &metadata_catalog_config_binding,
+                    value: metadata_catalog_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceFlowConfig".into(),
-                    value: &source_flow_config_binding,
+                    value: source_flow_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tasks".into(),
-                    value: &tasks_binding,
+                    value: tasks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerConfig".into(),
-                    value: &trigger_config_binding,
+                    value: trigger_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FlowResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            destination_flow_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationFlowConfigs"),
-            ),
-            flow_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("flowStatus"),
-            ),
-            kms_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsArn"),
-            ),
-            metadata_catalog_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadataCatalogConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            source_flow_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceFlowConfig"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tasks: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tasks")),
-            trigger_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggerConfig"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            destination_flow_configs: o.get_field("destinationFlowConfigs"),
+            flow_status: o.get_field("flowStatus"),
+            kms_arn: o.get_field("kmsArn"),
+            metadata_catalog_config: o.get_field("metadataCatalogConfig"),
+            name: o.get_field("name"),
+            source_flow_config: o.get_field("sourceFlowConfig"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tasks: o.get_field("tasks"),
+            trigger_config: o.get_field("triggerConfig"),
         }
     }
 }

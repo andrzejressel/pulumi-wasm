@@ -80,71 +80,58 @@ pub mod web_analytics_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WebAnalyticsRuleArgs,
     ) -> WebAnalyticsRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let host_binding_1 = args.host.get_output(context);
-        let host_binding = host_binding_1.get_inner();
-        let inclusive_binding_1 = args.inclusive.get_output(context);
-        let inclusive_binding = inclusive_binding_1.get_inner();
-        let is_paused_binding_1 = args.is_paused.get_output(context);
-        let is_paused_binding = is_paused_binding_1.get_inner();
-        let paths_binding_1 = args.paths.get_output(context);
-        let paths_binding = paths_binding_1.get_inner();
-        let ruleset_id_binding_1 = args.ruleset_id.get_output(context);
-        let ruleset_id_binding = ruleset_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let host_binding = args.host.get_output(context);
+        let inclusive_binding = args.inclusive.get_output(context);
+        let is_paused_binding = args.is_paused.get_output(context);
+        let paths_binding = args.paths.get_output(context);
+        let ruleset_id_binding = args.ruleset_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/webAnalyticsRule:WebAnalyticsRule".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: &host_binding,
+                    value: host_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inclusive".into(),
-                    value: &inclusive_binding,
+                    value: inclusive_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isPaused".into(),
-                    value: &is_paused_binding,
+                    value: is_paused_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "paths".into(),
-                    value: &paths_binding,
+                    value: paths_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rulesetId".into(),
-                    value: &ruleset_id_binding,
+                    value: ruleset_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WebAnalyticsRuleResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
-            inclusive: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inclusive"),
-            ),
-            is_paused: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isPaused"),
-            ),
-            paths: pulumi_gestalt_rust::__private::into_domain(o.extract_field("paths")),
-            ruleset_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rulesetId"),
-            ),
+            account_id: o.get_field("accountId"),
+            host: o.get_field("host"),
+            inclusive: o.get_field("inclusive"),
+            is_paused: o.get_field("isPaused"),
+            paths: o.get_field("paths"),
+            ruleset_id: o.get_field("rulesetId"),
         }
     }
 }

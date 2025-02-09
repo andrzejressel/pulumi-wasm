@@ -29,35 +29,31 @@ pub mod get_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetGroupArgs,
     ) -> GetGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_name_binding_1 = args.group_name.get_output(context);
-        let group_name_binding = group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let group_name_binding = args.group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:iam/getGroup:getGroup".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupName".into(),
-                    value: &group_name_binding,
+                    value: group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetGroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupId"),
-            ),
-            group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            users: pulumi_gestalt_rust::__private::into_domain(o.extract_field("users")),
+            arn: o.get_field("arn"),
+            group_id: o.get_field("groupId"),
+            group_name: o.get_field("groupName"),
+            id: o.get_field("id"),
+            path: o.get_field("path"),
+            users: o.get_field("users"),
         }
     }
 }

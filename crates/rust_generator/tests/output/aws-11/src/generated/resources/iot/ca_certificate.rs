@@ -135,101 +135,73 @@ pub mod ca_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CaCertificateArgs,
     ) -> CaCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_binding_1 = args.active.get_output(context);
-        let active_binding = active_binding_1.get_inner();
-        let allow_auto_registration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let active_binding = args.active.get_output(context);
+        let allow_auto_registration_binding = args
             .allow_auto_registration
             .get_output(context);
-        let allow_auto_registration_binding = allow_auto_registration_binding_1
-            .get_inner();
-        let ca_certificate_pem_binding_1 = args.ca_certificate_pem.get_output(context);
-        let ca_certificate_pem_binding = ca_certificate_pem_binding_1.get_inner();
-        let certificate_mode_binding_1 = args.certificate_mode.get_output(context);
-        let certificate_mode_binding = certificate_mode_binding_1.get_inner();
-        let registration_config_binding_1 = args.registration_config.get_output(context);
-        let registration_config_binding = registration_config_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let verification_certificate_pem_binding_1 = args
+        let ca_certificate_pem_binding = args.ca_certificate_pem.get_output(context);
+        let certificate_mode_binding = args.certificate_mode.get_output(context);
+        let registration_config_binding = args.registration_config.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let verification_certificate_pem_binding = args
             .verification_certificate_pem
             .get_output(context);
-        let verification_certificate_pem_binding = verification_certificate_pem_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iot/caCertificate:CaCertificate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "active".into(),
-                    value: &active_binding,
+                    value: active_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowAutoRegistration".into(),
-                    value: &allow_auto_registration_binding,
+                    value: allow_auto_registration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caCertificatePem".into(),
-                    value: &ca_certificate_pem_binding,
+                    value: ca_certificate_pem_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateMode".into(),
-                    value: &certificate_mode_binding,
+                    value: certificate_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registrationConfig".into(),
-                    value: &registration_config_binding,
+                    value: registration_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verificationCertificatePem".into(),
-                    value: &verification_certificate_pem_binding,
+                    value: verification_certificate_pem_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CaCertificateResult {
-            active: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("active"),
-            ),
-            allow_auto_registration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowAutoRegistration"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            ca_certificate_pem: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("caCertificatePem"),
-            ),
-            certificate_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateMode"),
-            ),
-            customer_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerVersion"),
-            ),
-            generation_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("generationId"),
-            ),
-            registration_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registrationConfig"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            validities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validities"),
-            ),
-            verification_certificate_pem: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verificationCertificatePem"),
-            ),
+            active: o.get_field("active"),
+            allow_auto_registration: o.get_field("allowAutoRegistration"),
+            arn: o.get_field("arn"),
+            ca_certificate_pem: o.get_field("caCertificatePem"),
+            certificate_mode: o.get_field("certificateMode"),
+            customer_version: o.get_field("customerVersion"),
+            generation_id: o.get_field("generationId"),
+            registration_config: o.get_field("registrationConfig"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            validities: o.get_field("validities"),
+            verification_certificate_pem: o.get_field("verificationCertificatePem"),
         }
     }
 }

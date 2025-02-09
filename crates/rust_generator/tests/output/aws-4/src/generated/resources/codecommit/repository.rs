@@ -102,77 +102,57 @@ pub mod repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RepositoryArgs,
     ) -> RepositoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_branch_binding_1 = args.default_branch.get_output(context);
-        let default_branch_binding = default_branch_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let repository_name_binding_1 = args.repository_name.get_output(context);
-        let repository_name_binding = repository_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let default_branch_binding = args.default_branch.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let repository_name_binding = args.repository_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:codecommit/repository:Repository".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultBranch".into(),
-                    value: &default_branch_binding,
+                    value: default_branch_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryName".into(),
-                    value: &repository_name_binding,
+                    value: repository_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RepositoryResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            clone_url_http: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloneUrlHttp"),
-            ),
-            clone_url_ssh: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloneUrlSsh"),
-            ),
-            default_branch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultBranch"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            repository_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryId"),
-            ),
-            repository_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            clone_url_http: o.get_field("cloneUrlHttp"),
+            clone_url_ssh: o.get_field("cloneUrlSsh"),
+            default_branch: o.get_field("defaultBranch"),
+            description: o.get_field("description"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            repository_id: o.get_field("repositoryId"),
+            repository_name: o.get_field("repositoryName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

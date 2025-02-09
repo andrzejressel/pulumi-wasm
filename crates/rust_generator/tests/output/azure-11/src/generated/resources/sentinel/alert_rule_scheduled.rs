@@ -238,241 +238,170 @@ pub mod alert_rule_scheduled {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AlertRuleScheduledArgs,
     ) -> AlertRuleScheduledResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alert_details_overrides_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alert_details_overrides_binding = args
             .alert_details_overrides
             .get_output(context);
-        let alert_details_overrides_binding = alert_details_overrides_binding_1
-            .get_inner();
-        let alert_rule_template_guid_binding_1 = args
+        let alert_rule_template_guid_binding = args
             .alert_rule_template_guid
             .get_output(context);
-        let alert_rule_template_guid_binding = alert_rule_template_guid_binding_1
-            .get_inner();
-        let alert_rule_template_version_binding_1 = args
+        let alert_rule_template_version_binding = args
             .alert_rule_template_version
             .get_output(context);
-        let alert_rule_template_version_binding = alert_rule_template_version_binding_1
-            .get_inner();
-        let custom_details_binding_1 = args.custom_details.get_output(context);
-        let custom_details_binding = custom_details_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let entity_mappings_binding_1 = args.entity_mappings.get_output(context);
-        let entity_mappings_binding = entity_mappings_binding_1.get_inner();
-        let event_grouping_binding_1 = args.event_grouping.get_output(context);
-        let event_grouping_binding = event_grouping_binding_1.get_inner();
-        let incident_binding_1 = args.incident.get_output(context);
-        let incident_binding = incident_binding_1.get_inner();
-        let log_analytics_workspace_id_binding_1 = args
+        let custom_details_binding = args.custom_details.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let entity_mappings_binding = args.entity_mappings.get_output(context);
+        let event_grouping_binding = args.event_grouping.get_output(context);
+        let incident_binding = args.incident.get_output(context);
+        let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
             .get_output(context);
-        let log_analytics_workspace_id_binding = log_analytics_workspace_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let query_binding_1 = args.query.get_output(context);
-        let query_binding = query_binding_1.get_inner();
-        let query_frequency_binding_1 = args.query_frequency.get_output(context);
-        let query_frequency_binding = query_frequency_binding_1.get_inner();
-        let query_period_binding_1 = args.query_period.get_output(context);
-        let query_period_binding = query_period_binding_1.get_inner();
-        let sentinel_entity_mappings_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let query_binding = args.query.get_output(context);
+        let query_frequency_binding = args.query_frequency.get_output(context);
+        let query_period_binding = args.query_period.get_output(context);
+        let sentinel_entity_mappings_binding = args
             .sentinel_entity_mappings
             .get_output(context);
-        let sentinel_entity_mappings_binding = sentinel_entity_mappings_binding_1
-            .get_inner();
-        let severity_binding_1 = args.severity.get_output(context);
-        let severity_binding = severity_binding_1.get_inner();
-        let suppression_duration_binding_1 = args
-            .suppression_duration
-            .get_output(context);
-        let suppression_duration_binding = suppression_duration_binding_1.get_inner();
-        let suppression_enabled_binding_1 = args.suppression_enabled.get_output(context);
-        let suppression_enabled_binding = suppression_enabled_binding_1.get_inner();
-        let tactics_binding_1 = args.tactics.get_output(context);
-        let tactics_binding = tactics_binding_1.get_inner();
-        let techniques_binding_1 = args.techniques.get_output(context);
-        let techniques_binding = techniques_binding_1.get_inner();
-        let trigger_operator_binding_1 = args.trigger_operator.get_output(context);
-        let trigger_operator_binding = trigger_operator_binding_1.get_inner();
-        let trigger_threshold_binding_1 = args.trigger_threshold.get_output(context);
-        let trigger_threshold_binding = trigger_threshold_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let severity_binding = args.severity.get_output(context);
+        let suppression_duration_binding = args.suppression_duration.get_output(context);
+        let suppression_enabled_binding = args.suppression_enabled.get_output(context);
+        let tactics_binding = args.tactics.get_output(context);
+        let techniques_binding = args.techniques.get_output(context);
+        let trigger_operator_binding = args.trigger_operator.get_output(context);
+        let trigger_threshold_binding = args.trigger_threshold.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:sentinel/alertRuleScheduled:AlertRuleScheduled".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertDetailsOverrides".into(),
-                    value: &alert_details_overrides_binding,
+                    value: alert_details_overrides_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertRuleTemplateGuid".into(),
-                    value: &alert_rule_template_guid_binding,
+                    value: alert_rule_template_guid_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertRuleTemplateVersion".into(),
-                    value: &alert_rule_template_version_binding,
+                    value: alert_rule_template_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDetails".into(),
-                    value: &custom_details_binding,
+                    value: custom_details_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entityMappings".into(),
-                    value: &entity_mappings_binding,
+                    value: entity_mappings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventGrouping".into(),
-                    value: &event_grouping_binding,
+                    value: event_grouping_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "incident".into(),
-                    value: &incident_binding,
+                    value: incident_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: &log_analytics_workspace_id_binding,
+                    value: log_analytics_workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "query".into(),
-                    value: &query_binding,
+                    value: query_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryFrequency".into(),
-                    value: &query_frequency_binding,
+                    value: query_frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryPeriod".into(),
-                    value: &query_period_binding,
+                    value: query_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sentinelEntityMappings".into(),
-                    value: &sentinel_entity_mappings_binding,
+                    value: sentinel_entity_mappings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "severity".into(),
-                    value: &severity_binding,
+                    value: severity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suppressionDuration".into(),
-                    value: &suppression_duration_binding,
+                    value: suppression_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suppressionEnabled".into(),
-                    value: &suppression_enabled_binding,
+                    value: suppression_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tactics".into(),
-                    value: &tactics_binding,
+                    value: tactics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "techniques".into(),
-                    value: &techniques_binding,
+                    value: techniques_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerOperator".into(),
-                    value: &trigger_operator_binding,
+                    value: trigger_operator_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerThreshold".into(),
-                    value: &trigger_threshold_binding,
+                    value: trigger_threshold_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AlertRuleScheduledResult {
-            alert_details_overrides: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alertDetailsOverrides"),
-            ),
-            alert_rule_template_guid: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alertRuleTemplateGuid"),
-            ),
-            alert_rule_template_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alertRuleTemplateVersion"),
-            ),
-            custom_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDetails"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            entity_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entityMappings"),
-            ),
-            event_grouping: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventGrouping"),
-            ),
-            incident: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("incident"),
-            ),
-            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logAnalyticsWorkspaceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            query: pulumi_gestalt_rust::__private::into_domain(o.extract_field("query")),
-            query_frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryFrequency"),
-            ),
-            query_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryPeriod"),
-            ),
-            sentinel_entity_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sentinelEntityMappings"),
-            ),
-            severity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("severity"),
-            ),
-            suppression_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("suppressionDuration"),
-            ),
-            suppression_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("suppressionEnabled"),
-            ),
-            tactics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tactics"),
-            ),
-            techniques: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("techniques"),
-            ),
-            trigger_operator: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggerOperator"),
-            ),
-            trigger_threshold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggerThreshold"),
-            ),
+            alert_details_overrides: o.get_field("alertDetailsOverrides"),
+            alert_rule_template_guid: o.get_field("alertRuleTemplateGuid"),
+            alert_rule_template_version: o.get_field("alertRuleTemplateVersion"),
+            custom_details: o.get_field("customDetails"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            enabled: o.get_field("enabled"),
+            entity_mappings: o.get_field("entityMappings"),
+            event_grouping: o.get_field("eventGrouping"),
+            incident: o.get_field("incident"),
+            log_analytics_workspace_id: o.get_field("logAnalyticsWorkspaceId"),
+            name: o.get_field("name"),
+            query: o.get_field("query"),
+            query_frequency: o.get_field("queryFrequency"),
+            query_period: o.get_field("queryPeriod"),
+            sentinel_entity_mappings: o.get_field("sentinelEntityMappings"),
+            severity: o.get_field("severity"),
+            suppression_duration: o.get_field("suppressionDuration"),
+            suppression_enabled: o.get_field("suppressionEnabled"),
+            tactics: o.get_field("tactics"),
+            techniques: o.get_field("techniques"),
+            trigger_operator: o.get_field("triggerOperator"),
+            trigger_threshold: o.get_field("triggerThreshold"),
         }
     }
 }

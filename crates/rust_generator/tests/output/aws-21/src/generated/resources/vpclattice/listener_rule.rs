@@ -134,87 +134,67 @@ pub mod listener_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ListenerRuleArgs,
     ) -> ListenerRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let listener_identifier_binding_1 = args.listener_identifier.get_output(context);
-        let listener_identifier_binding = listener_identifier_binding_1.get_inner();
-        let match__binding_1 = args.match_.get_output(context);
-        let match__binding = match__binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let service_identifier_binding_1 = args.service_identifier.get_output(context);
-        let service_identifier_binding = service_identifier_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let listener_identifier_binding = args.listener_identifier.get_output(context);
+        let match__binding = args.match_.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let service_identifier_binding = args.service_identifier.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:vpclattice/listenerRule:ListenerRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listenerIdentifier".into(),
-                    value: &listener_identifier_binding,
+                    value: listener_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "match".into(),
-                    value: &match__binding,
+                    value: match__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceIdentifier".into(),
-                    value: &service_identifier_binding,
+                    value: service_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ListenerRuleResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            listener_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listenerIdentifier"),
-            ),
-            match_: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("match"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            rule_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleId"),
-            ),
-            service_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceIdentifier"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            action: o.get_field("action"),
+            arn: o.get_field("arn"),
+            listener_identifier: o.get_field("listenerIdentifier"),
+            match_: o.get_field("match"),
+            name: o.get_field("name"),
+            priority: o.get_field("priority"),
+            rule_id: o.get_field("ruleId"),
+            service_identifier: o.get_field("serviceIdentifier"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

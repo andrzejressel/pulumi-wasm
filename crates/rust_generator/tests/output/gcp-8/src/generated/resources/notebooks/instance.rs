@@ -494,335 +494,230 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerator_config_binding_1 = args.accelerator_config.get_output(context);
-        let accelerator_config_binding = accelerator_config_binding_1.get_inner();
-        let boot_disk_size_gb_binding_1 = args.boot_disk_size_gb.get_output(context);
-        let boot_disk_size_gb_binding = boot_disk_size_gb_binding_1.get_inner();
-        let boot_disk_type_binding_1 = args.boot_disk_type.get_output(context);
-        let boot_disk_type_binding = boot_disk_type_binding_1.get_inner();
-        let container_image_binding_1 = args.container_image.get_output(context);
-        let container_image_binding = container_image_binding_1.get_inner();
-        let create_time_binding_1 = args.create_time.get_output(context);
-        let create_time_binding = create_time_binding_1.get_inner();
-        let custom_gpu_driver_path_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accelerator_config_binding = args.accelerator_config.get_output(context);
+        let boot_disk_size_gb_binding = args.boot_disk_size_gb.get_output(context);
+        let boot_disk_type_binding = args.boot_disk_type.get_output(context);
+        let container_image_binding = args.container_image.get_output(context);
+        let create_time_binding = args.create_time.get_output(context);
+        let custom_gpu_driver_path_binding = args
             .custom_gpu_driver_path
             .get_output(context);
-        let custom_gpu_driver_path_binding = custom_gpu_driver_path_binding_1
-            .get_inner();
-        let data_disk_size_gb_binding_1 = args.data_disk_size_gb.get_output(context);
-        let data_disk_size_gb_binding = data_disk_size_gb_binding_1.get_inner();
-        let data_disk_type_binding_1 = args.data_disk_type.get_output(context);
-        let data_disk_type_binding = data_disk_type_binding_1.get_inner();
-        let desired_state_binding_1 = args.desired_state.get_output(context);
-        let desired_state_binding = desired_state_binding_1.get_inner();
-        let disk_encryption_binding_1 = args.disk_encryption.get_output(context);
-        let disk_encryption_binding = disk_encryption_binding_1.get_inner();
-        let install_gpu_driver_binding_1 = args.install_gpu_driver.get_output(context);
-        let install_gpu_driver_binding = install_gpu_driver_binding_1.get_inner();
-        let instance_owners_binding_1 = args.instance_owners.get_output(context);
-        let instance_owners_binding = instance_owners_binding_1.get_inner();
-        let kms_key_binding_1 = args.kms_key.get_output(context);
-        let kms_key_binding = kms_key_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let machine_type_binding_1 = args.machine_type.get_output(context);
-        let machine_type_binding = machine_type_binding_1.get_inner();
-        let metadata_binding_1 = args.metadata.get_output(context);
-        let metadata_binding = metadata_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let nic_type_binding_1 = args.nic_type.get_output(context);
-        let nic_type_binding = nic_type_binding_1.get_inner();
-        let no_proxy_access_binding_1 = args.no_proxy_access.get_output(context);
-        let no_proxy_access_binding = no_proxy_access_binding_1.get_inner();
-        let no_public_ip_binding_1 = args.no_public_ip.get_output(context);
-        let no_public_ip_binding = no_public_ip_binding_1.get_inner();
-        let no_remove_data_disk_binding_1 = args.no_remove_data_disk.get_output(context);
-        let no_remove_data_disk_binding = no_remove_data_disk_binding_1.get_inner();
-        let post_startup_script_binding_1 = args.post_startup_script.get_output(context);
-        let post_startup_script_binding = post_startup_script_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let reservation_affinity_binding_1 = args
-            .reservation_affinity
-            .get_output(context);
-        let reservation_affinity_binding = reservation_affinity_binding_1.get_inner();
-        let service_account_binding_1 = args.service_account.get_output(context);
-        let service_account_binding = service_account_binding_1.get_inner();
-        let service_account_scopes_binding_1 = args
+        let data_disk_size_gb_binding = args.data_disk_size_gb.get_output(context);
+        let data_disk_type_binding = args.data_disk_type.get_output(context);
+        let desired_state_binding = args.desired_state.get_output(context);
+        let disk_encryption_binding = args.disk_encryption.get_output(context);
+        let install_gpu_driver_binding = args.install_gpu_driver.get_output(context);
+        let instance_owners_binding = args.instance_owners.get_output(context);
+        let kms_key_binding = args.kms_key.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let machine_type_binding = args.machine_type.get_output(context);
+        let metadata_binding = args.metadata.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let nic_type_binding = args.nic_type.get_output(context);
+        let no_proxy_access_binding = args.no_proxy_access.get_output(context);
+        let no_public_ip_binding = args.no_public_ip.get_output(context);
+        let no_remove_data_disk_binding = args.no_remove_data_disk.get_output(context);
+        let post_startup_script_binding = args.post_startup_script.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let reservation_affinity_binding = args.reservation_affinity.get_output(context);
+        let service_account_binding = args.service_account.get_output(context);
+        let service_account_scopes_binding = args
             .service_account_scopes
             .get_output(context);
-        let service_account_scopes_binding = service_account_scopes_binding_1
-            .get_inner();
-        let shielded_instance_config_binding_1 = args
+        let shielded_instance_config_binding = args
             .shielded_instance_config
             .get_output(context);
-        let shielded_instance_config_binding = shielded_instance_config_binding_1
-            .get_inner();
-        let subnet_binding_1 = args.subnet.get_output(context);
-        let subnet_binding = subnet_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let update_time_binding_1 = args.update_time.get_output(context);
-        let update_time_binding = update_time_binding_1.get_inner();
-        let vm_image_binding_1 = args.vm_image.get_output(context);
-        let vm_image_binding = vm_image_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let subnet_binding = args.subnet.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let update_time_binding = args.update_time.get_output(context);
+        let vm_image_binding = args.vm_image.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:notebooks/instance:Instance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceleratorConfig".into(),
-                    value: &accelerator_config_binding,
+                    value: accelerator_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bootDiskSizeGb".into(),
-                    value: &boot_disk_size_gb_binding,
+                    value: boot_disk_size_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bootDiskType".into(),
-                    value: &boot_disk_type_binding,
+                    value: boot_disk_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerImage".into(),
-                    value: &container_image_binding,
+                    value: container_image_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createTime".into(),
-                    value: &create_time_binding,
+                    value: create_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customGpuDriverPath".into(),
-                    value: &custom_gpu_driver_path_binding,
+                    value: custom_gpu_driver_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataDiskSizeGb".into(),
-                    value: &data_disk_size_gb_binding,
+                    value: data_disk_size_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataDiskType".into(),
-                    value: &data_disk_type_binding,
+                    value: data_disk_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredState".into(),
-                    value: &desired_state_binding,
+                    value: desired_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskEncryption".into(),
-                    value: &disk_encryption_binding,
+                    value: disk_encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "installGpuDriver".into(),
-                    value: &install_gpu_driver_binding,
+                    value: install_gpu_driver_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceOwners".into(),
-                    value: &instance_owners_binding,
+                    value: instance_owners_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKey".into(),
-                    value: &kms_key_binding,
+                    value: kms_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "machineType".into(),
-                    value: &machine_type_binding,
+                    value: machine_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: &metadata_binding,
+                    value: metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nicType".into(),
-                    value: &nic_type_binding,
+                    value: nic_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "noProxyAccess".into(),
-                    value: &no_proxy_access_binding,
+                    value: no_proxy_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "noPublicIp".into(),
-                    value: &no_public_ip_binding,
+                    value: no_public_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "noRemoveDataDisk".into(),
-                    value: &no_remove_data_disk_binding,
+                    value: no_remove_data_disk_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "postStartupScript".into(),
-                    value: &post_startup_script_binding,
+                    value: post_startup_script_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservationAffinity".into(),
-                    value: &reservation_affinity_binding,
+                    value: reservation_affinity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccount".into(),
-                    value: &service_account_binding,
+                    value: service_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountScopes".into(),
-                    value: &service_account_scopes_binding,
+                    value: service_account_scopes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shieldedInstanceConfig".into(),
-                    value: &shielded_instance_config_binding,
+                    value: shielded_instance_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnet".into(),
-                    value: &subnet_binding,
+                    value: subnet_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "updateTime".into(),
-                    value: &update_time_binding,
+                    value: update_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmImage".into(),
-                    value: &vm_image_binding,
+                    value: vm_image_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceResult {
-            accelerator_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceleratorConfig"),
-            ),
-            boot_disk_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootDiskSizeGb"),
-            ),
-            boot_disk_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootDiskType"),
-            ),
-            container_image: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerImage"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            custom_gpu_driver_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customGpuDriverPath"),
-            ),
-            data_disk_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataDiskSizeGb"),
-            ),
-            data_disk_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataDiskType"),
-            ),
-            desired_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredState"),
-            ),
-            disk_encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskEncryption"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            install_gpu_driver: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("installGpuDriver"),
-            ),
-            instance_owners: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceOwners"),
-            ),
-            kms_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKey"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            machine_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("machineType"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            nic_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nicType"),
-            ),
-            no_proxy_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("noProxyAccess"),
-            ),
-            no_public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("noPublicIp"),
-            ),
-            no_remove_data_disk: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("noRemoveDataDisk"),
-            ),
-            post_startup_script: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("postStartupScript"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            proxy_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proxyUri"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            reservation_affinity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservationAffinity"),
-            ),
-            service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccount"),
-            ),
-            service_account_scopes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountScopes"),
-            ),
-            shielded_instance_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shieldedInstanceConfig"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            subnet: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnet"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            vm_image: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmImage"),
-            ),
+            accelerator_config: o.get_field("acceleratorConfig"),
+            boot_disk_size_gb: o.get_field("bootDiskSizeGb"),
+            boot_disk_type: o.get_field("bootDiskType"),
+            container_image: o.get_field("containerImage"),
+            create_time: o.get_field("createTime"),
+            custom_gpu_driver_path: o.get_field("customGpuDriverPath"),
+            data_disk_size_gb: o.get_field("dataDiskSizeGb"),
+            data_disk_type: o.get_field("dataDiskType"),
+            desired_state: o.get_field("desiredState"),
+            disk_encryption: o.get_field("diskEncryption"),
+            effective_labels: o.get_field("effectiveLabels"),
+            install_gpu_driver: o.get_field("installGpuDriver"),
+            instance_owners: o.get_field("instanceOwners"),
+            kms_key: o.get_field("kmsKey"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            machine_type: o.get_field("machineType"),
+            metadata: o.get_field("metadata"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            nic_type: o.get_field("nicType"),
+            no_proxy_access: o.get_field("noProxyAccess"),
+            no_public_ip: o.get_field("noPublicIp"),
+            no_remove_data_disk: o.get_field("noRemoveDataDisk"),
+            post_startup_script: o.get_field("postStartupScript"),
+            project: o.get_field("project"),
+            proxy_uri: o.get_field("proxyUri"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            reservation_affinity: o.get_field("reservationAffinity"),
+            service_account: o.get_field("serviceAccount"),
+            service_account_scopes: o.get_field("serviceAccountScopes"),
+            shielded_instance_config: o.get_field("shieldedInstanceConfig"),
+            state: o.get_field("state"),
+            subnet: o.get_field("subnet"),
+            tags: o.get_field("tags"),
+            update_time: o.get_field("updateTime"),
+            vm_image: o.get_field("vmImage"),
         }
     }
 }

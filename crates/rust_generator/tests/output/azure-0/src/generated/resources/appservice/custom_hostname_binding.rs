@@ -100,69 +100,53 @@ pub mod custom_hostname_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomHostnameBindingArgs,
     ) -> CustomHostnameBindingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_service_name_binding_1 = args.app_service_name.get_output(context);
-        let app_service_name_binding = app_service_name_binding_1.get_inner();
-        let hostname_binding_1 = args.hostname.get_output(context);
-        let hostname_binding = hostname_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let ssl_state_binding_1 = args.ssl_state.get_output(context);
-        let ssl_state_binding = ssl_state_binding_1.get_inner();
-        let thumbprint_binding_1 = args.thumbprint.get_output(context);
-        let thumbprint_binding = thumbprint_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_service_name_binding = args.app_service_name.get_output(context);
+        let hostname_binding = args.hostname.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let ssl_state_binding = args.ssl_state.get_output(context);
+        let thumbprint_binding = args.thumbprint.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appservice/customHostnameBinding:CustomHostnameBinding".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServiceName".into(),
-                    value: &app_service_name_binding,
+                    value: app_service_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostname".into(),
-                    value: &hostname_binding,
+                    value: hostname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslState".into(),
-                    value: &ssl_state_binding,
+                    value: ssl_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thumbprint".into(),
-                    value: &thumbprint_binding,
+                    value: thumbprint_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomHostnameBindingResult {
-            app_service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appServiceName"),
-            ),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            ssl_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslState"),
-            ),
-            thumbprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thumbprint"),
-            ),
-            virtual_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualIp"),
-            ),
+            app_service_name: o.get_field("appServiceName"),
+            hostname: o.get_field("hostname"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            ssl_state: o.get_field("sslState"),
+            thumbprint: o.get_field("thumbprint"),
+            virtual_ip: o.get_field("virtualIp"),
         }
     }
 }

@@ -164,74 +164,59 @@ pub mod express_route_circuit_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ExpressRouteCircuitConnectionArgs,
     ) -> ExpressRouteCircuitConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_prefix_ipv4_binding_1 = args.address_prefix_ipv4.get_output(context);
-        let address_prefix_ipv4_binding = address_prefix_ipv4_binding_1.get_inner();
-        let address_prefix_ipv6_binding_1 = args.address_prefix_ipv6.get_output(context);
-        let address_prefix_ipv6_binding = address_prefix_ipv6_binding_1.get_inner();
-        let authorization_key_binding_1 = args.authorization_key.get_output(context);
-        let authorization_key_binding = authorization_key_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let peer_peering_id_binding_1 = args.peer_peering_id.get_output(context);
-        let peer_peering_id_binding = peer_peering_id_binding_1.get_inner();
-        let peering_id_binding_1 = args.peering_id.get_output(context);
-        let peering_id_binding = peering_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let address_prefix_ipv4_binding = args.address_prefix_ipv4.get_output(context);
+        let address_prefix_ipv6_binding = args.address_prefix_ipv6.get_output(context);
+        let authorization_key_binding = args.authorization_key.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let peer_peering_id_binding = args.peer_peering_id.get_output(context);
+        let peering_id_binding = args.peering_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressPrefixIpv4".into(),
-                    value: &address_prefix_ipv4_binding,
+                    value: address_prefix_ipv4_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressPrefixIpv6".into(),
-                    value: &address_prefix_ipv6_binding,
+                    value: address_prefix_ipv6_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationKey".into(),
-                    value: &authorization_key_binding,
+                    value: authorization_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerPeeringId".into(),
-                    value: &peer_peering_id_binding,
+                    value: peer_peering_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeringId".into(),
-                    value: &peering_id_binding,
+                    value: peering_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ExpressRouteCircuitConnectionResult {
-            address_prefix_ipv4: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addressPrefixIpv4"),
-            ),
-            address_prefix_ipv6: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addressPrefixIpv6"),
-            ),
-            authorization_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationKey"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            peer_peering_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerPeeringId"),
-            ),
-            peering_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peeringId"),
-            ),
+            address_prefix_ipv4: o.get_field("addressPrefixIpv4"),
+            address_prefix_ipv6: o.get_field("addressPrefixIpv6"),
+            authorization_key: o.get_field("authorizationKey"),
+            name: o.get_field("name"),
+            peer_peering_id: o.get_field("peerPeeringId"),
+            peering_id: o.get_field("peeringId"),
         }
     }
 }

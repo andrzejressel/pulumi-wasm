@@ -56,50 +56,40 @@ pub mod cluster_iam_roles {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterIamRolesArgs,
     ) -> ClusterIamRolesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
-        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
-        let default_iam_role_arn_binding_1 = args
-            .default_iam_role_arn
-            .get_output(context);
-        let default_iam_role_arn_binding = default_iam_role_arn_binding_1.get_inner();
-        let iam_role_arns_binding_1 = args.iam_role_arns.get_output(context);
-        let iam_role_arns_binding = iam_role_arns_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_identifier_binding = args.cluster_identifier.get_output(context);
+        let default_iam_role_arn_binding = args.default_iam_role_arn.get_output(context);
+        let iam_role_arns_binding = args.iam_role_arns.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshift/clusterIamRoles:ClusterIamRoles".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: &cluster_identifier_binding,
+                    value: cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultIamRoleArn".into(),
-                    value: &default_iam_role_arn_binding,
+                    value: default_iam_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArns".into(),
-                    value: &iam_role_arns_binding,
+                    value: iam_role_arns_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterIamRolesResult {
-            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterIdentifier"),
-            ),
-            default_iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultIamRoleArn"),
-            ),
-            iam_role_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoleArns"),
-            ),
+            cluster_identifier: o.get_field("clusterIdentifier"),
+            default_iam_role_arn: o.get_field("defaultIamRoleArn"),
+            iam_role_arns: o.get_field("iamRoleArns"),
         }
     }
 }

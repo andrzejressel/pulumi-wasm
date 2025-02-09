@@ -163,103 +163,77 @@ pub mod engine_model {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EngineModelArgs,
     ) -> EngineModelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_version_binding_1 = args.default_version.get_output(context);
-        let default_version_binding = default_version_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let online_prediction_console_logging_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let default_version_binding = args.default_version.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let online_prediction_console_logging_binding = args
             .online_prediction_console_logging
             .get_output(context);
-        let online_prediction_console_logging_binding = online_prediction_console_logging_binding_1
-            .get_inner();
-        let online_prediction_logging_binding_1 = args
+        let online_prediction_logging_binding = args
             .online_prediction_logging
             .get_output(context);
-        let online_prediction_logging_binding = online_prediction_logging_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let regions_binding_1 = args.regions.get_output(context);
-        let regions_binding = regions_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let project_binding = args.project.get_output(context);
+        let regions_binding = args.regions.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:ml/engineModel:EngineModel".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultVersion".into(),
-                    value: &default_version_binding,
+                    value: default_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onlinePredictionConsoleLogging".into(),
-                    value: &online_prediction_console_logging_binding,
+                    value: online_prediction_console_logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onlinePredictionLogging".into(),
-                    value: &online_prediction_logging_binding,
+                    value: online_prediction_logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regions".into(),
-                    value: &regions_binding,
+                    value: regions_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EngineModelResult {
-            default_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultVersion"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            online_prediction_console_logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("onlinePredictionConsoleLogging"),
-            ),
-            online_prediction_logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("onlinePredictionLogging"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regions"),
-            ),
+            default_version: o.get_field("defaultVersion"),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            online_prediction_console_logging: o
+                .get_field("onlinePredictionConsoleLogging"),
+            online_prediction_logging: o.get_field("onlinePredictionLogging"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            regions: o.get_field("regions"),
         }
     }
 }

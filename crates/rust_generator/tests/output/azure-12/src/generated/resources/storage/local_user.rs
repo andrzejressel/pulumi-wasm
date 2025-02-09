@@ -133,88 +133,66 @@ pub mod local_user {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LocalUserArgs,
     ) -> LocalUserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let home_directory_binding_1 = args.home_directory.get_output(context);
-        let home_directory_binding = home_directory_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let permission_scopes_binding_1 = args.permission_scopes.get_output(context);
-        let permission_scopes_binding = permission_scopes_binding_1.get_inner();
-        let ssh_authorized_keys_binding_1 = args.ssh_authorized_keys.get_output(context);
-        let ssh_authorized_keys_binding = ssh_authorized_keys_binding_1.get_inner();
-        let ssh_key_enabled_binding_1 = args.ssh_key_enabled.get_output(context);
-        let ssh_key_enabled_binding = ssh_key_enabled_binding_1.get_inner();
-        let ssh_password_enabled_binding_1 = args
-            .ssh_password_enabled
-            .get_output(context);
-        let ssh_password_enabled_binding = ssh_password_enabled_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let home_directory_binding = args.home_directory.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let permission_scopes_binding = args.permission_scopes.get_output(context);
+        let ssh_authorized_keys_binding = args.ssh_authorized_keys.get_output(context);
+        let ssh_key_enabled_binding = args.ssh_key_enabled.get_output(context);
+        let ssh_password_enabled_binding = args.ssh_password_enabled.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/localUser:LocalUser".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "homeDirectory".into(),
-                    value: &home_directory_binding,
+                    value: home_directory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionScopes".into(),
-                    value: &permission_scopes_binding,
+                    value: permission_scopes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshAuthorizedKeys".into(),
-                    value: &ssh_authorized_keys_binding,
+                    value: ssh_authorized_keys_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshKeyEnabled".into(),
-                    value: &ssh_key_enabled_binding,
+                    value: ssh_key_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshPasswordEnabled".into(),
-                    value: &ssh_password_enabled_binding,
+                    value: ssh_password_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LocalUserResult {
-            home_directory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("homeDirectory"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            permission_scopes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissionScopes"),
-            ),
-            sid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sid")),
-            ssh_authorized_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sshAuthorizedKeys"),
-            ),
-            ssh_key_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sshKeyEnabled"),
-            ),
-            ssh_password_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sshPasswordEnabled"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
+            home_directory: o.get_field("homeDirectory"),
+            name: o.get_field("name"),
+            password: o.get_field("password"),
+            permission_scopes: o.get_field("permissionScopes"),
+            sid: o.get_field("sid"),
+            ssh_authorized_keys: o.get_field("sshAuthorizedKeys"),
+            ssh_key_enabled: o.get_field("sshKeyEnabled"),
+            ssh_password_enabled: o.get_field("sshPasswordEnabled"),
+            storage_account_id: o.get_field("storageAccountId"),
         }
     }
 }

@@ -67,58 +67,47 @@ pub mod standards_control_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StandardsControlAssociationArgs,
     ) -> StandardsControlAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let association_status_binding_1 = args.association_status.get_output(context);
-        let association_status_binding = association_status_binding_1.get_inner();
-        let security_control_id_binding_1 = args.security_control_id.get_output(context);
-        let security_control_id_binding = security_control_id_binding_1.get_inner();
-        let standards_arn_binding_1 = args.standards_arn.get_output(context);
-        let standards_arn_binding = standards_arn_binding_1.get_inner();
-        let updated_reason_binding_1 = args.updated_reason.get_output(context);
-        let updated_reason_binding = updated_reason_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let association_status_binding = args.association_status.get_output(context);
+        let security_control_id_binding = args.security_control_id.get_output(context);
+        let standards_arn_binding = args.standards_arn.get_output(context);
+        let updated_reason_binding = args.updated_reason.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:securityhub/standardsControlAssociation:StandardsControlAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associationStatus".into(),
-                    value: &association_status_binding,
+                    value: association_status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityControlId".into(),
-                    value: &security_control_id_binding,
+                    value: security_control_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "standardsArn".into(),
-                    value: &standards_arn_binding,
+                    value: standards_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "updatedReason".into(),
-                    value: &updated_reason_binding,
+                    value: updated_reason_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StandardsControlAssociationResult {
-            association_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associationStatus"),
-            ),
-            security_control_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityControlId"),
-            ),
-            standards_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("standardsArn"),
-            ),
-            updated_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatedReason"),
-            ),
+            association_status: o.get_field("associationStatus"),
+            security_control_id: o.get_field("securityControlId"),
+            standards_arn: o.get_field("standardsArn"),
+            updated_reason: o.get_field("updatedReason"),
         }
     }
 }

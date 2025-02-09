@@ -114,115 +114,86 @@ pub mod provider {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProviderArgs,
     ) -> ProviderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let open_enclave_policy_base64_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let open_enclave_policy_base64_binding = args
             .open_enclave_policy_base64
             .get_output(context);
-        let open_enclave_policy_base64_binding = open_enclave_policy_base64_binding_1
-            .get_inner();
-        let policy_signing_certificate_data_binding_1 = args
+        let policy_signing_certificate_data_binding = args
             .policy_signing_certificate_data
             .get_output(context);
-        let policy_signing_certificate_data_binding = policy_signing_certificate_data_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sev_snp_policy_base64_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sev_snp_policy_base64_binding = args
             .sev_snp_policy_base64
             .get_output(context);
-        let sev_snp_policy_base64_binding = sev_snp_policy_base64_binding_1.get_inner();
-        let sgx_enclave_policy_base64_binding_1 = args
+        let sgx_enclave_policy_base64_binding = args
             .sgx_enclave_policy_base64
             .get_output(context);
-        let sgx_enclave_policy_base64_binding = sgx_enclave_policy_base64_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tpm_policy_base64_binding_1 = args.tpm_policy_base64.get_output(context);
-        let tpm_policy_base64_binding = tpm_policy_base64_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let tpm_policy_base64_binding = args.tpm_policy_base64.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:attestation/provider:Provider".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "openEnclavePolicyBase64".into(),
-                    value: &open_enclave_policy_base64_binding,
+                    value: open_enclave_policy_base64_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policySigningCertificateData".into(),
-                    value: &policy_signing_certificate_data_binding,
+                    value: policy_signing_certificate_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sevSnpPolicyBase64".into(),
-                    value: &sev_snp_policy_base64_binding,
+                    value: sev_snp_policy_base64_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sgxEnclavePolicyBase64".into(),
-                    value: &sgx_enclave_policy_base64_binding,
+                    value: sgx_enclave_policy_base64_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tpmPolicyBase64".into(),
-                    value: &tpm_policy_base64_binding,
+                    value: tpm_policy_base64_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProviderResult {
-            attestation_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attestationUri"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            open_enclave_policy_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("openEnclavePolicyBase64"),
-            ),
-            policy_signing_certificate_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policySigningCertificateData"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sev_snp_policy_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sevSnpPolicyBase64"),
-            ),
-            sgx_enclave_policy_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sgxEnclavePolicyBase64"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tpm_policy_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tpmPolicyBase64"),
-            ),
-            trust_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustModel"),
-            ),
+            attestation_uri: o.get_field("attestationUri"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            open_enclave_policy_base64: o.get_field("openEnclavePolicyBase64"),
+            policy_signing_certificate_data: o.get_field("policySigningCertificateData"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sev_snp_policy_base64: o.get_field("sevSnpPolicyBase64"),
+            sgx_enclave_policy_base64: o.get_field("sgxEnclavePolicyBase64"),
+            tags: o.get_field("tags"),
+            tpm_policy_base64: o.get_field("tpmPolicyBase64"),
+            trust_model: o.get_field("trustModel"),
         }
     }
 }

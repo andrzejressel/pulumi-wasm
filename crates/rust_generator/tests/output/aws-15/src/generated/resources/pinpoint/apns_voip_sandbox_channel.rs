@@ -113,105 +113,78 @@ pub mod apns_voip_sandbox_channel {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApnsVoipSandboxChannelArgs,
     ) -> ApnsVoipSandboxChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding_1 = args.application_id.get_output(context);
-        let application_id_binding = application_id_binding_1.get_inner();
-        let bundle_id_binding_1 = args.bundle_id.get_output(context);
-        let bundle_id_binding = bundle_id_binding_1.get_inner();
-        let certificate_binding_1 = args.certificate.get_output(context);
-        let certificate_binding = certificate_binding_1.get_inner();
-        let default_authentication_method_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_id_binding = args.application_id.get_output(context);
+        let bundle_id_binding = args.bundle_id.get_output(context);
+        let certificate_binding = args.certificate.get_output(context);
+        let default_authentication_method_binding = args
             .default_authentication_method
             .get_output(context);
-        let default_authentication_method_binding = default_authentication_method_binding_1
-            .get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let private_key_binding_1 = args.private_key.get_output(context);
-        let private_key_binding = private_key_binding_1.get_inner();
-        let team_id_binding_1 = args.team_id.get_output(context);
-        let team_id_binding = team_id_binding_1.get_inner();
-        let token_key_binding_1 = args.token_key.get_output(context);
-        let token_key_binding = token_key_binding_1.get_inner();
-        let token_key_id_binding_1 = args.token_key_id.get_output(context);
-        let token_key_id_binding = token_key_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let enabled_binding = args.enabled.get_output(context);
+        let private_key_binding = args.private_key.get_output(context);
+        let team_id_binding = args.team_id.get_output(context);
+        let token_key_binding = args.token_key.get_output(context);
+        let token_key_id_binding = args.token_key_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: &application_id_binding,
+                    value: application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bundleId".into(),
-                    value: &bundle_id_binding,
+                    value: bundle_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificate".into(),
-                    value: &certificate_binding,
+                    value: certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAuthenticationMethod".into(),
-                    value: &default_authentication_method_binding,
+                    value: default_authentication_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateKey".into(),
-                    value: &private_key_binding,
+                    value: private_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "teamId".into(),
-                    value: &team_id_binding,
+                    value: team_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenKey".into(),
-                    value: &token_key_binding,
+                    value: token_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenKeyId".into(),
-                    value: &token_key_id_binding,
+                    value: token_key_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApnsVoipSandboxChannelResult {
-            application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationId"),
-            ),
-            bundle_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bundleId"),
-            ),
-            certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificate"),
-            ),
-            default_authentication_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultAuthenticationMethod"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            private_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateKey"),
-            ),
-            team_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("teamId"),
-            ),
-            token_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tokenKey"),
-            ),
-            token_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tokenKeyId"),
-            ),
+            application_id: o.get_field("applicationId"),
+            bundle_id: o.get_field("bundleId"),
+            certificate: o.get_field("certificate"),
+            default_authentication_method: o.get_field("defaultAuthenticationMethod"),
+            enabled: o.get_field("enabled"),
+            private_key: o.get_field("privateKey"),
+            team_id: o.get_field("teamId"),
+            token_key: o.get_field("tokenKey"),
+            token_key_id: o.get_field("tokenKeyId"),
         }
     }
 }

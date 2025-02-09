@@ -132,58 +132,47 @@ pub mod object_replication {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ObjectReplicationArgs,
     ) -> ObjectReplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_storage_account_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let destination_storage_account_id_binding = args
             .destination_storage_account_id
             .get_output(context);
-        let destination_storage_account_id_binding = destination_storage_account_id_binding_1
-            .get_inner();
-        let rules_binding_1 = args.rules.get_output(context);
-        let rules_binding = rules_binding_1.get_inner();
-        let source_storage_account_id_binding_1 = args
+        let rules_binding = args.rules.get_output(context);
+        let source_storage_account_id_binding = args
             .source_storage_account_id
             .get_output(context);
-        let source_storage_account_id_binding = source_storage_account_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/objectReplication:ObjectReplication".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationStorageAccountId".into(),
-                    value: &destination_storage_account_id_binding,
+                    value: destination_storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: &rules_binding,
+                    value: rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceStorageAccountId".into(),
-                    value: &source_storage_account_id_binding,
+                    value: source_storage_account_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ObjectReplicationResult {
-            destination_object_replication_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationObjectReplicationId"),
-            ),
-            destination_storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationStorageAccountId"),
-            ),
-            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
-            source_object_replication_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceObjectReplicationId"),
-            ),
-            source_storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceStorageAccountId"),
-            ),
+            destination_object_replication_id: o
+                .get_field("destinationObjectReplicationId"),
+            destination_storage_account_id: o.get_field("destinationStorageAccountId"),
+            rules: o.get_field("rules"),
+            source_object_replication_id: o.get_field("sourceObjectReplicationId"),
+            source_storage_account_id: o.get_field("sourceStorageAccountId"),
         }
     }
 }

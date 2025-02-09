@@ -102,56 +102,47 @@ pub mod route_server_bgp_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RouteServerBgpConnectionArgs,
     ) -> RouteServerBgpConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let peer_asn_binding_1 = args.peer_asn.get_output(context);
-        let peer_asn_binding = peer_asn_binding_1.get_inner();
-        let peer_ip_binding_1 = args.peer_ip.get_output(context);
-        let peer_ip_binding = peer_ip_binding_1.get_inner();
-        let route_server_id_binding_1 = args.route_server_id.get_output(context);
-        let route_server_id_binding = route_server_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let peer_asn_binding = args.peer_asn.get_output(context);
+        let peer_ip_binding = args.peer_ip.get_output(context);
+        let route_server_id_binding = args.route_server_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/routeServerBgpConnection:RouteServerBgpConnection"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerAsn".into(),
-                    value: &peer_asn_binding,
+                    value: peer_asn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerIp".into(),
-                    value: &peer_ip_binding,
+                    value: peer_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeServerId".into(),
-                    value: &route_server_id_binding,
+                    value: route_server_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RouteServerBgpConnectionResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            peer_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerAsn"),
-            ),
-            peer_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerIp"),
-            ),
-            route_server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routeServerId"),
-            ),
+            name: o.get_field("name"),
+            peer_asn: o.get_field("peerAsn"),
+            peer_ip: o.get_field("peerIp"),
+            route_server_id: o.get_field("routeServerId"),
         }
     }
 }

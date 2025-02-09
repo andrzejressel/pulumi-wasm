@@ -71,63 +71,49 @@ pub mod permission {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PermissionArgs,
     ) -> PermissionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding_1 = args.actions.get_output(context);
-        let actions_binding = actions_binding_1.get_inner();
-        let certificate_authority_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let actions_binding = args.actions.get_output(context);
+        let certificate_authority_arn_binding = args
             .certificate_authority_arn
             .get_output(context);
-        let certificate_authority_arn_binding = certificate_authority_arn_binding_1
-            .get_inner();
-        let principal_binding_1 = args.principal.get_output(context);
-        let principal_binding = principal_binding_1.get_inner();
-        let source_account_binding_1 = args.source_account.get_output(context);
-        let source_account_binding = source_account_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let principal_binding = args.principal.get_output(context);
+        let source_account_binding = args.source_account.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:acmpca/permission:Permission".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actions".into(),
-                    value: &actions_binding,
+                    value: actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthorityArn".into(),
-                    value: &certificate_authority_arn_binding,
+                    value: certificate_authority_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: &principal_binding,
+                    value: principal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceAccount".into(),
-                    value: &source_account_binding,
+                    value: source_account_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PermissionResult {
-            actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actions"),
-            ),
-            certificate_authority_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateAuthorityArn"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principal"),
-            ),
-            source_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceAccount"),
-            ),
+            actions: o.get_field("actions"),
+            certificate_authority_arn: o.get_field("certificateAuthorityArn"),
+            policy: o.get_field("policy"),
+            principal: o.get_field("principal"),
+            source_account: o.get_field("sourceAccount"),
         }
     }
 }

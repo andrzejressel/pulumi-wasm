@@ -115,71 +115,55 @@ pub mod folder_notification_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FolderNotificationConfigArgs,
     ) -> FolderNotificationConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let config_id_binding_1 = args.config_id.get_output(context);
-        let config_id_binding = config_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let folder_binding_1 = args.folder.get_output(context);
-        let folder_binding = folder_binding_1.get_inner();
-        let pubsub_topic_binding_1 = args.pubsub_topic.get_output(context);
-        let pubsub_topic_binding = pubsub_topic_binding_1.get_inner();
-        let streaming_config_binding_1 = args.streaming_config.get_output(context);
-        let streaming_config_binding = streaming_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let config_id_binding = args.config_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let folder_binding = args.folder.get_output(context);
+        let pubsub_topic_binding = args.pubsub_topic.get_output(context);
+        let streaming_config_binding = args.streaming_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:securitycenter/folderNotificationConfig:FolderNotificationConfig"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configId".into(),
-                    value: &config_id_binding,
+                    value: config_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: &folder_binding,
+                    value: folder_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pubsubTopic".into(),
-                    value: &pubsub_topic_binding,
+                    value: pubsub_topic_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamingConfig".into(),
-                    value: &streaming_config_binding,
+                    value: streaming_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FolderNotificationConfigResult {
-            config_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            folder: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("folder"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pubsub_topic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pubsubTopic"),
-            ),
-            service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccount"),
-            ),
-            streaming_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamingConfig"),
-            ),
+            config_id: o.get_field("configId"),
+            description: o.get_field("description"),
+            folder: o.get_field("folder"),
+            name: o.get_field("name"),
+            pubsub_topic: o.get_field("pubsubTopic"),
+            service_account: o.get_field("serviceAccount"),
+            streaming_config: o.get_field("streamingConfig"),
         }
     }
 }

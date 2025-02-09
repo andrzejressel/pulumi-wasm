@@ -68,71 +68,41 @@ pub mod get_received_license {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetReceivedLicenseArgs,
     ) -> GetReceivedLicenseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let license_arn_binding_1 = args.license_arn.get_output(context);
-        let license_arn_binding = license_arn_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let license_arn_binding = args.license_arn.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:licensemanager/getReceivedLicense:getReceivedLicense".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseArn".into(),
-                    value: &license_arn_binding,
+                    value: license_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetReceivedLicenseResult {
-            beneficiary: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("beneficiary"),
-            ),
-            consumption_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consumptionConfigurations"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            entitlements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entitlements"),
-            ),
-            home_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("homeRegion"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            issuers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issuers"),
-            ),
-            license_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseArn"),
-            ),
-            license_metadatas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseMetadatas"),
-            ),
-            license_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseName"),
-            ),
-            product_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productName"),
-            ),
-            product_sku: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productSku"),
-            ),
-            received_metadatas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("receivedMetadatas"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            validities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validities"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            beneficiary: o.get_field("beneficiary"),
+            consumption_configurations: o.get_field("consumptionConfigurations"),
+            create_time: o.get_field("createTime"),
+            entitlements: o.get_field("entitlements"),
+            home_region: o.get_field("homeRegion"),
+            id: o.get_field("id"),
+            issuers: o.get_field("issuers"),
+            license_arn: o.get_field("licenseArn"),
+            license_metadatas: o.get_field("licenseMetadatas"),
+            license_name: o.get_field("licenseName"),
+            product_name: o.get_field("productName"),
+            product_sku: o.get_field("productSku"),
+            received_metadatas: o.get_field("receivedMetadatas"),
+            status: o.get_field("status"),
+            validities: o.get_field("validities"),
+            version: o.get_field("version"),
         }
     }
 }

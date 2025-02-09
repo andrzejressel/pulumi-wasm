@@ -160,93 +160,66 @@ pub mod namespace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NamespaceArgs,
     ) -> NamespaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let namespace_labels_binding_1 = args.namespace_labels.get_output(context);
-        let namespace_labels_binding = namespace_labels_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let scope_id_binding_1 = args.scope_id.get_output(context);
-        let scope_id_binding = scope_id_binding_1.get_inner();
-        let scope_namespace_id_binding_1 = args.scope_namespace_id.get_output(context);
-        let scope_namespace_id_binding = scope_namespace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let labels_binding = args.labels.get_output(context);
+        let namespace_labels_binding = args.namespace_labels.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let scope_id_binding = args.scope_id.get_output(context);
+        let scope_namespace_id_binding = args.scope_namespace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:gkehub/namespace:Namespace".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceLabels".into(),
-                    value: &namespace_labels_binding,
+                    value: namespace_labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopeId".into(),
-                    value: &scope_id_binding,
+                    value: scope_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopeNamespaceId".into(),
-                    value: &scope_namespace_id_binding,
+                    value: scope_namespace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NamespaceResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            delete_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteTime"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceLabels"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
-            scope_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopeId"),
-            ),
-            scope_namespace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopeNamespaceId"),
-            ),
-            states: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("states"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            create_time: o.get_field("createTime"),
+            delete_time: o.get_field("deleteTime"),
+            effective_labels: o.get_field("effectiveLabels"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            namespace_labels: o.get_field("namespaceLabels"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            scope: o.get_field("scope"),
+            scope_id: o.get_field("scopeId"),
+            scope_namespace_id: o.get_field("scopeNamespaceId"),
+            states: o.get_field("states"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

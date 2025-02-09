@@ -35,61 +35,46 @@ pub mod get_orderable_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetOrderableClusterArgs,
     ) -> GetOrderableClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_type_binding_1 = args.cluster_type.get_output(context);
-        let cluster_type_binding = cluster_type_binding_1.get_inner();
-        let cluster_version_binding_1 = args.cluster_version.get_output(context);
-        let cluster_version_binding = cluster_version_binding_1.get_inner();
-        let node_type_binding_1 = args.node_type.get_output(context);
-        let node_type_binding = node_type_binding_1.get_inner();
-        let preferred_node_types_binding_1 = args
-            .preferred_node_types
-            .get_output(context);
-        let preferred_node_types_binding = preferred_node_types_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_type_binding = args.cluster_type.get_output(context);
+        let cluster_version_binding = args.cluster_version.get_output(context);
+        let node_type_binding = args.node_type.get_output(context);
+        let preferred_node_types_binding = args.preferred_node_types.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:redshift/getOrderableCluster:getOrderableCluster".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterType".into(),
-                    value: &cluster_type_binding,
+                    value: cluster_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterVersion".into(),
-                    value: &cluster_version_binding,
+                    value: cluster_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeType".into(),
-                    value: &node_type_binding,
+                    value: node_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredNodeTypes".into(),
-                    value: &preferred_node_types_binding,
+                    value: preferred_node_types_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetOrderableClusterResult {
-            availability_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZones"),
-            ),
-            cluster_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterType"),
-            ),
-            cluster_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterVersion"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeType"),
-            ),
-            preferred_node_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredNodeTypes"),
-            ),
+            availability_zones: o.get_field("availabilityZones"),
+            cluster_type: o.get_field("clusterType"),
+            cluster_version: o.get_field("clusterVersion"),
+            id: o.get_field("id"),
+            node_type: o.get_field("nodeType"),
+            preferred_node_types: o.get_field("preferredNodeTypes"),
         }
     }
 }

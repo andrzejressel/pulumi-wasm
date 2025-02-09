@@ -120,93 +120,64 @@ pub mod table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TableArgs,
     ) -> TableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let format_binding_1 = args.format.get_output(context);
-        let format_binding = format_binding_1.get_inner();
-        let maintenance_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let format_binding = args.format.get_output(context);
+        let maintenance_configuration_binding = args
             .maintenance_configuration
             .get_output(context);
-        let maintenance_configuration_binding = maintenance_configuration_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let namespace_binding_1 = args.namespace.get_output(context);
-        let namespace_binding = namespace_binding_1.get_inner();
-        let table_bucket_arn_binding_1 = args.table_bucket_arn.get_output(context);
-        let table_bucket_arn_binding = table_bucket_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let namespace_binding = args.namespace.get_output(context);
+        let table_bucket_arn_binding = args.table_bucket_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:s3tables/table:Table".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "format".into(),
-                    value: &format_binding,
+                    value: format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceConfiguration".into(),
-                    value: &maintenance_configuration_binding,
+                    value: maintenance_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespace".into(),
-                    value: &namespace_binding,
+                    value: namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableBucketArn".into(),
-                    value: &table_bucket_arn_binding,
+                    value: table_bucket_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TableResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            created_by: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdBy"),
-            ),
-            format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("format"),
-            ),
-            maintenance_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceConfiguration"),
-            ),
-            metadata_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadataLocation"),
-            ),
-            modified_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modifiedAt"),
-            ),
-            modified_by: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modifiedBy"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespace"),
-            ),
-            owner_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerAccountId"),
-            ),
-            table_bucket_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableBucketArn"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            version_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionToken"),
-            ),
-            warehouse_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("warehouseLocation"),
-            ),
+            arn: o.get_field("arn"),
+            created_at: o.get_field("createdAt"),
+            created_by: o.get_field("createdBy"),
+            format: o.get_field("format"),
+            maintenance_configuration: o.get_field("maintenanceConfiguration"),
+            metadata_location: o.get_field("metadataLocation"),
+            modified_at: o.get_field("modifiedAt"),
+            modified_by: o.get_field("modifiedBy"),
+            name: o.get_field("name"),
+            namespace: o.get_field("namespace"),
+            owner_account_id: o.get_field("ownerAccountId"),
+            table_bucket_arn: o.get_field("tableBucketArn"),
+            type_: o.get_field("type"),
+            version_token: o.get_field("versionToken"),
+            warehouse_location: o.get_field("warehouseLocation"),
         }
     }
 }

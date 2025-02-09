@@ -139,67 +139,54 @@ pub mod hub {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HubArgs,
     ) -> HubResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let anonymous_connections_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let anonymous_connections_enabled_binding = args
             .anonymous_connections_enabled
             .get_output(context);
-        let anonymous_connections_enabled_binding = anonymous_connections_enabled_binding_1
-            .get_inner();
-        let event_handlers_binding_1 = args.event_handlers.get_output(context);
-        let event_handlers_binding = event_handlers_binding_1.get_inner();
-        let event_listeners_binding_1 = args.event_listeners.get_output(context);
-        let event_listeners_binding = event_listeners_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let web_pubsub_id_binding_1 = args.web_pubsub_id.get_output(context);
-        let web_pubsub_id_binding = web_pubsub_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let event_handlers_binding = args.event_handlers.get_output(context);
+        let event_listeners_binding = args.event_listeners.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let web_pubsub_id_binding = args.web_pubsub_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:webpubsub/hub:Hub".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "anonymousConnectionsEnabled".into(),
-                    value: &anonymous_connections_enabled_binding,
+                    value: anonymous_connections_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventHandlers".into(),
-                    value: &event_handlers_binding,
+                    value: event_handlers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventListeners".into(),
-                    value: &event_listeners_binding,
+                    value: event_listeners_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webPubsubId".into(),
-                    value: &web_pubsub_id_binding,
+                    value: web_pubsub_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HubResult {
-            anonymous_connections_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("anonymousConnectionsEnabled"),
-            ),
-            event_handlers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventHandlers"),
-            ),
-            event_listeners: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventListeners"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            web_pubsub_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webPubsubId"),
-            ),
+            anonymous_connections_enabled: o.get_field("anonymousConnectionsEnabled"),
+            event_handlers: o.get_field("eventHandlers"),
+            event_listeners: o.get_field("eventListeners"),
+            name: o.get_field("name"),
+            web_pubsub_id: o.get_field("webPubsubId"),
         }
     }
 }

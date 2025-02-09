@@ -90,99 +90,76 @@ pub mod deployment_strategy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DeploymentStrategyArgs,
     ) -> DeploymentStrategyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deployment_duration_in_minutes_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let deployment_duration_in_minutes_binding = args
             .deployment_duration_in_minutes
             .get_output(context);
-        let deployment_duration_in_minutes_binding = deployment_duration_in_minutes_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let final_bake_time_in_minutes_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let final_bake_time_in_minutes_binding = args
             .final_bake_time_in_minutes
             .get_output(context);
-        let final_bake_time_in_minutes_binding = final_bake_time_in_minutes_binding_1
-            .get_inner();
-        let growth_factor_binding_1 = args.growth_factor.get_output(context);
-        let growth_factor_binding = growth_factor_binding_1.get_inner();
-        let growth_type_binding_1 = args.growth_type.get_output(context);
-        let growth_type_binding = growth_type_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let replicate_to_binding_1 = args.replicate_to.get_output(context);
-        let replicate_to_binding = replicate_to_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let growth_factor_binding = args.growth_factor.get_output(context);
+        let growth_type_binding = args.growth_type.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let replicate_to_binding = args.replicate_to.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appconfig/deploymentStrategy:DeploymentStrategy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentDurationInMinutes".into(),
-                    value: &deployment_duration_in_minutes_binding,
+                    value: deployment_duration_in_minutes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "finalBakeTimeInMinutes".into(),
-                    value: &final_bake_time_in_minutes_binding,
+                    value: final_bake_time_in_minutes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "growthFactor".into(),
-                    value: &growth_factor_binding,
+                    value: growth_factor_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "growthType".into(),
-                    value: &growth_type_binding,
+                    value: growth_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicateTo".into(),
-                    value: &replicate_to_binding,
+                    value: replicate_to_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DeploymentStrategyResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            deployment_duration_in_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentDurationInMinutes"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            final_bake_time_in_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("finalBakeTimeInMinutes"),
-            ),
-            growth_factor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("growthFactor"),
-            ),
-            growth_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("growthType"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            replicate_to: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicateTo"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            deployment_duration_in_minutes: o.get_field("deploymentDurationInMinutes"),
+            description: o.get_field("description"),
+            final_bake_time_in_minutes: o.get_field("finalBakeTimeInMinutes"),
+            growth_factor: o.get_field("growthFactor"),
+            growth_type: o.get_field("growthType"),
+            name: o.get_field("name"),
+            replicate_to: o.get_field("replicateTo"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

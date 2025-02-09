@@ -108,87 +108,60 @@ pub mod reserved_cache_node {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ReservedCacheNodeArgs,
     ) -> ReservedCacheNodeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cache_node_count_binding_1 = args.cache_node_count.get_output(context);
-        let cache_node_count_binding = cache_node_count_binding_1.get_inner();
-        let reserved_cache_nodes_offering_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cache_node_count_binding = args.cache_node_count.get_output(context);
+        let reserved_cache_nodes_offering_id_binding = args
             .reserved_cache_nodes_offering_id
             .get_output(context);
-        let reserved_cache_nodes_offering_id_binding = reserved_cache_nodes_offering_id_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:elasticache/reservedCacheNode:ReservedCacheNode".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheNodeCount".into(),
-                    value: &cache_node_count_binding,
+                    value: cache_node_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservedCacheNodesOfferingId".into(),
-                    value: &reserved_cache_nodes_offering_id_binding,
+                    value: reserved_cache_nodes_offering_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ReservedCacheNodeResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cache_node_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheNodeCount"),
-            ),
-            cache_node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheNodeType"),
-            ),
-            duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("duration"),
-            ),
-            fixed_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fixedPrice"),
-            ),
-            offering_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("offeringType"),
-            ),
-            product_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productDescription"),
-            ),
-            recurring_charges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recurringCharges"),
-            ),
-            reserved_cache_nodes_offering_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservedCacheNodesOfferingId"),
-            ),
-            start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startTime"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            usage_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usagePrice"),
-            ),
+            arn: o.get_field("arn"),
+            cache_node_count: o.get_field("cacheNodeCount"),
+            cache_node_type: o.get_field("cacheNodeType"),
+            duration: o.get_field("duration"),
+            fixed_price: o.get_field("fixedPrice"),
+            offering_type: o.get_field("offeringType"),
+            product_description: o.get_field("productDescription"),
+            recurring_charges: o.get_field("recurringCharges"),
+            reserved_cache_nodes_offering_id: o
+                .get_field("reservedCacheNodesOfferingId"),
+            start_time: o.get_field("startTime"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
+            usage_price: o.get_field("usagePrice"),
         }
     }
 }

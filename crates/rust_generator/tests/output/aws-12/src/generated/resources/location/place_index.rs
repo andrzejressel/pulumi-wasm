@@ -86,79 +86,58 @@ pub mod place_index {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PlaceIndexArgs,
     ) -> PlaceIndexResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_source_binding_1 = args.data_source.get_output(context);
-        let data_source_binding = data_source_binding_1.get_inner();
-        let data_source_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_source_binding = args.data_source.get_output(context);
+        let data_source_configuration_binding = args
             .data_source_configuration
             .get_output(context);
-        let data_source_configuration_binding = data_source_configuration_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let index_name_binding_1 = args.index_name.get_output(context);
-        let index_name_binding = index_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let index_name_binding = args.index_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:location/placeIndex:PlaceIndex".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSource".into(),
-                    value: &data_source_binding,
+                    value: data_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSourceConfiguration".into(),
-                    value: &data_source_configuration_binding,
+                    value: data_source_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexName".into(),
-                    value: &index_name_binding,
+                    value: index_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PlaceIndexResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            data_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSource"),
-            ),
-            data_source_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSourceConfiguration"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            index_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("indexArn"),
-            ),
-            index_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("indexName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            create_time: o.get_field("createTime"),
+            data_source: o.get_field("dataSource"),
+            data_source_configuration: o.get_field("dataSourceConfiguration"),
+            description: o.get_field("description"),
+            index_arn: o.get_field("indexArn"),
+            index_name: o.get_field("indexName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

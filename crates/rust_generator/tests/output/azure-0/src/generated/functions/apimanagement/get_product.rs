@@ -41,66 +41,46 @@ pub mod get_product {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetProductArgs,
     ) -> GetProductResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding_1 = args.api_management_name.get_output(context);
-        let api_management_name_binding = api_management_name_binding_1.get_inner();
-        let product_id_binding_1 = args.product_id.get_output(context);
-        let product_id_binding = product_id_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_management_name_binding = args.api_management_name.get_output(context);
+        let product_id_binding = args.product_id.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:apimanagement/getProduct:getProduct".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: &api_management_name_binding,
+                    value: api_management_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productId".into(),
-                    value: &product_id_binding,
+                    value: product_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetProductResult {
-            api_management_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementName"),
-            ),
-            approval_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvalRequired"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            product_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productId"),
-            ),
-            published: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("published"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            subscription_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionRequired"),
-            ),
-            subscriptions_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionsLimit"),
-            ),
-            terms: pulumi_gestalt_rust::__private::into_domain(o.extract_field("terms")),
+            api_management_name: o.get_field("apiManagementName"),
+            approval_required: o.get_field("approvalRequired"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            id: o.get_field("id"),
+            product_id: o.get_field("productId"),
+            published: o.get_field("published"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            subscription_required: o.get_field("subscriptionRequired"),
+            subscriptions_limit: o.get_field("subscriptionsLimit"),
+            terms: o.get_field("terms"),
         }
     }
 }

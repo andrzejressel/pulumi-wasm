@@ -173,150 +173,77 @@ pub mod get_kubernetes_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetKubernetesClusterArgs,
     ) -> GetKubernetesClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:containerservice/getKubernetesCluster:getKubernetesCluster"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetKubernetesClusterResult {
-            aci_connector_linuxes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aciConnectorLinuxes"),
-            ),
-            agent_pool_profiles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentPoolProfiles"),
-            ),
-            api_server_authorized_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiServerAuthorizedIpRanges"),
-            ),
-            azure_active_directory_role_based_access_controls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureActiveDirectoryRoleBasedAccessControls"),
-            ),
-            azure_policy_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azurePolicyEnabled"),
-            ),
-            current_kubernetes_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("currentKubernetesVersion"),
-            ),
-            disk_encryption_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskEncryptionSetId"),
-            ),
-            dns_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsPrefix"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            http_application_routing_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpApplicationRoutingEnabled"),
-            ),
-            http_application_routing_zone_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpApplicationRoutingZoneName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            ingress_application_gateways: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingressApplicationGateways"),
-            ),
-            key_management_services: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyManagementServices"),
-            ),
-            key_vault_secrets_providers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultSecretsProviders"),
-            ),
-            kube_admin_config_raw: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubeAdminConfigRaw"),
-            ),
-            kube_admin_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubeAdminConfigs"),
-            ),
-            kube_config_raw: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubeConfigRaw"),
-            ),
-            kube_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubeConfigs"),
-            ),
-            kubelet_identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubeletIdentities"),
-            ),
-            kubernetes_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubernetesVersion"),
-            ),
-            linux_profiles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linuxProfiles"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            microsoft_defenders: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("microsoftDefenders"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_profiles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkProfiles"),
-            ),
-            node_resource_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeResourceGroup"),
-            ),
-            node_resource_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeResourceGroupId"),
-            ),
-            oidc_issuer_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("oidcIssuerEnabled"),
-            ),
-            oidc_issuer_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("oidcIssuerUrl"),
-            ),
-            oms_agents: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("omsAgents"),
-            ),
-            open_service_mesh_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("openServiceMeshEnabled"),
-            ),
-            private_cluster_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateClusterEnabled"),
-            ),
-            private_fqdn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateFqdn"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            role_based_access_control_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleBasedAccessControlEnabled"),
-            ),
-            service_mesh_profiles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceMeshProfiles"),
-            ),
-            service_principals: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicePrincipals"),
-            ),
-            storage_profiles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageProfiles"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            windows_profiles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("windowsProfiles"),
-            ),
+            aci_connector_linuxes: o.get_field("aciConnectorLinuxes"),
+            agent_pool_profiles: o.get_field("agentPoolProfiles"),
+            api_server_authorized_ip_ranges: o.get_field("apiServerAuthorizedIpRanges"),
+            azure_active_directory_role_based_access_controls: o
+                .get_field("azureActiveDirectoryRoleBasedAccessControls"),
+            azure_policy_enabled: o.get_field("azurePolicyEnabled"),
+            current_kubernetes_version: o.get_field("currentKubernetesVersion"),
+            disk_encryption_set_id: o.get_field("diskEncryptionSetId"),
+            dns_prefix: o.get_field("dnsPrefix"),
+            fqdn: o.get_field("fqdn"),
+            http_application_routing_enabled: o
+                .get_field("httpApplicationRoutingEnabled"),
+            http_application_routing_zone_name: o
+                .get_field("httpApplicationRoutingZoneName"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            ingress_application_gateways: o.get_field("ingressApplicationGateways"),
+            key_management_services: o.get_field("keyManagementServices"),
+            key_vault_secrets_providers: o.get_field("keyVaultSecretsProviders"),
+            kube_admin_config_raw: o.get_field("kubeAdminConfigRaw"),
+            kube_admin_configs: o.get_field("kubeAdminConfigs"),
+            kube_config_raw: o.get_field("kubeConfigRaw"),
+            kube_configs: o.get_field("kubeConfigs"),
+            kubelet_identities: o.get_field("kubeletIdentities"),
+            kubernetes_version: o.get_field("kubernetesVersion"),
+            linux_profiles: o.get_field("linuxProfiles"),
+            location: o.get_field("location"),
+            microsoft_defenders: o.get_field("microsoftDefenders"),
+            name: o.get_field("name"),
+            network_profiles: o.get_field("networkProfiles"),
+            node_resource_group: o.get_field("nodeResourceGroup"),
+            node_resource_group_id: o.get_field("nodeResourceGroupId"),
+            oidc_issuer_enabled: o.get_field("oidcIssuerEnabled"),
+            oidc_issuer_url: o.get_field("oidcIssuerUrl"),
+            oms_agents: o.get_field("omsAgents"),
+            open_service_mesh_enabled: o.get_field("openServiceMeshEnabled"),
+            private_cluster_enabled: o.get_field("privateClusterEnabled"),
+            private_fqdn: o.get_field("privateFqdn"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            role_based_access_control_enabled: o
+                .get_field("roleBasedAccessControlEnabled"),
+            service_mesh_profiles: o.get_field("serviceMeshProfiles"),
+            service_principals: o.get_field("servicePrincipals"),
+            storage_profiles: o.get_field("storageProfiles"),
+            tags: o.get_field("tags"),
+            windows_profiles: o.get_field("windowsProfiles"),
         }
     }
 }

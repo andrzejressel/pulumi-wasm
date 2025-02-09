@@ -82,64 +82,52 @@ pub mod iot_hub_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IotHubCertificateArgs,
     ) -> IotHubCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_content_binding_1 = args.certificate_content.get_output(context);
-        let certificate_content_binding = certificate_content_binding_1.get_inner();
-        let iot_dps_name_binding_1 = args.iot_dps_name.get_output(context);
-        let iot_dps_name_binding = iot_dps_name_binding_1.get_inner();
-        let is_verified_binding_1 = args.is_verified.get_output(context);
-        let is_verified_binding = is_verified_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_content_binding = args.certificate_content.get_output(context);
+        let iot_dps_name_binding = args.iot_dps_name.get_output(context);
+        let is_verified_binding = args.is_verified.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:iot/iotHubCertificate:IotHubCertificate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateContent".into(),
-                    value: &certificate_content_binding,
+                    value: certificate_content_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iotDpsName".into(),
-                    value: &iot_dps_name_binding,
+                    value: iot_dps_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isVerified".into(),
-                    value: &is_verified_binding,
+                    value: is_verified_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IotHubCertificateResult {
-            certificate_content: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateContent"),
-            ),
-            iot_dps_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iotDpsName"),
-            ),
-            is_verified: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isVerified"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            certificate_content: o.get_field("certificateContent"),
+            iot_dps_name: o.get_field("iotDpsName"),
+            is_verified: o.get_field("isVerified"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

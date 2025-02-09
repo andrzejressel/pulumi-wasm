@@ -162,130 +162,96 @@ pub mod endpoint_cosmosdb_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointCosmosdbAccountArgs,
     ) -> EndpointCosmosdbAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_type_binding_1 = args.authentication_type.get_output(context);
-        let authentication_type_binding = authentication_type_binding_1.get_inner();
-        let container_name_binding_1 = args.container_name.get_output(context);
-        let container_name_binding = container_name_binding_1.get_inner();
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let endpoint_uri_binding_1 = args.endpoint_uri.get_output(context);
-        let endpoint_uri_binding = endpoint_uri_binding_1.get_inner();
-        let identity_id_binding_1 = args.identity_id.get_output(context);
-        let identity_id_binding = identity_id_binding_1.get_inner();
-        let iothub_id_binding_1 = args.iothub_id.get_output(context);
-        let iothub_id_binding = iothub_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let partition_key_name_binding_1 = args.partition_key_name.get_output(context);
-        let partition_key_name_binding = partition_key_name_binding_1.get_inner();
-        let partition_key_template_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_type_binding = args.authentication_type.get_output(context);
+        let container_name_binding = args.container_name.get_output(context);
+        let database_name_binding = args.database_name.get_output(context);
+        let endpoint_uri_binding = args.endpoint_uri.get_output(context);
+        let identity_id_binding = args.identity_id.get_output(context);
+        let iothub_id_binding = args.iothub_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let partition_key_name_binding = args.partition_key_name.get_output(context);
+        let partition_key_template_binding = args
             .partition_key_template
             .get_output(context);
-        let partition_key_template_binding = partition_key_template_binding_1
-            .get_inner();
-        let primary_key_binding_1 = args.primary_key.get_output(context);
-        let primary_key_binding = primary_key_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let secondary_key_binding_1 = args.secondary_key.get_output(context);
-        let secondary_key_binding = secondary_key_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let primary_key_binding = args.primary_key.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let secondary_key_binding = args.secondary_key.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationType".into(),
-                    value: &authentication_type_binding,
+                    value: authentication_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerName".into(),
-                    value: &container_name_binding,
+                    value: container_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointUri".into(),
-                    value: &endpoint_uri_binding,
+                    value: endpoint_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityId".into(),
-                    value: &identity_id_binding,
+                    value: identity_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubId".into(),
-                    value: &iothub_id_binding,
+                    value: iothub_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKeyName".into(),
-                    value: &partition_key_name_binding,
+                    value: partition_key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKeyTemplate".into(),
-                    value: &partition_key_template_binding,
+                    value: partition_key_template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryKey".into(),
-                    value: &primary_key_binding,
+                    value: primary_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryKey".into(),
-                    value: &secondary_key_binding,
+                    value: secondary_key_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointCosmosdbAccountResult {
-            authentication_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationType"),
-            ),
-            container_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerName"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            endpoint_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointUri"),
-            ),
-            identity_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityId"),
-            ),
-            iothub_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iothubId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            partition_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionKeyName"),
-            ),
-            partition_key_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partitionKeyTemplate"),
-            ),
-            primary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryKey"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryKey"),
-            ),
+            authentication_type: o.get_field("authenticationType"),
+            container_name: o.get_field("containerName"),
+            database_name: o.get_field("databaseName"),
+            endpoint_uri: o.get_field("endpointUri"),
+            identity_id: o.get_field("identityId"),
+            iothub_id: o.get_field("iothubId"),
+            name: o.get_field("name"),
+            partition_key_name: o.get_field("partitionKeyName"),
+            partition_key_template: o.get_field("partitionKeyTemplate"),
+            primary_key: o.get_field("primaryKey"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_key: o.get_field("secondaryKey"),
         }
     }
 }

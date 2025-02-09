@@ -293,228 +293,161 @@ pub mod kafka_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KafkaClusterArgs,
     ) -> KafkaClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_version_binding_1 = args.cluster_version.get_output(context);
-        let cluster_version_binding = cluster_version_binding_1.get_inner();
-        let component_version_binding_1 = args.component_version.get_output(context);
-        let component_version_binding = component_version_binding_1.get_inner();
-        let compute_isolation_binding_1 = args.compute_isolation.get_output(context);
-        let compute_isolation_binding = compute_isolation_binding_1.get_inner();
-        let disk_encryptions_binding_1 = args.disk_encryptions.get_output(context);
-        let disk_encryptions_binding = disk_encryptions_binding_1.get_inner();
-        let encryption_in_transit_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_version_binding = args.cluster_version.get_output(context);
+        let component_version_binding = args.component_version.get_output(context);
+        let compute_isolation_binding = args.compute_isolation.get_output(context);
+        let disk_encryptions_binding = args.disk_encryptions.get_output(context);
+        let encryption_in_transit_enabled_binding = args
             .encryption_in_transit_enabled
             .get_output(context);
-        let encryption_in_transit_enabled_binding = encryption_in_transit_enabled_binding_1
-            .get_inner();
-        let extension_binding_1 = args.extension.get_output(context);
-        let extension_binding = extension_binding_1.get_inner();
-        let gateway_binding_1 = args.gateway.get_output(context);
-        let gateway_binding = gateway_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let metastores_binding_1 = args.metastores.get_output(context);
-        let metastores_binding = metastores_binding_1.get_inner();
-        let monitor_binding_1 = args.monitor.get_output(context);
-        let monitor_binding = monitor_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let private_link_configuration_binding_1 = args
+        let extension_binding = args.extension.get_output(context);
+        let gateway_binding = args.gateway.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let metastores_binding = args.metastores.get_output(context);
+        let monitor_binding = args.monitor.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let private_link_configuration_binding = args
             .private_link_configuration
             .get_output(context);
-        let private_link_configuration_binding = private_link_configuration_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let rest_proxy_binding_1 = args.rest_proxy.get_output(context);
-        let rest_proxy_binding = rest_proxy_binding_1.get_inner();
-        let roles_binding_1 = args.roles.get_output(context);
-        let roles_binding = roles_binding_1.get_inner();
-        let security_profile_binding_1 = args.security_profile.get_output(context);
-        let security_profile_binding = security_profile_binding_1.get_inner();
-        let storage_account_gen2_binding_1 = args
-            .storage_account_gen2
-            .get_output(context);
-        let storage_account_gen2_binding = storage_account_gen2_binding_1.get_inner();
-        let storage_accounts_binding_1 = args.storage_accounts.get_output(context);
-        let storage_accounts_binding = storage_accounts_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tier_binding_1 = args.tier.get_output(context);
-        let tier_binding = tier_binding_1.get_inner();
-        let tls_min_version_binding_1 = args.tls_min_version.get_output(context);
-        let tls_min_version_binding = tls_min_version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let rest_proxy_binding = args.rest_proxy.get_output(context);
+        let roles_binding = args.roles.get_output(context);
+        let security_profile_binding = args.security_profile.get_output(context);
+        let storage_account_gen2_binding = args.storage_account_gen2.get_output(context);
+        let storage_accounts_binding = args.storage_accounts.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tier_binding = args.tier.get_output(context);
+        let tls_min_version_binding = args.tls_min_version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:hdinsight/kafkaCluster:KafkaCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterVersion".into(),
-                    value: &cluster_version_binding,
+                    value: cluster_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "componentVersion".into(),
-                    value: &component_version_binding,
+                    value: component_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeIsolation".into(),
-                    value: &compute_isolation_binding,
+                    value: compute_isolation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskEncryptions".into(),
-                    value: &disk_encryptions_binding,
+                    value: disk_encryptions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionInTransitEnabled".into(),
-                    value: &encryption_in_transit_enabled_binding,
+                    value: encryption_in_transit_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extension".into(),
-                    value: &extension_binding,
+                    value: extension_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gateway".into(),
-                    value: &gateway_binding,
+                    value: gateway_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metastores".into(),
-                    value: &metastores_binding,
+                    value: metastores_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitor".into(),
-                    value: &monitor_binding,
+                    value: monitor_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkConfiguration".into(),
-                    value: &private_link_configuration_binding,
+                    value: private_link_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restProxy".into(),
-                    value: &rest_proxy_binding,
+                    value: rest_proxy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roles".into(),
-                    value: &roles_binding,
+                    value: roles_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityProfile".into(),
-                    value: &security_profile_binding,
+                    value: security_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountGen2".into(),
-                    value: &storage_account_gen2_binding,
+                    value: storage_account_gen2_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccounts".into(),
-                    value: &storage_accounts_binding,
+                    value: storage_accounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tier".into(),
-                    value: &tier_binding,
+                    value: tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsMinVersion".into(),
-                    value: &tls_min_version_binding,
+                    value: tls_min_version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KafkaClusterResult {
-            cluster_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterVersion"),
-            ),
-            component_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("componentVersion"),
-            ),
-            compute_isolation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeIsolation"),
-            ),
-            disk_encryptions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskEncryptions"),
-            ),
-            encryption_in_transit_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionInTransitEnabled"),
-            ),
-            extension: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extension"),
-            ),
-            gateway: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gateway"),
-            ),
-            https_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsEndpoint"),
-            ),
-            kafka_rest_proxy_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kafkaRestProxyEndpoint"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            metastores: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metastores"),
-            ),
-            monitor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitor"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            private_link_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateLinkConfiguration"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            rest_proxy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restProxy"),
-            ),
-            roles: pulumi_gestalt_rust::__private::into_domain(o.extract_field("roles")),
-            security_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityProfile"),
-            ),
-            ssh_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sshEndpoint"),
-            ),
-            storage_account_gen2: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountGen2"),
-            ),
-            storage_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccounts"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
-            tls_min_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsMinVersion"),
-            ),
+            cluster_version: o.get_field("clusterVersion"),
+            component_version: o.get_field("componentVersion"),
+            compute_isolation: o.get_field("computeIsolation"),
+            disk_encryptions: o.get_field("diskEncryptions"),
+            encryption_in_transit_enabled: o.get_field("encryptionInTransitEnabled"),
+            extension: o.get_field("extension"),
+            gateway: o.get_field("gateway"),
+            https_endpoint: o.get_field("httpsEndpoint"),
+            kafka_rest_proxy_endpoint: o.get_field("kafkaRestProxyEndpoint"),
+            location: o.get_field("location"),
+            metastores: o.get_field("metastores"),
+            monitor: o.get_field("monitor"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            private_link_configuration: o.get_field("privateLinkConfiguration"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            rest_proxy: o.get_field("restProxy"),
+            roles: o.get_field("roles"),
+            security_profile: o.get_field("securityProfile"),
+            ssh_endpoint: o.get_field("sshEndpoint"),
+            storage_account_gen2: o.get_field("storageAccountGen2"),
+            storage_accounts: o.get_field("storageAccounts"),
+            tags: o.get_field("tags"),
+            tier: o.get_field("tier"),
+            tls_min_version: o.get_field("tlsMinVersion"),
         }
     }
 }

@@ -48,67 +48,49 @@ pub mod get_soa_record {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSoaRecordArgs,
     ) -> GetSoaRecordResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let zone_name_binding_1 = args.zone_name.get_output(context);
-        let zone_name_binding = zone_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let zone_name_binding = args.zone_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:privatedns/getSoaRecord:getSoaRecord".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneName".into(),
-                    value: &zone_name_binding,
+                    value: zone_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSoaRecordResult {
-            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
-            expire_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expireTime"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            host_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            minimum_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumTtl"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            refresh_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("refreshTime"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            retry_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retryTime"),
-            ),
-            serial_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serialNumber"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
-            zone_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneName"),
-            ),
+            email: o.get_field("email"),
+            expire_time: o.get_field("expireTime"),
+            fqdn: o.get_field("fqdn"),
+            host_name: o.get_field("hostName"),
+            id: o.get_field("id"),
+            minimum_ttl: o.get_field("minimumTtl"),
+            name: o.get_field("name"),
+            refresh_time: o.get_field("refreshTime"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            retry_time: o.get_field("retryTime"),
+            serial_number: o.get_field("serialNumber"),
+            tags: o.get_field("tags"),
+            ttl: o.get_field("ttl"),
+            zone_name: o.get_field("zoneName"),
         }
     }
 }

@@ -99,93 +99,70 @@ pub mod space {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpaceArgs,
     ) -> SpaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_id_binding_1 = args.domain_id.get_output(context);
-        let domain_id_binding = domain_id_binding_1.get_inner();
-        let ownership_settings_binding_1 = args.ownership_settings.get_output(context);
-        let ownership_settings_binding = ownership_settings_binding_1.get_inner();
-        let space_display_name_binding_1 = args.space_display_name.get_output(context);
-        let space_display_name_binding = space_display_name_binding_1.get_inner();
-        let space_name_binding_1 = args.space_name.get_output(context);
-        let space_name_binding = space_name_binding_1.get_inner();
-        let space_settings_binding_1 = args.space_settings.get_output(context);
-        let space_settings_binding = space_settings_binding_1.get_inner();
-        let space_sharing_settings_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_id_binding = args.domain_id.get_output(context);
+        let ownership_settings_binding = args.ownership_settings.get_output(context);
+        let space_display_name_binding = args.space_display_name.get_output(context);
+        let space_name_binding = args.space_name.get_output(context);
+        let space_settings_binding = args.space_settings.get_output(context);
+        let space_sharing_settings_binding = args
             .space_sharing_settings
             .get_output(context);
-        let space_sharing_settings_binding = space_sharing_settings_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/space:Space".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainId".into(),
-                    value: &domain_id_binding,
+                    value: domain_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownershipSettings".into(),
-                    value: &ownership_settings_binding,
+                    value: ownership_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spaceDisplayName".into(),
-                    value: &space_display_name_binding,
+                    value: space_display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spaceName".into(),
-                    value: &space_name_binding,
+                    value: space_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spaceSettings".into(),
-                    value: &space_settings_binding,
+                    value: space_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spaceSharingSettings".into(),
-                    value: &space_sharing_settings_binding,
+                    value: space_sharing_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpaceResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            domain_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainId"),
-            ),
-            home_efs_file_system_uid: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("homeEfsFileSystemUid"),
-            ),
-            ownership_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownershipSettings"),
-            ),
-            space_display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spaceDisplayName"),
-            ),
-            space_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spaceName"),
-            ),
-            space_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spaceSettings"),
-            ),
-            space_sharing_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spaceSharingSettings"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            arn: o.get_field("arn"),
+            domain_id: o.get_field("domainId"),
+            home_efs_file_system_uid: o.get_field("homeEfsFileSystemUid"),
+            ownership_settings: o.get_field("ownershipSettings"),
+            space_display_name: o.get_field("spaceDisplayName"),
+            space_name: o.get_field("spaceName"),
+            space_settings: o.get_field("spaceSettings"),
+            space_sharing_settings: o.get_field("spaceSharingSettings"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            url: o.get_field("url"),
         }
     }
 }

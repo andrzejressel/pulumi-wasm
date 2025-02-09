@@ -178,75 +178,60 @@ pub mod contacts_rotation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ContactsRotationArgs,
     ) -> ContactsRotationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let contact_ids_binding_1 = args.contact_ids.get_output(context);
-        let contact_ids_binding = contact_ids_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let recurrence_binding_1 = args.recurrence.get_output(context);
-        let recurrence_binding = recurrence_binding_1.get_inner();
-        let start_time_binding_1 = args.start_time.get_output(context);
-        let start_time_binding = start_time_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let time_zone_id_binding_1 = args.time_zone_id.get_output(context);
-        let time_zone_id_binding = time_zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let contact_ids_binding = args.contact_ids.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let recurrence_binding = args.recurrence.get_output(context);
+        let start_time_binding = args.start_time.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let time_zone_id_binding = args.time_zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssm/contactsRotation:ContactsRotation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactIds".into(),
-                    value: &contact_ids_binding,
+                    value: contact_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recurrence".into(),
-                    value: &recurrence_binding,
+                    value: recurrence_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startTime".into(),
-                    value: &start_time_binding,
+                    value: start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZoneId".into(),
-                    value: &time_zone_id_binding,
+                    value: time_zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ContactsRotationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            contact_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contactIds"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            recurrence: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recurrence"),
-            ),
-            start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startTime"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            time_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeZoneId"),
-            ),
+            arn: o.get_field("arn"),
+            contact_ids: o.get_field("contactIds"),
+            name: o.get_field("name"),
+            recurrence: o.get_field("recurrence"),
+            start_time: o.get_field("startTime"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            time_zone_id: o.get_field("timeZoneId"),
         }
     }
 }

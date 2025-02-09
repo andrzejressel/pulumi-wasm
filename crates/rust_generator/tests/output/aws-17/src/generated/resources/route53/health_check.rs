@@ -226,217 +226,158 @@ pub mod health_check {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HealthCheckArgs,
     ) -> HealthCheckResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let child_health_threshold_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let child_health_threshold_binding = args
             .child_health_threshold
             .get_output(context);
-        let child_health_threshold_binding = child_health_threshold_binding_1
-            .get_inner();
-        let child_healthchecks_binding_1 = args.child_healthchecks.get_output(context);
-        let child_healthchecks_binding = child_healthchecks_binding_1.get_inner();
-        let cloudwatch_alarm_name_binding_1 = args
+        let child_healthchecks_binding = args.child_healthchecks.get_output(context);
+        let cloudwatch_alarm_name_binding = args
             .cloudwatch_alarm_name
             .get_output(context);
-        let cloudwatch_alarm_name_binding = cloudwatch_alarm_name_binding_1.get_inner();
-        let cloudwatch_alarm_region_binding_1 = args
+        let cloudwatch_alarm_region_binding = args
             .cloudwatch_alarm_region
             .get_output(context);
-        let cloudwatch_alarm_region_binding = cloudwatch_alarm_region_binding_1
-            .get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let enable_sni_binding_1 = args.enable_sni.get_output(context);
-        let enable_sni_binding = enable_sni_binding_1.get_inner();
-        let failure_threshold_binding_1 = args.failure_threshold.get_output(context);
-        let failure_threshold_binding = failure_threshold_binding_1.get_inner();
-        let fqdn_binding_1 = args.fqdn.get_output(context);
-        let fqdn_binding = fqdn_binding_1.get_inner();
-        let insufficient_data_health_status_binding_1 = args
+        let disabled_binding = args.disabled.get_output(context);
+        let enable_sni_binding = args.enable_sni.get_output(context);
+        let failure_threshold_binding = args.failure_threshold.get_output(context);
+        let fqdn_binding = args.fqdn.get_output(context);
+        let insufficient_data_health_status_binding = args
             .insufficient_data_health_status
             .get_output(context);
-        let insufficient_data_health_status_binding = insufficient_data_health_status_binding_1
-            .get_inner();
-        let invert_healthcheck_binding_1 = args.invert_healthcheck.get_output(context);
-        let invert_healthcheck_binding = invert_healthcheck_binding_1.get_inner();
-        let ip_address_binding_1 = args.ip_address.get_output(context);
-        let ip_address_binding = ip_address_binding_1.get_inner();
-        let measure_latency_binding_1 = args.measure_latency.get_output(context);
-        let measure_latency_binding = measure_latency_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let reference_name_binding_1 = args.reference_name.get_output(context);
-        let reference_name_binding = reference_name_binding_1.get_inner();
-        let regions_binding_1 = args.regions.get_output(context);
-        let regions_binding = regions_binding_1.get_inner();
-        let request_interval_binding_1 = args.request_interval.get_output(context);
-        let request_interval_binding = request_interval_binding_1.get_inner();
-        let resource_path_binding_1 = args.resource_path.get_output(context);
-        let resource_path_binding = resource_path_binding_1.get_inner();
-        let routing_control_arn_binding_1 = args.routing_control_arn.get_output(context);
-        let routing_control_arn_binding = routing_control_arn_binding_1.get_inner();
-        let search_string_binding_1 = args.search_string.get_output(context);
-        let search_string_binding = search_string_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let invert_healthcheck_binding = args.invert_healthcheck.get_output(context);
+        let ip_address_binding = args.ip_address.get_output(context);
+        let measure_latency_binding = args.measure_latency.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let reference_name_binding = args.reference_name.get_output(context);
+        let regions_binding = args.regions.get_output(context);
+        let request_interval_binding = args.request_interval.get_output(context);
+        let resource_path_binding = args.resource_path.get_output(context);
+        let routing_control_arn_binding = args.routing_control_arn.get_output(context);
+        let search_string_binding = args.search_string.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:route53/healthCheck:HealthCheck".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "childHealthThreshold".into(),
-                    value: &child_health_threshold_binding,
+                    value: child_health_threshold_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "childHealthchecks".into(),
-                    value: &child_healthchecks_binding,
+                    value: child_healthchecks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchAlarmName".into(),
-                    value: &cloudwatch_alarm_name_binding,
+                    value: cloudwatch_alarm_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchAlarmRegion".into(),
-                    value: &cloudwatch_alarm_region_binding,
+                    value: cloudwatch_alarm_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableSni".into(),
-                    value: &enable_sni_binding,
+                    value: enable_sni_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failureThreshold".into(),
-                    value: &failure_threshold_binding,
+                    value: failure_threshold_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fqdn".into(),
-                    value: &fqdn_binding,
+                    value: fqdn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insufficientDataHealthStatus".into(),
-                    value: &insufficient_data_health_status_binding,
+                    value: insufficient_data_health_status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "invertHealthcheck".into(),
-                    value: &invert_healthcheck_binding,
+                    value: invert_healthcheck_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: &ip_address_binding,
+                    value: ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "measureLatency".into(),
-                    value: &measure_latency_binding,
+                    value: measure_latency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "referenceName".into(),
-                    value: &reference_name_binding,
+                    value: reference_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regions".into(),
-                    value: &regions_binding,
+                    value: regions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestInterval".into(),
-                    value: &request_interval_binding,
+                    value: request_interval_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourcePath".into(),
-                    value: &resource_path_binding,
+                    value: resource_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingControlArn".into(),
-                    value: &routing_control_arn_binding,
+                    value: routing_control_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "searchString".into(),
-                    value: &search_string_binding,
+                    value: search_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HealthCheckResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            child_health_threshold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("childHealthThreshold"),
-            ),
-            child_healthchecks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("childHealthchecks"),
-            ),
-            cloudwatch_alarm_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudwatchAlarmName"),
-            ),
-            cloudwatch_alarm_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudwatchAlarmRegion"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            enable_sni: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableSni"),
-            ),
-            failure_threshold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failureThreshold"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            insufficient_data_health_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("insufficientDataHealthStatus"),
-            ),
-            invert_healthcheck: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invertHealthcheck"),
-            ),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            measure_latency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("measureLatency"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            reference_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("referenceName"),
-            ),
-            regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regions"),
-            ),
-            request_interval: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestInterval"),
-            ),
-            resource_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourcePath"),
-            ),
-            routing_control_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingControlArn"),
-            ),
-            search_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("searchString"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            arn: o.get_field("arn"),
+            child_health_threshold: o.get_field("childHealthThreshold"),
+            child_healthchecks: o.get_field("childHealthchecks"),
+            cloudwatch_alarm_name: o.get_field("cloudwatchAlarmName"),
+            cloudwatch_alarm_region: o.get_field("cloudwatchAlarmRegion"),
+            disabled: o.get_field("disabled"),
+            enable_sni: o.get_field("enableSni"),
+            failure_threshold: o.get_field("failureThreshold"),
+            fqdn: o.get_field("fqdn"),
+            insufficient_data_health_status: o.get_field("insufficientDataHealthStatus"),
+            invert_healthcheck: o.get_field("invertHealthcheck"),
+            ip_address: o.get_field("ipAddress"),
+            measure_latency: o.get_field("measureLatency"),
+            port: o.get_field("port"),
+            reference_name: o.get_field("referenceName"),
+            regions: o.get_field("regions"),
+            request_interval: o.get_field("requestInterval"),
+            resource_path: o.get_field("resourcePath"),
+            routing_control_arn: o.get_field("routingControlArn"),
+            search_string: o.get_field("searchString"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
         }
     }
 }

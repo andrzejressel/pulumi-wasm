@@ -81,96 +81,59 @@ pub mod get_user {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetUserArgs,
     ) -> GetUserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alternate_identifier_binding_1 = args
-            .alternate_identifier
-            .get_output(context);
-        let alternate_identifier_binding = alternate_identifier_binding_1.get_inner();
-        let filter_binding_1 = args.filter.get_output(context);
-        let filter_binding = filter_binding_1.get_inner();
-        let identity_store_id_binding_1 = args.identity_store_id.get_output(context);
-        let identity_store_id_binding = identity_store_id_binding_1.get_inner();
-        let user_id_binding_1 = args.user_id.get_output(context);
-        let user_id_binding = user_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alternate_identifier_binding = args.alternate_identifier.get_output(context);
+        let filter_binding = args.filter.get_output(context);
+        let identity_store_id_binding = args.identity_store_id.get_output(context);
+        let user_id_binding = args.user_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:identitystore/getUser:getUser".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alternateIdentifier".into(),
-                    value: &alternate_identifier_binding,
+                    value: alternate_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: &filter_binding,
+                    value: filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityStoreId".into(),
-                    value: &identity_store_id_binding,
+                    value: identity_store_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userId".into(),
-                    value: &user_id_binding,
+                    value: user_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetUserResult {
-            addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addresses"),
-            ),
-            alternate_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alternateIdentifier"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            emails: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emails"),
-            ),
-            external_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalIds"),
-            ),
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identity_store_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityStoreId"),
-            ),
-            locale: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locale"),
-            ),
-            names: pulumi_gestalt_rust::__private::into_domain(o.extract_field("names")),
-            nickname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nickname"),
-            ),
-            phone_numbers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("phoneNumbers"),
-            ),
-            preferred_language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredLanguage"),
-            ),
-            profile_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("profileUrl"),
-            ),
-            timezone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timezone"),
-            ),
-            title: pulumi_gestalt_rust::__private::into_domain(o.extract_field("title")),
-            user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userId"),
-            ),
-            user_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userName"),
-            ),
-            user_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userType"),
-            ),
+            addresses: o.get_field("addresses"),
+            alternate_identifier: o.get_field("alternateIdentifier"),
+            display_name: o.get_field("displayName"),
+            emails: o.get_field("emails"),
+            external_ids: o.get_field("externalIds"),
+            filter: o.get_field("filter"),
+            id: o.get_field("id"),
+            identity_store_id: o.get_field("identityStoreId"),
+            locale: o.get_field("locale"),
+            names: o.get_field("names"),
+            nickname: o.get_field("nickname"),
+            phone_numbers: o.get_field("phoneNumbers"),
+            preferred_language: o.get_field("preferredLanguage"),
+            profile_url: o.get_field("profileUrl"),
+            timezone: o.get_field("timezone"),
+            title: o.get_field("title"),
+            user_id: o.get_field("userId"),
+            user_name: o.get_field("userName"),
+            user_type: o.get_field("userType"),
         }
     }
 }

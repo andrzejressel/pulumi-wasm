@@ -79,77 +79,62 @@ pub mod event_api_destination {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EventApiDestinationArgs,
     ) -> EventApiDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_arn_binding_1 = args.connection_arn.get_output(context);
-        let connection_arn_binding = connection_arn_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let http_method_binding_1 = args.http_method.get_output(context);
-        let http_method_binding = http_method_binding_1.get_inner();
-        let invocation_endpoint_binding_1 = args.invocation_endpoint.get_output(context);
-        let invocation_endpoint_binding = invocation_endpoint_binding_1.get_inner();
-        let invocation_rate_limit_per_second_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let connection_arn_binding = args.connection_arn.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let http_method_binding = args.http_method.get_output(context);
+        let invocation_endpoint_binding = args.invocation_endpoint.get_output(context);
+        let invocation_rate_limit_per_second_binding = args
             .invocation_rate_limit_per_second
             .get_output(context);
-        let invocation_rate_limit_per_second_binding = invocation_rate_limit_per_second_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventApiDestination:EventApiDestination".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionArn".into(),
-                    value: &connection_arn_binding,
+                    value: connection_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpMethod".into(),
-                    value: &http_method_binding,
+                    value: http_method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "invocationEndpoint".into(),
-                    value: &invocation_endpoint_binding,
+                    value: invocation_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "invocationRateLimitPerSecond".into(),
-                    value: &invocation_rate_limit_per_second_binding,
+                    value: invocation_rate_limit_per_second_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EventApiDestinationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            connection_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionArn"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            http_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpMethod"),
-            ),
-            invocation_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invocationEndpoint"),
-            ),
-            invocation_rate_limit_per_second: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invocationRateLimitPerSecond"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            arn: o.get_field("arn"),
+            connection_arn: o.get_field("connectionArn"),
+            description: o.get_field("description"),
+            http_method: o.get_field("httpMethod"),
+            invocation_endpoint: o.get_field("invocationEndpoint"),
+            invocation_rate_limit_per_second: o
+                .get_field("invocationRateLimitPerSecond"),
+            name: o.get_field("name"),
         }
     }
 }

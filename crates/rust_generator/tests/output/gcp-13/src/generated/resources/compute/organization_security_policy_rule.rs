@@ -150,115 +150,85 @@ pub mod organization_security_policy_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OrganizationSecurityPolicyRuleArgs,
     ) -> OrganizationSecurityPolicyRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let direction_binding_1 = args.direction.get_output(context);
-        let direction_binding = direction_binding_1.get_inner();
-        let enable_logging_binding_1 = args.enable_logging.get_output(context);
-        let enable_logging_binding = enable_logging_binding_1.get_inner();
-        let match__binding_1 = args.match_.get_output(context);
-        let match__binding = match__binding_1.get_inner();
-        let policy_id_binding_1 = args.policy_id.get_output(context);
-        let policy_id_binding = policy_id_binding_1.get_inner();
-        let preview_binding_1 = args.preview.get_output(context);
-        let preview_binding = preview_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let target_resources_binding_1 = args.target_resources.get_output(context);
-        let target_resources_binding = target_resources_binding_1.get_inner();
-        let target_service_accounts_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let direction_binding = args.direction.get_output(context);
+        let enable_logging_binding = args.enable_logging.get_output(context);
+        let match__binding = args.match_.get_output(context);
+        let policy_id_binding = args.policy_id.get_output(context);
+        let preview_binding = args.preview.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let target_resources_binding = args.target_resources.get_output(context);
+        let target_service_accounts_binding = args
             .target_service_accounts
             .get_output(context);
-        let target_service_accounts_binding = target_service_accounts_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/organizationSecurityPolicyRule:OrganizationSecurityPolicyRule"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "direction".into(),
-                    value: &direction_binding,
+                    value: direction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableLogging".into(),
-                    value: &enable_logging_binding,
+                    value: enable_logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "match".into(),
-                    value: &match__binding,
+                    value: match__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyId".into(),
-                    value: &policy_id_binding,
+                    value: policy_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preview".into(),
-                    value: &preview_binding,
+                    value: preview_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResources".into(),
-                    value: &target_resources_binding,
+                    value: target_resources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetServiceAccounts".into(),
-                    value: &target_service_accounts_binding,
+                    value: target_service_accounts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OrganizationSecurityPolicyRuleResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            direction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("direction"),
-            ),
-            enable_logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableLogging"),
-            ),
-            match_: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("match"),
-            ),
-            policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyId"),
-            ),
-            preview: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preview"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            target_resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetResources"),
-            ),
-            target_service_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetServiceAccounts"),
-            ),
+            action: o.get_field("action"),
+            description: o.get_field("description"),
+            direction: o.get_field("direction"),
+            enable_logging: o.get_field("enableLogging"),
+            match_: o.get_field("match"),
+            policy_id: o.get_field("policyId"),
+            preview: o.get_field("preview"),
+            priority: o.get_field("priority"),
+            target_resources: o.get_field("targetResources"),
+            target_service_accounts: o.get_field("targetServiceAccounts"),
         }
     }
 }

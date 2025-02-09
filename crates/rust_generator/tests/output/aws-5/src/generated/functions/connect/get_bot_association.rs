@@ -27,38 +27,33 @@ pub mod get_bot_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBotAssociationArgs,
     ) -> GetBotAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let lex_bot_binding_1 = args.lex_bot.get_output(context);
-        let lex_bot_binding = lex_bot_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let instance_id_binding = args.instance_id.get_output(context);
+        let lex_bot_binding = args.lex_bot.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:connect/getBotAssociation:getBotAssociation".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lexBot".into(),
-                    value: &lex_bot_binding,
+                    value: lex_bot_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBotAssociationResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            lex_bot: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lexBot"),
-            ),
+            id: o.get_field("id"),
+            instance_id: o.get_field("instanceId"),
+            lex_bot: o.get_field("lexBot"),
         }
     }
 }

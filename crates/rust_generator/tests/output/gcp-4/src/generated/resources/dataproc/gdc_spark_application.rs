@@ -390,212 +390,140 @@ pub mod gdc_spark_application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GdcSparkApplicationArgs,
     ) -> GdcSparkApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let application_environment_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let annotations_binding = args.annotations.get_output(context);
+        let application_environment_binding = args
             .application_environment
             .get_output(context);
-        let application_environment_binding = application_environment_binding_1
-            .get_inner();
-        let dependency_images_binding_1 = args.dependency_images.get_output(context);
-        let dependency_images_binding = dependency_images_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let namespace_binding_1 = args.namespace.get_output(context);
-        let namespace_binding = namespace_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let properties_binding_1 = args.properties.get_output(context);
-        let properties_binding = properties_binding_1.get_inner();
-        let pyspark_application_config_binding_1 = args
+        let dependency_images_binding = args.dependency_images.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let namespace_binding = args.namespace.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let properties_binding = args.properties.get_output(context);
+        let pyspark_application_config_binding = args
             .pyspark_application_config
             .get_output(context);
-        let pyspark_application_config_binding = pyspark_application_config_binding_1
-            .get_inner();
-        let serviceinstance_binding_1 = args.serviceinstance.get_output(context);
-        let serviceinstance_binding = serviceinstance_binding_1.get_inner();
-        let spark_application_config_binding_1 = args
+        let serviceinstance_binding = args.serviceinstance.get_output(context);
+        let spark_application_config_binding = args
             .spark_application_config
             .get_output(context);
-        let spark_application_config_binding = spark_application_config_binding_1
-            .get_inner();
-        let spark_application_id_binding_1 = args
-            .spark_application_id
-            .get_output(context);
-        let spark_application_id_binding = spark_application_id_binding_1.get_inner();
-        let spark_r_application_config_binding_1 = args
+        let spark_application_id_binding = args.spark_application_id.get_output(context);
+        let spark_r_application_config_binding = args
             .spark_r_application_config
             .get_output(context);
-        let spark_r_application_config_binding = spark_r_application_config_binding_1
-            .get_inner();
-        let spark_sql_application_config_binding_1 = args
+        let spark_sql_application_config_binding = args
             .spark_sql_application_config
             .get_output(context);
-        let spark_sql_application_config_binding = spark_sql_application_config_binding_1
-            .get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dataproc/gdcSparkApplication:GdcSparkApplication".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationEnvironment".into(),
-                    value: &application_environment_binding,
+                    value: application_environment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dependencyImages".into(),
-                    value: &dependency_images_binding,
+                    value: dependency_images_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespace".into(),
-                    value: &namespace_binding,
+                    value: namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "properties".into(),
-                    value: &properties_binding,
+                    value: properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pysparkApplicationConfig".into(),
-                    value: &pyspark_application_config_binding,
+                    value: pyspark_application_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceinstance".into(),
-                    value: &serviceinstance_binding,
+                    value: serviceinstance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkApplicationConfig".into(),
-                    value: &spark_application_config_binding,
+                    value: spark_application_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkApplicationId".into(),
-                    value: &spark_application_id_binding,
+                    value: spark_application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkRApplicationConfig".into(),
-                    value: &spark_r_application_config_binding,
+                    value: spark_r_application_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkSqlApplicationConfig".into(),
-                    value: &spark_sql_application_config_binding,
+                    value: spark_sql_application_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GdcSparkApplicationResult {
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            application_environment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationEnvironment"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            dependency_images: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dependencyImages"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            monitoring_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoringEndpoint"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespace"),
-            ),
-            output_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputUri"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("properties"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            pyspark_application_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pysparkApplicationConfig"),
-            ),
-            reconciling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciling"),
-            ),
-            serviceinstance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceinstance"),
-            ),
-            spark_application_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparkApplicationConfig"),
-            ),
-            spark_application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparkApplicationId"),
-            ),
-            spark_r_application_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparkRApplicationConfig"),
-            ),
-            spark_sql_application_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sparkSqlApplicationConfig"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateMessage"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            annotations: o.get_field("annotations"),
+            application_environment: o.get_field("applicationEnvironment"),
+            create_time: o.get_field("createTime"),
+            dependency_images: o.get_field("dependencyImages"),
+            display_name: o.get_field("displayName"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            effective_labels: o.get_field("effectiveLabels"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            monitoring_endpoint: o.get_field("monitoringEndpoint"),
+            name: o.get_field("name"),
+            namespace: o.get_field("namespace"),
+            output_uri: o.get_field("outputUri"),
+            project: o.get_field("project"),
+            properties: o.get_field("properties"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            pyspark_application_config: o.get_field("pysparkApplicationConfig"),
+            reconciling: o.get_field("reconciling"),
+            serviceinstance: o.get_field("serviceinstance"),
+            spark_application_config: o.get_field("sparkApplicationConfig"),
+            spark_application_id: o.get_field("sparkApplicationId"),
+            spark_r_application_config: o.get_field("sparkRApplicationConfig"),
+            spark_sql_application_config: o.get_field("sparkSqlApplicationConfig"),
+            state: o.get_field("state"),
+            state_message: o.get_field("stateMessage"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
+            version: o.get_field("version"),
         }
     }
 }

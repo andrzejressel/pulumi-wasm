@@ -63,48 +63,40 @@ pub mod email_identity_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EmailIdentityPolicyArgs,
     ) -> EmailIdentityPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let email_identity_binding_1 = args.email_identity.get_output(context);
-        let email_identity_binding = email_identity_binding_1.get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let policy_name_binding_1 = args.policy_name.get_output(context);
-        let policy_name_binding = policy_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let email_identity_binding = args.email_identity.get_output(context);
+        let policy_binding = args.policy.get_output(context);
+        let policy_name_binding = args.policy_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailIdentity".into(),
-                    value: &email_identity_binding,
+                    value: email_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyName".into(),
-                    value: &policy_name_binding,
+                    value: policy_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EmailIdentityPolicyResult {
-            email_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailIdentity"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            policy_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyName"),
-            ),
+            email_identity: o.get_field("emailIdentity"),
+            policy: o.get_field("policy"),
+            policy_name: o.get_field("policyName"),
         }
     }
 }

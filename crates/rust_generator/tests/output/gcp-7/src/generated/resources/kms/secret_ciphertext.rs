@@ -106,54 +106,43 @@ pub mod secret_ciphertext {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SecretCiphertextArgs,
     ) -> SecretCiphertextResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_authenticated_data_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_authenticated_data_binding = args
             .additional_authenticated_data
             .get_output(context);
-        let additional_authenticated_data_binding = additional_authenticated_data_binding_1
-            .get_inner();
-        let crypto_key_binding_1 = args.crypto_key.get_output(context);
-        let crypto_key_binding = crypto_key_binding_1.get_inner();
-        let plaintext_binding_1 = args.plaintext.get_output(context);
-        let plaintext_binding = plaintext_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let crypto_key_binding = args.crypto_key.get_output(context);
+        let plaintext_binding = args.plaintext.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:kms/secretCiphertext:SecretCiphertext".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalAuthenticatedData".into(),
-                    value: &additional_authenticated_data_binding,
+                    value: additional_authenticated_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoKey".into(),
-                    value: &crypto_key_binding,
+                    value: crypto_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plaintext".into(),
-                    value: &plaintext_binding,
+                    value: plaintext_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SecretCiphertextResult {
-            additional_authenticated_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalAuthenticatedData"),
-            ),
-            ciphertext: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ciphertext"),
-            ),
-            crypto_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cryptoKey"),
-            ),
-            plaintext: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("plaintext"),
-            ),
+            additional_authenticated_data: o.get_field("additionalAuthenticatedData"),
+            ciphertext: o.get_field("ciphertext"),
+            crypto_key: o.get_field("cryptoKey"),
+            plaintext: o.get_field("plaintext"),
         }
     }
 }

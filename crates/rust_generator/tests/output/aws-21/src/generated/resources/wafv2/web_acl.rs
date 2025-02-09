@@ -121,146 +121,107 @@ pub mod web_acl {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WebAclArgs,
     ) -> WebAclResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let association_config_binding_1 = args.association_config.get_output(context);
-        let association_config_binding = association_config_binding_1.get_inner();
-        let captcha_config_binding_1 = args.captcha_config.get_output(context);
-        let captcha_config_binding = captcha_config_binding_1.get_inner();
-        let challenge_config_binding_1 = args.challenge_config.get_output(context);
-        let challenge_config_binding = challenge_config_binding_1.get_inner();
-        let custom_response_bodies_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let association_config_binding = args.association_config.get_output(context);
+        let captcha_config_binding = args.captcha_config.get_output(context);
+        let challenge_config_binding = args.challenge_config.get_output(context);
+        let custom_response_bodies_binding = args
             .custom_response_bodies
             .get_output(context);
-        let custom_response_bodies_binding = custom_response_bodies_binding_1
-            .get_inner();
-        let default_action_binding_1 = args.default_action.get_output(context);
-        let default_action_binding = default_action_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let rule_json_binding_1 = args.rule_json.get_output(context);
-        let rule_json_binding = rule_json_binding_1.get_inner();
-        let rules_binding_1 = args.rules.get_output(context);
-        let rules_binding = rules_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let token_domains_binding_1 = args.token_domains.get_output(context);
-        let token_domains_binding = token_domains_binding_1.get_inner();
-        let visibility_config_binding_1 = args.visibility_config.get_output(context);
-        let visibility_config_binding = visibility_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let default_action_binding = args.default_action.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let rule_json_binding = args.rule_json.get_output(context);
+        let rules_binding = args.rules.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let token_domains_binding = args.token_domains.get_output(context);
+        let visibility_config_binding = args.visibility_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:wafv2/webAcl:WebAcl".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associationConfig".into(),
-                    value: &association_config_binding,
+                    value: association_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "captchaConfig".into(),
-                    value: &captcha_config_binding,
+                    value: captcha_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "challengeConfig".into(),
-                    value: &challenge_config_binding,
+                    value: challenge_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customResponseBodies".into(),
-                    value: &custom_response_bodies_binding,
+                    value: custom_response_bodies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAction".into(),
-                    value: &default_action_binding,
+                    value: default_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleJson".into(),
-                    value: &rule_json_binding,
+                    value: rule_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: &rules_binding,
+                    value: rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenDomains".into(),
-                    value: &token_domains_binding,
+                    value: token_domains_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "visibilityConfig".into(),
-                    value: &visibility_config_binding,
+                    value: visibility_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WebAclResult {
-            application_integration_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationIntegrationUrl"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            association_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associationConfig"),
-            ),
-            capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacity"),
-            ),
-            captcha_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("captchaConfig"),
-            ),
-            challenge_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("challengeConfig"),
-            ),
-            custom_response_bodies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customResponseBodies"),
-            ),
-            default_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultAction"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            lock_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lockToken"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            rule_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleJson"),
-            ),
-            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            token_domains: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tokenDomains"),
-            ),
-            visibility_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("visibilityConfig"),
-            ),
+            application_integration_url: o.get_field("applicationIntegrationUrl"),
+            arn: o.get_field("arn"),
+            association_config: o.get_field("associationConfig"),
+            capacity: o.get_field("capacity"),
+            captcha_config: o.get_field("captchaConfig"),
+            challenge_config: o.get_field("challengeConfig"),
+            custom_response_bodies: o.get_field("customResponseBodies"),
+            default_action: o.get_field("defaultAction"),
+            description: o.get_field("description"),
+            lock_token: o.get_field("lockToken"),
+            name: o.get_field("name"),
+            rule_json: o.get_field("ruleJson"),
+            rules: o.get_field("rules"),
+            scope: o.get_field("scope"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            token_domains: o.get_field("tokenDomains"),
+            visibility_config: o.get_field("visibilityConfig"),
         }
     }
 }

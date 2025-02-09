@@ -127,53 +127,40 @@ pub mod replication_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ReplicationConfigurationArgs,
     ) -> ReplicationConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_binding_1 = args.destination.get_output(context);
-        let destination_binding = destination_binding_1.get_inner();
-        let source_file_system_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let destination_binding = args.destination.get_output(context);
+        let source_file_system_id_binding = args
             .source_file_system_id
             .get_output(context);
-        let source_file_system_id_binding = source_file_system_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:efs/replicationConfiguration:ReplicationConfiguration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: &destination_binding,
+                    value: destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceFileSystemId".into(),
-                    value: &source_file_system_id_binding,
+                    value: source_file_system_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ReplicationConfigurationResult {
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destination"),
-            ),
-            original_source_file_system_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originalSourceFileSystemArn"),
-            ),
-            source_file_system_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceFileSystemArn"),
-            ),
-            source_file_system_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceFileSystemId"),
-            ),
-            source_file_system_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceFileSystemRegion"),
-            ),
+            creation_time: o.get_field("creationTime"),
+            destination: o.get_field("destination"),
+            original_source_file_system_arn: o.get_field("originalSourceFileSystemArn"),
+            source_file_system_arn: o.get_field("sourceFileSystemArn"),
+            source_file_system_id: o.get_field("sourceFileSystemId"),
+            source_file_system_region: o.get_field("sourceFileSystemRegion"),
         }
     }
 }

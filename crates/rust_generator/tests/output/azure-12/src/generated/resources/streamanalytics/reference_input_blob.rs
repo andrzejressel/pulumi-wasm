@@ -132,126 +132,92 @@ pub mod reference_input_blob {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ReferenceInputBlobArgs,
     ) -> ReferenceInputBlobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_mode_binding_1 = args.authentication_mode.get_output(context);
-        let authentication_mode_binding = authentication_mode_binding_1.get_inner();
-        let date_format_binding_1 = args.date_format.get_output(context);
-        let date_format_binding = date_format_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let path_pattern_binding_1 = args.path_pattern.get_output(context);
-        let path_pattern_binding = path_pattern_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let serialization_binding_1 = args.serialization.get_output(context);
-        let serialization_binding = serialization_binding_1.get_inner();
-        let storage_account_key_binding_1 = args.storage_account_key.get_output(context);
-        let storage_account_key_binding = storage_account_key_binding_1.get_inner();
-        let storage_account_name_binding_1 = args
-            .storage_account_name
-            .get_output(context);
-        let storage_account_name_binding = storage_account_name_binding_1.get_inner();
-        let storage_container_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_mode_binding = args.authentication_mode.get_output(context);
+        let date_format_binding = args.date_format.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let path_pattern_binding = args.path_pattern.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let serialization_binding = args.serialization.get_output(context);
+        let storage_account_key_binding = args.storage_account_key.get_output(context);
+        let storage_account_name_binding = args.storage_account_name.get_output(context);
+        let storage_container_name_binding = args
             .storage_container_name
             .get_output(context);
-        let storage_container_name_binding = storage_container_name_binding_1
-            .get_inner();
-        let stream_analytics_job_name_binding_1 = args
+        let stream_analytics_job_name_binding = args
             .stream_analytics_job_name
             .get_output(context);
-        let stream_analytics_job_name_binding = stream_analytics_job_name_binding_1
-            .get_inner();
-        let time_format_binding_1 = args.time_format.get_output(context);
-        let time_format_binding = time_format_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let time_format_binding = args.time_format.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:streamanalytics/referenceInputBlob:ReferenceInputBlob".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationMode".into(),
-                    value: &authentication_mode_binding,
+                    value: authentication_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dateFormat".into(),
-                    value: &date_format_binding,
+                    value: date_format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pathPattern".into(),
-                    value: &path_pattern_binding,
+                    value: path_pattern_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serialization".into(),
-                    value: &serialization_binding,
+                    value: serialization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountKey".into(),
-                    value: &storage_account_key_binding,
+                    value: storage_account_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountName".into(),
-                    value: &storage_account_name_binding,
+                    value: storage_account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageContainerName".into(),
-                    value: &storage_container_name_binding,
+                    value: storage_container_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobName".into(),
-                    value: &stream_analytics_job_name_binding,
+                    value: stream_analytics_job_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeFormat".into(),
-                    value: &time_format_binding,
+                    value: time_format_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ReferenceInputBlobResult {
-            authentication_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationMode"),
-            ),
-            date_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dateFormat"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            path_pattern: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pathPattern"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            serialization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serialization"),
-            ),
-            storage_account_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountKey"),
-            ),
-            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountName"),
-            ),
-            storage_container_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageContainerName"),
-            ),
-            stream_analytics_job_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamAnalyticsJobName"),
-            ),
-            time_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeFormat"),
-            ),
+            authentication_mode: o.get_field("authenticationMode"),
+            date_format: o.get_field("dateFormat"),
+            name: o.get_field("name"),
+            path_pattern: o.get_field("pathPattern"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            serialization: o.get_field("serialization"),
+            storage_account_key: o.get_field("storageAccountKey"),
+            storage_account_name: o.get_field("storageAccountName"),
+            storage_container_name: o.get_field("storageContainerName"),
+            stream_analytics_job_name: o.get_field("streamAnalyticsJobName"),
+            time_format: o.get_field("timeFormat"),
         }
     }
 }

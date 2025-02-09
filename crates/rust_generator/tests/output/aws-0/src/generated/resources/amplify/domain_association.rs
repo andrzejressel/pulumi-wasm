@@ -108,86 +108,65 @@ pub mod domain_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DomainAssociationArgs,
     ) -> DomainAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_id_binding_1 = args.app_id.get_output(context);
-        let app_id_binding = app_id_binding_1.get_inner();
-        let certificate_settings_binding_1 = args
-            .certificate_settings
-            .get_output(context);
-        let certificate_settings_binding = certificate_settings_binding_1.get_inner();
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let enable_auto_sub_domain_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_id_binding = args.app_id.get_output(context);
+        let certificate_settings_binding = args.certificate_settings.get_output(context);
+        let domain_name_binding = args.domain_name.get_output(context);
+        let enable_auto_sub_domain_binding = args
             .enable_auto_sub_domain
             .get_output(context);
-        let enable_auto_sub_domain_binding = enable_auto_sub_domain_binding_1
-            .get_inner();
-        let sub_domains_binding_1 = args.sub_domains.get_output(context);
-        let sub_domains_binding = sub_domains_binding_1.get_inner();
-        let wait_for_verification_binding_1 = args
+        let sub_domains_binding = args.sub_domains.get_output(context);
+        let wait_for_verification_binding = args
             .wait_for_verification
             .get_output(context);
-        let wait_for_verification_binding = wait_for_verification_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:amplify/domainAssociation:DomainAssociation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appId".into(),
-                    value: &app_id_binding,
+                    value: app_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateSettings".into(),
-                    value: &certificate_settings_binding,
+                    value: certificate_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableAutoSubDomain".into(),
-                    value: &enable_auto_sub_domain_binding,
+                    value: enable_auto_sub_domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subDomains".into(),
-                    value: &sub_domains_binding,
+                    value: sub_domains_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForVerification".into(),
-                    value: &wait_for_verification_binding,
+                    value: wait_for_verification_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DomainAssociationResult {
-            app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            certificate_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateSettings"),
-            ),
-            certificate_verification_dns_record: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateVerificationDnsRecord"),
-            ),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            enable_auto_sub_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableAutoSubDomain"),
-            ),
-            sub_domains: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subDomains"),
-            ),
-            wait_for_verification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForVerification"),
-            ),
+            app_id: o.get_field("appId"),
+            arn: o.get_field("arn"),
+            certificate_settings: o.get_field("certificateSettings"),
+            certificate_verification_dns_record: o
+                .get_field("certificateVerificationDnsRecord"),
+            domain_name: o.get_field("domainName"),
+            enable_auto_sub_domain: o.get_field("enableAutoSubDomain"),
+            sub_domains: o.get_field("subDomains"),
+            wait_for_verification: o.get_field("waitForVerification"),
         }
     }
 }

@@ -76,81 +76,60 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hsm_type_binding_1 = args.hsm_type.get_output(context);
-        let hsm_type_binding = hsm_type_binding_1.get_inner();
-        let mode_binding_1 = args.mode.get_output(context);
-        let mode_binding = mode_binding_1.get_inner();
-        let source_backup_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let hsm_type_binding = args.hsm_type.get_output(context);
+        let mode_binding = args.mode.get_output(context);
+        let source_backup_identifier_binding = args
             .source_backup_identifier
             .get_output(context);
-        let source_backup_identifier_binding = source_backup_identifier_binding_1
-            .get_inner();
-        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
-        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let subnet_ids_binding = args.subnet_ids.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudhsmv2/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hsmType".into(),
-                    value: &hsm_type_binding,
+                    value: hsm_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: &mode_binding,
+                    value: mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceBackupIdentifier".into(),
-                    value: &source_backup_identifier_binding,
+                    value: source_backup_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: &subnet_ids_binding,
+                    value: subnet_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            cluster_certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterCertificates"),
-            ),
-            cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterId"),
-            ),
-            cluster_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterState"),
-            ),
-            hsm_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hsmType"),
-            ),
-            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
-            security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupId"),
-            ),
-            source_backup_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceBackupIdentifier"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            cluster_certificates: o.get_field("clusterCertificates"),
+            cluster_id: o.get_field("clusterId"),
+            cluster_state: o.get_field("clusterState"),
+            hsm_type: o.get_field("hsmType"),
+            mode: o.get_field("mode"),
+            security_group_id: o.get_field("securityGroupId"),
+            source_backup_identifier: o.get_field("sourceBackupIdentifier"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

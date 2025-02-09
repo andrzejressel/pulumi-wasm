@@ -166,136 +166,98 @@ pub mod dataset_binary {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DatasetBinaryArgs,
     ) -> DatasetBinaryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_properties_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_properties_binding = args
             .additional_properties
             .get_output(context);
-        let additional_properties_binding = additional_properties_binding_1.get_inner();
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let azure_blob_storage_location_binding_1 = args
+        let annotations_binding = args.annotations.get_output(context);
+        let azure_blob_storage_location_binding = args
             .azure_blob_storage_location
             .get_output(context);
-        let azure_blob_storage_location_binding = azure_blob_storage_location_binding_1
-            .get_inner();
-        let compression_binding_1 = args.compression.get_output(context);
-        let compression_binding = compression_binding_1.get_inner();
-        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
-        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let folder_binding_1 = args.folder.get_output(context);
-        let folder_binding = folder_binding_1.get_inner();
-        let http_server_location_binding_1 = args
-            .http_server_location
-            .get_output(context);
-        let http_server_location_binding = http_server_location_binding_1.get_inner();
-        let linked_service_name_binding_1 = args.linked_service_name.get_output(context);
-        let linked_service_name_binding = linked_service_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let sftp_server_location_binding_1 = args
-            .sftp_server_location
-            .get_output(context);
-        let sftp_server_location_binding = sftp_server_location_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let compression_binding = args.compression.get_output(context);
+        let data_factory_id_binding = args.data_factory_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let folder_binding = args.folder.get_output(context);
+        let http_server_location_binding = args.http_server_location.get_output(context);
+        let linked_service_name_binding = args.linked_service_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let sftp_server_location_binding = args.sftp_server_location.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:datafactory/datasetBinary:DatasetBinary".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalProperties".into(),
-                    value: &additional_properties_binding,
+                    value: additional_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureBlobStorageLocation".into(),
-                    value: &azure_blob_storage_location_binding,
+                    value: azure_blob_storage_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compression".into(),
-                    value: &compression_binding,
+                    value: compression_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: &data_factory_id_binding,
+                    value: data_factory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: &folder_binding,
+                    value: folder_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpServerLocation".into(),
-                    value: &http_server_location_binding,
+                    value: http_server_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedServiceName".into(),
-                    value: &linked_service_name_binding,
+                    value: linked_service_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sftpServerLocation".into(),
-                    value: &sftp_server_location_binding,
+                    value: sftp_server_location_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DatasetBinaryResult {
-            additional_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalProperties"),
-            ),
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            azure_blob_storage_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureBlobStorageLocation"),
-            ),
-            compression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("compression"),
-            ),
-            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFactoryId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            folder: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("folder"),
-            ),
-            http_server_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpServerLocation"),
-            ),
-            linked_service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedServiceName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            sftp_server_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sftpServerLocation"),
-            ),
+            additional_properties: o.get_field("additionalProperties"),
+            annotations: o.get_field("annotations"),
+            azure_blob_storage_location: o.get_field("azureBlobStorageLocation"),
+            compression: o.get_field("compression"),
+            data_factory_id: o.get_field("dataFactoryId"),
+            description: o.get_field("description"),
+            folder: o.get_field("folder"),
+            http_server_location: o.get_field("httpServerLocation"),
+            linked_service_name: o.get_field("linkedServiceName"),
+            name: o.get_field("name"),
+            parameters: o.get_field("parameters"),
+            sftp_server_location: o.get_field("sftpServerLocation"),
         }
     }
 }

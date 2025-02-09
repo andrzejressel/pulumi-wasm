@@ -503,221 +503,154 @@ pub mod dataset {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DatasetArgs,
     ) -> DatasetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accesses_binding_1 = args.accesses.get_output(context);
-        let accesses_binding = accesses_binding_1.get_inner();
-        let dataset_id_binding_1 = args.dataset_id.get_output(context);
-        let dataset_id_binding = dataset_id_binding_1.get_inner();
-        let default_collation_binding_1 = args.default_collation.get_output(context);
-        let default_collation_binding = default_collation_binding_1.get_inner();
-        let default_encryption_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accesses_binding = args.accesses.get_output(context);
+        let dataset_id_binding = args.dataset_id.get_output(context);
+        let default_collation_binding = args.default_collation.get_output(context);
+        let default_encryption_configuration_binding = args
             .default_encryption_configuration
             .get_output(context);
-        let default_encryption_configuration_binding = default_encryption_configuration_binding_1
-            .get_inner();
-        let default_partition_expiration_ms_binding_1 = args
+        let default_partition_expiration_ms_binding = args
             .default_partition_expiration_ms
             .get_output(context);
-        let default_partition_expiration_ms_binding = default_partition_expiration_ms_binding_1
-            .get_inner();
-        let default_table_expiration_ms_binding_1 = args
+        let default_table_expiration_ms_binding = args
             .default_table_expiration_ms
             .get_output(context);
-        let default_table_expiration_ms_binding = default_table_expiration_ms_binding_1
-            .get_inner();
-        let delete_contents_on_destroy_binding_1 = args
+        let delete_contents_on_destroy_binding = args
             .delete_contents_on_destroy
             .get_output(context);
-        let delete_contents_on_destroy_binding = delete_contents_on_destroy_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let external_catalog_dataset_options_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let external_catalog_dataset_options_binding = args
             .external_catalog_dataset_options
             .get_output(context);
-        let external_catalog_dataset_options_binding = external_catalog_dataset_options_binding_1
-            .get_inner();
-        let external_dataset_reference_binding_1 = args
+        let external_dataset_reference_binding = args
             .external_dataset_reference
             .get_output(context);
-        let external_dataset_reference_binding = external_dataset_reference_binding_1
-            .get_inner();
-        let friendly_name_binding_1 = args.friendly_name.get_output(context);
-        let friendly_name_binding = friendly_name_binding_1.get_inner();
-        let is_case_insensitive_binding_1 = args.is_case_insensitive.get_output(context);
-        let is_case_insensitive_binding = is_case_insensitive_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let max_time_travel_hours_binding_1 = args
+        let friendly_name_binding = args.friendly_name.get_output(context);
+        let is_case_insensitive_binding = args.is_case_insensitive.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let max_time_travel_hours_binding = args
             .max_time_travel_hours
             .get_output(context);
-        let max_time_travel_hours_binding = max_time_travel_hours_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let resource_tags_binding_1 = args.resource_tags.get_output(context);
-        let resource_tags_binding = resource_tags_binding_1.get_inner();
-        let storage_billing_model_binding_1 = args
+        let project_binding = args.project.get_output(context);
+        let resource_tags_binding = args.resource_tags.get_output(context);
+        let storage_billing_model_binding = args
             .storage_billing_model
             .get_output(context);
-        let storage_billing_model_binding = storage_billing_model_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:bigquery/dataset:Dataset".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accesses".into(),
-                    value: &accesses_binding,
+                    value: accesses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datasetId".into(),
-                    value: &dataset_id_binding,
+                    value: dataset_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultCollation".into(),
-                    value: &default_collation_binding,
+                    value: default_collation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultEncryptionConfiguration".into(),
-                    value: &default_encryption_configuration_binding,
+                    value: default_encryption_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultPartitionExpirationMs".into(),
-                    value: &default_partition_expiration_ms_binding,
+                    value: default_partition_expiration_ms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTableExpirationMs".into(),
-                    value: &default_table_expiration_ms_binding,
+                    value: default_table_expiration_ms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteContentsOnDestroy".into(),
-                    value: &delete_contents_on_destroy_binding,
+                    value: delete_contents_on_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalCatalogDatasetOptions".into(),
-                    value: &external_catalog_dataset_options_binding,
+                    value: external_catalog_dataset_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalDatasetReference".into(),
-                    value: &external_dataset_reference_binding,
+                    value: external_dataset_reference_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "friendlyName".into(),
-                    value: &friendly_name_binding,
+                    value: friendly_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isCaseInsensitive".into(),
-                    value: &is_case_insensitive_binding,
+                    value: is_case_insensitive_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxTimeTravelHours".into(),
-                    value: &max_time_travel_hours_binding,
+                    value: max_time_travel_hours_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTags".into(),
-                    value: &resource_tags_binding,
+                    value: resource_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageBillingModel".into(),
-                    value: &storage_billing_model_binding,
+                    value: storage_billing_model_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DatasetResult {
-            accesses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accesses"),
-            ),
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            dataset_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datasetId"),
-            ),
-            default_collation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultCollation"),
-            ),
-            default_encryption_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultEncryptionConfiguration"),
-            ),
-            default_partition_expiration_ms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultPartitionExpirationMs"),
-            ),
-            default_table_expiration_ms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultTableExpirationMs"),
-            ),
-            delete_contents_on_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteContentsOnDestroy"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            external_catalog_dataset_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalCatalogDatasetOptions"),
-            ),
-            external_dataset_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalDatasetReference"),
-            ),
-            friendly_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("friendlyName"),
-            ),
-            is_case_insensitive: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isCaseInsensitive"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            last_modified_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedTime"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            max_time_travel_hours: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxTimeTravelHours"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            resource_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceTags"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            storage_billing_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageBillingModel"),
-            ),
+            accesses: o.get_field("accesses"),
+            creation_time: o.get_field("creationTime"),
+            dataset_id: o.get_field("datasetId"),
+            default_collation: o.get_field("defaultCollation"),
+            default_encryption_configuration: o
+                .get_field("defaultEncryptionConfiguration"),
+            default_partition_expiration_ms: o.get_field("defaultPartitionExpirationMs"),
+            default_table_expiration_ms: o.get_field("defaultTableExpirationMs"),
+            delete_contents_on_destroy: o.get_field("deleteContentsOnDestroy"),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            etag: o.get_field("etag"),
+            external_catalog_dataset_options: o
+                .get_field("externalCatalogDatasetOptions"),
+            external_dataset_reference: o.get_field("externalDatasetReference"),
+            friendly_name: o.get_field("friendlyName"),
+            is_case_insensitive: o.get_field("isCaseInsensitive"),
+            labels: o.get_field("labels"),
+            last_modified_time: o.get_field("lastModifiedTime"),
+            location: o.get_field("location"),
+            max_time_travel_hours: o.get_field("maxTimeTravelHours"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            resource_tags: o.get_field("resourceTags"),
+            self_link: o.get_field("selfLink"),
+            storage_billing_model: o.get_field("storageBillingModel"),
         }
     }
 }

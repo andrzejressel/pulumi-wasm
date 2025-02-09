@@ -57,49 +57,41 @@ pub mod workspace_service_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkspaceServiceAccountArgs,
     ) -> WorkspaceServiceAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let grafana_role_binding_1 = args.grafana_role.get_output(context);
-        let grafana_role_binding = grafana_role_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let grafana_role_binding = args.grafana_role.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grafanaRole".into(),
-                    value: &grafana_role_binding,
+                    value: grafana_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkspaceServiceAccountResult {
-            grafana_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grafanaRole"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            service_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountId"),
-            ),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            grafana_role: o.get_field("grafanaRole"),
+            name: o.get_field("name"),
+            service_account_id: o.get_field("serviceAccountId"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

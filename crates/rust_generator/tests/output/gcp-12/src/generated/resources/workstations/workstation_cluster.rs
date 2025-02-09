@@ -280,141 +280,96 @@ pub mod workstation_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkstationClusterArgs,
     ) -> WorkstationClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let domain_config_binding_1 = args.domain_config.get_output(context);
-        let domain_config_binding = domain_config_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let private_cluster_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let annotations_binding = args.annotations.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let domain_config_binding = args.domain_config.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let private_cluster_config_binding = args
             .private_cluster_config
             .get_output(context);
-        let private_cluster_config_binding = private_cluster_config_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let subnetwork_binding_1 = args.subnetwork.get_output(context);
-        let subnetwork_binding = subnetwork_binding_1.get_inner();
-        let workstation_cluster_id_binding_1 = args
+        let project_binding = args.project.get_output(context);
+        let subnetwork_binding = args.subnetwork.get_output(context);
+        let workstation_cluster_id_binding = args
             .workstation_cluster_id
             .get_output(context);
-        let workstation_cluster_id_binding = workstation_cluster_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:workstations/workstationCluster:WorkstationCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainConfig".into(),
-                    value: &domain_config_binding,
+                    value: domain_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateClusterConfig".into(),
-                    value: &private_cluster_config_binding,
+                    value: private_cluster_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetwork".into(),
-                    value: &subnetwork_binding,
+                    value: subnetwork_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workstationClusterId".into(),
-                    value: &workstation_cluster_id_binding,
+                    value: workstation_cluster_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkstationClusterResult {
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            conditions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("conditions"),
-            ),
-            control_plane_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlaneIp"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            degraded: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("degraded"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            domain_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainConfig"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            private_cluster_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateClusterConfig"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            subnetwork: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetwork"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            workstation_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workstationClusterId"),
-            ),
+            annotations: o.get_field("annotations"),
+            conditions: o.get_field("conditions"),
+            control_plane_ip: o.get_field("controlPlaneIp"),
+            create_time: o.get_field("createTime"),
+            degraded: o.get_field("degraded"),
+            display_name: o.get_field("displayName"),
+            domain_config: o.get_field("domainConfig"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            effective_labels: o.get_field("effectiveLabels"),
+            etag: o.get_field("etag"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            private_cluster_config: o.get_field("privateClusterConfig"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            subnetwork: o.get_field("subnetwork"),
+            uid: o.get_field("uid"),
+            workstation_cluster_id: o.get_field("workstationClusterId"),
         }
     }
 }

@@ -67,65 +67,54 @@ pub mod traffic_policy_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TrafficPolicyInstanceArgs,
     ) -> TrafficPolicyInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let hosted_zone_id_binding_1 = args.hosted_zone_id.get_output(context);
-        let hosted_zone_id_binding = hosted_zone_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let traffic_policy_id_binding_1 = args.traffic_policy_id.get_output(context);
-        let traffic_policy_id_binding = traffic_policy_id_binding_1.get_inner();
-        let traffic_policy_version_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let hosted_zone_id_binding = args.hosted_zone_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let traffic_policy_id_binding = args.traffic_policy_id.get_output(context);
+        let traffic_policy_version_binding = args
             .traffic_policy_version
             .get_output(context);
-        let traffic_policy_version_binding = traffic_policy_version_binding_1
-            .get_inner();
-        let ttl_binding_1 = args.ttl.get_output(context);
-        let ttl_binding = ttl_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ttl_binding = args.ttl.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:route53/trafficPolicyInstance:TrafficPolicyInstance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostedZoneId".into(),
-                    value: &hosted_zone_id_binding,
+                    value: hosted_zone_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficPolicyId".into(),
-                    value: &traffic_policy_id_binding,
+                    value: traffic_policy_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficPolicyVersion".into(),
-                    value: &traffic_policy_version_binding,
+                    value: traffic_policy_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: &ttl_binding,
+                    value: ttl_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TrafficPolicyInstanceResult {
-            hosted_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostedZoneId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            traffic_policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficPolicyId"),
-            ),
-            traffic_policy_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficPolicyVersion"),
-            ),
-            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
+            hosted_zone_id: o.get_field("hostedZoneId"),
+            name: o.get_field("name"),
+            traffic_policy_id: o.get_field("trafficPolicyId"),
+            traffic_policy_version: o.get_field("trafficPolicyVersion"),
+            ttl: o.get_field("ttl"),
         }
     }
 }

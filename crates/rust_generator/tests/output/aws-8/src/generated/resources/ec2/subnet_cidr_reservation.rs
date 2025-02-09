@@ -62,60 +62,47 @@ pub mod subnet_cidr_reservation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SubnetCidrReservationArgs,
     ) -> SubnetCidrReservationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_block_binding_1 = args.cidr_block.get_output(context);
-        let cidr_block_binding = cidr_block_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let reservation_type_binding_1 = args.reservation_type.get_output(context);
-        let reservation_type_binding = reservation_type_binding_1.get_inner();
-        let subnet_id_binding_1 = args.subnet_id.get_output(context);
-        let subnet_id_binding = subnet_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cidr_block_binding = args.cidr_block.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let reservation_type_binding = args.reservation_type.get_output(context);
+        let subnet_id_binding = args.subnet_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/subnetCidrReservation:SubnetCidrReservation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrBlock".into(),
-                    value: &cidr_block_binding,
+                    value: cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservationType".into(),
-                    value: &reservation_type_binding,
+                    value: reservation_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: &subnet_id_binding,
+                    value: subnet_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SubnetCidrReservationResult {
-            cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrBlock"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            reservation_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservationType"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
+            cidr_block: o.get_field("cidrBlock"),
+            description: o.get_field("description"),
+            owner_id: o.get_field("ownerId"),
+            reservation_type: o.get_field("reservationType"),
+            subnet_id: o.get_field("subnetId"),
         }
     }
 }

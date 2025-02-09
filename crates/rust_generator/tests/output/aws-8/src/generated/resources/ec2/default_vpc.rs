@@ -103,154 +103,103 @@ pub mod default_vpc {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DefaultVpcArgs,
     ) -> DefaultVpcResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assign_generated_ipv6_cidr_block_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let assign_generated_ipv6_cidr_block_binding = args
             .assign_generated_ipv6_cidr_block
             .get_output(context);
-        let assign_generated_ipv6_cidr_block_binding = assign_generated_ipv6_cidr_block_binding_1
-            .get_inner();
-        let enable_dns_hostnames_binding_1 = args
-            .enable_dns_hostnames
-            .get_output(context);
-        let enable_dns_hostnames_binding = enable_dns_hostnames_binding_1.get_inner();
-        let enable_dns_support_binding_1 = args.enable_dns_support.get_output(context);
-        let enable_dns_support_binding = enable_dns_support_binding_1.get_inner();
-        let enable_network_address_usage_metrics_binding_1 = args
+        let enable_dns_hostnames_binding = args.enable_dns_hostnames.get_output(context);
+        let enable_dns_support_binding = args.enable_dns_support.get_output(context);
+        let enable_network_address_usage_metrics_binding = args
             .enable_network_address_usage_metrics
             .get_output(context);
-        let enable_network_address_usage_metrics_binding = enable_network_address_usage_metrics_binding_1
-            .get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let ipv6_cidr_block_binding_1 = args.ipv6_cidr_block.get_output(context);
-        let ipv6_cidr_block_binding = ipv6_cidr_block_binding_1.get_inner();
-        let ipv6_cidr_block_network_border_group_binding_1 = args
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let ipv6_cidr_block_binding = args.ipv6_cidr_block.get_output(context);
+        let ipv6_cidr_block_network_border_group_binding = args
             .ipv6_cidr_block_network_border_group
             .get_output(context);
-        let ipv6_cidr_block_network_border_group_binding = ipv6_cidr_block_network_border_group_binding_1
-            .get_inner();
-        let ipv6_ipam_pool_id_binding_1 = args.ipv6_ipam_pool_id.get_output(context);
-        let ipv6_ipam_pool_id_binding = ipv6_ipam_pool_id_binding_1.get_inner();
-        let ipv6_netmask_length_binding_1 = args.ipv6_netmask_length.get_output(context);
-        let ipv6_netmask_length_binding = ipv6_netmask_length_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let ipv6_ipam_pool_id_binding = args.ipv6_ipam_pool_id.get_output(context);
+        let ipv6_netmask_length_binding = args.ipv6_netmask_length.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/defaultVpc:DefaultVpc".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignGeneratedIpv6CidrBlock".into(),
-                    value: &assign_generated_ipv6_cidr_block_binding,
+                    value: assign_generated_ipv6_cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableDnsHostnames".into(),
-                    value: &enable_dns_hostnames_binding,
+                    value: enable_dns_hostnames_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableDnsSupport".into(),
-                    value: &enable_dns_support_binding,
+                    value: enable_dns_support_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableNetworkAddressUsageMetrics".into(),
-                    value: &enable_network_address_usage_metrics_binding,
+                    value: enable_network_address_usage_metrics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6CidrBlock".into(),
-                    value: &ipv6_cidr_block_binding,
+                    value: ipv6_cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6CidrBlockNetworkBorderGroup".into(),
-                    value: &ipv6_cidr_block_network_border_group_binding,
+                    value: ipv6_cidr_block_network_border_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6IpamPoolId".into(),
-                    value: &ipv6_ipam_pool_id_binding,
+                    value: ipv6_ipam_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6NetmaskLength".into(),
-                    value: &ipv6_netmask_length_binding,
+                    value: ipv6_netmask_length_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DefaultVpcResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            assign_generated_ipv6_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assignGeneratedIpv6CidrBlock"),
-            ),
-            cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrBlock"),
-            ),
-            default_network_acl_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultNetworkAclId"),
-            ),
-            default_route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultRouteTableId"),
-            ),
-            default_security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSecurityGroupId"),
-            ),
-            dhcp_options_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dhcpOptionsId"),
-            ),
-            enable_dns_hostnames: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableDnsHostnames"),
-            ),
-            enable_dns_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableDnsSupport"),
-            ),
-            enable_network_address_usage_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableNetworkAddressUsageMetrics"),
-            ),
-            existing_default_vpc: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("existingDefaultVpc"),
-            ),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            instance_tenancy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceTenancy"),
-            ),
-            ipv6_association_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6AssociationId"),
-            ),
-            ipv6_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6CidrBlock"),
-            ),
-            ipv6_cidr_block_network_border_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6CidrBlockNetworkBorderGroup"),
-            ),
-            ipv6_ipam_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6IpamPoolId"),
-            ),
-            ipv6_netmask_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6NetmaskLength"),
-            ),
-            main_route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mainRouteTableId"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            assign_generated_ipv6_cidr_block: o
+                .get_field("assignGeneratedIpv6CidrBlock"),
+            cidr_block: o.get_field("cidrBlock"),
+            default_network_acl_id: o.get_field("defaultNetworkAclId"),
+            default_route_table_id: o.get_field("defaultRouteTableId"),
+            default_security_group_id: o.get_field("defaultSecurityGroupId"),
+            dhcp_options_id: o.get_field("dhcpOptionsId"),
+            enable_dns_hostnames: o.get_field("enableDnsHostnames"),
+            enable_dns_support: o.get_field("enableDnsSupport"),
+            enable_network_address_usage_metrics: o
+                .get_field("enableNetworkAddressUsageMetrics"),
+            existing_default_vpc: o.get_field("existingDefaultVpc"),
+            force_destroy: o.get_field("forceDestroy"),
+            instance_tenancy: o.get_field("instanceTenancy"),
+            ipv6_association_id: o.get_field("ipv6AssociationId"),
+            ipv6_cidr_block: o.get_field("ipv6CidrBlock"),
+            ipv6_cidr_block_network_border_group: o
+                .get_field("ipv6CidrBlockNetworkBorderGroup"),
+            ipv6_ipam_pool_id: o.get_field("ipv6IpamPoolId"),
+            ipv6_netmask_length: o.get_field("ipv6NetmaskLength"),
+            main_route_table_id: o.get_field("mainRouteTableId"),
+            owner_id: o.get_field("ownerId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

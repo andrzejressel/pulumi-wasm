@@ -118,65 +118,50 @@ pub mod database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DatabaseArgs,
     ) -> DatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_binding_1 = args.catalog.get_output(context);
-        let catalog_binding = catalog_binding_1.get_inner();
-        let hive_options_binding_1 = args.hive_options.get_output(context);
-        let hive_options_binding = hive_options_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_binding = args.catalog.get_output(context);
+        let hive_options_binding = args.hive_options.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:biglake/database:Database".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalog".into(),
-                    value: &catalog_binding,
+                    value: catalog_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hiveOptions".into(),
-                    value: &hive_options_binding,
+                    value: hive_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DatabaseResult {
-            catalog: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalog"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            delete_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteTime"),
-            ),
-            expire_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expireTime"),
-            ),
-            hive_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hiveOptions"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            catalog: o.get_field("catalog"),
+            create_time: o.get_field("createTime"),
+            delete_time: o.get_field("deleteTime"),
+            expire_time: o.get_field("expireTime"),
+            hive_options: o.get_field("hiveOptions"),
+            name: o.get_field("name"),
+            type_: o.get_field("type"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

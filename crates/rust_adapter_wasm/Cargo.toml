@@ -10,3 +10,5 @@ anyhow.workspace = true
 serde.workspace = true
 uuid.workspace = true
 serde_json.workspace = true
+pulumi_gestalt_rust_common.workspace = true
+log.workspace = true

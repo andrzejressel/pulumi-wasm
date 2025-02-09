@@ -132,120 +132,88 @@ pub mod virtual_network_peering {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VirtualNetworkPeeringArgs,
     ) -> VirtualNetworkPeeringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_forwarded_traffic_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_forwarded_traffic_binding = args
             .allow_forwarded_traffic
             .get_output(context);
-        let allow_forwarded_traffic_binding = allow_forwarded_traffic_binding_1
-            .get_inner();
-        let allow_gateway_transit_binding_1 = args
+        let allow_gateway_transit_binding = args
             .allow_gateway_transit
             .get_output(context);
-        let allow_gateway_transit_binding = allow_gateway_transit_binding_1.get_inner();
-        let allow_virtual_network_access_binding_1 = args
+        let allow_virtual_network_access_binding = args
             .allow_virtual_network_access
             .get_output(context);
-        let allow_virtual_network_access_binding = allow_virtual_network_access_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let remote_address_space_prefixes_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let remote_address_space_prefixes_binding = args
             .remote_address_space_prefixes
             .get_output(context);
-        let remote_address_space_prefixes_binding = remote_address_space_prefixes_binding_1
-            .get_inner();
-        let remote_virtual_network_id_binding_1 = args
+        let remote_virtual_network_id_binding = args
             .remote_virtual_network_id
             .get_output(context);
-        let remote_virtual_network_id_binding = remote_virtual_network_id_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let use_remote_gateways_binding_1 = args.use_remote_gateways.get_output(context);
-        let use_remote_gateways_binding = use_remote_gateways_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let use_remote_gateways_binding = args.use_remote_gateways.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:databricks/virtualNetworkPeering:VirtualNetworkPeering".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowForwardedTraffic".into(),
-                    value: &allow_forwarded_traffic_binding,
+                    value: allow_forwarded_traffic_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowGatewayTransit".into(),
-                    value: &allow_gateway_transit_binding,
+                    value: allow_gateway_transit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowVirtualNetworkAccess".into(),
-                    value: &allow_virtual_network_access_binding,
+                    value: allow_virtual_network_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteAddressSpacePrefixes".into(),
-                    value: &remote_address_space_prefixes_binding,
+                    value: remote_address_space_prefixes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteVirtualNetworkId".into(),
-                    value: &remote_virtual_network_id_binding,
+                    value: remote_virtual_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useRemoteGateways".into(),
-                    value: &use_remote_gateways_binding,
+                    value: use_remote_gateways_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VirtualNetworkPeeringResult {
-            address_space_prefixes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addressSpacePrefixes"),
-            ),
-            allow_forwarded_traffic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowForwardedTraffic"),
-            ),
-            allow_gateway_transit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowGatewayTransit"),
-            ),
-            allow_virtual_network_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowVirtualNetworkAccess"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            remote_address_space_prefixes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteAddressSpacePrefixes"),
-            ),
-            remote_virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteVirtualNetworkId"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            use_remote_gateways: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useRemoteGateways"),
-            ),
-            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkId"),
-            ),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            address_space_prefixes: o.get_field("addressSpacePrefixes"),
+            allow_forwarded_traffic: o.get_field("allowForwardedTraffic"),
+            allow_gateway_transit: o.get_field("allowGatewayTransit"),
+            allow_virtual_network_access: o.get_field("allowVirtualNetworkAccess"),
+            name: o.get_field("name"),
+            remote_address_space_prefixes: o.get_field("remoteAddressSpacePrefixes"),
+            remote_virtual_network_id: o.get_field("remoteVirtualNetworkId"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            use_remote_gateways: o.get_field("useRemoteGateways"),
+            virtual_network_id: o.get_field("virtualNetworkId"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

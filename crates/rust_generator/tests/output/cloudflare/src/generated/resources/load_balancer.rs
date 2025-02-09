@@ -219,197 +219,140 @@ pub mod load_balancer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LoadBalancerArgs,
     ) -> LoadBalancerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let adaptive_routings_binding_1 = args.adaptive_routings.get_output(context);
-        let adaptive_routings_binding = adaptive_routings_binding_1.get_inner();
-        let country_pools_binding_1 = args.country_pools.get_output(context);
-        let country_pools_binding = country_pools_binding_1.get_inner();
-        let default_pool_ids_binding_1 = args.default_pool_ids.get_output(context);
-        let default_pool_ids_binding = default_pool_ids_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let fallback_pool_id_binding_1 = args.fallback_pool_id.get_output(context);
-        let fallback_pool_id_binding = fallback_pool_id_binding_1.get_inner();
-        let location_strategies_binding_1 = args.location_strategies.get_output(context);
-        let location_strategies_binding = location_strategies_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let pop_pools_binding_1 = args.pop_pools.get_output(context);
-        let pop_pools_binding = pop_pools_binding_1.get_inner();
-        let proxied_binding_1 = args.proxied.get_output(context);
-        let proxied_binding = proxied_binding_1.get_inner();
-        let random_steerings_binding_1 = args.random_steerings.get_output(context);
-        let random_steerings_binding = random_steerings_binding_1.get_inner();
-        let region_pools_binding_1 = args.region_pools.get_output(context);
-        let region_pools_binding = region_pools_binding_1.get_inner();
-        let rules_binding_1 = args.rules.get_output(context);
-        let rules_binding = rules_binding_1.get_inner();
-        let session_affinity_binding_1 = args.session_affinity.get_output(context);
-        let session_affinity_binding = session_affinity_binding_1.get_inner();
-        let session_affinity_attributes_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let adaptive_routings_binding = args.adaptive_routings.get_output(context);
+        let country_pools_binding = args.country_pools.get_output(context);
+        let default_pool_ids_binding = args.default_pool_ids.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let fallback_pool_id_binding = args.fallback_pool_id.get_output(context);
+        let location_strategies_binding = args.location_strategies.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let pop_pools_binding = args.pop_pools.get_output(context);
+        let proxied_binding = args.proxied.get_output(context);
+        let random_steerings_binding = args.random_steerings.get_output(context);
+        let region_pools_binding = args.region_pools.get_output(context);
+        let rules_binding = args.rules.get_output(context);
+        let session_affinity_binding = args.session_affinity.get_output(context);
+        let session_affinity_attributes_binding = args
             .session_affinity_attributes
             .get_output(context);
-        let session_affinity_attributes_binding = session_affinity_attributes_binding_1
-            .get_inner();
-        let session_affinity_ttl_binding_1 = args
-            .session_affinity_ttl
-            .get_output(context);
-        let session_affinity_ttl_binding = session_affinity_ttl_binding_1.get_inner();
-        let steering_policy_binding_1 = args.steering_policy.get_output(context);
-        let steering_policy_binding = steering_policy_binding_1.get_inner();
-        let ttl_binding_1 = args.ttl.get_output(context);
-        let ttl_binding = ttl_binding_1.get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let session_affinity_ttl_binding = args.session_affinity_ttl.get_output(context);
+        let steering_policy_binding = args.steering_policy.get_output(context);
+        let ttl_binding = args.ttl.get_output(context);
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/loadBalancer:LoadBalancer".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adaptiveRoutings".into(),
-                    value: &adaptive_routings_binding,
+                    value: adaptive_routings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "countryPools".into(),
-                    value: &country_pools_binding,
+                    value: country_pools_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultPoolIds".into(),
-                    value: &default_pool_ids_binding,
+                    value: default_pool_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fallbackPoolId".into(),
-                    value: &fallback_pool_id_binding,
+                    value: fallback_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationStrategies".into(),
-                    value: &location_strategies_binding,
+                    value: location_strategies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "popPools".into(),
-                    value: &pop_pools_binding,
+                    value: pop_pools_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxied".into(),
-                    value: &proxied_binding,
+                    value: proxied_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "randomSteerings".into(),
-                    value: &random_steerings_binding,
+                    value: random_steerings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regionPools".into(),
-                    value: &region_pools_binding,
+                    value: region_pools_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: &rules_binding,
+                    value: rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionAffinity".into(),
-                    value: &session_affinity_binding,
+                    value: session_affinity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionAffinityAttributes".into(),
-                    value: &session_affinity_attributes_binding,
+                    value: session_affinity_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionAffinityTtl".into(),
-                    value: &session_affinity_ttl_binding,
+                    value: session_affinity_ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "steeringPolicy".into(),
-                    value: &steering_policy_binding,
+                    value: steering_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: &ttl_binding,
+                    value: ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LoadBalancerResult {
-            adaptive_routings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adaptiveRoutings"),
-            ),
-            country_pools: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("countryPools"),
-            ),
-            created_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdOn"),
-            ),
-            default_pool_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultPoolIds"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            fallback_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fallbackPoolId"),
-            ),
-            location_strategies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationStrategies"),
-            ),
-            modified_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modifiedOn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pop_pools: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("popPools"),
-            ),
-            proxied: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proxied"),
-            ),
-            random_steerings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("randomSteerings"),
-            ),
-            region_pools: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regionPools"),
-            ),
-            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
-            session_affinity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionAffinity"),
-            ),
-            session_affinity_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionAffinityAttributes"),
-            ),
-            session_affinity_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionAffinityTtl"),
-            ),
-            steering_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("steeringPolicy"),
-            ),
-            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            adaptive_routings: o.get_field("adaptiveRoutings"),
+            country_pools: o.get_field("countryPools"),
+            created_on: o.get_field("createdOn"),
+            default_pool_ids: o.get_field("defaultPoolIds"),
+            description: o.get_field("description"),
+            enabled: o.get_field("enabled"),
+            fallback_pool_id: o.get_field("fallbackPoolId"),
+            location_strategies: o.get_field("locationStrategies"),
+            modified_on: o.get_field("modifiedOn"),
+            name: o.get_field("name"),
+            pop_pools: o.get_field("popPools"),
+            proxied: o.get_field("proxied"),
+            random_steerings: o.get_field("randomSteerings"),
+            region_pools: o.get_field("regionPools"),
+            rules: o.get_field("rules"),
+            session_affinity: o.get_field("sessionAffinity"),
+            session_affinity_attributes: o.get_field("sessionAffinityAttributes"),
+            session_affinity_ttl: o.get_field("sessionAffinityTtl"),
+            steering_policy: o.get_field("steeringPolicy"),
+            ttl: o.get_field("ttl"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

@@ -131,196 +131,140 @@ pub mod get_task_execution {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTaskExecutionArgs,
     ) -> GetTaskExecutionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let capacity_provider_strategies_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let capacity_provider_strategies_binding = args
             .capacity_provider_strategies
             .get_output(context);
-        let capacity_provider_strategies_binding = capacity_provider_strategies_binding_1
-            .get_inner();
-        let client_token_binding_1 = args.client_token.get_output(context);
-        let client_token_binding = client_token_binding_1.get_inner();
-        let cluster_binding_1 = args.cluster.get_output(context);
-        let cluster_binding = cluster_binding_1.get_inner();
-        let desired_count_binding_1 = args.desired_count.get_output(context);
-        let desired_count_binding = desired_count_binding_1.get_inner();
-        let enable_ecs_managed_tags_binding_1 = args
+        let client_token_binding = args.client_token.get_output(context);
+        let cluster_binding = args.cluster.get_output(context);
+        let desired_count_binding = args.desired_count.get_output(context);
+        let enable_ecs_managed_tags_binding = args
             .enable_ecs_managed_tags
             .get_output(context);
-        let enable_ecs_managed_tags_binding = enable_ecs_managed_tags_binding_1
-            .get_inner();
-        let enable_execute_command_binding_1 = args
+        let enable_execute_command_binding = args
             .enable_execute_command
             .get_output(context);
-        let enable_execute_command_binding = enable_execute_command_binding_1
-            .get_inner();
-        let group_binding_1 = args.group.get_output(context);
-        let group_binding = group_binding_1.get_inner();
-        let launch_type_binding_1 = args.launch_type.get_output(context);
-        let launch_type_binding = launch_type_binding_1.get_inner();
-        let network_configuration_binding_1 = args
+        let group_binding = args.group.get_output(context);
+        let launch_type_binding = args.launch_type.get_output(context);
+        let network_configuration_binding = args
             .network_configuration
             .get_output(context);
-        let network_configuration_binding = network_configuration_binding_1.get_inner();
-        let overrides_binding_1 = args.overrides.get_output(context);
-        let overrides_binding = overrides_binding_1.get_inner();
-        let placement_constraints_binding_1 = args
+        let overrides_binding = args.overrides.get_output(context);
+        let placement_constraints_binding = args
             .placement_constraints
             .get_output(context);
-        let placement_constraints_binding = placement_constraints_binding_1.get_inner();
-        let placement_strategies_binding_1 = args
-            .placement_strategies
-            .get_output(context);
-        let placement_strategies_binding = placement_strategies_binding_1.get_inner();
-        let platform_version_binding_1 = args.platform_version.get_output(context);
-        let platform_version_binding = platform_version_binding_1.get_inner();
-        let propagate_tags_binding_1 = args.propagate_tags.get_output(context);
-        let propagate_tags_binding = propagate_tags_binding_1.get_inner();
-        let reference_id_binding_1 = args.reference_id.get_output(context);
-        let reference_id_binding = reference_id_binding_1.get_inner();
-        let started_by_binding_1 = args.started_by.get_output(context);
-        let started_by_binding = started_by_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let task_definition_binding_1 = args.task_definition.get_output(context);
-        let task_definition_binding = task_definition_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let placement_strategies_binding = args.placement_strategies.get_output(context);
+        let platform_version_binding = args.platform_version.get_output(context);
+        let propagate_tags_binding = args.propagate_tags.get_output(context);
+        let reference_id_binding = args.reference_id.get_output(context);
+        let started_by_binding = args.started_by.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let task_definition_binding = args.task_definition.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ecs/getTaskExecution:getTaskExecution".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityProviderStrategies".into(),
-                    value: &capacity_provider_strategies_binding,
+                    value: capacity_provider_strategies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientToken".into(),
-                    value: &client_token_binding,
+                    value: client_token_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cluster".into(),
-                    value: &cluster_binding,
+                    value: cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredCount".into(),
-                    value: &desired_count_binding,
+                    value: desired_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableEcsManagedTags".into(),
-                    value: &enable_ecs_managed_tags_binding,
+                    value: enable_ecs_managed_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableExecuteCommand".into(),
-                    value: &enable_execute_command_binding,
+                    value: enable_execute_command_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "group".into(),
-                    value: &group_binding,
+                    value: group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchType".into(),
-                    value: &launch_type_binding,
+                    value: launch_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfiguration".into(),
-                    value: &network_configuration_binding,
+                    value: network_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrides".into(),
-                    value: &overrides_binding,
+                    value: overrides_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementConstraints".into(),
-                    value: &placement_constraints_binding,
+                    value: placement_constraints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementStrategies".into(),
-                    value: &placement_strategies_binding,
+                    value: placement_strategies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformVersion".into(),
-                    value: &platform_version_binding,
+                    value: platform_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "propagateTags".into(),
-                    value: &propagate_tags_binding,
+                    value: propagate_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "referenceId".into(),
-                    value: &reference_id_binding,
+                    value: reference_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startedBy".into(),
-                    value: &started_by_binding,
+                    value: started_by_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskDefinition".into(),
-                    value: &task_definition_binding,
+                    value: task_definition_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTaskExecutionResult {
-            capacity_provider_strategies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityProviderStrategies"),
-            ),
-            client_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientToken"),
-            ),
-            cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cluster"),
-            ),
-            desired_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredCount"),
-            ),
-            enable_ecs_managed_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableEcsManagedTags"),
-            ),
-            enable_execute_command: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableExecuteCommand"),
-            ),
-            group: pulumi_gestalt_rust::__private::into_domain(o.extract_field("group")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            launch_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchType"),
-            ),
-            network_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfiguration"),
-            ),
-            overrides: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("overrides"),
-            ),
-            placement_constraints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementConstraints"),
-            ),
-            placement_strategies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementStrategies"),
-            ),
-            platform_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformVersion"),
-            ),
-            propagate_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("propagateTags"),
-            ),
-            reference_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("referenceId"),
-            ),
-            started_by: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startedBy"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            task_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskArns"),
-            ),
-            task_definition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskDefinition"),
-            ),
+            capacity_provider_strategies: o.get_field("capacityProviderStrategies"),
+            client_token: o.get_field("clientToken"),
+            cluster: o.get_field("cluster"),
+            desired_count: o.get_field("desiredCount"),
+            enable_ecs_managed_tags: o.get_field("enableEcsManagedTags"),
+            enable_execute_command: o.get_field("enableExecuteCommand"),
+            group: o.get_field("group"),
+            id: o.get_field("id"),
+            launch_type: o.get_field("launchType"),
+            network_configuration: o.get_field("networkConfiguration"),
+            overrides: o.get_field("overrides"),
+            placement_constraints: o.get_field("placementConstraints"),
+            placement_strategies: o.get_field("placementStrategies"),
+            platform_version: o.get_field("platformVersion"),
+            propagate_tags: o.get_field("propagateTags"),
+            reference_id: o.get_field("referenceId"),
+            started_by: o.get_field("startedBy"),
+            tags: o.get_field("tags"),
+            task_arns: o.get_field("taskArns"),
+            task_definition: o.get_field("taskDefinition"),
         }
     }
 }

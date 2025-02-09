@@ -79,111 +79,64 @@ pub mod get_cluster_node_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetClusterNodePoolArgs,
     ) -> GetClusterNodePoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let kubernetes_cluster_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let kubernetes_cluster_name_binding = args
             .kubernetes_cluster_name
             .get_output(context);
-        let kubernetes_cluster_name_binding = kubernetes_cluster_name_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:containerservice/getClusterNodePool:getClusterNodePool".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesClusterName".into(),
-                    value: &kubernetes_cluster_name_binding,
+                    value: kubernetes_cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetClusterNodePoolResult {
-            auto_scaling_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoScalingEnabled"),
-            ),
-            eviction_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("evictionPolicy"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kubernetes_cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kubernetesClusterName"),
-            ),
-            max_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxCount"),
-            ),
-            max_pods: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxPods"),
-            ),
-            min_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minCount"),
-            ),
-            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeCount"),
-            ),
-            node_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeLabels"),
-            ),
-            node_public_ip_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodePublicIpEnabled"),
-            ),
-            node_public_ip_prefix_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodePublicIpPrefixId"),
-            ),
-            node_taints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeTaints"),
-            ),
-            orchestrator_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orchestratorVersion"),
-            ),
-            os_disk_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osDiskSizeGb"),
-            ),
-            os_disk_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osDiskType"),
-            ),
-            os_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osType"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            proximity_placement_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proximityPlacementGroupId"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            spot_max_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spotMaxPrice"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            upgrade_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("upgradeSettings"),
-            ),
-            vm_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmSize"),
-            ),
-            vnet_subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vnetSubnetId"),
-            ),
-            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
+            auto_scaling_enabled: o.get_field("autoScalingEnabled"),
+            eviction_policy: o.get_field("evictionPolicy"),
+            id: o.get_field("id"),
+            kubernetes_cluster_name: o.get_field("kubernetesClusterName"),
+            max_count: o.get_field("maxCount"),
+            max_pods: o.get_field("maxPods"),
+            min_count: o.get_field("minCount"),
+            mode: o.get_field("mode"),
+            name: o.get_field("name"),
+            node_count: o.get_field("nodeCount"),
+            node_labels: o.get_field("nodeLabels"),
+            node_public_ip_enabled: o.get_field("nodePublicIpEnabled"),
+            node_public_ip_prefix_id: o.get_field("nodePublicIpPrefixId"),
+            node_taints: o.get_field("nodeTaints"),
+            orchestrator_version: o.get_field("orchestratorVersion"),
+            os_disk_size_gb: o.get_field("osDiskSizeGb"),
+            os_disk_type: o.get_field("osDiskType"),
+            os_type: o.get_field("osType"),
+            priority: o.get_field("priority"),
+            proximity_placement_group_id: o.get_field("proximityPlacementGroupId"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            spot_max_price: o.get_field("spotMaxPrice"),
+            tags: o.get_field("tags"),
+            upgrade_settings: o.get_field("upgradeSettings"),
+            vm_size: o.get_field("vmSize"),
+            vnet_subnet_id: o.get_field("vnetSubnetId"),
+            zones: o.get_field("zones"),
         }
     }
 }

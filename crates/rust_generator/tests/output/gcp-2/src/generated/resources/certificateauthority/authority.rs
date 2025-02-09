@@ -327,187 +327,131 @@ pub mod authority {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AuthorityArgs,
     ) -> AuthorityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_authority_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_authority_id_binding = args
             .certificate_authority_id
             .get_output(context);
-        let certificate_authority_id_binding = certificate_authority_id_binding_1
-            .get_inner();
-        let config_binding_1 = args.config.get_output(context);
-        let config_binding = config_binding_1.get_inner();
-        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
-        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
-        let desired_state_binding_1 = args.desired_state.get_output(context);
-        let desired_state_binding = desired_state_binding_1.get_inner();
-        let gcs_bucket_binding_1 = args.gcs_bucket.get_output(context);
-        let gcs_bucket_binding = gcs_bucket_binding_1.get_inner();
-        let ignore_active_certificates_on_deletion_binding_1 = args
+        let config_binding = args.config.get_output(context);
+        let deletion_protection_binding = args.deletion_protection.get_output(context);
+        let desired_state_binding = args.desired_state.get_output(context);
+        let gcs_bucket_binding = args.gcs_bucket.get_output(context);
+        let ignore_active_certificates_on_deletion_binding = args
             .ignore_active_certificates_on_deletion
             .get_output(context);
-        let ignore_active_certificates_on_deletion_binding = ignore_active_certificates_on_deletion_binding_1
-            .get_inner();
-        let key_spec_binding_1 = args.key_spec.get_output(context);
-        let key_spec_binding = key_spec_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let lifetime_binding_1 = args.lifetime.get_output(context);
-        let lifetime_binding = lifetime_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let pem_ca_certificate_binding_1 = args.pem_ca_certificate.get_output(context);
-        let pem_ca_certificate_binding = pem_ca_certificate_binding_1.get_inner();
-        let pool_binding_1 = args.pool.get_output(context);
-        let pool_binding = pool_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let skip_grace_period_binding_1 = args.skip_grace_period.get_output(context);
-        let skip_grace_period_binding = skip_grace_period_binding_1.get_inner();
-        let subordinate_config_binding_1 = args.subordinate_config.get_output(context);
-        let subordinate_config_binding = subordinate_config_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let key_spec_binding = args.key_spec.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let lifetime_binding = args.lifetime.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let pem_ca_certificate_binding = args.pem_ca_certificate.get_output(context);
+        let pool_binding = args.pool.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let skip_grace_period_binding = args.skip_grace_period.get_output(context);
+        let subordinate_config_binding = args.subordinate_config.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:certificateauthority/authority:Authority".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthorityId".into(),
-                    value: &certificate_authority_id_binding,
+                    value: certificate_authority_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "config".into(),
-                    value: &config_binding,
+                    value: config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: &deletion_protection_binding,
+                    value: deletion_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredState".into(),
-                    value: &desired_state_binding,
+                    value: desired_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gcsBucket".into(),
-                    value: &gcs_bucket_binding,
+                    value: gcs_bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreActiveCertificatesOnDeletion".into(),
-                    value: &ignore_active_certificates_on_deletion_binding,
+                    value: ignore_active_certificates_on_deletion_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keySpec".into(),
-                    value: &key_spec_binding,
+                    value: key_spec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifetime".into(),
-                    value: &lifetime_binding,
+                    value: lifetime_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pemCaCertificate".into(),
-                    value: &pem_ca_certificate_binding,
+                    value: pem_ca_certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pool".into(),
-                    value: &pool_binding,
+                    value: pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipGracePeriod".into(),
-                    value: &skip_grace_period_binding,
+                    value: skip_grace_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subordinateConfig".into(),
-                    value: &subordinate_config_binding,
+                    value: subordinate_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AuthorityResult {
-            access_urls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessUrls"),
-            ),
-            certificate_authority_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateAuthorityId"),
-            ),
-            config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("config"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            desired_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredState"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            gcs_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gcsBucket"),
-            ),
-            ignore_active_certificates_on_deletion: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoreActiveCertificatesOnDeletion"),
-            ),
-            key_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keySpec"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            lifetime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifetime"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pem_ca_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pemCaCertificate"),
-            ),
-            pem_ca_certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pemCaCertificates"),
-            ),
-            pool: pulumi_gestalt_rust::__private::into_domain(o.extract_field("pool")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            skip_grace_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipGracePeriod"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            subordinate_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subordinateConfig"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            access_urls: o.get_field("accessUrls"),
+            certificate_authority_id: o.get_field("certificateAuthorityId"),
+            config: o.get_field("config"),
+            create_time: o.get_field("createTime"),
+            deletion_protection: o.get_field("deletionProtection"),
+            desired_state: o.get_field("desiredState"),
+            effective_labels: o.get_field("effectiveLabels"),
+            gcs_bucket: o.get_field("gcsBucket"),
+            ignore_active_certificates_on_deletion: o
+                .get_field("ignoreActiveCertificatesOnDeletion"),
+            key_spec: o.get_field("keySpec"),
+            labels: o.get_field("labels"),
+            lifetime: o.get_field("lifetime"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            pem_ca_certificate: o.get_field("pemCaCertificate"),
+            pem_ca_certificates: o.get_field("pemCaCertificates"),
+            pool: o.get_field("pool"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            skip_grace_period: o.get_field("skipGracePeriod"),
+            state: o.get_field("state"),
+            subordinate_config: o.get_field("subordinateConfig"),
+            type_: o.get_field("type"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

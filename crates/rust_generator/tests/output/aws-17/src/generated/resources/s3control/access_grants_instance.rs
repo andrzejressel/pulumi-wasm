@@ -82,58 +82,44 @@ pub mod access_grants_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccessGrantsInstanceArgs,
     ) -> AccessGrantsInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let identity_center_arn_binding_1 = args.identity_center_arn.get_output(context);
-        let identity_center_arn_binding = identity_center_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let identity_center_arn_binding = args.identity_center_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:s3control/accessGrantsInstance:AccessGrantsInstance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityCenterArn".into(),
-                    value: &identity_center_arn_binding,
+                    value: identity_center_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccessGrantsInstanceResult {
-            access_grants_instance_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessGrantsInstanceArn"),
-            ),
-            access_grants_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessGrantsInstanceId"),
-            ),
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            identity_center_application_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityCenterApplicationArn"),
-            ),
-            identity_center_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityCenterArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            access_grants_instance_arn: o.get_field("accessGrantsInstanceArn"),
+            access_grants_instance_id: o.get_field("accessGrantsInstanceId"),
+            account_id: o.get_field("accountId"),
+            identity_center_application_arn: o.get_field("identityCenterApplicationArn"),
+            identity_center_arn: o.get_field("identityCenterArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

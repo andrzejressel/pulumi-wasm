@@ -95,114 +95,83 @@ pub mod get_permissions {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPermissionsArgs,
     ) -> GetPermissionsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding_1 = args.catalog_id.get_output(context);
-        let catalog_id_binding = catalog_id_binding_1.get_inner();
-        let catalog_resource_binding_1 = args.catalog_resource.get_output(context);
-        let catalog_resource_binding = catalog_resource_binding_1.get_inner();
-        let data_cells_filter_binding_1 = args.data_cells_filter.get_output(context);
-        let data_cells_filter_binding = data_cells_filter_binding_1.get_inner();
-        let data_location_binding_1 = args.data_location.get_output(context);
-        let data_location_binding = data_location_binding_1.get_inner();
-        let database_binding_1 = args.database.get_output(context);
-        let database_binding = database_binding_1.get_inner();
-        let lf_tag_binding_1 = args.lf_tag.get_output(context);
-        let lf_tag_binding = lf_tag_binding_1.get_inner();
-        let lf_tag_policy_binding_1 = args.lf_tag_policy.get_output(context);
-        let lf_tag_policy_binding = lf_tag_policy_binding_1.get_inner();
-        let principal_binding_1 = args.principal.get_output(context);
-        let principal_binding = principal_binding_1.get_inner();
-        let table_binding_1 = args.table.get_output(context);
-        let table_binding = table_binding_1.get_inner();
-        let table_with_columns_binding_1 = args.table_with_columns.get_output(context);
-        let table_with_columns_binding = table_with_columns_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let catalog_id_binding = args.catalog_id.get_output(context);
+        let catalog_resource_binding = args.catalog_resource.get_output(context);
+        let data_cells_filter_binding = args.data_cells_filter.get_output(context);
+        let data_location_binding = args.data_location.get_output(context);
+        let database_binding = args.database.get_output(context);
+        let lf_tag_binding = args.lf_tag.get_output(context);
+        let lf_tag_policy_binding = args.lf_tag_policy.get_output(context);
+        let principal_binding = args.principal.get_output(context);
+        let table_binding = args.table.get_output(context);
+        let table_with_columns_binding = args.table_with_columns.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:lakeformation/getPermissions:getPermissions".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: &catalog_id_binding,
+                    value: catalog_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogResource".into(),
-                    value: &catalog_resource_binding,
+                    value: catalog_resource_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCellsFilter".into(),
-                    value: &data_cells_filter_binding,
+                    value: data_cells_filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataLocation".into(),
-                    value: &data_location_binding,
+                    value: data_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "database".into(),
-                    value: &database_binding,
+                    value: database_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lfTag".into(),
-                    value: &lf_tag_binding,
+                    value: lf_tag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lfTagPolicy".into(),
-                    value: &lf_tag_policy_binding,
+                    value: lf_tag_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: &principal_binding,
+                    value: principal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "table".into(),
-                    value: &table_binding,
+                    value: table_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableWithColumns".into(),
-                    value: &table_with_columns_binding,
+                    value: table_with_columns_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPermissionsResult {
-            catalog_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogId"),
-            ),
-            catalog_resource: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogResource"),
-            ),
-            data_cells_filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataCellsFilter"),
-            ),
-            data_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataLocation"),
-            ),
-            database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("database"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            lf_tag: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lfTag"),
-            ),
-            lf_tag_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lfTagPolicy"),
-            ),
-            permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissions"),
-            ),
-            permissions_with_grant_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissionsWithGrantOptions"),
-            ),
-            principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principal"),
-            ),
-            table: pulumi_gestalt_rust::__private::into_domain(o.extract_field("table")),
-            table_with_columns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableWithColumns"),
-            ),
+            catalog_id: o.get_field("catalogId"),
+            catalog_resource: o.get_field("catalogResource"),
+            data_cells_filter: o.get_field("dataCellsFilter"),
+            data_location: o.get_field("dataLocation"),
+            database: o.get_field("database"),
+            id: o.get_field("id"),
+            lf_tag: o.get_field("lfTag"),
+            lf_tag_policy: o.get_field("lfTagPolicy"),
+            permissions: o.get_field("permissions"),
+            permissions_with_grant_options: o.get_field("permissionsWithGrantOptions"),
+            principal: o.get_field("principal"),
+            table: o.get_field("table"),
+            table_with_columns: o.get_field("tableWithColumns"),
         }
     }
 }

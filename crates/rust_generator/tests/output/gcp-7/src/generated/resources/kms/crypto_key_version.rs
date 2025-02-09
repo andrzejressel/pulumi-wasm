@@ -110,62 +110,48 @@ pub mod crypto_key_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CryptoKeyVersionArgs,
     ) -> CryptoKeyVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let crypto_key_binding_1 = args.crypto_key.get_output(context);
-        let crypto_key_binding = crypto_key_binding_1.get_inner();
-        let external_protection_level_options_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let crypto_key_binding = args.crypto_key.get_output(context);
+        let external_protection_level_options_binding = args
             .external_protection_level_options
             .get_output(context);
-        let external_protection_level_options_binding = external_protection_level_options_binding_1
-            .get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let state_binding = args.state.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:kms/cryptoKeyVersion:CryptoKeyVersion".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoKey".into(),
-                    value: &crypto_key_binding,
+                    value: crypto_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalProtectionLevelOptions".into(),
-                    value: &external_protection_level_options_binding,
+                    value: external_protection_level_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CryptoKeyVersionResult {
-            algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("algorithm"),
-            ),
-            attestations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attestations"),
-            ),
-            crypto_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cryptoKey"),
-            ),
-            external_protection_level_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalProtectionLevelOptions"),
-            ),
-            generate_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("generateTime"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            protection_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectionLevel"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            algorithm: o.get_field("algorithm"),
+            attestations: o.get_field("attestations"),
+            crypto_key: o.get_field("cryptoKey"),
+            external_protection_level_options: o
+                .get_field("externalProtectionLevelOptions"),
+            generate_time: o.get_field("generateTime"),
+            name: o.get_field("name"),
+            protection_level: o.get_field("protectionLevel"),
+            state: o.get_field("state"),
         }
     }
 }

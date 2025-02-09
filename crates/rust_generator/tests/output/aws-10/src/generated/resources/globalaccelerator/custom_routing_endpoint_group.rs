@@ -92,67 +92,54 @@ pub mod custom_routing_endpoint_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomRoutingEndpointGroupArgs,
     ) -> CustomRoutingEndpointGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_configurations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let destination_configurations_binding = args
             .destination_configurations
             .get_output(context);
-        let destination_configurations_binding = destination_configurations_binding_1
-            .get_inner();
-        let endpoint_configurations_binding_1 = args
+        let endpoint_configurations_binding = args
             .endpoint_configurations
             .get_output(context);
-        let endpoint_configurations_binding = endpoint_configurations_binding_1
-            .get_inner();
-        let endpoint_group_region_binding_1 = args
+        let endpoint_group_region_binding = args
             .endpoint_group_region
             .get_output(context);
-        let endpoint_group_region_binding = endpoint_group_region_binding_1.get_inner();
-        let listener_arn_binding_1 = args.listener_arn.get_output(context);
-        let listener_arn_binding = listener_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let listener_arn_binding = args.listener_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationConfigurations".into(),
-                    value: &destination_configurations_binding,
+                    value: destination_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointConfigurations".into(),
-                    value: &endpoint_configurations_binding,
+                    value: endpoint_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointGroupRegion".into(),
-                    value: &endpoint_group_region_binding,
+                    value: endpoint_group_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listenerArn".into(),
-                    value: &listener_arn_binding,
+                    value: listener_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomRoutingEndpointGroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            destination_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationConfigurations"),
-            ),
-            endpoint_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointConfigurations"),
-            ),
-            endpoint_group_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointGroupRegion"),
-            ),
-            listener_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listenerArn"),
-            ),
+            arn: o.get_field("arn"),
+            destination_configurations: o.get_field("destinationConfigurations"),
+            endpoint_configurations: o.get_field("endpointConfigurations"),
+            endpoint_group_region: o.get_field("endpointGroupRegion"),
+            listener_arn: o.get_field("listenerArn"),
         }
     }
 }

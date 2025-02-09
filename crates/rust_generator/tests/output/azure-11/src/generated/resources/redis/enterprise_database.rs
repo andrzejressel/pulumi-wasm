@@ -139,107 +139,80 @@ pub mod enterprise_database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EnterpriseDatabaseArgs,
     ) -> EnterpriseDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_protocol_binding_1 = args.client_protocol.get_output(context);
-        let client_protocol_binding = client_protocol_binding_1.get_inner();
-        let cluster_id_binding_1 = args.cluster_id.get_output(context);
-        let cluster_id_binding = cluster_id_binding_1.get_inner();
-        let clustering_policy_binding_1 = args.clustering_policy.get_output(context);
-        let clustering_policy_binding = clustering_policy_binding_1.get_inner();
-        let eviction_policy_binding_1 = args.eviction_policy.get_output(context);
-        let eviction_policy_binding = eviction_policy_binding_1.get_inner();
-        let linked_database_group_nickname_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let client_protocol_binding = args.client_protocol.get_output(context);
+        let cluster_id_binding = args.cluster_id.get_output(context);
+        let clustering_policy_binding = args.clustering_policy.get_output(context);
+        let eviction_policy_binding = args.eviction_policy.get_output(context);
+        let linked_database_group_nickname_binding = args
             .linked_database_group_nickname
             .get_output(context);
-        let linked_database_group_nickname_binding = linked_database_group_nickname_binding_1
-            .get_inner();
-        let linked_database_ids_binding_1 = args.linked_database_ids.get_output(context);
-        let linked_database_ids_binding = linked_database_ids_binding_1.get_inner();
-        let modules_binding_1 = args.modules.get_output(context);
-        let modules_binding = modules_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let linked_database_ids_binding = args.linked_database_ids.get_output(context);
+        let modules_binding = args.modules.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:redis/enterpriseDatabase:EnterpriseDatabase".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientProtocol".into(),
-                    value: &client_protocol_binding,
+                    value: client_protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: &cluster_id_binding,
+                    value: cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusteringPolicy".into(),
-                    value: &clustering_policy_binding,
+                    value: clustering_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "evictionPolicy".into(),
-                    value: &eviction_policy_binding,
+                    value: eviction_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedDatabaseGroupNickname".into(),
-                    value: &linked_database_group_nickname_binding,
+                    value: linked_database_group_nickname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedDatabaseIds".into(),
-                    value: &linked_database_ids_binding,
+                    value: linked_database_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modules".into(),
-                    value: &modules_binding,
+                    value: modules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EnterpriseDatabaseResult {
-            client_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientProtocol"),
-            ),
-            cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterId"),
-            ),
-            clustering_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusteringPolicy"),
-            ),
-            eviction_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("evictionPolicy"),
-            ),
-            linked_database_group_nickname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedDatabaseGroupNickname"),
-            ),
-            linked_database_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedDatabaseIds"),
-            ),
-            modules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modules"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            primary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryAccessKey"),
-            ),
-            secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryAccessKey"),
-            ),
+            client_protocol: o.get_field("clientProtocol"),
+            cluster_id: o.get_field("clusterId"),
+            clustering_policy: o.get_field("clusteringPolicy"),
+            eviction_policy: o.get_field("evictionPolicy"),
+            linked_database_group_nickname: o.get_field("linkedDatabaseGroupNickname"),
+            linked_database_ids: o.get_field("linkedDatabaseIds"),
+            modules: o.get_field("modules"),
+            name: o.get_field("name"),
+            port: o.get_field("port"),
+            primary_access_key: o.get_field("primaryAccessKey"),
+            secondary_access_key: o.get_field("secondaryAccessKey"),
         }
     }
 }

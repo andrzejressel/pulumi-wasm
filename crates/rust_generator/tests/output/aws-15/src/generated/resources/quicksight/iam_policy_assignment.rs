@@ -87,78 +87,59 @@ pub mod iam_policy_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IamPolicyAssignmentArgs,
     ) -> IamPolicyAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assignment_name_binding_1 = args.assignment_name.get_output(context);
-        let assignment_name_binding = assignment_name_binding_1.get_inner();
-        let assignment_status_binding_1 = args.assignment_status.get_output(context);
-        let assignment_status_binding = assignment_status_binding_1.get_inner();
-        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
-        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
-        let identities_binding_1 = args.identities.get_output(context);
-        let identities_binding = identities_binding_1.get_inner();
-        let namespace_binding_1 = args.namespace.get_output(context);
-        let namespace_binding = namespace_binding_1.get_inner();
-        let policy_arn_binding_1 = args.policy_arn.get_output(context);
-        let policy_arn_binding = policy_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let assignment_name_binding = args.assignment_name.get_output(context);
+        let assignment_status_binding = args.assignment_status.get_output(context);
+        let aws_account_id_binding = args.aws_account_id.get_output(context);
+        let identities_binding = args.identities.get_output(context);
+        let namespace_binding = args.namespace.get_output(context);
+        let policy_arn_binding = args.policy_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignmentName".into(),
-                    value: &assignment_name_binding,
+                    value: assignment_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignmentStatus".into(),
-                    value: &assignment_status_binding,
+                    value: assignment_status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: &aws_account_id_binding,
+                    value: aws_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identities".into(),
-                    value: &identities_binding,
+                    value: identities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespace".into(),
-                    value: &namespace_binding,
+                    value: namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyArn".into(),
-                    value: &policy_arn_binding,
+                    value: policy_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IamPolicyAssignmentResult {
-            assignment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assignmentId"),
-            ),
-            assignment_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assignmentName"),
-            ),
-            assignment_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assignmentStatus"),
-            ),
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespace"),
-            ),
-            policy_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyArn"),
-            ),
+            assignment_id: o.get_field("assignmentId"),
+            assignment_name: o.get_field("assignmentName"),
+            assignment_status: o.get_field("assignmentStatus"),
+            aws_account_id: o.get_field("awsAccountId"),
+            identities: o.get_field("identities"),
+            namespace: o.get_field("namespace"),
+            policy_arn: o.get_field("policyArn"),
         }
     }
 }

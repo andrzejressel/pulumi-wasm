@@ -112,108 +112,81 @@ pub mod schedule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ScheduleArgs,
     ) -> ScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_group_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let autoscaling_group_name_binding = args
             .autoscaling_group_name
             .get_output(context);
-        let autoscaling_group_name_binding = autoscaling_group_name_binding_1
-            .get_inner();
-        let desired_capacity_binding_1 = args.desired_capacity.get_output(context);
-        let desired_capacity_binding = desired_capacity_binding_1.get_inner();
-        let end_time_binding_1 = args.end_time.get_output(context);
-        let end_time_binding = end_time_binding_1.get_inner();
-        let max_size_binding_1 = args.max_size.get_output(context);
-        let max_size_binding = max_size_binding_1.get_inner();
-        let min_size_binding_1 = args.min_size.get_output(context);
-        let min_size_binding = min_size_binding_1.get_inner();
-        let recurrence_binding_1 = args.recurrence.get_output(context);
-        let recurrence_binding = recurrence_binding_1.get_inner();
-        let scheduled_action_name_binding_1 = args
+        let desired_capacity_binding = args.desired_capacity.get_output(context);
+        let end_time_binding = args.end_time.get_output(context);
+        let max_size_binding = args.max_size.get_output(context);
+        let min_size_binding = args.min_size.get_output(context);
+        let recurrence_binding = args.recurrence.get_output(context);
+        let scheduled_action_name_binding = args
             .scheduled_action_name
             .get_output(context);
-        let scheduled_action_name_binding = scheduled_action_name_binding_1.get_inner();
-        let start_time_binding_1 = args.start_time.get_output(context);
-        let start_time_binding = start_time_binding_1.get_inner();
-        let time_zone_binding_1 = args.time_zone.get_output(context);
-        let time_zone_binding = time_zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let start_time_binding = args.start_time.get_output(context);
+        let time_zone_binding = args.time_zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:autoscaling/schedule:Schedule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingGroupName".into(),
-                    value: &autoscaling_group_name_binding,
+                    value: autoscaling_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredCapacity".into(),
-                    value: &desired_capacity_binding,
+                    value: desired_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endTime".into(),
-                    value: &end_time_binding,
+                    value: end_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxSize".into(),
-                    value: &max_size_binding,
+                    value: max_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minSize".into(),
-                    value: &min_size_binding,
+                    value: min_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recurrence".into(),
-                    value: &recurrence_binding,
+                    value: recurrence_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduledActionName".into(),
-                    value: &scheduled_action_name_binding,
+                    value: scheduled_action_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startTime".into(),
-                    value: &start_time_binding,
+                    value: start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZone".into(),
-                    value: &time_zone_binding,
+                    value: time_zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ScheduleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            autoscaling_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscalingGroupName"),
-            ),
-            desired_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredCapacity"),
-            ),
-            end_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endTime"),
-            ),
-            max_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxSize"),
-            ),
-            min_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minSize"),
-            ),
-            recurrence: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recurrence"),
-            ),
-            scheduled_action_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduledActionName"),
-            ),
-            start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startTime"),
-            ),
-            time_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeZone"),
-            ),
+            arn: o.get_field("arn"),
+            autoscaling_group_name: o.get_field("autoscalingGroupName"),
+            desired_capacity: o.get_field("desiredCapacity"),
+            end_time: o.get_field("endTime"),
+            max_size: o.get_field("maxSize"),
+            min_size: o.get_field("minSize"),
+            recurrence: o.get_field("recurrence"),
+            scheduled_action_name: o.get_field("scheduledActionName"),
+            start_time: o.get_field("startTime"),
+            time_zone: o.get_field("timeZone"),
         }
     }
 }

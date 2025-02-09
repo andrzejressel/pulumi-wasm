@@ -93,56 +93,44 @@ pub mod container_service_deployment_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ContainerServiceDeploymentVersionArgs,
     ) -> ContainerServiceDeploymentVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let containers_binding_1 = args.containers.get_output(context);
-        let containers_binding = containers_binding_1.get_inner();
-        let public_endpoint_binding_1 = args.public_endpoint.get_output(context);
-        let public_endpoint_binding = public_endpoint_binding_1.get_inner();
-        let service_name_binding_1 = args.service_name.get_output(context);
-        let service_name_binding = service_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let containers_binding = args.containers.get_output(context);
+        let public_endpoint_binding = args.public_endpoint.get_output(context);
+        let service_name_binding = args.service_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containers".into(),
-                    value: &containers_binding,
+                    value: containers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicEndpoint".into(),
-                    value: &public_endpoint_binding,
+                    value: public_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: &service_name_binding,
+                    value: service_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ContainerServiceDeploymentVersionResult {
-            containers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containers"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            public_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicEndpoint"),
-            ),
-            service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceName"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            containers: o.get_field("containers"),
+            created_at: o.get_field("createdAt"),
+            public_endpoint: o.get_field("publicEndpoint"),
+            service_name: o.get_field("serviceName"),
+            state: o.get_field("state"),
+            version: o.get_field("version"),
         }
     }
 }

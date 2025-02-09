@@ -149,125 +149,94 @@ pub mod spring_cloud_app_cosmos_db_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudAppCosmosDBAssociationArgs,
     ) -> SpringCloudAppCosmosDBAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_type_binding_1 = args.api_type.get_output(context);
-        let api_type_binding = api_type_binding_1.get_inner();
-        let cosmosdb_access_key_binding_1 = args.cosmosdb_access_key.get_output(context);
-        let cosmosdb_access_key_binding = cosmosdb_access_key_binding_1.get_inner();
-        let cosmosdb_account_id_binding_1 = args.cosmosdb_account_id.get_output(context);
-        let cosmosdb_account_id_binding = cosmosdb_account_id_binding_1.get_inner();
-        let cosmosdb_cassandra_keyspace_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_type_binding = args.api_type.get_output(context);
+        let cosmosdb_access_key_binding = args.cosmosdb_access_key.get_output(context);
+        let cosmosdb_account_id_binding = args.cosmosdb_account_id.get_output(context);
+        let cosmosdb_cassandra_keyspace_name_binding = args
             .cosmosdb_cassandra_keyspace_name
             .get_output(context);
-        let cosmosdb_cassandra_keyspace_name_binding = cosmosdb_cassandra_keyspace_name_binding_1
-            .get_inner();
-        let cosmosdb_gremlin_database_name_binding_1 = args
+        let cosmosdb_gremlin_database_name_binding = args
             .cosmosdb_gremlin_database_name
             .get_output(context);
-        let cosmosdb_gremlin_database_name_binding = cosmosdb_gremlin_database_name_binding_1
-            .get_inner();
-        let cosmosdb_gremlin_graph_name_binding_1 = args
+        let cosmosdb_gremlin_graph_name_binding = args
             .cosmosdb_gremlin_graph_name
             .get_output(context);
-        let cosmosdb_gremlin_graph_name_binding = cosmosdb_gremlin_graph_name_binding_1
-            .get_inner();
-        let cosmosdb_mongo_database_name_binding_1 = args
+        let cosmosdb_mongo_database_name_binding = args
             .cosmosdb_mongo_database_name
             .get_output(context);
-        let cosmosdb_mongo_database_name_binding = cosmosdb_mongo_database_name_binding_1
-            .get_inner();
-        let cosmosdb_sql_database_name_binding_1 = args
+        let cosmosdb_sql_database_name_binding = args
             .cosmosdb_sql_database_name
             .get_output(context);
-        let cosmosdb_sql_database_name_binding = cosmosdb_sql_database_name_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let spring_cloud_app_id_binding_1 = args.spring_cloud_app_id.get_output(context);
-        let spring_cloud_app_id_binding = spring_cloud_app_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let spring_cloud_app_id_binding = args.spring_cloud_app_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiType".into(),
-                    value: &api_type_binding,
+                    value: api_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbAccessKey".into(),
-                    value: &cosmosdb_access_key_binding,
+                    value: cosmosdb_access_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbAccountId".into(),
-                    value: &cosmosdb_account_id_binding,
+                    value: cosmosdb_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbCassandraKeyspaceName".into(),
-                    value: &cosmosdb_cassandra_keyspace_name_binding,
+                    value: cosmosdb_cassandra_keyspace_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbGremlinDatabaseName".into(),
-                    value: &cosmosdb_gremlin_database_name_binding,
+                    value: cosmosdb_gremlin_database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbGremlinGraphName".into(),
-                    value: &cosmosdb_gremlin_graph_name_binding,
+                    value: cosmosdb_gremlin_graph_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbMongoDatabaseName".into(),
-                    value: &cosmosdb_mongo_database_name_binding,
+                    value: cosmosdb_mongo_database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbSqlDatabaseName".into(),
-                    value: &cosmosdb_sql_database_name_binding,
+                    value: cosmosdb_sql_database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudAppId".into(),
-                    value: &spring_cloud_app_id_binding,
+                    value: spring_cloud_app_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudAppCosmosDBAssociationResult {
-            api_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiType"),
-            ),
-            cosmosdb_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cosmosdbAccessKey"),
-            ),
-            cosmosdb_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cosmosdbAccountId"),
-            ),
-            cosmosdb_cassandra_keyspace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cosmosdbCassandraKeyspaceName"),
-            ),
-            cosmosdb_gremlin_database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cosmosdbGremlinDatabaseName"),
-            ),
-            cosmosdb_gremlin_graph_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cosmosdbGremlinGraphName"),
-            ),
-            cosmosdb_mongo_database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cosmosdbMongoDatabaseName"),
-            ),
-            cosmosdb_sql_database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cosmosdbSqlDatabaseName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            spring_cloud_app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudAppId"),
-            ),
+            api_type: o.get_field("apiType"),
+            cosmosdb_access_key: o.get_field("cosmosdbAccessKey"),
+            cosmosdb_account_id: o.get_field("cosmosdbAccountId"),
+            cosmosdb_cassandra_keyspace_name: o
+                .get_field("cosmosdbCassandraKeyspaceName"),
+            cosmosdb_gremlin_database_name: o.get_field("cosmosdbGremlinDatabaseName"),
+            cosmosdb_gremlin_graph_name: o.get_field("cosmosdbGremlinGraphName"),
+            cosmosdb_mongo_database_name: o.get_field("cosmosdbMongoDatabaseName"),
+            cosmosdb_sql_database_name: o.get_field("cosmosdbSqlDatabaseName"),
+            name: o.get_field("name"),
+            spring_cloud_app_id: o.get_field("springCloudAppId"),
         }
     }
 }

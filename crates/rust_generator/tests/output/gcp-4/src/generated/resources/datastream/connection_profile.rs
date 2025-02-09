@@ -433,164 +433,115 @@ pub mod connection_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectionProfileArgs,
     ) -> ConnectionProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bigquery_profile_binding_1 = args.bigquery_profile.get_output(context);
-        let bigquery_profile_binding = bigquery_profile_binding_1.get_inner();
-        let connection_profile_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bigquery_profile_binding = args.bigquery_profile.get_output(context);
+        let connection_profile_id_binding = args
             .connection_profile_id
             .get_output(context);
-        let connection_profile_id_binding = connection_profile_id_binding_1.get_inner();
-        let create_without_validation_binding_1 = args
+        let create_without_validation_binding = args
             .create_without_validation
             .get_output(context);
-        let create_without_validation_binding = create_without_validation_binding_1
-            .get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let forward_ssh_connectivity_binding_1 = args
+        let display_name_binding = args.display_name.get_output(context);
+        let forward_ssh_connectivity_binding = args
             .forward_ssh_connectivity
             .get_output(context);
-        let forward_ssh_connectivity_binding = forward_ssh_connectivity_binding_1
-            .get_inner();
-        let gcs_profile_binding_1 = args.gcs_profile.get_output(context);
-        let gcs_profile_binding = gcs_profile_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let mysql_profile_binding_1 = args.mysql_profile.get_output(context);
-        let mysql_profile_binding = mysql_profile_binding_1.get_inner();
-        let oracle_profile_binding_1 = args.oracle_profile.get_output(context);
-        let oracle_profile_binding = oracle_profile_binding_1.get_inner();
-        let postgresql_profile_binding_1 = args.postgresql_profile.get_output(context);
-        let postgresql_profile_binding = postgresql_profile_binding_1.get_inner();
-        let private_connectivity_binding_1 = args
-            .private_connectivity
-            .get_output(context);
-        let private_connectivity_binding = private_connectivity_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let sql_server_profile_binding_1 = args.sql_server_profile.get_output(context);
-        let sql_server_profile_binding = sql_server_profile_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let gcs_profile_binding = args.gcs_profile.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let mysql_profile_binding = args.mysql_profile.get_output(context);
+        let oracle_profile_binding = args.oracle_profile.get_output(context);
+        let postgresql_profile_binding = args.postgresql_profile.get_output(context);
+        let private_connectivity_binding = args.private_connectivity.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let sql_server_profile_binding = args.sql_server_profile.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:datastream/connectionProfile:ConnectionProfile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bigqueryProfile".into(),
-                    value: &bigquery_profile_binding,
+                    value: bigquery_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionProfileId".into(),
-                    value: &connection_profile_id_binding,
+                    value: connection_profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createWithoutValidation".into(),
-                    value: &create_without_validation_binding,
+                    value: create_without_validation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forwardSshConnectivity".into(),
-                    value: &forward_ssh_connectivity_binding,
+                    value: forward_ssh_connectivity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gcsProfile".into(),
-                    value: &gcs_profile_binding,
+                    value: gcs_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mysqlProfile".into(),
-                    value: &mysql_profile_binding,
+                    value: mysql_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oracleProfile".into(),
-                    value: &oracle_profile_binding,
+                    value: oracle_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "postgresqlProfile".into(),
-                    value: &postgresql_profile_binding,
+                    value: postgresql_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateConnectivity".into(),
-                    value: &private_connectivity_binding,
+                    value: private_connectivity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlServerProfile".into(),
-                    value: &sql_server_profile_binding,
+                    value: sql_server_profile_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectionProfileResult {
-            bigquery_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bigqueryProfile"),
-            ),
-            connection_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionProfileId"),
-            ),
-            create_without_validation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createWithoutValidation"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            forward_ssh_connectivity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forwardSshConnectivity"),
-            ),
-            gcs_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gcsProfile"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mysql_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mysqlProfile"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            oracle_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("oracleProfile"),
-            ),
-            postgresql_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("postgresqlProfile"),
-            ),
-            private_connectivity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateConnectivity"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            sql_server_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlServerProfile"),
-            ),
+            bigquery_profile: o.get_field("bigqueryProfile"),
+            connection_profile_id: o.get_field("connectionProfileId"),
+            create_without_validation: o.get_field("createWithoutValidation"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            forward_ssh_connectivity: o.get_field("forwardSshConnectivity"),
+            gcs_profile: o.get_field("gcsProfile"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            mysql_profile: o.get_field("mysqlProfile"),
+            name: o.get_field("name"),
+            oracle_profile: o.get_field("oracleProfile"),
+            postgresql_profile: o.get_field("postgresqlProfile"),
+            private_connectivity: o.get_field("privateConnectivity"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            sql_server_profile: o.get_field("sqlServerProfile"),
         }
     }
 }

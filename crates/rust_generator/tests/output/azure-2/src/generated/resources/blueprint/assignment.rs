@@ -186,127 +186,90 @@ pub mod assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AssignmentArgs,
     ) -> AssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let lock_exclude_actions_binding_1 = args
-            .lock_exclude_actions
-            .get_output(context);
-        let lock_exclude_actions_binding = lock_exclude_actions_binding_1.get_inner();
-        let lock_exclude_principals_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let identity_binding = args.identity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let lock_exclude_actions_binding = args.lock_exclude_actions.get_output(context);
+        let lock_exclude_principals_binding = args
             .lock_exclude_principals
             .get_output(context);
-        let lock_exclude_principals_binding = lock_exclude_principals_binding_1
-            .get_inner();
-        let lock_mode_binding_1 = args.lock_mode.get_output(context);
-        let lock_mode_binding = lock_mode_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parameter_values_binding_1 = args.parameter_values.get_output(context);
-        let parameter_values_binding = parameter_values_binding_1.get_inner();
-        let resource_groups_binding_1 = args.resource_groups.get_output(context);
-        let resource_groups_binding = resource_groups_binding_1.get_inner();
-        let target_subscription_id_binding_1 = args
+        let lock_mode_binding = args.lock_mode.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parameter_values_binding = args.parameter_values.get_output(context);
+        let resource_groups_binding = args.resource_groups.get_output(context);
+        let target_subscription_id_binding = args
             .target_subscription_id
             .get_output(context);
-        let target_subscription_id_binding = target_subscription_id_binding_1
-            .get_inner();
-        let version_id_binding_1 = args.version_id.get_output(context);
-        let version_id_binding = version_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let version_id_binding = args.version_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:blueprint/assignment:Assignment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lockExcludeActions".into(),
-                    value: &lock_exclude_actions_binding,
+                    value: lock_exclude_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lockExcludePrincipals".into(),
-                    value: &lock_exclude_principals_binding,
+                    value: lock_exclude_principals_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lockMode".into(),
-                    value: &lock_mode_binding,
+                    value: lock_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameterValues".into(),
-                    value: &parameter_values_binding,
+                    value: parameter_values_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroups".into(),
-                    value: &resource_groups_binding,
+                    value: resource_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetSubscriptionId".into(),
-                    value: &target_subscription_id_binding,
+                    value: target_subscription_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionId".into(),
-                    value: &version_id_binding,
+                    value: version_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AssignmentResult {
-            blueprint_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blueprintName"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            lock_exclude_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lockExcludeActions"),
-            ),
-            lock_exclude_principals: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lockExcludePrincipals"),
-            ),
-            lock_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lockMode"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parameter_values: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameterValues"),
-            ),
-            resource_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroups"),
-            ),
-            target_subscription_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetSubscriptionId"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            version_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionId"),
-            ),
+            blueprint_name: o.get_field("blueprintName"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            identity: o.get_field("identity"),
+            location: o.get_field("location"),
+            lock_exclude_actions: o.get_field("lockExcludeActions"),
+            lock_exclude_principals: o.get_field("lockExcludePrincipals"),
+            lock_mode: o.get_field("lockMode"),
+            name: o.get_field("name"),
+            parameter_values: o.get_field("parameterValues"),
+            resource_groups: o.get_field("resourceGroups"),
+            target_subscription_id: o.get_field("targetSubscriptionId"),
+            type_: o.get_field("type"),
+            version_id: o.get_field("versionId"),
         }
     }
 }

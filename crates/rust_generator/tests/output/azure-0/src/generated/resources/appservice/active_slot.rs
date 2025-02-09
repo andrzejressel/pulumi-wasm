@@ -59,50 +59,42 @@ pub mod active_slot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ActiveSlotArgs,
     ) -> ActiveSlotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_service_name_binding_1 = args.app_service_name.get_output(context);
-        let app_service_name_binding = app_service_name_binding_1.get_inner();
-        let app_service_slot_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_service_name_binding = args.app_service_name.get_output(context);
+        let app_service_slot_name_binding = args
             .app_service_slot_name
             .get_output(context);
-        let app_service_slot_name_binding = app_service_slot_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appservice/activeSlot:ActiveSlot".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServiceName".into(),
-                    value: &app_service_name_binding,
+                    value: app_service_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServiceSlotName".into(),
-                    value: &app_service_slot_name_binding,
+                    value: app_service_slot_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ActiveSlotResult {
-            app_service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appServiceName"),
-            ),
-            app_service_slot_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appServiceSlotName"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            app_service_name: o.get_field("appServiceName"),
+            app_service_slot_name: o.get_field("appServiceSlotName"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

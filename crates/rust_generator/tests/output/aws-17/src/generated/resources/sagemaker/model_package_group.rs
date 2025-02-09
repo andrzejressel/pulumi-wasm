@@ -67,56 +67,46 @@ pub mod model_package_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ModelPackageGroupArgs,
     ) -> ModelPackageGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let model_package_group_description_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let model_package_group_description_binding = args
             .model_package_group_description
             .get_output(context);
-        let model_package_group_description_binding = model_package_group_description_binding_1
-            .get_inner();
-        let model_package_group_name_binding_1 = args
+        let model_package_group_name_binding = args
             .model_package_group_name
             .get_output(context);
-        let model_package_group_name_binding = model_package_group_name_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/modelPackageGroup:ModelPackageGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelPackageGroupDescription".into(),
-                    value: &model_package_group_description_binding,
+                    value: model_package_group_description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelPackageGroupName".into(),
-                    value: &model_package_group_name_binding,
+                    value: model_package_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ModelPackageGroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            model_package_group_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelPackageGroupDescription"),
-            ),
-            model_package_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelPackageGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            model_package_group_description: o.get_field("modelPackageGroupDescription"),
+            model_package_group_name: o.get_field("modelPackageGroupName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

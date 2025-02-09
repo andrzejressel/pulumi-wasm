@@ -200,150 +200,112 @@ pub mod compute_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ComputeClusterArgs,
     ) -> ComputeClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let local_auth_enabled_binding_1 = args.local_auth_enabled.get_output(context);
-        let local_auth_enabled_binding = local_auth_enabled_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let machine_learning_workspace_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let local_auth_enabled_binding = args.local_auth_enabled.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let machine_learning_workspace_id_binding = args
             .machine_learning_workspace_id
             .get_output(context);
-        let machine_learning_workspace_id_binding = machine_learning_workspace_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let node_public_ip_enabled_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let node_public_ip_enabled_binding = args
             .node_public_ip_enabled
             .get_output(context);
-        let node_public_ip_enabled_binding = node_public_ip_enabled_binding_1
-            .get_inner();
-        let scale_settings_binding_1 = args.scale_settings.get_output(context);
-        let scale_settings_binding = scale_settings_binding_1.get_inner();
-        let ssh_binding_1 = args.ssh.get_output(context);
-        let ssh_binding = ssh_binding_1.get_inner();
-        let ssh_public_access_enabled_binding_1 = args
+        let scale_settings_binding = args.scale_settings.get_output(context);
+        let ssh_binding = args.ssh.get_output(context);
+        let ssh_public_access_enabled_binding = args
             .ssh_public_access_enabled
             .get_output(context);
-        let ssh_public_access_enabled_binding = ssh_public_access_enabled_binding_1
-            .get_inner();
-        let subnet_resource_id_binding_1 = args.subnet_resource_id.get_output(context);
-        let subnet_resource_id_binding = subnet_resource_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vm_priority_binding_1 = args.vm_priority.get_output(context);
-        let vm_priority_binding = vm_priority_binding_1.get_inner();
-        let vm_size_binding_1 = args.vm_size.get_output(context);
-        let vm_size_binding = vm_size_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let subnet_resource_id_binding = args.subnet_resource_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vm_priority_binding = args.vm_priority.get_output(context);
+        let vm_size_binding = args.vm_size.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:machinelearning/computeCluster:ComputeCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthEnabled".into(),
-                    value: &local_auth_enabled_binding,
+                    value: local_auth_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "machineLearningWorkspaceId".into(),
-                    value: &machine_learning_workspace_id_binding,
+                    value: machine_learning_workspace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodePublicIpEnabled".into(),
-                    value: &node_public_ip_enabled_binding,
+                    value: node_public_ip_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scaleSettings".into(),
-                    value: &scale_settings_binding,
+                    value: scale_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ssh".into(),
-                    value: &ssh_binding,
+                    value: ssh_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshPublicAccessEnabled".into(),
-                    value: &ssh_public_access_enabled_binding,
+                    value: ssh_public_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetResourceId".into(),
-                    value: &subnet_resource_id_binding,
+                    value: subnet_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmPriority".into(),
-                    value: &vm_priority_binding,
+                    value: vm_priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmSize".into(),
-                    value: &vm_size_binding,
+                    value: vm_size_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ComputeClusterResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            local_auth_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAuthEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            machine_learning_workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("machineLearningWorkspaceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_public_ip_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodePublicIpEnabled"),
-            ),
-            scale_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scaleSettings"),
-            ),
-            ssh: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ssh")),
-            ssh_public_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sshPublicAccessEnabled"),
-            ),
-            subnet_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetResourceId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vm_priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmPriority"),
-            ),
-            vm_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmSize"),
-            ),
+            description: o.get_field("description"),
+            identity: o.get_field("identity"),
+            local_auth_enabled: o.get_field("localAuthEnabled"),
+            location: o.get_field("location"),
+            machine_learning_workspace_id: o.get_field("machineLearningWorkspaceId"),
+            name: o.get_field("name"),
+            node_public_ip_enabled: o.get_field("nodePublicIpEnabled"),
+            scale_settings: o.get_field("scaleSettings"),
+            ssh: o.get_field("ssh"),
+            ssh_public_access_enabled: o.get_field("sshPublicAccessEnabled"),
+            subnet_resource_id: o.get_field("subnetResourceId"),
+            tags: o.get_field("tags"),
+            vm_priority: o.get_field("vmPriority"),
+            vm_size: o.get_field("vmSize"),
         }
     }
 }

@@ -374,97 +374,70 @@ pub mod tls_inspection_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TlsInspectionConfigurationArgs,
     ) -> TlsInspectionConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let encryption_configurations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let encryption_configurations_binding = args
             .encryption_configurations
             .get_output(context);
-        let encryption_configurations_binding = encryption_configurations_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let tls_inspection_configuration_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let tls_inspection_configuration_binding = args
             .tls_inspection_configuration
             .get_output(context);
-        let tls_inspection_configuration_binding = tls_inspection_configuration_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfigurations".into(),
-                    value: &encryption_configurations_binding,
+                    value: encryption_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsInspectionConfiguration".into(),
-                    value: &tls_inspection_configuration_binding,
+                    value: tls_inspection_configuration_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TlsInspectionConfigurationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            certificate_authorities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateAuthorities"),
-            ),
-            certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificates"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            encryption_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionConfigurations"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            number_of_associations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberOfAssociations"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            tls_inspection_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsInspectionConfiguration"),
-            ),
-            tls_inspection_configuration_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsInspectionConfigurationId"),
-            ),
-            update_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateToken"),
-            ),
+            arn: o.get_field("arn"),
+            certificate_authorities: o.get_field("certificateAuthorities"),
+            certificates: o.get_field("certificates"),
+            description: o.get_field("description"),
+            encryption_configurations: o.get_field("encryptionConfigurations"),
+            name: o.get_field("name"),
+            number_of_associations: o.get_field("numberOfAssociations"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
+            tls_inspection_configuration: o.get_field("tlsInspectionConfiguration"),
+            tls_inspection_configuration_id: o.get_field("tlsInspectionConfigurationId"),
+            update_token: o.get_field("updateToken"),
         }
     }
 }

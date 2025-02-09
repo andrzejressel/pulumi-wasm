@@ -168,147 +168,105 @@ pub mod cassandra_datacenter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CassandraDatacenterArgs,
     ) -> CassandraDatacenterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zones_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let availability_zones_enabled_binding = args
             .availability_zones_enabled
             .get_output(context);
-        let availability_zones_enabled_binding = availability_zones_enabled_binding_1
-            .get_inner();
-        let backup_storage_customer_key_uri_binding_1 = args
+        let backup_storage_customer_key_uri_binding = args
             .backup_storage_customer_key_uri
             .get_output(context);
-        let backup_storage_customer_key_uri_binding = backup_storage_customer_key_uri_binding_1
-            .get_inner();
-        let base64_encoded_yaml_fragment_binding_1 = args
+        let base64_encoded_yaml_fragment_binding = args
             .base64_encoded_yaml_fragment
             .get_output(context);
-        let base64_encoded_yaml_fragment_binding = base64_encoded_yaml_fragment_binding_1
-            .get_inner();
-        let cassandra_cluster_id_binding_1 = args
-            .cassandra_cluster_id
-            .get_output(context);
-        let cassandra_cluster_id_binding = cassandra_cluster_id_binding_1.get_inner();
-        let delegated_management_subnet_id_binding_1 = args
+        let cassandra_cluster_id_binding = args.cassandra_cluster_id.get_output(context);
+        let delegated_management_subnet_id_binding = args
             .delegated_management_subnet_id
             .get_output(context);
-        let delegated_management_subnet_id_binding = delegated_management_subnet_id_binding_1
-            .get_inner();
-        let disk_count_binding_1 = args.disk_count.get_output(context);
-        let disk_count_binding = disk_count_binding_1.get_inner();
-        let disk_sku_binding_1 = args.disk_sku.get_output(context);
-        let disk_sku_binding = disk_sku_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let managed_disk_customer_key_uri_binding_1 = args
+        let disk_count_binding = args.disk_count.get_output(context);
+        let disk_sku_binding = args.disk_sku.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let managed_disk_customer_key_uri_binding = args
             .managed_disk_customer_key_uri
             .get_output(context);
-        let managed_disk_customer_key_uri_binding = managed_disk_customer_key_uri_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let node_count_binding_1 = args.node_count.get_output(context);
-        let node_count_binding = node_count_binding_1.get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let node_count_binding = args.node_count.get_output(context);
+        let sku_name_binding = args.sku_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cosmosdb/cassandraDatacenter:CassandraDatacenter".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZonesEnabled".into(),
-                    value: &availability_zones_enabled_binding,
+                    value: availability_zones_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupStorageCustomerKeyUri".into(),
-                    value: &backup_storage_customer_key_uri_binding,
+                    value: backup_storage_customer_key_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "base64EncodedYamlFragment".into(),
-                    value: &base64_encoded_yaml_fragment_binding,
+                    value: base64_encoded_yaml_fragment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cassandraClusterId".into(),
-                    value: &cassandra_cluster_id_binding,
+                    value: cassandra_cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegatedManagementSubnetId".into(),
-                    value: &delegated_management_subnet_id_binding,
+                    value: delegated_management_subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskCount".into(),
-                    value: &disk_count_binding,
+                    value: disk_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskSku".into(),
-                    value: &disk_sku_binding,
+                    value: disk_sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedDiskCustomerKeyUri".into(),
-                    value: &managed_disk_customer_key_uri_binding,
+                    value: managed_disk_customer_key_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeCount".into(),
-                    value: &node_count_binding,
+                    value: node_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CassandraDatacenterResult {
-            availability_zones_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZonesEnabled"),
-            ),
-            backup_storage_customer_key_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupStorageCustomerKeyUri"),
-            ),
-            base64_encoded_yaml_fragment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("base64EncodedYamlFragment"),
-            ),
-            cassandra_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cassandraClusterId"),
-            ),
-            delegated_management_subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delegatedManagementSubnetId"),
-            ),
-            disk_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskCount"),
-            ),
-            disk_sku: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskSku"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            managed_disk_customer_key_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedDiskCustomerKeyUri"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            node_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeCount"),
-            ),
-            seed_node_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("seedNodeIpAddresses"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
+            availability_zones_enabled: o.get_field("availabilityZonesEnabled"),
+            backup_storage_customer_key_uri: o.get_field("backupStorageCustomerKeyUri"),
+            base64_encoded_yaml_fragment: o.get_field("base64EncodedYamlFragment"),
+            cassandra_cluster_id: o.get_field("cassandraClusterId"),
+            delegated_management_subnet_id: o.get_field("delegatedManagementSubnetId"),
+            disk_count: o.get_field("diskCount"),
+            disk_sku: o.get_field("diskSku"),
+            location: o.get_field("location"),
+            managed_disk_customer_key_uri: o.get_field("managedDiskCustomerKeyUri"),
+            name: o.get_field("name"),
+            node_count: o.get_field("nodeCount"),
+            seed_node_ip_addresses: o.get_field("seedNodeIpAddresses"),
+            sku_name: o.get_field("skuName"),
         }
     }
 }

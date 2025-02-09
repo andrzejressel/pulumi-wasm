@@ -210,82 +210,64 @@ pub mod volume_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VolumeGroupArgs,
     ) -> VolumeGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let elastic_san_id_binding_1 = args.elastic_san_id.get_output(context);
-        let elastic_san_id_binding = elastic_san_id_binding_1.get_inner();
-        let encryption_binding_1 = args.encryption.get_output(context);
-        let encryption_binding = encryption_binding_1.get_inner();
-        let encryption_type_binding_1 = args.encryption_type.get_output(context);
-        let encryption_type_binding = encryption_type_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_rules_binding_1 = args.network_rules.get_output(context);
-        let network_rules_binding = network_rules_binding_1.get_inner();
-        let protocol_type_binding_1 = args.protocol_type.get_output(context);
-        let protocol_type_binding = protocol_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let elastic_san_id_binding = args.elastic_san_id.get_output(context);
+        let encryption_binding = args.encryption.get_output(context);
+        let encryption_type_binding = args.encryption_type.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_rules_binding = args.network_rules.get_output(context);
+        let protocol_type_binding = args.protocol_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:elasticsan/volumeGroup:VolumeGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticSanId".into(),
-                    value: &elastic_san_id_binding,
+                    value: elastic_san_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryption".into(),
-                    value: &encryption_binding,
+                    value: encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionType".into(),
-                    value: &encryption_type_binding,
+                    value: encryption_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkRules".into(),
-                    value: &network_rules_binding,
+                    value: network_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocolType".into(),
-                    value: &protocol_type_binding,
+                    value: protocol_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VolumeGroupResult {
-            elastic_san_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticSanId"),
-            ),
-            encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryption"),
-            ),
-            encryption_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionType"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkRules"),
-            ),
-            protocol_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocolType"),
-            ),
+            elastic_san_id: o.get_field("elasticSanId"),
+            encryption: o.get_field("encryption"),
+            encryption_type: o.get_field("encryptionType"),
+            identity: o.get_field("identity"),
+            name: o.get_field("name"),
+            network_rules: o.get_field("networkRules"),
+            protocol_type: o.get_field("protocolType"),
         }
     }
 }

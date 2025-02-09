@@ -53,75 +53,58 @@ pub mod get_ami_ids {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAmiIdsArgs,
     ) -> GetAmiIdsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let executable_users_binding_1 = args.executable_users.get_output(context);
-        let executable_users_binding = executable_users_binding_1.get_inner();
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let include_deprecated_binding_1 = args.include_deprecated.get_output(context);
-        let include_deprecated_binding = include_deprecated_binding_1.get_inner();
-        let name_regex_binding_1 = args.name_regex.get_output(context);
-        let name_regex_binding = name_regex_binding_1.get_inner();
-        let owners_binding_1 = args.owners.get_output(context);
-        let owners_binding = owners_binding_1.get_inner();
-        let sort_ascending_binding_1 = args.sort_ascending.get_output(context);
-        let sort_ascending_binding = sort_ascending_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let executable_users_binding = args.executable_users.get_output(context);
+        let filters_binding = args.filters.get_output(context);
+        let include_deprecated_binding = args.include_deprecated.get_output(context);
+        let name_regex_binding = args.name_regex.get_output(context);
+        let owners_binding = args.owners.get_output(context);
+        let sort_ascending_binding = args.sort_ascending.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getAmiIds:getAmiIds".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executableUsers".into(),
-                    value: &executable_users_binding,
+                    value: executable_users_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeDeprecated".into(),
-                    value: &include_deprecated_binding,
+                    value: include_deprecated_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nameRegex".into(),
-                    value: &name_regex_binding,
+                    value: name_regex_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "owners".into(),
-                    value: &owners_binding,
+                    value: owners_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sortAscending".into(),
-                    value: &sort_ascending_binding,
+                    value: sort_ascending_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAmiIdsResult {
-            executable_users: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executableUsers"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ids: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ids")),
-            include_deprecated: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeDeprecated"),
-            ),
-            name_regex: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nameRegex"),
-            ),
-            owners: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("owners"),
-            ),
-            sort_ascending: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sortAscending"),
-            ),
+            executable_users: o.get_field("executableUsers"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            ids: o.get_field("ids"),
+            include_deprecated: o.get_field("includeDeprecated"),
+            name_regex: o.get_field("nameRegex"),
+            owners: o.get_field("owners"),
+            sort_ascending: o.get_field("sortAscending"),
         }
     }
 }

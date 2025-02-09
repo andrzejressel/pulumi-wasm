@@ -141,89 +141,70 @@ pub mod budget_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BudgetSubscriptionArgs,
     ) -> BudgetSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let amount_binding_1 = args.amount.get_output(context);
-        let amount_binding = amount_binding_1.get_inner();
-        let etag_binding_1 = args.etag.get_output(context);
-        let etag_binding = etag_binding_1.get_inner();
-        let filter_binding_1 = args.filter.get_output(context);
-        let filter_binding = filter_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let notifications_binding_1 = args.notifications.get_output(context);
-        let notifications_binding = notifications_binding_1.get_inner();
-        let subscription_id_binding_1 = args.subscription_id.get_output(context);
-        let subscription_id_binding = subscription_id_binding_1.get_inner();
-        let time_grain_binding_1 = args.time_grain.get_output(context);
-        let time_grain_binding = time_grain_binding_1.get_inner();
-        let time_period_binding_1 = args.time_period.get_output(context);
-        let time_period_binding = time_period_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let amount_binding = args.amount.get_output(context);
+        let etag_binding = args.etag.get_output(context);
+        let filter_binding = args.filter.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let notifications_binding = args.notifications.get_output(context);
+        let subscription_id_binding = args.subscription_id.get_output(context);
+        let time_grain_binding = args.time_grain.get_output(context);
+        let time_period_binding = args.time_period.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:consumption/budgetSubscription:BudgetSubscription".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amount".into(),
-                    value: &amount_binding,
+                    value: amount_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "etag".into(),
-                    value: &etag_binding,
+                    value: etag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: &filter_binding,
+                    value: filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notifications".into(),
-                    value: &notifications_binding,
+                    value: notifications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionId".into(),
-                    value: &subscription_id_binding,
+                    value: subscription_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeGrain".into(),
-                    value: &time_grain_binding,
+                    value: time_grain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timePeriod".into(),
-                    value: &time_period_binding,
+                    value: time_period_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BudgetSubscriptionResult {
-            amount: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("amount"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notifications"),
-            ),
-            subscription_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionId"),
-            ),
-            time_grain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeGrain"),
-            ),
-            time_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timePeriod"),
-            ),
+            amount: o.get_field("amount"),
+            etag: o.get_field("etag"),
+            filter: o.get_field("filter"),
+            name: o.get_field("name"),
+            notifications: o.get_field("notifications"),
+            subscription_id: o.get_field("subscriptionId"),
+            time_grain: o.get_field("timeGrain"),
+            time_period: o.get_field("timePeriod"),
         }
     }
 }

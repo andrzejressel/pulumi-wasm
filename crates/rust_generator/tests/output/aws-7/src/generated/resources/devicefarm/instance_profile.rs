@@ -82,78 +82,63 @@ pub mod instance_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceProfileArgs,
     ) -> InstanceProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let exclude_app_packages_from_cleanups_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let exclude_app_packages_from_cleanups_binding = args
             .exclude_app_packages_from_cleanups
             .get_output(context);
-        let exclude_app_packages_from_cleanups_binding = exclude_app_packages_from_cleanups_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let package_cleanup_binding_1 = args.package_cleanup.get_output(context);
-        let package_cleanup_binding = package_cleanup_binding_1.get_inner();
-        let reboot_after_use_binding_1 = args.reboot_after_use.get_output(context);
-        let reboot_after_use_binding = reboot_after_use_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let package_cleanup_binding = args.package_cleanup.get_output(context);
+        let reboot_after_use_binding = args.reboot_after_use.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:devicefarm/instanceProfile:InstanceProfile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeAppPackagesFromCleanups".into(),
-                    value: &exclude_app_packages_from_cleanups_binding,
+                    value: exclude_app_packages_from_cleanups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageCleanup".into(),
-                    value: &package_cleanup_binding,
+                    value: package_cleanup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rebootAfterUse".into(),
-                    value: &reboot_after_use_binding,
+                    value: reboot_after_use_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceProfileResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            exclude_app_packages_from_cleanups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludeAppPackagesFromCleanups"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            package_cleanup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("packageCleanup"),
-            ),
-            reboot_after_use: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rebootAfterUse"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            exclude_app_packages_from_cleanups: o
+                .get_field("excludeAppPackagesFromCleanups"),
+            name: o.get_field("name"),
+            package_cleanup: o.get_field("packageCleanup"),
+            reboot_after_use: o.get_field("rebootAfterUse"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

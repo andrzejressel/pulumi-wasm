@@ -173,74 +173,56 @@ pub mod occurence {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OccurenceArgs,
     ) -> OccurenceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attestation_binding_1 = args.attestation.get_output(context);
-        let attestation_binding = attestation_binding_1.get_inner();
-        let note_name_binding_1 = args.note_name.get_output(context);
-        let note_name_binding = note_name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let remediation_binding_1 = args.remediation.get_output(context);
-        let remediation_binding = remediation_binding_1.get_inner();
-        let resource_uri_binding_1 = args.resource_uri.get_output(context);
-        let resource_uri_binding = resource_uri_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attestation_binding = args.attestation.get_output(context);
+        let note_name_binding = args.note_name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let remediation_binding = args.remediation.get_output(context);
+        let resource_uri_binding = args.resource_uri.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:containeranalysis/occurence:Occurence".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attestation".into(),
-                    value: &attestation_binding,
+                    value: attestation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "noteName".into(),
-                    value: &note_name_binding,
+                    value: note_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remediation".into(),
-                    value: &remediation_binding,
+                    value: remediation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceUri".into(),
-                    value: &resource_uri_binding,
+                    value: resource_uri_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OccurenceResult {
-            attestation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attestation"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            note_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("noteName"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            remediation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remediation"),
-            ),
-            resource_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceUri"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            attestation: o.get_field("attestation"),
+            create_time: o.get_field("createTime"),
+            kind: o.get_field("kind"),
+            name: o.get_field("name"),
+            note_name: o.get_field("noteName"),
+            project: o.get_field("project"),
+            remediation: o.get_field("remediation"),
+            resource_uri: o.get_field("resourceUri"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

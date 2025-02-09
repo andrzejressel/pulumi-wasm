@@ -172,190 +172,135 @@ pub mod launch_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LaunchConfigurationArgs,
     ) -> LaunchConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let associate_public_ip_address_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let associate_public_ip_address_binding = args
             .associate_public_ip_address
             .get_output(context);
-        let associate_public_ip_address_binding = associate_public_ip_address_binding_1
-            .get_inner();
-        let ebs_block_devices_binding_1 = args.ebs_block_devices.get_output(context);
-        let ebs_block_devices_binding = ebs_block_devices_binding_1.get_inner();
-        let ebs_optimized_binding_1 = args.ebs_optimized.get_output(context);
-        let ebs_optimized_binding = ebs_optimized_binding_1.get_inner();
-        let enable_monitoring_binding_1 = args.enable_monitoring.get_output(context);
-        let enable_monitoring_binding = enable_monitoring_binding_1.get_inner();
-        let ephemeral_block_devices_binding_1 = args
+        let ebs_block_devices_binding = args.ebs_block_devices.get_output(context);
+        let ebs_optimized_binding = args.ebs_optimized.get_output(context);
+        let enable_monitoring_binding = args.enable_monitoring.get_output(context);
+        let ephemeral_block_devices_binding = args
             .ephemeral_block_devices
             .get_output(context);
-        let ephemeral_block_devices_binding = ephemeral_block_devices_binding_1
-            .get_inner();
-        let iam_instance_profile_binding_1 = args
-            .iam_instance_profile
-            .get_output(context);
-        let iam_instance_profile_binding = iam_instance_profile_binding_1.get_inner();
-        let image_id_binding_1 = args.image_id.get_output(context);
-        let image_id_binding = image_id_binding_1.get_inner();
-        let instance_type_binding_1 = args.instance_type.get_output(context);
-        let instance_type_binding = instance_type_binding_1.get_inner();
-        let key_name_binding_1 = args.key_name.get_output(context);
-        let key_name_binding = key_name_binding_1.get_inner();
-        let metadata_options_binding_1 = args.metadata_options.get_output(context);
-        let metadata_options_binding = metadata_options_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let placement_tenancy_binding_1 = args.placement_tenancy.get_output(context);
-        let placement_tenancy_binding = placement_tenancy_binding_1.get_inner();
-        let root_block_device_binding_1 = args.root_block_device.get_output(context);
-        let root_block_device_binding = root_block_device_binding_1.get_inner();
-        let security_groups_binding_1 = args.security_groups.get_output(context);
-        let security_groups_binding = security_groups_binding_1.get_inner();
-        let spot_price_binding_1 = args.spot_price.get_output(context);
-        let spot_price_binding = spot_price_binding_1.get_inner();
-        let user_data_binding_1 = args.user_data.get_output(context);
-        let user_data_binding = user_data_binding_1.get_inner();
-        let user_data_base64_binding_1 = args.user_data_base64.get_output(context);
-        let user_data_base64_binding = user_data_base64_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let iam_instance_profile_binding = args.iam_instance_profile.get_output(context);
+        let image_id_binding = args.image_id.get_output(context);
+        let instance_type_binding = args.instance_type.get_output(context);
+        let key_name_binding = args.key_name.get_output(context);
+        let metadata_options_binding = args.metadata_options.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let placement_tenancy_binding = args.placement_tenancy.get_output(context);
+        let root_block_device_binding = args.root_block_device.get_output(context);
+        let security_groups_binding = args.security_groups.get_output(context);
+        let spot_price_binding = args.spot_price.get_output(context);
+        let user_data_binding = args.user_data.get_output(context);
+        let user_data_base64_binding = args.user_data_base64.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/launchConfiguration:LaunchConfiguration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associatePublicIpAddress".into(),
-                    value: &associate_public_ip_address_binding,
+                    value: associate_public_ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsBlockDevices".into(),
-                    value: &ebs_block_devices_binding,
+                    value: ebs_block_devices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsOptimized".into(),
-                    value: &ebs_optimized_binding,
+                    value: ebs_optimized_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableMonitoring".into(),
-                    value: &enable_monitoring_binding,
+                    value: enable_monitoring_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ephemeralBlockDevices".into(),
-                    value: &ephemeral_block_devices_binding,
+                    value: ephemeral_block_devices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamInstanceProfile".into(),
-                    value: &iam_instance_profile_binding,
+                    value: iam_instance_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageId".into(),
-                    value: &image_id_binding,
+                    value: image_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: &instance_type_binding,
+                    value: instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyName".into(),
-                    value: &key_name_binding,
+                    value: key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadataOptions".into(),
-                    value: &metadata_options_binding,
+                    value: metadata_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementTenancy".into(),
-                    value: &placement_tenancy_binding,
+                    value: placement_tenancy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rootBlockDevice".into(),
-                    value: &root_block_device_binding,
+                    value: root_block_device_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroups".into(),
-                    value: &security_groups_binding,
+                    value: security_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spotPrice".into(),
-                    value: &spot_price_binding,
+                    value: spot_price_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userData".into(),
-                    value: &user_data_binding,
+                    value: user_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userDataBase64".into(),
-                    value: &user_data_base64_binding,
+                    value: user_data_base64_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LaunchConfigurationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            associate_public_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associatePublicIpAddress"),
-            ),
-            ebs_block_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsBlockDevices"),
-            ),
-            ebs_optimized: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsOptimized"),
-            ),
-            enable_monitoring: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableMonitoring"),
-            ),
-            ephemeral_block_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ephemeralBlockDevices"),
-            ),
-            iam_instance_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamInstanceProfile"),
-            ),
-            image_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageId"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyName"),
-            ),
-            metadata_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadataOptions"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            placement_tenancy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementTenancy"),
-            ),
-            root_block_device: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootBlockDevice"),
-            ),
-            security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroups"),
-            ),
-            spot_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spotPrice"),
-            ),
-            user_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userData"),
-            ),
-            user_data_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userDataBase64"),
-            ),
+            arn: o.get_field("arn"),
+            associate_public_ip_address: o.get_field("associatePublicIpAddress"),
+            ebs_block_devices: o.get_field("ebsBlockDevices"),
+            ebs_optimized: o.get_field("ebsOptimized"),
+            enable_monitoring: o.get_field("enableMonitoring"),
+            ephemeral_block_devices: o.get_field("ephemeralBlockDevices"),
+            iam_instance_profile: o.get_field("iamInstanceProfile"),
+            image_id: o.get_field("imageId"),
+            instance_type: o.get_field("instanceType"),
+            key_name: o.get_field("keyName"),
+            metadata_options: o.get_field("metadataOptions"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            placement_tenancy: o.get_field("placementTenancy"),
+            root_block_device: o.get_field("rootBlockDevice"),
+            security_groups: o.get_field("securityGroups"),
+            spot_price: o.get_field("spotPrice"),
+            user_data: o.get_field("userData"),
+            user_data_base64: o.get_field("userDataBase64"),
         }
     }
 }

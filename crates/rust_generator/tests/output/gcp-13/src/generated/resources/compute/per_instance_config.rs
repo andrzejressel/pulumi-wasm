@@ -212,110 +212,85 @@ pub mod per_instance_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PerInstanceConfigArgs,
     ) -> PerInstanceConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_group_manager_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let instance_group_manager_binding = args
             .instance_group_manager
             .get_output(context);
-        let instance_group_manager_binding = instance_group_manager_binding_1
-            .get_inner();
-        let minimal_action_binding_1 = args.minimal_action.get_output(context);
-        let minimal_action_binding = minimal_action_binding_1.get_inner();
-        let most_disruptive_allowed_action_binding_1 = args
+        let minimal_action_binding = args.minimal_action.get_output(context);
+        let most_disruptive_allowed_action_binding = args
             .most_disruptive_allowed_action
             .get_output(context);
-        let most_disruptive_allowed_action_binding = most_disruptive_allowed_action_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let preserved_state_binding_1 = args.preserved_state.get_output(context);
-        let preserved_state_binding = preserved_state_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let remove_instance_on_destroy_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let preserved_state_binding = args.preserved_state.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let remove_instance_on_destroy_binding = args
             .remove_instance_on_destroy
             .get_output(context);
-        let remove_instance_on_destroy_binding = remove_instance_on_destroy_binding_1
-            .get_inner();
-        let remove_instance_state_on_destroy_binding_1 = args
+        let remove_instance_state_on_destroy_binding = args
             .remove_instance_state_on_destroy
             .get_output(context);
-        let remove_instance_state_on_destroy_binding = remove_instance_state_on_destroy_binding_1
-            .get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/perInstanceConfig:PerInstanceConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceGroupManager".into(),
-                    value: &instance_group_manager_binding,
+                    value: instance_group_manager_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimalAction".into(),
-                    value: &minimal_action_binding,
+                    value: minimal_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mostDisruptiveAllowedAction".into(),
-                    value: &most_disruptive_allowed_action_binding,
+                    value: most_disruptive_allowed_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preservedState".into(),
-                    value: &preserved_state_binding,
+                    value: preserved_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "removeInstanceOnDestroy".into(),
-                    value: &remove_instance_on_destroy_binding,
+                    value: remove_instance_on_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "removeInstanceStateOnDestroy".into(),
-                    value: &remove_instance_state_on_destroy_binding,
+                    value: remove_instance_state_on_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PerInstanceConfigResult {
-            instance_group_manager: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceGroupManager"),
-            ),
-            minimal_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimalAction"),
-            ),
-            most_disruptive_allowed_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mostDisruptiveAllowedAction"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            preserved_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preservedState"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            remove_instance_on_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("removeInstanceOnDestroy"),
-            ),
-            remove_instance_state_on_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("removeInstanceStateOnDestroy"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            instance_group_manager: o.get_field("instanceGroupManager"),
+            minimal_action: o.get_field("minimalAction"),
+            most_disruptive_allowed_action: o.get_field("mostDisruptiveAllowedAction"),
+            name: o.get_field("name"),
+            preserved_state: o.get_field("preservedState"),
+            project: o.get_field("project"),
+            remove_instance_on_destroy: o.get_field("removeInstanceOnDestroy"),
+            remove_instance_state_on_destroy: o
+                .get_field("removeInstanceStateOnDestroy"),
+            zone: o.get_field("zone"),
         }
     }
 }

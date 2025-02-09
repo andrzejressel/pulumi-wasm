@@ -147,81 +147,62 @@ pub mod account_network_rules {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountNetworkRulesArgs,
     ) -> AccountNetworkRulesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bypasses_binding_1 = args.bypasses.get_output(context);
-        let bypasses_binding = bypasses_binding_1.get_inner();
-        let default_action_binding_1 = args.default_action.get_output(context);
-        let default_action_binding = default_action_binding_1.get_inner();
-        let ip_rules_binding_1 = args.ip_rules.get_output(context);
-        let ip_rules_binding = ip_rules_binding_1.get_inner();
-        let private_link_access_rules_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bypasses_binding = args.bypasses.get_output(context);
+        let default_action_binding = args.default_action.get_output(context);
+        let ip_rules_binding = args.ip_rules.get_output(context);
+        let private_link_access_rules_binding = args
             .private_link_access_rules
             .get_output(context);
-        let private_link_access_rules_binding = private_link_access_rules_binding_1
-            .get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let virtual_network_subnet_ids_binding_1 = args
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let virtual_network_subnet_ids_binding = args
             .virtual_network_subnet_ids
             .get_output(context);
-        let virtual_network_subnet_ids_binding = virtual_network_subnet_ids_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/accountNetworkRules:AccountNetworkRules".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bypasses".into(),
-                    value: &bypasses_binding,
+                    value: bypasses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAction".into(),
-                    value: &default_action_binding,
+                    value: default_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipRules".into(),
-                    value: &ip_rules_binding,
+                    value: ip_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkAccessRules".into(),
-                    value: &private_link_access_rules_binding,
+                    value: private_link_access_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkSubnetIds".into(),
-                    value: &virtual_network_subnet_ids_binding,
+                    value: virtual_network_subnet_ids_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountNetworkRulesResult {
-            bypasses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bypasses"),
-            ),
-            default_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultAction"),
-            ),
-            ip_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipRules"),
-            ),
-            private_link_access_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateLinkAccessRules"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
-            virtual_network_subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkSubnetIds"),
-            ),
+            bypasses: o.get_field("bypasses"),
+            default_action: o.get_field("defaultAction"),
+            ip_rules: o.get_field("ipRules"),
+            private_link_access_rules: o.get_field("privateLinkAccessRules"),
+            storage_account_id: o.get_field("storageAccountId"),
+            virtual_network_subnet_ids: o.get_field("virtualNetworkSubnetIds"),
         }
     }
 }

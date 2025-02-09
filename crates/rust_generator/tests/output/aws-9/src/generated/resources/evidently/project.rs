@@ -120,81 +120,56 @@ pub mod project {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProjectArgs,
     ) -> ProjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_delivery_binding_1 = args.data_delivery.get_output(context);
-        let data_delivery_binding = data_delivery_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_delivery_binding = args.data_delivery.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:evidently/project:Project".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataDelivery".into(),
-                    value: &data_delivery_binding,
+                    value: data_delivery_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProjectResult {
-            active_experiment_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activeExperimentCount"),
-            ),
-            active_launch_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activeLaunchCount"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTime"),
-            ),
-            data_delivery: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataDelivery"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            experiment_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("experimentCount"),
-            ),
-            feature_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("featureCount"),
-            ),
-            last_updated_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedTime"),
-            ),
-            launch_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchCount"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            active_experiment_count: o.get_field("activeExperimentCount"),
+            active_launch_count: o.get_field("activeLaunchCount"),
+            arn: o.get_field("arn"),
+            created_time: o.get_field("createdTime"),
+            data_delivery: o.get_field("dataDelivery"),
+            description: o.get_field("description"),
+            experiment_count: o.get_field("experimentCount"),
+            feature_count: o.get_field("featureCount"),
+            last_updated_time: o.get_field("lastUpdatedTime"),
+            launch_count: o.get_field("launchCount"),
+            name: o.get_field("name"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

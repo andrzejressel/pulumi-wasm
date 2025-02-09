@@ -125,62 +125,49 @@ pub mod app_check_recaptcha_v_3_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AppCheckRecaptchaV3ConfigArgs,
     ) -> AppCheckRecaptchaV3ConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_id_binding_1 = args.app_id.get_output(context);
-        let app_id_binding = app_id_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let site_secret_binding_1 = args.site_secret.get_output(context);
-        let site_secret_binding = site_secret_binding_1.get_inner();
-        let token_ttl_binding_1 = args.token_ttl.get_output(context);
-        let token_ttl_binding = token_ttl_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_id_binding = args.app_id.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let site_secret_binding = args.site_secret.get_output(context);
+        let token_ttl_binding = args.token_ttl.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:firebase/appCheckRecaptchaV3Config:AppCheckRecaptchaV3Config"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appId".into(),
-                    value: &app_id_binding,
+                    value: app_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteSecret".into(),
-                    value: &site_secret_binding,
+                    value: site_secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenTtl".into(),
-                    value: &token_ttl_binding,
+                    value: token_ttl_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AppCheckRecaptchaV3ConfigResult {
-            app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            site_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteSecret"),
-            ),
-            site_secret_set: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteSecretSet"),
-            ),
-            token_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tokenTtl"),
-            ),
+            app_id: o.get_field("appId"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            site_secret: o.get_field("siteSecret"),
+            site_secret_set: o.get_field("siteSecretSet"),
+            token_ttl: o.get_field("tokenTtl"),
         }
     }
 }

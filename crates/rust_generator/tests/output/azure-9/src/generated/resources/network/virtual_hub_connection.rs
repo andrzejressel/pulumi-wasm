@@ -104,70 +104,56 @@ pub mod virtual_hub_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VirtualHubConnectionArgs,
     ) -> VirtualHubConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let internet_security_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let internet_security_enabled_binding = args
             .internet_security_enabled
             .get_output(context);
-        let internet_security_enabled_binding = internet_security_enabled_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let remote_virtual_network_id_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let remote_virtual_network_id_binding = args
             .remote_virtual_network_id
             .get_output(context);
-        let remote_virtual_network_id_binding = remote_virtual_network_id_binding_1
-            .get_inner();
-        let routing_binding_1 = args.routing.get_output(context);
-        let routing_binding = routing_binding_1.get_inner();
-        let virtual_hub_id_binding_1 = args.virtual_hub_id.get_output(context);
-        let virtual_hub_id_binding = virtual_hub_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let routing_binding = args.routing.get_output(context);
+        let virtual_hub_id_binding = args.virtual_hub_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/virtualHubConnection:VirtualHubConnection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetSecurityEnabled".into(),
-                    value: &internet_security_enabled_binding,
+                    value: internet_security_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteVirtualNetworkId".into(),
-                    value: &remote_virtual_network_id_binding,
+                    value: remote_virtual_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routing".into(),
-                    value: &routing_binding,
+                    value: routing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualHubId".into(),
-                    value: &virtual_hub_id_binding,
+                    value: virtual_hub_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VirtualHubConnectionResult {
-            internet_security_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internetSecurityEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            remote_virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteVirtualNetworkId"),
-            ),
-            routing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routing"),
-            ),
-            virtual_hub_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualHubId"),
-            ),
+            internet_security_enabled: o.get_field("internetSecurityEnabled"),
+            name: o.get_field("name"),
+            remote_virtual_network_id: o.get_field("remoteVirtualNetworkId"),
+            routing: o.get_field("routing"),
+            virtual_hub_id: o.get_field("virtualHubId"),
         }
     }
 }

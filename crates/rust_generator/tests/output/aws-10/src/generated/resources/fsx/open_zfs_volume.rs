@@ -132,162 +132,121 @@ pub mod open_zfs_volume {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OpenZfsVolumeArgs,
     ) -> OpenZfsVolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let copy_tags_to_snapshots_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let copy_tags_to_snapshots_binding = args
             .copy_tags_to_snapshots
             .get_output(context);
-        let copy_tags_to_snapshots_binding = copy_tags_to_snapshots_binding_1
-            .get_inner();
-        let data_compression_type_binding_1 = args
+        let data_compression_type_binding = args
             .data_compression_type
             .get_output(context);
-        let data_compression_type_binding = data_compression_type_binding_1.get_inner();
-        let delete_volume_options_binding_1 = args
+        let delete_volume_options_binding = args
             .delete_volume_options
             .get_output(context);
-        let delete_volume_options_binding = delete_volume_options_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let nfs_exports_binding_1 = args.nfs_exports.get_output(context);
-        let nfs_exports_binding = nfs_exports_binding_1.get_inner();
-        let origin_snapshot_binding_1 = args.origin_snapshot.get_output(context);
-        let origin_snapshot_binding = origin_snapshot_binding_1.get_inner();
-        let parent_volume_id_binding_1 = args.parent_volume_id.get_output(context);
-        let parent_volume_id_binding = parent_volume_id_binding_1.get_inner();
-        let read_only_binding_1 = args.read_only.get_output(context);
-        let read_only_binding = read_only_binding_1.get_inner();
-        let record_size_kib_binding_1 = args.record_size_kib.get_output(context);
-        let record_size_kib_binding = record_size_kib_binding_1.get_inner();
-        let storage_capacity_quota_gib_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let nfs_exports_binding = args.nfs_exports.get_output(context);
+        let origin_snapshot_binding = args.origin_snapshot.get_output(context);
+        let parent_volume_id_binding = args.parent_volume_id.get_output(context);
+        let read_only_binding = args.read_only.get_output(context);
+        let record_size_kib_binding = args.record_size_kib.get_output(context);
+        let storage_capacity_quota_gib_binding = args
             .storage_capacity_quota_gib
             .get_output(context);
-        let storage_capacity_quota_gib_binding = storage_capacity_quota_gib_binding_1
-            .get_inner();
-        let storage_capacity_reservation_gib_binding_1 = args
+        let storage_capacity_reservation_gib_binding = args
             .storage_capacity_reservation_gib
             .get_output(context);
-        let storage_capacity_reservation_gib_binding = storage_capacity_reservation_gib_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_and_group_quotas_binding_1 = args
+        let tags_binding = args.tags.get_output(context);
+        let user_and_group_quotas_binding = args
             .user_and_group_quotas
             .get_output(context);
-        let user_and_group_quotas_binding = user_and_group_quotas_binding_1.get_inner();
-        let volume_type_binding_1 = args.volume_type.get_output(context);
-        let volume_type_binding = volume_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let volume_type_binding = args.volume_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:fsx/openZfsVolume:OpenZfsVolume".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyTagsToSnapshots".into(),
-                    value: &copy_tags_to_snapshots_binding,
+                    value: copy_tags_to_snapshots_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCompressionType".into(),
-                    value: &data_compression_type_binding,
+                    value: data_compression_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteVolumeOptions".into(),
-                    value: &delete_volume_options_binding,
+                    value: delete_volume_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nfsExports".into(),
-                    value: &nfs_exports_binding,
+                    value: nfs_exports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originSnapshot".into(),
-                    value: &origin_snapshot_binding,
+                    value: origin_snapshot_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentVolumeId".into(),
-                    value: &parent_volume_id_binding,
+                    value: parent_volume_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readOnly".into(),
-                    value: &read_only_binding,
+                    value: read_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recordSizeKib".into(),
-                    value: &record_size_kib_binding,
+                    value: record_size_kib_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageCapacityQuotaGib".into(),
-                    value: &storage_capacity_quota_gib_binding,
+                    value: storage_capacity_quota_gib_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageCapacityReservationGib".into(),
-                    value: &storage_capacity_reservation_gib_binding,
+                    value: storage_capacity_reservation_gib_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userAndGroupQuotas".into(),
-                    value: &user_and_group_quotas_binding,
+                    value: user_and_group_quotas_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeType".into(),
-                    value: &volume_type_binding,
+                    value: volume_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OpenZfsVolumeResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            copy_tags_to_snapshots: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("copyTagsToSnapshots"),
-            ),
-            data_compression_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataCompressionType"),
-            ),
-            delete_volume_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteVolumeOptions"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nfs_exports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nfsExports"),
-            ),
-            origin_snapshot: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originSnapshot"),
-            ),
-            parent_volume_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentVolumeId"),
-            ),
-            read_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readOnly"),
-            ),
-            record_size_kib: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recordSizeKib"),
-            ),
-            storage_capacity_quota_gib: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageCapacityQuotaGib"),
-            ),
-            storage_capacity_reservation_gib: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageCapacityReservationGib"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            user_and_group_quotas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userAndGroupQuotas"),
-            ),
-            volume_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeType"),
-            ),
+            arn: o.get_field("arn"),
+            copy_tags_to_snapshots: o.get_field("copyTagsToSnapshots"),
+            data_compression_type: o.get_field("dataCompressionType"),
+            delete_volume_options: o.get_field("deleteVolumeOptions"),
+            name: o.get_field("name"),
+            nfs_exports: o.get_field("nfsExports"),
+            origin_snapshot: o.get_field("originSnapshot"),
+            parent_volume_id: o.get_field("parentVolumeId"),
+            read_only: o.get_field("readOnly"),
+            record_size_kib: o.get_field("recordSizeKib"),
+            storage_capacity_quota_gib: o.get_field("storageCapacityQuotaGib"),
+            storage_capacity_reservation_gib: o
+                .get_field("storageCapacityReservationGib"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            user_and_group_quotas: o.get_field("userAndGroupQuotas"),
+            volume_type: o.get_field("volumeType"),
         }
     }
 }

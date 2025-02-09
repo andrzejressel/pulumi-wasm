@@ -112,119 +112,85 @@ pub mod account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let encryptions_binding_1 = args.encryptions.get_output(context);
-        let encryptions_binding = encryptions_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let local_authentication_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let encryptions_binding = args.encryptions.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let local_authentication_enabled_binding = args
             .local_authentication_enabled
             .get_output(context);
-        let local_authentication_enabled_binding = local_authentication_enabled_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_name_binding = args.sku_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:automation/account:Account".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptions".into(),
-                    value: &encryptions_binding,
+                    value: encryptions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthenticationEnabled".into(),
-                    value: &local_authentication_enabled_binding,
+                    value: local_authentication_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountResult {
-            dsc_primary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dscPrimaryAccessKey"),
-            ),
-            dsc_secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dscSecondaryAccessKey"),
-            ),
-            dsc_server_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dscServerEndpoint"),
-            ),
-            encryptions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptions"),
-            ),
-            hybrid_service_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hybridServiceUrl"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            local_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAuthenticationEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_endpoint_connections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateEndpointConnections"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            dsc_primary_access_key: o.get_field("dscPrimaryAccessKey"),
+            dsc_secondary_access_key: o.get_field("dscSecondaryAccessKey"),
+            dsc_server_endpoint: o.get_field("dscServerEndpoint"),
+            encryptions: o.get_field("encryptions"),
+            hybrid_service_url: o.get_field("hybridServiceUrl"),
+            identity: o.get_field("identity"),
+            local_authentication_enabled: o.get_field("localAuthenticationEnabled"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            private_endpoint_connections: o.get_field("privateEndpointConnections"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku_name: o.get_field("skuName"),
+            tags: o.get_field("tags"),
         }
     }
 }

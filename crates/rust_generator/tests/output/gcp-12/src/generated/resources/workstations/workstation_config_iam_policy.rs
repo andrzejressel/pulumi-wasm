@@ -86,73 +86,58 @@ pub mod workstation_config_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkstationConfigIamPolicyArgs,
     ) -> WorkstationConfigIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let policy_data_binding_1 = args.policy_data.get_output(context);
-        let policy_data_binding = policy_data_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let workstation_cluster_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let location_binding = args.location.get_output(context);
+        let policy_data_binding = args.policy_data.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let workstation_cluster_id_binding = args
             .workstation_cluster_id
             .get_output(context);
-        let workstation_cluster_id_binding = workstation_cluster_id_binding_1
-            .get_inner();
-        let workstation_config_id_binding_1 = args
+        let workstation_config_id_binding = args
             .workstation_config_id
             .get_output(context);
-        let workstation_config_id_binding = workstation_config_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:workstations/workstationConfigIamPolicy:WorkstationConfigIamPolicy"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyData".into(),
-                    value: &policy_data_binding,
+                    value: policy_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workstationClusterId".into(),
-                    value: &workstation_cluster_id_binding,
+                    value: workstation_cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workstationConfigId".into(),
-                    value: &workstation_config_id_binding,
+                    value: workstation_config_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkstationConfigIamPolicyResult {
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            policy_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyData"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            workstation_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workstationClusterId"),
-            ),
-            workstation_config_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workstationConfigId"),
-            ),
+            etag: o.get_field("etag"),
+            location: o.get_field("location"),
+            policy_data: o.get_field("policyData"),
+            project: o.get_field("project"),
+            workstation_cluster_id: o.get_field("workstationClusterId"),
+            workstation_config_id: o.get_field("workstationConfigId"),
         }
     }
 }

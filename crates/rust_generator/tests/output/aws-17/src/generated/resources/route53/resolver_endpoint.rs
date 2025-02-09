@@ -103,90 +103,69 @@ pub mod resolver_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResolverEndpointArgs,
     ) -> ResolverEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let direction_binding_1 = args.direction.get_output(context);
-        let direction_binding = direction_binding_1.get_inner();
-        let ip_addresses_binding_1 = args.ip_addresses.get_output(context);
-        let ip_addresses_binding = ip_addresses_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let protocols_binding_1 = args.protocols.get_output(context);
-        let protocols_binding = protocols_binding_1.get_inner();
-        let resolver_endpoint_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let direction_binding = args.direction.get_output(context);
+        let ip_addresses_binding = args.ip_addresses.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let protocols_binding = args.protocols.get_output(context);
+        let resolver_endpoint_type_binding = args
             .resolver_endpoint_type
             .get_output(context);
-        let resolver_endpoint_type_binding = resolver_endpoint_type_binding_1
-            .get_inner();
-        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
-        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let security_group_ids_binding = args.security_group_ids.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:route53/resolverEndpoint:ResolverEndpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "direction".into(),
-                    value: &direction_binding,
+                    value: direction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddresses".into(),
-                    value: &ip_addresses_binding,
+                    value: ip_addresses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocols".into(),
-                    value: &protocols_binding,
+                    value: protocols_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolverEndpointType".into(),
-                    value: &resolver_endpoint_type_binding,
+                    value: resolver_endpoint_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: &security_group_ids_binding,
+                    value: security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResolverEndpointResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            direction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("direction"),
-            ),
-            host_vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostVpcId"),
-            ),
-            ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddresses"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            protocols: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocols"),
-            ),
-            resolver_endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resolverEndpointType"),
-            ),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            direction: o.get_field("direction"),
+            host_vpc_id: o.get_field("hostVpcId"),
+            ip_addresses: o.get_field("ipAddresses"),
+            name: o.get_field("name"),
+            protocols: o.get_field("protocols"),
+            resolver_endpoint_type: o.get_field("resolverEndpointType"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

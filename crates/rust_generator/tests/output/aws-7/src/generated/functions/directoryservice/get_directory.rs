@@ -57,70 +57,47 @@ pub mod get_directory {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDirectoryArgs,
     ) -> GetDirectoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let directory_id_binding_1 = args.directory_id.get_output(context);
-        let directory_id_binding = directory_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let directory_id_binding = args.directory_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:directoryservice/getDirectory:getDirectory".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: &directory_id_binding,
+                    value: directory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDirectoryResult {
-            access_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessUrl"),
-            ),
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            connect_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectSettings"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            directory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryId"),
-            ),
-            dns_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsIpAddresses"),
-            ),
-            edition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edition"),
-            ),
-            enable_sso: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableSso"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            radius_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("radiusSettings"),
-            ),
-            security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupId"),
-            ),
-            short_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shortName"),
-            ),
-            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            vpc_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSettings"),
-            ),
+            access_url: o.get_field("accessUrl"),
+            alias: o.get_field("alias"),
+            connect_settings: o.get_field("connectSettings"),
+            description: o.get_field("description"),
+            directory_id: o.get_field("directoryId"),
+            dns_ip_addresses: o.get_field("dnsIpAddresses"),
+            edition: o.get_field("edition"),
+            enable_sso: o.get_field("enableSso"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            radius_settings: o.get_field("radiusSettings"),
+            security_group_id: o.get_field("securityGroupId"),
+            short_name: o.get_field("shortName"),
+            size: o.get_field("size"),
+            tags: o.get_field("tags"),
+            type_: o.get_field("type"),
+            vpc_settings: o.get_field("vpcSettings"),
         }
     }
 }

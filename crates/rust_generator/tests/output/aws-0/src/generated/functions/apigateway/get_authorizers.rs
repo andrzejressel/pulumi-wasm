@@ -21,30 +21,28 @@ pub mod get_authorizers {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAuthorizersArgs,
     ) -> GetAuthorizersResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let rest_api_id_binding_1 = args.rest_api_id.get_output(context);
-        let rest_api_id_binding = rest_api_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let rest_api_id_binding = args.rest_api_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:apigateway/getAuthorizers:getAuthorizers".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApiId".into(),
-                    value: &rest_api_id_binding,
+                    value: rest_api_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAuthorizersResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ids: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ids")),
-            rest_api_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restApiId"),
-            ),
+            id: o.get_field("id"),
+            ids: o.get_field("ids"),
+            rest_api_id: o.get_field("restApiId"),
         }
     }
 }

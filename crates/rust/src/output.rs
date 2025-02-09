@@ -1,133 +1,20 @@
-use crate::context::PulumiContext;
-use anyhow::Error;
-use once_cell::sync::Lazy;
-use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::output_interface;
-use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::stack_interface::add_export;
-use serde::de::DeserializeOwned;
+use crate::{Context, GestaltContext, Output};
 use serde::Serialize;
-use std::collections::HashMap;
-use std::marker::PhantomData;
-use std::sync::Mutex;
-use uuid::Uuid;
-
-/// Not yet known value
-pub struct Output<T> {
-    phantom: PhantomData<T>,
-    underlying_id: output_interface::Output,
-}
-
-impl<T> Clone for Output<T> {
-    fn clone(&self) -> Self {
-        Output {
-            phantom: PhantomData,
-            underlying_id: self.underlying_id.clone(),
-        }
-    }
-}
-
-type Function = Box<dyn Fn(&String) -> Result<String, Error> + Send>;
-
-pub(crate) static HASHMAP: Lazy<Mutex<HashMap<String, Function>>> = Lazy::new(|| {
-    let m = HashMap::new();
-    Mutex::new(m)
-});
-
-impl<T> Output<T> {
-    pub fn map<B, F>(&self, f: F) -> Output<B>
-    where
-        F: Fn(T) -> B + Send + 'static,
-        T: DeserializeOwned,
-        B: Serialize,
-    {
-        let f = move |arg: &String| {
-            let argument = serde_json::from_str(arg)?;
-            let result = f(argument);
-            let result = serde_json::to_string(&result)?;
-            Ok(result)
-        };
-
-        let uuid = Uuid::now_v7().to_string();
-        let mut map = HASHMAP.lock().unwrap();
-        map.insert(uuid.clone(), Box::new(f));
-
-        let wit = self.get_inner();
-        let new_output = wit.map(uuid.as_str());
-
-        Output {
-            phantom: PhantomData,
-            underlying_id: new_output,
-        }
-    }
-
-    pub(crate) fn add_to_export(&self, name: &str) {
-        add_export(name, &self.get_inner());
-    }
-
-    /// Forcefully changes apparent type of underlying Output
-    ///
-    /// Can be used to workaround Pulumi provider incorrect types
-    ///
-    /// # Safety
-    ///
-    /// Underlying output must be of type `F`.
-    pub unsafe fn transmute<F: Serialize>(&self) -> Output<F> {
-        Output {
-            phantom: PhantomData::<F>,
-            underlying_id: self.underlying_id.clone(),
-        }
-    }
-
-    #[doc(hidden)]
-    ///
-    /// # Safety
-    ///
-    /// The underlying output must be of type `F`.
-    pub unsafe fn new_from_handle<F: Serialize>(handle: output_interface::Output) -> Output<F> {
-        Output {
-            phantom: PhantomData::<F>,
-            underlying_id: handle,
-        }
-    }
-
-    #[doc(hidden)]
-    pub fn get_inner(&self) -> &output_interface::Output {
-        &self.underlying_id
-    }
-}
-
-impl<T: Serialize> Output<T> {
-    pub fn new(engine: &PulumiContext, value: &T) -> Self {
-        let binding = serde_json::to_string(&value).unwrap();
-        let resource = output_interface::Output::new(&engine.wit_engine, binding.as_str(), false);
-        Output {
-            phantom: PhantomData,
-            underlying_id: resource,
-        }
-    }
-
-    pub fn new_secret(engine: &PulumiContext, value: &T) -> Self {
-        let binding = serde_json::to_string(&value).unwrap();
-        let resource = output_interface::Output::new(&engine.wit_engine, binding.as_str(), true);
-        Output {
-            phantom: PhantomData,
-            underlying_id: resource,
-        }
-    }
-
-}
 
 /// Generates Output<String> with formatted string. Supports up to 16 arguments.
 ///
 /// Format string passed as first arguments is the same as in `format!` macro.
 /// ```no_run
 /// use anyhow::Result;
-/// use pulumi_gestalt_rust::PulumiContext;
-/// use pulumi_gestalt_rust::{pulumi_format, Output, ToOutput};
+/// use pulumi_gestalt_rust::GestaltContext;
+/// use pulumi_gestalt_rust::{pulumi_format, Output, ToOutput};///
 ///
-/// fn pulumi_main(context: &PulumiContext) -> Result<()> {
-///   let a = Output::new(context, &1);
-///   let b = Output::new(context, &"test".to_string());
-///   let formatted: Output<String> = pulumi_format!(context, "{} {}", a, b); // "1 test"
+/// use pulumi_gestalt_rust_adapter::GestaltContext;
+///
+/// fn pulumi_main(engine: &GestaltContext) -> Result<()> {
+///   let a = engine.new_output(&1);
+///   let b = engine.new_output(&"test".to_string());
+///   let formatted: Output<String> = pulumi_format!(engine, "{} {}", a, b); // "1 test"
 ///   Ok(())
 /// }
 #[macro_export]
@@ -366,12 +253,13 @@ macro_rules! pulumi_format {
 /// Combine multiple Outputs into a single Output of [tuple] type. Supports up to 16 arguments.
 /// ```no_run
 /// use anyhow::Result;
-/// use pulumi_gestalt_rust::PulumiContext;
+/// use pulumi_gestalt_rust::GestaltContext;
 /// use pulumi_gestalt_rust::{pulumi_combine, Output, ToOutput};
+/// use pulumi_gestalt_rust_adapter::GestaltContext;
 ///
-/// fn pulumi_main(context: &PulumiContext) -> Result<()> {
-///   let a = Output::new(context, &1);
-///   let b = Output::new(context, &"test".to_string());
+/// fn pulumi_main(engine: &GestaltContext) -> Result<()> {
+///   let a = engine.new_output(&1);
+///   let b = engine.new_output(&"test".to_string());
 ///   let combined: Output<(i32, String)> = pulumi_combine!(a, b);
 ///   Ok(())
 /// }
@@ -454,17 +342,17 @@ macro_rules! pulumi_combine {
 
 /// Helper trait utilized in [pulumi_format!](`crate::pulumi_format!`) macro
 pub trait ToOutput<T> {
-    fn create_output(&self, engine: &PulumiContext) -> Output<T>;
+    fn create_output(&self, engine: &Context) -> Output<T>;
 }
 
 impl<T: Serialize> ToOutput<T> for T {
-    fn create_output(&self, engine: &PulumiContext) -> Output<T> {
-        Output::new(engine, self)
+    fn create_output(&self, engine: &Context) -> Output<T> {
+        engine.new_output(self)
     }
 }
 
 impl<T> ToOutput<T> for Output<T> {
-    fn create_output(&self, _: &PulumiContext) -> Output<T> {
+    fn create_output(&self, _: &Context) -> Output<T> {
         self.clone()
     }
 }

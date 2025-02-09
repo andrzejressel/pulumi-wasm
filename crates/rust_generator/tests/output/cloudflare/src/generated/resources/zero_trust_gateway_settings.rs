@@ -243,185 +243,134 @@ pub mod zero_trust_gateway_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ZeroTrustGatewaySettingsArgs,
     ) -> ZeroTrustGatewaySettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let activity_log_enabled_binding_1 = args
-            .activity_log_enabled
-            .get_output(context);
-        let activity_log_enabled_binding = activity_log_enabled_binding_1.get_inner();
-        let antivirus_binding_1 = args.antivirus.get_output(context);
-        let antivirus_binding = antivirus_binding_1.get_inner();
-        let block_page_binding_1 = args.block_page.get_output(context);
-        let block_page_binding = block_page_binding_1.get_inner();
-        let body_scanning_binding_1 = args.body_scanning.get_output(context);
-        let body_scanning_binding = body_scanning_binding_1.get_inner();
-        let certificate_binding_1 = args.certificate.get_output(context);
-        let certificate_binding = certificate_binding_1.get_inner();
-        let custom_certificate_binding_1 = args.custom_certificate.get_output(context);
-        let custom_certificate_binding = custom_certificate_binding_1.get_inner();
-        let extended_email_matching_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let activity_log_enabled_binding = args.activity_log_enabled.get_output(context);
+        let antivirus_binding = args.antivirus.get_output(context);
+        let block_page_binding = args.block_page.get_output(context);
+        let body_scanning_binding = args.body_scanning.get_output(context);
+        let certificate_binding = args.certificate.get_output(context);
+        let custom_certificate_binding = args.custom_certificate.get_output(context);
+        let extended_email_matching_binding = args
             .extended_email_matching
             .get_output(context);
-        let extended_email_matching_binding = extended_email_matching_binding_1
-            .get_inner();
-        let fips_binding_1 = args.fips.get_output(context);
-        let fips_binding = fips_binding_1.get_inner();
-        let logging_binding_1 = args.logging.get_output(context);
-        let logging_binding = logging_binding_1.get_inner();
-        let non_identity_browser_isolation_enabled_binding_1 = args
+        let fips_binding = args.fips.get_output(context);
+        let logging_binding = args.logging.get_output(context);
+        let non_identity_browser_isolation_enabled_binding = args
             .non_identity_browser_isolation_enabled
             .get_output(context);
-        let non_identity_browser_isolation_enabled_binding = non_identity_browser_isolation_enabled_binding_1
-            .get_inner();
-        let payload_log_binding_1 = args.payload_log.get_output(context);
-        let payload_log_binding = payload_log_binding_1.get_inner();
-        let protocol_detection_enabled_binding_1 = args
+        let payload_log_binding = args.payload_log.get_output(context);
+        let protocol_detection_enabled_binding = args
             .protocol_detection_enabled
             .get_output(context);
-        let protocol_detection_enabled_binding = protocol_detection_enabled_binding_1
-            .get_inner();
-        let proxy_binding_1 = args.proxy.get_output(context);
-        let proxy_binding = proxy_binding_1.get_inner();
-        let ssh_session_log_binding_1 = args.ssh_session_log.get_output(context);
-        let ssh_session_log_binding = ssh_session_log_binding_1.get_inner();
-        let tls_decrypt_enabled_binding_1 = args.tls_decrypt_enabled.get_output(context);
-        let tls_decrypt_enabled_binding = tls_decrypt_enabled_binding_1.get_inner();
-        let url_browser_isolation_enabled_binding_1 = args
+        let proxy_binding = args.proxy.get_output(context);
+        let ssh_session_log_binding = args.ssh_session_log.get_output(context);
+        let tls_decrypt_enabled_binding = args.tls_decrypt_enabled.get_output(context);
+        let url_browser_isolation_enabled_binding = args
             .url_browser_isolation_enabled
             .get_output(context);
-        let url_browser_isolation_enabled_binding = url_browser_isolation_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustGatewaySettings:ZeroTrustGatewaySettings"
                 .into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activityLogEnabled".into(),
-                    value: &activity_log_enabled_binding,
+                    value: activity_log_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "antivirus".into(),
-                    value: &antivirus_binding,
+                    value: antivirus_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockPage".into(),
-                    value: &block_page_binding,
+                    value: block_page_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bodyScanning".into(),
-                    value: &body_scanning_binding,
+                    value: body_scanning_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificate".into(),
-                    value: &certificate_binding,
+                    value: certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customCertificate".into(),
-                    value: &custom_certificate_binding,
+                    value: custom_certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extendedEmailMatching".into(),
-                    value: &extended_email_matching_binding,
+                    value: extended_email_matching_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fips".into(),
-                    value: &fips_binding,
+                    value: fips_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logging".into(),
-                    value: &logging_binding,
+                    value: logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nonIdentityBrowserIsolationEnabled".into(),
-                    value: &non_identity_browser_isolation_enabled_binding,
+                    value: non_identity_browser_isolation_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "payloadLog".into(),
-                    value: &payload_log_binding,
+                    value: payload_log_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocolDetectionEnabled".into(),
-                    value: &protocol_detection_enabled_binding,
+                    value: protocol_detection_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxy".into(),
-                    value: &proxy_binding,
+                    value: proxy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshSessionLog".into(),
-                    value: &ssh_session_log_binding,
+                    value: ssh_session_log_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsDecryptEnabled".into(),
-                    value: &tls_decrypt_enabled_binding,
+                    value: tls_decrypt_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "urlBrowserIsolationEnabled".into(),
-                    value: &url_browser_isolation_enabled_binding,
+                    value: url_browser_isolation_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ZeroTrustGatewaySettingsResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            activity_log_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activityLogEnabled"),
-            ),
-            antivirus: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("antivirus"),
-            ),
-            block_page: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockPage"),
-            ),
-            body_scanning: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bodyScanning"),
-            ),
-            certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificate"),
-            ),
-            custom_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customCertificate"),
-            ),
-            extended_email_matching: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extendedEmailMatching"),
-            ),
-            fips: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fips")),
-            logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logging"),
-            ),
-            non_identity_browser_isolation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nonIdentityBrowserIsolationEnabled"),
-            ),
-            payload_log: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("payloadLog"),
-            ),
-            protocol_detection_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocolDetectionEnabled"),
-            ),
-            proxy: pulumi_gestalt_rust::__private::into_domain(o.extract_field("proxy")),
-            ssh_session_log: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sshSessionLog"),
-            ),
-            tls_decrypt_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsDecryptEnabled"),
-            ),
-            url_browser_isolation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("urlBrowserIsolationEnabled"),
-            ),
+            account_id: o.get_field("accountId"),
+            activity_log_enabled: o.get_field("activityLogEnabled"),
+            antivirus: o.get_field("antivirus"),
+            block_page: o.get_field("blockPage"),
+            body_scanning: o.get_field("bodyScanning"),
+            certificate: o.get_field("certificate"),
+            custom_certificate: o.get_field("customCertificate"),
+            extended_email_matching: o.get_field("extendedEmailMatching"),
+            fips: o.get_field("fips"),
+            logging: o.get_field("logging"),
+            non_identity_browser_isolation_enabled: o
+                .get_field("nonIdentityBrowserIsolationEnabled"),
+            payload_log: o.get_field("payloadLog"),
+            protocol_detection_enabled: o.get_field("protocolDetectionEnabled"),
+            proxy: o.get_field("proxy"),
+            ssh_session_log: o.get_field("sshSessionLog"),
+            tls_decrypt_enabled: o.get_field("tlsDecryptEnabled"),
+            url_browser_isolation_enabled: o.get_field("urlBrowserIsolationEnabled"),
         }
     }
 }

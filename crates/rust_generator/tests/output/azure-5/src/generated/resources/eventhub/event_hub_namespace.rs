@@ -149,172 +149,122 @@ pub mod event_hub_namespace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EventHubNamespaceArgs,
     ) -> EventHubNamespaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_inflate_enabled_binding_1 = args
-            .auto_inflate_enabled
-            .get_output(context);
-        let auto_inflate_enabled_binding = auto_inflate_enabled_binding_1.get_inner();
-        let capacity_binding_1 = args.capacity.get_output(context);
-        let capacity_binding = capacity_binding_1.get_inner();
-        let dedicated_cluster_id_binding_1 = args
-            .dedicated_cluster_id
-            .get_output(context);
-        let dedicated_cluster_id_binding = dedicated_cluster_id_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let local_authentication_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_inflate_enabled_binding = args.auto_inflate_enabled.get_output(context);
+        let capacity_binding = args.capacity.get_output(context);
+        let dedicated_cluster_id_binding = args.dedicated_cluster_id.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let local_authentication_enabled_binding = args
             .local_authentication_enabled
             .get_output(context);
-        let local_authentication_enabled_binding = local_authentication_enabled_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let maximum_throughput_units_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let maximum_throughput_units_binding = args
             .maximum_throughput_units
             .get_output(context);
-        let maximum_throughput_units_binding = maximum_throughput_units_binding_1
-            .get_inner();
-        let minimum_tls_version_binding_1 = args.minimum_tls_version.get_output(context);
-        let minimum_tls_version_binding = minimum_tls_version_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_rulesets_binding_1 = args.network_rulesets.get_output(context);
-        let network_rulesets_binding = network_rulesets_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let minimum_tls_version_binding = args.minimum_tls_version.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_rulesets_binding = args.network_rulesets.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:eventhub/eventHubNamespace:EventHubNamespace".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoInflateEnabled".into(),
-                    value: &auto_inflate_enabled_binding,
+                    value: auto_inflate_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacity".into(),
-                    value: &capacity_binding,
+                    value: capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dedicatedClusterId".into(),
-                    value: &dedicated_cluster_id_binding,
+                    value: dedicated_cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthenticationEnabled".into(),
-                    value: &local_authentication_enabled_binding,
+                    value: local_authentication_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumThroughputUnits".into(),
-                    value: &maximum_throughput_units_binding,
+                    value: maximum_throughput_units_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumTlsVersion".into(),
-                    value: &minimum_tls_version_binding,
+                    value: minimum_tls_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkRulesets".into(),
-                    value: &network_rulesets_binding,
+                    value: network_rulesets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EventHubNamespaceResult {
-            auto_inflate_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoInflateEnabled"),
-            ),
-            capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacity"),
-            ),
-            dedicated_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dedicatedClusterId"),
-            ),
-            default_primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultPrimaryConnectionString"),
-            ),
-            default_primary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultPrimaryConnectionStringAlias"),
-            ),
-            default_primary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultPrimaryKey"),
-            ),
-            default_secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSecondaryConnectionString"),
-            ),
-            default_secondary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSecondaryConnectionStringAlias"),
-            ),
-            default_secondary_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSecondaryKey"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            local_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAuthenticationEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maximum_throughput_units: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumThroughputUnits"),
-            ),
-            minimum_tls_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumTlsVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_rulesets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkRulesets"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            auto_inflate_enabled: o.get_field("autoInflateEnabled"),
+            capacity: o.get_field("capacity"),
+            dedicated_cluster_id: o.get_field("dedicatedClusterId"),
+            default_primary_connection_string: o
+                .get_field("defaultPrimaryConnectionString"),
+            default_primary_connection_string_alias: o
+                .get_field("defaultPrimaryConnectionStringAlias"),
+            default_primary_key: o.get_field("defaultPrimaryKey"),
+            default_secondary_connection_string: o
+                .get_field("defaultSecondaryConnectionString"),
+            default_secondary_connection_string_alias: o
+                .get_field("defaultSecondaryConnectionStringAlias"),
+            default_secondary_key: o.get_field("defaultSecondaryKey"),
+            identity: o.get_field("identity"),
+            local_authentication_enabled: o.get_field("localAuthenticationEnabled"),
+            location: o.get_field("location"),
+            maximum_throughput_units: o.get_field("maximumThroughputUnits"),
+            minimum_tls_version: o.get_field("minimumTlsVersion"),
+            name: o.get_field("name"),
+            network_rulesets: o.get_field("networkRulesets"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
         }
     }
 }

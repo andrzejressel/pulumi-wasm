@@ -74,51 +74,43 @@ pub mod field_level_encryption_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FieldLevelEncryptionProfileArgs,
     ) -> FieldLevelEncryptionProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding_1 = args.comment.get_output(context);
-        let comment_binding = comment_binding_1.get_inner();
-        let encryption_entities_binding_1 = args.encryption_entities.get_output(context);
-        let encryption_entities_binding = encryption_entities_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let comment_binding = args.comment.get_output(context);
+        let encryption_entities_binding = args.encryption_entities.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: &comment_binding,
+                    value: comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionEntities".into(),
-                    value: &encryption_entities_binding,
+                    value: encryption_entities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FieldLevelEncryptionProfileResult {
-            caller_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("callerReference"),
-            ),
-            comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comment"),
-            ),
-            encryption_entities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionEntities"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            caller_reference: o.get_field("callerReference"),
+            comment: o.get_field("comment"),
+            encryption_entities: o.get_field("encryptionEntities"),
+            etag: o.get_field("etag"),
+            name: o.get_field("name"),
         }
     }
 }

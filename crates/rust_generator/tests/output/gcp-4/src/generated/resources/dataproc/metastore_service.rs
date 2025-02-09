@@ -650,201 +650,140 @@ pub mod metastore_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MetastoreServiceArgs,
     ) -> MetastoreServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let database_type_binding_1 = args.database_type.get_output(context);
-        let database_type_binding = database_type_binding_1.get_inner();
-        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
-        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
-        let encryption_config_binding_1 = args.encryption_config.get_output(context);
-        let encryption_config_binding = encryption_config_binding_1.get_inner();
-        let hive_metastore_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let database_type_binding = args.database_type.get_output(context);
+        let deletion_protection_binding = args.deletion_protection.get_output(context);
+        let encryption_config_binding = args.encryption_config.get_output(context);
+        let hive_metastore_config_binding = args
             .hive_metastore_config
             .get_output(context);
-        let hive_metastore_config_binding = hive_metastore_config_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
-        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
-        let metadata_integration_binding_1 = args
-            .metadata_integration
-            .get_output(context);
-        let metadata_integration_binding = metadata_integration_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let network_config_binding_1 = args.network_config.get_output(context);
-        let network_config_binding = network_config_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let release_channel_binding_1 = args.release_channel.get_output(context);
-        let release_channel_binding = release_channel_binding_1.get_inner();
-        let scaling_config_binding_1 = args.scaling_config.get_output(context);
-        let scaling_config_binding = scaling_config_binding_1.get_inner();
-        let scheduled_backup_binding_1 = args.scheduled_backup.get_output(context);
-        let scheduled_backup_binding = scheduled_backup_binding_1.get_inner();
-        let service_id_binding_1 = args.service_id.get_output(context);
-        let service_id_binding = service_id_binding_1.get_inner();
-        let telemetry_config_binding_1 = args.telemetry_config.get_output(context);
-        let telemetry_config_binding = telemetry_config_binding_1.get_inner();
-        let tier_binding_1 = args.tier.get_output(context);
-        let tier_binding = tier_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let maintenance_window_binding = args.maintenance_window.get_output(context);
+        let metadata_integration_binding = args.metadata_integration.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let network_config_binding = args.network_config.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let release_channel_binding = args.release_channel.get_output(context);
+        let scaling_config_binding = args.scaling_config.get_output(context);
+        let scheduled_backup_binding = args.scheduled_backup.get_output(context);
+        let service_id_binding = args.service_id.get_output(context);
+        let telemetry_config_binding = args.telemetry_config.get_output(context);
+        let tier_binding = args.tier.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dataproc/metastoreService:MetastoreService".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseType".into(),
-                    value: &database_type_binding,
+                    value: database_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: &deletion_protection_binding,
+                    value: deletion_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfig".into(),
-                    value: &encryption_config_binding,
+                    value: encryption_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hiveMetastoreConfig".into(),
-                    value: &hive_metastore_config_binding,
+                    value: hive_metastore_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceWindow".into(),
-                    value: &maintenance_window_binding,
+                    value: maintenance_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadataIntegration".into(),
-                    value: &metadata_integration_binding,
+                    value: metadata_integration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfig".into(),
-                    value: &network_config_binding,
+                    value: network_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseChannel".into(),
-                    value: &release_channel_binding,
+                    value: release_channel_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingConfig".into(),
-                    value: &scaling_config_binding,
+                    value: scaling_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduledBackup".into(),
-                    value: &scheduled_backup_binding,
+                    value: scheduled_backup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceId".into(),
-                    value: &service_id_binding,
+                    value: service_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "telemetryConfig".into(),
-                    value: &telemetry_config_binding,
+                    value: telemetry_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tier".into(),
-                    value: &tier_binding,
+                    value: tier_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MetastoreServiceResult {
-            artifact_gcs_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("artifactGcsUri"),
-            ),
-            database_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseType"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            encryption_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionConfig"),
-            ),
-            endpoint_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointUri"),
-            ),
-            hive_metastore_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hiveMetastoreConfig"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindow"),
-            ),
-            metadata_integration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadataIntegration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            network_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkConfig"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            release_channel: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseChannel"),
-            ),
-            scaling_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalingConfig"),
-            ),
-            scheduled_backup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduledBackup"),
-            ),
-            service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceId"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateMessage"),
-            ),
-            telemetry_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("telemetryConfig"),
-            ),
-            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            artifact_gcs_uri: o.get_field("artifactGcsUri"),
+            database_type: o.get_field("databaseType"),
+            deletion_protection: o.get_field("deletionProtection"),
+            effective_labels: o.get_field("effectiveLabels"),
+            encryption_config: o.get_field("encryptionConfig"),
+            endpoint_uri: o.get_field("endpointUri"),
+            hive_metastore_config: o.get_field("hiveMetastoreConfig"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            maintenance_window: o.get_field("maintenanceWindow"),
+            metadata_integration: o.get_field("metadataIntegration"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            network_config: o.get_field("networkConfig"),
+            port: o.get_field("port"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            release_channel: o.get_field("releaseChannel"),
+            scaling_config: o.get_field("scalingConfig"),
+            scheduled_backup: o.get_field("scheduledBackup"),
+            service_id: o.get_field("serviceId"),
+            state: o.get_field("state"),
+            state_message: o.get_field("stateMessage"),
+            telemetry_config: o.get_field("telemetryConfig"),
+            tier: o.get_field("tier"),
+            uid: o.get_field("uid"),
         }
     }
 }

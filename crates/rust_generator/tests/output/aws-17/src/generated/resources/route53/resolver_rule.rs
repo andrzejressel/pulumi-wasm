@@ -128,83 +128,62 @@ pub mod resolver_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResolverRuleArgs,
     ) -> ResolverRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding_1 = args.domain_name.get_output(context);
-        let domain_name_binding = domain_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resolver_endpoint_id_binding_1 = args
-            .resolver_endpoint_id
-            .get_output(context);
-        let resolver_endpoint_id_binding = resolver_endpoint_id_binding_1.get_inner();
-        let rule_type_binding_1 = args.rule_type.get_output(context);
-        let rule_type_binding = rule_type_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_ips_binding_1 = args.target_ips.get_output(context);
-        let target_ips_binding = target_ips_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_name_binding = args.domain_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resolver_endpoint_id_binding = args.resolver_endpoint_id.get_output(context);
+        let rule_type_binding = args.rule_type.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_ips_binding = args.target_ips.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:route53/resolverRule:ResolverRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: &domain_name_binding,
+                    value: domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolverEndpointId".into(),
-                    value: &resolver_endpoint_id_binding,
+                    value: resolver_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleType".into(),
-                    value: &rule_type_binding,
+                    value: rule_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetIps".into(),
-                    value: &target_ips_binding,
+                    value: target_ips_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResolverRuleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            resolver_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resolverEndpointId"),
-            ),
-            rule_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleType"),
-            ),
-            share_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shareStatus"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetIps"),
-            ),
+            arn: o.get_field("arn"),
+            domain_name: o.get_field("domainName"),
+            name: o.get_field("name"),
+            owner_id: o.get_field("ownerId"),
+            resolver_endpoint_id: o.get_field("resolverEndpointId"),
+            rule_type: o.get_field("ruleType"),
+            share_status: o.get_field("shareStatus"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_ips: o.get_field("targetIps"),
         }
     }
 }

@@ -112,101 +112,77 @@ pub mod account_cost_management_export {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccountCostManagementExportArgs,
     ) -> AccountCostManagementExportResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_binding_1 = args.active.get_output(context);
-        let active_binding = active_binding_1.get_inner();
-        let billing_account_id_binding_1 = args.billing_account_id.get_output(context);
-        let billing_account_id_binding = billing_account_id_binding_1.get_inner();
-        let export_data_options_binding_1 = args.export_data_options.get_output(context);
-        let export_data_options_binding = export_data_options_binding_1.get_inner();
-        let export_data_storage_location_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let active_binding = args.active.get_output(context);
+        let billing_account_id_binding = args.billing_account_id.get_output(context);
+        let export_data_options_binding = args.export_data_options.get_output(context);
+        let export_data_storage_location_binding = args
             .export_data_storage_location
             .get_output(context);
-        let export_data_storage_location_binding = export_data_storage_location_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let recurrence_period_end_date_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let recurrence_period_end_date_binding = args
             .recurrence_period_end_date
             .get_output(context);
-        let recurrence_period_end_date_binding = recurrence_period_end_date_binding_1
-            .get_inner();
-        let recurrence_period_start_date_binding_1 = args
+        let recurrence_period_start_date_binding = args
             .recurrence_period_start_date
             .get_output(context);
-        let recurrence_period_start_date_binding = recurrence_period_start_date_binding_1
-            .get_inner();
-        let recurrence_type_binding_1 = args.recurrence_type.get_output(context);
-        let recurrence_type_binding = recurrence_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let recurrence_type_binding = args.recurrence_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:billing/accountCostManagementExport:AccountCostManagementExport"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "active".into(),
-                    value: &active_binding,
+                    value: active_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAccountId".into(),
-                    value: &billing_account_id_binding,
+                    value: billing_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportDataOptions".into(),
-                    value: &export_data_options_binding,
+                    value: export_data_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportDataStorageLocation".into(),
-                    value: &export_data_storage_location_binding,
+                    value: export_data_storage_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recurrencePeriodEndDate".into(),
-                    value: &recurrence_period_end_date_binding,
+                    value: recurrence_period_end_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recurrencePeriodStartDate".into(),
-                    value: &recurrence_period_start_date_binding,
+                    value: recurrence_period_start_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recurrenceType".into(),
-                    value: &recurrence_type_binding,
+                    value: recurrence_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccountCostManagementExportResult {
-            active: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("active"),
-            ),
-            billing_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingAccountId"),
-            ),
-            export_data_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportDataOptions"),
-            ),
-            export_data_storage_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportDataStorageLocation"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            recurrence_period_end_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recurrencePeriodEndDate"),
-            ),
-            recurrence_period_start_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recurrencePeriodStartDate"),
-            ),
-            recurrence_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recurrenceType"),
-            ),
+            active: o.get_field("active"),
+            billing_account_id: o.get_field("billingAccountId"),
+            export_data_options: o.get_field("exportDataOptions"),
+            export_data_storage_location: o.get_field("exportDataStorageLocation"),
+            name: o.get_field("name"),
+            recurrence_period_end_date: o.get_field("recurrencePeriodEndDate"),
+            recurrence_period_start_date: o.get_field("recurrencePeriodStartDate"),
+            recurrence_type: o.get_field("recurrenceType"),
         }
     }
 }

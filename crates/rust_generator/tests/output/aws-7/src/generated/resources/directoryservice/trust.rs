@@ -173,114 +173,80 @@ pub mod trust {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TrustArgs,
     ) -> TrustResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let conditional_forwarder_ip_addrs_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let conditional_forwarder_ip_addrs_binding = args
             .conditional_forwarder_ip_addrs
             .get_output(context);
-        let conditional_forwarder_ip_addrs_binding = conditional_forwarder_ip_addrs_binding_1
-            .get_inner();
-        let delete_associated_conditional_forwarder_binding_1 = args
+        let delete_associated_conditional_forwarder_binding = args
             .delete_associated_conditional_forwarder
             .get_output(context);
-        let delete_associated_conditional_forwarder_binding = delete_associated_conditional_forwarder_binding_1
-            .get_inner();
-        let directory_id_binding_1 = args.directory_id.get_output(context);
-        let directory_id_binding = directory_id_binding_1.get_inner();
-        let remote_domain_name_binding_1 = args.remote_domain_name.get_output(context);
-        let remote_domain_name_binding = remote_domain_name_binding_1.get_inner();
-        let selective_auth_binding_1 = args.selective_auth.get_output(context);
-        let selective_auth_binding = selective_auth_binding_1.get_inner();
-        let trust_direction_binding_1 = args.trust_direction.get_output(context);
-        let trust_direction_binding = trust_direction_binding_1.get_inner();
-        let trust_password_binding_1 = args.trust_password.get_output(context);
-        let trust_password_binding = trust_password_binding_1.get_inner();
-        let trust_type_binding_1 = args.trust_type.get_output(context);
-        let trust_type_binding = trust_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let directory_id_binding = args.directory_id.get_output(context);
+        let remote_domain_name_binding = args.remote_domain_name.get_output(context);
+        let selective_auth_binding = args.selective_auth.get_output(context);
+        let trust_direction_binding = args.trust_direction.get_output(context);
+        let trust_password_binding = args.trust_password.get_output(context);
+        let trust_type_binding = args.trust_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:directoryservice/trust:Trust".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conditionalForwarderIpAddrs".into(),
-                    value: &conditional_forwarder_ip_addrs_binding,
+                    value: conditional_forwarder_ip_addrs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteAssociatedConditionalForwarder".into(),
-                    value: &delete_associated_conditional_forwarder_binding,
+                    value: delete_associated_conditional_forwarder_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: &directory_id_binding,
+                    value: directory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteDomainName".into(),
-                    value: &remote_domain_name_binding,
+                    value: remote_domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selectiveAuth".into(),
-                    value: &selective_auth_binding,
+                    value: selective_auth_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustDirection".into(),
-                    value: &trust_direction_binding,
+                    value: trust_direction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustPassword".into(),
-                    value: &trust_password_binding,
+                    value: trust_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustType".into(),
-                    value: &trust_type_binding,
+                    value: trust_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TrustResult {
-            conditional_forwarder_ip_addrs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("conditionalForwarderIpAddrs"),
-            ),
-            created_date_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdDateTime"),
-            ),
-            delete_associated_conditional_forwarder: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deleteAssociatedConditionalForwarder"),
-            ),
-            directory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryId"),
-            ),
-            last_updated_date_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedDateTime"),
-            ),
-            remote_domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteDomainName"),
-            ),
-            selective_auth: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selectiveAuth"),
-            ),
-            state_last_updated_date_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateLastUpdatedDateTime"),
-            ),
-            trust_direction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustDirection"),
-            ),
-            trust_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustPassword"),
-            ),
-            trust_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustState"),
-            ),
-            trust_state_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustStateReason"),
-            ),
-            trust_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustType"),
-            ),
+            conditional_forwarder_ip_addrs: o.get_field("conditionalForwarderIpAddrs"),
+            created_date_time: o.get_field("createdDateTime"),
+            delete_associated_conditional_forwarder: o
+                .get_field("deleteAssociatedConditionalForwarder"),
+            directory_id: o.get_field("directoryId"),
+            last_updated_date_time: o.get_field("lastUpdatedDateTime"),
+            remote_domain_name: o.get_field("remoteDomainName"),
+            selective_auth: o.get_field("selectiveAuth"),
+            state_last_updated_date_time: o.get_field("stateLastUpdatedDateTime"),
+            trust_direction: o.get_field("trustDirection"),
+            trust_password: o.get_field("trustPassword"),
+            trust_state: o.get_field("trustState"),
+            trust_state_reason: o.get_field("trustStateReason"),
+            trust_type: o.get_field("trustType"),
         }
     }
 }

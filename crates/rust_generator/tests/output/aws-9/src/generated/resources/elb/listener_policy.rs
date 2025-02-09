@@ -118,57 +118,46 @@ pub mod listener_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ListenerPolicyArgs,
     ) -> ListenerPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let load_balancer_name_binding_1 = args.load_balancer_name.get_output(context);
-        let load_balancer_name_binding = load_balancer_name_binding_1.get_inner();
-        let load_balancer_port_binding_1 = args.load_balancer_port.get_output(context);
-        let load_balancer_port_binding = load_balancer_port_binding_1.get_inner();
-        let policy_names_binding_1 = args.policy_names.get_output(context);
-        let policy_names_binding = policy_names_binding_1.get_inner();
-        let triggers_binding_1 = args.triggers.get_output(context);
-        let triggers_binding = triggers_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let load_balancer_name_binding = args.load_balancer_name.get_output(context);
+        let load_balancer_port_binding = args.load_balancer_port.get_output(context);
+        let policy_names_binding = args.policy_names.get_output(context);
+        let triggers_binding = args.triggers.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:elb/listenerPolicy:ListenerPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerName".into(),
-                    value: &load_balancer_name_binding,
+                    value: load_balancer_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerPort".into(),
-                    value: &load_balancer_port_binding,
+                    value: load_balancer_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyNames".into(),
-                    value: &policy_names_binding,
+                    value: policy_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggers".into(),
-                    value: &triggers_binding,
+                    value: triggers_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ListenerPolicyResult {
-            load_balancer_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerName"),
-            ),
-            load_balancer_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerPort"),
-            ),
-            policy_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyNames"),
-            ),
-            triggers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggers"),
-            ),
+            load_balancer_name: o.get_field("loadBalancerName"),
+            load_balancer_port: o.get_field("loadBalancerPort"),
+            policy_names: o.get_field("policyNames"),
+            triggers: o.get_field("triggers"),
         }
     }
 }

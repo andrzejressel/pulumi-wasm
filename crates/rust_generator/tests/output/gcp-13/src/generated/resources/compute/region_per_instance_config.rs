@@ -217,112 +217,84 @@ pub mod region_per_instance_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegionPerInstanceConfigArgs,
     ) -> RegionPerInstanceConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let minimal_action_binding_1 = args.minimal_action.get_output(context);
-        let minimal_action_binding = minimal_action_binding_1.get_inner();
-        let most_disruptive_allowed_action_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let minimal_action_binding = args.minimal_action.get_output(context);
+        let most_disruptive_allowed_action_binding = args
             .most_disruptive_allowed_action
             .get_output(context);
-        let most_disruptive_allowed_action_binding = most_disruptive_allowed_action_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let preserved_state_binding_1 = args.preserved_state.get_output(context);
-        let preserved_state_binding = preserved_state_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let region_instance_group_manager_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let preserved_state_binding = args.preserved_state.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let region_instance_group_manager_binding = args
             .region_instance_group_manager
             .get_output(context);
-        let region_instance_group_manager_binding = region_instance_group_manager_binding_1
-            .get_inner();
-        let remove_instance_on_destroy_binding_1 = args
+        let remove_instance_on_destroy_binding = args
             .remove_instance_on_destroy
             .get_output(context);
-        let remove_instance_on_destroy_binding = remove_instance_on_destroy_binding_1
-            .get_inner();
-        let remove_instance_state_on_destroy_binding_1 = args
+        let remove_instance_state_on_destroy_binding = args
             .remove_instance_state_on_destroy
             .get_output(context);
-        let remove_instance_state_on_destroy_binding = remove_instance_state_on_destroy_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/regionPerInstanceConfig:RegionPerInstanceConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimalAction".into(),
-                    value: &minimal_action_binding,
+                    value: minimal_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mostDisruptiveAllowedAction".into(),
-                    value: &most_disruptive_allowed_action_binding,
+                    value: most_disruptive_allowed_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preservedState".into(),
-                    value: &preserved_state_binding,
+                    value: preserved_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regionInstanceGroupManager".into(),
-                    value: &region_instance_group_manager_binding,
+                    value: region_instance_group_manager_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "removeInstanceOnDestroy".into(),
-                    value: &remove_instance_on_destroy_binding,
+                    value: remove_instance_on_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "removeInstanceStateOnDestroy".into(),
-                    value: &remove_instance_state_on_destroy_binding,
+                    value: remove_instance_state_on_destroy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegionPerInstanceConfigResult {
-            minimal_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimalAction"),
-            ),
-            most_disruptive_allowed_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mostDisruptiveAllowedAction"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            preserved_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preservedState"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            region_instance_group_manager: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regionInstanceGroupManager"),
-            ),
-            remove_instance_on_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("removeInstanceOnDestroy"),
-            ),
-            remove_instance_state_on_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("removeInstanceStateOnDestroy"),
-            ),
+            minimal_action: o.get_field("minimalAction"),
+            most_disruptive_allowed_action: o.get_field("mostDisruptiveAllowedAction"),
+            name: o.get_field("name"),
+            preserved_state: o.get_field("preservedState"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            region_instance_group_manager: o.get_field("regionInstanceGroupManager"),
+            remove_instance_on_destroy: o.get_field("removeInstanceOnDestroy"),
+            remove_instance_state_on_destroy: o.get_field("removeInstanceStateOnDestroy"),
         }
     }
 }

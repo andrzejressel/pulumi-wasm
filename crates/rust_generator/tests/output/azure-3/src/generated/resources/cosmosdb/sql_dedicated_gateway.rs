@@ -84,48 +84,40 @@ pub mod sql_dedicated_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SqlDedicatedGatewayArgs,
     ) -> SqlDedicatedGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cosmosdb_account_id_binding_1 = args.cosmosdb_account_id.get_output(context);
-        let cosmosdb_account_id_binding = cosmosdb_account_id_binding_1.get_inner();
-        let instance_count_binding_1 = args.instance_count.get_output(context);
-        let instance_count_binding = instance_count_binding_1.get_inner();
-        let instance_size_binding_1 = args.instance_size.get_output(context);
-        let instance_size_binding = instance_size_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cosmosdb_account_id_binding = args.cosmosdb_account_id.get_output(context);
+        let instance_count_binding = args.instance_count.get_output(context);
+        let instance_size_binding = args.instance_size.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbAccountId".into(),
-                    value: &cosmosdb_account_id_binding,
+                    value: cosmosdb_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceCount".into(),
-                    value: &instance_count_binding,
+                    value: instance_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceSize".into(),
-                    value: &instance_size_binding,
+                    value: instance_size_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SqlDedicatedGatewayResult {
-            cosmosdb_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cosmosdbAccountId"),
-            ),
-            instance_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceCount"),
-            ),
-            instance_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceSize"),
-            ),
+            cosmosdb_account_id: o.get_field("cosmosdbAccountId"),
+            instance_count: o.get_field("instanceCount"),
+            instance_size: o.get_field("instanceSize"),
         }
     }
 }

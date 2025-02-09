@@ -112,84 +112,64 @@ pub mod protected_vm {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProtectedVMArgs,
     ) -> ProtectedVMResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_policy_id_binding_1 = args.backup_policy_id.get_output(context);
-        let backup_policy_id_binding = backup_policy_id_binding_1.get_inner();
-        let exclude_disk_luns_binding_1 = args.exclude_disk_luns.get_output(context);
-        let exclude_disk_luns_binding = exclude_disk_luns_binding_1.get_inner();
-        let include_disk_luns_binding_1 = args.include_disk_luns.get_output(context);
-        let include_disk_luns_binding = include_disk_luns_binding_1.get_inner();
-        let protection_state_binding_1 = args.protection_state.get_output(context);
-        let protection_state_binding = protection_state_binding_1.get_inner();
-        let recovery_vault_name_binding_1 = args.recovery_vault_name.get_output(context);
-        let recovery_vault_name_binding = recovery_vault_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let source_vm_id_binding_1 = args.source_vm_id.get_output(context);
-        let source_vm_id_binding = source_vm_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backup_policy_id_binding = args.backup_policy_id.get_output(context);
+        let exclude_disk_luns_binding = args.exclude_disk_luns.get_output(context);
+        let include_disk_luns_binding = args.include_disk_luns.get_output(context);
+        let protection_state_binding = args.protection_state.get_output(context);
+        let recovery_vault_name_binding = args.recovery_vault_name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let source_vm_id_binding = args.source_vm_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:backup/protectedVM:ProtectedVM".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupPolicyId".into(),
-                    value: &backup_policy_id_binding,
+                    value: backup_policy_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeDiskLuns".into(),
-                    value: &exclude_disk_luns_binding,
+                    value: exclude_disk_luns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeDiskLuns".into(),
-                    value: &include_disk_luns_binding,
+                    value: include_disk_luns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectionState".into(),
-                    value: &protection_state_binding,
+                    value: protection_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultName".into(),
-                    value: &recovery_vault_name_binding,
+                    value: recovery_vault_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceVmId".into(),
-                    value: &source_vm_id_binding,
+                    value: source_vm_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProtectedVMResult {
-            backup_policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupPolicyId"),
-            ),
-            exclude_disk_luns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludeDiskLuns"),
-            ),
-            include_disk_luns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeDiskLuns"),
-            ),
-            protection_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectionState"),
-            ),
-            recovery_vault_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recoveryVaultName"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            source_vm_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceVmId"),
-            ),
+            backup_policy_id: o.get_field("backupPolicyId"),
+            exclude_disk_luns: o.get_field("excludeDiskLuns"),
+            include_disk_luns: o.get_field("includeDiskLuns"),
+            protection_state: o.get_field("protectionState"),
+            recovery_vault_name: o.get_field("recoveryVaultName"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            source_vm_id: o.get_field("sourceVmId"),
         }
     }
 }

@@ -116,98 +116,76 @@ pub mod pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PoolArgs,
     ) -> PoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding_1 = args.account_name.get_output(context);
-        let account_name_binding = account_name_binding_1.get_inner();
-        let encryption_type_binding_1 = args.encryption_type.get_output(context);
-        let encryption_type_binding = encryption_type_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let qos_type_binding_1 = args.qos_type.get_output(context);
-        let qos_type_binding = qos_type_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let service_level_binding_1 = args.service_level.get_output(context);
-        let service_level_binding = service_level_binding_1.get_inner();
-        let size_in_tb_binding_1 = args.size_in_tb.get_output(context);
-        let size_in_tb_binding = size_in_tb_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_name_binding = args.account_name.get_output(context);
+        let encryption_type_binding = args.encryption_type.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let qos_type_binding = args.qos_type.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let service_level_binding = args.service_level.get_output(context);
+        let size_in_tb_binding = args.size_in_tb.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:netapp/pool:Pool".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: &account_name_binding,
+                    value: account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionType".into(),
-                    value: &encryption_type_binding,
+                    value: encryption_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qosType".into(),
-                    value: &qos_type_binding,
+                    value: qos_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceLevel".into(),
-                    value: &service_level_binding,
+                    value: service_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sizeInTb".into(),
-                    value: &size_in_tb_binding,
+                    value: size_in_tb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PoolResult {
-            account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountName"),
-            ),
-            encryption_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionType"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            qos_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qosType"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            service_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceLevel"),
-            ),
-            size_in_tb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sizeInTb"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            account_name: o.get_field("accountName"),
+            encryption_type: o.get_field("encryptionType"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            qos_type: o.get_field("qosType"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            service_level: o.get_field("serviceLevel"),
+            size_in_tb: o.get_field("sizeInTb"),
+            tags: o.get_field("tags"),
         }
     }
 }

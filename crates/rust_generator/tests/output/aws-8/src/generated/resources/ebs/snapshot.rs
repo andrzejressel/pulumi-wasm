@@ -99,107 +99,74 @@ pub mod snapshot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SnapshotArgs,
     ) -> SnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let outpost_arn_binding_1 = args.outpost_arn.get_output(context);
-        let outpost_arn_binding = outpost_arn_binding_1.get_inner();
-        let permanent_restore_binding_1 = args.permanent_restore.get_output(context);
-        let permanent_restore_binding = permanent_restore_binding_1.get_inner();
-        let storage_tier_binding_1 = args.storage_tier.get_output(context);
-        let storage_tier_binding = storage_tier_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let temporary_restore_days_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let outpost_arn_binding = args.outpost_arn.get_output(context);
+        let permanent_restore_binding = args.permanent_restore.get_output(context);
+        let storage_tier_binding = args.storage_tier.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let temporary_restore_days_binding = args
             .temporary_restore_days
             .get_output(context);
-        let temporary_restore_days_binding = temporary_restore_days_binding_1
-            .get_inner();
-        let volume_id_binding_1 = args.volume_id.get_output(context);
-        let volume_id_binding = volume_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let volume_id_binding = args.volume_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ebs/snapshot:Snapshot".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outpostArn".into(),
-                    value: &outpost_arn_binding,
+                    value: outpost_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permanentRestore".into(),
-                    value: &permanent_restore_binding,
+                    value: permanent_restore_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageTier".into(),
-                    value: &storage_tier_binding,
+                    value: storage_tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "temporaryRestoreDays".into(),
-                    value: &temporary_restore_days_binding,
+                    value: temporary_restore_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeId".into(),
-                    value: &volume_id_binding,
+                    value: volume_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SnapshotResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            data_encryption_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataEncryptionKeyId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encrypted"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostArn"),
-            ),
-            owner_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerAlias"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            permanent_restore: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permanentRestore"),
-            ),
-            storage_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageTier"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            temporary_restore_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("temporaryRestoreDays"),
-            ),
-            volume_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeId"),
-            ),
-            volume_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeSize"),
-            ),
+            arn: o.get_field("arn"),
+            data_encryption_key_id: o.get_field("dataEncryptionKeyId"),
+            description: o.get_field("description"),
+            encrypted: o.get_field("encrypted"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            outpost_arn: o.get_field("outpostArn"),
+            owner_alias: o.get_field("ownerAlias"),
+            owner_id: o.get_field("ownerId"),
+            permanent_restore: o.get_field("permanentRestore"),
+            storage_tier: o.get_field("storageTier"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            temporary_restore_days: o.get_field("temporaryRestoreDays"),
+            volume_id: o.get_field("volumeId"),
+            volume_size: o.get_field("volumeSize"),
         }
     }
 }

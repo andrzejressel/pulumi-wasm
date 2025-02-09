@@ -275,219 +275,155 @@ pub mod registry {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegistryArgs,
     ) -> RegistryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_enabled_binding_1 = args.admin_enabled.get_output(context);
-        let admin_enabled_binding = admin_enabled_binding_1.get_inner();
-        let anonymous_pull_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let admin_enabled_binding = args.admin_enabled.get_output(context);
+        let anonymous_pull_enabled_binding = args
             .anonymous_pull_enabled
             .get_output(context);
-        let anonymous_pull_enabled_binding = anonymous_pull_enabled_binding_1
-            .get_inner();
-        let data_endpoint_enabled_binding_1 = args
+        let data_endpoint_enabled_binding = args
             .data_endpoint_enabled
             .get_output(context);
-        let data_endpoint_enabled_binding = data_endpoint_enabled_binding_1.get_inner();
-        let encryption_binding_1 = args.encryption.get_output(context);
-        let encryption_binding = encryption_binding_1.get_inner();
-        let export_policy_enabled_binding_1 = args
+        let encryption_binding = args.encryption.get_output(context);
+        let export_policy_enabled_binding = args
             .export_policy_enabled
             .get_output(context);
-        let export_policy_enabled_binding = export_policy_enabled_binding_1.get_inner();
-        let georeplications_binding_1 = args.georeplications.get_output(context);
-        let georeplications_binding = georeplications_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_rule_bypass_option_binding_1 = args
+        let georeplications_binding = args.georeplications.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_rule_bypass_option_binding = args
             .network_rule_bypass_option
             .get_output(context);
-        let network_rule_bypass_option_binding = network_rule_bypass_option_binding_1
-            .get_inner();
-        let network_rule_set_binding_1 = args.network_rule_set.get_output(context);
-        let network_rule_set_binding = network_rule_set_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let network_rule_set_binding = args.network_rule_set.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let quarantine_policy_enabled_binding_1 = args
+        let quarantine_policy_enabled_binding = args
             .quarantine_policy_enabled
             .get_output(context);
-        let quarantine_policy_enabled_binding = quarantine_policy_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let retention_policy_in_days_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let retention_policy_in_days_binding = args
             .retention_policy_in_days
             .get_output(context);
-        let retention_policy_in_days_binding = retention_policy_in_days_binding_1
-            .get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let trust_policy_enabled_binding_1 = args
-            .trust_policy_enabled
-            .get_output(context);
-        let trust_policy_enabled_binding = trust_policy_enabled_binding_1.get_inner();
-        let zone_redundancy_enabled_binding_1 = args
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let trust_policy_enabled_binding = args.trust_policy_enabled.get_output(context);
+        let zone_redundancy_enabled_binding = args
             .zone_redundancy_enabled
             .get_output(context);
-        let zone_redundancy_enabled_binding = zone_redundancy_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerservice/registry:Registry".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminEnabled".into(),
-                    value: &admin_enabled_binding,
+                    value: admin_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "anonymousPullEnabled".into(),
-                    value: &anonymous_pull_enabled_binding,
+                    value: anonymous_pull_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataEndpointEnabled".into(),
-                    value: &data_endpoint_enabled_binding,
+                    value: data_endpoint_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryption".into(),
-                    value: &encryption_binding,
+                    value: encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportPolicyEnabled".into(),
-                    value: &export_policy_enabled_binding,
+                    value: export_policy_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "georeplications".into(),
-                    value: &georeplications_binding,
+                    value: georeplications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkRuleBypassOption".into(),
-                    value: &network_rule_bypass_option_binding,
+                    value: network_rule_bypass_option_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkRuleSet".into(),
-                    value: &network_rule_set_binding,
+                    value: network_rule_set_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quarantinePolicyEnabled".into(),
-                    value: &quarantine_policy_enabled_binding,
+                    value: quarantine_policy_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPolicyInDays".into(),
-                    value: &retention_policy_in_days_binding,
+                    value: retention_policy_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustPolicyEnabled".into(),
-                    value: &trust_policy_enabled_binding,
+                    value: trust_policy_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneRedundancyEnabled".into(),
-                    value: &zone_redundancy_enabled_binding,
+                    value: zone_redundancy_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegistryResult {
-            admin_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminEnabled"),
-            ),
-            admin_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminPassword"),
-            ),
-            admin_username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminUsername"),
-            ),
-            anonymous_pull_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("anonymousPullEnabled"),
-            ),
-            data_endpoint_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataEndpointEnabled"),
-            ),
-            encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryption"),
-            ),
-            export_policy_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportPolicyEnabled"),
-            ),
-            georeplications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("georeplications"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            login_server: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loginServer"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_rule_bypass_option: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkRuleBypassOption"),
-            ),
-            network_rule_set: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkRuleSet"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            quarantine_policy_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("quarantinePolicyEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            retention_policy_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionPolicyInDays"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            trust_policy_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustPolicyEnabled"),
-            ),
-            zone_redundancy_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneRedundancyEnabled"),
-            ),
+            admin_enabled: o.get_field("adminEnabled"),
+            admin_password: o.get_field("adminPassword"),
+            admin_username: o.get_field("adminUsername"),
+            anonymous_pull_enabled: o.get_field("anonymousPullEnabled"),
+            data_endpoint_enabled: o.get_field("dataEndpointEnabled"),
+            encryption: o.get_field("encryption"),
+            export_policy_enabled: o.get_field("exportPolicyEnabled"),
+            georeplications: o.get_field("georeplications"),
+            identity: o.get_field("identity"),
+            location: o.get_field("location"),
+            login_server: o.get_field("loginServer"),
+            name: o.get_field("name"),
+            network_rule_bypass_option: o.get_field("networkRuleBypassOption"),
+            network_rule_set: o.get_field("networkRuleSet"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            quarantine_policy_enabled: o.get_field("quarantinePolicyEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            retention_policy_in_days: o.get_field("retentionPolicyInDays"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
+            trust_policy_enabled: o.get_field("trustPolicyEnabled"),
+            zone_redundancy_enabled: o.get_field("zoneRedundancyEnabled"),
         }
     }
 }

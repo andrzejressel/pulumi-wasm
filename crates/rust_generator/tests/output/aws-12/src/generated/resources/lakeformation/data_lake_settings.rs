@@ -208,141 +208,107 @@ pub mod data_lake_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataLakeSettingsArgs,
     ) -> DataLakeSettingsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admins_binding_1 = args.admins.get_output(context);
-        let admins_binding = admins_binding_1.get_inner();
-        let allow_external_data_filtering_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let admins_binding = args.admins.get_output(context);
+        let allow_external_data_filtering_binding = args
             .allow_external_data_filtering
             .get_output(context);
-        let allow_external_data_filtering_binding = allow_external_data_filtering_binding_1
-            .get_inner();
-        let allow_full_table_external_data_access_binding_1 = args
+        let allow_full_table_external_data_access_binding = args
             .allow_full_table_external_data_access
             .get_output(context);
-        let allow_full_table_external_data_access_binding = allow_full_table_external_data_access_binding_1
-            .get_inner();
-        let authorized_session_tag_value_lists_binding_1 = args
+        let authorized_session_tag_value_lists_binding = args
             .authorized_session_tag_value_lists
             .get_output(context);
-        let authorized_session_tag_value_lists_binding = authorized_session_tag_value_lists_binding_1
-            .get_inner();
-        let catalog_id_binding_1 = args.catalog_id.get_output(context);
-        let catalog_id_binding = catalog_id_binding_1.get_inner();
-        let create_database_default_permissions_binding_1 = args
+        let catalog_id_binding = args.catalog_id.get_output(context);
+        let create_database_default_permissions_binding = args
             .create_database_default_permissions
             .get_output(context);
-        let create_database_default_permissions_binding = create_database_default_permissions_binding_1
-            .get_inner();
-        let create_table_default_permissions_binding_1 = args
+        let create_table_default_permissions_binding = args
             .create_table_default_permissions
             .get_output(context);
-        let create_table_default_permissions_binding = create_table_default_permissions_binding_1
-            .get_inner();
-        let external_data_filtering_allow_lists_binding_1 = args
+        let external_data_filtering_allow_lists_binding = args
             .external_data_filtering_allow_lists
             .get_output(context);
-        let external_data_filtering_allow_lists_binding = external_data_filtering_allow_lists_binding_1
-            .get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let read_only_admins_binding_1 = args.read_only_admins.get_output(context);
-        let read_only_admins_binding = read_only_admins_binding_1.get_inner();
-        let trusted_resource_owners_binding_1 = args
+        let parameters_binding = args.parameters.get_output(context);
+        let read_only_admins_binding = args.read_only_admins.get_output(context);
+        let trusted_resource_owners_binding = args
             .trusted_resource_owners
             .get_output(context);
-        let trusted_resource_owners_binding = trusted_resource_owners_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lakeformation/dataLakeSettings:DataLakeSettings".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "admins".into(),
-                    value: &admins_binding,
+                    value: admins_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowExternalDataFiltering".into(),
-                    value: &allow_external_data_filtering_binding,
+                    value: allow_external_data_filtering_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowFullTableExternalDataAccess".into(),
-                    value: &allow_full_table_external_data_access_binding,
+                    value: allow_full_table_external_data_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedSessionTagValueLists".into(),
-                    value: &authorized_session_tag_value_lists_binding,
+                    value: authorized_session_tag_value_lists_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: &catalog_id_binding,
+                    value: catalog_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createDatabaseDefaultPermissions".into(),
-                    value: &create_database_default_permissions_binding,
+                    value: create_database_default_permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createTableDefaultPermissions".into(),
-                    value: &create_table_default_permissions_binding,
+                    value: create_table_default_permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalDataFilteringAllowLists".into(),
-                    value: &external_data_filtering_allow_lists_binding,
+                    value: external_data_filtering_allow_lists_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readOnlyAdmins".into(),
-                    value: &read_only_admins_binding,
+                    value: read_only_admins_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustedResourceOwners".into(),
-                    value: &trusted_resource_owners_binding,
+                    value: trusted_resource_owners_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataLakeSettingsResult {
-            admins: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("admins"),
-            ),
-            allow_external_data_filtering: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowExternalDataFiltering"),
-            ),
-            allow_full_table_external_data_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowFullTableExternalDataAccess"),
-            ),
-            authorized_session_tag_value_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizedSessionTagValueLists"),
-            ),
-            catalog_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogId"),
-            ),
-            create_database_default_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createDatabaseDefaultPermissions"),
-            ),
-            create_table_default_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTableDefaultPermissions"),
-            ),
-            external_data_filtering_allow_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalDataFilteringAllowLists"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            read_only_admins: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readOnlyAdmins"),
-            ),
-            trusted_resource_owners: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustedResourceOwners"),
-            ),
+            admins: o.get_field("admins"),
+            allow_external_data_filtering: o.get_field("allowExternalDataFiltering"),
+            allow_full_table_external_data_access: o
+                .get_field("allowFullTableExternalDataAccess"),
+            authorized_session_tag_value_lists: o
+                .get_field("authorizedSessionTagValueLists"),
+            catalog_id: o.get_field("catalogId"),
+            create_database_default_permissions: o
+                .get_field("createDatabaseDefaultPermissions"),
+            create_table_default_permissions: o
+                .get_field("createTableDefaultPermissions"),
+            external_data_filtering_allow_lists: o
+                .get_field("externalDataFilteringAllowLists"),
+            parameters: o.get_field("parameters"),
+            read_only_admins: o.get_field("readOnlyAdmins"),
+            trusted_resource_owners: o.get_field("trustedResourceOwners"),
         }
     }
 }

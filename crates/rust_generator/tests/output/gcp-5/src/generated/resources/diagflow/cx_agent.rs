@@ -248,180 +248,128 @@ pub mod cx_agent {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CxAgentArgs,
     ) -> CxAgentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let advanced_settings_binding_1 = args.advanced_settings.get_output(context);
-        let advanced_settings_binding = advanced_settings_binding_1.get_inner();
-        let avatar_uri_binding_1 = args.avatar_uri.get_output(context);
-        let avatar_uri_binding = avatar_uri_binding_1.get_inner();
-        let default_language_code_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let advanced_settings_binding = args.advanced_settings.get_output(context);
+        let avatar_uri_binding = args.avatar_uri.get_output(context);
+        let default_language_code_binding = args
             .default_language_code
             .get_output(context);
-        let default_language_code_binding = default_language_code_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enable_spell_correction_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let enable_spell_correction_binding = args
             .enable_spell_correction
             .get_output(context);
-        let enable_spell_correction_binding = enable_spell_correction_binding_1
-            .get_inner();
-        let enable_stackdriver_logging_binding_1 = args
+        let enable_stackdriver_logging_binding = args
             .enable_stackdriver_logging
             .get_output(context);
-        let enable_stackdriver_logging_binding = enable_stackdriver_logging_binding_1
-            .get_inner();
-        let git_integration_settings_binding_1 = args
+        let git_integration_settings_binding = args
             .git_integration_settings
             .get_output(context);
-        let git_integration_settings_binding = git_integration_settings_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let security_settings_binding_1 = args.security_settings.get_output(context);
-        let security_settings_binding = security_settings_binding_1.get_inner();
-        let speech_to_text_settings_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let security_settings_binding = args.security_settings.get_output(context);
+        let speech_to_text_settings_binding = args
             .speech_to_text_settings
             .get_output(context);
-        let speech_to_text_settings_binding = speech_to_text_settings_binding_1
-            .get_inner();
-        let supported_language_codes_binding_1 = args
+        let supported_language_codes_binding = args
             .supported_language_codes
             .get_output(context);
-        let supported_language_codes_binding = supported_language_codes_binding_1
-            .get_inner();
-        let text_to_speech_settings_binding_1 = args
+        let text_to_speech_settings_binding = args
             .text_to_speech_settings
             .get_output(context);
-        let text_to_speech_settings_binding = text_to_speech_settings_binding_1
-            .get_inner();
-        let time_zone_binding_1 = args.time_zone.get_output(context);
-        let time_zone_binding = time_zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let time_zone_binding = args.time_zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:diagflow/cxAgent:CxAgent".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advancedSettings".into(),
-                    value: &advanced_settings_binding,
+                    value: advanced_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "avatarUri".into(),
-                    value: &avatar_uri_binding,
+                    value: avatar_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultLanguageCode".into(),
-                    value: &default_language_code_binding,
+                    value: default_language_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableSpellCorrection".into(),
-                    value: &enable_spell_correction_binding,
+                    value: enable_spell_correction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableStackdriverLogging".into(),
-                    value: &enable_stackdriver_logging_binding,
+                    value: enable_stackdriver_logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gitIntegrationSettings".into(),
-                    value: &git_integration_settings_binding,
+                    value: git_integration_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securitySettings".into(),
-                    value: &security_settings_binding,
+                    value: security_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "speechToTextSettings".into(),
-                    value: &speech_to_text_settings_binding,
+                    value: speech_to_text_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedLanguageCodes".into(),
-                    value: &supported_language_codes_binding,
+                    value: supported_language_codes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "textToSpeechSettings".into(),
-                    value: &text_to_speech_settings_binding,
+                    value: text_to_speech_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZone".into(),
-                    value: &time_zone_binding,
+                    value: time_zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CxAgentResult {
-            advanced_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advancedSettings"),
-            ),
-            avatar_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("avatarUri"),
-            ),
-            default_language_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultLanguageCode"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enable_spell_correction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableSpellCorrection"),
-            ),
-            enable_stackdriver_logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableStackdriverLogging"),
-            ),
-            git_integration_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gitIntegrationSettings"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            security_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securitySettings"),
-            ),
-            speech_to_text_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("speechToTextSettings"),
-            ),
-            start_flow: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startFlow"),
-            ),
-            supported_language_codes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedLanguageCodes"),
-            ),
-            text_to_speech_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("textToSpeechSettings"),
-            ),
-            time_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeZone"),
-            ),
+            advanced_settings: o.get_field("advancedSettings"),
+            avatar_uri: o.get_field("avatarUri"),
+            default_language_code: o.get_field("defaultLanguageCode"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            enable_spell_correction: o.get_field("enableSpellCorrection"),
+            enable_stackdriver_logging: o.get_field("enableStackdriverLogging"),
+            git_integration_settings: o.get_field("gitIntegrationSettings"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            security_settings: o.get_field("securitySettings"),
+            speech_to_text_settings: o.get_field("speechToTextSettings"),
+            start_flow: o.get_field("startFlow"),
+            supported_language_codes: o.get_field("supportedLanguageCodes"),
+            text_to_speech_settings: o.get_field("textToSpeechSettings"),
+            time_zone: o.get_field("timeZone"),
         }
     }
 }

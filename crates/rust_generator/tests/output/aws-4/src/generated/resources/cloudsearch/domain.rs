@@ -100,74 +100,56 @@ pub mod domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DomainArgs,
     ) -> DomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_options_binding_1 = args.endpoint_options.get_output(context);
-        let endpoint_options_binding = endpoint_options_binding_1.get_inner();
-        let index_fields_binding_1 = args.index_fields.get_output(context);
-        let index_fields_binding = index_fields_binding_1.get_inner();
-        let multi_az_binding_1 = args.multi_az.get_output(context);
-        let multi_az_binding = multi_az_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let scaling_parameters_binding_1 = args.scaling_parameters.get_output(context);
-        let scaling_parameters_binding = scaling_parameters_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let endpoint_options_binding = args.endpoint_options.get_output(context);
+        let index_fields_binding = args.index_fields.get_output(context);
+        let multi_az_binding = args.multi_az.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let scaling_parameters_binding = args.scaling_parameters.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudsearch/domain:Domain".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointOptions".into(),
-                    value: &endpoint_options_binding,
+                    value: endpoint_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexFields".into(),
-                    value: &index_fields_binding,
+                    value: index_fields_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiAz".into(),
-                    value: &multi_az_binding,
+                    value: multi_az_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingParameters".into(),
-                    value: &scaling_parameters_binding,
+                    value: scaling_parameters_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DomainResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            document_service_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentServiceEndpoint"),
-            ),
-            domain_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainId"),
-            ),
-            endpoint_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointOptions"),
-            ),
-            index_fields: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("indexFields"),
-            ),
-            multi_az: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiAz"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            scaling_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalingParameters"),
-            ),
-            search_service_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("searchServiceEndpoint"),
-            ),
+            arn: o.get_field("arn"),
+            document_service_endpoint: o.get_field("documentServiceEndpoint"),
+            domain_id: o.get_field("domainId"),
+            endpoint_options: o.get_field("endpointOptions"),
+            index_fields: o.get_field("indexFields"),
+            multi_az: o.get_field("multiAz"),
+            name: o.get_field("name"),
+            scaling_parameters: o.get_field("scalingParameters"),
+            search_service_endpoint: o.get_field("searchServiceEndpoint"),
         }
     }
 }

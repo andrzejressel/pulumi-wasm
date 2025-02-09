@@ -104,57 +104,48 @@ pub mod contact_channel {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ContactChannelArgs,
     ) -> ContactChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let contact_id_binding_1 = args.contact_id.get_output(context);
-        let contact_id_binding = contact_id_binding_1.get_inner();
-        let delivery_address_binding_1 = args.delivery_address.get_output(context);
-        let delivery_address_binding = delivery_address_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let contact_id_binding = args.contact_id.get_output(context);
+        let delivery_address_binding = args.delivery_address.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssmcontacts/contactChannel:ContactChannel".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactId".into(),
-                    value: &contact_id_binding,
+                    value: contact_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryAddress".into(),
-                    value: &delivery_address_binding,
+                    value: delivery_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ContactChannelResult {
-            activation_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activationStatus"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            contact_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contactId"),
-            ),
-            delivery_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deliveryAddress"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            activation_status: o.get_field("activationStatus"),
+            arn: o.get_field("arn"),
+            contact_id: o.get_field("contactId"),
+            delivery_address: o.get_field("deliveryAddress"),
+            name: o.get_field("name"),
+            type_: o.get_field("type"),
         }
     }
 }

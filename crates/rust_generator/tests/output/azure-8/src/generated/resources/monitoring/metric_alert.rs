@@ -215,170 +215,125 @@ pub mod metric_alert {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MetricAlertArgs,
     ) -> MetricAlertResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding_1 = args.actions.get_output(context);
-        let actions_binding = actions_binding_1.get_inner();
-        let application_insights_web_test_location_availability_criteria_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let actions_binding = args.actions.get_output(context);
+        let application_insights_web_test_location_availability_criteria_binding = args
             .application_insights_web_test_location_availability_criteria
             .get_output(context);
-        let application_insights_web_test_location_availability_criteria_binding = application_insights_web_test_location_availability_criteria_binding_1
-            .get_inner();
-        let auto_mitigate_binding_1 = args.auto_mitigate.get_output(context);
-        let auto_mitigate_binding = auto_mitigate_binding_1.get_inner();
-        let criterias_binding_1 = args.criterias.get_output(context);
-        let criterias_binding = criterias_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dynamic_criteria_binding_1 = args.dynamic_criteria.get_output(context);
-        let dynamic_criteria_binding = dynamic_criteria_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let frequency_binding_1 = args.frequency.get_output(context);
-        let frequency_binding = frequency_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let scopes_binding_1 = args.scopes.get_output(context);
-        let scopes_binding = scopes_binding_1.get_inner();
-        let severity_binding_1 = args.severity.get_output(context);
-        let severity_binding = severity_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_resource_location_binding_1 = args
+        let auto_mitigate_binding = args.auto_mitigate.get_output(context);
+        let criterias_binding = args.criterias.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let dynamic_criteria_binding = args.dynamic_criteria.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let frequency_binding = args.frequency.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let scopes_binding = args.scopes.get_output(context);
+        let severity_binding = args.severity.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_resource_location_binding = args
             .target_resource_location
             .get_output(context);
-        let target_resource_location_binding = target_resource_location_binding_1
-            .get_inner();
-        let target_resource_type_binding_1 = args
-            .target_resource_type
-            .get_output(context);
-        let target_resource_type_binding = target_resource_type_binding_1.get_inner();
-        let window_size_binding_1 = args.window_size.get_output(context);
-        let window_size_binding = window_size_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let target_resource_type_binding = args.target_resource_type.get_output(context);
+        let window_size_binding = args.window_size.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:monitoring/metricAlert:MetricAlert".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actions".into(),
-                    value: &actions_binding,
+                    value: actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationInsightsWebTestLocationAvailabilityCriteria"
                         .into(),
-                    value: &application_insights_web_test_location_availability_criteria_binding,
+                    value: application_insights_web_test_location_availability_criteria_binding
+                        .get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoMitigate".into(),
-                    value: &auto_mitigate_binding,
+                    value: auto_mitigate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "criterias".into(),
-                    value: &criterias_binding,
+                    value: criterias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamicCriteria".into(),
-                    value: &dynamic_criteria_binding,
+                    value: dynamic_criteria_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frequency".into(),
-                    value: &frequency_binding,
+                    value: frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopes".into(),
-                    value: &scopes_binding,
+                    value: scopes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "severity".into(),
-                    value: &severity_binding,
+                    value: severity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceLocation".into(),
-                    value: &target_resource_location_binding,
+                    value: target_resource_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceType".into(),
-                    value: &target_resource_type_binding,
+                    value: target_resource_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "windowSize".into(),
-                    value: &window_size_binding,
+                    value: window_size_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MetricAlertResult {
-            actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actions"),
-            ),
-            application_insights_web_test_location_availability_criteria: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationInsightsWebTestLocationAvailabilityCriteria"),
-            ),
-            auto_mitigate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoMitigate"),
-            ),
-            criterias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("criterias"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dynamic_criteria: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dynamicCriteria"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frequency"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            scopes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopes"),
-            ),
-            severity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("severity"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            target_resource_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetResourceLocation"),
-            ),
-            target_resource_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetResourceType"),
-            ),
-            window_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("windowSize"),
-            ),
+            actions: o.get_field("actions"),
+            application_insights_web_test_location_availability_criteria: o
+                .get_field("applicationInsightsWebTestLocationAvailabilityCriteria"),
+            auto_mitigate: o.get_field("autoMitigate"),
+            criterias: o.get_field("criterias"),
+            description: o.get_field("description"),
+            dynamic_criteria: o.get_field("dynamicCriteria"),
+            enabled: o.get_field("enabled"),
+            frequency: o.get_field("frequency"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            scopes: o.get_field("scopes"),
+            severity: o.get_field("severity"),
+            tags: o.get_field("tags"),
+            target_resource_location: o.get_field("targetResourceLocation"),
+            target_resource_type: o.get_field("targetResourceType"),
+            window_size: o.get_field("windowSize"),
         }
     }
 }

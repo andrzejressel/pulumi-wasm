@@ -372,61 +372,52 @@ pub mod bucket_lifecycle_configuration_v_2 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BucketLifecycleConfigurationV2Args,
     ) -> BucketLifecycleConfigurationV2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let expected_bucket_owner_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_binding = args.bucket.get_output(context);
+        let expected_bucket_owner_binding = args
             .expected_bucket_owner
             .get_output(context);
-        let expected_bucket_owner_binding = expected_bucket_owner_binding_1.get_inner();
-        let rules_binding_1 = args.rules.get_output(context);
-        let rules_binding = rules_binding_1.get_inner();
-        let transition_default_minimum_object_size_binding_1 = args
+        let rules_binding = args.rules.get_output(context);
+        let transition_default_minimum_object_size_binding = args
             .transition_default_minimum_object_size
             .get_output(context);
-        let transition_default_minimum_object_size_binding = transition_default_minimum_object_size_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedBucketOwner".into(),
-                    value: &expected_bucket_owner_binding,
+                    value: expected_bucket_owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: &rules_binding,
+                    value: rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitionDefaultMinimumObjectSize".into(),
-                    value: &transition_default_minimum_object_size_binding,
+                    value: transition_default_minimum_object_size_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BucketLifecycleConfigurationV2Result {
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            expected_bucket_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expectedBucketOwner"),
-            ),
-            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
-            transition_default_minimum_object_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitionDefaultMinimumObjectSize"),
-            ),
+            bucket: o.get_field("bucket"),
+            expected_bucket_owner: o.get_field("expectedBucketOwner"),
+            rules: o.get_field("rules"),
+            transition_default_minimum_object_size: o
+                .get_field("transitionDefaultMinimumObjectSize"),
         }
     }
 }

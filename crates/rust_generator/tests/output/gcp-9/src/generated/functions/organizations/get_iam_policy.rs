@@ -43,41 +43,34 @@ pub mod get_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetIamPolicyArgs,
     ) -> GetIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audit_configs_binding_1 = args.audit_configs.get_output(context);
-        let audit_configs_binding = audit_configs_binding_1.get_inner();
-        let bindings_binding_1 = args.bindings.get_output(context);
-        let bindings_binding = bindings_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let audit_configs_binding = args.audit_configs.get_output(context);
+        let bindings_binding = args.bindings.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:organizations/getIAMPolicy:getIAMPolicy".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditConfigs".into(),
-                    value: &audit_configs_binding,
+                    value: audit_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bindings".into(),
-                    value: &bindings_binding,
+                    value: bindings_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetIamPolicyResult {
-            audit_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("auditConfigs"),
-            ),
-            bindings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bindings"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            policy_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyData"),
-            ),
+            audit_configs: o.get_field("auditConfigs"),
+            bindings: o.get_field("bindings"),
+            id: o.get_field("id"),
+            policy_data: o.get_field("policyData"),
         }
     }
 }

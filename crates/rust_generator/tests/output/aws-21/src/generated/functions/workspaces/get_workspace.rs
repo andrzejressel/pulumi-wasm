@@ -46,76 +46,53 @@ pub mod get_workspace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetWorkspaceArgs,
     ) -> GetWorkspaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let directory_id_binding_1 = args.directory_id.get_output(context);
-        let directory_id_binding = directory_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_name_binding_1 = args.user_name.get_output(context);
-        let user_name_binding = user_name_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let directory_id_binding = args.directory_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let user_name_binding = args.user_name.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:workspaces/getWorkspace:getWorkspace".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: &directory_id_binding,
+                    value: directory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userName".into(),
-                    value: &user_name_binding,
+                    value: user_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetWorkspaceResult {
-            bundle_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bundleId"),
-            ),
-            computer_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computerName"),
-            ),
-            directory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            root_volume_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootVolumeEncryptionEnabled"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            user_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userName"),
-            ),
-            user_volume_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userVolumeEncryptionEnabled"),
-            ),
-            volume_encryption_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeEncryptionKey"),
-            ),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
-            workspace_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceProperties"),
-            ),
+            bundle_id: o.get_field("bundleId"),
+            computer_name: o.get_field("computerName"),
+            directory_id: o.get_field("directoryId"),
+            id: o.get_field("id"),
+            ip_address: o.get_field("ipAddress"),
+            root_volume_encryption_enabled: o.get_field("rootVolumeEncryptionEnabled"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            user_name: o.get_field("userName"),
+            user_volume_encryption_enabled: o.get_field("userVolumeEncryptionEnabled"),
+            volume_encryption_key: o.get_field("volumeEncryptionKey"),
+            workspace_id: o.get_field("workspaceId"),
+            workspace_properties: o.get_field("workspaceProperties"),
         }
     }
 }

@@ -91,53 +91,46 @@ pub mod monitor_tag_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MonitorTagRuleArgs,
     ) -> MonitorTagRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let datadog_monitor_id_binding_1 = args.datadog_monitor_id.get_output(context);
-        let datadog_monitor_id_binding = datadog_monitor_id_binding_1.get_inner();
-        let logs_binding_1 = args.logs.get_output(context);
-        let logs_binding = logs_binding_1.get_inner();
-        let metrics_binding_1 = args.metrics.get_output(context);
-        let metrics_binding = metrics_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let datadog_monitor_id_binding = args.datadog_monitor_id.get_output(context);
+        let logs_binding = args.logs.get_output(context);
+        let metrics_binding = args.metrics.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:datadog/monitorTagRule:MonitorTagRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datadogMonitorId".into(),
-                    value: &datadog_monitor_id_binding,
+                    value: datadog_monitor_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logs".into(),
-                    value: &logs_binding,
+                    value: logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metrics".into(),
-                    value: &metrics_binding,
+                    value: metrics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MonitorTagRuleResult {
-            datadog_monitor_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datadogMonitorId"),
-            ),
-            logs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("logs")),
-            metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metrics"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            datadog_monitor_id: o.get_field("datadogMonitorId"),
+            logs: o.get_field("logs"),
+            metrics: o.get_field("metrics"),
+            name: o.get_field("name"),
         }
     }
 }

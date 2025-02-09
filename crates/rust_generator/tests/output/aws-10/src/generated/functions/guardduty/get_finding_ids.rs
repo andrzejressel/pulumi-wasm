@@ -22,35 +22,29 @@ pub mod get_finding_ids {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetFindingIdsArgs,
     ) -> GetFindingIdsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let detector_id_binding_1 = args.detector_id.get_output(context);
-        let detector_id_binding = detector_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let detector_id_binding = args.detector_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:guardduty/getFindingIds:getFindingIds".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectorId".into(),
-                    value: &detector_id_binding,
+                    value: detector_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetFindingIdsResult {
-            detector_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("detectorId"),
-            ),
-            finding_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("findingIds"),
-            ),
-            has_findings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hasFindings"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            detector_id: o.get_field("detectorId"),
+            finding_ids: o.get_field("findingIds"),
+            has_findings: o.get_field("hasFindings"),
+            id: o.get_field("id"),
         }
     }
 }

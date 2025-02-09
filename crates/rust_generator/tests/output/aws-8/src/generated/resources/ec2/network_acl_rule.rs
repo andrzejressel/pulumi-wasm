@@ -133,120 +133,88 @@ pub mod network_acl_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkAclRuleArgs,
     ) -> NetworkAclRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_block_binding_1 = args.cidr_block.get_output(context);
-        let cidr_block_binding = cidr_block_binding_1.get_inner();
-        let egress_binding_1 = args.egress.get_output(context);
-        let egress_binding = egress_binding_1.get_inner();
-        let from_port_binding_1 = args.from_port.get_output(context);
-        let from_port_binding = from_port_binding_1.get_inner();
-        let icmp_code_binding_1 = args.icmp_code.get_output(context);
-        let icmp_code_binding = icmp_code_binding_1.get_inner();
-        let icmp_type_binding_1 = args.icmp_type.get_output(context);
-        let icmp_type_binding = icmp_type_binding_1.get_inner();
-        let ipv6_cidr_block_binding_1 = args.ipv6_cidr_block.get_output(context);
-        let ipv6_cidr_block_binding = ipv6_cidr_block_binding_1.get_inner();
-        let network_acl_id_binding_1 = args.network_acl_id.get_output(context);
-        let network_acl_id_binding = network_acl_id_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let rule_action_binding_1 = args.rule_action.get_output(context);
-        let rule_action_binding = rule_action_binding_1.get_inner();
-        let rule_number_binding_1 = args.rule_number.get_output(context);
-        let rule_number_binding = rule_number_binding_1.get_inner();
-        let to_port_binding_1 = args.to_port.get_output(context);
-        let to_port_binding = to_port_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cidr_block_binding = args.cidr_block.get_output(context);
+        let egress_binding = args.egress.get_output(context);
+        let from_port_binding = args.from_port.get_output(context);
+        let icmp_code_binding = args.icmp_code.get_output(context);
+        let icmp_type_binding = args.icmp_type.get_output(context);
+        let ipv6_cidr_block_binding = args.ipv6_cidr_block.get_output(context);
+        let network_acl_id_binding = args.network_acl_id.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let rule_action_binding = args.rule_action.get_output(context);
+        let rule_number_binding = args.rule_number.get_output(context);
+        let to_port_binding = args.to_port.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/networkAclRule:NetworkAclRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrBlock".into(),
-                    value: &cidr_block_binding,
+                    value: cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "egress".into(),
-                    value: &egress_binding,
+                    value: egress_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fromPort".into(),
-                    value: &from_port_binding,
+                    value: from_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "icmpCode".into(),
-                    value: &icmp_code_binding,
+                    value: icmp_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "icmpType".into(),
-                    value: &icmp_type_binding,
+                    value: icmp_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6CidrBlock".into(),
-                    value: &ipv6_cidr_block_binding,
+                    value: ipv6_cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkAclId".into(),
-                    value: &network_acl_id_binding,
+                    value: network_acl_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleAction".into(),
-                    value: &rule_action_binding,
+                    value: rule_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleNumber".into(),
-                    value: &rule_number_binding,
+                    value: rule_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "toPort".into(),
-                    value: &to_port_binding,
+                    value: to_port_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkAclRuleResult {
-            cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrBlock"),
-            ),
-            egress: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("egress"),
-            ),
-            from_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fromPort"),
-            ),
-            icmp_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("icmpCode"),
-            ),
-            icmp_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("icmpType"),
-            ),
-            ipv6_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6CidrBlock"),
-            ),
-            network_acl_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkAclId"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            rule_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleAction"),
-            ),
-            rule_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleNumber"),
-            ),
-            to_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("toPort"),
-            ),
+            cidr_block: o.get_field("cidrBlock"),
+            egress: o.get_field("egress"),
+            from_port: o.get_field("fromPort"),
+            icmp_code: o.get_field("icmpCode"),
+            icmp_type: o.get_field("icmpType"),
+            ipv6_cidr_block: o.get_field("ipv6CidrBlock"),
+            network_acl_id: o.get_field("networkAclId"),
+            protocol: o.get_field("protocol"),
+            rule_action: o.get_field("ruleAction"),
+            rule_number: o.get_field("ruleNumber"),
+            to_port: o.get_field("toPort"),
         }
     }
 }

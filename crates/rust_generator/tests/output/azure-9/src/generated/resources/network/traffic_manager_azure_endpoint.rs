@@ -137,112 +137,83 @@ pub mod traffic_manager_azure_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TrafficManagerAzureEndpointArgs,
     ) -> TrafficManagerAzureEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let always_serve_enabled_binding_1 = args
-            .always_serve_enabled
-            .get_output(context);
-        let always_serve_enabled_binding = always_serve_enabled_binding_1.get_inner();
-        let custom_headers_binding_1 = args.custom_headers.get_output(context);
-        let custom_headers_binding = custom_headers_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let geo_mappings_binding_1 = args.geo_mappings.get_output(context);
-        let geo_mappings_binding = geo_mappings_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let profile_id_binding_1 = args.profile_id.get_output(context);
-        let profile_id_binding = profile_id_binding_1.get_inner();
-        let subnets_binding_1 = args.subnets.get_output(context);
-        let subnets_binding = subnets_binding_1.get_inner();
-        let target_resource_id_binding_1 = args.target_resource_id.get_output(context);
-        let target_resource_id_binding = target_resource_id_binding_1.get_inner();
-        let weight_binding_1 = args.weight.get_output(context);
-        let weight_binding = weight_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let always_serve_enabled_binding = args.always_serve_enabled.get_output(context);
+        let custom_headers_binding = args.custom_headers.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let geo_mappings_binding = args.geo_mappings.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let profile_id_binding = args.profile_id.get_output(context);
+        let subnets_binding = args.subnets.get_output(context);
+        let target_resource_id_binding = args.target_resource_id.get_output(context);
+        let weight_binding = args.weight.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alwaysServeEnabled".into(),
-                    value: &always_serve_enabled_binding,
+                    value: always_serve_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customHeaders".into(),
-                    value: &custom_headers_binding,
+                    value: custom_headers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geoMappings".into(),
-                    value: &geo_mappings_binding,
+                    value: geo_mappings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileId".into(),
-                    value: &profile_id_binding,
+                    value: profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnets".into(),
-                    value: &subnets_binding,
+                    value: subnets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceId".into(),
-                    value: &target_resource_id_binding,
+                    value: target_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weight".into(),
-                    value: &weight_binding,
+                    value: weight_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TrafficManagerAzureEndpointResult {
-            always_serve_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alwaysServeEnabled"),
-            ),
-            custom_headers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customHeaders"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            geo_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("geoMappings"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("profileId"),
-            ),
-            subnets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnets"),
-            ),
-            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetResourceId"),
-            ),
-            weight: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("weight"),
-            ),
+            always_serve_enabled: o.get_field("alwaysServeEnabled"),
+            custom_headers: o.get_field("customHeaders"),
+            enabled: o.get_field("enabled"),
+            geo_mappings: o.get_field("geoMappings"),
+            name: o.get_field("name"),
+            priority: o.get_field("priority"),
+            profile_id: o.get_field("profileId"),
+            subnets: o.get_field("subnets"),
+            target_resource_id: o.get_field("targetResourceId"),
+            weight: o.get_field("weight"),
         }
     }
 }

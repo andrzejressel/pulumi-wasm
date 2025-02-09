@@ -120,143 +120,108 @@ pub mod network_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkProfileArgs,
     ) -> NetworkProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let downlink_bandwidth_bits_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let downlink_bandwidth_bits_binding = args
             .downlink_bandwidth_bits
             .get_output(context);
-        let downlink_bandwidth_bits_binding = downlink_bandwidth_bits_binding_1
-            .get_inner();
-        let downlink_delay_ms_binding_1 = args.downlink_delay_ms.get_output(context);
-        let downlink_delay_ms_binding = downlink_delay_ms_binding_1.get_inner();
-        let downlink_jitter_ms_binding_1 = args.downlink_jitter_ms.get_output(context);
-        let downlink_jitter_ms_binding = downlink_jitter_ms_binding_1.get_inner();
-        let downlink_loss_percent_binding_1 = args
+        let downlink_delay_ms_binding = args.downlink_delay_ms.get_output(context);
+        let downlink_jitter_ms_binding = args.downlink_jitter_ms.get_output(context);
+        let downlink_loss_percent_binding = args
             .downlink_loss_percent
             .get_output(context);
-        let downlink_loss_percent_binding = downlink_loss_percent_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_arn_binding_1 = args.project_arn.get_output(context);
-        let project_arn_binding = project_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let uplink_bandwidth_bits_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let project_arn_binding = args.project_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let uplink_bandwidth_bits_binding = args
             .uplink_bandwidth_bits
             .get_output(context);
-        let uplink_bandwidth_bits_binding = uplink_bandwidth_bits_binding_1.get_inner();
-        let uplink_delay_ms_binding_1 = args.uplink_delay_ms.get_output(context);
-        let uplink_delay_ms_binding = uplink_delay_ms_binding_1.get_inner();
-        let uplink_jitter_ms_binding_1 = args.uplink_jitter_ms.get_output(context);
-        let uplink_jitter_ms_binding = uplink_jitter_ms_binding_1.get_inner();
-        let uplink_loss_percent_binding_1 = args.uplink_loss_percent.get_output(context);
-        let uplink_loss_percent_binding = uplink_loss_percent_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let uplink_delay_ms_binding = args.uplink_delay_ms.get_output(context);
+        let uplink_jitter_ms_binding = args.uplink_jitter_ms.get_output(context);
+        let uplink_loss_percent_binding = args.uplink_loss_percent.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:devicefarm/networkProfile:NetworkProfile".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "downlinkBandwidthBits".into(),
-                    value: &downlink_bandwidth_bits_binding,
+                    value: downlink_bandwidth_bits_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "downlinkDelayMs".into(),
-                    value: &downlink_delay_ms_binding,
+                    value: downlink_delay_ms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "downlinkJitterMs".into(),
-                    value: &downlink_jitter_ms_binding,
+                    value: downlink_jitter_ms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "downlinkLossPercent".into(),
-                    value: &downlink_loss_percent_binding,
+                    value: downlink_loss_percent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectArn".into(),
-                    value: &project_arn_binding,
+                    value: project_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uplinkBandwidthBits".into(),
-                    value: &uplink_bandwidth_bits_binding,
+                    value: uplink_bandwidth_bits_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uplinkDelayMs".into(),
-                    value: &uplink_delay_ms_binding,
+                    value: uplink_delay_ms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uplinkJitterMs".into(),
-                    value: &uplink_jitter_ms_binding,
+                    value: uplink_jitter_ms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uplinkLossPercent".into(),
-                    value: &uplink_loss_percent_binding,
+                    value: uplink_loss_percent_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkProfileResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            downlink_bandwidth_bits: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("downlinkBandwidthBits"),
-            ),
-            downlink_delay_ms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("downlinkDelayMs"),
-            ),
-            downlink_jitter_ms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("downlinkJitterMs"),
-            ),
-            downlink_loss_percent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("downlinkLossPercent"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            uplink_bandwidth_bits: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uplinkBandwidthBits"),
-            ),
-            uplink_delay_ms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uplinkDelayMs"),
-            ),
-            uplink_jitter_ms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uplinkJitterMs"),
-            ),
-            uplink_loss_percent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uplinkLossPercent"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            downlink_bandwidth_bits: o.get_field("downlinkBandwidthBits"),
+            downlink_delay_ms: o.get_field("downlinkDelayMs"),
+            downlink_jitter_ms: o.get_field("downlinkJitterMs"),
+            downlink_loss_percent: o.get_field("downlinkLossPercent"),
+            name: o.get_field("name"),
+            project_arn: o.get_field("projectArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
+            uplink_bandwidth_bits: o.get_field("uplinkBandwidthBits"),
+            uplink_delay_ms: o.get_field("uplinkDelayMs"),
+            uplink_jitter_ms: o.get_field("uplinkJitterMs"),
+            uplink_loss_percent: o.get_field("uplinkLossPercent"),
         }
     }
 }

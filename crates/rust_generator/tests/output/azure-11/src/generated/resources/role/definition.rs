@@ -116,74 +116,59 @@ pub mod definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DefinitionArgs,
     ) -> DefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let assignable_scopes_binding_1 = args.assignable_scopes.get_output(context);
-        let assignable_scopes_binding = assignable_scopes_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let permissions_binding_1 = args.permissions.get_output(context);
-        let permissions_binding = permissions_binding_1.get_inner();
-        let role_definition_id_binding_1 = args.role_definition_id.get_output(context);
-        let role_definition_id_binding = role_definition_id_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let assignable_scopes_binding = args.assignable_scopes.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let permissions_binding = args.permissions.get_output(context);
+        let role_definition_id_binding = args.role_definition_id.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:role/definition:Definition".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignableScopes".into(),
-                    value: &assignable_scopes_binding,
+                    value: assignable_scopes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissions".into(),
-                    value: &permissions_binding,
+                    value: permissions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleDefinitionId".into(),
-                    value: &role_definition_id_binding,
+                    value: role_definition_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DefinitionResult {
-            assignable_scopes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assignableScopes"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissions"),
-            ),
-            role_definition_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleDefinitionId"),
-            ),
-            role_definition_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleDefinitionResourceId"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            assignable_scopes: o.get_field("assignableScopes"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            permissions: o.get_field("permissions"),
+            role_definition_id: o.get_field("roleDefinitionId"),
+            role_definition_resource_id: o.get_field("roleDefinitionResourceId"),
+            scope: o.get_field("scope"),
         }
     }
 }

@@ -355,142 +355,102 @@ pub mod uptime_check_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UptimeCheckConfigArgs,
     ) -> UptimeCheckConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let checker_type_binding_1 = args.checker_type.get_output(context);
-        let checker_type_binding = checker_type_binding_1.get_inner();
-        let content_matchers_binding_1 = args.content_matchers.get_output(context);
-        let content_matchers_binding = content_matchers_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let http_check_binding_1 = args.http_check.get_output(context);
-        let http_check_binding = http_check_binding_1.get_inner();
-        let monitored_resource_binding_1 = args.monitored_resource.get_output(context);
-        let monitored_resource_binding = monitored_resource_binding_1.get_inner();
-        let period_binding_1 = args.period.get_output(context);
-        let period_binding = period_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let resource_group_binding_1 = args.resource_group.get_output(context);
-        let resource_group_binding = resource_group_binding_1.get_inner();
-        let selected_regions_binding_1 = args.selected_regions.get_output(context);
-        let selected_regions_binding = selected_regions_binding_1.get_inner();
-        let synthetic_monitor_binding_1 = args.synthetic_monitor.get_output(context);
-        let synthetic_monitor_binding = synthetic_monitor_binding_1.get_inner();
-        let tcp_check_binding_1 = args.tcp_check.get_output(context);
-        let tcp_check_binding = tcp_check_binding_1.get_inner();
-        let timeout_binding_1 = args.timeout.get_output(context);
-        let timeout_binding = timeout_binding_1.get_inner();
-        let user_labels_binding_1 = args.user_labels.get_output(context);
-        let user_labels_binding = user_labels_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let checker_type_binding = args.checker_type.get_output(context);
+        let content_matchers_binding = args.content_matchers.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let http_check_binding = args.http_check.get_output(context);
+        let monitored_resource_binding = args.monitored_resource.get_output(context);
+        let period_binding = args.period.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let resource_group_binding = args.resource_group.get_output(context);
+        let selected_regions_binding = args.selected_regions.get_output(context);
+        let synthetic_monitor_binding = args.synthetic_monitor.get_output(context);
+        let tcp_check_binding = args.tcp_check.get_output(context);
+        let timeout_binding = args.timeout.get_output(context);
+        let user_labels_binding = args.user_labels.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:monitoring/uptimeCheckConfig:UptimeCheckConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "checkerType".into(),
-                    value: &checker_type_binding,
+                    value: checker_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentMatchers".into(),
-                    value: &content_matchers_binding,
+                    value: content_matchers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpCheck".into(),
-                    value: &http_check_binding,
+                    value: http_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitoredResource".into(),
-                    value: &monitored_resource_binding,
+                    value: monitored_resource_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "period".into(),
-                    value: &period_binding,
+                    value: period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroup".into(),
-                    value: &resource_group_binding,
+                    value: resource_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selectedRegions".into(),
-                    value: &selected_regions_binding,
+                    value: selected_regions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "syntheticMonitor".into(),
-                    value: &synthetic_monitor_binding,
+                    value: synthetic_monitor_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tcpCheck".into(),
-                    value: &tcp_check_binding,
+                    value: tcp_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeout".into(),
-                    value: &timeout_binding,
+                    value: timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userLabels".into(),
-                    value: &user_labels_binding,
+                    value: user_labels_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UptimeCheckConfigResult {
-            checker_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checkerType"),
-            ),
-            content_matchers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentMatchers"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            http_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpCheck"),
-            ),
-            monitored_resource: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoredResource"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("period"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            resource_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroup"),
-            ),
-            selected_regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selectedRegions"),
-            ),
-            synthetic_monitor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("syntheticMonitor"),
-            ),
-            tcp_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tcpCheck"),
-            ),
-            timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeout"),
-            ),
-            uptime_check_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uptimeCheckId"),
-            ),
-            user_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userLabels"),
-            ),
+            checker_type: o.get_field("checkerType"),
+            content_matchers: o.get_field("contentMatchers"),
+            display_name: o.get_field("displayName"),
+            http_check: o.get_field("httpCheck"),
+            monitored_resource: o.get_field("monitoredResource"),
+            name: o.get_field("name"),
+            period: o.get_field("period"),
+            project: o.get_field("project"),
+            resource_group: o.get_field("resourceGroup"),
+            selected_regions: o.get_field("selectedRegions"),
+            synthetic_monitor: o.get_field("syntheticMonitor"),
+            tcp_check: o.get_field("tcpCheck"),
+            timeout: o.get_field("timeout"),
+            uptime_check_id: o.get_field("uptimeCheckId"),
+            user_labels: o.get_field("userLabels"),
         }
     }
 }

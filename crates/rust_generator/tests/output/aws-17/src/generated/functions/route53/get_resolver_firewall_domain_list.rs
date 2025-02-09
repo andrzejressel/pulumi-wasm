@@ -30,56 +30,39 @@ pub mod get_resolver_firewall_domain_list {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetResolverFirewallDomainListArgs,
     ) -> GetResolverFirewallDomainListResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let firewall_domain_list_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let firewall_domain_list_id_binding = args
             .firewall_domain_list_id
             .get_output(context);
-        let firewall_domain_list_id_binding = firewall_domain_list_id_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallDomainListId".into(),
-                    value: &firewall_domain_list_id_binding,
+                    value: firewall_domain_list_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetResolverFirewallDomainListResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            creator_request_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creatorRequestId"),
-            ),
-            domain_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainCount"),
-            ),
-            firewall_domain_list_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallDomainListId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            managed_owner_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedOwnerName"),
-            ),
-            modification_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modificationTime"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusMessage"),
-            ),
+            arn: o.get_field("arn"),
+            creation_time: o.get_field("creationTime"),
+            creator_request_id: o.get_field("creatorRequestId"),
+            domain_count: o.get_field("domainCount"),
+            firewall_domain_list_id: o.get_field("firewallDomainListId"),
+            id: o.get_field("id"),
+            managed_owner_name: o.get_field("managedOwnerName"),
+            modification_time: o.get_field("modificationTime"),
+            name: o.get_field("name"),
+            status: o.get_field("status"),
+            status_message: o.get_field("statusMessage"),
         }
     }
 }

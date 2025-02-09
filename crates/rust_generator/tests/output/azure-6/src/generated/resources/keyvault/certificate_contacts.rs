@@ -95,39 +95,34 @@ pub mod certificate_contacts {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CertificateContactsArgs,
     ) -> CertificateContactsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let contacts_binding_1 = args.contacts.get_output(context);
-        let contacts_binding = contacts_binding_1.get_inner();
-        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
-        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let contacts_binding = args.contacts.get_output(context);
+        let key_vault_id_binding = args.key_vault_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:keyvault/certificateContacts:CertificateContacts".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contacts".into(),
-                    value: &contacts_binding,
+                    value: contacts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: &key_vault_id_binding,
+                    value: key_vault_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CertificateContactsResult {
-            contacts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contacts"),
-            ),
-            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultId"),
-            ),
+            contacts: o.get_field("contacts"),
+            key_vault_id: o.get_field("keyVaultId"),
         }
     }
 }

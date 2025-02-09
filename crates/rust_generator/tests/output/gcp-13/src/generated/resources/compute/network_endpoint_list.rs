@@ -173,58 +173,48 @@ pub mod network_endpoint_list {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkEndpointListArgs,
     ) -> NetworkEndpointListResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let network_endpoint_group_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let network_endpoint_group_binding = args
             .network_endpoint_group
             .get_output(context);
-        let network_endpoint_group_binding = network_endpoint_group_binding_1
-            .get_inner();
-        let network_endpoints_binding_1 = args.network_endpoints.get_output(context);
-        let network_endpoints_binding = network_endpoints_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let network_endpoints_binding = args.network_endpoints.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/networkEndpointList:NetworkEndpointList".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkEndpointGroup".into(),
-                    value: &network_endpoint_group_binding,
+                    value: network_endpoint_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkEndpoints".into(),
-                    value: &network_endpoints_binding,
+                    value: network_endpoints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkEndpointListResult {
-            network_endpoint_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkEndpointGroup"),
-            ),
-            network_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkEndpoints"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            network_endpoint_group: o.get_field("networkEndpointGroup"),
+            network_endpoints: o.get_field("networkEndpoints"),
+            project: o.get_field("project"),
+            zone: o.get_field("zone"),
         }
     }
 }

@@ -111,118 +111,86 @@ pub mod provisioning_artifact {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProvisioningArtifactArgs,
     ) -> ProvisioningArtifactResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding_1 = args.accept_language.get_output(context);
-        let accept_language_binding = accept_language_binding_1.get_inner();
-        let active_binding_1 = args.active.get_output(context);
-        let active_binding = active_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disable_template_validation_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accept_language_binding = args.accept_language.get_output(context);
+        let active_binding = args.active.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let disable_template_validation_binding = args
             .disable_template_validation
             .get_output(context);
-        let disable_template_validation_binding = disable_template_validation_binding_1
-            .get_inner();
-        let guidance_binding_1 = args.guidance.get_output(context);
-        let guidance_binding = guidance_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let product_id_binding_1 = args.product_id.get_output(context);
-        let product_id_binding = product_id_binding_1.get_inner();
-        let template_physical_id_binding_1 = args
-            .template_physical_id
-            .get_output(context);
-        let template_physical_id_binding = template_physical_id_binding_1.get_inner();
-        let template_url_binding_1 = args.template_url.get_output(context);
-        let template_url_binding = template_url_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let guidance_binding = args.guidance.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let product_id_binding = args.product_id.get_output(context);
+        let template_physical_id_binding = args.template_physical_id.get_output(context);
+        let template_url_binding = args.template_url.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:servicecatalog/provisioningArtifact:ProvisioningArtifact".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptLanguage".into(),
-                    value: &accept_language_binding,
+                    value: accept_language_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "active".into(),
-                    value: &active_binding,
+                    value: active_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableTemplateValidation".into(),
-                    value: &disable_template_validation_binding,
+                    value: disable_template_validation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guidance".into(),
-                    value: &guidance_binding,
+                    value: guidance_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productId".into(),
-                    value: &product_id_binding,
+                    value: product_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templatePhysicalId".into(),
-                    value: &template_physical_id_binding,
+                    value: template_physical_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateUrl".into(),
-                    value: &template_url_binding,
+                    value: template_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProvisioningArtifactResult {
-            accept_language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceptLanguage"),
-            ),
-            active: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("active"),
-            ),
-            created_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disable_template_validation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableTemplateValidation"),
-            ),
-            guidance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("guidance"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            product_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productId"),
-            ),
-            provisioning_artifact_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisioningArtifactId"),
-            ),
-            template_physical_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templatePhysicalId"),
-            ),
-            template_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateUrl"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            accept_language: o.get_field("acceptLanguage"),
+            active: o.get_field("active"),
+            created_time: o.get_field("createdTime"),
+            description: o.get_field("description"),
+            disable_template_validation: o.get_field("disableTemplateValidation"),
+            guidance: o.get_field("guidance"),
+            name: o.get_field("name"),
+            product_id: o.get_field("productId"),
+            provisioning_artifact_id: o.get_field("provisioningArtifactId"),
+            template_physical_id: o.get_field("templatePhysicalId"),
+            template_url: o.get_field("templateUrl"),
+            type_: o.get_field("type"),
         }
     }
 }

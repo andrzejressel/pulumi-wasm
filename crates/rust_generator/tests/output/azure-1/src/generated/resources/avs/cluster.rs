@@ -89,59 +89,48 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_node_count_binding_1 = args.cluster_node_count.get_output(context);
-        let cluster_node_count_binding = cluster_node_count_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let vmware_cloud_id_binding_1 = args.vmware_cloud_id.get_output(context);
-        let vmware_cloud_id_binding = vmware_cloud_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_node_count_binding = args.cluster_node_count.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let sku_name_binding = args.sku_name.get_output(context);
+        let vmware_cloud_id_binding = args.vmware_cloud_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:avs/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterNodeCount".into(),
-                    value: &cluster_node_count_binding,
+                    value: cluster_node_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmwareCloudId".into(),
-                    value: &vmware_cloud_id_binding,
+                    value: vmware_cloud_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            cluster_node_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterNodeCount"),
-            ),
-            cluster_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterNumber"),
-            ),
-            hosts: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hosts")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            vmware_cloud_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmwareCloudId"),
-            ),
+            cluster_node_count: o.get_field("clusterNodeCount"),
+            cluster_number: o.get_field("clusterNumber"),
+            hosts: o.get_field("hosts"),
+            name: o.get_field("name"),
+            sku_name: o.get_field("skuName"),
+            vmware_cloud_id: o.get_field("vmwareCloudId"),
         }
     }
 }

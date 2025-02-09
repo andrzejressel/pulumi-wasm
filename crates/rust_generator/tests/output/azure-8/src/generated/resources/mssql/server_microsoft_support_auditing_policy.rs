@@ -220,87 +220,67 @@ pub mod server_microsoft_support_auditing_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServerMicrosoftSupportAuditingPolicyArgs,
     ) -> ServerMicrosoftSupportAuditingPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let blob_storage_endpoint_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let blob_storage_endpoint_binding = args
             .blob_storage_endpoint
             .get_output(context);
-        let blob_storage_endpoint_binding = blob_storage_endpoint_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let log_monitoring_enabled_binding_1 = args
+        let enabled_binding = args.enabled.get_output(context);
+        let log_monitoring_enabled_binding = args
             .log_monitoring_enabled
             .get_output(context);
-        let log_monitoring_enabled_binding = log_monitoring_enabled_binding_1
-            .get_inner();
-        let server_id_binding_1 = args.server_id.get_output(context);
-        let server_id_binding = server_id_binding_1.get_inner();
-        let storage_account_access_key_binding_1 = args
+        let server_id_binding = args.server_id.get_output(context);
+        let storage_account_access_key_binding = args
             .storage_account_access_key
             .get_output(context);
-        let storage_account_access_key_binding = storage_account_access_key_binding_1
-            .get_inner();
-        let storage_account_subscription_id_binding_1 = args
+        let storage_account_subscription_id_binding = args
             .storage_account_subscription_id
             .get_output(context);
-        let storage_account_subscription_id_binding = storage_account_subscription_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blobStorageEndpoint".into(),
-                    value: &blob_storage_endpoint_binding,
+                    value: blob_storage_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logMonitoringEnabled".into(),
-                    value: &log_monitoring_enabled_binding,
+                    value: log_monitoring_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: &server_id_binding,
+                    value: server_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountAccessKey".into(),
-                    value: &storage_account_access_key_binding,
+                    value: storage_account_access_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountSubscriptionId".into(),
-                    value: &storage_account_subscription_id_binding,
+                    value: storage_account_subscription_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServerMicrosoftSupportAuditingPolicyResult {
-            blob_storage_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blobStorageEndpoint"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            log_monitoring_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logMonitoringEnabled"),
-            ),
-            server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverId"),
-            ),
-            storage_account_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountAccessKey"),
-            ),
-            storage_account_subscription_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountSubscriptionId"),
-            ),
+            blob_storage_endpoint: o.get_field("blobStorageEndpoint"),
+            enabled: o.get_field("enabled"),
+            log_monitoring_enabled: o.get_field("logMonitoringEnabled"),
+            server_id: o.get_field("serverId"),
+            storage_account_access_key: o.get_field("storageAccountAccessKey"),
+            storage_account_subscription_id: o.get_field("storageAccountSubscriptionId"),
         }
     }
 }

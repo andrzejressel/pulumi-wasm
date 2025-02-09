@@ -122,67 +122,53 @@ pub mod custom_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomServiceArgs,
     ) -> CustomServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let service_id_binding_1 = args.service_id.get_output(context);
-        let service_id_binding = service_id_binding_1.get_inner();
-        let telemetry_binding_1 = args.telemetry.get_output(context);
-        let telemetry_binding = telemetry_binding_1.get_inner();
-        let user_labels_binding_1 = args.user_labels.get_output(context);
-        let user_labels_binding = user_labels_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let display_name_binding = args.display_name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let service_id_binding = args.service_id.get_output(context);
+        let telemetry_binding = args.telemetry.get_output(context);
+        let user_labels_binding = args.user_labels.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:monitoring/customService:CustomService".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceId".into(),
-                    value: &service_id_binding,
+                    value: service_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "telemetry".into(),
-                    value: &telemetry_binding,
+                    value: telemetry_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userLabels".into(),
-                    value: &user_labels_binding,
+                    value: user_labels_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomServiceResult {
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceId"),
-            ),
-            telemetry: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("telemetry"),
-            ),
-            user_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userLabels"),
-            ),
+            display_name: o.get_field("displayName"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            service_id: o.get_field("serviceId"),
+            telemetry: o.get_field("telemetry"),
+            user_labels: o.get_field("userLabels"),
         }
     }
 }

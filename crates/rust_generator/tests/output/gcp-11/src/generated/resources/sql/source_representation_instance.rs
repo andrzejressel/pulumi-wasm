@@ -172,124 +172,95 @@ pub mod source_representation_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SourceRepresentationInstanceArgs,
     ) -> SourceRepresentationInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ca_certificate_binding_1 = args.ca_certificate.get_output(context);
-        let ca_certificate_binding = ca_certificate_binding_1.get_inner();
-        let client_certificate_binding_1 = args.client_certificate.get_output(context);
-        let client_certificate_binding = client_certificate_binding_1.get_inner();
-        let client_key_binding_1 = args.client_key.get_output(context);
-        let client_key_binding = client_key_binding_1.get_inner();
-        let database_version_binding_1 = args.database_version.get_output(context);
-        let database_version_binding = database_version_binding_1.get_inner();
-        let dump_file_path_binding_1 = args.dump_file_path.get_output(context);
-        let dump_file_path_binding = dump_file_path_binding_1.get_inner();
-        let host_binding_1 = args.host.get_output(context);
-        let host_binding = host_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let username_binding_1 = args.username.get_output(context);
-        let username_binding = username_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let ca_certificate_binding = args.ca_certificate.get_output(context);
+        let client_certificate_binding = args.client_certificate.get_output(context);
+        let client_key_binding = args.client_key.get_output(context);
+        let database_version_binding = args.database_version.get_output(context);
+        let dump_file_path_binding = args.dump_file_path.get_output(context);
+        let host_binding = args.host.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let username_binding = args.username.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:sql/sourceRepresentationInstance:SourceRepresentationInstance"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caCertificate".into(),
-                    value: &ca_certificate_binding,
+                    value: ca_certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificate".into(),
-                    value: &client_certificate_binding,
+                    value: client_certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientKey".into(),
-                    value: &client_key_binding,
+                    value: client_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseVersion".into(),
-                    value: &database_version_binding,
+                    value: database_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dumpFilePath".into(),
-                    value: &dump_file_path_binding,
+                    value: dump_file_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: &host_binding,
+                    value: host_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: &username_binding,
+                    value: username_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SourceRepresentationInstanceResult {
-            ca_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("caCertificate"),
-            ),
-            client_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientCertificate"),
-            ),
-            client_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientKey"),
-            ),
-            database_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseVersion"),
-            ),
-            dump_file_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dumpFilePath"),
-            ),
-            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
+            ca_certificate: o.get_field("caCertificate"),
+            client_certificate: o.get_field("clientCertificate"),
+            client_key: o.get_field("clientKey"),
+            database_version: o.get_field("databaseVersion"),
+            dump_file_path: o.get_field("dumpFilePath"),
+            host: o.get_field("host"),
+            name: o.get_field("name"),
+            password: o.get_field("password"),
+            port: o.get_field("port"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            username: o.get_field("username"),
         }
     }
 }

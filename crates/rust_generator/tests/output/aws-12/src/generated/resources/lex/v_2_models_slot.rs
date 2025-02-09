@@ -106,138 +106,99 @@ pub mod v_2_models_slot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: V2modelsSlotArgs,
     ) -> V2modelsSlotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_id_binding_1 = args.bot_id.get_output(context);
-        let bot_id_binding = bot_id_binding_1.get_inner();
-        let bot_version_binding_1 = args.bot_version.get_output(context);
-        let bot_version_binding = bot_version_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let intent_id_binding_1 = args.intent_id.get_output(context);
-        let intent_id_binding = intent_id_binding_1.get_inner();
-        let locale_id_binding_1 = args.locale_id.get_output(context);
-        let locale_id_binding = locale_id_binding_1.get_inner();
-        let multiple_values_settings_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bot_id_binding = args.bot_id.get_output(context);
+        let bot_version_binding = args.bot_version.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let intent_id_binding = args.intent_id.get_output(context);
+        let locale_id_binding = args.locale_id.get_output(context);
+        let multiple_values_settings_binding = args
             .multiple_values_settings
             .get_output(context);
-        let multiple_values_settings_binding = multiple_values_settings_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let obfuscation_settings_binding_1 = args
-            .obfuscation_settings
-            .get_output(context);
-        let obfuscation_settings_binding = obfuscation_settings_binding_1.get_inner();
-        let slot_type_id_binding_1 = args.slot_type_id.get_output(context);
-        let slot_type_id_binding = slot_type_id_binding_1.get_inner();
-        let sub_slot_settings_binding_1 = args.sub_slot_settings.get_output(context);
-        let sub_slot_settings_binding = sub_slot_settings_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let value_elicitation_setting_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let obfuscation_settings_binding = args.obfuscation_settings.get_output(context);
+        let slot_type_id_binding = args.slot_type_id.get_output(context);
+        let sub_slot_settings_binding = args.sub_slot_settings.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let value_elicitation_setting_binding = args
             .value_elicitation_setting
             .get_output(context);
-        let value_elicitation_setting_binding = value_elicitation_setting_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lex/v2modelsSlot:V2modelsSlot".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botId".into(),
-                    value: &bot_id_binding,
+                    value: bot_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botVersion".into(),
-                    value: &bot_version_binding,
+                    value: bot_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "intentId".into(),
-                    value: &intent_id_binding,
+                    value: intent_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localeId".into(),
-                    value: &locale_id_binding,
+                    value: locale_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multipleValuesSettings".into(),
-                    value: &multiple_values_settings_binding,
+                    value: multiple_values_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "obfuscationSettings".into(),
-                    value: &obfuscation_settings_binding,
+                    value: obfuscation_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slotTypeId".into(),
-                    value: &slot_type_id_binding,
+                    value: slot_type_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subSlotSettings".into(),
-                    value: &sub_slot_settings_binding,
+                    value: sub_slot_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "valueElicitationSetting".into(),
-                    value: &value_elicitation_setting_binding,
+                    value: value_elicitation_setting_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         V2modelsSlotResult {
-            bot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botId"),
-            ),
-            bot_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botVersion"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            intent_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("intentId"),
-            ),
-            locale_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localeId"),
-            ),
-            multiple_values_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multipleValuesSettings"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            obfuscation_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("obfuscationSettings"),
-            ),
-            slot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("slotId"),
-            ),
-            slot_type_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("slotTypeId"),
-            ),
-            sub_slot_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subSlotSettings"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            value_elicitation_setting: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("valueElicitationSetting"),
-            ),
+            bot_id: o.get_field("botId"),
+            bot_version: o.get_field("botVersion"),
+            description: o.get_field("description"),
+            intent_id: o.get_field("intentId"),
+            locale_id: o.get_field("localeId"),
+            multiple_values_settings: o.get_field("multipleValuesSettings"),
+            name: o.get_field("name"),
+            obfuscation_settings: o.get_field("obfuscationSettings"),
+            slot_id: o.get_field("slotId"),
+            slot_type_id: o.get_field("slotTypeId"),
+            sub_slot_settings: o.get_field("subSlotSettings"),
+            timeouts: o.get_field("timeouts"),
+            value_elicitation_setting: o.get_field("valueElicitationSetting"),
         }
     }
 }

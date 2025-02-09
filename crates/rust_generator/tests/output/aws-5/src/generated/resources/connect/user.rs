@@ -264,116 +264,85 @@ pub mod user {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserArgs,
     ) -> UserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let directory_user_id_binding_1 = args.directory_user_id.get_output(context);
-        let directory_user_id_binding = directory_user_id_binding_1.get_inner();
-        let hierarchy_group_id_binding_1 = args.hierarchy_group_id.get_output(context);
-        let hierarchy_group_id_binding = hierarchy_group_id_binding_1.get_inner();
-        let identity_info_binding_1 = args.identity_info.get_output(context);
-        let identity_info_binding = identity_info_binding_1.get_inner();
-        let instance_id_binding_1 = args.instance_id.get_output(context);
-        let instance_id_binding = instance_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let phone_config_binding_1 = args.phone_config.get_output(context);
-        let phone_config_binding = phone_config_binding_1.get_inner();
-        let routing_profile_id_binding_1 = args.routing_profile_id.get_output(context);
-        let routing_profile_id_binding = routing_profile_id_binding_1.get_inner();
-        let security_profile_ids_binding_1 = args
-            .security_profile_ids
-            .get_output(context);
-        let security_profile_ids_binding = security_profile_ids_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let directory_user_id_binding = args.directory_user_id.get_output(context);
+        let hierarchy_group_id_binding = args.hierarchy_group_id.get_output(context);
+        let identity_info_binding = args.identity_info.get_output(context);
+        let instance_id_binding = args.instance_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let phone_config_binding = args.phone_config.get_output(context);
+        let routing_profile_id_binding = args.routing_profile_id.get_output(context);
+        let security_profile_ids_binding = args.security_profile_ids.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:connect/user:User".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryUserId".into(),
-                    value: &directory_user_id_binding,
+                    value: directory_user_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hierarchyGroupId".into(),
-                    value: &hierarchy_group_id_binding,
+                    value: hierarchy_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityInfo".into(),
-                    value: &identity_info_binding,
+                    value: identity_info_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: &instance_id_binding,
+                    value: instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "phoneConfig".into(),
-                    value: &phone_config_binding,
+                    value: phone_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingProfileId".into(),
-                    value: &routing_profile_id_binding,
+                    value: routing_profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityProfileIds".into(),
-                    value: &security_profile_ids_binding,
+                    value: security_profile_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            directory_user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("directoryUserId"),
-            ),
-            hierarchy_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hierarchyGroupId"),
-            ),
-            identity_info: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityInfo"),
-            ),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            phone_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("phoneConfig"),
-            ),
-            routing_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingProfileId"),
-            ),
-            security_profile_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityProfileIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userId"),
-            ),
+            arn: o.get_field("arn"),
+            directory_user_id: o.get_field("directoryUserId"),
+            hierarchy_group_id: o.get_field("hierarchyGroupId"),
+            identity_info: o.get_field("identityInfo"),
+            instance_id: o.get_field("instanceId"),
+            name: o.get_field("name"),
+            password: o.get_field("password"),
+            phone_config: o.get_field("phoneConfig"),
+            routing_profile_id: o.get_field("routingProfileId"),
+            security_profile_ids: o.get_field("securityProfileIds"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            user_id: o.get_field("userId"),
         }
     }
 }

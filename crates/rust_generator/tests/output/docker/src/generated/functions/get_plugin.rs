@@ -33,44 +33,37 @@ pub mod get_plugin {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPluginArgs,
     ) -> GetPluginResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding_1 = args.alias.get_output(context);
-        let alias_binding = alias_binding_1.get_inner();
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alias_binding = args.alias.get_output(context);
+        let id_binding = args.id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "docker:index/getPlugin:getPlugin".into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alias".into(),
-                    value: &alias_binding,
+                    value: alias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPluginResult {
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            envs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("envs")),
-            grant_all_permissions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grantAllPermissions"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            plugin_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pluginReference"),
-            ),
+            alias: o.get_field("alias"),
+            enabled: o.get_field("enabled"),
+            envs: o.get_field("envs"),
+            grant_all_permissions: o.get_field("grantAllPermissions"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            plugin_reference: o.get_field("pluginReference"),
         }
     }
 }

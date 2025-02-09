@@ -1,12 +1,12 @@
 use anyhow::Error;
 use pulumi_gestalt_providers_random::random_string;
 use pulumi_gestalt_providers_random::random_string::RandomStringArgs;
-use pulumi_gestalt_rust::{PulumiContext};
+use pulumi_gestalt_rust::Context;
 
 #[cfg(target_arch = "wasm32")]
 pulumi_gestalt_rust::pulumi_main!();
 
-fn pulumi_main(context: &PulumiContext) -> Result<(), Error> {
+fn pulumi_main(context: &Context) -> Result<(), Error> {
     let _ = random_string::create(
         context,
         "test",

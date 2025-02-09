@@ -175,155 +175,115 @@ pub mod trigger_tumbling_window {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TriggerTumblingWindowArgs,
     ) -> TriggerTumblingWindowResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let activated_binding_1 = args.activated.get_output(context);
-        let activated_binding = activated_binding_1.get_inner();
-        let additional_properties_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let activated_binding = args.activated.get_output(context);
+        let additional_properties_binding = args
             .additional_properties
             .get_output(context);
-        let additional_properties_binding = additional_properties_binding_1.get_inner();
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let data_factory_id_binding_1 = args.data_factory_id.get_output(context);
-        let data_factory_id_binding = data_factory_id_binding_1.get_inner();
-        let delay_binding_1 = args.delay.get_output(context);
-        let delay_binding = delay_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let end_time_binding_1 = args.end_time.get_output(context);
-        let end_time_binding = end_time_binding_1.get_inner();
-        let frequency_binding_1 = args.frequency.get_output(context);
-        let frequency_binding = frequency_binding_1.get_inner();
-        let interval_binding_1 = args.interval.get_output(context);
-        let interval_binding = interval_binding_1.get_inner();
-        let max_concurrency_binding_1 = args.max_concurrency.get_output(context);
-        let max_concurrency_binding = max_concurrency_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let pipeline_binding_1 = args.pipeline.get_output(context);
-        let pipeline_binding = pipeline_binding_1.get_inner();
-        let retry_binding_1 = args.retry.get_output(context);
-        let retry_binding = retry_binding_1.get_inner();
-        let start_time_binding_1 = args.start_time.get_output(context);
-        let start_time_binding = start_time_binding_1.get_inner();
-        let trigger_dependencies_binding_1 = args
-            .trigger_dependencies
-            .get_output(context);
-        let trigger_dependencies_binding = trigger_dependencies_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let annotations_binding = args.annotations.get_output(context);
+        let data_factory_id_binding = args.data_factory_id.get_output(context);
+        let delay_binding = args.delay.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let end_time_binding = args.end_time.get_output(context);
+        let frequency_binding = args.frequency.get_output(context);
+        let interval_binding = args.interval.get_output(context);
+        let max_concurrency_binding = args.max_concurrency.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let pipeline_binding = args.pipeline.get_output(context);
+        let retry_binding = args.retry.get_output(context);
+        let start_time_binding = args.start_time.get_output(context);
+        let trigger_dependencies_binding = args.trigger_dependencies.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activated".into(),
-                    value: &activated_binding,
+                    value: activated_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalProperties".into(),
-                    value: &additional_properties_binding,
+                    value: additional_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: &data_factory_id_binding,
+                    value: data_factory_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delay".into(),
-                    value: &delay_binding,
+                    value: delay_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endTime".into(),
-                    value: &end_time_binding,
+                    value: end_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frequency".into(),
-                    value: &frequency_binding,
+                    value: frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interval".into(),
-                    value: &interval_binding,
+                    value: interval_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxConcurrency".into(),
-                    value: &max_concurrency_binding,
+                    value: max_concurrency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipeline".into(),
-                    value: &pipeline_binding,
+                    value: pipeline_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retry".into(),
-                    value: &retry_binding,
+                    value: retry_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startTime".into(),
-                    value: &start_time_binding,
+                    value: start_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerDependencies".into(),
-                    value: &trigger_dependencies_binding,
+                    value: trigger_dependencies_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TriggerTumblingWindowResult {
-            activated: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activated"),
-            ),
-            additional_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalProperties"),
-            ),
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataFactoryId"),
-            ),
-            delay: pulumi_gestalt_rust::__private::into_domain(o.extract_field("delay")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            end_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endTime"),
-            ),
-            frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frequency"),
-            ),
-            interval: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interval"),
-            ),
-            max_concurrency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxConcurrency"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pipeline: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pipeline"),
-            ),
-            retry: pulumi_gestalt_rust::__private::into_domain(o.extract_field("retry")),
-            start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startTime"),
-            ),
-            trigger_dependencies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggerDependencies"),
-            ),
+            activated: o.get_field("activated"),
+            additional_properties: o.get_field("additionalProperties"),
+            annotations: o.get_field("annotations"),
+            data_factory_id: o.get_field("dataFactoryId"),
+            delay: o.get_field("delay"),
+            description: o.get_field("description"),
+            end_time: o.get_field("endTime"),
+            frequency: o.get_field("frequency"),
+            interval: o.get_field("interval"),
+            max_concurrency: o.get_field("maxConcurrency"),
+            name: o.get_field("name"),
+            pipeline: o.get_field("pipeline"),
+            retry: o.get_field("retry"),
+            start_time: o.get_field("startTime"),
+            trigger_dependencies: o.get_field("triggerDependencies"),
         }
     }
 }

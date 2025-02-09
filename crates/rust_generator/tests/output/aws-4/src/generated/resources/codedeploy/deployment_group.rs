@@ -392,214 +392,151 @@ pub mod deployment_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DeploymentGroupArgs,
     ) -> DeploymentGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alarm_configuration_binding_1 = args.alarm_configuration.get_output(context);
-        let alarm_configuration_binding = alarm_configuration_binding_1.get_inner();
-        let app_name_binding_1 = args.app_name.get_output(context);
-        let app_name_binding = app_name_binding_1.get_inner();
-        let auto_rollback_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alarm_configuration_binding = args.alarm_configuration.get_output(context);
+        let app_name_binding = args.app_name.get_output(context);
+        let auto_rollback_configuration_binding = args
             .auto_rollback_configuration
             .get_output(context);
-        let auto_rollback_configuration_binding = auto_rollback_configuration_binding_1
-            .get_inner();
-        let autoscaling_groups_binding_1 = args.autoscaling_groups.get_output(context);
-        let autoscaling_groups_binding = autoscaling_groups_binding_1.get_inner();
-        let blue_green_deployment_config_binding_1 = args
+        let autoscaling_groups_binding = args.autoscaling_groups.get_output(context);
+        let blue_green_deployment_config_binding = args
             .blue_green_deployment_config
             .get_output(context);
-        let blue_green_deployment_config_binding = blue_green_deployment_config_binding_1
-            .get_inner();
-        let deployment_config_name_binding_1 = args
+        let deployment_config_name_binding = args
             .deployment_config_name
             .get_output(context);
-        let deployment_config_name_binding = deployment_config_name_binding_1
-            .get_inner();
-        let deployment_group_name_binding_1 = args
+        let deployment_group_name_binding = args
             .deployment_group_name
             .get_output(context);
-        let deployment_group_name_binding = deployment_group_name_binding_1.get_inner();
-        let deployment_style_binding_1 = args.deployment_style.get_output(context);
-        let deployment_style_binding = deployment_style_binding_1.get_inner();
-        let ec2_tag_filters_binding_1 = args.ec2_tag_filters.get_output(context);
-        let ec2_tag_filters_binding = ec2_tag_filters_binding_1.get_inner();
-        let ec2_tag_sets_binding_1 = args.ec2_tag_sets.get_output(context);
-        let ec2_tag_sets_binding = ec2_tag_sets_binding_1.get_inner();
-        let ecs_service_binding_1 = args.ecs_service.get_output(context);
-        let ecs_service_binding = ecs_service_binding_1.get_inner();
-        let load_balancer_info_binding_1 = args.load_balancer_info.get_output(context);
-        let load_balancer_info_binding = load_balancer_info_binding_1.get_inner();
-        let on_premises_instance_tag_filters_binding_1 = args
+        let deployment_style_binding = args.deployment_style.get_output(context);
+        let ec2_tag_filters_binding = args.ec2_tag_filters.get_output(context);
+        let ec2_tag_sets_binding = args.ec2_tag_sets.get_output(context);
+        let ecs_service_binding = args.ecs_service.get_output(context);
+        let load_balancer_info_binding = args.load_balancer_info.get_output(context);
+        let on_premises_instance_tag_filters_binding = args
             .on_premises_instance_tag_filters
             .get_output(context);
-        let on_premises_instance_tag_filters_binding = on_premises_instance_tag_filters_binding_1
-            .get_inner();
-        let outdated_instances_strategy_binding_1 = args
+        let outdated_instances_strategy_binding = args
             .outdated_instances_strategy
             .get_output(context);
-        let outdated_instances_strategy_binding = outdated_instances_strategy_binding_1
-            .get_inner();
-        let service_role_arn_binding_1 = args.service_role_arn.get_output(context);
-        let service_role_arn_binding = service_role_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let termination_hook_enabled_binding_1 = args
+        let service_role_arn_binding = args.service_role_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let termination_hook_enabled_binding = args
             .termination_hook_enabled
             .get_output(context);
-        let termination_hook_enabled_binding = termination_hook_enabled_binding_1
-            .get_inner();
-        let trigger_configurations_binding_1 = args
+        let trigger_configurations_binding = args
             .trigger_configurations
             .get_output(context);
-        let trigger_configurations_binding = trigger_configurations_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:codedeploy/deploymentGroup:DeploymentGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alarmConfiguration".into(),
-                    value: &alarm_configuration_binding,
+                    value: alarm_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appName".into(),
-                    value: &app_name_binding,
+                    value: app_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRollbackConfiguration".into(),
-                    value: &auto_rollback_configuration_binding,
+                    value: auto_rollback_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingGroups".into(),
-                    value: &autoscaling_groups_binding,
+                    value: autoscaling_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blueGreenDeploymentConfig".into(),
-                    value: &blue_green_deployment_config_binding,
+                    value: blue_green_deployment_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentConfigName".into(),
-                    value: &deployment_config_name_binding,
+                    value: deployment_config_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentGroupName".into(),
-                    value: &deployment_group_name_binding,
+                    value: deployment_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentStyle".into(),
-                    value: &deployment_style_binding,
+                    value: deployment_style_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ec2TagFilters".into(),
-                    value: &ec2_tag_filters_binding,
+                    value: ec2_tag_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ec2TagSets".into(),
-                    value: &ec2_tag_sets_binding,
+                    value: ec2_tag_sets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ecsService".into(),
-                    value: &ecs_service_binding,
+                    value: ecs_service_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerInfo".into(),
-                    value: &load_balancer_info_binding,
+                    value: load_balancer_info_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onPremisesInstanceTagFilters".into(),
-                    value: &on_premises_instance_tag_filters_binding,
+                    value: on_premises_instance_tag_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outdatedInstancesStrategy".into(),
-                    value: &outdated_instances_strategy_binding,
+                    value: outdated_instances_strategy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRoleArn".into(),
-                    value: &service_role_arn_binding,
+                    value: service_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terminationHookEnabled".into(),
-                    value: &termination_hook_enabled_binding,
+                    value: termination_hook_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerConfigurations".into(),
-                    value: &trigger_configurations_binding,
+                    value: trigger_configurations_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DeploymentGroupResult {
-            alarm_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alarmConfiguration"),
-            ),
-            app_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appName"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            auto_rollback_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoRollbackConfiguration"),
-            ),
-            autoscaling_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscalingGroups"),
-            ),
-            blue_green_deployment_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blueGreenDeploymentConfig"),
-            ),
-            compute_platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computePlatform"),
-            ),
-            deployment_config_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentConfigName"),
-            ),
-            deployment_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentGroupId"),
-            ),
-            deployment_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentGroupName"),
-            ),
-            deployment_style: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentStyle"),
-            ),
-            ec2_tag_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ec2TagFilters"),
-            ),
-            ec2_tag_sets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ec2TagSets"),
-            ),
-            ecs_service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ecsService"),
-            ),
-            load_balancer_info: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerInfo"),
-            ),
-            on_premises_instance_tag_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("onPremisesInstanceTagFilters"),
-            ),
-            outdated_instances_strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outdatedInstancesStrategy"),
-            ),
-            service_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRoleArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            termination_hook_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("terminationHookEnabled"),
-            ),
-            trigger_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggerConfigurations"),
-            ),
+            alarm_configuration: o.get_field("alarmConfiguration"),
+            app_name: o.get_field("appName"),
+            arn: o.get_field("arn"),
+            auto_rollback_configuration: o.get_field("autoRollbackConfiguration"),
+            autoscaling_groups: o.get_field("autoscalingGroups"),
+            blue_green_deployment_config: o.get_field("blueGreenDeploymentConfig"),
+            compute_platform: o.get_field("computePlatform"),
+            deployment_config_name: o.get_field("deploymentConfigName"),
+            deployment_group_id: o.get_field("deploymentGroupId"),
+            deployment_group_name: o.get_field("deploymentGroupName"),
+            deployment_style: o.get_field("deploymentStyle"),
+            ec2_tag_filters: o.get_field("ec2TagFilters"),
+            ec2_tag_sets: o.get_field("ec2TagSets"),
+            ecs_service: o.get_field("ecsService"),
+            load_balancer_info: o.get_field("loadBalancerInfo"),
+            on_premises_instance_tag_filters: o
+                .get_field("onPremisesInstanceTagFilters"),
+            outdated_instances_strategy: o.get_field("outdatedInstancesStrategy"),
+            service_role_arn: o.get_field("serviceRoleArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            termination_hook_enabled: o.get_field("terminationHookEnabled"),
+            trigger_configurations: o.get_field("triggerConfigurations"),
         }
     }
 }

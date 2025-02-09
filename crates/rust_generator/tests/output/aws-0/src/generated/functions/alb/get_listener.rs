@@ -42,68 +42,51 @@ pub mod get_listener {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetListenerArgs,
     ) -> GetListenerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let load_balancer_arn_binding_1 = args.load_balancer_arn.get_output(context);
-        let load_balancer_arn_binding = load_balancer_arn_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let load_balancer_arn_binding = args.load_balancer_arn.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:alb/getListener:getListener".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerArn".into(),
-                    value: &load_balancer_arn_binding,
+                    value: load_balancer_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetListenerResult {
-            alpn_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alpnPolicy"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateArn"),
-            ),
-            default_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultActions"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            load_balancer_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerArn"),
-            ),
-            mutual_authentications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mutualAuthentications"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            ssl_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslPolicy"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            alpn_policy: o.get_field("alpnPolicy"),
+            arn: o.get_field("arn"),
+            certificate_arn: o.get_field("certificateArn"),
+            default_actions: o.get_field("defaultActions"),
+            id: o.get_field("id"),
+            load_balancer_arn: o.get_field("loadBalancerArn"),
+            mutual_authentications: o.get_field("mutualAuthentications"),
+            port: o.get_field("port"),
+            protocol: o.get_field("protocol"),
+            ssl_policy: o.get_field("sslPolicy"),
+            tags: o.get_field("tags"),
         }
     }
 }

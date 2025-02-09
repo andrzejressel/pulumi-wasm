@@ -379,78 +379,64 @@ pub mod record_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RecordSetArgs,
     ) -> RecordSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let managed_zone_binding_1 = args.managed_zone.get_output(context);
-        let managed_zone_binding = managed_zone_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let routing_policy_binding_1 = args.routing_policy.get_output(context);
-        let routing_policy_binding = routing_policy_binding_1.get_inner();
-        let rrdatas_binding_1 = args.rrdatas.get_output(context);
-        let rrdatas_binding = rrdatas_binding_1.get_inner();
-        let ttl_binding_1 = args.ttl.get_output(context);
-        let ttl_binding = ttl_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let managed_zone_binding = args.managed_zone.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let routing_policy_binding = args.routing_policy.get_output(context);
+        let rrdatas_binding = args.rrdatas.get_output(context);
+        let ttl_binding = args.ttl.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dns/recordSet:RecordSet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedZone".into(),
-                    value: &managed_zone_binding,
+                    value: managed_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingPolicy".into(),
-                    value: &routing_policy_binding,
+                    value: routing_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rrdatas".into(),
-                    value: &rrdatas_binding,
+                    value: rrdatas_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: &ttl_binding,
+                    value: ttl_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RecordSetResult {
-            managed_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedZone"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            routing_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingPolicy"),
-            ),
-            rrdatas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rrdatas"),
-            ),
-            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            managed_zone: o.get_field("managedZone"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            routing_policy: o.get_field("routingPolicy"),
+            rrdatas: o.get_field("rrdatas"),
+            ttl: o.get_field("ttl"),
+            type_: o.get_field("type"),
         }
     }
 }

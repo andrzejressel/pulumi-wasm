@@ -61,87 +61,53 @@ pub mod get_s_quota_info {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSQuotaInfoArgs,
     ) -> GetSQuotaInfoResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let quota_id_binding_1 = args.quota_id.get_output(context);
-        let quota_id_binding = quota_id_binding_1.get_inner();
-        let service_binding_1 = args.service.get_output(context);
-        let service_binding = service_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let parent_binding = args.parent.get_output(context);
+        let quota_id_binding = args.quota_id.get_output(context);
+        let service_binding = args.service.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:cloudquota/getSQuotaInfo:getSQuotaInfo".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quotaId".into(),
-                    value: &quota_id_binding,
+                    value: quota_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: &service_binding,
+                    value: service_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSQuotaInfoResult {
-            container_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerType"),
-            ),
-            dimensions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dimensions"),
-            ),
-            dimensions_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dimensionsInfos"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            is_concurrent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isConcurrent"),
-            ),
-            is_fixed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isFixed"),
-            ),
-            is_precise: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isPrecise"),
-            ),
-            metric: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metric"),
-            ),
-            metric_display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metricDisplayName"),
-            ),
-            metric_unit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metricUnit"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            quota_display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("quotaDisplayName"),
-            ),
-            quota_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("quotaId"),
-            ),
-            quota_increase_eligibilities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("quotaIncreaseEligibilities"),
-            ),
-            refresh_interval: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("refreshInterval"),
-            ),
-            service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("service"),
-            ),
-            service_request_quota_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRequestQuotaUri"),
-            ),
+            container_type: o.get_field("containerType"),
+            dimensions: o.get_field("dimensions"),
+            dimensions_infos: o.get_field("dimensionsInfos"),
+            id: o.get_field("id"),
+            is_concurrent: o.get_field("isConcurrent"),
+            is_fixed: o.get_field("isFixed"),
+            is_precise: o.get_field("isPrecise"),
+            metric: o.get_field("metric"),
+            metric_display_name: o.get_field("metricDisplayName"),
+            metric_unit: o.get_field("metricUnit"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            quota_display_name: o.get_field("quotaDisplayName"),
+            quota_id: o.get_field("quotaId"),
+            quota_increase_eligibilities: o.get_field("quotaIncreaseEligibilities"),
+            refresh_interval: o.get_field("refreshInterval"),
+            service: o.get_field("service"),
+            service_request_quota_uri: o.get_field("serviceRequestQuotaUri"),
         }
     }
 }

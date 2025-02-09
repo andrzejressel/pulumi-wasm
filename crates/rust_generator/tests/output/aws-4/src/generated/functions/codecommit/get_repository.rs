@@ -29,42 +29,32 @@ pub mod get_repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRepositoryArgs,
     ) -> GetRepositoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let repository_name_binding_1 = args.repository_name.get_output(context);
-        let repository_name_binding = repository_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let repository_name_binding = args.repository_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:codecommit/getRepository:getRepository".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryName".into(),
-                    value: &repository_name_binding,
+                    value: repository_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRepositoryResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            clone_url_http: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloneUrlHttp"),
-            ),
-            clone_url_ssh: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloneUrlSsh"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            repository_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryId"),
-            ),
-            repository_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryName"),
-            ),
+            arn: o.get_field("arn"),
+            clone_url_http: o.get_field("cloneUrlHttp"),
+            clone_url_ssh: o.get_field("cloneUrlSsh"),
+            id: o.get_field("id"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            repository_id: o.get_field("repositoryId"),
+            repository_name: o.get_field("repositoryName"),
         }
     }
 }

@@ -58,42 +58,36 @@ pub mod vpn_connection_route {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpnConnectionRouteArgs,
     ) -> VpnConnectionRouteResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destination_cidr_block_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let destination_cidr_block_binding = args
             .destination_cidr_block
             .get_output(context);
-        let destination_cidr_block_binding = destination_cidr_block_binding_1
-            .get_inner();
-        let vpn_connection_id_binding_1 = args.vpn_connection_id.get_output(context);
-        let vpn_connection_id_binding = vpn_connection_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let vpn_connection_id_binding = args.vpn_connection_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpnConnectionRoute:VpnConnectionRoute".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationCidrBlock".into(),
-                    value: &destination_cidr_block_binding,
+                    value: destination_cidr_block_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnConnectionId".into(),
-                    value: &vpn_connection_id_binding,
+                    value: vpn_connection_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpnConnectionRouteResult {
-            destination_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationCidrBlock"),
-            ),
-            vpn_connection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnConnectionId"),
-            ),
+            destination_cidr_block: o.get_field("destinationCidrBlock"),
+            vpn_connection_id: o.get_field("vpnConnectionId"),
         }
     }
 }

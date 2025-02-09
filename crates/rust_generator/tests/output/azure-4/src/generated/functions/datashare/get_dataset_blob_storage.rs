@@ -38,51 +38,38 @@ pub mod get_dataset_blob_storage {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDatasetBlobStorageArgs,
     ) -> GetDatasetBlobStorageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_share_id_binding_1 = args.data_share_id.get_output(context);
-        let data_share_id_binding = data_share_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_share_id_binding = args.data_share_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataShareId".into(),
-                    value: &data_share_id_binding,
+                    value: data_share_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDatasetBlobStorageResult {
-            container_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerName"),
-            ),
-            data_share_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataShareId"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            file_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filePath"),
-            ),
-            folder_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("folderPath"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            storage_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccounts"),
-            ),
+            container_name: o.get_field("containerName"),
+            data_share_id: o.get_field("dataShareId"),
+            display_name: o.get_field("displayName"),
+            file_path: o.get_field("filePath"),
+            folder_path: o.get_field("folderPath"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            storage_accounts: o.get_field("storageAccounts"),
         }
     }
 }

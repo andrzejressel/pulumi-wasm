@@ -116,117 +116,89 @@ pub mod server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServerArgs,
     ) -> ServerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_users_binding_1 = args.admin_users.get_output(context);
-        let admin_users_binding = admin_users_binding_1.get_inner();
-        let backup_blob_container_uri_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let admin_users_binding = args.admin_users.get_output(context);
+        let backup_blob_container_uri_binding = args
             .backup_blob_container_uri
             .get_output(context);
-        let backup_blob_container_uri_binding = backup_blob_container_uri_binding_1
-            .get_inner();
-        let ipv4_firewall_rules_binding_1 = args.ipv4_firewall_rules.get_output(context);
-        let ipv4_firewall_rules_binding = ipv4_firewall_rules_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let power_bi_service_enabled_binding_1 = args
+        let ipv4_firewall_rules_binding = args.ipv4_firewall_rules.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let power_bi_service_enabled_binding = args
             .power_bi_service_enabled
             .get_output(context);
-        let power_bi_service_enabled_binding = power_bi_service_enabled_binding_1
-            .get_inner();
-        let querypool_connection_mode_binding_1 = args
+        let querypool_connection_mode_binding = args
             .querypool_connection_mode
             .get_output(context);
-        let querypool_connection_mode_binding = querypool_connection_mode_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:analysisservices/server:Server".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminUsers".into(),
-                    value: &admin_users_binding,
+                    value: admin_users_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupBlobContainerUri".into(),
-                    value: &backup_blob_container_uri_binding,
+                    value: backup_blob_container_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv4FirewallRules".into(),
-                    value: &ipv4_firewall_rules_binding,
+                    value: ipv4_firewall_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "powerBiServiceEnabled".into(),
-                    value: &power_bi_service_enabled_binding,
+                    value: power_bi_service_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "querypoolConnectionMode".into(),
-                    value: &querypool_connection_mode_binding,
+                    value: querypool_connection_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServerResult {
-            admin_users: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminUsers"),
-            ),
-            backup_blob_container_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupBlobContainerUri"),
-            ),
-            ipv4_firewall_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv4FirewallRules"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            power_bi_service_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("powerBiServiceEnabled"),
-            ),
-            querypool_connection_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("querypoolConnectionMode"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            server_full_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverFullName"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            admin_users: o.get_field("adminUsers"),
+            backup_blob_container_uri: o.get_field("backupBlobContainerUri"),
+            ipv4_firewall_rules: o.get_field("ipv4FirewallRules"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            power_bi_service_enabled: o.get_field("powerBiServiceEnabled"),
+            querypool_connection_mode: o.get_field("querypoolConnectionMode"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            server_full_name: o.get_field("serverFullName"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
         }
     }
 }

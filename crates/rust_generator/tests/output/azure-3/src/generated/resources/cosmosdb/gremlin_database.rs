@@ -81,64 +81,52 @@ pub mod gremlin_database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GremlinDatabaseArgs,
     ) -> GremlinDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_name_binding_1 = args.account_name.get_output(context);
-        let account_name_binding = account_name_binding_1.get_inner();
-        let autoscale_settings_binding_1 = args.autoscale_settings.get_output(context);
-        let autoscale_settings_binding = autoscale_settings_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let throughput_binding_1 = args.throughput.get_output(context);
-        let throughput_binding = throughput_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_name_binding = args.account_name.get_output(context);
+        let autoscale_settings_binding = args.autoscale_settings.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let throughput_binding = args.throughput.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cosmosdb/gremlinDatabase:GremlinDatabase".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: &account_name_binding,
+                    value: account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscaleSettings".into(),
-                    value: &autoscale_settings_binding,
+                    value: autoscale_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throughput".into(),
-                    value: &throughput_binding,
+                    value: throughput_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GremlinDatabaseResult {
-            account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountName"),
-            ),
-            autoscale_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscaleSettings"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            throughput: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("throughput"),
-            ),
+            account_name: o.get_field("accountName"),
+            autoscale_settings: o.get_field("autoscaleSettings"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            throughput: o.get_field("throughput"),
         }
     }
 }

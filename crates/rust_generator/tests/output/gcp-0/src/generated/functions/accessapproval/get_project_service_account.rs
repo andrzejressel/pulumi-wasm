@@ -24,34 +24,30 @@ pub mod get_project_service_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetProjectServiceAccountArgs,
     ) -> GetProjectServiceAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let project_id_binding_1 = args.project_id.get_output(context);
-        let project_id_binding = project_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let project_id_binding = args.project_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:accessapproval/getProjectServiceAccount:getProjectServiceAccount"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectId".into(),
-                    value: &project_id_binding,
+                    value: project_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetProjectServiceAccountResult {
-            account_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountEmail"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectId"),
-            ),
+            account_email: o.get_field("accountEmail"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            project_id: o.get_field("projectId"),
         }
     }
 }

@@ -41,76 +41,52 @@ pub mod get_backup_plan_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBackupPlanAssociationArgs,
     ) -> GetBackupPlanAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_plan_association_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backup_plan_association_id_binding = args
             .backup_plan_association_id
             .get_output(context);
-        let backup_plan_association_id_binding = backup_plan_association_id_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:backupdisasterrecovery/getBackupPlanAssociation:getBackupPlanAssociation"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupPlanAssociationId".into(),
-                    value: &backup_plan_association_id_binding,
+                    value: backup_plan_association_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBackupPlanAssociationResult {
-            backup_plan: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupPlan"),
-            ),
-            backup_plan_association_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupPlanAssociationId"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            data_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSource"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            last_successful_backup_consistency_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastSuccessfulBackupConsistencyTime"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            resource: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resource"),
-            ),
-            resource_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceType"),
-            ),
-            rules_config_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rulesConfigInfos"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            backup_plan: o.get_field("backupPlan"),
+            backup_plan_association_id: o.get_field("backupPlanAssociationId"),
+            create_time: o.get_field("createTime"),
+            data_source: o.get_field("dataSource"),
+            id: o.get_field("id"),
+            last_successful_backup_consistency_time: o
+                .get_field("lastSuccessfulBackupConsistencyTime"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            resource: o.get_field("resource"),
+            resource_type: o.get_field("resourceType"),
+            rules_config_infos: o.get_field("rulesConfigInfos"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

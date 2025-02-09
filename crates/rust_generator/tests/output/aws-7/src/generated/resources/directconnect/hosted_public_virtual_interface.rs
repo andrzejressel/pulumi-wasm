@@ -101,117 +101,88 @@ pub mod hosted_public_virtual_interface {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HostedPublicVirtualInterfaceArgs,
     ) -> HostedPublicVirtualInterfaceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let address_family_binding_1 = args.address_family.get_output(context);
-        let address_family_binding = address_family_binding_1.get_inner();
-        let amazon_address_binding_1 = args.amazon_address.get_output(context);
-        let amazon_address_binding = amazon_address_binding_1.get_inner();
-        let bgp_asn_binding_1 = args.bgp_asn.get_output(context);
-        let bgp_asn_binding = bgp_asn_binding_1.get_inner();
-        let bgp_auth_key_binding_1 = args.bgp_auth_key.get_output(context);
-        let bgp_auth_key_binding = bgp_auth_key_binding_1.get_inner();
-        let connection_id_binding_1 = args.connection_id.get_output(context);
-        let connection_id_binding = connection_id_binding_1.get_inner();
-        let customer_address_binding_1 = args.customer_address.get_output(context);
-        let customer_address_binding = customer_address_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let owner_account_id_binding_1 = args.owner_account_id.get_output(context);
-        let owner_account_id_binding = owner_account_id_binding_1.get_inner();
-        let route_filter_prefixes_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let address_family_binding = args.address_family.get_output(context);
+        let amazon_address_binding = args.amazon_address.get_output(context);
+        let bgp_asn_binding = args.bgp_asn.get_output(context);
+        let bgp_auth_key_binding = args.bgp_auth_key.get_output(context);
+        let connection_id_binding = args.connection_id.get_output(context);
+        let customer_address_binding = args.customer_address.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let owner_account_id_binding = args.owner_account_id.get_output(context);
+        let route_filter_prefixes_binding = args
             .route_filter_prefixes
             .get_output(context);
-        let route_filter_prefixes_binding = route_filter_prefixes_binding_1.get_inner();
-        let vlan_binding_1 = args.vlan.get_output(context);
-        let vlan_binding = vlan_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let vlan_binding = args.vlan.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressFamily".into(),
-                    value: &address_family_binding,
+                    value: address_family_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amazonAddress".into(),
-                    value: &amazon_address_binding,
+                    value: amazon_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpAsn".into(),
-                    value: &bgp_asn_binding,
+                    value: bgp_asn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpAuthKey".into(),
-                    value: &bgp_auth_key_binding,
+                    value: bgp_auth_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionId".into(),
-                    value: &connection_id_binding,
+                    value: connection_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerAddress".into(),
-                    value: &customer_address_binding,
+                    value: customer_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerAccountId".into(),
-                    value: &owner_account_id_binding,
+                    value: owner_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeFilterPrefixes".into(),
-                    value: &route_filter_prefixes_binding,
+                    value: route_filter_prefixes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vlan".into(),
-                    value: &vlan_binding,
+                    value: vlan_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HostedPublicVirtualInterfaceResult {
-            address_family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addressFamily"),
-            ),
-            amazon_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("amazonAddress"),
-            ),
-            amazon_side_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("amazonSideAsn"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_device: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsDevice"),
-            ),
-            bgp_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpAsn"),
-            ),
-            bgp_auth_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bgpAuthKey"),
-            ),
-            connection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionId"),
-            ),
-            customer_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerAddress"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerAccountId"),
-            ),
-            route_filter_prefixes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routeFilterPrefixes"),
-            ),
-            vlan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vlan")),
+            address_family: o.get_field("addressFamily"),
+            amazon_address: o.get_field("amazonAddress"),
+            amazon_side_asn: o.get_field("amazonSideAsn"),
+            arn: o.get_field("arn"),
+            aws_device: o.get_field("awsDevice"),
+            bgp_asn: o.get_field("bgpAsn"),
+            bgp_auth_key: o.get_field("bgpAuthKey"),
+            connection_id: o.get_field("connectionId"),
+            customer_address: o.get_field("customerAddress"),
+            name: o.get_field("name"),
+            owner_account_id: o.get_field("ownerAccountId"),
+            route_filter_prefixes: o.get_field("routeFilterPrefixes"),
+            vlan: o.get_field("vlan"),
         }
     }
 }

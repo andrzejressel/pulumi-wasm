@@ -308,167 +308,115 @@ pub mod ai_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AiEndpointArgs,
     ) -> AiEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dedicated_endpoint_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dedicated_endpoint_enabled_binding = args
             .dedicated_endpoint_enabled
             .get_output(context);
-        let dedicated_endpoint_enabled_binding = dedicated_endpoint_enabled_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let encryption_spec_binding_1 = args.encryption_spec.get_output(context);
-        let encryption_spec_binding = encryption_spec_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let predict_request_response_logging_config_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let encryption_spec_binding = args.encryption_spec.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let predict_request_response_logging_config_binding = args
             .predict_request_response_logging_config
             .get_output(context);
-        let predict_request_response_logging_config_binding = predict_request_response_logging_config_binding_1
-            .get_inner();
-        let private_service_connect_config_binding_1 = args
+        let private_service_connect_config_binding = args
             .private_service_connect_config
             .get_output(context);
-        let private_service_connect_config_binding = private_service_connect_config_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let traffic_split_binding_1 = args.traffic_split.get_output(context);
-        let traffic_split_binding = traffic_split_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let traffic_split_binding = args.traffic_split.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:vertex/aiEndpoint:AiEndpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dedicatedEndpointEnabled".into(),
-                    value: &dedicated_endpoint_enabled_binding,
+                    value: dedicated_endpoint_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionSpec".into(),
-                    value: &encryption_spec_binding,
+                    value: encryption_spec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "predictRequestResponseLoggingConfig".into(),
-                    value: &predict_request_response_logging_config_binding,
+                    value: predict_request_response_logging_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateServiceConnectConfig".into(),
-                    value: &private_service_connect_config_binding,
+                    value: private_service_connect_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficSplit".into(),
-                    value: &traffic_split_binding,
+                    value: traffic_split_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AiEndpointResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            dedicated_endpoint_dns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dedicatedEndpointDns"),
-            ),
-            dedicated_endpoint_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dedicatedEndpointEnabled"),
-            ),
-            deployed_models: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deployedModels"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            encryption_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionSpec"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            model_deployment_monitoring_job: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelDeploymentMonitoringJob"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            predict_request_response_logging_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("predictRequestResponseLoggingConfig"),
-            ),
-            private_service_connect_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateServiceConnectConfig"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            traffic_split: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficSplit"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            create_time: o.get_field("createTime"),
+            dedicated_endpoint_dns: o.get_field("dedicatedEndpointDns"),
+            dedicated_endpoint_enabled: o.get_field("dedicatedEndpointEnabled"),
+            deployed_models: o.get_field("deployedModels"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            encryption_spec: o.get_field("encryptionSpec"),
+            etag: o.get_field("etag"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            model_deployment_monitoring_job: o.get_field("modelDeploymentMonitoringJob"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            predict_request_response_logging_config: o
+                .get_field("predictRequestResponseLoggingConfig"),
+            private_service_connect_config: o.get_field("privateServiceConnectConfig"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            region: o.get_field("region"),
+            traffic_split: o.get_field("trafficSplit"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

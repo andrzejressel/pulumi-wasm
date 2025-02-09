@@ -61,46 +61,40 @@ pub mod instance_trust_provider_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceTrustProviderAttachmentArgs,
     ) -> InstanceTrustProviderAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let verifiedaccess_instance_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let verifiedaccess_instance_id_binding = args
             .verifiedaccess_instance_id
             .get_output(context);
-        let verifiedaccess_instance_id_binding = verifiedaccess_instance_id_binding_1
-            .get_inner();
-        let verifiedaccess_trust_provider_id_binding_1 = args
+        let verifiedaccess_trust_provider_id_binding = args
             .verifiedaccess_trust_provider_id
             .get_output(context);
-        let verifiedaccess_trust_provider_id_binding = verifiedaccess_trust_provider_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verifiedaccessInstanceId".into(),
-                    value: &verifiedaccess_instance_id_binding,
+                    value: verifiedaccess_instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verifiedaccessTrustProviderId".into(),
-                    value: &verifiedaccess_trust_provider_id_binding,
+                    value: verifiedaccess_trust_provider_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceTrustProviderAttachmentResult {
-            verifiedaccess_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verifiedaccessInstanceId"),
-            ),
-            verifiedaccess_trust_provider_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verifiedaccessTrustProviderId"),
-            ),
+            verifiedaccess_instance_id: o.get_field("verifiedaccessInstanceId"),
+            verifiedaccess_trust_provider_id: o
+                .get_field("verifiedaccessTrustProviderId"),
         }
     }
 }

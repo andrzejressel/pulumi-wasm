@@ -65,93 +65,55 @@ pub mod get_cache {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCacheArgs,
     ) -> GetCacheResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:redis/getCache:getCache".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCacheResult {
-            access_keys_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessKeysAuthenticationEnabled"),
-            ),
-            capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacity"),
-            ),
-            family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("family"),
-            ),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            minimum_tls_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumTlsVersion"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            non_ssl_port_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nonSslPortEnabled"),
-            ),
-            patch_schedules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("patchSchedules"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            primary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryAccessKey"),
-            ),
-            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryConnectionString"),
-            ),
-            private_static_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateStaticIpAddress"),
-            ),
-            redis_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redisConfigurations"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryAccessKey"),
-            ),
-            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryConnectionString"),
-            ),
-            shard_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shardCount"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            ssl_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslPort"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
+            access_keys_authentication_enabled: o
+                .get_field("accessKeysAuthenticationEnabled"),
+            capacity: o.get_field("capacity"),
+            family: o.get_field("family"),
+            hostname: o.get_field("hostname"),
+            id: o.get_field("id"),
+            location: o.get_field("location"),
+            minimum_tls_version: o.get_field("minimumTlsVersion"),
+            name: o.get_field("name"),
+            non_ssl_port_enabled: o.get_field("nonSslPortEnabled"),
+            patch_schedules: o.get_field("patchSchedules"),
+            port: o.get_field("port"),
+            primary_access_key: o.get_field("primaryAccessKey"),
+            primary_connection_string: o.get_field("primaryConnectionString"),
+            private_static_ip_address: o.get_field("privateStaticIpAddress"),
+            redis_configurations: o.get_field("redisConfigurations"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_access_key: o.get_field("secondaryAccessKey"),
+            secondary_connection_string: o.get_field("secondaryConnectionString"),
+            shard_count: o.get_field("shardCount"),
+            sku_name: o.get_field("skuName"),
+            ssl_port: o.get_field("sslPort"),
+            subnet_id: o.get_field("subnetId"),
+            tags: o.get_field("tags"),
+            zones: o.get_field("zones"),
         }
     }
 }

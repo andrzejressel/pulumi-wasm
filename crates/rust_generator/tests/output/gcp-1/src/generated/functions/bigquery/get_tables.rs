@@ -28,41 +28,34 @@ pub mod get_tables {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTablesArgs,
     ) -> GetTablesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dataset_id_binding_1 = args.dataset_id.get_output(context);
-        let dataset_id_binding = dataset_id_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dataset_id_binding = args.dataset_id.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:bigquery/getTables:getTables".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datasetId".into(),
-                    value: &dataset_id_binding,
+                    value: dataset_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTablesResult {
-            dataset_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datasetId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            tables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tables"),
-            ),
+            dataset_id: o.get_field("datasetId"),
+            id: o.get_field("id"),
+            project: o.get_field("project"),
+            tables: o.get_field("tables"),
         }
     }
 }

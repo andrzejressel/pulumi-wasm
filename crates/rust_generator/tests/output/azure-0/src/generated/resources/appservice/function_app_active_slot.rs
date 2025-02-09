@@ -163,45 +163,37 @@ pub mod function_app_active_slot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FunctionAppActiveSlotArgs,
     ) -> FunctionAppActiveSlotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let overwrite_network_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let overwrite_network_config_binding = args
             .overwrite_network_config
             .get_output(context);
-        let overwrite_network_config_binding = overwrite_network_config_binding_1
-            .get_inner();
-        let slot_id_binding_1 = args.slot_id.get_output(context);
-        let slot_id_binding = slot_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let slot_id_binding = args.slot_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appservice/functionAppActiveSlot:FunctionAppActiveSlot".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overwriteNetworkConfig".into(),
-                    value: &overwrite_network_config_binding,
+                    value: overwrite_network_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slotId".into(),
-                    value: &slot_id_binding,
+                    value: slot_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FunctionAppActiveSlotResult {
-            last_successful_swap: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastSuccessfulSwap"),
-            ),
-            overwrite_network_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("overwriteNetworkConfig"),
-            ),
-            slot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("slotId"),
-            ),
+            last_successful_swap: o.get_field("lastSuccessfulSwap"),
+            overwrite_network_config: o.get_field("overwriteNetworkConfig"),
+            slot_id: o.get_field("slotId"),
         }
     }
 }

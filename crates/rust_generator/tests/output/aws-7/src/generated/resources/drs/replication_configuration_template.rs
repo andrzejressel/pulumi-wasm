@@ -138,194 +138,141 @@ pub mod replication_configuration_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ReplicationConfigurationTemplateArgs,
     ) -> ReplicationConfigurationTemplateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let associate_default_security_group_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let associate_default_security_group_binding = args
             .associate_default_security_group
             .get_output(context);
-        let associate_default_security_group_binding = associate_default_security_group_binding_1
-            .get_inner();
-        let auto_replicate_new_disks_binding_1 = args
+        let auto_replicate_new_disks_binding = args
             .auto_replicate_new_disks
             .get_output(context);
-        let auto_replicate_new_disks_binding = auto_replicate_new_disks_binding_1
-            .get_inner();
-        let bandwidth_throttling_binding_1 = args
-            .bandwidth_throttling
-            .get_output(context);
-        let bandwidth_throttling_binding = bandwidth_throttling_binding_1.get_inner();
-        let create_public_ip_binding_1 = args.create_public_ip.get_output(context);
-        let create_public_ip_binding = create_public_ip_binding_1.get_inner();
-        let data_plane_routing_binding_1 = args.data_plane_routing.get_output(context);
-        let data_plane_routing_binding = data_plane_routing_binding_1.get_inner();
-        let default_large_staging_disk_type_binding_1 = args
+        let bandwidth_throttling_binding = args.bandwidth_throttling.get_output(context);
+        let create_public_ip_binding = args.create_public_ip.get_output(context);
+        let data_plane_routing_binding = args.data_plane_routing.get_output(context);
+        let default_large_staging_disk_type_binding = args
             .default_large_staging_disk_type
             .get_output(context);
-        let default_large_staging_disk_type_binding = default_large_staging_disk_type_binding_1
-            .get_inner();
-        let ebs_encryption_binding_1 = args.ebs_encryption.get_output(context);
-        let ebs_encryption_binding = ebs_encryption_binding_1.get_inner();
-        let ebs_encryption_key_arn_binding_1 = args
+        let ebs_encryption_binding = args.ebs_encryption.get_output(context);
+        let ebs_encryption_key_arn_binding = args
             .ebs_encryption_key_arn
             .get_output(context);
-        let ebs_encryption_key_arn_binding = ebs_encryption_key_arn_binding_1
-            .get_inner();
-        let pit_policies_binding_1 = args.pit_policies.get_output(context);
-        let pit_policies_binding = pit_policies_binding_1.get_inner();
-        let replication_server_instance_type_binding_1 = args
+        let pit_policies_binding = args.pit_policies.get_output(context);
+        let replication_server_instance_type_binding = args
             .replication_server_instance_type
             .get_output(context);
-        let replication_server_instance_type_binding = replication_server_instance_type_binding_1
-            .get_inner();
-        let replication_servers_security_groups_ids_binding_1 = args
+        let replication_servers_security_groups_ids_binding = args
             .replication_servers_security_groups_ids
             .get_output(context);
-        let replication_servers_security_groups_ids_binding = replication_servers_security_groups_ids_binding_1
-            .get_inner();
-        let staging_area_subnet_id_binding_1 = args
+        let staging_area_subnet_id_binding = args
             .staging_area_subnet_id
             .get_output(context);
-        let staging_area_subnet_id_binding = staging_area_subnet_id_binding_1
-            .get_inner();
-        let staging_area_tags_binding_1 = args.staging_area_tags.get_output(context);
-        let staging_area_tags_binding = staging_area_tags_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let use_dedicated_replication_server_binding_1 = args
+        let staging_area_tags_binding = args.staging_area_tags.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let use_dedicated_replication_server_binding = args
             .use_dedicated_replication_server
             .get_output(context);
-        let use_dedicated_replication_server_binding = use_dedicated_replication_server_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associateDefaultSecurityGroup".into(),
-                    value: &associate_default_security_group_binding,
+                    value: associate_default_security_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoReplicateNewDisks".into(),
-                    value: &auto_replicate_new_disks_binding,
+                    value: auto_replicate_new_disks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bandwidthThrottling".into(),
-                    value: &bandwidth_throttling_binding,
+                    value: bandwidth_throttling_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createPublicIp".into(),
-                    value: &create_public_ip_binding,
+                    value: create_public_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataPlaneRouting".into(),
-                    value: &data_plane_routing_binding,
+                    value: data_plane_routing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultLargeStagingDiskType".into(),
-                    value: &default_large_staging_disk_type_binding,
+                    value: default_large_staging_disk_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsEncryption".into(),
-                    value: &ebs_encryption_binding,
+                    value: ebs_encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsEncryptionKeyArn".into(),
-                    value: &ebs_encryption_key_arn_binding,
+                    value: ebs_encryption_key_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pitPolicies".into(),
-                    value: &pit_policies_binding,
+                    value: pit_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationServerInstanceType".into(),
-                    value: &replication_server_instance_type_binding,
+                    value: replication_server_instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationServersSecurityGroupsIds".into(),
-                    value: &replication_servers_security_groups_ids_binding,
+                    value: replication_servers_security_groups_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stagingAreaSubnetId".into(),
-                    value: &staging_area_subnet_id_binding,
+                    value: staging_area_subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stagingAreaTags".into(),
-                    value: &staging_area_tags_binding,
+                    value: staging_area_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useDedicatedReplicationServer".into(),
-                    value: &use_dedicated_replication_server_binding,
+                    value: use_dedicated_replication_server_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ReplicationConfigurationTemplateResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            associate_default_security_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associateDefaultSecurityGroup"),
-            ),
-            auto_replicate_new_disks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoReplicateNewDisks"),
-            ),
-            bandwidth_throttling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bandwidthThrottling"),
-            ),
-            create_public_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createPublicIp"),
-            ),
-            data_plane_routing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataPlaneRouting"),
-            ),
-            default_large_staging_disk_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultLargeStagingDiskType"),
-            ),
-            ebs_encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsEncryption"),
-            ),
-            ebs_encryption_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsEncryptionKeyArn"),
-            ),
-            pit_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pitPolicies"),
-            ),
-            replication_server_instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationServerInstanceType"),
-            ),
-            replication_servers_security_groups_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationServersSecurityGroupsIds"),
-            ),
-            staging_area_subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stagingAreaSubnetId"),
-            ),
-            staging_area_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stagingAreaTags"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            use_dedicated_replication_server: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useDedicatedReplicationServer"),
-            ),
+            arn: o.get_field("arn"),
+            associate_default_security_group: o
+                .get_field("associateDefaultSecurityGroup"),
+            auto_replicate_new_disks: o.get_field("autoReplicateNewDisks"),
+            bandwidth_throttling: o.get_field("bandwidthThrottling"),
+            create_public_ip: o.get_field("createPublicIp"),
+            data_plane_routing: o.get_field("dataPlaneRouting"),
+            default_large_staging_disk_type: o.get_field("defaultLargeStagingDiskType"),
+            ebs_encryption: o.get_field("ebsEncryption"),
+            ebs_encryption_key_arn: o.get_field("ebsEncryptionKeyArn"),
+            pit_policies: o.get_field("pitPolicies"),
+            replication_server_instance_type: o
+                .get_field("replicationServerInstanceType"),
+            replication_servers_security_groups_ids: o
+                .get_field("replicationServersSecurityGroupsIds"),
+            staging_area_subnet_id: o.get_field("stagingAreaSubnetId"),
+            staging_area_tags: o.get_field("stagingAreaTags"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
+            use_dedicated_replication_server: o
+                .get_field("useDedicatedReplicationServer"),
         }
     }
 }

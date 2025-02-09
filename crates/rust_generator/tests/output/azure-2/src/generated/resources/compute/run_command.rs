@@ -325,145 +325,105 @@ pub mod run_command {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RunCommandArgs,
     ) -> RunCommandResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let error_blob_managed_identity_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let error_blob_managed_identity_binding = args
             .error_blob_managed_identity
             .get_output(context);
-        let error_blob_managed_identity_binding = error_blob_managed_identity_binding_1
-            .get_inner();
-        let error_blob_uri_binding_1 = args.error_blob_uri.get_output(context);
-        let error_blob_uri_binding = error_blob_uri_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let output_blob_managed_identity_binding_1 = args
+        let error_blob_uri_binding = args.error_blob_uri.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let output_blob_managed_identity_binding = args
             .output_blob_managed_identity
             .get_output(context);
-        let output_blob_managed_identity_binding = output_blob_managed_identity_binding_1
-            .get_inner();
-        let output_blob_uri_binding_1 = args.output_blob_uri.get_output(context);
-        let output_blob_uri_binding = output_blob_uri_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let protected_parameters_binding_1 = args
-            .protected_parameters
-            .get_output(context);
-        let protected_parameters_binding = protected_parameters_binding_1.get_inner();
-        let run_as_password_binding_1 = args.run_as_password.get_output(context);
-        let run_as_password_binding = run_as_password_binding_1.get_inner();
-        let run_as_user_binding_1 = args.run_as_user.get_output(context);
-        let run_as_user_binding = run_as_user_binding_1.get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let virtual_machine_id_binding_1 = args.virtual_machine_id.get_output(context);
-        let virtual_machine_id_binding = virtual_machine_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let output_blob_uri_binding = args.output_blob_uri.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let protected_parameters_binding = args.protected_parameters.get_output(context);
+        let run_as_password_binding = args.run_as_password.get_output(context);
+        let run_as_user_binding = args.run_as_user.get_output(context);
+        let source_binding = args.source.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let virtual_machine_id_binding = args.virtual_machine_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:compute/runCommand:RunCommand".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "errorBlobManagedIdentity".into(),
-                    value: &error_blob_managed_identity_binding,
+                    value: error_blob_managed_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "errorBlobUri".into(),
-                    value: &error_blob_uri_binding,
+                    value: error_blob_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputBlobManagedIdentity".into(),
-                    value: &output_blob_managed_identity_binding,
+                    value: output_blob_managed_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputBlobUri".into(),
-                    value: &output_blob_uri_binding,
+                    value: output_blob_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedParameters".into(),
-                    value: &protected_parameters_binding,
+                    value: protected_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runAsPassword".into(),
-                    value: &run_as_password_binding,
+                    value: run_as_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runAsUser".into(),
-                    value: &run_as_user_binding,
+                    value: run_as_user_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineId".into(),
-                    value: &virtual_machine_id_binding,
+                    value: virtual_machine_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RunCommandResult {
-            error_blob_managed_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errorBlobManagedIdentity"),
-            ),
-            error_blob_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errorBlobUri"),
-            ),
-            instance_views: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceViews"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            output_blob_managed_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputBlobManagedIdentity"),
-            ),
-            output_blob_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputBlobUri"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            protected_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectedParameters"),
-            ),
-            run_as_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runAsPassword"),
-            ),
-            run_as_user: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runAsUser"),
-            ),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachineId"),
-            ),
+            error_blob_managed_identity: o.get_field("errorBlobManagedIdentity"),
+            error_blob_uri: o.get_field("errorBlobUri"),
+            instance_views: o.get_field("instanceViews"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            output_blob_managed_identity: o.get_field("outputBlobManagedIdentity"),
+            output_blob_uri: o.get_field("outputBlobUri"),
+            parameters: o.get_field("parameters"),
+            protected_parameters: o.get_field("protectedParameters"),
+            run_as_password: o.get_field("runAsPassword"),
+            run_as_user: o.get_field("runAsUser"),
+            source: o.get_field("source"),
+            tags: o.get_field("tags"),
+            virtual_machine_id: o.get_field("virtualMachineId"),
         }
     }
 }

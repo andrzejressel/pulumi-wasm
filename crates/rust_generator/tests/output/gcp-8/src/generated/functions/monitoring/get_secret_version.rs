@@ -45,71 +45,52 @@ pub mod get_secret_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSecretVersionArgs,
     ) -> GetSecretVersionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let is_secret_data_base64_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let is_secret_data_base64_binding = args
             .is_secret_data_base64
             .get_output(context);
-        let is_secret_data_base64_binding = is_secret_data_base64_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let secret_binding_1 = args.secret.get_output(context);
-        let secret_binding = secret_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let project_binding = args.project.get_output(context);
+        let secret_binding = args.secret.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:monitoring/getSecretVersion:getSecretVersion".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isSecretDataBase64".into(),
-                    value: &is_secret_data_base64_binding,
+                    value: is_secret_data_base64_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secret".into(),
-                    value: &secret_binding,
+                    value: secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSecretVersionResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            destroy_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destroyTime"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            is_secret_data_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isSecretDataBase64"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secret"),
-            ),
-            secret_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretData"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            create_time: o.get_field("createTime"),
+            destroy_time: o.get_field("destroyTime"),
+            enabled: o.get_field("enabled"),
+            id: o.get_field("id"),
+            is_secret_data_base64: o.get_field("isSecretDataBase64"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            secret: o.get_field("secret"),
+            secret_data: o.get_field("secretData"),
+            version: o.get_field("version"),
         }
     }
 }

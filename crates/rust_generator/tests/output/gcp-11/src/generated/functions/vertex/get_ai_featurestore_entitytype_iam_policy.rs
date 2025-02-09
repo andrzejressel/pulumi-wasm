@@ -28,43 +28,36 @@ pub mod get_ai_featurestore_entitytype_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAiFeaturestoreEntitytypeIamPolicyArgs,
     ) -> GetAiFeaturestoreEntitytypeIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let entitytype_binding_1 = args.entitytype.get_output(context);
-        let entitytype_binding = entitytype_binding_1.get_inner();
-        let featurestore_binding_1 = args.featurestore.get_output(context);
-        let featurestore_binding = featurestore_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let entitytype_binding = args.entitytype.get_output(context);
+        let featurestore_binding = args.featurestore.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:vertex/getAiFeaturestoreEntitytypeIamPolicy:getAiFeaturestoreEntitytypeIamPolicy"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entitytype".into(),
-                    value: &entitytype_binding,
+                    value: entitytype_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featurestore".into(),
-                    value: &featurestore_binding,
+                    value: featurestore_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAiFeaturestoreEntitytypeIamPolicyResult {
-            entitytype: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entitytype"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            featurestore: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("featurestore"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            policy_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyData"),
-            ),
+            entitytype: o.get_field("entitytype"),
+            etag: o.get_field("etag"),
+            featurestore: o.get_field("featurestore"),
+            id: o.get_field("id"),
+            policy_data: o.get_field("policyData"),
         }
     }
 }

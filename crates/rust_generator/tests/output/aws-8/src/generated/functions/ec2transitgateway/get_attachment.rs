@@ -60,71 +60,51 @@ pub mod get_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAttachmentArgs,
     ) -> GetAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let transit_gateway_attachment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let transit_gateway_attachment_id_binding = args
             .transit_gateway_attachment_id
             .get_output(context);
-        let transit_gateway_attachment_id_binding = transit_gateway_attachment_id_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2transitgateway/getAttachment:getAttachment".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayAttachmentId".into(),
-                    value: &transit_gateway_attachment_id_binding,
+                    value: transit_gateway_attachment_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAttachmentResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            association_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associationState"),
-            ),
-            association_transit_gateway_route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associationTransitGatewayRouteTableId"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            resource_owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceOwnerId"),
-            ),
-            resource_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceType"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            transit_gateway_attachment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayAttachmentId"),
-            ),
-            transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayId"),
-            ),
-            transit_gateway_owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayOwnerId"),
-            ),
+            arn: o.get_field("arn"),
+            association_state: o.get_field("associationState"),
+            association_transit_gateway_route_table_id: o
+                .get_field("associationTransitGatewayRouteTableId"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            resource_id: o.get_field("resourceId"),
+            resource_owner_id: o.get_field("resourceOwnerId"),
+            resource_type: o.get_field("resourceType"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            transit_gateway_attachment_id: o.get_field("transitGatewayAttachmentId"),
+            transit_gateway_id: o.get_field("transitGatewayId"),
+            transit_gateway_owner_id: o.get_field("transitGatewayOwnerId"),
         }
     }
 }

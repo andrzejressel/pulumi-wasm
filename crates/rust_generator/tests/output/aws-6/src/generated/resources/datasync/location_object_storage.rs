@@ -104,114 +104,85 @@ pub mod location_object_storage {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LocationObjectStorageArgs,
     ) -> LocationObjectStorageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_key_binding_1 = args.access_key.get_output(context);
-        let access_key_binding = access_key_binding_1.get_inner();
-        let agent_arns_binding_1 = args.agent_arns.get_output(context);
-        let agent_arns_binding = agent_arns_binding_1.get_inner();
-        let bucket_name_binding_1 = args.bucket_name.get_output(context);
-        let bucket_name_binding = bucket_name_binding_1.get_inner();
-        let secret_key_binding_1 = args.secret_key.get_output(context);
-        let secret_key_binding = secret_key_binding_1.get_inner();
-        let server_certificate_binding_1 = args.server_certificate.get_output(context);
-        let server_certificate_binding = server_certificate_binding_1.get_inner();
-        let server_hostname_binding_1 = args.server_hostname.get_output(context);
-        let server_hostname_binding = server_hostname_binding_1.get_inner();
-        let server_port_binding_1 = args.server_port.get_output(context);
-        let server_port_binding = server_port_binding_1.get_inner();
-        let server_protocol_binding_1 = args.server_protocol.get_output(context);
-        let server_protocol_binding = server_protocol_binding_1.get_inner();
-        let subdirectory_binding_1 = args.subdirectory.get_output(context);
-        let subdirectory_binding = subdirectory_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_key_binding = args.access_key.get_output(context);
+        let agent_arns_binding = args.agent_arns.get_output(context);
+        let bucket_name_binding = args.bucket_name.get_output(context);
+        let secret_key_binding = args.secret_key.get_output(context);
+        let server_certificate_binding = args.server_certificate.get_output(context);
+        let server_hostname_binding = args.server_hostname.get_output(context);
+        let server_port_binding = args.server_port.get_output(context);
+        let server_protocol_binding = args.server_protocol.get_output(context);
+        let subdirectory_binding = args.subdirectory.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datasync/locationObjectStorage:LocationObjectStorage".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessKey".into(),
-                    value: &access_key_binding,
+                    value: access_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentArns".into(),
-                    value: &agent_arns_binding,
+                    value: agent_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketName".into(),
-                    value: &bucket_name_binding,
+                    value: bucket_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretKey".into(),
-                    value: &secret_key_binding,
+                    value: secret_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverCertificate".into(),
-                    value: &server_certificate_binding,
+                    value: server_certificate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverHostname".into(),
-                    value: &server_hostname_binding,
+                    value: server_hostname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverPort".into(),
-                    value: &server_port_binding,
+                    value: server_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverProtocol".into(),
-                    value: &server_protocol_binding,
+                    value: server_protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subdirectory".into(),
-                    value: &subdirectory_binding,
+                    value: subdirectory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LocationObjectStorageResult {
-            access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessKey"),
-            ),
-            agent_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentArns"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bucket_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketName"),
-            ),
-            secret_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretKey"),
-            ),
-            server_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverCertificate"),
-            ),
-            server_hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverHostname"),
-            ),
-            server_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverPort"),
-            ),
-            server_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverProtocol"),
-            ),
-            subdirectory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subdirectory"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
+            access_key: o.get_field("accessKey"),
+            agent_arns: o.get_field("agentArns"),
+            arn: o.get_field("arn"),
+            bucket_name: o.get_field("bucketName"),
+            secret_key: o.get_field("secretKey"),
+            server_certificate: o.get_field("serverCertificate"),
+            server_hostname: o.get_field("serverHostname"),
+            server_port: o.get_field("serverPort"),
+            server_protocol: o.get_field("serverProtocol"),
+            subdirectory: o.get_field("subdirectory"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            uri: o.get_field("uri"),
         }
     }
 }

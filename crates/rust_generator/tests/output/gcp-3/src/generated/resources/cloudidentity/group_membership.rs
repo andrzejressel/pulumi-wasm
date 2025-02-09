@@ -145,63 +145,50 @@ pub mod group_membership {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GroupMembershipArgs,
     ) -> GroupMembershipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let group_binding_1 = args.group.get_output(context);
-        let group_binding = group_binding_1.get_inner();
-        let member_key_binding_1 = args.member_key.get_output(context);
-        let member_key_binding = member_key_binding_1.get_inner();
-        let preferred_member_key_binding_1 = args
-            .preferred_member_key
-            .get_output(context);
-        let preferred_member_key_binding = preferred_member_key_binding_1.get_inner();
-        let roles_binding_1 = args.roles.get_output(context);
-        let roles_binding = roles_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let group_binding = args.group.get_output(context);
+        let member_key_binding = args.member_key.get_output(context);
+        let preferred_member_key_binding = args.preferred_member_key.get_output(context);
+        let roles_binding = args.roles.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:cloudidentity/groupMembership:GroupMembership".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "group".into(),
-                    value: &group_binding,
+                    value: group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memberKey".into(),
-                    value: &member_key_binding,
+                    value: member_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredMemberKey".into(),
-                    value: &preferred_member_key_binding,
+                    value: preferred_member_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roles".into(),
-                    value: &roles_binding,
+                    value: roles_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GroupMembershipResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            group: pulumi_gestalt_rust::__private::into_domain(o.extract_field("group")),
-            member_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memberKey"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            preferred_member_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredMemberKey"),
-            ),
-            roles: pulumi_gestalt_rust::__private::into_domain(o.extract_field("roles")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            create_time: o.get_field("createTime"),
+            group: o.get_field("group"),
+            member_key: o.get_field("memberKey"),
+            name: o.get_field("name"),
+            preferred_member_key: o.get_field("preferredMemberKey"),
+            roles: o.get_field("roles"),
+            type_: o.get_field("type"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

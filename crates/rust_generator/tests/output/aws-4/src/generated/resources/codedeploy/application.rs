@@ -103,57 +103,45 @@ pub mod application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApplicationArgs,
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compute_platform_binding_1 = args.compute_platform.get_output(context);
-        let compute_platform_binding = compute_platform_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let compute_platform_binding = args.compute_platform.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:codedeploy/application:Application".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computePlatform".into(),
-                    value: &compute_platform_binding,
+                    value: compute_platform_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApplicationResult {
-            application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            compute_platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computePlatform"),
-            ),
-            github_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("githubAccountName"),
-            ),
-            linked_to_github: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedToGithub"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            application_id: o.get_field("applicationId"),
+            arn: o.get_field("arn"),
+            compute_platform: o.get_field("computePlatform"),
+            github_account_name: o.get_field("githubAccountName"),
+            linked_to_github: o.get_field("linkedToGithub"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

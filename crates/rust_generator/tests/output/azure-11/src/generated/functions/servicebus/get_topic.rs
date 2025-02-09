@@ -49,84 +49,56 @@ pub mod get_topic {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTopicArgs,
     ) -> GetTopicResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let namespace_id_binding_1 = args.namespace_id.get_output(context);
-        let namespace_id_binding = namespace_id_binding_1.get_inner();
-        let namespace_name_binding_1 = args.namespace_name.get_output(context);
-        let namespace_name_binding = namespace_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let namespace_id_binding = args.namespace_id.get_output(context);
+        let namespace_name_binding = args.namespace_name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:servicebus/getTopic:getTopic".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceId".into(),
-                    value: &namespace_id_binding,
+                    value: namespace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceName".into(),
-                    value: &namespace_name_binding,
+                    value: namespace_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTopicResult {
-            auto_delete_on_idle: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoDeleteOnIdle"),
-            ),
-            default_message_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultMessageTtl"),
-            ),
-            duplicate_detection_history_time_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("duplicateDetectionHistoryTimeWindow"),
-            ),
-            enable_batched_operations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableBatchedOperations"),
-            ),
-            enable_express: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableExpress"),
-            ),
-            enable_partitioning: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enablePartitioning"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            max_size_in_megabytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxSizeInMegabytes"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceId"),
-            ),
-            namespace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceName"),
-            ),
-            requires_duplicate_detection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requiresDuplicateDetection"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            support_ordering: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportOrdering"),
-            ),
+            auto_delete_on_idle: o.get_field("autoDeleteOnIdle"),
+            default_message_ttl: o.get_field("defaultMessageTtl"),
+            duplicate_detection_history_time_window: o
+                .get_field("duplicateDetectionHistoryTimeWindow"),
+            enable_batched_operations: o.get_field("enableBatchedOperations"),
+            enable_express: o.get_field("enableExpress"),
+            enable_partitioning: o.get_field("enablePartitioning"),
+            id: o.get_field("id"),
+            max_size_in_megabytes: o.get_field("maxSizeInMegabytes"),
+            name: o.get_field("name"),
+            namespace_id: o.get_field("namespaceId"),
+            namespace_name: o.get_field("namespaceName"),
+            requires_duplicate_detection: o.get_field("requiresDuplicateDetection"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            status: o.get_field("status"),
+            support_ordering: o.get_field("supportOrdering"),
         }
     }
 }

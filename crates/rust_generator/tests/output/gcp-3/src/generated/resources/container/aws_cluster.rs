@@ -367,148 +367,103 @@ pub mod aws_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AwsClusterArgs,
     ) -> AwsClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let annotations_binding_1 = args.annotations.get_output(context);
-        let annotations_binding = annotations_binding_1.get_inner();
-        let authorization_binding_1 = args.authorization.get_output(context);
-        let authorization_binding = authorization_binding_1.get_inner();
-        let aws_region_binding_1 = args.aws_region.get_output(context);
-        let aws_region_binding = aws_region_binding_1.get_inner();
-        let binary_authorization_binding_1 = args
-            .binary_authorization
-            .get_output(context);
-        let binary_authorization_binding = binary_authorization_binding_1.get_inner();
-        let control_plane_binding_1 = args.control_plane.get_output(context);
-        let control_plane_binding = control_plane_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let fleet_binding_1 = args.fleet.get_output(context);
-        let fleet_binding = fleet_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let logging_config_binding_1 = args.logging_config.get_output(context);
-        let logging_config_binding = logging_config_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let networking_binding_1 = args.networking.get_output(context);
-        let networking_binding = networking_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let annotations_binding = args.annotations.get_output(context);
+        let authorization_binding = args.authorization.get_output(context);
+        let aws_region_binding = args.aws_region.get_output(context);
+        let binary_authorization_binding = args.binary_authorization.get_output(context);
+        let control_plane_binding = args.control_plane.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let fleet_binding = args.fleet.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let logging_config_binding = args.logging_config.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let networking_binding = args.networking.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:container/awsCluster:AwsCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: &annotations_binding,
+                    value: annotations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorization".into(),
-                    value: &authorization_binding,
+                    value: authorization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsRegion".into(),
-                    value: &aws_region_binding,
+                    value: aws_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "binaryAuthorization".into(),
-                    value: &binary_authorization_binding,
+                    value: binary_authorization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlane".into(),
-                    value: &control_plane_binding,
+                    value: control_plane_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleet".into(),
-                    value: &fleet_binding,
+                    value: fleet_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingConfig".into(),
-                    value: &logging_config_binding,
+                    value: logging_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networking".into(),
-                    value: &networking_binding,
+                    value: networking_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AwsClusterResult {
-            annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("annotations"),
-            ),
-            authorization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorization"),
-            ),
-            aws_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsRegion"),
-            ),
-            binary_authorization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("binaryAuthorization"),
-            ),
-            control_plane: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlane"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveAnnotations"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            fleet: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fleet")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            logging_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            networking: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networking"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            reconciling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciling"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
-            workload_identity_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadIdentityConfigs"),
-            ),
+            annotations: o.get_field("annotations"),
+            authorization: o.get_field("authorization"),
+            aws_region: o.get_field("awsRegion"),
+            binary_authorization: o.get_field("binaryAuthorization"),
+            control_plane: o.get_field("controlPlane"),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            effective_annotations: o.get_field("effectiveAnnotations"),
+            endpoint: o.get_field("endpoint"),
+            etag: o.get_field("etag"),
+            fleet: o.get_field("fleet"),
+            location: o.get_field("location"),
+            logging_config: o.get_field("loggingConfig"),
+            name: o.get_field("name"),
+            networking: o.get_field("networking"),
+            project: o.get_field("project"),
+            reconciling: o.get_field("reconciling"),
+            state: o.get_field("state"),
+            uid: o.get_field("uid"),
+            update_time: o.get_field("updateTime"),
+            workload_identity_configs: o.get_field("workloadIdentityConfigs"),
         }
     }
 }

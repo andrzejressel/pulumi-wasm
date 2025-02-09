@@ -160,98 +160,71 @@ pub mod bucket_website_configuration_v_2 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BucketWebsiteConfigurationV2Args,
     ) -> BucketWebsiteConfigurationV2Result {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let error_document_binding_1 = args.error_document.get_output(context);
-        let error_document_binding = error_document_binding_1.get_inner();
-        let expected_bucket_owner_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_binding = args.bucket.get_output(context);
+        let error_document_binding = args.error_document.get_output(context);
+        let expected_bucket_owner_binding = args
             .expected_bucket_owner
             .get_output(context);
-        let expected_bucket_owner_binding = expected_bucket_owner_binding_1.get_inner();
-        let index_document_binding_1 = args.index_document.get_output(context);
-        let index_document_binding = index_document_binding_1.get_inner();
-        let redirect_all_requests_to_binding_1 = args
+        let index_document_binding = args.index_document.get_output(context);
+        let redirect_all_requests_to_binding = args
             .redirect_all_requests_to
             .get_output(context);
-        let redirect_all_requests_to_binding = redirect_all_requests_to_binding_1
-            .get_inner();
-        let routing_rule_details_binding_1 = args
-            .routing_rule_details
-            .get_output(context);
-        let routing_rule_details_binding = routing_rule_details_binding_1.get_inner();
-        let routing_rules_binding_1 = args.routing_rules.get_output(context);
-        let routing_rules_binding = routing_rules_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let routing_rule_details_binding = args.routing_rule_details.get_output(context);
+        let routing_rules_binding = args.routing_rules.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "errorDocument".into(),
-                    value: &error_document_binding,
+                    value: error_document_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedBucketOwner".into(),
-                    value: &expected_bucket_owner_binding,
+                    value: expected_bucket_owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexDocument".into(),
-                    value: &index_document_binding,
+                    value: index_document_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redirectAllRequestsTo".into(),
-                    value: &redirect_all_requests_to_binding,
+                    value: redirect_all_requests_to_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingRuleDetails".into(),
-                    value: &routing_rule_details_binding,
+                    value: routing_rule_details_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingRules".into(),
-                    value: &routing_rules_binding,
+                    value: routing_rules_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BucketWebsiteConfigurationV2Result {
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            error_document: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errorDocument"),
-            ),
-            expected_bucket_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expectedBucketOwner"),
-            ),
-            index_document: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("indexDocument"),
-            ),
-            redirect_all_requests_to: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redirectAllRequestsTo"),
-            ),
-            routing_rule_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingRuleDetails"),
-            ),
-            routing_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingRules"),
-            ),
-            website_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("websiteDomain"),
-            ),
-            website_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("websiteEndpoint"),
-            ),
+            bucket: o.get_field("bucket"),
+            error_document: o.get_field("errorDocument"),
+            expected_bucket_owner: o.get_field("expectedBucketOwner"),
+            index_document: o.get_field("indexDocument"),
+            redirect_all_requests_to: o.get_field("redirectAllRequestsTo"),
+            routing_rule_details: o.get_field("routingRuleDetails"),
+            routing_rules: o.get_field("routingRules"),
+            website_domain: o.get_field("websiteDomain"),
+            website_endpoint: o.get_field("websiteEndpoint"),
         }
     }
 }

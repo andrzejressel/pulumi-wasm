@@ -37,58 +37,38 @@ pub mod get_project {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetProjectArgs,
     ) -> GetProjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let project_id_binding_1 = args.project_id.get_output(context);
-        let project_id_binding = project_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let project_id_binding = args.project_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:organizations/getProject:getProject".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectId".into(),
-                    value: &project_id_binding,
+                    value: project_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetProjectResult {
-            auto_create_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoCreateNetwork"),
-            ),
-            billing_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingAccount"),
-            ),
-            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionPolicy"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            folder_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("folderId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("number"),
-            ),
-            org_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orgId"),
-            ),
-            project_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectId"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            auto_create_network: o.get_field("autoCreateNetwork"),
+            billing_account: o.get_field("billingAccount"),
+            deletion_policy: o.get_field("deletionPolicy"),
+            effective_labels: o.get_field("effectiveLabels"),
+            folder_id: o.get_field("folderId"),
+            id: o.get_field("id"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            number: o.get_field("number"),
+            org_id: o.get_field("orgId"),
+            project_id: o.get_field("projectId"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            tags: o.get_field("tags"),
         }
     }
 }

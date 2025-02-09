@@ -181,134 +181,99 @@ pub mod data_source {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataSourceArgs,
     ) -> DataSourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding_1 = args.api_id.get_output(context);
-        let api_id_binding = api_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dynamodb_config_binding_1 = args.dynamodb_config.get_output(context);
-        let dynamodb_config_binding = dynamodb_config_binding_1.get_inner();
-        let elasticsearch_config_binding_1 = args
-            .elasticsearch_config
-            .get_output(context);
-        let elasticsearch_config_binding = elasticsearch_config_binding_1.get_inner();
-        let event_bridge_config_binding_1 = args.event_bridge_config.get_output(context);
-        let event_bridge_config_binding = event_bridge_config_binding_1.get_inner();
-        let http_config_binding_1 = args.http_config.get_output(context);
-        let http_config_binding = http_config_binding_1.get_inner();
-        let lambda_config_binding_1 = args.lambda_config.get_output(context);
-        let lambda_config_binding = lambda_config_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let opensearchservice_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_id_binding = args.api_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let dynamodb_config_binding = args.dynamodb_config.get_output(context);
+        let elasticsearch_config_binding = args.elasticsearch_config.get_output(context);
+        let event_bridge_config_binding = args.event_bridge_config.get_output(context);
+        let http_config_binding = args.http_config.get_output(context);
+        let lambda_config_binding = args.lambda_config.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let opensearchservice_config_binding = args
             .opensearchservice_config
             .get_output(context);
-        let opensearchservice_config_binding = opensearchservice_config_binding_1
-            .get_inner();
-        let relational_database_config_binding_1 = args
+        let relational_database_config_binding = args
             .relational_database_config
             .get_output(context);
-        let relational_database_config_binding = relational_database_config_binding_1
-            .get_inner();
-        let service_role_arn_binding_1 = args.service_role_arn.get_output(context);
-        let service_role_arn_binding = service_role_arn_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let service_role_arn_binding = args.service_role_arn.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appsync/dataSource:DataSource".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: &api_id_binding,
+                    value: api_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamodbConfig".into(),
-                    value: &dynamodb_config_binding,
+                    value: dynamodb_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticsearchConfig".into(),
-                    value: &elasticsearch_config_binding,
+                    value: elasticsearch_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventBridgeConfig".into(),
-                    value: &event_bridge_config_binding,
+                    value: event_bridge_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpConfig".into(),
-                    value: &http_config_binding,
+                    value: http_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaConfig".into(),
-                    value: &lambda_config_binding,
+                    value: lambda_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "opensearchserviceConfig".into(),
-                    value: &opensearchservice_config_binding,
+                    value: opensearchservice_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "relationalDatabaseConfig".into(),
-                    value: &relational_database_config_binding,
+                    value: relational_database_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRoleArn".into(),
-                    value: &service_role_arn_binding,
+                    value: service_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataSourceResult {
-            api_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dynamodb_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dynamodbConfig"),
-            ),
-            elasticsearch_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticsearchConfig"),
-            ),
-            event_bridge_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventBridgeConfig"),
-            ),
-            http_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpConfig"),
-            ),
-            lambda_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lambdaConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            opensearchservice_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("opensearchserviceConfig"),
-            ),
-            relational_database_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("relationalDatabaseConfig"),
-            ),
-            service_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRoleArn"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            api_id: o.get_field("apiId"),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            dynamodb_config: o.get_field("dynamodbConfig"),
+            elasticsearch_config: o.get_field("elasticsearchConfig"),
+            event_bridge_config: o.get_field("eventBridgeConfig"),
+            http_config: o.get_field("httpConfig"),
+            lambda_config: o.get_field("lambdaConfig"),
+            name: o.get_field("name"),
+            opensearchservice_config: o.get_field("opensearchserviceConfig"),
+            relational_database_config: o.get_field("relationalDatabaseConfig"),
+            service_role_arn: o.get_field("serviceRoleArn"),
+            type_: o.get_field("type"),
         }
     }
 }

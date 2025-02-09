@@ -61,83 +61,58 @@ pub mod get_patch_baseline {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPatchBaselineArgs,
     ) -> GetPatchBaselineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let default_baseline_binding_1 = args.default_baseline.get_output(context);
-        let default_baseline_binding = default_baseline_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let operating_system_binding_1 = args.operating_system.get_output(context);
-        let operating_system_binding = operating_system_binding_1.get_inner();
-        let owner_binding_1 = args.owner.get_output(context);
-        let owner_binding = owner_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let default_baseline_binding = args.default_baseline.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let operating_system_binding = args.operating_system.get_output(context);
+        let owner_binding = args.owner.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ssm/getPatchBaseline:getPatchBaseline".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultBaseline".into(),
-                    value: &default_baseline_binding,
+                    value: default_baseline_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operatingSystem".into(),
-                    value: &operating_system_binding,
+                    value: operating_system_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "owner".into(),
-                    value: &owner_binding,
+                    value: owner_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPatchBaselineResult {
-            approval_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvalRules"),
-            ),
-            approved_patches: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvedPatches"),
-            ),
-            approved_patches_compliance_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvedPatchesComplianceLevel"),
-            ),
-            approved_patches_enable_non_security: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvedPatchesEnableNonSecurity"),
-            ),
-            default_baseline: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultBaseline"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            global_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalFilters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            json: pulumi_gestalt_rust::__private::into_domain(o.extract_field("json")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            operating_system: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operatingSystem"),
-            ),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            rejected_patches: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rejectedPatches"),
-            ),
-            rejected_patches_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rejectedPatchesAction"),
-            ),
-            sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sources"),
-            ),
+            approval_rules: o.get_field("approvalRules"),
+            approved_patches: o.get_field("approvedPatches"),
+            approved_patches_compliance_level: o
+                .get_field("approvedPatchesComplianceLevel"),
+            approved_patches_enable_non_security: o
+                .get_field("approvedPatchesEnableNonSecurity"),
+            default_baseline: o.get_field("defaultBaseline"),
+            description: o.get_field("description"),
+            global_filters: o.get_field("globalFilters"),
+            id: o.get_field("id"),
+            json: o.get_field("json"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            operating_system: o.get_field("operatingSystem"),
+            owner: o.get_field("owner"),
+            rejected_patches: o.get_field("rejectedPatches"),
+            rejected_patches_action: o.get_field("rejectedPatchesAction"),
+            sources: o.get_field("sources"),
         }
     }
 }

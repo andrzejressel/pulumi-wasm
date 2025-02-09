@@ -139,99 +139,77 @@ pub mod project_environment_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProjectEnvironmentTypeArgs,
     ) -> ProjectEnvironmentTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let creator_role_assignment_roles_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let creator_role_assignment_roles_binding = args
             .creator_role_assignment_roles
             .get_output(context);
-        let creator_role_assignment_roles_binding = creator_role_assignment_roles_binding_1
-            .get_inner();
-        let deployment_target_id_binding_1 = args
-            .deployment_target_id
-            .get_output(context);
-        let deployment_target_id_binding = deployment_target_id_binding_1.get_inner();
-        let dev_center_project_id_binding_1 = args
+        let deployment_target_id_binding = args.deployment_target_id.get_output(context);
+        let dev_center_project_id_binding = args
             .dev_center_project_id
             .get_output(context);
-        let dev_center_project_id_binding = dev_center_project_id_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_role_assignments_binding_1 = args
+        let identity_binding = args.identity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let user_role_assignments_binding = args
             .user_role_assignments
             .get_output(context);
-        let user_role_assignments_binding = user_role_assignments_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:devcenter/projectEnvironmentType:ProjectEnvironmentType"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "creatorRoleAssignmentRoles".into(),
-                    value: &creator_role_assignment_roles_binding,
+                    value: creator_role_assignment_roles_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentTargetId".into(),
-                    value: &deployment_target_id_binding,
+                    value: deployment_target_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "devCenterProjectId".into(),
-                    value: &dev_center_project_id_binding,
+                    value: dev_center_project_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userRoleAssignments".into(),
-                    value: &user_role_assignments_binding,
+                    value: user_role_assignments_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProjectEnvironmentTypeResult {
-            creator_role_assignment_roles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creatorRoleAssignmentRoles"),
-            ),
-            deployment_target_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentTargetId"),
-            ),
-            dev_center_project_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("devCenterProjectId"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            user_role_assignments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userRoleAssignments"),
-            ),
+            creator_role_assignment_roles: o.get_field("creatorRoleAssignmentRoles"),
+            deployment_target_id: o.get_field("deploymentTargetId"),
+            dev_center_project_id: o.get_field("devCenterProjectId"),
+            identity: o.get_field("identity"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
+            user_role_assignments: o.get_field("userRoleAssignments"),
         }
     }
 }

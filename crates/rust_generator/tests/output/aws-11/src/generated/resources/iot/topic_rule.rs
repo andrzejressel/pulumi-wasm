@@ -270,245 +270,180 @@ pub mod topic_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TopicRuleArgs,
     ) -> TopicRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cloudwatch_alarms_binding_1 = args.cloudwatch_alarms.get_output(context);
-        let cloudwatch_alarms_binding = cloudwatch_alarms_binding_1.get_inner();
-        let cloudwatch_logs_binding_1 = args.cloudwatch_logs.get_output(context);
-        let cloudwatch_logs_binding = cloudwatch_logs_binding_1.get_inner();
-        let cloudwatch_metrics_binding_1 = args.cloudwatch_metrics.get_output(context);
-        let cloudwatch_metrics_binding = cloudwatch_metrics_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dynamodbs_binding_1 = args.dynamodbs.get_output(context);
-        let dynamodbs_binding = dynamodbs_binding_1.get_inner();
-        let dynamodbv2s_binding_1 = args.dynamodbv2s.get_output(context);
-        let dynamodbv2s_binding = dynamodbv2s_binding_1.get_inner();
-        let elasticsearch_binding_1 = args.elasticsearch.get_output(context);
-        let elasticsearch_binding = elasticsearch_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let error_action_binding_1 = args.error_action.get_output(context);
-        let error_action_binding = error_action_binding_1.get_inner();
-        let firehoses_binding_1 = args.firehoses.get_output(context);
-        let firehoses_binding = firehoses_binding_1.get_inner();
-        let https_binding_1 = args.https.get_output(context);
-        let https_binding = https_binding_1.get_inner();
-        let iot_analytics_binding_1 = args.iot_analytics.get_output(context);
-        let iot_analytics_binding = iot_analytics_binding_1.get_inner();
-        let iot_events_binding_1 = args.iot_events.get_output(context);
-        let iot_events_binding = iot_events_binding_1.get_inner();
-        let kafkas_binding_1 = args.kafkas.get_output(context);
-        let kafkas_binding = kafkas_binding_1.get_inner();
-        let kineses_binding_1 = args.kineses.get_output(context);
-        let kineses_binding = kineses_binding_1.get_inner();
-        let lambdas_binding_1 = args.lambdas.get_output(context);
-        let lambdas_binding = lambdas_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let republishes_binding_1 = args.republishes.get_output(context);
-        let republishes_binding = republishes_binding_1.get_inner();
-        let s3_binding_1 = args.s3.get_output(context);
-        let s3_binding = s3_binding_1.get_inner();
-        let sns_binding_1 = args.sns.get_output(context);
-        let sns_binding = sns_binding_1.get_inner();
-        let sql_binding_1 = args.sql.get_output(context);
-        let sql_binding = sql_binding_1.get_inner();
-        let sql_version_binding_1 = args.sql_version.get_output(context);
-        let sql_version_binding = sql_version_binding_1.get_inner();
-        let sqs_binding_1 = args.sqs.get_output(context);
-        let sqs_binding = sqs_binding_1.get_inner();
-        let step_functions_binding_1 = args.step_functions.get_output(context);
-        let step_functions_binding = step_functions_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timestreams_binding_1 = args.timestreams.get_output(context);
-        let timestreams_binding = timestreams_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cloudwatch_alarms_binding = args.cloudwatch_alarms.get_output(context);
+        let cloudwatch_logs_binding = args.cloudwatch_logs.get_output(context);
+        let cloudwatch_metrics_binding = args.cloudwatch_metrics.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let dynamodbs_binding = args.dynamodbs.get_output(context);
+        let dynamodbv2s_binding = args.dynamodbv2s.get_output(context);
+        let elasticsearch_binding = args.elasticsearch.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let error_action_binding = args.error_action.get_output(context);
+        let firehoses_binding = args.firehoses.get_output(context);
+        let https_binding = args.https.get_output(context);
+        let iot_analytics_binding = args.iot_analytics.get_output(context);
+        let iot_events_binding = args.iot_events.get_output(context);
+        let kafkas_binding = args.kafkas.get_output(context);
+        let kineses_binding = args.kineses.get_output(context);
+        let lambdas_binding = args.lambdas.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let republishes_binding = args.republishes.get_output(context);
+        let s3_binding = args.s3.get_output(context);
+        let sns_binding = args.sns.get_output(context);
+        let sql_binding = args.sql.get_output(context);
+        let sql_version_binding = args.sql_version.get_output(context);
+        let sqs_binding = args.sqs.get_output(context);
+        let step_functions_binding = args.step_functions.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timestreams_binding = args.timestreams.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iot/topicRule:TopicRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchAlarms".into(),
-                    value: &cloudwatch_alarms_binding,
+                    value: cloudwatch_alarms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchLogs".into(),
-                    value: &cloudwatch_logs_binding,
+                    value: cloudwatch_logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchMetrics".into(),
-                    value: &cloudwatch_metrics_binding,
+                    value: cloudwatch_metrics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamodbs".into(),
-                    value: &dynamodbs_binding,
+                    value: dynamodbs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamodbv2s".into(),
-                    value: &dynamodbv2s_binding,
+                    value: dynamodbv2s_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticsearch".into(),
-                    value: &elasticsearch_binding,
+                    value: elasticsearch_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "errorAction".into(),
-                    value: &error_action_binding,
+                    value: error_action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firehoses".into(),
-                    value: &firehoses_binding,
+                    value: firehoses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "https".into(),
-                    value: &https_binding,
+                    value: https_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iotAnalytics".into(),
-                    value: &iot_analytics_binding,
+                    value: iot_analytics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iotEvents".into(),
-                    value: &iot_events_binding,
+                    value: iot_events_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkas".into(),
-                    value: &kafkas_binding,
+                    value: kafkas_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kineses".into(),
-                    value: &kineses_binding,
+                    value: kineses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdas".into(),
-                    value: &lambdas_binding,
+                    value: lambdas_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "republishes".into(),
-                    value: &republishes_binding,
+                    value: republishes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3".into(),
-                    value: &s3_binding,
+                    value: s3_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sns".into(),
-                    value: &sns_binding,
+                    value: sns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sql".into(),
-                    value: &sql_binding,
+                    value: sql_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlVersion".into(),
-                    value: &sql_version_binding,
+                    value: sql_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqs".into(),
-                    value: &sqs_binding,
+                    value: sqs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stepFunctions".into(),
-                    value: &step_functions_binding,
+                    value: step_functions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timestreams".into(),
-                    value: &timestreams_binding,
+                    value: timestreams_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TopicRuleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cloudwatch_alarms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudwatchAlarms"),
-            ),
-            cloudwatch_logs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudwatchLogs"),
-            ),
-            cloudwatch_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudwatchMetrics"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dynamodbs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dynamodbs"),
-            ),
-            dynamodbv2s: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dynamodbv2s"),
-            ),
-            elasticsearch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticsearch"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            error_action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errorAction"),
-            ),
-            firehoses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firehoses"),
-            ),
-            https: pulumi_gestalt_rust::__private::into_domain(o.extract_field("https")),
-            iot_analytics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iotAnalytics"),
-            ),
-            iot_events: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iotEvents"),
-            ),
-            kafkas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kafkas"),
-            ),
-            kineses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kineses"),
-            ),
-            lambdas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lambdas"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            republishes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("republishes"),
-            ),
-            s3: pulumi_gestalt_rust::__private::into_domain(o.extract_field("s3")),
-            sns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sns")),
-            sql: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sql")),
-            sql_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlVersion"),
-            ),
-            sqs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sqs")),
-            step_functions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stepFunctions"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timestreams: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timestreams"),
-            ),
+            arn: o.get_field("arn"),
+            cloudwatch_alarms: o.get_field("cloudwatchAlarms"),
+            cloudwatch_logs: o.get_field("cloudwatchLogs"),
+            cloudwatch_metrics: o.get_field("cloudwatchMetrics"),
+            description: o.get_field("description"),
+            dynamodbs: o.get_field("dynamodbs"),
+            dynamodbv2s: o.get_field("dynamodbv2s"),
+            elasticsearch: o.get_field("elasticsearch"),
+            enabled: o.get_field("enabled"),
+            error_action: o.get_field("errorAction"),
+            firehoses: o.get_field("firehoses"),
+            https: o.get_field("https"),
+            iot_analytics: o.get_field("iotAnalytics"),
+            iot_events: o.get_field("iotEvents"),
+            kafkas: o.get_field("kafkas"),
+            kineses: o.get_field("kineses"),
+            lambdas: o.get_field("lambdas"),
+            name: o.get_field("name"),
+            republishes: o.get_field("republishes"),
+            s3: o.get_field("s3"),
+            sns: o.get_field("sns"),
+            sql: o.get_field("sql"),
+            sql_version: o.get_field("sqlVersion"),
+            sqs: o.get_field("sqs"),
+            step_functions: o.get_field("stepFunctions"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timestreams: o.get_field("timestreams"),
         }
     }
 }

@@ -263,115 +263,85 @@ pub mod compute_environment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ComputeEnvironmentArgs,
     ) -> ComputeEnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compute_environment_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let compute_environment_name_binding = args
             .compute_environment_name
             .get_output(context);
-        let compute_environment_name_binding = compute_environment_name_binding_1
-            .get_inner();
-        let compute_environment_name_prefix_binding_1 = args
+        let compute_environment_name_prefix_binding = args
             .compute_environment_name_prefix
             .get_output(context);
-        let compute_environment_name_prefix_binding = compute_environment_name_prefix_binding_1
-            .get_inner();
-        let compute_resources_binding_1 = args.compute_resources.get_output(context);
-        let compute_resources_binding = compute_resources_binding_1.get_inner();
-        let eks_configuration_binding_1 = args.eks_configuration.get_output(context);
-        let eks_configuration_binding = eks_configuration_binding_1.get_inner();
-        let service_role_binding_1 = args.service_role.get_output(context);
-        let service_role_binding = service_role_binding_1.get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let update_policy_binding_1 = args.update_policy.get_output(context);
-        let update_policy_binding = update_policy_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let compute_resources_binding = args.compute_resources.get_output(context);
+        let eks_configuration_binding = args.eks_configuration.get_output(context);
+        let service_role_binding = args.service_role.get_output(context);
+        let state_binding = args.state.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let update_policy_binding = args.update_policy.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:batch/computeEnvironment:ComputeEnvironment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeEnvironmentName".into(),
-                    value: &compute_environment_name_binding,
+                    value: compute_environment_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeEnvironmentNamePrefix".into(),
-                    value: &compute_environment_name_prefix_binding,
+                    value: compute_environment_name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeResources".into(),
-                    value: &compute_resources_binding,
+                    value: compute_resources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eksConfiguration".into(),
-                    value: &eks_configuration_binding,
+                    value: eks_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRole".into(),
-                    value: &service_role_binding,
+                    value: service_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "updatePolicy".into(),
-                    value: &update_policy_binding,
+                    value: update_policy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ComputeEnvironmentResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            compute_environment_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeEnvironmentName"),
-            ),
-            compute_environment_name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeEnvironmentNamePrefix"),
-            ),
-            compute_resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeResources"),
-            ),
-            ecs_cluster_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ecsClusterArn"),
-            ),
-            eks_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eksConfiguration"),
-            ),
-            service_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRole"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusReason"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            update_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updatePolicy"),
-            ),
+            arn: o.get_field("arn"),
+            compute_environment_name: o.get_field("computeEnvironmentName"),
+            compute_environment_name_prefix: o.get_field("computeEnvironmentNamePrefix"),
+            compute_resources: o.get_field("computeResources"),
+            ecs_cluster_arn: o.get_field("ecsClusterArn"),
+            eks_configuration: o.get_field("eksConfiguration"),
+            service_role: o.get_field("serviceRole"),
+            state: o.get_field("state"),
+            status: o.get_field("status"),
+            status_reason: o.get_field("statusReason"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
+            update_policy: o.get_field("updatePolicy"),
         }
     }
 }

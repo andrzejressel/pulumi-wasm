@@ -70,111 +70,63 @@ pub mod get_region_disk {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRegionDiskArgs,
     ) -> GetRegionDiskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:compute/getRegionDisk:getRegionDisk".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRegionDiskResult {
-            async_primary_disks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("asyncPrimaryDisks"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disk_encryption_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskEncryptionKeys"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            guest_os_features: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("guestOsFeatures"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            interface: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interface"),
-            ),
-            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labelFingerprint"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            last_attach_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastAttachTimestamp"),
-            ),
-            last_detach_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastDetachTimestamp"),
-            ),
-            licenses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenses"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            physical_block_size_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("physicalBlockSizeBytes"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            replica_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaZones"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
-            snapshot: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshot"),
-            ),
-            source_disk: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDisk"),
-            ),
-            source_disk_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDiskId"),
-            ),
-            source_snapshot_encryption_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceSnapshotEncryptionKeys"),
-            ),
-            source_snapshot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceSnapshotId"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            users: pulumi_gestalt_rust::__private::into_domain(o.extract_field("users")),
+            async_primary_disks: o.get_field("asyncPrimaryDisks"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            disk_encryption_keys: o.get_field("diskEncryptionKeys"),
+            effective_labels: o.get_field("effectiveLabels"),
+            guest_os_features: o.get_field("guestOsFeatures"),
+            id: o.get_field("id"),
+            interface: o.get_field("interface"),
+            label_fingerprint: o.get_field("labelFingerprint"),
+            labels: o.get_field("labels"),
+            last_attach_timestamp: o.get_field("lastAttachTimestamp"),
+            last_detach_timestamp: o.get_field("lastDetachTimestamp"),
+            licenses: o.get_field("licenses"),
+            name: o.get_field("name"),
+            physical_block_size_bytes: o.get_field("physicalBlockSizeBytes"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            region: o.get_field("region"),
+            replica_zones: o.get_field("replicaZones"),
+            self_link: o.get_field("selfLink"),
+            size: o.get_field("size"),
+            snapshot: o.get_field("snapshot"),
+            source_disk: o.get_field("sourceDisk"),
+            source_disk_id: o.get_field("sourceDiskId"),
+            source_snapshot_encryption_keys: o.get_field("sourceSnapshotEncryptionKeys"),
+            source_snapshot_id: o.get_field("sourceSnapshotId"),
+            type_: o.get_field("type"),
+            users: o.get_field("users"),
         }
     }
 }

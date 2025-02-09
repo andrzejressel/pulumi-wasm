@@ -49,66 +49,43 @@ pub mod get_policy_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPolicyAssignmentArgs,
     ) -> GetPolicyAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let scope_id_binding_1 = args.scope_id.get_output(context);
-        let scope_id_binding = scope_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let scope_id_binding = args.scope_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:policy/getPolicyAssignment:getPolicyAssignment".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopeId".into(),
-                    value: &scope_id_binding,
+                    value: scope_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPolicyAssignmentResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enforce: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enforce"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            non_compliance_messages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nonComplianceMessages"),
-            ),
-            not_scopes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notScopes"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            policy_definition_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyDefinitionId"),
-            ),
-            scope_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopeId"),
-            ),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            enforce: o.get_field("enforce"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            location: o.get_field("location"),
+            metadata: o.get_field("metadata"),
+            name: o.get_field("name"),
+            non_compliance_messages: o.get_field("nonComplianceMessages"),
+            not_scopes: o.get_field("notScopes"),
+            parameters: o.get_field("parameters"),
+            policy_definition_id: o.get_field("policyDefinitionId"),
+            scope_id: o.get_field("scopeId"),
         }
     }
 }

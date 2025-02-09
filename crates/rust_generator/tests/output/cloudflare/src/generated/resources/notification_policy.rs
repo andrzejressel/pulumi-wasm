@@ -88,111 +88,82 @@ pub mod notification_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NotificationPolicyArgs,
     ) -> NotificationPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let alert_type_binding_1 = args.alert_type.get_output(context);
-        let alert_type_binding = alert_type_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let email_integrations_binding_1 = args.email_integrations.get_output(context);
-        let email_integrations_binding = email_integrations_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let pagerduty_integrations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let alert_type_binding = args.alert_type.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let email_integrations_binding = args.email_integrations.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let filters_binding = args.filters.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let pagerduty_integrations_binding = args
             .pagerduty_integrations
             .get_output(context);
-        let pagerduty_integrations_binding = pagerduty_integrations_binding_1
-            .get_inner();
-        let webhooks_integrations_binding_1 = args
+        let webhooks_integrations_binding = args
             .webhooks_integrations
             .get_output(context);
-        let webhooks_integrations_binding = webhooks_integrations_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/notificationPolicy:NotificationPolicy".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertType".into(),
-                    value: &alert_type_binding,
+                    value: alert_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailIntegrations".into(),
-                    value: &email_integrations_binding,
+                    value: email_integrations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pagerdutyIntegrations".into(),
-                    value: &pagerduty_integrations_binding,
+                    value: pagerduty_integrations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webhooksIntegrations".into(),
-                    value: &webhooks_integrations_binding,
+                    value: webhooks_integrations_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NotificationPolicyResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            alert_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alertType"),
-            ),
-            created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("created"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            email_integrations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailIntegrations"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            modified: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modified"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pagerduty_integrations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pagerdutyIntegrations"),
-            ),
-            webhooks_integrations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webhooksIntegrations"),
-            ),
+            account_id: o.get_field("accountId"),
+            alert_type: o.get_field("alertType"),
+            created: o.get_field("created"),
+            description: o.get_field("description"),
+            email_integrations: o.get_field("emailIntegrations"),
+            enabled: o.get_field("enabled"),
+            filters: o.get_field("filters"),
+            modified: o.get_field("modified"),
+            name: o.get_field("name"),
+            pagerduty_integrations: o.get_field("pagerdutyIntegrations"),
+            webhooks_integrations: o.get_field("webhooksIntegrations"),
         }
     }
 }

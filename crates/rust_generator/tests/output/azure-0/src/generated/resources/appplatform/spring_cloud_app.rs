@@ -134,135 +134,100 @@ pub mod spring_cloud_app {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudAppArgs,
     ) -> SpringCloudAppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addon_json_binding_1 = args.addon_json.get_output(context);
-        let addon_json_binding = addon_json_binding_1.get_inner();
-        let custom_persistent_disks_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let addon_json_binding = args.addon_json.get_output(context);
+        let custom_persistent_disks_binding = args
             .custom_persistent_disks
             .get_output(context);
-        let custom_persistent_disks_binding = custom_persistent_disks_binding_1
-            .get_inner();
-        let https_only_binding_1 = args.https_only.get_output(context);
-        let https_only_binding = https_only_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let ingress_settings_binding_1 = args.ingress_settings.get_output(context);
-        let ingress_settings_binding = ingress_settings_binding_1.get_inner();
-        let is_public_binding_1 = args.is_public.get_output(context);
-        let is_public_binding = is_public_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let persistent_disk_binding_1 = args.persistent_disk.get_output(context);
-        let persistent_disk_binding = persistent_disk_binding_1.get_inner();
-        let public_endpoint_enabled_binding_1 = args
+        let https_only_binding = args.https_only.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let ingress_settings_binding = args.ingress_settings.get_output(context);
+        let is_public_binding = args.is_public.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let persistent_disk_binding = args.persistent_disk.get_output(context);
+        let public_endpoint_enabled_binding = args
             .public_endpoint_enabled
             .get_output(context);
-        let public_endpoint_enabled_binding = public_endpoint_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let service_name_binding_1 = args.service_name.get_output(context);
-        let service_name_binding = service_name_binding_1.get_inner();
-        let tls_enabled_binding_1 = args.tls_enabled.get_output(context);
-        let tls_enabled_binding = tls_enabled_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let service_name_binding = args.service_name.get_output(context);
+        let tls_enabled_binding = args.tls_enabled.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudApp:SpringCloudApp".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addonJson".into(),
-                    value: &addon_json_binding,
+                    value: addon_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customPersistentDisks".into(),
-                    value: &custom_persistent_disks_binding,
+                    value: custom_persistent_disks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsOnly".into(),
-                    value: &https_only_binding,
+                    value: https_only_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingressSettings".into(),
-                    value: &ingress_settings_binding,
+                    value: ingress_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isPublic".into(),
-                    value: &is_public_binding,
+                    value: is_public_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "persistentDisk".into(),
-                    value: &persistent_disk_binding,
+                    value: persistent_disk_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicEndpointEnabled".into(),
-                    value: &public_endpoint_enabled_binding,
+                    value: public_endpoint_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: &service_name_binding,
+                    value: service_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsEnabled".into(),
-                    value: &tls_enabled_binding,
+                    value: tls_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudAppResult {
-            addon_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addonJson"),
-            ),
-            custom_persistent_disks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customPersistentDisks"),
-            ),
-            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
-            https_only: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsOnly"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            ingress_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingressSettings"),
-            ),
-            is_public: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isPublic"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            persistent_disk: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("persistentDisk"),
-            ),
-            public_endpoint_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicEndpointEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceName"),
-            ),
-            tls_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsEnabled"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            addon_json: o.get_field("addonJson"),
+            custom_persistent_disks: o.get_field("customPersistentDisks"),
+            fqdn: o.get_field("fqdn"),
+            https_only: o.get_field("httpsOnly"),
+            identity: o.get_field("identity"),
+            ingress_settings: o.get_field("ingressSettings"),
+            is_public: o.get_field("isPublic"),
+            name: o.get_field("name"),
+            persistent_disk: o.get_field("persistentDisk"),
+            public_endpoint_enabled: o.get_field("publicEndpointEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            service_name: o.get_field("serviceName"),
+            tls_enabled: o.get_field("tlsEnabled"),
+            url: o.get_field("url"),
         }
     }
 }

@@ -183,243 +183,171 @@ pub mod stack {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StackArgs,
     ) -> StackResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_version_binding_1 = args.agent_version.get_output(context);
-        let agent_version_binding = agent_version_binding_1.get_inner();
-        let berkshelf_version_binding_1 = args.berkshelf_version.get_output(context);
-        let berkshelf_version_binding = berkshelf_version_binding_1.get_inner();
-        let color_binding_1 = args.color.get_output(context);
-        let color_binding = color_binding_1.get_inner();
-        let configuration_manager_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let agent_version_binding = args.agent_version.get_output(context);
+        let berkshelf_version_binding = args.berkshelf_version.get_output(context);
+        let color_binding = args.color.get_output(context);
+        let configuration_manager_name_binding = args
             .configuration_manager_name
             .get_output(context);
-        let configuration_manager_name_binding = configuration_manager_name_binding_1
-            .get_inner();
-        let configuration_manager_version_binding_1 = args
+        let configuration_manager_version_binding = args
             .configuration_manager_version
             .get_output(context);
-        let configuration_manager_version_binding = configuration_manager_version_binding_1
-            .get_inner();
-        let custom_cookbooks_sources_binding_1 = args
+        let custom_cookbooks_sources_binding = args
             .custom_cookbooks_sources
             .get_output(context);
-        let custom_cookbooks_sources_binding = custom_cookbooks_sources_binding_1
-            .get_inner();
-        let custom_json_binding_1 = args.custom_json.get_output(context);
-        let custom_json_binding = custom_json_binding_1.get_inner();
-        let default_availability_zone_binding_1 = args
+        let custom_json_binding = args.custom_json.get_output(context);
+        let default_availability_zone_binding = args
             .default_availability_zone
             .get_output(context);
-        let default_availability_zone_binding = default_availability_zone_binding_1
-            .get_inner();
-        let default_instance_profile_arn_binding_1 = args
+        let default_instance_profile_arn_binding = args
             .default_instance_profile_arn
             .get_output(context);
-        let default_instance_profile_arn_binding = default_instance_profile_arn_binding_1
-            .get_inner();
-        let default_os_binding_1 = args.default_os.get_output(context);
-        let default_os_binding = default_os_binding_1.get_inner();
-        let default_root_device_type_binding_1 = args
+        let default_os_binding = args.default_os.get_output(context);
+        let default_root_device_type_binding = args
             .default_root_device_type
             .get_output(context);
-        let default_root_device_type_binding = default_root_device_type_binding_1
-            .get_inner();
-        let default_ssh_key_name_binding_1 = args
-            .default_ssh_key_name
-            .get_output(context);
-        let default_ssh_key_name_binding = default_ssh_key_name_binding_1.get_inner();
-        let default_subnet_id_binding_1 = args.default_subnet_id.get_output(context);
-        let default_subnet_id_binding = default_subnet_id_binding_1.get_inner();
-        let hostname_theme_binding_1 = args.hostname_theme.get_output(context);
-        let hostname_theme_binding = hostname_theme_binding_1.get_inner();
-        let manage_berkshelf_binding_1 = args.manage_berkshelf.get_output(context);
-        let manage_berkshelf_binding = manage_berkshelf_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let service_role_arn_binding_1 = args.service_role_arn.get_output(context);
-        let service_role_arn_binding = service_role_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let use_custom_cookbooks_binding_1 = args
-            .use_custom_cookbooks
-            .get_output(context);
-        let use_custom_cookbooks_binding = use_custom_cookbooks_binding_1.get_inner();
-        let use_opsworks_security_groups_binding_1 = args
+        let default_ssh_key_name_binding = args.default_ssh_key_name.get_output(context);
+        let default_subnet_id_binding = args.default_subnet_id.get_output(context);
+        let hostname_theme_binding = args.hostname_theme.get_output(context);
+        let manage_berkshelf_binding = args.manage_berkshelf.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let service_role_arn_binding = args.service_role_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let use_custom_cookbooks_binding = args.use_custom_cookbooks.get_output(context);
+        let use_opsworks_security_groups_binding = args
             .use_opsworks_security_groups
             .get_output(context);
-        let use_opsworks_security_groups_binding = use_opsworks_security_groups_binding_1
-            .get_inner();
-        let vpc_id_binding_1 = args.vpc_id.get_output(context);
-        let vpc_id_binding = vpc_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let vpc_id_binding = args.vpc_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:opsworks/stack:Stack".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentVersion".into(),
-                    value: &agent_version_binding,
+                    value: agent_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "berkshelfVersion".into(),
-                    value: &berkshelf_version_binding,
+                    value: berkshelf_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "color".into(),
-                    value: &color_binding,
+                    value: color_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationManagerName".into(),
-                    value: &configuration_manager_name_binding,
+                    value: configuration_manager_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationManagerVersion".into(),
-                    value: &configuration_manager_version_binding,
+                    value: configuration_manager_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customCookbooksSources".into(),
-                    value: &custom_cookbooks_sources_binding,
+                    value: custom_cookbooks_sources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customJson".into(),
-                    value: &custom_json_binding,
+                    value: custom_json_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAvailabilityZone".into(),
-                    value: &default_availability_zone_binding,
+                    value: default_availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultInstanceProfileArn".into(),
-                    value: &default_instance_profile_arn_binding,
+                    value: default_instance_profile_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultOs".into(),
-                    value: &default_os_binding,
+                    value: default_os_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRootDeviceType".into(),
-                    value: &default_root_device_type_binding,
+                    value: default_root_device_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultSshKeyName".into(),
-                    value: &default_ssh_key_name_binding,
+                    value: default_ssh_key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultSubnetId".into(),
-                    value: &default_subnet_id_binding,
+                    value: default_subnet_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostnameTheme".into(),
-                    value: &hostname_theme_binding,
+                    value: hostname_theme_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manageBerkshelf".into(),
-                    value: &manage_berkshelf_binding,
+                    value: manage_berkshelf_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRoleArn".into(),
-                    value: &service_role_arn_binding,
+                    value: service_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useCustomCookbooks".into(),
-                    value: &use_custom_cookbooks_binding,
+                    value: use_custom_cookbooks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useOpsworksSecurityGroups".into(),
-                    value: &use_opsworks_security_groups_binding,
+                    value: use_opsworks_security_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: &vpc_id_binding,
+                    value: vpc_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StackResult {
-            agent_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentVersion"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            berkshelf_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("berkshelfVersion"),
-            ),
-            color: pulumi_gestalt_rust::__private::into_domain(o.extract_field("color")),
-            configuration_manager_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationManagerName"),
-            ),
-            configuration_manager_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationManagerVersion"),
-            ),
-            custom_cookbooks_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customCookbooksSources"),
-            ),
-            custom_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customJson"),
-            ),
-            default_availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultAvailabilityZone"),
-            ),
-            default_instance_profile_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultInstanceProfileArn"),
-            ),
-            default_os: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultOs"),
-            ),
-            default_root_device_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultRootDeviceType"),
-            ),
-            default_ssh_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSshKeyName"),
-            ),
-            default_subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSubnetId"),
-            ),
-            hostname_theme: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostnameTheme"),
-            ),
-            manage_berkshelf: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manageBerkshelf"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            service_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceRoleArn"),
-            ),
-            stack_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stackEndpoint"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            use_custom_cookbooks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useCustomCookbooks"),
-            ),
-            use_opsworks_security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("useOpsworksSecurityGroups"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            agent_version: o.get_field("agentVersion"),
+            arn: o.get_field("arn"),
+            berkshelf_version: o.get_field("berkshelfVersion"),
+            color: o.get_field("color"),
+            configuration_manager_name: o.get_field("configurationManagerName"),
+            configuration_manager_version: o.get_field("configurationManagerVersion"),
+            custom_cookbooks_sources: o.get_field("customCookbooksSources"),
+            custom_json: o.get_field("customJson"),
+            default_availability_zone: o.get_field("defaultAvailabilityZone"),
+            default_instance_profile_arn: o.get_field("defaultInstanceProfileArn"),
+            default_os: o.get_field("defaultOs"),
+            default_root_device_type: o.get_field("defaultRootDeviceType"),
+            default_ssh_key_name: o.get_field("defaultSshKeyName"),
+            default_subnet_id: o.get_field("defaultSubnetId"),
+            hostname_theme: o.get_field("hostnameTheme"),
+            manage_berkshelf: o.get_field("manageBerkshelf"),
+            name: o.get_field("name"),
+            region: o.get_field("region"),
+            service_role_arn: o.get_field("serviceRoleArn"),
+            stack_endpoint: o.get_field("stackEndpoint"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            use_custom_cookbooks: o.get_field("useCustomCookbooks"),
+            use_opsworks_security_groups: o.get_field("useOpsworksSecurityGroups"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

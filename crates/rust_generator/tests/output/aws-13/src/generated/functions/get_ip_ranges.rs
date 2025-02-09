@@ -46,63 +46,48 @@ pub mod get_ip_ranges {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetIpRangesArgs,
     ) -> GetIpRangesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let regions_binding_1 = args.regions.get_output(context);
-        let regions_binding = regions_binding_1.get_inner();
-        let services_binding_1 = args.services.get_output(context);
-        let services_binding = services_binding_1.get_inner();
-        let url_binding_1 = args.url.get_output(context);
-        let url_binding = url_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let id_binding = args.id.get_output(context);
+        let regions_binding = args.regions.get_output(context);
+        let services_binding = args.services.get_output(context);
+        let url_binding = args.url.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:index/getIpRanges:getIpRanges".into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regions".into(),
-                    value: &regions_binding,
+                    value: regions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "services".into(),
-                    value: &services_binding,
+                    value: services_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "url".into(),
-                    value: &url_binding,
+                    value: url_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetIpRangesResult {
-            cidr_blocks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrBlocks"),
-            ),
-            create_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createDate"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ipv6_cidr_blocks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6CidrBlocks"),
-            ),
-            regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regions"),
-            ),
-            services: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("services"),
-            ),
-            sync_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("syncToken"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            cidr_blocks: o.get_field("cidrBlocks"),
+            create_date: o.get_field("createDate"),
+            id: o.get_field("id"),
+            ipv6_cidr_blocks: o.get_field("ipv6CidrBlocks"),
+            regions: o.get_field("regions"),
+            services: o.get_field("services"),
+            sync_token: o.get_field("syncToken"),
+            url: o.get_field("url"),
         }
     }
 }

@@ -270,134 +270,95 @@ pub mod cloud_vm_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CloudVmClusterArgs,
     ) -> CloudVmClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_subnet_cidr_binding_1 = args.backup_subnet_cidr.get_output(context);
-        let backup_subnet_cidr_binding = backup_subnet_cidr_binding_1.get_inner();
-        let cidr_binding_1 = args.cidr.get_output(context);
-        let cidr_binding = cidr_binding_1.get_inner();
-        let cloud_vm_cluster_id_binding_1 = args.cloud_vm_cluster_id.get_output(context);
-        let cloud_vm_cluster_id_binding = cloud_vm_cluster_id_binding_1.get_inner();
-        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
-        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let exadata_infrastructure_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backup_subnet_cidr_binding = args.backup_subnet_cidr.get_output(context);
+        let cidr_binding = args.cidr.get_output(context);
+        let cloud_vm_cluster_id_binding = args.cloud_vm_cluster_id.get_output(context);
+        let deletion_protection_binding = args.deletion_protection.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let exadata_infrastructure_binding = args
             .exadata_infrastructure
             .get_output(context);
-        let exadata_infrastructure_binding = exadata_infrastructure_binding_1
-            .get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let properties_binding_1 = args.properties.get_output(context);
-        let properties_binding = properties_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let properties_binding = args.properties.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:oracledatabase/cloudVmCluster:CloudVmCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupSubnetCidr".into(),
-                    value: &backup_subnet_cidr_binding,
+                    value: backup_subnet_cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidr".into(),
-                    value: &cidr_binding,
+                    value: cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudVmClusterId".into(),
-                    value: &cloud_vm_cluster_id_binding,
+                    value: cloud_vm_cluster_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: &deletion_protection_binding,
+                    value: deletion_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exadataInfrastructure".into(),
-                    value: &exadata_infrastructure_binding,
+                    value: exadata_infrastructure_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "properties".into(),
-                    value: &properties_binding,
+                    value: properties_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CloudVmClusterResult {
-            backup_subnet_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupSubnetCidr"),
-            ),
-            cidr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidr")),
-            cloud_vm_cluster_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudVmClusterId"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            exadata_infrastructure: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exadataInfrastructure"),
-            ),
-            gcp_oracle_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gcpOracleZone"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("properties"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
+            backup_subnet_cidr: o.get_field("backupSubnetCidr"),
+            cidr: o.get_field("cidr"),
+            cloud_vm_cluster_id: o.get_field("cloudVmClusterId"),
+            create_time: o.get_field("createTime"),
+            deletion_protection: o.get_field("deletionProtection"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            exadata_infrastructure: o.get_field("exadataInfrastructure"),
+            gcp_oracle_zone: o.get_field("gcpOracleZone"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            project: o.get_field("project"),
+            properties: o.get_field("properties"),
+            pulumi_labels: o.get_field("pulumiLabels"),
         }
     }
 }

@@ -125,111 +125,81 @@ pub mod resource_policy_remediation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResourcePolicyRemediationArgs,
     ) -> ResourcePolicyRemediationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let failure_percentage_binding_1 = args.failure_percentage.get_output(context);
-        let failure_percentage_binding = failure_percentage_binding_1.get_inner();
-        let location_filters_binding_1 = args.location_filters.get_output(context);
-        let location_filters_binding = location_filters_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parallel_deployments_binding_1 = args
-            .parallel_deployments
-            .get_output(context);
-        let parallel_deployments_binding = parallel_deployments_binding_1.get_inner();
-        let policy_assignment_id_binding_1 = args
-            .policy_assignment_id
-            .get_output(context);
-        let policy_assignment_id_binding = policy_assignment_id_binding_1.get_inner();
-        let policy_definition_reference_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let failure_percentage_binding = args.failure_percentage.get_output(context);
+        let location_filters_binding = args.location_filters.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parallel_deployments_binding = args.parallel_deployments.get_output(context);
+        let policy_assignment_id_binding = args.policy_assignment_id.get_output(context);
+        let policy_definition_reference_id_binding = args
             .policy_definition_reference_id
             .get_output(context);
-        let policy_definition_reference_id_binding = policy_definition_reference_id_binding_1
-            .get_inner();
-        let resource_count_binding_1 = args.resource_count.get_output(context);
-        let resource_count_binding = resource_count_binding_1.get_inner();
-        let resource_discovery_mode_binding_1 = args
+        let resource_count_binding = args.resource_count.get_output(context);
+        let resource_discovery_mode_binding = args
             .resource_discovery_mode
             .get_output(context);
-        let resource_discovery_mode_binding = resource_discovery_mode_binding_1
-            .get_inner();
-        let resource_id_binding_1 = args.resource_id.get_output(context);
-        let resource_id_binding = resource_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_id_binding = args.resource_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:core/resourcePolicyRemediation:ResourcePolicyRemediation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failurePercentage".into(),
-                    value: &failure_percentage_binding,
+                    value: failure_percentage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationFilters".into(),
-                    value: &location_filters_binding,
+                    value: location_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parallelDeployments".into(),
-                    value: &parallel_deployments_binding,
+                    value: parallel_deployments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyAssignmentId".into(),
-                    value: &policy_assignment_id_binding,
+                    value: policy_assignment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDefinitionReferenceId".into(),
-                    value: &policy_definition_reference_id_binding,
+                    value: policy_definition_reference_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceCount".into(),
-                    value: &resource_count_binding,
+                    value: resource_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceDiscoveryMode".into(),
-                    value: &resource_discovery_mode_binding,
+                    value: resource_discovery_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: &resource_id_binding,
+                    value: resource_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResourcePolicyRemediationResult {
-            failure_percentage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failurePercentage"),
-            ),
-            location_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationFilters"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parallel_deployments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parallelDeployments"),
-            ),
-            policy_assignment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyAssignmentId"),
-            ),
-            policy_definition_reference_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyDefinitionReferenceId"),
-            ),
-            resource_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceCount"),
-            ),
-            resource_discovery_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceDiscoveryMode"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
+            failure_percentage: o.get_field("failurePercentage"),
+            location_filters: o.get_field("locationFilters"),
+            name: o.get_field("name"),
+            parallel_deployments: o.get_field("parallelDeployments"),
+            policy_assignment_id: o.get_field("policyAssignmentId"),
+            policy_definition_reference_id: o.get_field("policyDefinitionReferenceId"),
+            resource_count: o.get_field("resourceCount"),
+            resource_discovery_mode: o.get_field("resourceDiscoveryMode"),
+            resource_id: o.get_field("resourceId"),
         }
     }
 }

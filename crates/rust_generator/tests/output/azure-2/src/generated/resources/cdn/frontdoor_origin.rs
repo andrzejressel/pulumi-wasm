@@ -317,124 +317,92 @@ pub mod frontdoor_origin {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FrontdoorOriginArgs,
     ) -> FrontdoorOriginResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cdn_frontdoor_origin_group_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cdn_frontdoor_origin_group_id_binding = args
             .cdn_frontdoor_origin_group_id
             .get_output(context);
-        let cdn_frontdoor_origin_group_id_binding = cdn_frontdoor_origin_group_id_binding_1
-            .get_inner();
-        let certificate_name_check_enabled_binding_1 = args
+        let certificate_name_check_enabled_binding = args
             .certificate_name_check_enabled
             .get_output(context);
-        let certificate_name_check_enabled_binding = certificate_name_check_enabled_binding_1
-            .get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let host_name_binding_1 = args.host_name.get_output(context);
-        let host_name_binding = host_name_binding_1.get_inner();
-        let http_port_binding_1 = args.http_port.get_output(context);
-        let http_port_binding = http_port_binding_1.get_inner();
-        let https_port_binding_1 = args.https_port.get_output(context);
-        let https_port_binding = https_port_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let origin_host_header_binding_1 = args.origin_host_header.get_output(context);
-        let origin_host_header_binding = origin_host_header_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let private_link_binding_1 = args.private_link.get_output(context);
-        let private_link_binding = private_link_binding_1.get_inner();
-        let weight_binding_1 = args.weight.get_output(context);
-        let weight_binding = weight_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let enabled_binding = args.enabled.get_output(context);
+        let host_name_binding = args.host_name.get_output(context);
+        let http_port_binding = args.http_port.get_output(context);
+        let https_port_binding = args.https_port.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let origin_host_header_binding = args.origin_host_header.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let private_link_binding = args.private_link.get_output(context);
+        let weight_binding = args.weight.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorOrigin:FrontdoorOrigin".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorOriginGroupId".into(),
-                    value: &cdn_frontdoor_origin_group_id_binding,
+                    value: cdn_frontdoor_origin_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateNameCheckEnabled".into(),
-                    value: &certificate_name_check_enabled_binding,
+                    value: certificate_name_check_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostName".into(),
-                    value: &host_name_binding,
+                    value: host_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpPort".into(),
-                    value: &http_port_binding,
+                    value: http_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsPort".into(),
-                    value: &https_port_binding,
+                    value: https_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originHostHeader".into(),
-                    value: &origin_host_header_binding,
+                    value: origin_host_header_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLink".into(),
-                    value: &private_link_binding,
+                    value: private_link_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weight".into(),
-                    value: &weight_binding,
+                    value: weight_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FrontdoorOriginResult {
-            cdn_frontdoor_origin_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnFrontdoorOriginGroupId"),
-            ),
-            certificate_name_check_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateNameCheckEnabled"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            host_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostName"),
-            ),
-            http_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpPort"),
-            ),
-            https_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpsPort"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            origin_host_header: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("originHostHeader"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            private_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateLink"),
-            ),
-            weight: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("weight"),
-            ),
+            cdn_frontdoor_origin_group_id: o.get_field("cdnFrontdoorOriginGroupId"),
+            certificate_name_check_enabled: o.get_field("certificateNameCheckEnabled"),
+            enabled: o.get_field("enabled"),
+            host_name: o.get_field("hostName"),
+            http_port: o.get_field("httpPort"),
+            https_port: o.get_field("httpsPort"),
+            name: o.get_field("name"),
+            origin_host_header: o.get_field("originHostHeader"),
+            priority: o.get_field("priority"),
+            private_link: o.get_field("privateLink"),
+            weight: o.get_field("weight"),
         }
     }
 }

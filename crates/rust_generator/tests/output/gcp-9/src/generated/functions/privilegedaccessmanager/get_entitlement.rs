@@ -58,74 +58,52 @@ pub mod get_entitlement {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetEntitlementArgs,
     ) -> GetEntitlementResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let entitlement_id_binding_1 = args.entitlement_id.get_output(context);
-        let entitlement_id_binding = entitlement_id_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let entitlement_id_binding = args.entitlement_id.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:privilegedaccessmanager/getEntitlement:getEntitlement".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entitlementId".into(),
-                    value: &entitlement_id_binding,
+                    value: entitlement_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetEntitlementResult {
-            additional_notification_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalNotificationTargets"),
-            ),
-            approval_workflows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approvalWorkflows"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            eligible_users: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eligibleUsers"),
-            ),
-            entitlement_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("entitlementId"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            max_request_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxRequestDuration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            privileged_accesses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privilegedAccesses"),
-            ),
-            requester_justification_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requesterJustificationConfigs"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            additional_notification_targets: o
+                .get_field("additionalNotificationTargets"),
+            approval_workflows: o.get_field("approvalWorkflows"),
+            create_time: o.get_field("createTime"),
+            eligible_users: o.get_field("eligibleUsers"),
+            entitlement_id: o.get_field("entitlementId"),
+            etag: o.get_field("etag"),
+            id: o.get_field("id"),
+            location: o.get_field("location"),
+            max_request_duration: o.get_field("maxRequestDuration"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            privileged_accesses: o.get_field("privilegedAccesses"),
+            requester_justification_configs: o
+                .get_field("requesterJustificationConfigs"),
+            state: o.get_field("state"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

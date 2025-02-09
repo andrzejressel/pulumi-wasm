@@ -86,86 +86,66 @@ pub mod connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectionArgs,
     ) -> ConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connected_device_id_binding_1 = args.connected_device_id.get_output(context);
-        let connected_device_id_binding = connected_device_id_binding_1.get_inner();
-        let connected_link_id_binding_1 = args.connected_link_id.get_output(context);
-        let connected_link_id_binding = connected_link_id_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let device_id_binding_1 = args.device_id.get_output(context);
-        let device_id_binding = device_id_binding_1.get_inner();
-        let global_network_id_binding_1 = args.global_network_id.get_output(context);
-        let global_network_id_binding = global_network_id_binding_1.get_inner();
-        let link_id_binding_1 = args.link_id.get_output(context);
-        let link_id_binding = link_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let connected_device_id_binding = args.connected_device_id.get_output(context);
+        let connected_link_id_binding = args.connected_link_id.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let device_id_binding = args.device_id.get_output(context);
+        let global_network_id_binding = args.global_network_id.get_output(context);
+        let link_id_binding = args.link_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:networkmanager/connection:Connection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectedDeviceId".into(),
-                    value: &connected_device_id_binding,
+                    value: connected_device_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectedLinkId".into(),
-                    value: &connected_link_id_binding,
+                    value: connected_link_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceId".into(),
-                    value: &device_id_binding,
+                    value: device_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalNetworkId".into(),
-                    value: &global_network_id_binding,
+                    value: global_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkId".into(),
-                    value: &link_id_binding,
+                    value: link_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            connected_device_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectedDeviceId"),
-            ),
-            connected_link_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectedLinkId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            device_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deviceId"),
-            ),
-            global_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalNetworkId"),
-            ),
-            link_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            connected_device_id: o.get_field("connectedDeviceId"),
+            connected_link_id: o.get_field("connectedLinkId"),
+            description: o.get_field("description"),
+            device_id: o.get_field("deviceId"),
+            global_network_id: o.get_field("globalNetworkId"),
+            link_id: o.get_field("linkId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

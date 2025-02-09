@@ -43,64 +43,46 @@ pub mod get_service_quota {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetServiceQuotaArgs,
     ) -> GetServiceQuotaResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let quota_code_binding_1 = args.quota_code.get_output(context);
-        let quota_code_binding = quota_code_binding_1.get_inner();
-        let quota_name_binding_1 = args.quota_name.get_output(context);
-        let quota_name_binding = quota_name_binding_1.get_inner();
-        let service_code_binding_1 = args.service_code.get_output(context);
-        let service_code_binding = service_code_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let quota_code_binding = args.quota_code.get_output(context);
+        let quota_name_binding = args.quota_name.get_output(context);
+        let service_code_binding = args.service_code.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:servicequotas/getServiceQuota:getServiceQuota".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quotaCode".into(),
-                    value: &quota_code_binding,
+                    value: quota_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quotaName".into(),
-                    value: &quota_name_binding,
+                    value: quota_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceCode".into(),
-                    value: &service_code_binding,
+                    value: service_code_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetServiceQuotaResult {
-            adjustable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adjustable"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            default_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultValue"),
-            ),
-            global_quota: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalQuota"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            quota_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("quotaCode"),
-            ),
-            quota_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("quotaName"),
-            ),
-            service_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceCode"),
-            ),
-            service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceName"),
-            ),
-            usage_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usageMetrics"),
-            ),
-            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
+            adjustable: o.get_field("adjustable"),
+            arn: o.get_field("arn"),
+            default_value: o.get_field("defaultValue"),
+            global_quota: o.get_field("globalQuota"),
+            id: o.get_field("id"),
+            quota_code: o.get_field("quotaCode"),
+            quota_name: o.get_field("quotaName"),
+            service_code: o.get_field("serviceCode"),
+            service_name: o.get_field("serviceName"),
+            usage_metrics: o.get_field("usageMetrics"),
+            value: o.get_field("value"),
         }
     }
 }

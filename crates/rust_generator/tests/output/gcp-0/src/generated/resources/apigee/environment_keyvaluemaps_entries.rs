@@ -156,45 +156,41 @@ pub mod environment_keyvaluemaps_entries {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EnvironmentKeyvaluemapsEntriesArgs,
     ) -> EnvironmentKeyvaluemapsEntriesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let env_keyvaluemap_id_binding_1 = args.env_keyvaluemap_id.get_output(context);
-        let env_keyvaluemap_id_binding = env_keyvaluemap_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let value_binding_1 = args.value.get_output(context);
-        let value_binding = value_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let env_keyvaluemap_id_binding = args.env_keyvaluemap_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let value_binding = args.value.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apigee/environmentKeyvaluemapsEntries:EnvironmentKeyvaluemapsEntries"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "envKeyvaluemapId".into(),
-                    value: &env_keyvaluemap_id_binding,
+                    value: env_keyvaluemap_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "value".into(),
-                    value: &value_binding,
+                    value: value_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EnvironmentKeyvaluemapsEntriesResult {
-            env_keyvaluemap_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("envKeyvaluemapId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
+            env_keyvaluemap_id: o.get_field("envKeyvaluemapId"),
+            name: o.get_field("name"),
+            value: o.get_field("value"),
         }
     }
 }

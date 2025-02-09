@@ -156,64 +156,52 @@ pub mod classifier {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClassifierArgs,
     ) -> ClassifierResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let csv_classifier_binding_1 = args.csv_classifier.get_output(context);
-        let csv_classifier_binding = csv_classifier_binding_1.get_inner();
-        let grok_classifier_binding_1 = args.grok_classifier.get_output(context);
-        let grok_classifier_binding = grok_classifier_binding_1.get_inner();
-        let json_classifier_binding_1 = args.json_classifier.get_output(context);
-        let json_classifier_binding = json_classifier_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let xml_classifier_binding_1 = args.xml_classifier.get_output(context);
-        let xml_classifier_binding = xml_classifier_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let csv_classifier_binding = args.csv_classifier.get_output(context);
+        let grok_classifier_binding = args.grok_classifier.get_output(context);
+        let json_classifier_binding = args.json_classifier.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let xml_classifier_binding = args.xml_classifier.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:glue/classifier:Classifier".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "csvClassifier".into(),
-                    value: &csv_classifier_binding,
+                    value: csv_classifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grokClassifier".into(),
-                    value: &grok_classifier_binding,
+                    value: grok_classifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jsonClassifier".into(),
-                    value: &json_classifier_binding,
+                    value: json_classifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "xmlClassifier".into(),
-                    value: &xml_classifier_binding,
+                    value: xml_classifier_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClassifierResult {
-            csv_classifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("csvClassifier"),
-            ),
-            grok_classifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grokClassifier"),
-            ),
-            json_classifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jsonClassifier"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            xml_classifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("xmlClassifier"),
-            ),
+            csv_classifier: o.get_field("csvClassifier"),
+            grok_classifier: o.get_field("grokClassifier"),
+            json_classifier: o.get_field("jsonClassifier"),
+            name: o.get_field("name"),
+            xml_classifier: o.get_field("xmlClassifier"),
         }
     }
 }

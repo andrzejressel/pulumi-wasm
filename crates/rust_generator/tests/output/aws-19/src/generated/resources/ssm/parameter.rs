@@ -146,123 +146,96 @@ pub mod parameter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ParameterArgs,
     ) -> ParameterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allowed_pattern_binding_1 = args.allowed_pattern.get_output(context);
-        let allowed_pattern_binding = allowed_pattern_binding_1.get_inner();
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let data_type_binding_1 = args.data_type.get_output(context);
-        let data_type_binding = data_type_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let insecure_value_binding_1 = args.insecure_value.get_output(context);
-        let insecure_value_binding = insecure_value_binding_1.get_inner();
-        let key_id_binding_1 = args.key_id.get_output(context);
-        let key_id_binding = key_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let overwrite_binding_1 = args.overwrite.get_output(context);
-        let overwrite_binding = overwrite_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tier_binding_1 = args.tier.get_output(context);
-        let tier_binding = tier_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let value_binding_1 = args.value.get_output(context);
-        let value_binding = value_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allowed_pattern_binding = args.allowed_pattern.get_output(context);
+        let arn_binding = args.arn.get_output(context);
+        let data_type_binding = args.data_type.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let insecure_value_binding = args.insecure_value.get_output(context);
+        let key_id_binding = args.key_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let overwrite_binding = args.overwrite.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tier_binding = args.tier.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let value_binding = args.value.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssm/parameter:Parameter".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedPattern".into(),
-                    value: &allowed_pattern_binding,
+                    value: allowed_pattern_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataType".into(),
-                    value: &data_type_binding,
+                    value: data_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insecureValue".into(),
-                    value: &insecure_value_binding,
+                    value: insecure_value_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyId".into(),
-                    value: &key_id_binding,
+                    value: key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overwrite".into(),
-                    value: &overwrite_binding,
+                    value: overwrite_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tier".into(),
-                    value: &tier_binding,
+                    value: tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "value".into(),
-                    value: &value_binding,
+                    value: value_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ParameterResult {
-            allowed_pattern: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedPattern"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            data_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataType"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            insecure_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("insecureValue"),
-            ),
-            key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            overwrite: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("overwrite"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            allowed_pattern: o.get_field("allowedPattern"),
+            arn: o.get_field("arn"),
+            data_type: o.get_field("dataType"),
+            description: o.get_field("description"),
+            insecure_value: o.get_field("insecureValue"),
+            key_id: o.get_field("keyId"),
+            name: o.get_field("name"),
+            overwrite: o.get_field("overwrite"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tier: o.get_field("tier"),
+            type_: o.get_field("type"),
+            value: o.get_field("value"),
+            version: o.get_field("version"),
         }
     }
 }

@@ -31,53 +31,41 @@ pub mod get_authorization_token {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAuthorizationTokenArgs,
     ) -> GetAuthorizationTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_binding_1 = args.domain.get_output(context);
-        let domain_binding = domain_binding_1.get_inner();
-        let domain_owner_binding_1 = args.domain_owner.get_output(context);
-        let domain_owner_binding = domain_owner_binding_1.get_inner();
-        let duration_seconds_binding_1 = args.duration_seconds.get_output(context);
-        let duration_seconds_binding = duration_seconds_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_binding = args.domain.get_output(context);
+        let domain_owner_binding = args.domain_owner.get_output(context);
+        let duration_seconds_binding = args.duration_seconds.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:codeartifact/getAuthorizationToken:getAuthorizationToken".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: &domain_binding,
+                    value: domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainOwner".into(),
-                    value: &domain_owner_binding,
+                    value: domain_owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "durationSeconds".into(),
-                    value: &duration_seconds_binding,
+                    value: duration_seconds_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAuthorizationTokenResult {
-            authorization_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationToken"),
-            ),
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            domain_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainOwner"),
-            ),
-            duration_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("durationSeconds"),
-            ),
-            expiration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiration"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            authorization_token: o.get_field("authorizationToken"),
+            domain: o.get_field("domain"),
+            domain_owner: o.get_field("domainOwner"),
+            duration_seconds: o.get_field("durationSeconds"),
+            expiration: o.get_field("expiration"),
+            id: o.get_field("id"),
         }
     }
 }

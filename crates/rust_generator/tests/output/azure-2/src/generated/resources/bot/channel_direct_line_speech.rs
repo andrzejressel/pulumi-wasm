@@ -108,107 +108,78 @@ pub mod channel_direct_line_speech {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ChannelDirectLineSpeechArgs,
     ) -> ChannelDirectLineSpeechResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_name_binding_1 = args.bot_name.get_output(context);
-        let bot_name_binding = bot_name_binding_1.get_inner();
-        let cognitive_account_id_binding_1 = args
-            .cognitive_account_id
-            .get_output(context);
-        let cognitive_account_id_binding = cognitive_account_id_binding_1.get_inner();
-        let cognitive_service_access_key_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bot_name_binding = args.bot_name.get_output(context);
+        let cognitive_account_id_binding = args.cognitive_account_id.get_output(context);
+        let cognitive_service_access_key_binding = args
             .cognitive_service_access_key
             .get_output(context);
-        let cognitive_service_access_key_binding = cognitive_service_access_key_binding_1
-            .get_inner();
-        let cognitive_service_location_binding_1 = args
+        let cognitive_service_location_binding = args
             .cognitive_service_location
             .get_output(context);
-        let cognitive_service_location_binding = cognitive_service_location_binding_1
-            .get_inner();
-        let custom_speech_model_id_binding_1 = args
+        let custom_speech_model_id_binding = args
             .custom_speech_model_id
             .get_output(context);
-        let custom_speech_model_id_binding = custom_speech_model_id_binding_1
-            .get_inner();
-        let custom_voice_deployment_id_binding_1 = args
+        let custom_voice_deployment_id_binding = args
             .custom_voice_deployment_id
             .get_output(context);
-        let custom_voice_deployment_id_binding = custom_voice_deployment_id_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botName".into(),
-                    value: &bot_name_binding,
+                    value: bot_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cognitiveAccountId".into(),
-                    value: &cognitive_account_id_binding,
+                    value: cognitive_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cognitiveServiceAccessKey".into(),
-                    value: &cognitive_service_access_key_binding,
+                    value: cognitive_service_access_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cognitiveServiceLocation".into(),
-                    value: &cognitive_service_location_binding,
+                    value: cognitive_service_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSpeechModelId".into(),
-                    value: &custom_speech_model_id_binding,
+                    value: custom_speech_model_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customVoiceDeploymentId".into(),
-                    value: &custom_voice_deployment_id_binding,
+                    value: custom_voice_deployment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ChannelDirectLineSpeechResult {
-            bot_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botName"),
-            ),
-            cognitive_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cognitiveAccountId"),
-            ),
-            cognitive_service_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cognitiveServiceAccessKey"),
-            ),
-            cognitive_service_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cognitiveServiceLocation"),
-            ),
-            custom_speech_model_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customSpeechModelId"),
-            ),
-            custom_voice_deployment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customVoiceDeploymentId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            bot_name: o.get_field("botName"),
+            cognitive_account_id: o.get_field("cognitiveAccountId"),
+            cognitive_service_access_key: o.get_field("cognitiveServiceAccessKey"),
+            cognitive_service_location: o.get_field("cognitiveServiceLocation"),
+            custom_speech_model_id: o.get_field("customSpeechModelId"),
+            custom_voice_deployment_id: o.get_field("customVoiceDeploymentId"),
+            location: o.get_field("location"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

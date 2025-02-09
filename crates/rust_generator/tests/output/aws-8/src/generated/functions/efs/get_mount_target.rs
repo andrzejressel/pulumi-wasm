@@ -47,77 +47,49 @@ pub mod get_mount_target {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetMountTargetArgs,
     ) -> GetMountTargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_point_id_binding_1 = args.access_point_id.get_output(context);
-        let access_point_id_binding = access_point_id_binding_1.get_inner();
-        let file_system_id_binding_1 = args.file_system_id.get_output(context);
-        let file_system_id_binding = file_system_id_binding_1.get_inner();
-        let mount_target_id_binding_1 = args.mount_target_id.get_output(context);
-        let mount_target_id_binding = mount_target_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_point_id_binding = args.access_point_id.get_output(context);
+        let file_system_id_binding = args.file_system_id.get_output(context);
+        let mount_target_id_binding = args.mount_target_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:efs/getMountTarget:getMountTarget".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessPointId".into(),
-                    value: &access_point_id_binding,
+                    value: access_point_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemId".into(),
-                    value: &file_system_id_binding,
+                    value: file_system_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mountTargetId".into(),
-                    value: &mount_target_id_binding,
+                    value: mount_target_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetMountTargetResult {
-            access_point_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessPointId"),
-            ),
-            availability_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneId"),
-            ),
-            availability_zone_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneName"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            file_system_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemArn"),
-            ),
-            file_system_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            mount_target_dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mountTargetDnsName"),
-            ),
-            mount_target_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mountTargetId"),
-            ),
-            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceId"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroups"),
-            ),
-            subnet_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetId"),
-            ),
+            access_point_id: o.get_field("accessPointId"),
+            availability_zone_id: o.get_field("availabilityZoneId"),
+            availability_zone_name: o.get_field("availabilityZoneName"),
+            dns_name: o.get_field("dnsName"),
+            file_system_arn: o.get_field("fileSystemArn"),
+            file_system_id: o.get_field("fileSystemId"),
+            id: o.get_field("id"),
+            ip_address: o.get_field("ipAddress"),
+            mount_target_dns_name: o.get_field("mountTargetDnsName"),
+            mount_target_id: o.get_field("mountTargetId"),
+            network_interface_id: o.get_field("networkInterfaceId"),
+            owner_id: o.get_field("ownerId"),
+            security_groups: o.get_field("securityGroups"),
+            subnet_id: o.get_field("subnetId"),
         }
     }
 }

@@ -102,131 +102,69 @@ pub mod get_function {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetFunctionArgs,
     ) -> GetFunctionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let function_name_binding_1 = args.function_name.get_output(context);
-        let function_name_binding = function_name_binding_1.get_inner();
-        let qualifier_binding_1 = args.qualifier.get_output(context);
-        let qualifier_binding = qualifier_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let function_name_binding = args.function_name.get_output(context);
+        let qualifier_binding = args.qualifier.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:lambda/getFunction:getFunction".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: &function_name_binding,
+                    value: function_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qualifier".into(),
-                    value: &qualifier_binding,
+                    value: qualifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetFunctionResult {
-            architectures: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("architectures"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            code_sha256: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("codeSha256"),
-            ),
-            code_signing_config_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("codeSigningConfigArn"),
-            ),
-            dead_letter_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deadLetterConfig"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            environment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environment"),
-            ),
-            ephemeral_storages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ephemeralStorages"),
-            ),
-            file_system_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemConfigs"),
-            ),
-            function_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionName"),
-            ),
-            handler: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("handler"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            image_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageUri"),
-            ),
-            invoke_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invokeArn"),
-            ),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            last_modified: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModified"),
-            ),
-            layers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("layers"),
-            ),
-            logging_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingConfigs"),
-            ),
-            memory_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memorySize"),
-            ),
-            qualified_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qualifiedArn"),
-            ),
-            qualified_invoke_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qualifiedInvokeArn"),
-            ),
-            qualifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qualifier"),
-            ),
-            reserved_concurrent_executions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservedConcurrentExecutions"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
-            runtime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtime"),
-            ),
-            signing_job_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingJobArn"),
-            ),
-            signing_profile_version_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signingProfileVersionArn"),
-            ),
-            source_code_hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceCodeHash"),
-            ),
-            source_code_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceCodeSize"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeout"),
-            ),
-            tracing_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tracingConfig"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            vpc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfig"),
-            ),
+            architectures: o.get_field("architectures"),
+            arn: o.get_field("arn"),
+            code_sha256: o.get_field("codeSha256"),
+            code_signing_config_arn: o.get_field("codeSigningConfigArn"),
+            dead_letter_config: o.get_field("deadLetterConfig"),
+            description: o.get_field("description"),
+            environment: o.get_field("environment"),
+            ephemeral_storages: o.get_field("ephemeralStorages"),
+            file_system_configs: o.get_field("fileSystemConfigs"),
+            function_name: o.get_field("functionName"),
+            handler: o.get_field("handler"),
+            id: o.get_field("id"),
+            image_uri: o.get_field("imageUri"),
+            invoke_arn: o.get_field("invokeArn"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            last_modified: o.get_field("lastModified"),
+            layers: o.get_field("layers"),
+            logging_configs: o.get_field("loggingConfigs"),
+            memory_size: o.get_field("memorySize"),
+            qualified_arn: o.get_field("qualifiedArn"),
+            qualified_invoke_arn: o.get_field("qualifiedInvokeArn"),
+            qualifier: o.get_field("qualifier"),
+            reserved_concurrent_executions: o.get_field("reservedConcurrentExecutions"),
+            role: o.get_field("role"),
+            runtime: o.get_field("runtime"),
+            signing_job_arn: o.get_field("signingJobArn"),
+            signing_profile_version_arn: o.get_field("signingProfileVersionArn"),
+            source_code_hash: o.get_field("sourceCodeHash"),
+            source_code_size: o.get_field("sourceCodeSize"),
+            tags: o.get_field("tags"),
+            timeout: o.get_field("timeout"),
+            tracing_config: o.get_field("tracingConfig"),
+            version: o.get_field("version"),
+            vpc_config: o.get_field("vpcConfig"),
         }
     }
 }

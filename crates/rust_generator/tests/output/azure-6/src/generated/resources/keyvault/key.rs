@@ -175,127 +175,92 @@ pub mod key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KeyArgs,
     ) -> KeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let curve_binding_1 = args.curve.get_output(context);
-        let curve_binding = curve_binding_1.get_inner();
-        let expiration_date_binding_1 = args.expiration_date.get_output(context);
-        let expiration_date_binding = expiration_date_binding_1.get_inner();
-        let key_opts_binding_1 = args.key_opts.get_output(context);
-        let key_opts_binding = key_opts_binding_1.get_inner();
-        let key_size_binding_1 = args.key_size.get_output(context);
-        let key_size_binding = key_size_binding_1.get_inner();
-        let key_type_binding_1 = args.key_type.get_output(context);
-        let key_type_binding = key_type_binding_1.get_inner();
-        let key_vault_id_binding_1 = args.key_vault_id.get_output(context);
-        let key_vault_id_binding = key_vault_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let not_before_date_binding_1 = args.not_before_date.get_output(context);
-        let not_before_date_binding = not_before_date_binding_1.get_inner();
-        let rotation_policy_binding_1 = args.rotation_policy.get_output(context);
-        let rotation_policy_binding = rotation_policy_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let curve_binding = args.curve.get_output(context);
+        let expiration_date_binding = args.expiration_date.get_output(context);
+        let key_opts_binding = args.key_opts.get_output(context);
+        let key_size_binding = args.key_size.get_output(context);
+        let key_type_binding = args.key_type.get_output(context);
+        let key_vault_id_binding = args.key_vault_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let not_before_date_binding = args.not_before_date.get_output(context);
+        let rotation_policy_binding = args.rotation_policy.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:keyvault/key:Key".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "curve".into(),
-                    value: &curve_binding,
+                    value: curve_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expirationDate".into(),
-                    value: &expiration_date_binding,
+                    value: expiration_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyOpts".into(),
-                    value: &key_opts_binding,
+                    value: key_opts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keySize".into(),
-                    value: &key_size_binding,
+                    value: key_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyType".into(),
-                    value: &key_type_binding,
+                    value: key_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: &key_vault_id_binding,
+                    value: key_vault_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notBeforeDate".into(),
-                    value: &not_before_date_binding,
+                    value: not_before_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rotationPolicy".into(),
-                    value: &rotation_policy_binding,
+                    value: rotation_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KeyResult {
-            curve: pulumi_gestalt_rust::__private::into_domain(o.extract_field("curve")),
-            e: pulumi_gestalt_rust::__private::into_domain(o.extract_field("e")),
-            expiration_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationDate"),
-            ),
-            key_opts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyOpts"),
-            ),
-            key_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keySize"),
-            ),
-            key_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyType"),
-            ),
-            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultId"),
-            ),
-            n: pulumi_gestalt_rust::__private::into_domain(o.extract_field("n")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            not_before_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notBeforeDate"),
-            ),
-            public_key_openssh: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKeyOpenssh"),
-            ),
-            public_key_pem: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKeyPem"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            resource_versionless_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceVersionlessId"),
-            ),
-            rotation_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rotationPolicy"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            versionless_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionlessId"),
-            ),
-            x: pulumi_gestalt_rust::__private::into_domain(o.extract_field("x")),
-            y: pulumi_gestalt_rust::__private::into_domain(o.extract_field("y")),
+            curve: o.get_field("curve"),
+            e: o.get_field("e"),
+            expiration_date: o.get_field("expirationDate"),
+            key_opts: o.get_field("keyOpts"),
+            key_size: o.get_field("keySize"),
+            key_type: o.get_field("keyType"),
+            key_vault_id: o.get_field("keyVaultId"),
+            n: o.get_field("n"),
+            name: o.get_field("name"),
+            not_before_date: o.get_field("notBeforeDate"),
+            public_key_openssh: o.get_field("publicKeyOpenssh"),
+            public_key_pem: o.get_field("publicKeyPem"),
+            resource_id: o.get_field("resourceId"),
+            resource_versionless_id: o.get_field("resourceVersionlessId"),
+            rotation_policy: o.get_field("rotationPolicy"),
+            tags: o.get_field("tags"),
+            version: o.get_field("version"),
+            versionless_id: o.get_field("versionlessId"),
+            x: o.get_field("x"),
+            y: o.get_field("y"),
         }
     }
 }

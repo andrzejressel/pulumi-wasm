@@ -139,164 +139,83 @@ pub mod get_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetInstanceArgs,
     ) -> GetInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let self_link_binding_1 = args.self_link.get_output(context);
-        let self_link_binding = self_link_binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let self_link_binding = args.self_link.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:compute/getInstance:getInstance".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfLink".into(),
-                    value: &self_link_binding,
+                    value: self_link_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetInstanceResult {
-            advanced_machine_features: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advancedMachineFeatures"),
-            ),
-            allow_stopping_for_update: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowStoppingForUpdate"),
-            ),
-            attached_disks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachedDisks"),
-            ),
-            boot_disks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootDisks"),
-            ),
-            can_ip_forward: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("canIpForward"),
-            ),
-            confidential_instance_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("confidentialInstanceConfigs"),
-            ),
-            cpu_platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cpuPlatform"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            current_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("currentStatus"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            desired_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredStatus"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            enable_display: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableDisplay"),
-            ),
-            guest_accelerators: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("guestAccelerators"),
-            ),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceId"),
-            ),
-            key_revocation_action_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyRevocationActionType"),
-            ),
-            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labelFingerprint"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            machine_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("machineType"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            metadata_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadataFingerprint"),
-            ),
-            metadata_startup_script: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadataStartupScript"),
-            ),
-            min_cpu_platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minCpuPlatform"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_interfaces: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaces"),
-            ),
-            network_performance_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkPerformanceConfigs"),
-            ),
-            params: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("params"),
-            ),
-            partner_metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("partnerMetadata"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            reservation_affinities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservationAffinities"),
-            ),
-            resource_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourcePolicies"),
-            ),
-            schedulings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedulings"),
-            ),
-            scratch_disks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scratchDisks"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            service_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccounts"),
-            ),
-            shielded_instance_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shieldedInstanceConfigs"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsFingerprint"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            advanced_machine_features: o.get_field("advancedMachineFeatures"),
+            allow_stopping_for_update: o.get_field("allowStoppingForUpdate"),
+            attached_disks: o.get_field("attachedDisks"),
+            boot_disks: o.get_field("bootDisks"),
+            can_ip_forward: o.get_field("canIpForward"),
+            confidential_instance_configs: o.get_field("confidentialInstanceConfigs"),
+            cpu_platform: o.get_field("cpuPlatform"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            current_status: o.get_field("currentStatus"),
+            deletion_protection: o.get_field("deletionProtection"),
+            description: o.get_field("description"),
+            desired_status: o.get_field("desiredStatus"),
+            effective_labels: o.get_field("effectiveLabels"),
+            enable_display: o.get_field("enableDisplay"),
+            guest_accelerators: o.get_field("guestAccelerators"),
+            hostname: o.get_field("hostname"),
+            id: o.get_field("id"),
+            instance_id: o.get_field("instanceId"),
+            key_revocation_action_type: o.get_field("keyRevocationActionType"),
+            label_fingerprint: o.get_field("labelFingerprint"),
+            labels: o.get_field("labels"),
+            machine_type: o.get_field("machineType"),
+            metadata: o.get_field("metadata"),
+            metadata_fingerprint: o.get_field("metadataFingerprint"),
+            metadata_startup_script: o.get_field("metadataStartupScript"),
+            min_cpu_platform: o.get_field("minCpuPlatform"),
+            name: o.get_field("name"),
+            network_interfaces: o.get_field("networkInterfaces"),
+            network_performance_configs: o.get_field("networkPerformanceConfigs"),
+            params: o.get_field("params"),
+            partner_metadata: o.get_field("partnerMetadata"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            reservation_affinities: o.get_field("reservationAffinities"),
+            resource_policies: o.get_field("resourcePolicies"),
+            schedulings: o.get_field("schedulings"),
+            scratch_disks: o.get_field("scratchDisks"),
+            self_link: o.get_field("selfLink"),
+            service_accounts: o.get_field("serviceAccounts"),
+            shielded_instance_configs: o.get_field("shieldedInstanceConfigs"),
+            tags: o.get_field("tags"),
+            tags_fingerprint: o.get_field("tagsFingerprint"),
+            zone: o.get_field("zone"),
         }
     }
 }

@@ -238,128 +238,93 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let autoscaling_config_binding_1 = args.autoscaling_config.get_output(context);
-        let autoscaling_config_binding = autoscaling_config_binding_1.get_inner();
-        let config_binding_1 = args.config.get_output(context);
-        let config_binding = config_binding_1.get_inner();
-        let default_backup_schedule_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let autoscaling_config_binding = args.autoscaling_config.get_output(context);
+        let config_binding = args.config.get_output(context);
+        let default_backup_schedule_type_binding = args
             .default_backup_schedule_type
             .get_output(context);
-        let default_backup_schedule_type_binding = default_backup_schedule_type_binding_1
-            .get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let edition_binding_1 = args.edition.get_output(context);
-        let edition_binding = edition_binding_1.get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let num_nodes_binding_1 = args.num_nodes.get_output(context);
-        let num_nodes_binding = num_nodes_binding_1.get_inner();
-        let processing_units_binding_1 = args.processing_units.get_output(context);
-        let processing_units_binding = processing_units_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let display_name_binding = args.display_name.get_output(context);
+        let edition_binding = args.edition.get_output(context);
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let num_nodes_binding = args.num_nodes.get_output(context);
+        let processing_units_binding = args.processing_units.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:spanner/instance:Instance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingConfig".into(),
-                    value: &autoscaling_config_binding,
+                    value: autoscaling_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "config".into(),
-                    value: &config_binding,
+                    value: config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultBackupScheduleType".into(),
-                    value: &default_backup_schedule_type_binding,
+                    value: default_backup_schedule_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edition".into(),
-                    value: &edition_binding,
+                    value: edition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numNodes".into(),
-                    value: &num_nodes_binding,
+                    value: num_nodes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "processingUnits".into(),
-                    value: &processing_units_binding,
+                    value: processing_units_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceResult {
-            autoscaling_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoscalingConfig"),
-            ),
-            config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("config"),
-            ),
-            default_backup_schedule_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultBackupScheduleType"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            edition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edition"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            num_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numNodes"),
-            ),
-            processing_units: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("processingUnits"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            autoscaling_config: o.get_field("autoscalingConfig"),
+            config: o.get_field("config"),
+            default_backup_schedule_type: o.get_field("defaultBackupScheduleType"),
+            display_name: o.get_field("displayName"),
+            edition: o.get_field("edition"),
+            effective_labels: o.get_field("effectiveLabels"),
+            force_destroy: o.get_field("forceDestroy"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            num_nodes: o.get_field("numNodes"),
+            processing_units: o.get_field("processingUnits"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            state: o.get_field("state"),
         }
     }
 }

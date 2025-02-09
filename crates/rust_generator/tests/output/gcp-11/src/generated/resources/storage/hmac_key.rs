@@ -109,60 +109,46 @@ pub mod hmac_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HmacKeyArgs,
     ) -> HmacKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let service_account_email_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let project_binding = args.project.get_output(context);
+        let service_account_email_binding = args
             .service_account_email
             .get_output(context);
-        let service_account_email_binding = service_account_email_binding_1.get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let state_binding = args.state.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:storage/hmacKey:HmacKey".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountEmail".into(),
-                    value: &service_account_email_binding,
+                    value: service_account_email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HmacKeyResult {
-            access_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessId"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secret"),
-            ),
-            service_account_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountEmail"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            time_created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeCreated"),
-            ),
-            updated: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updated"),
-            ),
+            access_id: o.get_field("accessId"),
+            project: o.get_field("project"),
+            secret: o.get_field("secret"),
+            service_account_email: o.get_field("serviceAccountEmail"),
+            state: o.get_field("state"),
+            time_created: o.get_field("timeCreated"),
+            updated: o.get_field("updated"),
         }
     }
 }

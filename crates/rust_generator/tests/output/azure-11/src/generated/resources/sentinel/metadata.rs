@@ -216,217 +216,154 @@ pub mod metadata {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MetadataArgs,
     ) -> MetadataResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let author_binding_1 = args.author.get_output(context);
-        let author_binding = author_binding_1.get_inner();
-        let category_binding_1 = args.category.get_output(context);
-        let category_binding = category_binding_1.get_inner();
-        let content_id_binding_1 = args.content_id.get_output(context);
-        let content_id_binding = content_id_binding_1.get_inner();
-        let content_schema_version_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let author_binding = args.author.get_output(context);
+        let category_binding = args.category.get_output(context);
+        let content_id_binding = args.content_id.get_output(context);
+        let content_schema_version_binding = args
             .content_schema_version
             .get_output(context);
-        let content_schema_version_binding = content_schema_version_binding_1
-            .get_inner();
-        let custom_version_binding_1 = args.custom_version.get_output(context);
-        let custom_version_binding = custom_version_binding_1.get_inner();
-        let dependency_binding_1 = args.dependency.get_output(context);
-        let dependency_binding = dependency_binding_1.get_inner();
-        let first_publish_date_binding_1 = args.first_publish_date.get_output(context);
-        let first_publish_date_binding = first_publish_date_binding_1.get_inner();
-        let icon_id_binding_1 = args.icon_id.get_output(context);
-        let icon_id_binding = icon_id_binding_1.get_inner();
-        let kind_binding_1 = args.kind.get_output(context);
-        let kind_binding = kind_binding_1.get_inner();
-        let last_publish_date_binding_1 = args.last_publish_date.get_output(context);
-        let last_publish_date_binding = last_publish_date_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parent_id_binding_1 = args.parent_id.get_output(context);
-        let parent_id_binding = parent_id_binding_1.get_inner();
-        let preview_images_binding_1 = args.preview_images.get_output(context);
-        let preview_images_binding = preview_images_binding_1.get_inner();
-        let preview_images_darks_binding_1 = args
-            .preview_images_darks
-            .get_output(context);
-        let preview_images_darks_binding = preview_images_darks_binding_1.get_inner();
-        let providers_binding_1 = args.providers.get_output(context);
-        let providers_binding = providers_binding_1.get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let support_binding_1 = args.support.get_output(context);
-        let support_binding = support_binding_1.get_inner();
-        let threat_analysis_tactics_binding_1 = args
+        let custom_version_binding = args.custom_version.get_output(context);
+        let dependency_binding = args.dependency.get_output(context);
+        let first_publish_date_binding = args.first_publish_date.get_output(context);
+        let icon_id_binding = args.icon_id.get_output(context);
+        let kind_binding = args.kind.get_output(context);
+        let last_publish_date_binding = args.last_publish_date.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parent_id_binding = args.parent_id.get_output(context);
+        let preview_images_binding = args.preview_images.get_output(context);
+        let preview_images_darks_binding = args.preview_images_darks.get_output(context);
+        let providers_binding = args.providers.get_output(context);
+        let source_binding = args.source.get_output(context);
+        let support_binding = args.support.get_output(context);
+        let threat_analysis_tactics_binding = args
             .threat_analysis_tactics
             .get_output(context);
-        let threat_analysis_tactics_binding = threat_analysis_tactics_binding_1
-            .get_inner();
-        let threat_analysis_techniques_binding_1 = args
+        let threat_analysis_techniques_binding = args
             .threat_analysis_techniques
             .get_output(context);
-        let threat_analysis_techniques_binding = threat_analysis_techniques_binding_1
-            .get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let version_binding = args.version.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:sentinel/metadata:Metadata".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "author".into(),
-                    value: &author_binding,
+                    value: author_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "category".into(),
-                    value: &category_binding,
+                    value: category_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentId".into(),
-                    value: &content_id_binding,
+                    value: content_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentSchemaVersion".into(),
-                    value: &content_schema_version_binding,
+                    value: content_schema_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customVersion".into(),
-                    value: &custom_version_binding,
+                    value: custom_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dependency".into(),
-                    value: &dependency_binding,
+                    value: dependency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firstPublishDate".into(),
-                    value: &first_publish_date_binding,
+                    value: first_publish_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iconId".into(),
-                    value: &icon_id_binding,
+                    value: icon_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kind".into(),
-                    value: &kind_binding,
+                    value: kind_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lastPublishDate".into(),
-                    value: &last_publish_date_binding,
+                    value: last_publish_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentId".into(),
-                    value: &parent_id_binding,
+                    value: parent_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "previewImages".into(),
-                    value: &preview_images_binding,
+                    value: preview_images_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "previewImagesDarks".into(),
-                    value: &preview_images_darks_binding,
+                    value: preview_images_darks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providers".into(),
-                    value: &providers_binding,
+                    value: providers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "support".into(),
-                    value: &support_binding,
+                    value: support_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threatAnalysisTactics".into(),
-                    value: &threat_analysis_tactics_binding,
+                    value: threat_analysis_tactics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threatAnalysisTechniques".into(),
-                    value: &threat_analysis_techniques_binding,
+                    value: threat_analysis_techniques_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MetadataResult {
-            author: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("author"),
-            ),
-            category: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("category"),
-            ),
-            content_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentId"),
-            ),
-            content_schema_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentSchemaVersion"),
-            ),
-            custom_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customVersion"),
-            ),
-            dependency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dependency"),
-            ),
-            first_publish_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firstPublishDate"),
-            ),
-            icon_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iconId"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            last_publish_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastPublishDate"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentId"),
-            ),
-            preview_images: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("previewImages"),
-            ),
-            preview_images_darks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("previewImagesDarks"),
-            ),
-            providers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("providers"),
-            ),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("support"),
-            ),
-            threat_analysis_tactics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("threatAnalysisTactics"),
-            ),
-            threat_analysis_techniques: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("threatAnalysisTechniques"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            author: o.get_field("author"),
+            category: o.get_field("category"),
+            content_id: o.get_field("contentId"),
+            content_schema_version: o.get_field("contentSchemaVersion"),
+            custom_version: o.get_field("customVersion"),
+            dependency: o.get_field("dependency"),
+            first_publish_date: o.get_field("firstPublishDate"),
+            icon_id: o.get_field("iconId"),
+            kind: o.get_field("kind"),
+            last_publish_date: o.get_field("lastPublishDate"),
+            name: o.get_field("name"),
+            parent_id: o.get_field("parentId"),
+            preview_images: o.get_field("previewImages"),
+            preview_images_darks: o.get_field("previewImagesDarks"),
+            providers: o.get_field("providers"),
+            source: o.get_field("source"),
+            support: o.get_field("support"),
+            threat_analysis_tactics: o.get_field("threatAnalysisTactics"),
+            threat_analysis_techniques: o.get_field("threatAnalysisTechniques"),
+            version: o.get_field("version"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

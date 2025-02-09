@@ -82,83 +82,63 @@ pub mod cluster_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterEndpointArgs,
     ) -> ClusterEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_endpoint_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_endpoint_identifier_binding = args
             .cluster_endpoint_identifier
             .get_output(context);
-        let cluster_endpoint_identifier_binding = cluster_endpoint_identifier_binding_1
-            .get_inner();
-        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
-        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
-        let endpoint_type_binding_1 = args.endpoint_type.get_output(context);
-        let endpoint_type_binding = endpoint_type_binding_1.get_inner();
-        let excluded_members_binding_1 = args.excluded_members.get_output(context);
-        let excluded_members_binding = excluded_members_binding_1.get_inner();
-        let static_members_binding_1 = args.static_members.get_output(context);
-        let static_members_binding = static_members_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let cluster_identifier_binding = args.cluster_identifier.get_output(context);
+        let endpoint_type_binding = args.endpoint_type.get_output(context);
+        let excluded_members_binding = args.excluded_members.get_output(context);
+        let static_members_binding = args.static_members.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:neptune/clusterEndpoint:ClusterEndpoint".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterEndpointIdentifier".into(),
-                    value: &cluster_endpoint_identifier_binding,
+                    value: cluster_endpoint_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: &cluster_identifier_binding,
+                    value: cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointType".into(),
-                    value: &endpoint_type_binding,
+                    value: endpoint_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludedMembers".into(),
-                    value: &excluded_members_binding,
+                    value: excluded_members_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staticMembers".into(),
-                    value: &static_members_binding,
+                    value: static_members_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterEndpointResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cluster_endpoint_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterEndpointIdentifier"),
-            ),
-            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterIdentifier"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointType"),
-            ),
-            excluded_members: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excludedMembers"),
-            ),
-            static_members: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("staticMembers"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            cluster_endpoint_identifier: o.get_field("clusterEndpointIdentifier"),
+            cluster_identifier: o.get_field("clusterIdentifier"),
+            endpoint: o.get_field("endpoint"),
+            endpoint_type: o.get_field("endpointType"),
+            excluded_members: o.get_field("excludedMembers"),
+            static_members: o.get_field("staticMembers"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

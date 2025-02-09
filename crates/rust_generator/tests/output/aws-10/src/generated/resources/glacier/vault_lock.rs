@@ -94,59 +94,48 @@ pub mod vault_lock {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VaultLockArgs,
     ) -> VaultLockResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let complete_lock_binding_1 = args.complete_lock.get_output(context);
-        let complete_lock_binding = complete_lock_binding_1.get_inner();
-        let ignore_deletion_error_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let complete_lock_binding = args.complete_lock.get_output(context);
+        let ignore_deletion_error_binding = args
             .ignore_deletion_error
             .get_output(context);
-        let ignore_deletion_error_binding = ignore_deletion_error_binding_1.get_inner();
-        let policy_binding_1 = args.policy.get_output(context);
-        let policy_binding = policy_binding_1.get_inner();
-        let vault_name_binding_1 = args.vault_name.get_output(context);
-        let vault_name_binding = vault_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let policy_binding = args.policy.get_output(context);
+        let vault_name_binding = args.vault_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:glacier/vaultLock:VaultLock".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "completeLock".into(),
-                    value: &complete_lock_binding,
+                    value: complete_lock_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreDeletionError".into(),
-                    value: &ignore_deletion_error_binding,
+                    value: ignore_deletion_error_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: &policy_binding,
+                    value: policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vaultName".into(),
-                    value: &vault_name_binding,
+                    value: vault_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VaultLockResult {
-            complete_lock: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("completeLock"),
-            ),
-            ignore_deletion_error: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ignoreDeletionError"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            vault_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vaultName"),
-            ),
+            complete_lock: o.get_field("completeLock"),
+            ignore_deletion_error: o.get_field("ignoreDeletionError"),
+            policy: o.get_field("policy"),
+            vault_name: o.get_field("vaultName"),
         }
     }
 }

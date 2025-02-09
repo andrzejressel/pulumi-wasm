@@ -349,132 +349,94 @@ pub mod application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApplicationArgs,
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_configuration_binding = args
             .application_configuration
             .get_output(context);
-        let application_configuration_binding = application_configuration_binding_1
-            .get_inner();
-        let application_mode_binding_1 = args.application_mode.get_output(context);
-        let application_mode_binding = application_mode_binding_1.get_inner();
-        let cloudwatch_logging_options_binding_1 = args
+        let application_mode_binding = args.application_mode.get_output(context);
+        let cloudwatch_logging_options_binding = args
             .cloudwatch_logging_options
             .get_output(context);
-        let cloudwatch_logging_options_binding = cloudwatch_logging_options_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let force_stop_binding_1 = args.force_stop.get_output(context);
-        let force_stop_binding = force_stop_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let runtime_environment_binding_1 = args.runtime_environment.get_output(context);
-        let runtime_environment_binding = runtime_environment_binding_1.get_inner();
-        let service_execution_role_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let force_stop_binding = args.force_stop.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let runtime_environment_binding = args.runtime_environment.get_output(context);
+        let service_execution_role_binding = args
             .service_execution_role
             .get_output(context);
-        let service_execution_role_binding = service_execution_role_binding_1
-            .get_inner();
-        let start_application_binding_1 = args.start_application.get_output(context);
-        let start_application_binding = start_application_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let start_application_binding = args.start_application.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:kinesisanalyticsv2/application:Application".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationConfiguration".into(),
-                    value: &application_configuration_binding,
+                    value: application_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationMode".into(),
-                    value: &application_mode_binding,
+                    value: application_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchLoggingOptions".into(),
-                    value: &cloudwatch_logging_options_binding,
+                    value: cloudwatch_logging_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceStop".into(),
-                    value: &force_stop_binding,
+                    value: force_stop_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeEnvironment".into(),
-                    value: &runtime_environment_binding,
+                    value: runtime_environment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceExecutionRole".into(),
-                    value: &service_execution_role_binding,
+                    value: service_execution_role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startApplication".into(),
-                    value: &start_application_binding,
+                    value: start_application_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApplicationResult {
-            application_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationConfiguration"),
-            ),
-            application_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationMode"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cloudwatch_logging_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudwatchLoggingOptions"),
-            ),
-            create_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            force_stop: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceStop"),
-            ),
-            last_update_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdateTimestamp"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            runtime_environment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtimeEnvironment"),
-            ),
-            service_execution_role: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceExecutionRole"),
-            ),
-            start_application: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startApplication"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            version_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionId"),
-            ),
+            application_configuration: o.get_field("applicationConfiguration"),
+            application_mode: o.get_field("applicationMode"),
+            arn: o.get_field("arn"),
+            cloudwatch_logging_options: o.get_field("cloudwatchLoggingOptions"),
+            create_timestamp: o.get_field("createTimestamp"),
+            description: o.get_field("description"),
+            force_stop: o.get_field("forceStop"),
+            last_update_timestamp: o.get_field("lastUpdateTimestamp"),
+            name: o.get_field("name"),
+            runtime_environment: o.get_field("runtimeEnvironment"),
+            service_execution_role: o.get_field("serviceExecutionRole"),
+            start_application: o.get_field("startApplication"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            version_id: o.get_field("versionId"),
         }
     }
 }

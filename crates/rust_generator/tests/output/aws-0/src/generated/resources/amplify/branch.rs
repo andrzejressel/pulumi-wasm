@@ -263,201 +263,142 @@ pub mod branch {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BranchArgs,
     ) -> BranchResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_id_binding_1 = args.app_id.get_output(context);
-        let app_id_binding = app_id_binding_1.get_inner();
-        let backend_environment_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_id_binding = args.app_id.get_output(context);
+        let backend_environment_arn_binding = args
             .backend_environment_arn
             .get_output(context);
-        let backend_environment_arn_binding = backend_environment_arn_binding_1
-            .get_inner();
-        let basic_auth_credentials_binding_1 = args
+        let basic_auth_credentials_binding = args
             .basic_auth_credentials
             .get_output(context);
-        let basic_auth_credentials_binding = basic_auth_credentials_binding_1
-            .get_inner();
-        let branch_name_binding_1 = args.branch_name.get_output(context);
-        let branch_name_binding = branch_name_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let enable_auto_build_binding_1 = args.enable_auto_build.get_output(context);
-        let enable_auto_build_binding = enable_auto_build_binding_1.get_inner();
-        let enable_basic_auth_binding_1 = args.enable_basic_auth.get_output(context);
-        let enable_basic_auth_binding = enable_basic_auth_binding_1.get_inner();
-        let enable_notification_binding_1 = args.enable_notification.get_output(context);
-        let enable_notification_binding = enable_notification_binding_1.get_inner();
-        let enable_performance_mode_binding_1 = args
+        let branch_name_binding = args.branch_name.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let enable_auto_build_binding = args.enable_auto_build.get_output(context);
+        let enable_basic_auth_binding = args.enable_basic_auth.get_output(context);
+        let enable_notification_binding = args.enable_notification.get_output(context);
+        let enable_performance_mode_binding = args
             .enable_performance_mode
             .get_output(context);
-        let enable_performance_mode_binding = enable_performance_mode_binding_1
-            .get_inner();
-        let enable_pull_request_preview_binding_1 = args
+        let enable_pull_request_preview_binding = args
             .enable_pull_request_preview
             .get_output(context);
-        let enable_pull_request_preview_binding = enable_pull_request_preview_binding_1
-            .get_inner();
-        let environment_variables_binding_1 = args
+        let environment_variables_binding = args
             .environment_variables
             .get_output(context);
-        let environment_variables_binding = environment_variables_binding_1.get_inner();
-        let framework_binding_1 = args.framework.get_output(context);
-        let framework_binding = framework_binding_1.get_inner();
-        let pull_request_environment_name_binding_1 = args
+        let framework_binding = args.framework.get_output(context);
+        let pull_request_environment_name_binding = args
             .pull_request_environment_name
             .get_output(context);
-        let pull_request_environment_name_binding = pull_request_environment_name_binding_1
-            .get_inner();
-        let stage_binding_1 = args.stage.get_output(context);
-        let stage_binding = stage_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let ttl_binding_1 = args.ttl.get_output(context);
-        let ttl_binding = ttl_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let stage_binding = args.stage.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let ttl_binding = args.ttl.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:amplify/branch:Branch".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appId".into(),
-                    value: &app_id_binding,
+                    value: app_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendEnvironmentArn".into(),
-                    value: &backend_environment_arn_binding,
+                    value: backend_environment_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basicAuthCredentials".into(),
-                    value: &basic_auth_credentials_binding,
+                    value: basic_auth_credentials_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "branchName".into(),
-                    value: &branch_name_binding,
+                    value: branch_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableAutoBuild".into(),
-                    value: &enable_auto_build_binding,
+                    value: enable_auto_build_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableBasicAuth".into(),
-                    value: &enable_basic_auth_binding,
+                    value: enable_basic_auth_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableNotification".into(),
-                    value: &enable_notification_binding,
+                    value: enable_notification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enablePerformanceMode".into(),
-                    value: &enable_performance_mode_binding,
+                    value: enable_performance_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enablePullRequestPreview".into(),
-                    value: &enable_pull_request_preview_binding,
+                    value: enable_pull_request_preview_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentVariables".into(),
-                    value: &environment_variables_binding,
+                    value: environment_variables_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "framework".into(),
-                    value: &framework_binding,
+                    value: framework_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pullRequestEnvironmentName".into(),
-                    value: &pull_request_environment_name_binding,
+                    value: pull_request_environment_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stage".into(),
-                    value: &stage_binding,
+                    value: stage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: &ttl_binding,
+                    value: ttl_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BranchResult {
-            app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            associated_resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("associatedResources"),
-            ),
-            backend_environment_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendEnvironmentArn"),
-            ),
-            basic_auth_credentials: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("basicAuthCredentials"),
-            ),
-            branch_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("branchName"),
-            ),
-            custom_domains: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDomains"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            destination_branch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationBranch"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            enable_auto_build: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableAutoBuild"),
-            ),
-            enable_basic_auth: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableBasicAuth"),
-            ),
-            enable_notification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableNotification"),
-            ),
-            enable_performance_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enablePerformanceMode"),
-            ),
-            enable_pull_request_preview: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enablePullRequestPreview"),
-            ),
-            environment_variables: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentVariables"),
-            ),
-            framework: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("framework"),
-            ),
-            pull_request_environment_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pullRequestEnvironmentName"),
-            ),
-            source_branch: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceBranch"),
-            ),
-            stage: pulumi_gestalt_rust::__private::into_domain(o.extract_field("stage")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
+            app_id: o.get_field("appId"),
+            arn: o.get_field("arn"),
+            associated_resources: o.get_field("associatedResources"),
+            backend_environment_arn: o.get_field("backendEnvironmentArn"),
+            basic_auth_credentials: o.get_field("basicAuthCredentials"),
+            branch_name: o.get_field("branchName"),
+            custom_domains: o.get_field("customDomains"),
+            description: o.get_field("description"),
+            destination_branch: o.get_field("destinationBranch"),
+            display_name: o.get_field("displayName"),
+            enable_auto_build: o.get_field("enableAutoBuild"),
+            enable_basic_auth: o.get_field("enableBasicAuth"),
+            enable_notification: o.get_field("enableNotification"),
+            enable_performance_mode: o.get_field("enablePerformanceMode"),
+            enable_pull_request_preview: o.get_field("enablePullRequestPreview"),
+            environment_variables: o.get_field("environmentVariables"),
+            framework: o.get_field("framework"),
+            pull_request_environment_name: o.get_field("pullRequestEnvironmentName"),
+            source_branch: o.get_field("sourceBranch"),
+            stage: o.get_field("stage"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            ttl: o.get_field("ttl"),
         }
     }
 }

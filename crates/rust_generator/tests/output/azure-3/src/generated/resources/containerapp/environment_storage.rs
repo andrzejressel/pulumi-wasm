@@ -118,76 +118,60 @@ pub mod environment_storage {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EnvironmentStorageArgs,
     ) -> EnvironmentStorageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_key_binding_1 = args.access_key.get_output(context);
-        let access_key_binding = access_key_binding_1.get_inner();
-        let access_mode_binding_1 = args.access_mode.get_output(context);
-        let access_mode_binding = access_mode_binding_1.get_inner();
-        let account_name_binding_1 = args.account_name.get_output(context);
-        let account_name_binding = account_name_binding_1.get_inner();
-        let container_app_environment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_key_binding = args.access_key.get_output(context);
+        let access_mode_binding = args.access_mode.get_output(context);
+        let account_name_binding = args.account_name.get_output(context);
+        let container_app_environment_id_binding = args
             .container_app_environment_id
             .get_output(context);
-        let container_app_environment_id_binding = container_app_environment_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let share_name_binding_1 = args.share_name.get_output(context);
-        let share_name_binding = share_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let share_name_binding = args.share_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerapp/environmentStorage:EnvironmentStorage".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessKey".into(),
-                    value: &access_key_binding,
+                    value: access_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessMode".into(),
-                    value: &access_mode_binding,
+                    value: access_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: &account_name_binding,
+                    value: account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerAppEnvironmentId".into(),
-                    value: &container_app_environment_id_binding,
+                    value: container_app_environment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareName".into(),
-                    value: &share_name_binding,
+                    value: share_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EnvironmentStorageResult {
-            access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessKey"),
-            ),
-            access_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessMode"),
-            ),
-            account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountName"),
-            ),
-            container_app_environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerAppEnvironmentId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            share_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shareName"),
-            ),
+            access_key: o.get_field("accessKey"),
+            access_mode: o.get_field("accessMode"),
+            account_name: o.get_field("accountName"),
+            container_app_environment_id: o.get_field("containerAppEnvironmentId"),
+            name: o.get_field("name"),
+            share_name: o.get_field("shareName"),
         }
     }
 }

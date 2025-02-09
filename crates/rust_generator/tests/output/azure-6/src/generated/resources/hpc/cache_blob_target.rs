@@ -143,75 +143,58 @@ pub mod cache_blob_target {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CacheBlobTargetArgs,
     ) -> CacheBlobTargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_policy_name_binding_1 = args.access_policy_name.get_output(context);
-        let access_policy_name_binding = access_policy_name_binding_1.get_inner();
-        let cache_name_binding_1 = args.cache_name.get_output(context);
-        let cache_name_binding = cache_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let namespace_path_binding_1 = args.namespace_path.get_output(context);
-        let namespace_path_binding = namespace_path_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let storage_container_id_binding_1 = args
-            .storage_container_id
-            .get_output(context);
-        let storage_container_id_binding = storage_container_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_policy_name_binding = args.access_policy_name.get_output(context);
+        let cache_name_binding = args.cache_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let namespace_path_binding = args.namespace_path.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let storage_container_id_binding = args.storage_container_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:hpc/cacheBlobTarget:CacheBlobTarget".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessPolicyName".into(),
-                    value: &access_policy_name_binding,
+                    value: access_policy_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheName".into(),
-                    value: &cache_name_binding,
+                    value: cache_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespacePath".into(),
-                    value: &namespace_path_binding,
+                    value: namespace_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageContainerId".into(),
-                    value: &storage_container_id_binding,
+                    value: storage_container_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CacheBlobTargetResult {
-            access_policy_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessPolicyName"),
-            ),
-            cache_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespacePath"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            storage_container_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageContainerId"),
-            ),
+            access_policy_name: o.get_field("accessPolicyName"),
+            cache_name: o.get_field("cacheName"),
+            name: o.get_field("name"),
+            namespace_path: o.get_field("namespacePath"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            storage_container_id: o.get_field("storageContainerId"),
         }
     }
 }

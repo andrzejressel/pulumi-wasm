@@ -60,58 +60,47 @@ pub mod group_membership {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GroupMembershipArgs,
     ) -> GroupMembershipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding_1 = args.aws_account_id.get_output(context);
-        let aws_account_id_binding = aws_account_id_binding_1.get_inner();
-        let group_name_binding_1 = args.group_name.get_output(context);
-        let group_name_binding = group_name_binding_1.get_inner();
-        let member_name_binding_1 = args.member_name.get_output(context);
-        let member_name_binding = member_name_binding_1.get_inner();
-        let namespace_binding_1 = args.namespace.get_output(context);
-        let namespace_binding = namespace_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aws_account_id_binding = args.aws_account_id.get_output(context);
+        let group_name_binding = args.group_name.get_output(context);
+        let member_name_binding = args.member_name.get_output(context);
+        let namespace_binding = args.namespace.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:quicksight/groupMembership:GroupMembership".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: &aws_account_id_binding,
+                    value: aws_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupName".into(),
-                    value: &group_name_binding,
+                    value: group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memberName".into(),
-                    value: &member_name_binding,
+                    value: member_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespace".into(),
-                    value: &namespace_binding,
+                    value: namespace_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GroupMembershipResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groupName"),
-            ),
-            member_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memberName"),
-            ),
-            namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespace"),
-            ),
+            arn: o.get_field("arn"),
+            aws_account_id: o.get_field("awsAccountId"),
+            group_name: o.get_field("groupName"),
+            member_name: o.get_field("memberName"),
+            namespace: o.get_field("namespace"),
         }
     }
 }

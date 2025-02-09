@@ -94,137 +94,82 @@ pub mod get_object {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetObjectArgs,
     ) -> GetObjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let checksum_mode_binding_1 = args.checksum_mode.get_output(context);
-        let checksum_mode_binding = checksum_mode_binding_1.get_inner();
-        let key_binding_1 = args.key.get_output(context);
-        let key_binding = key_binding_1.get_inner();
-        let range_binding_1 = args.range.get_output(context);
-        let range_binding = range_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let version_id_binding_1 = args.version_id.get_output(context);
-        let version_id_binding = version_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_binding = args.bucket.get_output(context);
+        let checksum_mode_binding = args.checksum_mode.get_output(context);
+        let key_binding = args.key.get_output(context);
+        let range_binding = args.range.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let version_id_binding = args.version_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:s3/getObject:getObject".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "checksumMode".into(),
-                    value: &checksum_mode_binding,
+                    value: checksum_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: &key_binding,
+                    value: key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "range".into(),
-                    value: &range_binding,
+                    value: range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionId".into(),
-                    value: &version_id_binding,
+                    value: version_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetObjectResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            body: pulumi_gestalt_rust::__private::into_domain(o.extract_field("body")),
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            bucket_key_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketKeyEnabled"),
-            ),
-            cache_control: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheControl"),
-            ),
-            checksum_crc32: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checksumCrc32"),
-            ),
-            checksum_crc32c: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checksumCrc32c"),
-            ),
-            checksum_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checksumMode"),
-            ),
-            checksum_sha1: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checksumSha1"),
-            ),
-            checksum_sha256: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("checksumSha256"),
-            ),
-            content_disposition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentDisposition"),
-            ),
-            content_encoding: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentEncoding"),
-            ),
-            content_language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentLanguage"),
-            ),
-            content_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentLength"),
-            ),
-            content_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentType"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            expiration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiration"),
-            ),
-            expires: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expires"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
-            last_modified: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModified"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            object_lock_legal_hold_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectLockLegalHoldStatus"),
-            ),
-            object_lock_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectLockMode"),
-            ),
-            object_lock_retain_until_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("objectLockRetainUntilDate"),
-            ),
-            range: pulumi_gestalt_rust::__private::into_domain(o.extract_field("range")),
-            server_side_encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverSideEncryption"),
-            ),
-            sse_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sseKmsKeyId"),
-            ),
-            storage_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageClass"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            version_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionId"),
-            ),
-            website_redirect_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("websiteRedirectLocation"),
-            ),
+            arn: o.get_field("arn"),
+            body: o.get_field("body"),
+            bucket: o.get_field("bucket"),
+            bucket_key_enabled: o.get_field("bucketKeyEnabled"),
+            cache_control: o.get_field("cacheControl"),
+            checksum_crc32: o.get_field("checksumCrc32"),
+            checksum_crc32c: o.get_field("checksumCrc32c"),
+            checksum_mode: o.get_field("checksumMode"),
+            checksum_sha1: o.get_field("checksumSha1"),
+            checksum_sha256: o.get_field("checksumSha256"),
+            content_disposition: o.get_field("contentDisposition"),
+            content_encoding: o.get_field("contentEncoding"),
+            content_language: o.get_field("contentLanguage"),
+            content_length: o.get_field("contentLength"),
+            content_type: o.get_field("contentType"),
+            etag: o.get_field("etag"),
+            expiration: o.get_field("expiration"),
+            expires: o.get_field("expires"),
+            id: o.get_field("id"),
+            key: o.get_field("key"),
+            last_modified: o.get_field("lastModified"),
+            metadata: o.get_field("metadata"),
+            object_lock_legal_hold_status: o.get_field("objectLockLegalHoldStatus"),
+            object_lock_mode: o.get_field("objectLockMode"),
+            object_lock_retain_until_date: o.get_field("objectLockRetainUntilDate"),
+            range: o.get_field("range"),
+            server_side_encryption: o.get_field("serverSideEncryption"),
+            sse_kms_key_id: o.get_field("sseKmsKeyId"),
+            storage_class: o.get_field("storageClass"),
+            tags: o.get_field("tags"),
+            version_id: o.get_field("versionId"),
+            website_redirect_location: o.get_field("websiteRedirectLocation"),
         }
     }
 }

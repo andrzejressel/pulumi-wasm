@@ -31,48 +31,41 @@ pub mod get_outpost_instance_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetOutpostInstanceTypeArgs,
     ) -> GetOutpostInstanceTypeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let instance_type_binding_1 = args.instance_type.get_output(context);
-        let instance_type_binding = instance_type_binding_1.get_inner();
-        let preferred_instance_types_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let instance_type_binding = args.instance_type.get_output(context);
+        let preferred_instance_types_binding = args
             .preferred_instance_types
             .get_output(context);
-        let preferred_instance_types_binding = preferred_instance_types_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:outposts/getOutpostInstanceType:getOutpostInstanceType".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: &instance_type_binding,
+                    value: instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredInstanceTypes".into(),
-                    value: &preferred_instance_types_binding,
+                    value: preferred_instance_types_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetOutpostInstanceTypeResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            preferred_instance_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredInstanceTypes"),
-            ),
+            arn: o.get_field("arn"),
+            id: o.get_field("id"),
+            instance_type: o.get_field("instanceType"),
+            preferred_instance_types: o.get_field("preferredInstanceTypes"),
         }
     }
 }

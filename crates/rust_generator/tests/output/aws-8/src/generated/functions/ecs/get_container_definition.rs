@@ -43,58 +43,41 @@ pub mod get_container_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetContainerDefinitionArgs,
     ) -> GetContainerDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_name_binding_1 = args.container_name.get_output(context);
-        let container_name_binding = container_name_binding_1.get_inner();
-        let task_definition_binding_1 = args.task_definition.get_output(context);
-        let task_definition_binding = task_definition_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let container_name_binding = args.container_name.get_output(context);
+        let task_definition_binding = args.task_definition.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ecs/getContainerDefinition:getContainerDefinition".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerName".into(),
-                    value: &container_name_binding,
+                    value: container_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskDefinition".into(),
-                    value: &task_definition_binding,
+                    value: task_definition_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetContainerDefinitionResult {
-            container_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerName"),
-            ),
-            cpu: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cpu")),
-            disable_networking: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableNetworking"),
-            ),
-            docker_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dockerLabels"),
-            ),
-            environment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environment"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            image: pulumi_gestalt_rust::__private::into_domain(o.extract_field("image")),
-            image_digest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageDigest"),
-            ),
-            memory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memory"),
-            ),
-            memory_reservation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("memoryReservation"),
-            ),
-            task_definition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskDefinition"),
-            ),
+            container_name: o.get_field("containerName"),
+            cpu: o.get_field("cpu"),
+            disable_networking: o.get_field("disableNetworking"),
+            docker_labels: o.get_field("dockerLabels"),
+            environment: o.get_field("environment"),
+            id: o.get_field("id"),
+            image: o.get_field("image"),
+            image_digest: o.get_field("imageDigest"),
+            memory: o.get_field("memory"),
+            memory_reservation: o.get_field("memoryReservation"),
+            task_definition: o.get_field("taskDefinition"),
         }
     }
 }

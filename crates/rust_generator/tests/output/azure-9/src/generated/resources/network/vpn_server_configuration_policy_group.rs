@@ -103,68 +103,55 @@ pub mod vpn_server_configuration_policy_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpnServerConfigurationPolicyGroupArgs,
     ) -> VpnServerConfigurationPolicyGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let is_default_binding_1 = args.is_default.get_output(context);
-        let is_default_binding = is_default_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let policies_binding_1 = args.policies.get_output(context);
-        let policies_binding = policies_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let vpn_server_configuration_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let is_default_binding = args.is_default.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let policies_binding = args.policies.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let vpn_server_configuration_id_binding = args
             .vpn_server_configuration_id
             .get_output(context);
-        let vpn_server_configuration_id_binding = vpn_server_configuration_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isDefault".into(),
-                    value: &is_default_binding,
+                    value: is_default_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policies".into(),
-                    value: &policies_binding,
+                    value: policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnServerConfigurationId".into(),
-                    value: &vpn_server_configuration_id_binding,
+                    value: vpn_server_configuration_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpnServerConfigurationPolicyGroupResult {
-            is_default: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isDefault"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policies"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            vpn_server_configuration_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnServerConfigurationId"),
-            ),
+            is_default: o.get_field("isDefault"),
+            name: o.get_field("name"),
+            policies: o.get_field("policies"),
+            priority: o.get_field("priority"),
+            vpn_server_configuration_id: o.get_field("vpnServerConfigurationId"),
         }
     }
 }

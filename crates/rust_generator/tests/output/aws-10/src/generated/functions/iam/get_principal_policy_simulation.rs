@@ -90,131 +90,93 @@ pub mod get_principal_policy_simulation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPrincipalPolicySimulationArgs,
     ) -> GetPrincipalPolicySimulationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_names_binding_1 = args.action_names.get_output(context);
-        let action_names_binding = action_names_binding_1.get_inner();
-        let additional_policies_jsons_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_names_binding = args.action_names.get_output(context);
+        let additional_policies_jsons_binding = args
             .additional_policies_jsons
             .get_output(context);
-        let additional_policies_jsons_binding = additional_policies_jsons_binding_1
-            .get_inner();
-        let caller_arn_binding_1 = args.caller_arn.get_output(context);
-        let caller_arn_binding = caller_arn_binding_1.get_inner();
-        let contexts_binding_1 = args.contexts.get_output(context);
-        let contexts_binding = contexts_binding_1.get_inner();
-        let permissions_boundary_policies_jsons_binding_1 = args
+        let caller_arn_binding = args.caller_arn.get_output(context);
+        let contexts_binding = args.contexts.get_output(context);
+        let permissions_boundary_policies_jsons_binding = args
             .permissions_boundary_policies_jsons
             .get_output(context);
-        let permissions_boundary_policies_jsons_binding = permissions_boundary_policies_jsons_binding_1
-            .get_inner();
-        let policy_source_arn_binding_1 = args.policy_source_arn.get_output(context);
-        let policy_source_arn_binding = policy_source_arn_binding_1.get_inner();
-        let resource_arns_binding_1 = args.resource_arns.get_output(context);
-        let resource_arns_binding = resource_arns_binding_1.get_inner();
-        let resource_handling_option_binding_1 = args
+        let policy_source_arn_binding = args.policy_source_arn.get_output(context);
+        let resource_arns_binding = args.resource_arns.get_output(context);
+        let resource_handling_option_binding = args
             .resource_handling_option
             .get_output(context);
-        let resource_handling_option_binding = resource_handling_option_binding_1
-            .get_inner();
-        let resource_owner_account_id_binding_1 = args
+        let resource_owner_account_id_binding = args
             .resource_owner_account_id
             .get_output(context);
-        let resource_owner_account_id_binding = resource_owner_account_id_binding_1
-            .get_inner();
-        let resource_policy_json_binding_1 = args
-            .resource_policy_json
-            .get_output(context);
-        let resource_policy_json_binding = resource_policy_json_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let resource_policy_json_binding = args.resource_policy_json.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionNames".into(),
-                    value: &action_names_binding,
+                    value: action_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalPoliciesJsons".into(),
-                    value: &additional_policies_jsons_binding,
+                    value: additional_policies_jsons_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "callerArn".into(),
-                    value: &caller_arn_binding,
+                    value: caller_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contexts".into(),
-                    value: &contexts_binding,
+                    value: contexts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionsBoundaryPoliciesJsons".into(),
-                    value: &permissions_boundary_policies_jsons_binding,
+                    value: permissions_boundary_policies_jsons_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policySourceArn".into(),
-                    value: &policy_source_arn_binding,
+                    value: policy_source_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArns".into(),
-                    value: &resource_arns_binding,
+                    value: resource_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceHandlingOption".into(),
-                    value: &resource_handling_option_binding,
+                    value: resource_handling_option_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceOwnerAccountId".into(),
-                    value: &resource_owner_account_id_binding,
+                    value: resource_owner_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourcePolicyJson".into(),
-                    value: &resource_policy_json_binding,
+                    value: resource_policy_json_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPrincipalPolicySimulationResult {
-            action_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionNames"),
-            ),
-            additional_policies_jsons: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalPoliciesJsons"),
-            ),
-            all_allowed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allAllowed"),
-            ),
-            caller_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("callerArn"),
-            ),
-            contexts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contexts"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            permissions_boundary_policies_jsons: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissionsBoundaryPoliciesJsons"),
-            ),
-            policy_source_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policySourceArn"),
-            ),
-            resource_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceArns"),
-            ),
-            resource_handling_option: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceHandlingOption"),
-            ),
-            resource_owner_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceOwnerAccountId"),
-            ),
-            resource_policy_json: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourcePolicyJson"),
-            ),
-            results: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("results"),
-            ),
+            action_names: o.get_field("actionNames"),
+            additional_policies_jsons: o.get_field("additionalPoliciesJsons"),
+            all_allowed: o.get_field("allAllowed"),
+            caller_arn: o.get_field("callerArn"),
+            contexts: o.get_field("contexts"),
+            id: o.get_field("id"),
+            permissions_boundary_policies_jsons: o
+                .get_field("permissionsBoundaryPoliciesJsons"),
+            policy_source_arn: o.get_field("policySourceArn"),
+            resource_arns: o.get_field("resourceArns"),
+            resource_handling_option: o.get_field("resourceHandlingOption"),
+            resource_owner_account_id: o.get_field("resourceOwnerAccountId"),
+            resource_policy_json: o.get_field("resourcePolicyJson"),
+            results: o.get_field("results"),
         }
     }
 }

@@ -74,55 +74,46 @@ pub mod service_action {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceActionArgs,
     ) -> ServiceActionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding_1 = args.accept_language.get_output(context);
-        let accept_language_binding = accept_language_binding_1.get_inner();
-        let definition_binding_1 = args.definition.get_output(context);
-        let definition_binding = definition_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accept_language_binding = args.accept_language.get_output(context);
+        let definition_binding = args.definition.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:servicecatalog/serviceAction:ServiceAction".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptLanguage".into(),
-                    value: &accept_language_binding,
+                    value: accept_language_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "definition".into(),
-                    value: &definition_binding,
+                    value: definition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceActionResult {
-            accept_language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceptLanguage"),
-            ),
-            definition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("definition"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            accept_language: o.get_field("acceptLanguage"),
+            definition: o.get_field("definition"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
         }
     }
 }

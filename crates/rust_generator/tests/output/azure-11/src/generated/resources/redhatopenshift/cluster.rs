@@ -236,119 +236,89 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_server_profile_binding_1 = args.api_server_profile.get_output(context);
-        let api_server_profile_binding = api_server_profile_binding_1.get_inner();
-        let cluster_profile_binding_1 = args.cluster_profile.get_output(context);
-        let cluster_profile_binding = cluster_profile_binding_1.get_inner();
-        let ingress_profile_binding_1 = args.ingress_profile.get_output(context);
-        let ingress_profile_binding = ingress_profile_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let main_profile_binding_1 = args.main_profile.get_output(context);
-        let main_profile_binding = main_profile_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_profile_binding_1 = args.network_profile.get_output(context);
-        let network_profile_binding = network_profile_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let service_principal_binding_1 = args.service_principal.get_output(context);
-        let service_principal_binding = service_principal_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let worker_profile_binding_1 = args.worker_profile.get_output(context);
-        let worker_profile_binding = worker_profile_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_server_profile_binding = args.api_server_profile.get_output(context);
+        let cluster_profile_binding = args.cluster_profile.get_output(context);
+        let ingress_profile_binding = args.ingress_profile.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let main_profile_binding = args.main_profile.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_profile_binding = args.network_profile.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let service_principal_binding = args.service_principal.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let worker_profile_binding = args.worker_profile.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:redhatopenshift/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiServerProfile".into(),
-                    value: &api_server_profile_binding,
+                    value: api_server_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterProfile".into(),
-                    value: &cluster_profile_binding,
+                    value: cluster_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingressProfile".into(),
-                    value: &ingress_profile_binding,
+                    value: ingress_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mainProfile".into(),
-                    value: &main_profile_binding,
+                    value: main_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkProfile".into(),
-                    value: &network_profile_binding,
+                    value: network_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrincipal".into(),
-                    value: &service_principal_binding,
+                    value: service_principal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerProfile".into(),
-                    value: &worker_profile_binding,
+                    value: worker_profile_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            api_server_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiServerProfile"),
-            ),
-            cluster_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterProfile"),
-            ),
-            console_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("consoleUrl"),
-            ),
-            ingress_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingressProfile"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            main_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mainProfile"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkProfile"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            service_principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicePrincipal"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            worker_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workerProfile"),
-            ),
+            api_server_profile: o.get_field("apiServerProfile"),
+            cluster_profile: o.get_field("clusterProfile"),
+            console_url: o.get_field("consoleUrl"),
+            ingress_profile: o.get_field("ingressProfile"),
+            location: o.get_field("location"),
+            main_profile: o.get_field("mainProfile"),
+            name: o.get_field("name"),
+            network_profile: o.get_field("networkProfile"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            service_principal: o.get_field("servicePrincipal"),
+            tags: o.get_field("tags"),
+            worker_profile: o.get_field("workerProfile"),
         }
     }
 }

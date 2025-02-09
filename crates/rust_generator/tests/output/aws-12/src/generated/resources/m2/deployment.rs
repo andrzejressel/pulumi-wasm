@@ -74,76 +74,59 @@ pub mod deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DeploymentArgs,
     ) -> DeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding_1 = args.application_id.get_output(context);
-        let application_id_binding = application_id_binding_1.get_inner();
-        let application_version_binding_1 = args.application_version.get_output(context);
-        let application_version_binding = application_version_binding_1.get_inner();
-        let environment_id_binding_1 = args.environment_id.get_output(context);
-        let environment_id_binding = environment_id_binding_1.get_inner();
-        let force_stop_binding_1 = args.force_stop.get_output(context);
-        let force_stop_binding = force_stop_binding_1.get_inner();
-        let start_binding_1 = args.start.get_output(context);
-        let start_binding = start_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_id_binding = args.application_id.get_output(context);
+        let application_version_binding = args.application_version.get_output(context);
+        let environment_id_binding = args.environment_id.get_output(context);
+        let force_stop_binding = args.force_stop.get_output(context);
+        let start_binding = args.start.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:m2/deployment:Deployment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: &application_id_binding,
+                    value: application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationVersion".into(),
-                    value: &application_version_binding,
+                    value: application_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentId".into(),
-                    value: &environment_id_binding,
+                    value: environment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceStop".into(),
-                    value: &force_stop_binding,
+                    value: force_stop_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "start".into(),
-                    value: &start_binding,
+                    value: start_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DeploymentResult {
-            application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationId"),
-            ),
-            application_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationVersion"),
-            ),
-            deployment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentId"),
-            ),
-            environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentId"),
-            ),
-            force_stop: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceStop"),
-            ),
-            start: pulumi_gestalt_rust::__private::into_domain(o.extract_field("start")),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            application_id: o.get_field("applicationId"),
+            application_version: o.get_field("applicationVersion"),
+            deployment_id: o.get_field("deploymentId"),
+            environment_id: o.get_field("environmentId"),
+            force_stop: o.get_field("forceStop"),
+            start: o.get_field("start"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

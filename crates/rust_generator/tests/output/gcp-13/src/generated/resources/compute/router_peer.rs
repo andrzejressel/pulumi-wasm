@@ -703,281 +703,193 @@ pub mod router_peer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RouterPeerArgs,
     ) -> RouterPeerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let advertise_mode_binding_1 = args.advertise_mode.get_output(context);
-        let advertise_mode_binding = advertise_mode_binding_1.get_inner();
-        let advertised_groups_binding_1 = args.advertised_groups.get_output(context);
-        let advertised_groups_binding = advertised_groups_binding_1.get_inner();
-        let advertised_ip_ranges_binding_1 = args
-            .advertised_ip_ranges
-            .get_output(context);
-        let advertised_ip_ranges_binding = advertised_ip_ranges_binding_1.get_inner();
-        let advertised_route_priority_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let advertise_mode_binding = args.advertise_mode.get_output(context);
+        let advertised_groups_binding = args.advertised_groups.get_output(context);
+        let advertised_ip_ranges_binding = args.advertised_ip_ranges.get_output(context);
+        let advertised_route_priority_binding = args
             .advertised_route_priority
             .get_output(context);
-        let advertised_route_priority_binding = advertised_route_priority_binding_1
-            .get_inner();
-        let bfd_binding_1 = args.bfd.get_output(context);
-        let bfd_binding = bfd_binding_1.get_inner();
-        let custom_learned_ip_ranges_binding_1 = args
+        let bfd_binding = args.bfd.get_output(context);
+        let custom_learned_ip_ranges_binding = args
             .custom_learned_ip_ranges
             .get_output(context);
-        let custom_learned_ip_ranges_binding = custom_learned_ip_ranges_binding_1
-            .get_inner();
-        let custom_learned_route_priority_binding_1 = args
+        let custom_learned_route_priority_binding = args
             .custom_learned_route_priority
             .get_output(context);
-        let custom_learned_route_priority_binding = custom_learned_route_priority_binding_1
-            .get_inner();
-        let enable_binding_1 = args.enable.get_output(context);
-        let enable_binding = enable_binding_1.get_inner();
-        let enable_ipv4_binding_1 = args.enable_ipv4.get_output(context);
-        let enable_ipv4_binding = enable_ipv4_binding_1.get_inner();
-        let enable_ipv6_binding_1 = args.enable_ipv6.get_output(context);
-        let enable_ipv6_binding = enable_ipv6_binding_1.get_inner();
-        let export_policies_binding_1 = args.export_policies.get_output(context);
-        let export_policies_binding = export_policies_binding_1.get_inner();
-        let import_policies_binding_1 = args.import_policies.get_output(context);
-        let import_policies_binding = import_policies_binding_1.get_inner();
-        let interface_binding_1 = args.interface.get_output(context);
-        let interface_binding = interface_binding_1.get_inner();
-        let ip_address_binding_1 = args.ip_address.get_output(context);
-        let ip_address_binding = ip_address_binding_1.get_inner();
-        let ipv4_nexthop_address_binding_1 = args
-            .ipv4_nexthop_address
-            .get_output(context);
-        let ipv4_nexthop_address_binding = ipv4_nexthop_address_binding_1.get_inner();
-        let ipv6_nexthop_address_binding_1 = args
-            .ipv6_nexthop_address
-            .get_output(context);
-        let ipv6_nexthop_address_binding = ipv6_nexthop_address_binding_1.get_inner();
-        let md5_authentication_key_binding_1 = args
+        let enable_binding = args.enable.get_output(context);
+        let enable_ipv4_binding = args.enable_ipv4.get_output(context);
+        let enable_ipv6_binding = args.enable_ipv6.get_output(context);
+        let export_policies_binding = args.export_policies.get_output(context);
+        let import_policies_binding = args.import_policies.get_output(context);
+        let interface_binding = args.interface.get_output(context);
+        let ip_address_binding = args.ip_address.get_output(context);
+        let ipv4_nexthop_address_binding = args.ipv4_nexthop_address.get_output(context);
+        let ipv6_nexthop_address_binding = args.ipv6_nexthop_address.get_output(context);
+        let md5_authentication_key_binding = args
             .md5_authentication_key
             .get_output(context);
-        let md5_authentication_key_binding = md5_authentication_key_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let peer_asn_binding_1 = args.peer_asn.get_output(context);
-        let peer_asn_binding = peer_asn_binding_1.get_inner();
-        let peer_ip_address_binding_1 = args.peer_ip_address.get_output(context);
-        let peer_ip_address_binding = peer_ip_address_binding_1.get_inner();
-        let peer_ipv4_nexthop_address_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let peer_asn_binding = args.peer_asn.get_output(context);
+        let peer_ip_address_binding = args.peer_ip_address.get_output(context);
+        let peer_ipv4_nexthop_address_binding = args
             .peer_ipv4_nexthop_address
             .get_output(context);
-        let peer_ipv4_nexthop_address_binding = peer_ipv4_nexthop_address_binding_1
-            .get_inner();
-        let peer_ipv6_nexthop_address_binding_1 = args
+        let peer_ipv6_nexthop_address_binding = args
             .peer_ipv6_nexthop_address
             .get_output(context);
-        let peer_ipv6_nexthop_address_binding = peer_ipv6_nexthop_address_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let router_binding_1 = args.router.get_output(context);
-        let router_binding = router_binding_1.get_inner();
-        let router_appliance_instance_binding_1 = args
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let router_binding = args.router.get_output(context);
+        let router_appliance_instance_binding = args
             .router_appliance_instance
             .get_output(context);
-        let router_appliance_instance_binding = router_appliance_instance_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/routerPeer:RouterPeer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advertiseMode".into(),
-                    value: &advertise_mode_binding,
+                    value: advertise_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advertisedGroups".into(),
-                    value: &advertised_groups_binding,
+                    value: advertised_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advertisedIpRanges".into(),
-                    value: &advertised_ip_ranges_binding,
+                    value: advertised_ip_ranges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advertisedRoutePriority".into(),
-                    value: &advertised_route_priority_binding,
+                    value: advertised_route_priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bfd".into(),
-                    value: &bfd_binding,
+                    value: bfd_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customLearnedIpRanges".into(),
-                    value: &custom_learned_ip_ranges_binding,
+                    value: custom_learned_ip_ranges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customLearnedRoutePriority".into(),
-                    value: &custom_learned_route_priority_binding,
+                    value: custom_learned_route_priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enable".into(),
-                    value: &enable_binding,
+                    value: enable_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableIpv4".into(),
-                    value: &enable_ipv4_binding,
+                    value: enable_ipv4_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableIpv6".into(),
-                    value: &enable_ipv6_binding,
+                    value: enable_ipv6_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportPolicies".into(),
-                    value: &export_policies_binding,
+                    value: export_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importPolicies".into(),
-                    value: &import_policies_binding,
+                    value: import_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interface".into(),
-                    value: &interface_binding,
+                    value: interface_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: &ip_address_binding,
+                    value: ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv4NexthopAddress".into(),
-                    value: &ipv4_nexthop_address_binding,
+                    value: ipv4_nexthop_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6NexthopAddress".into(),
-                    value: &ipv6_nexthop_address_binding,
+                    value: ipv6_nexthop_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "md5AuthenticationKey".into(),
-                    value: &md5_authentication_key_binding,
+                    value: md5_authentication_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerAsn".into(),
-                    value: &peer_asn_binding,
+                    value: peer_asn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerIpAddress".into(),
-                    value: &peer_ip_address_binding,
+                    value: peer_ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerIpv4NexthopAddress".into(),
-                    value: &peer_ipv4_nexthop_address_binding,
+                    value: peer_ipv4_nexthop_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerIpv6NexthopAddress".into(),
-                    value: &peer_ipv6_nexthop_address_binding,
+                    value: peer_ipv6_nexthop_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "router".into(),
-                    value: &router_binding,
+                    value: router_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routerApplianceInstance".into(),
-                    value: &router_appliance_instance_binding,
+                    value: router_appliance_instance_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RouterPeerResult {
-            advertise_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advertiseMode"),
-            ),
-            advertised_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advertisedGroups"),
-            ),
-            advertised_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advertisedIpRanges"),
-            ),
-            advertised_route_priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advertisedRoutePriority"),
-            ),
-            bfd: pulumi_gestalt_rust::__private::into_domain(o.extract_field("bfd")),
-            custom_learned_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customLearnedIpRanges"),
-            ),
-            custom_learned_route_priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customLearnedRoutePriority"),
-            ),
-            enable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enable"),
-            ),
-            enable_ipv4: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableIpv4"),
-            ),
-            enable_ipv6: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableIpv6"),
-            ),
-            export_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportPolicies"),
-            ),
-            import_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("importPolicies"),
-            ),
-            interface: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interface"),
-            ),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            ipv4_nexthop_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv4NexthopAddress"),
-            ),
-            ipv6_nexthop_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv6NexthopAddress"),
-            ),
-            management_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementType"),
-            ),
-            md5_authentication_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("md5AuthenticationKey"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            peer_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerAsn"),
-            ),
-            peer_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerIpAddress"),
-            ),
-            peer_ipv4_nexthop_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerIpv4NexthopAddress"),
-            ),
-            peer_ipv6_nexthop_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerIpv6NexthopAddress"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            router: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("router"),
-            ),
-            router_appliance_instance: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routerApplianceInstance"),
-            ),
+            advertise_mode: o.get_field("advertiseMode"),
+            advertised_groups: o.get_field("advertisedGroups"),
+            advertised_ip_ranges: o.get_field("advertisedIpRanges"),
+            advertised_route_priority: o.get_field("advertisedRoutePriority"),
+            bfd: o.get_field("bfd"),
+            custom_learned_ip_ranges: o.get_field("customLearnedIpRanges"),
+            custom_learned_route_priority: o.get_field("customLearnedRoutePriority"),
+            enable: o.get_field("enable"),
+            enable_ipv4: o.get_field("enableIpv4"),
+            enable_ipv6: o.get_field("enableIpv6"),
+            export_policies: o.get_field("exportPolicies"),
+            import_policies: o.get_field("importPolicies"),
+            interface: o.get_field("interface"),
+            ip_address: o.get_field("ipAddress"),
+            ipv4_nexthop_address: o.get_field("ipv4NexthopAddress"),
+            ipv6_nexthop_address: o.get_field("ipv6NexthopAddress"),
+            management_type: o.get_field("managementType"),
+            md5_authentication_key: o.get_field("md5AuthenticationKey"),
+            name: o.get_field("name"),
+            peer_asn: o.get_field("peerAsn"),
+            peer_ip_address: o.get_field("peerIpAddress"),
+            peer_ipv4_nexthop_address: o.get_field("peerIpv4NexthopAddress"),
+            peer_ipv6_nexthop_address: o.get_field("peerIpv6NexthopAddress"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            router: o.get_field("router"),
+            router_appliance_instance: o.get_field("routerApplianceInstance"),
         }
     }
 }

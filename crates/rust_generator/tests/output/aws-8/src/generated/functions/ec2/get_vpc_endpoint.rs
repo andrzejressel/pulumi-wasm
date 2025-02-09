@@ -80,108 +80,71 @@ pub mod get_vpc_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVpcEndpointArgs,
     ) -> GetVpcEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let service_name_binding_1 = args.service_name.get_output(context);
-        let service_name_binding = service_name_binding_1.get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_id_binding_1 = args.vpc_id.get_output(context);
-        let vpc_id_binding = vpc_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let id_binding = args.id.get_output(context);
+        let service_name_binding = args.service_name.get_output(context);
+        let state_binding = args.state.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_id_binding = args.vpc_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getVpcEndpoint:getVpcEndpoint".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: &service_name_binding,
+                    value: service_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: &vpc_id_binding,
+                    value: vpc_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVpcEndpointResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cidr_blocks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrBlocks"),
-            ),
-            dns_entries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsEntries"),
-            ),
-            dns_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsOptions"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ip_address_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddressType"),
-            ),
-            network_interface_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceIds"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policy"),
-            ),
-            prefix_list_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefixListId"),
-            ),
-            private_dns_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDnsEnabled"),
-            ),
-            requester_managed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requesterManaged"),
-            ),
-            route_table_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routeTableIds"),
-            ),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceName"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vpc_endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcEndpointType"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            arn: o.get_field("arn"),
+            cidr_blocks: o.get_field("cidrBlocks"),
+            dns_entries: o.get_field("dnsEntries"),
+            dns_options: o.get_field("dnsOptions"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            ip_address_type: o.get_field("ipAddressType"),
+            network_interface_ids: o.get_field("networkInterfaceIds"),
+            owner_id: o.get_field("ownerId"),
+            policy: o.get_field("policy"),
+            prefix_list_id: o.get_field("prefixListId"),
+            private_dns_enabled: o.get_field("privateDnsEnabled"),
+            requester_managed: o.get_field("requesterManaged"),
+            route_table_ids: o.get_field("routeTableIds"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            service_name: o.get_field("serviceName"),
+            state: o.get_field("state"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            vpc_endpoint_type: o.get_field("vpcEndpointType"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

@@ -150,140 +150,99 @@ pub mod file_cache {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FileCacheArgs,
     ) -> FileCacheResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let copy_tags_to_data_repository_associations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let copy_tags_to_data_repository_associations_binding = args
             .copy_tags_to_data_repository_associations
             .get_output(context);
-        let copy_tags_to_data_repository_associations_binding = copy_tags_to_data_repository_associations_binding_1
-            .get_inner();
-        let data_repository_associations_binding_1 = args
+        let data_repository_associations_binding = args
             .data_repository_associations
             .get_output(context);
-        let data_repository_associations_binding = data_repository_associations_binding_1
-            .get_inner();
-        let file_cache_type_binding_1 = args.file_cache_type.get_output(context);
-        let file_cache_type_binding = file_cache_type_binding_1.get_inner();
-        let file_cache_type_version_binding_1 = args
+        let file_cache_type_binding = args.file_cache_type.get_output(context);
+        let file_cache_type_version_binding = args
             .file_cache_type_version
             .get_output(context);
-        let file_cache_type_version_binding = file_cache_type_version_binding_1
-            .get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let lustre_configurations_binding_1 = args
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let lustre_configurations_binding = args
             .lustre_configurations
             .get_output(context);
-        let lustre_configurations_binding = lustre_configurations_binding_1.get_inner();
-        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
-        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
-        let storage_capacity_binding_1 = args.storage_capacity.get_output(context);
-        let storage_capacity_binding = storage_capacity_binding_1.get_inner();
-        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
-        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let security_group_ids_binding = args.security_group_ids.get_output(context);
+        let storage_capacity_binding = args.storage_capacity.get_output(context);
+        let subnet_ids_binding = args.subnet_ids.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:fsx/fileCache:FileCache".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyTagsToDataRepositoryAssociations".into(),
-                    value: &copy_tags_to_data_repository_associations_binding,
+                    value: copy_tags_to_data_repository_associations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataRepositoryAssociations".into(),
-                    value: &data_repository_associations_binding,
+                    value: data_repository_associations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileCacheType".into(),
-                    value: &file_cache_type_binding,
+                    value: file_cache_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileCacheTypeVersion".into(),
-                    value: &file_cache_type_version_binding,
+                    value: file_cache_type_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lustreConfigurations".into(),
-                    value: &lustre_configurations_binding,
+                    value: lustre_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: &security_group_ids_binding,
+                    value: security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageCapacity".into(),
-                    value: &storage_capacity_binding,
+                    value: storage_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: &subnet_ids_binding,
+                    value: subnet_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FileCacheResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            copy_tags_to_data_repository_associations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("copyTagsToDataRepositoryAssociations"),
-            ),
-            data_repository_association_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataRepositoryAssociationIds"),
-            ),
-            data_repository_associations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataRepositoryAssociations"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            file_cache_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileCacheId"),
-            ),
-            file_cache_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileCacheType"),
-            ),
-            file_cache_type_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileCacheTypeVersion"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            lustre_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lustreConfigurations"),
-            ),
-            network_interface_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceIds"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            storage_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageCapacity"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
+            arn: o.get_field("arn"),
+            copy_tags_to_data_repository_associations: o
+                .get_field("copyTagsToDataRepositoryAssociations"),
+            data_repository_association_ids: o.get_field("dataRepositoryAssociationIds"),
+            data_repository_associations: o.get_field("dataRepositoryAssociations"),
+            dns_name: o.get_field("dnsName"),
+            file_cache_id: o.get_field("fileCacheId"),
+            file_cache_type: o.get_field("fileCacheType"),
+            file_cache_type_version: o.get_field("fileCacheTypeVersion"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            lustre_configurations: o.get_field("lustreConfigurations"),
+            network_interface_ids: o.get_field("networkInterfaceIds"),
+            owner_id: o.get_field("ownerId"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            storage_capacity: o.get_field("storageCapacity"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_id: o.get_field("vpcId"),
         }
     }
 }

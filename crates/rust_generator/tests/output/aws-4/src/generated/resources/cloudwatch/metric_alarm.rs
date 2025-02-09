@@ -325,223 +325,161 @@ pub mod metric_alarm {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MetricAlarmArgs,
     ) -> MetricAlarmResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_enabled_binding_1 = args.actions_enabled.get_output(context);
-        let actions_enabled_binding = actions_enabled_binding_1.get_inner();
-        let alarm_actions_binding_1 = args.alarm_actions.get_output(context);
-        let alarm_actions_binding = alarm_actions_binding_1.get_inner();
-        let alarm_description_binding_1 = args.alarm_description.get_output(context);
-        let alarm_description_binding = alarm_description_binding_1.get_inner();
-        let comparison_operator_binding_1 = args.comparison_operator.get_output(context);
-        let comparison_operator_binding = comparison_operator_binding_1.get_inner();
-        let datapoints_to_alarm_binding_1 = args.datapoints_to_alarm.get_output(context);
-        let datapoints_to_alarm_binding = datapoints_to_alarm_binding_1.get_inner();
-        let dimensions_binding_1 = args.dimensions.get_output(context);
-        let dimensions_binding = dimensions_binding_1.get_inner();
-        let evaluate_low_sample_count_percentiles_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let actions_enabled_binding = args.actions_enabled.get_output(context);
+        let alarm_actions_binding = args.alarm_actions.get_output(context);
+        let alarm_description_binding = args.alarm_description.get_output(context);
+        let comparison_operator_binding = args.comparison_operator.get_output(context);
+        let datapoints_to_alarm_binding = args.datapoints_to_alarm.get_output(context);
+        let dimensions_binding = args.dimensions.get_output(context);
+        let evaluate_low_sample_count_percentiles_binding = args
             .evaluate_low_sample_count_percentiles
             .get_output(context);
-        let evaluate_low_sample_count_percentiles_binding = evaluate_low_sample_count_percentiles_binding_1
-            .get_inner();
-        let evaluation_periods_binding_1 = args.evaluation_periods.get_output(context);
-        let evaluation_periods_binding = evaluation_periods_binding_1.get_inner();
-        let extended_statistic_binding_1 = args.extended_statistic.get_output(context);
-        let extended_statistic_binding = extended_statistic_binding_1.get_inner();
-        let insufficient_data_actions_binding_1 = args
+        let evaluation_periods_binding = args.evaluation_periods.get_output(context);
+        let extended_statistic_binding = args.extended_statistic.get_output(context);
+        let insufficient_data_actions_binding = args
             .insufficient_data_actions
             .get_output(context);
-        let insufficient_data_actions_binding = insufficient_data_actions_binding_1
-            .get_inner();
-        let metric_name_binding_1 = args.metric_name.get_output(context);
-        let metric_name_binding = metric_name_binding_1.get_inner();
-        let metric_queries_binding_1 = args.metric_queries.get_output(context);
-        let metric_queries_binding = metric_queries_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let namespace_binding_1 = args.namespace.get_output(context);
-        let namespace_binding = namespace_binding_1.get_inner();
-        let ok_actions_binding_1 = args.ok_actions.get_output(context);
-        let ok_actions_binding = ok_actions_binding_1.get_inner();
-        let period_binding_1 = args.period.get_output(context);
-        let period_binding = period_binding_1.get_inner();
-        let statistic_binding_1 = args.statistic.get_output(context);
-        let statistic_binding = statistic_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let threshold_binding_1 = args.threshold.get_output(context);
-        let threshold_binding = threshold_binding_1.get_inner();
-        let threshold_metric_id_binding_1 = args.threshold_metric_id.get_output(context);
-        let threshold_metric_id_binding = threshold_metric_id_binding_1.get_inner();
-        let treat_missing_data_binding_1 = args.treat_missing_data.get_output(context);
-        let treat_missing_data_binding = treat_missing_data_binding_1.get_inner();
-        let unit_binding_1 = args.unit.get_output(context);
-        let unit_binding = unit_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let metric_name_binding = args.metric_name.get_output(context);
+        let metric_queries_binding = args.metric_queries.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let namespace_binding = args.namespace.get_output(context);
+        let ok_actions_binding = args.ok_actions.get_output(context);
+        let period_binding = args.period.get_output(context);
+        let statistic_binding = args.statistic.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let threshold_binding = args.threshold.get_output(context);
+        let threshold_metric_id_binding = args.threshold_metric_id.get_output(context);
+        let treat_missing_data_binding = args.treat_missing_data.get_output(context);
+        let unit_binding = args.unit.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudwatch/metricAlarm:MetricAlarm".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionsEnabled".into(),
-                    value: &actions_enabled_binding,
+                    value: actions_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alarmActions".into(),
-                    value: &alarm_actions_binding,
+                    value: alarm_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alarmDescription".into(),
-                    value: &alarm_description_binding,
+                    value: alarm_description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comparisonOperator".into(),
-                    value: &comparison_operator_binding,
+                    value: comparison_operator_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datapointsToAlarm".into(),
-                    value: &datapoints_to_alarm_binding,
+                    value: datapoints_to_alarm_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dimensions".into(),
-                    value: &dimensions_binding,
+                    value: dimensions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "evaluateLowSampleCountPercentiles".into(),
-                    value: &evaluate_low_sample_count_percentiles_binding,
+                    value: evaluate_low_sample_count_percentiles_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "evaluationPeriods".into(),
-                    value: &evaluation_periods_binding,
+                    value: evaluation_periods_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extendedStatistic".into(),
-                    value: &extended_statistic_binding,
+                    value: extended_statistic_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insufficientDataActions".into(),
-                    value: &insufficient_data_actions_binding,
+                    value: insufficient_data_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricName".into(),
-                    value: &metric_name_binding,
+                    value: metric_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricQueries".into(),
-                    value: &metric_queries_binding,
+                    value: metric_queries_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespace".into(),
-                    value: &namespace_binding,
+                    value: namespace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "okActions".into(),
-                    value: &ok_actions_binding,
+                    value: ok_actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "period".into(),
-                    value: &period_binding,
+                    value: period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statistic".into(),
-                    value: &statistic_binding,
+                    value: statistic_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threshold".into(),
-                    value: &threshold_binding,
+                    value: threshold_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thresholdMetricId".into(),
-                    value: &threshold_metric_id_binding,
+                    value: threshold_metric_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "treatMissingData".into(),
-                    value: &treat_missing_data_binding,
+                    value: treat_missing_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "unit".into(),
-                    value: &unit_binding,
+                    value: unit_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MetricAlarmResult {
-            actions_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actionsEnabled"),
-            ),
-            alarm_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alarmActions"),
-            ),
-            alarm_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alarmDescription"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            comparison_operator: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comparisonOperator"),
-            ),
-            datapoints_to_alarm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datapointsToAlarm"),
-            ),
-            dimensions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dimensions"),
-            ),
-            evaluate_low_sample_count_percentiles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("evaluateLowSampleCountPercentiles"),
-            ),
-            evaluation_periods: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("evaluationPeriods"),
-            ),
-            extended_statistic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extendedStatistic"),
-            ),
-            insufficient_data_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("insufficientDataActions"),
-            ),
-            metric_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metricName"),
-            ),
-            metric_queries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metricQueries"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespace"),
-            ),
-            ok_actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("okActions"),
-            ),
-            period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("period"),
-            ),
-            statistic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statistic"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            threshold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("threshold"),
-            ),
-            threshold_metric_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thresholdMetricId"),
-            ),
-            treat_missing_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("treatMissingData"),
-            ),
-            unit: pulumi_gestalt_rust::__private::into_domain(o.extract_field("unit")),
+            actions_enabled: o.get_field("actionsEnabled"),
+            alarm_actions: o.get_field("alarmActions"),
+            alarm_description: o.get_field("alarmDescription"),
+            arn: o.get_field("arn"),
+            comparison_operator: o.get_field("comparisonOperator"),
+            datapoints_to_alarm: o.get_field("datapointsToAlarm"),
+            dimensions: o.get_field("dimensions"),
+            evaluate_low_sample_count_percentiles: o
+                .get_field("evaluateLowSampleCountPercentiles"),
+            evaluation_periods: o.get_field("evaluationPeriods"),
+            extended_statistic: o.get_field("extendedStatistic"),
+            insufficient_data_actions: o.get_field("insufficientDataActions"),
+            metric_name: o.get_field("metricName"),
+            metric_queries: o.get_field("metricQueries"),
+            name: o.get_field("name"),
+            namespace: o.get_field("namespace"),
+            ok_actions: o.get_field("okActions"),
+            period: o.get_field("period"),
+            statistic: o.get_field("statistic"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            threshold: o.get_field("threshold"),
+            threshold_metric_id: o.get_field("thresholdMetricId"),
+            treat_missing_data: o.get_field("treatMissingData"),
+            unit: o.get_field("unit"),
         }
     }
 }

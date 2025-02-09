@@ -173,115 +173,88 @@ pub mod express_route_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ExpressRouteConnectionArgs,
     ) -> ExpressRouteConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authorization_key_binding_1 = args.authorization_key.get_output(context);
-        let authorization_key_binding = authorization_key_binding_1.get_inner();
-        let enable_internet_security_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authorization_key_binding = args.authorization_key.get_output(context);
+        let enable_internet_security_binding = args
             .enable_internet_security
             .get_output(context);
-        let enable_internet_security_binding = enable_internet_security_binding_1
-            .get_inner();
-        let express_route_circuit_peering_id_binding_1 = args
+        let express_route_circuit_peering_id_binding = args
             .express_route_circuit_peering_id
             .get_output(context);
-        let express_route_circuit_peering_id_binding = express_route_circuit_peering_id_binding_1
-            .get_inner();
-        let express_route_gateway_bypass_enabled_binding_1 = args
+        let express_route_gateway_bypass_enabled_binding = args
             .express_route_gateway_bypass_enabled
             .get_output(context);
-        let express_route_gateway_bypass_enabled_binding = express_route_gateway_bypass_enabled_binding_1
-            .get_inner();
-        let express_route_gateway_id_binding_1 = args
+        let express_route_gateway_id_binding = args
             .express_route_gateway_id
             .get_output(context);
-        let express_route_gateway_id_binding = express_route_gateway_id_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let private_link_fast_path_enabled_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let private_link_fast_path_enabled_binding = args
             .private_link_fast_path_enabled
             .get_output(context);
-        let private_link_fast_path_enabled_binding = private_link_fast_path_enabled_binding_1
-            .get_inner();
-        let routing_binding_1 = args.routing.get_output(context);
-        let routing_binding = routing_binding_1.get_inner();
-        let routing_weight_binding_1 = args.routing_weight.get_output(context);
-        let routing_weight_binding = routing_weight_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let routing_binding = args.routing.get_output(context);
+        let routing_weight_binding = args.routing_weight.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/expressRouteConnection:ExpressRouteConnection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationKey".into(),
-                    value: &authorization_key_binding,
+                    value: authorization_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableInternetSecurity".into(),
-                    value: &enable_internet_security_binding,
+                    value: enable_internet_security_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressRouteCircuitPeeringId".into(),
-                    value: &express_route_circuit_peering_id_binding,
+                    value: express_route_circuit_peering_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressRouteGatewayBypassEnabled".into(),
-                    value: &express_route_gateway_bypass_enabled_binding,
+                    value: express_route_gateway_bypass_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressRouteGatewayId".into(),
-                    value: &express_route_gateway_id_binding,
+                    value: express_route_gateway_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateLinkFastPathEnabled".into(),
-                    value: &private_link_fast_path_enabled_binding,
+                    value: private_link_fast_path_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routing".into(),
-                    value: &routing_binding,
+                    value: routing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingWeight".into(),
-                    value: &routing_weight_binding,
+                    value: routing_weight_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ExpressRouteConnectionResult {
-            authorization_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationKey"),
-            ),
-            enable_internet_security: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableInternetSecurity"),
-            ),
-            express_route_circuit_peering_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expressRouteCircuitPeeringId"),
-            ),
-            express_route_gateway_bypass_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expressRouteGatewayBypassEnabled"),
-            ),
-            express_route_gateway_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expressRouteGatewayId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_link_fast_path_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateLinkFastPathEnabled"),
-            ),
-            routing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routing"),
-            ),
-            routing_weight: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routingWeight"),
-            ),
+            authorization_key: o.get_field("authorizationKey"),
+            enable_internet_security: o.get_field("enableInternetSecurity"),
+            express_route_circuit_peering_id: o
+                .get_field("expressRouteCircuitPeeringId"),
+            express_route_gateway_bypass_enabled: o
+                .get_field("expressRouteGatewayBypassEnabled"),
+            express_route_gateway_id: o.get_field("expressRouteGatewayId"),
+            name: o.get_field("name"),
+            private_link_fast_path_enabled: o.get_field("privateLinkFastPathEnabled"),
+            routing: o.get_field("routing"),
+            routing_weight: o.get_field("routingWeight"),
         }
     }
 }

@@ -205,121 +205,89 @@ pub mod repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RepositoryArgs,
     ) -> RepositoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let git_remote_settings_binding_1 = args.git_remote_settings.get_output(context);
-        let git_remote_settings_binding = git_remote_settings_binding_1.get_inner();
-        let kms_key_name_binding_1 = args.kms_key_name.get_output(context);
-        let kms_key_name_binding = kms_key_name_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let npmrc_environment_variables_secret_version_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let display_name_binding = args.display_name.get_output(context);
+        let git_remote_settings_binding = args.git_remote_settings.get_output(context);
+        let kms_key_name_binding = args.kms_key_name.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let npmrc_environment_variables_secret_version_binding = args
             .npmrc_environment_variables_secret_version
             .get_output(context);
-        let npmrc_environment_variables_secret_version_binding = npmrc_environment_variables_secret_version_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let service_account_binding_1 = args.service_account.get_output(context);
-        let service_account_binding = service_account_binding_1.get_inner();
-        let workspace_compilation_overrides_binding_1 = args
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let service_account_binding = args.service_account.get_output(context);
+        let workspace_compilation_overrides_binding = args
             .workspace_compilation_overrides
             .get_output(context);
-        let workspace_compilation_overrides_binding = workspace_compilation_overrides_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dataform/repository:Repository".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gitRemoteSettings".into(),
-                    value: &git_remote_settings_binding,
+                    value: git_remote_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyName".into(),
-                    value: &kms_key_name_binding,
+                    value: kms_key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "npmrcEnvironmentVariablesSecretVersion".into(),
-                    value: &npmrc_environment_variables_secret_version_binding,
+                    value: npmrc_environment_variables_secret_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccount".into(),
-                    value: &service_account_binding,
+                    value: service_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceCompilationOverrides".into(),
-                    value: &workspace_compilation_overrides_binding,
+                    value: workspace_compilation_overrides_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RepositoryResult {
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            git_remote_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gitRemoteSettings"),
-            ),
-            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyName"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            npmrc_environment_variables_secret_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("npmrcEnvironmentVariablesSecretVersion"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccount"),
-            ),
-            workspace_compilation_overrides: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceCompilationOverrides"),
-            ),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            git_remote_settings: o.get_field("gitRemoteSettings"),
+            kms_key_name: o.get_field("kmsKeyName"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            npmrc_environment_variables_secret_version: o
+                .get_field("npmrcEnvironmentVariablesSecretVersion"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            region: o.get_field("region"),
+            service_account: o.get_field("serviceAccount"),
+            workspace_compilation_overrides: o.get_field("workspaceCompilationOverrides"),
         }
     }
 }

@@ -110,75 +110,57 @@ pub mod connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectionArgs,
     ) -> ConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_policy_binding_1 = args.deletion_policy.get_output(context);
-        let deletion_policy_binding = deletion_policy_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let reserved_peering_ranges_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let deletion_policy_binding = args.deletion_policy.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let reserved_peering_ranges_binding = args
             .reserved_peering_ranges
             .get_output(context);
-        let reserved_peering_ranges_binding = reserved_peering_ranges_binding_1
-            .get_inner();
-        let service_binding_1 = args.service.get_output(context);
-        let service_binding = service_binding_1.get_inner();
-        let update_on_creation_fail_binding_1 = args
+        let service_binding = args.service.get_output(context);
+        let update_on_creation_fail_binding = args
             .update_on_creation_fail
             .get_output(context);
-        let update_on_creation_fail_binding = update_on_creation_fail_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:servicenetworking/connection:Connection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: &deletion_policy_binding,
+                    value: deletion_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservedPeeringRanges".into(),
-                    value: &reserved_peering_ranges_binding,
+                    value: reserved_peering_ranges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: &service_binding,
+                    value: service_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "updateOnCreationFail".into(),
-                    value: &update_on_creation_fail_binding,
+                    value: update_on_creation_fail_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectionResult {
-            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionPolicy"),
-            ),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            peering: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peering"),
-            ),
-            reserved_peering_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reservedPeeringRanges"),
-            ),
-            service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("service"),
-            ),
-            update_on_creation_fail: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateOnCreationFail"),
-            ),
+            deletion_policy: o.get_field("deletionPolicy"),
+            network: o.get_field("network"),
+            peering: o.get_field("peering"),
+            reserved_peering_ranges: o.get_field("reservedPeeringRanges"),
+            service: o.get_field("service"),
+            update_on_creation_fail: o.get_field("updateOnCreationFail"),
         }
     }
 }

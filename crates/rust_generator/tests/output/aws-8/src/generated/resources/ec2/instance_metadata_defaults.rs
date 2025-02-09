@@ -51,63 +51,50 @@ pub mod instance_metadata_defaults {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceMetadataDefaultsArgs,
     ) -> InstanceMetadataDefaultsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let http_endpoint_binding_1 = args.http_endpoint.get_output(context);
-        let http_endpoint_binding = http_endpoint_binding_1.get_inner();
-        let http_put_response_hop_limit_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let http_endpoint_binding = args.http_endpoint.get_output(context);
+        let http_put_response_hop_limit_binding = args
             .http_put_response_hop_limit
             .get_output(context);
-        let http_put_response_hop_limit_binding = http_put_response_hop_limit_binding_1
-            .get_inner();
-        let http_tokens_binding_1 = args.http_tokens.get_output(context);
-        let http_tokens_binding = http_tokens_binding_1.get_inner();
-        let instance_metadata_tags_binding_1 = args
+        let http_tokens_binding = args.http_tokens.get_output(context);
+        let instance_metadata_tags_binding = args
             .instance_metadata_tags
             .get_output(context);
-        let instance_metadata_tags_binding = instance_metadata_tags_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/instanceMetadataDefaults:InstanceMetadataDefaults".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpEndpoint".into(),
-                    value: &http_endpoint_binding,
+                    value: http_endpoint_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpPutResponseHopLimit".into(),
-                    value: &http_put_response_hop_limit_binding,
+                    value: http_put_response_hop_limit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpTokens".into(),
-                    value: &http_tokens_binding,
+                    value: http_tokens_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceMetadataTags".into(),
-                    value: &instance_metadata_tags_binding,
+                    value: instance_metadata_tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceMetadataDefaultsResult {
-            http_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpEndpoint"),
-            ),
-            http_put_response_hop_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpPutResponseHopLimit"),
-            ),
-            http_tokens: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpTokens"),
-            ),
-            instance_metadata_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceMetadataTags"),
-            ),
+            http_endpoint: o.get_field("httpEndpoint"),
+            http_put_response_hop_limit: o.get_field("httpPutResponseHopLimit"),
+            http_tokens: o.get_field("httpTokens"),
+            instance_metadata_tags: o.get_field("instanceMetadataTags"),
         }
     }
 }

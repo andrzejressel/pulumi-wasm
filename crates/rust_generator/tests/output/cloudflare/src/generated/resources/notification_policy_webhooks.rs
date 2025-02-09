@@ -67,64 +67,51 @@ pub mod notification_policy_webhooks {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NotificationPolicyWebhooksArgs,
     ) -> NotificationPolicyWebhooksResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let secret_binding_1 = args.secret.get_output(context);
-        let secret_binding = secret_binding_1.get_inner();
-        let url_binding_1 = args.url.get_output(context);
-        let url_binding = url_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let secret_binding = args.secret.get_output(context);
+        let url_binding = args.url.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/notificationPolicyWebhooks:NotificationPolicyWebhooks"
                 .into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secret".into(),
-                    value: &secret_binding,
+                    value: secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "url".into(),
-                    value: &url_binding,
+                    value: url_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NotificationPolicyWebhooksResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            last_failure: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastFailure"),
-            ),
-            last_success: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastSuccess"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secret"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            account_id: o.get_field("accountId"),
+            created_at: o.get_field("createdAt"),
+            last_failure: o.get_field("lastFailure"),
+            last_success: o.get_field("lastSuccess"),
+            name: o.get_field("name"),
+            secret: o.get_field("secret"),
+            type_: o.get_field("type"),
+            url: o.get_field("url"),
         }
     }
 }

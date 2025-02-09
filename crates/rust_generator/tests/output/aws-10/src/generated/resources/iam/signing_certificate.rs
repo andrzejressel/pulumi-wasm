@@ -74,51 +74,41 @@ pub mod signing_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SigningCertificateArgs,
     ) -> SigningCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_body_binding_1 = args.certificate_body.get_output(context);
-        let certificate_body_binding = certificate_body_binding_1.get_inner();
-        let status_binding_1 = args.status.get_output(context);
-        let status_binding = status_binding_1.get_inner();
-        let user_name_binding_1 = args.user_name.get_output(context);
-        let user_name_binding = user_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_body_binding = args.certificate_body.get_output(context);
+        let status_binding = args.status.get_output(context);
+        let user_name_binding = args.user_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iam/signingCertificate:SigningCertificate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateBody".into(),
-                    value: &certificate_body_binding,
+                    value: certificate_body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: &status_binding,
+                    value: status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userName".into(),
-                    value: &user_name_binding,
+                    value: user_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SigningCertificateResult {
-            certificate_body: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateBody"),
-            ),
-            certificate_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateId"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            user_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userName"),
-            ),
+            certificate_body: o.get_field("certificateBody"),
+            certificate_id: o.get_field("certificateId"),
+            status: o.get_field("status"),
+            user_name: o.get_field("userName"),
         }
     }
 }

@@ -295,134 +295,94 @@ pub mod global_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GlobalClusterArgs,
     ) -> GlobalClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let database_name_binding_1 = args.database_name.get_output(context);
-        let database_name_binding = database_name_binding_1.get_inner();
-        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
-        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
-        let engine_binding_1 = args.engine.get_output(context);
-        let engine_binding = engine_binding_1.get_inner();
-        let engine_lifecycle_support_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let database_name_binding = args.database_name.get_output(context);
+        let deletion_protection_binding = args.deletion_protection.get_output(context);
+        let engine_binding = args.engine.get_output(context);
+        let engine_lifecycle_support_binding = args
             .engine_lifecycle_support
             .get_output(context);
-        let engine_lifecycle_support_binding = engine_lifecycle_support_binding_1
-            .get_inner();
-        let engine_version_binding_1 = args.engine_version.get_output(context);
-        let engine_version_binding = engine_version_binding_1.get_inner();
-        let force_destroy_binding_1 = args.force_destroy.get_output(context);
-        let force_destroy_binding = force_destroy_binding_1.get_inner();
-        let global_cluster_identifier_binding_1 = args
+        let engine_version_binding = args.engine_version.get_output(context);
+        let force_destroy_binding = args.force_destroy.get_output(context);
+        let global_cluster_identifier_binding = args
             .global_cluster_identifier
             .get_output(context);
-        let global_cluster_identifier_binding = global_cluster_identifier_binding_1
-            .get_inner();
-        let source_db_cluster_identifier_binding_1 = args
+        let source_db_cluster_identifier_binding = args
             .source_db_cluster_identifier
             .get_output(context);
-        let source_db_cluster_identifier_binding = source_db_cluster_identifier_binding_1
-            .get_inner();
-        let storage_encrypted_binding_1 = args.storage_encrypted.get_output(context);
-        let storage_encrypted_binding = storage_encrypted_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let storage_encrypted_binding = args.storage_encrypted.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rds/globalCluster:GlobalCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: &database_name_binding,
+                    value: database_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: &deletion_protection_binding,
+                    value: deletion_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: &engine_binding,
+                    value: engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineLifecycleSupport".into(),
-                    value: &engine_lifecycle_support_binding,
+                    value: engine_lifecycle_support_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: &engine_version_binding,
+                    value: engine_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: &force_destroy_binding,
+                    value: force_destroy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalClusterIdentifier".into(),
-                    value: &global_cluster_identifier_binding,
+                    value: global_cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDbClusterIdentifier".into(),
-                    value: &source_db_cluster_identifier_binding,
+                    value: source_db_cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageEncrypted".into(),
-                    value: &storage_encrypted_binding,
+                    value: storage_encrypted_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GlobalClusterResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            engine_lifecycle_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineLifecycleSupport"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            engine_version_actual: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersionActual"),
-            ),
-            force_destroy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDestroy"),
-            ),
-            global_cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalClusterIdentifier"),
-            ),
-            global_cluster_members: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalClusterMembers"),
-            ),
-            global_cluster_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalClusterResourceId"),
-            ),
-            source_db_cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceDbClusterIdentifier"),
-            ),
-            storage_encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageEncrypted"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            database_name: o.get_field("databaseName"),
+            deletion_protection: o.get_field("deletionProtection"),
+            endpoint: o.get_field("endpoint"),
+            engine: o.get_field("engine"),
+            engine_lifecycle_support: o.get_field("engineLifecycleSupport"),
+            engine_version: o.get_field("engineVersion"),
+            engine_version_actual: o.get_field("engineVersionActual"),
+            force_destroy: o.get_field("forceDestroy"),
+            global_cluster_identifier: o.get_field("globalClusterIdentifier"),
+            global_cluster_members: o.get_field("globalClusterMembers"),
+            global_cluster_resource_id: o.get_field("globalClusterResourceId"),
+            source_db_cluster_identifier: o.get_field("sourceDbClusterIdentifier"),
+            storage_encrypted: o.get_field("storageEncrypted"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

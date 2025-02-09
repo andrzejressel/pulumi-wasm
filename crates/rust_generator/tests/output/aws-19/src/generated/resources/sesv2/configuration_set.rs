@@ -140,98 +140,74 @@ pub mod configuration_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConfigurationSetArgs,
     ) -> ConfigurationSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_set_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let configuration_set_name_binding = args
             .configuration_set_name
             .get_output(context);
-        let configuration_set_name_binding = configuration_set_name_binding_1
-            .get_inner();
-        let delivery_options_binding_1 = args.delivery_options.get_output(context);
-        let delivery_options_binding = delivery_options_binding_1.get_inner();
-        let reputation_options_binding_1 = args.reputation_options.get_output(context);
-        let reputation_options_binding = reputation_options_binding_1.get_inner();
-        let sending_options_binding_1 = args.sending_options.get_output(context);
-        let sending_options_binding = sending_options_binding_1.get_inner();
-        let suppression_options_binding_1 = args.suppression_options.get_output(context);
-        let suppression_options_binding = suppression_options_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tracking_options_binding_1 = args.tracking_options.get_output(context);
-        let tracking_options_binding = tracking_options_binding_1.get_inner();
-        let vdm_options_binding_1 = args.vdm_options.get_output(context);
-        let vdm_options_binding = vdm_options_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let delivery_options_binding = args.delivery_options.get_output(context);
+        let reputation_options_binding = args.reputation_options.get_output(context);
+        let sending_options_binding = args.sending_options.get_output(context);
+        let suppression_options_binding = args.suppression_options.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tracking_options_binding = args.tracking_options.get_output(context);
+        let vdm_options_binding = args.vdm_options.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sesv2/configurationSet:ConfigurationSet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationSetName".into(),
-                    value: &configuration_set_name_binding,
+                    value: configuration_set_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryOptions".into(),
-                    value: &delivery_options_binding,
+                    value: delivery_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reputationOptions".into(),
-                    value: &reputation_options_binding,
+                    value: reputation_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sendingOptions".into(),
-                    value: &sending_options_binding,
+                    value: sending_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suppressionOptions".into(),
-                    value: &suppression_options_binding,
+                    value: suppression_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trackingOptions".into(),
-                    value: &tracking_options_binding,
+                    value: tracking_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vdmOptions".into(),
-                    value: &vdm_options_binding,
+                    value: vdm_options_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConfigurationSetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            configuration_set_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationSetName"),
-            ),
-            delivery_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deliveryOptions"),
-            ),
-            reputation_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reputationOptions"),
-            ),
-            sending_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sendingOptions"),
-            ),
-            suppression_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("suppressionOptions"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tracking_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trackingOptions"),
-            ),
-            vdm_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vdmOptions"),
-            ),
+            arn: o.get_field("arn"),
+            configuration_set_name: o.get_field("configurationSetName"),
+            delivery_options: o.get_field("deliveryOptions"),
+            reputation_options: o.get_field("reputationOptions"),
+            sending_options: o.get_field("sendingOptions"),
+            suppression_options: o.get_field("suppressionOptions"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tracking_options: o.get_field("trackingOptions"),
+            vdm_options: o.get_field("vdmOptions"),
         }
     }
 }

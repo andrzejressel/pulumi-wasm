@@ -39,63 +39,42 @@ pub mod get_snapshot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSnapshotArgs,
     ) -> GetSnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:compute/getSnapshot:getSnapshot".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSnapshotResult {
-            creation_option: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationOption"),
-            ),
-            disk_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskSizeGb"),
-            ),
-            encryption_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionSettings"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            os_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osType"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            source_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceResourceId"),
-            ),
-            source_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceUri"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
-            time_created: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeCreated"),
-            ),
-            trusted_launch_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trustedLaunchEnabled"),
-            ),
+            creation_option: o.get_field("creationOption"),
+            disk_size_gb: o.get_field("diskSizeGb"),
+            encryption_settings: o.get_field("encryptionSettings"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            os_type: o.get_field("osType"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            source_resource_id: o.get_field("sourceResourceId"),
+            source_uri: o.get_field("sourceUri"),
+            storage_account_id: o.get_field("storageAccountId"),
+            time_created: o.get_field("timeCreated"),
+            trusted_launch_enabled: o.get_field("trustedLaunchEnabled"),
         }
     }
 }

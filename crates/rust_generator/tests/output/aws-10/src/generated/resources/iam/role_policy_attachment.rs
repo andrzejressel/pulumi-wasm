@@ -82,37 +82,34 @@ pub mod role_policy_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RolePolicyAttachmentArgs,
     ) -> RolePolicyAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let policy_arn_binding_1 = args.policy_arn.get_output(context);
-        let policy_arn_binding = policy_arn_binding_1.get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let policy_arn_binding = args.policy_arn.get_output(context);
+        let role_binding = args.role.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iam/rolePolicyAttachment:RolePolicyAttachment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyArn".into(),
-                    value: &policy_arn_binding,
+                    value: policy_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RolePolicyAttachmentResult {
-            policy_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyArn"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
+            policy_arn: o.get_field("policyArn"),
+            role: o.get_field("role"),
         }
     }
 }

@@ -547,129 +547,92 @@ pub mod connection_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConnectionProfileArgs,
     ) -> ConnectionProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alloydb_binding_1 = args.alloydb.get_output(context);
-        let alloydb_binding = alloydb_binding_1.get_inner();
-        let cloudsql_binding_1 = args.cloudsql.get_output(context);
-        let cloudsql_binding = cloudsql_binding_1.get_inner();
-        let connection_profile_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alloydb_binding = args.alloydb.get_output(context);
+        let cloudsql_binding = args.cloudsql.get_output(context);
+        let connection_profile_id_binding = args
             .connection_profile_id
             .get_output(context);
-        let connection_profile_id_binding = connection_profile_id_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let mysql_binding_1 = args.mysql.get_output(context);
-        let mysql_binding = mysql_binding_1.get_inner();
-        let oracle_binding_1 = args.oracle.get_output(context);
-        let oracle_binding = oracle_binding_1.get_inner();
-        let postgresql_binding_1 = args.postgresql.get_output(context);
-        let postgresql_binding = postgresql_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let display_name_binding = args.display_name.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let mysql_binding = args.mysql.get_output(context);
+        let oracle_binding = args.oracle.get_output(context);
+        let postgresql_binding = args.postgresql.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:databasemigrationservice/connectionProfile:ConnectionProfile"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alloydb".into(),
-                    value: &alloydb_binding,
+                    value: alloydb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudsql".into(),
-                    value: &cloudsql_binding,
+                    value: cloudsql_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionProfileId".into(),
-                    value: &connection_profile_id_binding,
+                    value: connection_profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mysql".into(),
-                    value: &mysql_binding,
+                    value: mysql_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oracle".into(),
-                    value: &oracle_binding,
+                    value: oracle_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "postgresql".into(),
-                    value: &postgresql_binding,
+                    value: postgresql_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConnectionProfileResult {
-            alloydb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("alloydb"),
-            ),
-            cloudsql: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudsql"),
-            ),
-            connection_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionProfileId"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            dbprovider: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbprovider"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            errors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("errors"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            mysql: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mysql")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            oracle: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("oracle"),
-            ),
-            postgresql: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("postgresql"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            alloydb: o.get_field("alloydb"),
+            cloudsql: o.get_field("cloudsql"),
+            connection_profile_id: o.get_field("connectionProfileId"),
+            create_time: o.get_field("createTime"),
+            dbprovider: o.get_field("dbprovider"),
+            display_name: o.get_field("displayName"),
+            effective_labels: o.get_field("effectiveLabels"),
+            errors: o.get_field("errors"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            mysql: o.get_field("mysql"),
+            name: o.get_field("name"),
+            oracle: o.get_field("oracle"),
+            postgresql: o.get_field("postgresql"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            state: o.get_field("state"),
         }
     }
 }

@@ -176,207 +176,150 @@ pub mod network_security_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkSecurityRuleArgs,
     ) -> NetworkSecurityRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_binding_1 = args.access.get_output(context);
-        let access_binding = access_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let destination_address_prefix_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_binding = args.access.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let destination_address_prefix_binding = args
             .destination_address_prefix
             .get_output(context);
-        let destination_address_prefix_binding = destination_address_prefix_binding_1
-            .get_inner();
-        let destination_address_prefixes_binding_1 = args
+        let destination_address_prefixes_binding = args
             .destination_address_prefixes
             .get_output(context);
-        let destination_address_prefixes_binding = destination_address_prefixes_binding_1
-            .get_inner();
-        let destination_application_security_group_ids_binding_1 = args
+        let destination_application_security_group_ids_binding = args
             .destination_application_security_group_ids
             .get_output(context);
-        let destination_application_security_group_ids_binding = destination_application_security_group_ids_binding_1
-            .get_inner();
-        let destination_port_range_binding_1 = args
+        let destination_port_range_binding = args
             .destination_port_range
             .get_output(context);
-        let destination_port_range_binding = destination_port_range_binding_1
-            .get_inner();
-        let destination_port_ranges_binding_1 = args
+        let destination_port_ranges_binding = args
             .destination_port_ranges
             .get_output(context);
-        let destination_port_ranges_binding = destination_port_ranges_binding_1
-            .get_inner();
-        let direction_binding_1 = args.direction.get_output(context);
-        let direction_binding = direction_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_security_group_name_binding_1 = args
+        let direction_binding = args.direction.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_security_group_name_binding = args
             .network_security_group_name
             .get_output(context);
-        let network_security_group_name_binding = network_security_group_name_binding_1
-            .get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let source_address_prefix_binding_1 = args
+        let priority_binding = args.priority.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let source_address_prefix_binding = args
             .source_address_prefix
             .get_output(context);
-        let source_address_prefix_binding = source_address_prefix_binding_1.get_inner();
-        let source_address_prefixes_binding_1 = args
+        let source_address_prefixes_binding = args
             .source_address_prefixes
             .get_output(context);
-        let source_address_prefixes_binding = source_address_prefixes_binding_1
-            .get_inner();
-        let source_application_security_group_ids_binding_1 = args
+        let source_application_security_group_ids_binding = args
             .source_application_security_group_ids
             .get_output(context);
-        let source_application_security_group_ids_binding = source_application_security_group_ids_binding_1
-            .get_inner();
-        let source_port_range_binding_1 = args.source_port_range.get_output(context);
-        let source_port_range_binding = source_port_range_binding_1.get_inner();
-        let source_port_ranges_binding_1 = args.source_port_ranges.get_output(context);
-        let source_port_ranges_binding = source_port_ranges_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let source_port_range_binding = args.source_port_range.get_output(context);
+        let source_port_ranges_binding = args.source_port_ranges.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/networkSecurityRule:NetworkSecurityRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "access".into(),
-                    value: &access_binding,
+                    value: access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationAddressPrefix".into(),
-                    value: &destination_address_prefix_binding,
+                    value: destination_address_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationAddressPrefixes".into(),
-                    value: &destination_address_prefixes_binding,
+                    value: destination_address_prefixes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationApplicationSecurityGroupIds".into(),
-                    value: &destination_application_security_group_ids_binding,
+                    value: destination_application_security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationPortRange".into(),
-                    value: &destination_port_range_binding,
+                    value: destination_port_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationPortRanges".into(),
-                    value: &destination_port_ranges_binding,
+                    value: destination_port_ranges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "direction".into(),
-                    value: &direction_binding,
+                    value: direction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkSecurityGroupName".into(),
-                    value: &network_security_group_name_binding,
+                    value: network_security_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceAddressPrefix".into(),
-                    value: &source_address_prefix_binding,
+                    value: source_address_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceAddressPrefixes".into(),
-                    value: &source_address_prefixes_binding,
+                    value: source_address_prefixes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceApplicationSecurityGroupIds".into(),
-                    value: &source_application_security_group_ids_binding,
+                    value: source_application_security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourcePortRange".into(),
-                    value: &source_port_range_binding,
+                    value: source_port_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourcePortRanges".into(),
-                    value: &source_port_ranges_binding,
+                    value: source_port_ranges_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkSecurityRuleResult {
-            access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("access"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            destination_address_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationAddressPrefix"),
-            ),
-            destination_address_prefixes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationAddressPrefixes"),
-            ),
-            destination_application_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationApplicationSecurityGroupIds"),
-            ),
-            destination_port_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationPortRange"),
-            ),
-            destination_port_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationPortRanges"),
-            ),
-            direction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("direction"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_security_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkSecurityGroupName"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            source_address_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceAddressPrefix"),
-            ),
-            source_address_prefixes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceAddressPrefixes"),
-            ),
-            source_application_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceApplicationSecurityGroupIds"),
-            ),
-            source_port_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourcePortRange"),
-            ),
-            source_port_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourcePortRanges"),
-            ),
+            access: o.get_field("access"),
+            description: o.get_field("description"),
+            destination_address_prefix: o.get_field("destinationAddressPrefix"),
+            destination_address_prefixes: o.get_field("destinationAddressPrefixes"),
+            destination_application_security_group_ids: o
+                .get_field("destinationApplicationSecurityGroupIds"),
+            destination_port_range: o.get_field("destinationPortRange"),
+            destination_port_ranges: o.get_field("destinationPortRanges"),
+            direction: o.get_field("direction"),
+            name: o.get_field("name"),
+            network_security_group_name: o.get_field("networkSecurityGroupName"),
+            priority: o.get_field("priority"),
+            protocol: o.get_field("protocol"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            source_address_prefix: o.get_field("sourceAddressPrefix"),
+            source_address_prefixes: o.get_field("sourceAddressPrefixes"),
+            source_application_security_group_ids: o
+                .get_field("sourceApplicationSecurityGroupIds"),
+            source_port_range: o.get_field("sourcePortRange"),
+            source_port_ranges: o.get_field("sourcePortRanges"),
         }
     }
 }

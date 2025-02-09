@@ -70,46 +70,38 @@ pub mod vpc_endpoint_connection_accepter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcEndpointConnectionAccepterArgs,
     ) -> VpcEndpointConnectionAccepterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let vpc_endpoint_id_binding_1 = args.vpc_endpoint_id.get_output(context);
-        let vpc_endpoint_id_binding = vpc_endpoint_id_binding_1.get_inner();
-        let vpc_endpoint_service_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let vpc_endpoint_id_binding = args.vpc_endpoint_id.get_output(context);
+        let vpc_endpoint_service_id_binding = args
             .vpc_endpoint_service_id
             .get_output(context);
-        let vpc_endpoint_service_id_binding = vpc_endpoint_service_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointId".into(),
-                    value: &vpc_endpoint_id_binding,
+                    value: vpc_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointServiceId".into(),
-                    value: &vpc_endpoint_service_id_binding,
+                    value: vpc_endpoint_service_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcEndpointConnectionAccepterResult {
-            vpc_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcEndpointId"),
-            ),
-            vpc_endpoint_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcEndpointServiceId"),
-            ),
-            vpc_endpoint_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcEndpointState"),
-            ),
+            vpc_endpoint_id: o.get_field("vpcEndpointId"),
+            vpc_endpoint_service_id: o.get_field("vpcEndpointServiceId"),
+            vpc_endpoint_state: o.get_field("vpcEndpointState"),
         }
     }
 }

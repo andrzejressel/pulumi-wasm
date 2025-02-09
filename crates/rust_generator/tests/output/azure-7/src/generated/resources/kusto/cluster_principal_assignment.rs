@@ -99,87 +99,67 @@ pub mod cluster_principal_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterPrincipalAssignmentArgs,
     ) -> ClusterPrincipalAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let principal_id_binding_1 = args.principal_id.get_output(context);
-        let principal_id_binding = principal_id_binding_1.get_inner();
-        let principal_type_binding_1 = args.principal_type.get_output(context);
-        let principal_type_binding = principal_type_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let role_binding_1 = args.role.get_output(context);
-        let role_binding = role_binding_1.get_inner();
-        let tenant_id_binding_1 = args.tenant_id.get_output(context);
-        let tenant_id_binding = tenant_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let principal_id_binding = args.principal_id.get_output(context);
+        let principal_type_binding = args.principal_type.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let role_binding = args.role.get_output(context);
+        let tenant_id_binding = args.tenant_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalId".into(),
-                    value: &principal_id_binding,
+                    value: principal_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalType".into(),
-                    value: &principal_type_binding,
+                    value: principal_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: &role_binding,
+                    value: role_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: &tenant_id_binding,
+                    value: tenant_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterPrincipalAssignmentResult {
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            principal_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalId"),
-            ),
-            principal_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalName"),
-            ),
-            principal_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalType"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
-            tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantId"),
-            ),
-            tenant_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantName"),
-            ),
+            cluster_name: o.get_field("clusterName"),
+            name: o.get_field("name"),
+            principal_id: o.get_field("principalId"),
+            principal_name: o.get_field("principalName"),
+            principal_type: o.get_field("principalType"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            role: o.get_field("role"),
+            tenant_id: o.get_field("tenantId"),
+            tenant_name: o.get_field("tenantName"),
         }
     }
 }

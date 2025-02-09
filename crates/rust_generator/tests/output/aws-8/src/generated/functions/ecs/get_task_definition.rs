@@ -35,51 +35,35 @@ pub mod get_task_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTaskDefinitionArgs,
     ) -> GetTaskDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let task_definition_binding_1 = args.task_definition.get_output(context);
-        let task_definition_binding = task_definition_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let task_definition_binding = args.task_definition.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ecs/getTaskDefinition:getTaskDefinition".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskDefinition".into(),
-                    value: &task_definition_binding,
+                    value: task_definition_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTaskDefinitionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            arn_without_revision: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("arnWithoutRevision"),
-            ),
-            execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionRoleArn"),
-            ),
-            family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("family"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            network_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkMode"),
-            ),
-            revision: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revision"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            task_definition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskDefinition"),
-            ),
-            task_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taskRoleArn"),
-            ),
+            arn: o.get_field("arn"),
+            arn_without_revision: o.get_field("arnWithoutRevision"),
+            execution_role_arn: o.get_field("executionRoleArn"),
+            family: o.get_field("family"),
+            id: o.get_field("id"),
+            network_mode: o.get_field("networkMode"),
+            revision: o.get_field("revision"),
+            status: o.get_field("status"),
+            task_definition: o.get_field("taskDefinition"),
+            task_role_arn: o.get_field("taskRoleArn"),
         }
     }
 }

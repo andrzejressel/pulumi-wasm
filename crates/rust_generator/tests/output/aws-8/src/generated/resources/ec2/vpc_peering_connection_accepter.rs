@@ -127,86 +127,61 @@ pub mod vpc_peering_connection_accepter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpcPeeringConnectionAccepterArgs,
     ) -> VpcPeeringConnectionAccepterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accepter_binding_1 = args.accepter.get_output(context);
-        let accepter_binding = accepter_binding_1.get_inner();
-        let auto_accept_binding_1 = args.auto_accept.get_output(context);
-        let auto_accept_binding = auto_accept_binding_1.get_inner();
-        let requester_binding_1 = args.requester.get_output(context);
-        let requester_binding = requester_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_peering_connection_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accepter_binding = args.accepter.get_output(context);
+        let auto_accept_binding = args.auto_accept.get_output(context);
+        let requester_binding = args.requester.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_peering_connection_id_binding = args
             .vpc_peering_connection_id
             .get_output(context);
-        let vpc_peering_connection_id_binding = vpc_peering_connection_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accepter".into(),
-                    value: &accepter_binding,
+                    value: accepter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoAccept".into(),
-                    value: &auto_accept_binding,
+                    value: auto_accept_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requester".into(),
-                    value: &requester_binding,
+                    value: requester_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcPeeringConnectionId".into(),
-                    value: &vpc_peering_connection_id_binding,
+                    value: vpc_peering_connection_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpcPeeringConnectionAccepterResult {
-            accept_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceptStatus"),
-            ),
-            accepter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accepter"),
-            ),
-            auto_accept: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoAccept"),
-            ),
-            peer_owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerOwnerId"),
-            ),
-            peer_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerRegion"),
-            ),
-            peer_vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerVpcId"),
-            ),
-            requester: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requester"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcId"),
-            ),
-            vpc_peering_connection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcPeeringConnectionId"),
-            ),
+            accept_status: o.get_field("acceptStatus"),
+            accepter: o.get_field("accepter"),
+            auto_accept: o.get_field("autoAccept"),
+            peer_owner_id: o.get_field("peerOwnerId"),
+            peer_region: o.get_field("peerRegion"),
+            peer_vpc_id: o.get_field("peerVpcId"),
+            requester: o.get_field("requester"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_id: o.get_field("vpcId"),
+            vpc_peering_connection_id: o.get_field("vpcPeeringConnectionId"),
         }
     }
 }

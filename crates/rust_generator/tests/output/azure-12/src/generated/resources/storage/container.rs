@@ -107,101 +107,74 @@ pub mod container {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ContainerArgs,
     ) -> ContainerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_access_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let container_access_type_binding = args
             .container_access_type
             .get_output(context);
-        let container_access_type_binding = container_access_type_binding_1.get_inner();
-        let default_encryption_scope_binding_1 = args
+        let default_encryption_scope_binding = args
             .default_encryption_scope
             .get_output(context);
-        let default_encryption_scope_binding = default_encryption_scope_binding_1
-            .get_inner();
-        let encryption_scope_override_enabled_binding_1 = args
+        let encryption_scope_override_enabled_binding = args
             .encryption_scope_override_enabled
             .get_output(context);
-        let encryption_scope_override_enabled_binding = encryption_scope_override_enabled_binding_1
-            .get_inner();
-        let metadata_binding_1 = args.metadata.get_output(context);
-        let metadata_binding = metadata_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let storage_account_id_binding_1 = args.storage_account_id.get_output(context);
-        let storage_account_id_binding = storage_account_id_binding_1.get_inner();
-        let storage_account_name_binding_1 = args
-            .storage_account_name
-            .get_output(context);
-        let storage_account_name_binding = storage_account_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let metadata_binding = args.metadata.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let storage_account_id_binding = args.storage_account_id.get_output(context);
+        let storage_account_name_binding = args.storage_account_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/container:Container".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerAccessType".into(),
-                    value: &container_access_type_binding,
+                    value: container_access_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultEncryptionScope".into(),
-                    value: &default_encryption_scope_binding,
+                    value: default_encryption_scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionScopeOverrideEnabled".into(),
-                    value: &encryption_scope_override_enabled_binding,
+                    value: encryption_scope_override_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: &metadata_binding,
+                    value: metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: &storage_account_id_binding,
+                    value: storage_account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountName".into(),
-                    value: &storage_account_name_binding,
+                    value: storage_account_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ContainerResult {
-            container_access_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerAccessType"),
-            ),
-            default_encryption_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultEncryptionScope"),
-            ),
-            encryption_scope_override_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionScopeOverrideEnabled"),
-            ),
-            has_immutability_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hasImmutabilityPolicy"),
-            ),
-            has_legal_hold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hasLegalHold"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_manager_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceManagerId"),
-            ),
-            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountId"),
-            ),
-            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountName"),
-            ),
+            container_access_type: o.get_field("containerAccessType"),
+            default_encryption_scope: o.get_field("defaultEncryptionScope"),
+            encryption_scope_override_enabled: o
+                .get_field("encryptionScopeOverrideEnabled"),
+            has_immutability_policy: o.get_field("hasImmutabilityPolicy"),
+            has_legal_hold: o.get_field("hasLegalHold"),
+            metadata: o.get_field("metadata"),
+            name: o.get_field("name"),
+            resource_manager_id: o.get_field("resourceManagerId"),
+            storage_account_id: o.get_field("storageAccountId"),
+            storage_account_name: o.get_field("storageAccountName"),
         }
     }
 }

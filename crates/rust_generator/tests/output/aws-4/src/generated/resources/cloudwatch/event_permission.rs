@@ -92,66 +92,52 @@ pub mod event_permission {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EventPermissionArgs,
     ) -> EventPermissionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let condition_binding_1 = args.condition.get_output(context);
-        let condition_binding = condition_binding_1.get_inner();
-        let event_bus_name_binding_1 = args.event_bus_name.get_output(context);
-        let event_bus_name_binding = event_bus_name_binding_1.get_inner();
-        let principal_binding_1 = args.principal.get_output(context);
-        let principal_binding = principal_binding_1.get_inner();
-        let statement_id_binding_1 = args.statement_id.get_output(context);
-        let statement_id_binding = statement_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let condition_binding = args.condition.get_output(context);
+        let event_bus_name_binding = args.event_bus_name.get_output(context);
+        let principal_binding = args.principal.get_output(context);
+        let statement_id_binding = args.statement_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventPermission:EventPermission".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: &condition_binding,
+                    value: condition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventBusName".into(),
-                    value: &event_bus_name_binding,
+                    value: event_bus_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: &principal_binding,
+                    value: principal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statementId".into(),
-                    value: &statement_id_binding,
+                    value: statement_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EventPermissionResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            condition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("condition"),
-            ),
-            event_bus_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventBusName"),
-            ),
-            principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principal"),
-            ),
-            statement_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statementId"),
-            ),
+            action: o.get_field("action"),
+            condition: o.get_field("condition"),
+            event_bus_name: o.get_field("eventBusName"),
+            principal: o.get_field("principal"),
+            statement_id: o.get_field("statementId"),
         }
     }
 }

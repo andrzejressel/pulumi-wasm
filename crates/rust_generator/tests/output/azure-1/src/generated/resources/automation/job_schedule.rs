@@ -88,90 +88,67 @@ pub mod job_schedule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: JobScheduleArgs,
     ) -> JobScheduleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let automation_account_name_binding = args
             .automation_account_name
             .get_output(context);
-        let automation_account_name_binding = automation_account_name_binding_1
-            .get_inner();
-        let job_schedule_id_binding_1 = args.job_schedule_id.get_output(context);
-        let job_schedule_id_binding = job_schedule_id_binding_1.get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let run_on_binding_1 = args.run_on.get_output(context);
-        let run_on_binding = run_on_binding_1.get_inner();
-        let runbook_name_binding_1 = args.runbook_name.get_output(context);
-        let runbook_name_binding = runbook_name_binding_1.get_inner();
-        let schedule_name_binding_1 = args.schedule_name.get_output(context);
-        let schedule_name_binding = schedule_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let job_schedule_id_binding = args.job_schedule_id.get_output(context);
+        let parameters_binding = args.parameters.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let run_on_binding = args.run_on.get_output(context);
+        let runbook_name_binding = args.runbook_name.get_output(context);
+        let schedule_name_binding = args.schedule_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:automation/jobSchedule:JobSchedule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationAccountName".into(),
-                    value: &automation_account_name_binding,
+                    value: automation_account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobScheduleId".into(),
-                    value: &job_schedule_id_binding,
+                    value: job_schedule_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runOn".into(),
-                    value: &run_on_binding,
+                    value: run_on_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runbookName".into(),
-                    value: &runbook_name_binding,
+                    value: runbook_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleName".into(),
-                    value: &schedule_name_binding,
+                    value: schedule_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         JobScheduleResult {
-            automation_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automationAccountName"),
-            ),
-            job_schedule_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobScheduleId"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            resource_manager_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceManagerId"),
-            ),
-            run_on: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runOn"),
-            ),
-            runbook_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runbookName"),
-            ),
-            schedule_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduleName"),
-            ),
+            automation_account_name: o.get_field("automationAccountName"),
+            job_schedule_id: o.get_field("jobScheduleId"),
+            parameters: o.get_field("parameters"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            resource_manager_id: o.get_field("resourceManagerId"),
+            run_on: o.get_field("runOn"),
+            runbook_name: o.get_field("runbookName"),
+            schedule_name: o.get_field("scheduleName"),
         }
     }
 }

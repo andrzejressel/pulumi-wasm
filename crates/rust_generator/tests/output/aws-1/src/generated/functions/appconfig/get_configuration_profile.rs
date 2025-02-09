@@ -47,67 +47,50 @@ pub mod get_configuration_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetConfigurationProfileArgs,
     ) -> GetConfigurationProfileResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding_1 = args.application_id.get_output(context);
-        let application_id_binding = application_id_binding_1.get_inner();
-        let configuration_profile_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_id_binding = args.application_id.get_output(context);
+        let configuration_profile_id_binding = args
             .configuration_profile_id
             .get_output(context);
-        let configuration_profile_id_binding = configuration_profile_id_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:appconfig/getConfigurationProfile:getConfigurationProfile"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: &application_id_binding,
+                    value: application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationProfileId".into(),
-                    value: &configuration_profile_id_binding,
+                    value: configuration_profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetConfigurationProfileResult {
-            application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            configuration_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationProfileId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kms_key_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyIdentifier"),
-            ),
-            location_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationUri"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            retrieval_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retrievalRoleArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            validators: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validators"),
-            ),
+            application_id: o.get_field("applicationId"),
+            arn: o.get_field("arn"),
+            configuration_profile_id: o.get_field("configurationProfileId"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            kms_key_identifier: o.get_field("kmsKeyIdentifier"),
+            location_uri: o.get_field("locationUri"),
+            name: o.get_field("name"),
+            retrieval_role_arn: o.get_field("retrievalRoleArn"),
+            tags: o.get_field("tags"),
+            type_: o.get_field("type"),
+            validators: o.get_field("validators"),
         }
     }
 }

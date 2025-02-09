@@ -80,58 +80,44 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let fips_enabled_binding_1 = args.fips_enabled.get_output(context);
-        let fips_enabled_binding = fips_enabled_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let fips_enabled_binding = args.fips_enabled.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:verifiedaccess/instance:Instance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fipsEnabled".into(),
-                    value: &fips_enabled_binding,
+                    value: fips_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InstanceResult {
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            fips_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fipsEnabled"),
-            ),
-            last_updated_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedTime"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            verified_access_trust_providers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verifiedAccessTrustProviders"),
-            ),
+            creation_time: o.get_field("creationTime"),
+            description: o.get_field("description"),
+            fips_enabled: o.get_field("fipsEnabled"),
+            last_updated_time: o.get_field("lastUpdatedTime"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            verified_access_trust_providers: o.get_field("verifiedAccessTrustProviders"),
         }
     }
 }

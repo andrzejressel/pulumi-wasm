@@ -167,97 +167,74 @@ pub mod repository_release_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RepositoryReleaseConfigArgs,
     ) -> RepositoryReleaseConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let code_compilation_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let code_compilation_config_binding = args
             .code_compilation_config
             .get_output(context);
-        let code_compilation_config_binding = code_compilation_config_binding_1
-            .get_inner();
-        let cron_schedule_binding_1 = args.cron_schedule.get_output(context);
-        let cron_schedule_binding = cron_schedule_binding_1.get_inner();
-        let git_commitish_binding_1 = args.git_commitish.get_output(context);
-        let git_commitish_binding = git_commitish_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let repository_binding_1 = args.repository.get_output(context);
-        let repository_binding = repository_binding_1.get_inner();
-        let time_zone_binding_1 = args.time_zone.get_output(context);
-        let time_zone_binding = time_zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let cron_schedule_binding = args.cron_schedule.get_output(context);
+        let git_commitish_binding = args.git_commitish.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let repository_binding = args.repository.get_output(context);
+        let time_zone_binding = args.time_zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:dataform/repositoryReleaseConfig:RepositoryReleaseConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "codeCompilationConfig".into(),
-                    value: &code_compilation_config_binding,
+                    value: code_compilation_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cronSchedule".into(),
-                    value: &cron_schedule_binding,
+                    value: cron_schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gitCommitish".into(),
-                    value: &git_commitish_binding,
+                    value: git_commitish_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repository".into(),
-                    value: &repository_binding,
+                    value: repository_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZone".into(),
-                    value: &time_zone_binding,
+                    value: time_zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RepositoryReleaseConfigResult {
-            code_compilation_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("codeCompilationConfig"),
-            ),
-            cron_schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cronSchedule"),
-            ),
-            git_commitish: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gitCommitish"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            recent_scheduled_release_records: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recentScheduledReleaseRecords"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            repository: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repository"),
-            ),
-            time_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeZone"),
-            ),
+            code_compilation_config: o.get_field("codeCompilationConfig"),
+            cron_schedule: o.get_field("cronSchedule"),
+            git_commitish: o.get_field("gitCommitish"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            recent_scheduled_release_records: o
+                .get_field("recentScheduledReleaseRecords"),
+            region: o.get_field("region"),
+            repository: o.get_field("repository"),
+            time_zone: o.get_field("timeZone"),
         }
     }
 }

@@ -131,97 +131,72 @@ pub mod user {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserArgs,
     ) -> UserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_string_binding_1 = args.access_string.get_output(context);
-        let access_string_binding = access_string_binding_1.get_inner();
-        let authentication_mode_binding_1 = args.authentication_mode.get_output(context);
-        let authentication_mode_binding = authentication_mode_binding_1.get_inner();
-        let engine_binding_1 = args.engine.get_output(context);
-        let engine_binding = engine_binding_1.get_inner();
-        let no_password_required_binding_1 = args
-            .no_password_required
-            .get_output(context);
-        let no_password_required_binding = no_password_required_binding_1.get_inner();
-        let passwords_binding_1 = args.passwords.get_output(context);
-        let passwords_binding = passwords_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let user_id_binding_1 = args.user_id.get_output(context);
-        let user_id_binding = user_id_binding_1.get_inner();
-        let user_name_binding_1 = args.user_name.get_output(context);
-        let user_name_binding = user_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_string_binding = args.access_string.get_output(context);
+        let authentication_mode_binding = args.authentication_mode.get_output(context);
+        let engine_binding = args.engine.get_output(context);
+        let no_password_required_binding = args.no_password_required.get_output(context);
+        let passwords_binding = args.passwords.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let user_id_binding = args.user_id.get_output(context);
+        let user_name_binding = args.user_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:elasticache/user:User".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessString".into(),
-                    value: &access_string_binding,
+                    value: access_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationMode".into(),
-                    value: &authentication_mode_binding,
+                    value: authentication_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: &engine_binding,
+                    value: engine_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "noPasswordRequired".into(),
-                    value: &no_password_required_binding,
+                    value: no_password_required_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "passwords".into(),
-                    value: &passwords_binding,
+                    value: passwords_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userId".into(),
-                    value: &user_id_binding,
+                    value: user_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userName".into(),
-                    value: &user_name_binding,
+                    value: user_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserResult {
-            access_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessString"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationMode"),
-            ),
-            engine: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engine"),
-            ),
-            no_password_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("noPasswordRequired"),
-            ),
-            passwords: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("passwords"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userId"),
-            ),
-            user_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userName"),
-            ),
+            access_string: o.get_field("accessString"),
+            arn: o.get_field("arn"),
+            authentication_mode: o.get_field("authenticationMode"),
+            engine: o.get_field("engine"),
+            no_password_required: o.get_field("noPasswordRequired"),
+            passwords: o.get_field("passwords"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            user_id: o.get_field("userId"),
+            user_name: o.get_field("userName"),
         }
     }
 }

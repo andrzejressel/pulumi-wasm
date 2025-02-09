@@ -21,32 +21,28 @@ pub mod get_event_categories {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetEventCategoriesArgs,
     ) -> GetEventCategoriesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let source_type_binding_1 = args.source_type.get_output(context);
-        let source_type_binding = source_type_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let source_type_binding = args.source_type.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:rds/getEventCategories:getEventCategories".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceType".into(),
-                    value: &source_type_binding,
+                    value: source_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetEventCategoriesResult {
-            event_categories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventCategories"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            source_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceType"),
-            ),
+            event_categories: o.get_field("eventCategories"),
+            id: o.get_field("id"),
+            source_type: o.get_field("sourceType"),
         }
     }
 }

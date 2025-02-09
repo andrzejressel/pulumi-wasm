@@ -52,93 +52,64 @@ pub mod get_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSubscriptionArgs,
     ) -> GetSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let namespace_name_binding_1 = args.namespace_name.get_output(context);
-        let namespace_name_binding = namespace_name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let topic_id_binding_1 = args.topic_id.get_output(context);
-        let topic_id_binding = topic_id_binding_1.get_inner();
-        let topic_name_binding_1 = args.topic_name.get_output(context);
-        let topic_name_binding = topic_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let namespace_name_binding = args.namespace_name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let topic_id_binding = args.topic_id.get_output(context);
+        let topic_name_binding = args.topic_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:servicebus/getSubscription:getSubscription".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceName".into(),
-                    value: &namespace_name_binding,
+                    value: namespace_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topicId".into(),
-                    value: &topic_id_binding,
+                    value: topic_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topicName".into(),
-                    value: &topic_name_binding,
+                    value: topic_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSubscriptionResult {
-            auto_delete_on_idle: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoDeleteOnIdle"),
-            ),
-            dead_lettering_on_filter_evaluation_error: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deadLetteringOnFilterEvaluationError"),
-            ),
-            dead_lettering_on_message_expiration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deadLetteringOnMessageExpiration"),
-            ),
-            default_message_ttl: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultMessageTtl"),
-            ),
-            enable_batched_operations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableBatchedOperations"),
-            ),
-            forward_dead_lettered_messages_to: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forwardDeadLetteredMessagesTo"),
-            ),
-            forward_to: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forwardTo"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            lock_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lockDuration"),
-            ),
-            max_delivery_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxDeliveryCount"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceName"),
-            ),
-            requires_session: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requiresSession"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            topic_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("topicId"),
-            ),
-            topic_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("topicName"),
-            ),
+            auto_delete_on_idle: o.get_field("autoDeleteOnIdle"),
+            dead_lettering_on_filter_evaluation_error: o
+                .get_field("deadLetteringOnFilterEvaluationError"),
+            dead_lettering_on_message_expiration: o
+                .get_field("deadLetteringOnMessageExpiration"),
+            default_message_ttl: o.get_field("defaultMessageTtl"),
+            enable_batched_operations: o.get_field("enableBatchedOperations"),
+            forward_dead_lettered_messages_to: o
+                .get_field("forwardDeadLetteredMessagesTo"),
+            forward_to: o.get_field("forwardTo"),
+            id: o.get_field("id"),
+            lock_duration: o.get_field("lockDuration"),
+            max_delivery_count: o.get_field("maxDeliveryCount"),
+            name: o.get_field("name"),
+            namespace_name: o.get_field("namespaceName"),
+            requires_session: o.get_field("requiresSession"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            topic_id: o.get_field("topicId"),
+            topic_name: o.get_field("topicName"),
         }
     }
 }

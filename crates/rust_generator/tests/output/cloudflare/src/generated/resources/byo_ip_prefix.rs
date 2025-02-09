@@ -61,57 +61,46 @@ pub mod byo_ip_prefix {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ByoIpPrefixArgs,
     ) -> ByoIpPrefixResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let advertisement_binding_1 = args.advertisement.get_output(context);
-        let advertisement_binding = advertisement_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let prefix_id_binding_1 = args.prefix_id.get_output(context);
-        let prefix_id_binding = prefix_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let advertisement_binding = args.advertisement.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let prefix_id_binding = args.prefix_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/byoIpPrefix:ByoIpPrefix".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advertisement".into(),
-                    value: &advertisement_binding,
+                    value: advertisement_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefixId".into(),
-                    value: &prefix_id_binding,
+                    value: prefix_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ByoIpPrefixResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            advertisement: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("advertisement"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            prefix_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefixId"),
-            ),
+            account_id: o.get_field("accountId"),
+            advertisement: o.get_field("advertisement"),
+            description: o.get_field("description"),
+            prefix_id: o.get_field("prefixId"),
         }
     }
 }

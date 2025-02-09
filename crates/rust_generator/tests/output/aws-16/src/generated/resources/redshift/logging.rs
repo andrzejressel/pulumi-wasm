@@ -90,68 +90,52 @@ pub mod logging {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LoggingArgs,
     ) -> LoggingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_name_binding_1 = args.bucket_name.get_output(context);
-        let bucket_name_binding = bucket_name_binding_1.get_inner();
-        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
-        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
-        let log_destination_type_binding_1 = args
-            .log_destination_type
-            .get_output(context);
-        let log_destination_type_binding = log_destination_type_binding_1.get_inner();
-        let log_exports_binding_1 = args.log_exports.get_output(context);
-        let log_exports_binding = log_exports_binding_1.get_inner();
-        let s3_key_prefix_binding_1 = args.s3_key_prefix.get_output(context);
-        let s3_key_prefix_binding = s3_key_prefix_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_name_binding = args.bucket_name.get_output(context);
+        let cluster_identifier_binding = args.cluster_identifier.get_output(context);
+        let log_destination_type_binding = args.log_destination_type.get_output(context);
+        let log_exports_binding = args.log_exports.get_output(context);
+        let s3_key_prefix_binding = args.s3_key_prefix.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshift/logging:Logging".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketName".into(),
-                    value: &bucket_name_binding,
+                    value: bucket_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: &cluster_identifier_binding,
+                    value: cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logDestinationType".into(),
-                    value: &log_destination_type_binding,
+                    value: log_destination_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logExports".into(),
-                    value: &log_exports_binding,
+                    value: log_exports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3KeyPrefix".into(),
-                    value: &s3_key_prefix_binding,
+                    value: s3_key_prefix_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LoggingResult {
-            bucket_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketName"),
-            ),
-            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterIdentifier"),
-            ),
-            log_destination_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logDestinationType"),
-            ),
-            log_exports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logExports"),
-            ),
-            s3_key_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3KeyPrefix"),
-            ),
+            bucket_name: o.get_field("bucketName"),
+            cluster_identifier: o.get_field("clusterIdentifier"),
+            log_destination_type: o.get_field("logDestinationType"),
+            log_exports: o.get_field("logExports"),
+            s3_key_prefix: o.get_field("s3KeyPrefix"),
         }
     }
 }

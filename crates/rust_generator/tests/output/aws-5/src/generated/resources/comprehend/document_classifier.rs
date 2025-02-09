@@ -179,129 +179,96 @@ pub mod document_classifier {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DocumentClassifierArgs,
     ) -> DocumentClassifierResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_access_role_arn_binding_1 = args
-            .data_access_role_arn
-            .get_output(context);
-        let data_access_role_arn_binding = data_access_role_arn_binding_1.get_inner();
-        let input_data_config_binding_1 = args.input_data_config.get_output(context);
-        let input_data_config_binding = input_data_config_binding_1.get_inner();
-        let language_code_binding_1 = args.language_code.get_output(context);
-        let language_code_binding = language_code_binding_1.get_inner();
-        let mode_binding_1 = args.mode.get_output(context);
-        let mode_binding = mode_binding_1.get_inner();
-        let model_kms_key_id_binding_1 = args.model_kms_key_id.get_output(context);
-        let model_kms_key_id_binding = model_kms_key_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let output_data_config_binding_1 = args.output_data_config.get_output(context);
-        let output_data_config_binding = output_data_config_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let version_name_binding_1 = args.version_name.get_output(context);
-        let version_name_binding = version_name_binding_1.get_inner();
-        let version_name_prefix_binding_1 = args.version_name_prefix.get_output(context);
-        let version_name_prefix_binding = version_name_prefix_binding_1.get_inner();
-        let volume_kms_key_id_binding_1 = args.volume_kms_key_id.get_output(context);
-        let volume_kms_key_id_binding = volume_kms_key_id_binding_1.get_inner();
-        let vpc_config_binding_1 = args.vpc_config.get_output(context);
-        let vpc_config_binding = vpc_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_access_role_arn_binding = args.data_access_role_arn.get_output(context);
+        let input_data_config_binding = args.input_data_config.get_output(context);
+        let language_code_binding = args.language_code.get_output(context);
+        let mode_binding = args.mode.get_output(context);
+        let model_kms_key_id_binding = args.model_kms_key_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let output_data_config_binding = args.output_data_config.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let version_name_binding = args.version_name.get_output(context);
+        let version_name_prefix_binding = args.version_name_prefix.get_output(context);
+        let volume_kms_key_id_binding = args.volume_kms_key_id.get_output(context);
+        let vpc_config_binding = args.vpc_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:comprehend/documentClassifier:DocumentClassifier".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataAccessRoleArn".into(),
-                    value: &data_access_role_arn_binding,
+                    value: data_access_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputDataConfig".into(),
-                    value: &input_data_config_binding,
+                    value: input_data_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageCode".into(),
-                    value: &language_code_binding,
+                    value: language_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: &mode_binding,
+                    value: mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelKmsKeyId".into(),
-                    value: &model_kms_key_id_binding,
+                    value: model_kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputDataConfig".into(),
-                    value: &output_data_config_binding,
+                    value: output_data_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionName".into(),
-                    value: &version_name_binding,
+                    value: version_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionNamePrefix".into(),
-                    value: &version_name_prefix_binding,
+                    value: version_name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeKmsKeyId".into(),
-                    value: &volume_kms_key_id_binding,
+                    value: volume_kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfig".into(),
-                    value: &vpc_config_binding,
+                    value: vpc_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DocumentClassifierResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            data_access_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataAccessRoleArn"),
-            ),
-            input_data_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputDataConfig"),
-            ),
-            language_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("languageCode"),
-            ),
-            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
-            model_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelKmsKeyId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            output_data_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputDataConfig"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            version_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionName"),
-            ),
-            version_name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("versionNamePrefix"),
-            ),
-            volume_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeKmsKeyId"),
-            ),
-            vpc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfig"),
-            ),
+            arn: o.get_field("arn"),
+            data_access_role_arn: o.get_field("dataAccessRoleArn"),
+            input_data_config: o.get_field("inputDataConfig"),
+            language_code: o.get_field("languageCode"),
+            mode: o.get_field("mode"),
+            model_kms_key_id: o.get_field("modelKmsKeyId"),
+            name: o.get_field("name"),
+            output_data_config: o.get_field("outputDataConfig"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            version_name: o.get_field("versionName"),
+            version_name_prefix: o.get_field("versionNamePrefix"),
+            volume_kms_key_id: o.get_field("volumeKmsKeyId"),
+            vpc_config: o.get_field("vpcConfig"),
         }
     }
 }

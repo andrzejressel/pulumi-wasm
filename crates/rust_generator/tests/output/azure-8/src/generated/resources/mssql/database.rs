@@ -426,369 +426,261 @@ pub mod database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DatabaseArgs,
     ) -> DatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_pause_delay_in_minutes_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_pause_delay_in_minutes_binding = args
             .auto_pause_delay_in_minutes
             .get_output(context);
-        let auto_pause_delay_in_minutes_binding = auto_pause_delay_in_minutes_binding_1
-            .get_inner();
-        let collation_binding_1 = args.collation.get_output(context);
-        let collation_binding = collation_binding_1.get_inner();
-        let create_mode_binding_1 = args.create_mode.get_output(context);
-        let create_mode_binding = create_mode_binding_1.get_inner();
-        let creation_source_database_id_binding_1 = args
+        let collation_binding = args.collation.get_output(context);
+        let create_mode_binding = args.create_mode.get_output(context);
+        let creation_source_database_id_binding = args
             .creation_source_database_id
             .get_output(context);
-        let creation_source_database_id_binding = creation_source_database_id_binding_1
-            .get_inner();
-        let elastic_pool_id_binding_1 = args.elastic_pool_id.get_output(context);
-        let elastic_pool_id_binding = elastic_pool_id_binding_1.get_inner();
-        let enclave_type_binding_1 = args.enclave_type.get_output(context);
-        let enclave_type_binding = enclave_type_binding_1.get_inner();
-        let geo_backup_enabled_binding_1 = args.geo_backup_enabled.get_output(context);
-        let geo_backup_enabled_binding = geo_backup_enabled_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let import_binding_1 = args.import.get_output(context);
-        let import_binding = import_binding_1.get_inner();
-        let ledger_enabled_binding_1 = args.ledger_enabled.get_output(context);
-        let ledger_enabled_binding = ledger_enabled_binding_1.get_inner();
-        let license_type_binding_1 = args.license_type.get_output(context);
-        let license_type_binding = license_type_binding_1.get_inner();
-        let long_term_retention_policy_binding_1 = args
+        let elastic_pool_id_binding = args.elastic_pool_id.get_output(context);
+        let enclave_type_binding = args.enclave_type.get_output(context);
+        let geo_backup_enabled_binding = args.geo_backup_enabled.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let import_binding = args.import.get_output(context);
+        let ledger_enabled_binding = args.ledger_enabled.get_output(context);
+        let license_type_binding = args.license_type.get_output(context);
+        let long_term_retention_policy_binding = args
             .long_term_retention_policy
             .get_output(context);
-        let long_term_retention_policy_binding = long_term_retention_policy_binding_1
-            .get_inner();
-        let maintenance_configuration_name_binding_1 = args
+        let maintenance_configuration_name_binding = args
             .maintenance_configuration_name
             .get_output(context);
-        let maintenance_configuration_name_binding = maintenance_configuration_name_binding_1
-            .get_inner();
-        let max_size_gb_binding_1 = args.max_size_gb.get_output(context);
-        let max_size_gb_binding = max_size_gb_binding_1.get_inner();
-        let min_capacity_binding_1 = args.min_capacity.get_output(context);
-        let min_capacity_binding = min_capacity_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let read_replica_count_binding_1 = args.read_replica_count.get_output(context);
-        let read_replica_count_binding = read_replica_count_binding_1.get_inner();
-        let read_scale_binding_1 = args.read_scale.get_output(context);
-        let read_scale_binding = read_scale_binding_1.get_inner();
-        let recover_database_id_binding_1 = args.recover_database_id.get_output(context);
-        let recover_database_id_binding = recover_database_id_binding_1.get_inner();
-        let recovery_point_id_binding_1 = args.recovery_point_id.get_output(context);
-        let recovery_point_id_binding = recovery_point_id_binding_1.get_inner();
-        let restore_dropped_database_id_binding_1 = args
+        let max_size_gb_binding = args.max_size_gb.get_output(context);
+        let min_capacity_binding = args.min_capacity.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let read_replica_count_binding = args.read_replica_count.get_output(context);
+        let read_scale_binding = args.read_scale.get_output(context);
+        let recover_database_id_binding = args.recover_database_id.get_output(context);
+        let recovery_point_id_binding = args.recovery_point_id.get_output(context);
+        let restore_dropped_database_id_binding = args
             .restore_dropped_database_id
             .get_output(context);
-        let restore_dropped_database_id_binding = restore_dropped_database_id_binding_1
-            .get_inner();
-        let restore_long_term_retention_backup_id_binding_1 = args
+        let restore_long_term_retention_backup_id_binding = args
             .restore_long_term_retention_backup_id
             .get_output(context);
-        let restore_long_term_retention_backup_id_binding = restore_long_term_retention_backup_id_binding_1
-            .get_inner();
-        let restore_point_in_time_binding_1 = args
+        let restore_point_in_time_binding = args
             .restore_point_in_time
             .get_output(context);
-        let restore_point_in_time_binding = restore_point_in_time_binding_1.get_inner();
-        let sample_name_binding_1 = args.sample_name.get_output(context);
-        let sample_name_binding = sample_name_binding_1.get_inner();
-        let secondary_type_binding_1 = args.secondary_type.get_output(context);
-        let secondary_type_binding = secondary_type_binding_1.get_inner();
-        let server_id_binding_1 = args.server_id.get_output(context);
-        let server_id_binding = server_id_binding_1.get_inner();
-        let short_term_retention_policy_binding_1 = args
+        let sample_name_binding = args.sample_name.get_output(context);
+        let secondary_type_binding = args.secondary_type.get_output(context);
+        let server_id_binding = args.server_id.get_output(context);
+        let short_term_retention_policy_binding = args
             .short_term_retention_policy
             .get_output(context);
-        let short_term_retention_policy_binding = short_term_retention_policy_binding_1
-            .get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let storage_account_type_binding_1 = args
-            .storage_account_type
-            .get_output(context);
-        let storage_account_type_binding = storage_account_type_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let threat_detection_policy_binding_1 = args
+        let sku_name_binding = args.sku_name.get_output(context);
+        let storage_account_type_binding = args.storage_account_type.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let threat_detection_policy_binding = args
             .threat_detection_policy
             .get_output(context);
-        let threat_detection_policy_binding = threat_detection_policy_binding_1
-            .get_inner();
-        let transparent_data_encryption_enabled_binding_1 = args
+        let transparent_data_encryption_enabled_binding = args
             .transparent_data_encryption_enabled
             .get_output(context);
-        let transparent_data_encryption_enabled_binding = transparent_data_encryption_enabled_binding_1
-            .get_inner();
-        let transparent_data_encryption_key_automatic_rotation_enabled_binding_1 = args
+        let transparent_data_encryption_key_automatic_rotation_enabled_binding = args
             .transparent_data_encryption_key_automatic_rotation_enabled
             .get_output(context);
-        let transparent_data_encryption_key_automatic_rotation_enabled_binding = transparent_data_encryption_key_automatic_rotation_enabled_binding_1
-            .get_inner();
-        let transparent_data_encryption_key_vault_key_id_binding_1 = args
+        let transparent_data_encryption_key_vault_key_id_binding = args
             .transparent_data_encryption_key_vault_key_id
             .get_output(context);
-        let transparent_data_encryption_key_vault_key_id_binding = transparent_data_encryption_key_vault_key_id_binding_1
-            .get_inner();
-        let zone_redundant_binding_1 = args.zone_redundant.get_output(context);
-        let zone_redundant_binding = zone_redundant_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let zone_redundant_binding = args.zone_redundant.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:mssql/database:Database".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoPauseDelayInMinutes".into(),
-                    value: &auto_pause_delay_in_minutes_binding,
+                    value: auto_pause_delay_in_minutes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "collation".into(),
-                    value: &collation_binding,
+                    value: collation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createMode".into(),
-                    value: &create_mode_binding,
+                    value: create_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "creationSourceDatabaseId".into(),
-                    value: &creation_source_database_id_binding,
+                    value: creation_source_database_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticPoolId".into(),
-                    value: &elastic_pool_id_binding,
+                    value: elastic_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enclaveType".into(),
-                    value: &enclave_type_binding,
+                    value: enclave_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geoBackupEnabled".into(),
-                    value: &geo_backup_enabled_binding,
+                    value: geo_backup_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "import".into(),
-                    value: &import_binding,
+                    value: import_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ledgerEnabled".into(),
-                    value: &ledger_enabled_binding,
+                    value: ledger_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseType".into(),
-                    value: &license_type_binding,
+                    value: license_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "longTermRetentionPolicy".into(),
-                    value: &long_term_retention_policy_binding,
+                    value: long_term_retention_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceConfigurationName".into(),
-                    value: &maintenance_configuration_name_binding,
+                    value: maintenance_configuration_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxSizeGb".into(),
-                    value: &max_size_gb_binding,
+                    value: max_size_gb_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minCapacity".into(),
-                    value: &min_capacity_binding,
+                    value: min_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readReplicaCount".into(),
-                    value: &read_replica_count_binding,
+                    value: read_replica_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readScale".into(),
-                    value: &read_scale_binding,
+                    value: read_scale_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoverDatabaseId".into(),
-                    value: &recover_database_id_binding,
+                    value: recover_database_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryPointId".into(),
-                    value: &recovery_point_id_binding,
+                    value: recovery_point_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreDroppedDatabaseId".into(),
-                    value: &restore_dropped_database_id_binding,
+                    value: restore_dropped_database_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreLongTermRetentionBackupId".into(),
-                    value: &restore_long_term_retention_backup_id_binding,
+                    value: restore_long_term_retention_backup_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restorePointInTime".into(),
-                    value: &restore_point_in_time_binding,
+                    value: restore_point_in_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sampleName".into(),
-                    value: &sample_name_binding,
+                    value: sample_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryType".into(),
-                    value: &secondary_type_binding,
+                    value: secondary_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: &server_id_binding,
+                    value: server_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shortTermRetentionPolicy".into(),
-                    value: &short_term_retention_policy_binding,
+                    value: short_term_retention_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountType".into(),
-                    value: &storage_account_type_binding,
+                    value: storage_account_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threatDetectionPolicy".into(),
-                    value: &threat_detection_policy_binding,
+                    value: threat_detection_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transparentDataEncryptionEnabled".into(),
-                    value: &transparent_data_encryption_enabled_binding,
+                    value: transparent_data_encryption_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transparentDataEncryptionKeyAutomaticRotationEnabled".into(),
-                    value: &transparent_data_encryption_key_automatic_rotation_enabled_binding,
+                    value: transparent_data_encryption_key_automatic_rotation_enabled_binding
+                        .get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transparentDataEncryptionKeyVaultKeyId".into(),
-                    value: &transparent_data_encryption_key_vault_key_id_binding,
+                    value: transparent_data_encryption_key_vault_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneRedundant".into(),
-                    value: &zone_redundant_binding,
+                    value: zone_redundant_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DatabaseResult {
-            auto_pause_delay_in_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoPauseDelayInMinutes"),
-            ),
-            collation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("collation"),
-            ),
-            create_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createMode"),
-            ),
-            creation_source_database_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationSourceDatabaseId"),
-            ),
-            elastic_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticPoolId"),
-            ),
-            enclave_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enclaveType"),
-            ),
-            geo_backup_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("geoBackupEnabled"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            import: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("import"),
-            ),
-            ledger_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ledgerEnabled"),
-            ),
-            license_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseType"),
-            ),
-            long_term_retention_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("longTermRetentionPolicy"),
-            ),
-            maintenance_configuration_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceConfigurationName"),
-            ),
-            max_size_gb: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxSizeGb"),
-            ),
-            min_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minCapacity"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            read_replica_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readReplicaCount"),
-            ),
-            read_scale: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("readScale"),
-            ),
-            recover_database_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recoverDatabaseId"),
-            ),
-            recovery_point_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recoveryPointId"),
-            ),
-            restore_dropped_database_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restoreDroppedDatabaseId"),
-            ),
-            restore_long_term_retention_backup_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restoreLongTermRetentionBackupId"),
-            ),
-            restore_point_in_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restorePointInTime"),
-            ),
-            sample_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sampleName"),
-            ),
-            secondary_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryType"),
-            ),
-            server_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverId"),
-            ),
-            short_term_retention_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shortTermRetentionPolicy"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            storage_account_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageAccountType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            threat_detection_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("threatDetectionPolicy"),
-            ),
-            transparent_data_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transparentDataEncryptionEnabled"),
-            ),
-            transparent_data_encryption_key_automatic_rotation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transparentDataEncryptionKeyAutomaticRotationEnabled"),
-            ),
-            transparent_data_encryption_key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transparentDataEncryptionKeyVaultKeyId"),
-            ),
-            zone_redundant: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneRedundant"),
-            ),
+            auto_pause_delay_in_minutes: o.get_field("autoPauseDelayInMinutes"),
+            collation: o.get_field("collation"),
+            create_mode: o.get_field("createMode"),
+            creation_source_database_id: o.get_field("creationSourceDatabaseId"),
+            elastic_pool_id: o.get_field("elasticPoolId"),
+            enclave_type: o.get_field("enclaveType"),
+            geo_backup_enabled: o.get_field("geoBackupEnabled"),
+            identity: o.get_field("identity"),
+            import: o.get_field("import"),
+            ledger_enabled: o.get_field("ledgerEnabled"),
+            license_type: o.get_field("licenseType"),
+            long_term_retention_policy: o.get_field("longTermRetentionPolicy"),
+            maintenance_configuration_name: o.get_field("maintenanceConfigurationName"),
+            max_size_gb: o.get_field("maxSizeGb"),
+            min_capacity: o.get_field("minCapacity"),
+            name: o.get_field("name"),
+            read_replica_count: o.get_field("readReplicaCount"),
+            read_scale: o.get_field("readScale"),
+            recover_database_id: o.get_field("recoverDatabaseId"),
+            recovery_point_id: o.get_field("recoveryPointId"),
+            restore_dropped_database_id: o.get_field("restoreDroppedDatabaseId"),
+            restore_long_term_retention_backup_id: o
+                .get_field("restoreLongTermRetentionBackupId"),
+            restore_point_in_time: o.get_field("restorePointInTime"),
+            sample_name: o.get_field("sampleName"),
+            secondary_type: o.get_field("secondaryType"),
+            server_id: o.get_field("serverId"),
+            short_term_retention_policy: o.get_field("shortTermRetentionPolicy"),
+            sku_name: o.get_field("skuName"),
+            storage_account_type: o.get_field("storageAccountType"),
+            tags: o.get_field("tags"),
+            threat_detection_policy: o.get_field("threatDetectionPolicy"),
+            transparent_data_encryption_enabled: o
+                .get_field("transparentDataEncryptionEnabled"),
+            transparent_data_encryption_key_automatic_rotation_enabled: o
+                .get_field("transparentDataEncryptionKeyAutomaticRotationEnabled"),
+            transparent_data_encryption_key_vault_key_id: o
+                .get_field("transparentDataEncryptionKeyVaultKeyId"),
+            zone_redundant: o.get_field("zoneRedundant"),
         }
     }
 }

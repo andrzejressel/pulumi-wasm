@@ -41,61 +41,44 @@ pub mod get_lab {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetLabArgs,
     ) -> GetLabResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:devtest/getLab:getLab".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetLabResult {
-            artifacts_storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("artifactsStorageAccountId"),
-            ),
-            default_premium_storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultPremiumStorageAccountId"),
-            ),
-            default_storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultStorageAccountId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyVaultId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            premium_data_disk_storage_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("premiumDataDiskStorageAccountId"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            storage_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageType"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            unique_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uniqueIdentifier"),
-            ),
+            artifacts_storage_account_id: o.get_field("artifactsStorageAccountId"),
+            default_premium_storage_account_id: o
+                .get_field("defaultPremiumStorageAccountId"),
+            default_storage_account_id: o.get_field("defaultStorageAccountId"),
+            id: o.get_field("id"),
+            key_vault_id: o.get_field("keyVaultId"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            premium_data_disk_storage_account_id: o
+                .get_field("premiumDataDiskStorageAccountId"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            storage_type: o.get_field("storageType"),
+            tags: o.get_field("tags"),
+            unique_identifier: o.get_field("uniqueIdentifier"),
         }
     }
 }

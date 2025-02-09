@@ -228,54 +228,47 @@ pub mod policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PolicyArgs,
     ) -> PolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dry_run_spec_binding_1 = args.dry_run_spec.get_output(context);
-        let dry_run_spec_binding = dry_run_spec_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let spec_binding_1 = args.spec.get_output(context);
-        let spec_binding = spec_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dry_run_spec_binding = args.dry_run_spec.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let spec_binding = args.spec.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:orgpolicy/policy:Policy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dryRunSpec".into(),
-                    value: &dry_run_spec_binding,
+                    value: dry_run_spec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spec".into(),
-                    value: &spec_binding,
+                    value: spec_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PolicyResult {
-            dry_run_spec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dryRunSpec"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            spec: pulumi_gestalt_rust::__private::into_domain(o.extract_field("spec")),
+            dry_run_spec: o.get_field("dryRunSpec"),
+            etag: o.get_field("etag"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            spec: o.get_field("spec"),
         }
     }
 }

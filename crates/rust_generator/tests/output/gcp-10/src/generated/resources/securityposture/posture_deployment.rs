@@ -111,107 +111,75 @@ pub mod posture_deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PostureDeploymentArgs,
     ) -> PostureDeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let posture_deployment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let posture_deployment_id_binding = args
             .posture_deployment_id
             .get_output(context);
-        let posture_deployment_id_binding = posture_deployment_id_binding_1.get_inner();
-        let posture_id_binding_1 = args.posture_id.get_output(context);
-        let posture_id_binding = posture_id_binding_1.get_inner();
-        let posture_revision_id_binding_1 = args.posture_revision_id.get_output(context);
-        let posture_revision_id_binding = posture_revision_id_binding_1.get_inner();
-        let target_resource_binding_1 = args.target_resource.get_output(context);
-        let target_resource_binding = target_resource_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let posture_id_binding = args.posture_id.get_output(context);
+        let posture_revision_id_binding = args.posture_revision_id.get_output(context);
+        let target_resource_binding = args.target_resource.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:securityposture/postureDeployment:PostureDeployment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "postureDeploymentId".into(),
-                    value: &posture_deployment_id_binding,
+                    value: posture_deployment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "postureId".into(),
-                    value: &posture_id_binding,
+                    value: posture_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "postureRevisionId".into(),
-                    value: &posture_revision_id_binding,
+                    value: posture_revision_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResource".into(),
-                    value: &target_resource_binding,
+                    value: target_resource_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PostureDeploymentResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            desired_posture_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredPostureId"),
-            ),
-            desired_posture_revision_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredPostureRevisionId"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            failure_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failureMessage"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            posture_deployment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("postureDeploymentId"),
-            ),
-            posture_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("postureId"),
-            ),
-            posture_revision_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("postureRevisionId"),
-            ),
-            reconciling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reconciling"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            target_resource: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetResource"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            desired_posture_id: o.get_field("desiredPostureId"),
+            desired_posture_revision_id: o.get_field("desiredPostureRevisionId"),
+            etag: o.get_field("etag"),
+            failure_message: o.get_field("failureMessage"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            posture_deployment_id: o.get_field("postureDeploymentId"),
+            posture_id: o.get_field("postureId"),
+            posture_revision_id: o.get_field("postureRevisionId"),
+            reconciling: o.get_field("reconciling"),
+            state: o.get_field("state"),
+            target_resource: o.get_field("targetResource"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

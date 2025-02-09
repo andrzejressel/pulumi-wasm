@@ -93,98 +93,73 @@ pub mod dedicated_host {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DedicatedHostArgs,
     ) -> DedicatedHostResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let asset_id_binding_1 = args.asset_id.get_output(context);
-        let asset_id_binding = asset_id_binding_1.get_inner();
-        let auto_placement_binding_1 = args.auto_placement.get_output(context);
-        let auto_placement_binding = auto_placement_binding_1.get_inner();
-        let availability_zone_binding_1 = args.availability_zone.get_output(context);
-        let availability_zone_binding = availability_zone_binding_1.get_inner();
-        let host_recovery_binding_1 = args.host_recovery.get_output(context);
-        let host_recovery_binding = host_recovery_binding_1.get_inner();
-        let instance_family_binding_1 = args.instance_family.get_output(context);
-        let instance_family_binding = instance_family_binding_1.get_inner();
-        let instance_type_binding_1 = args.instance_type.get_output(context);
-        let instance_type_binding = instance_type_binding_1.get_inner();
-        let outpost_arn_binding_1 = args.outpost_arn.get_output(context);
-        let outpost_arn_binding = outpost_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let asset_id_binding = args.asset_id.get_output(context);
+        let auto_placement_binding = args.auto_placement.get_output(context);
+        let availability_zone_binding = args.availability_zone.get_output(context);
+        let host_recovery_binding = args.host_recovery.get_output(context);
+        let instance_family_binding = args.instance_family.get_output(context);
+        let instance_type_binding = args.instance_type.get_output(context);
+        let outpost_arn_binding = args.outpost_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/dedicatedHost:DedicatedHost".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assetId".into(),
-                    value: &asset_id_binding,
+                    value: asset_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoPlacement".into(),
-                    value: &auto_placement_binding,
+                    value: auto_placement_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: &availability_zone_binding,
+                    value: availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostRecovery".into(),
-                    value: &host_recovery_binding,
+                    value: host_recovery_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceFamily".into(),
-                    value: &instance_family_binding,
+                    value: instance_family_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: &instance_type_binding,
+                    value: instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outpostArn".into(),
-                    value: &outpost_arn_binding,
+                    value: outpost_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DedicatedHostResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            asset_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assetId"),
-            ),
-            auto_placement: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoPlacement"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            host_recovery: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostRecovery"),
-            ),
-            instance_family: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceFamily"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostArn"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            asset_id: o.get_field("assetId"),
+            auto_placement: o.get_field("autoPlacement"),
+            availability_zone: o.get_field("availabilityZone"),
+            host_recovery: o.get_field("hostRecovery"),
+            instance_family: o.get_field("instanceFamily"),
+            instance_type: o.get_field("instanceType"),
+            outpost_arn: o.get_field("outpostArn"),
+            owner_id: o.get_field("ownerId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

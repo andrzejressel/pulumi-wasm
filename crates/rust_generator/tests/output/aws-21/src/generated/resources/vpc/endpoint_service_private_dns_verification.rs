@@ -68,51 +68,43 @@ pub mod endpoint_service_private_dns_verification {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointServicePrivateDnsVerificationArgs,
     ) -> EndpointServicePrivateDnsVerificationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let service_id_binding_1 = args.service_id.get_output(context);
-        let service_id_binding = service_id_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let wait_for_verification_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let service_id_binding = args.service_id.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let wait_for_verification_binding = args
             .wait_for_verification
             .get_output(context);
-        let wait_for_verification_binding = wait_for_verification_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceId".into(),
-                    value: &service_id_binding,
+                    value: service_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForVerification".into(),
-                    value: &wait_for_verification_binding,
+                    value: wait_for_verification_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointServicePrivateDnsVerificationResult {
-            service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceId"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            wait_for_verification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("waitForVerification"),
-            ),
+            service_id: o.get_field("serviceId"),
+            timeouts: o.get_field("timeouts"),
+            wait_for_verification: o.get_field("waitForVerification"),
         }
     }
 }

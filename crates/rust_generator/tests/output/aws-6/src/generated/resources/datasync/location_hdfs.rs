@@ -173,167 +173,119 @@ pub mod location_hdfs {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LocationHdfsArgs,
     ) -> LocationHdfsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agent_arns_binding_1 = args.agent_arns.get_output(context);
-        let agent_arns_binding = agent_arns_binding_1.get_inner();
-        let authentication_type_binding_1 = args.authentication_type.get_output(context);
-        let authentication_type_binding = authentication_type_binding_1.get_inner();
-        let block_size_binding_1 = args.block_size.get_output(context);
-        let block_size_binding = block_size_binding_1.get_inner();
-        let kerberos_keytab_binding_1 = args.kerberos_keytab.get_output(context);
-        let kerberos_keytab_binding = kerberos_keytab_binding_1.get_inner();
-        let kerberos_keytab_base64_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let agent_arns_binding = args.agent_arns.get_output(context);
+        let authentication_type_binding = args.authentication_type.get_output(context);
+        let block_size_binding = args.block_size.get_output(context);
+        let kerberos_keytab_binding = args.kerberos_keytab.get_output(context);
+        let kerberos_keytab_base64_binding = args
             .kerberos_keytab_base64
             .get_output(context);
-        let kerberos_keytab_base64_binding = kerberos_keytab_base64_binding_1
-            .get_inner();
-        let kerberos_krb5_conf_binding_1 = args.kerberos_krb5_conf.get_output(context);
-        let kerberos_krb5_conf_binding = kerberos_krb5_conf_binding_1.get_inner();
-        let kerberos_krb5_conf_base64_binding_1 = args
+        let kerberos_krb5_conf_binding = args.kerberos_krb5_conf.get_output(context);
+        let kerberos_krb5_conf_base64_binding = args
             .kerberos_krb5_conf_base64
             .get_output(context);
-        let kerberos_krb5_conf_base64_binding = kerberos_krb5_conf_base64_binding_1
-            .get_inner();
-        let kerberos_principal_binding_1 = args.kerberos_principal.get_output(context);
-        let kerberos_principal_binding = kerberos_principal_binding_1.get_inner();
-        let kms_key_provider_uri_binding_1 = args
-            .kms_key_provider_uri
-            .get_output(context);
-        let kms_key_provider_uri_binding = kms_key_provider_uri_binding_1.get_inner();
-        let name_nodes_binding_1 = args.name_nodes.get_output(context);
-        let name_nodes_binding = name_nodes_binding_1.get_inner();
-        let qop_configuration_binding_1 = args.qop_configuration.get_output(context);
-        let qop_configuration_binding = qop_configuration_binding_1.get_inner();
-        let replication_factor_binding_1 = args.replication_factor.get_output(context);
-        let replication_factor_binding = replication_factor_binding_1.get_inner();
-        let simple_user_binding_1 = args.simple_user.get_output(context);
-        let simple_user_binding = simple_user_binding_1.get_inner();
-        let subdirectory_binding_1 = args.subdirectory.get_output(context);
-        let subdirectory_binding = subdirectory_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let kerberos_principal_binding = args.kerberos_principal.get_output(context);
+        let kms_key_provider_uri_binding = args.kms_key_provider_uri.get_output(context);
+        let name_nodes_binding = args.name_nodes.get_output(context);
+        let qop_configuration_binding = args.qop_configuration.get_output(context);
+        let replication_factor_binding = args.replication_factor.get_output(context);
+        let simple_user_binding = args.simple_user.get_output(context);
+        let subdirectory_binding = args.subdirectory.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datasync/locationHdfs:LocationHdfs".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentArns".into(),
-                    value: &agent_arns_binding,
+                    value: agent_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationType".into(),
-                    value: &authentication_type_binding,
+                    value: authentication_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockSize".into(),
-                    value: &block_size_binding,
+                    value: block_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kerberosKeytab".into(),
-                    value: &kerberos_keytab_binding,
+                    value: kerberos_keytab_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kerberosKeytabBase64".into(),
-                    value: &kerberos_keytab_base64_binding,
+                    value: kerberos_keytab_base64_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kerberosKrb5Conf".into(),
-                    value: &kerberos_krb5_conf_binding,
+                    value: kerberos_krb5_conf_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kerberosKrb5ConfBase64".into(),
-                    value: &kerberos_krb5_conf_base64_binding,
+                    value: kerberos_krb5_conf_base64_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kerberosPrincipal".into(),
-                    value: &kerberos_principal_binding,
+                    value: kerberos_principal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyProviderUri".into(),
-                    value: &kms_key_provider_uri_binding,
+                    value: kms_key_provider_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nameNodes".into(),
-                    value: &name_nodes_binding,
+                    value: name_nodes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qopConfiguration".into(),
-                    value: &qop_configuration_binding,
+                    value: qop_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationFactor".into(),
-                    value: &replication_factor_binding,
+                    value: replication_factor_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "simpleUser".into(),
-                    value: &simple_user_binding,
+                    value: simple_user_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subdirectory".into(),
-                    value: &subdirectory_binding,
+                    value: subdirectory_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LocationHdfsResult {
-            agent_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agentArns"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationType"),
-            ),
-            block_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockSize"),
-            ),
-            kerberos_keytab: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kerberosKeytab"),
-            ),
-            kerberos_keytab_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kerberosKeytabBase64"),
-            ),
-            kerberos_krb5_conf: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kerberosKrb5Conf"),
-            ),
-            kerberos_krb5_conf_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kerberosKrb5ConfBase64"),
-            ),
-            kerberos_principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kerberosPrincipal"),
-            ),
-            kms_key_provider_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyProviderUri"),
-            ),
-            name_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nameNodes"),
-            ),
-            qop_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("qopConfiguration"),
-            ),
-            replication_factor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationFactor"),
-            ),
-            simple_user: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("simpleUser"),
-            ),
-            subdirectory: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subdirectory"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
+            agent_arns: o.get_field("agentArns"),
+            arn: o.get_field("arn"),
+            authentication_type: o.get_field("authenticationType"),
+            block_size: o.get_field("blockSize"),
+            kerberos_keytab: o.get_field("kerberosKeytab"),
+            kerberos_keytab_base64: o.get_field("kerberosKeytabBase64"),
+            kerberos_krb5_conf: o.get_field("kerberosKrb5Conf"),
+            kerberos_krb5_conf_base64: o.get_field("kerberosKrb5ConfBase64"),
+            kerberos_principal: o.get_field("kerberosPrincipal"),
+            kms_key_provider_uri: o.get_field("kmsKeyProviderUri"),
+            name_nodes: o.get_field("nameNodes"),
+            qop_configuration: o.get_field("qopConfiguration"),
+            replication_factor: o.get_field("replicationFactor"),
+            simple_user: o.get_field("simpleUser"),
+            subdirectory: o.get_field("subdirectory"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            uri: o.get_field("uri"),
         }
     }
 }

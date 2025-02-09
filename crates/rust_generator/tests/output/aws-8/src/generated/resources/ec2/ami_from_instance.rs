@@ -152,162 +152,97 @@ pub mod ami_from_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AmiFromInstanceArgs,
     ) -> AmiFromInstanceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deprecation_time_binding_1 = args.deprecation_time.get_output(context);
-        let deprecation_time_binding = deprecation_time_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let ebs_block_devices_binding_1 = args.ebs_block_devices.get_output(context);
-        let ebs_block_devices_binding = ebs_block_devices_binding_1.get_inner();
-        let ephemeral_block_devices_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let deprecation_time_binding = args.deprecation_time.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let ebs_block_devices_binding = args.ebs_block_devices.get_output(context);
+        let ephemeral_block_devices_binding = args
             .ephemeral_block_devices
             .get_output(context);
-        let ephemeral_block_devices_binding = ephemeral_block_devices_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let snapshot_without_reboot_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let snapshot_without_reboot_binding = args
             .snapshot_without_reboot
             .get_output(context);
-        let snapshot_without_reboot_binding = snapshot_without_reboot_binding_1
-            .get_inner();
-        let source_instance_id_binding_1 = args.source_instance_id.get_output(context);
-        let source_instance_id_binding = source_instance_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let source_instance_id_binding = args.source_instance_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/amiFromInstance:AmiFromInstance".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deprecationTime".into(),
-                    value: &deprecation_time_binding,
+                    value: deprecation_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsBlockDevices".into(),
-                    value: &ebs_block_devices_binding,
+                    value: ebs_block_devices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ephemeralBlockDevices".into(),
-                    value: &ephemeral_block_devices_binding,
+                    value: ephemeral_block_devices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotWithoutReboot".into(),
-                    value: &snapshot_without_reboot_binding,
+                    value: snapshot_without_reboot_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceInstanceId".into(),
-                    value: &source_instance_id_binding,
+                    value: source_instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AmiFromInstanceResult {
-            architecture: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("architecture"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            boot_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootMode"),
-            ),
-            deprecation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deprecationTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            ebs_block_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsBlockDevices"),
-            ),
-            ena_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enaSupport"),
-            ),
-            ephemeral_block_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ephemeralBlockDevices"),
-            ),
-            hypervisor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hypervisor"),
-            ),
-            image_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageLocation"),
-            ),
-            image_owner_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageOwnerAlias"),
-            ),
-            image_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageType"),
-            ),
-            imds_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imdsSupport"),
-            ),
-            kernel_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kernelId"),
-            ),
-            manage_ebs_snapshots: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manageEbsSnapshots"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            platform_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformDetails"),
-            ),
-            public: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("public"),
-            ),
-            ramdisk_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ramdiskId"),
-            ),
-            root_device_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootDeviceName"),
-            ),
-            root_snapshot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootSnapshotId"),
-            ),
-            snapshot_without_reboot: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotWithoutReboot"),
-            ),
-            source_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceInstanceId"),
-            ),
-            sriov_net_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sriovNetSupport"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tpm_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tpmSupport"),
-            ),
-            usage_operation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usageOperation"),
-            ),
-            virtualization_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualizationType"),
-            ),
+            architecture: o.get_field("architecture"),
+            arn: o.get_field("arn"),
+            boot_mode: o.get_field("bootMode"),
+            deprecation_time: o.get_field("deprecationTime"),
+            description: o.get_field("description"),
+            ebs_block_devices: o.get_field("ebsBlockDevices"),
+            ena_support: o.get_field("enaSupport"),
+            ephemeral_block_devices: o.get_field("ephemeralBlockDevices"),
+            hypervisor: o.get_field("hypervisor"),
+            image_location: o.get_field("imageLocation"),
+            image_owner_alias: o.get_field("imageOwnerAlias"),
+            image_type: o.get_field("imageType"),
+            imds_support: o.get_field("imdsSupport"),
+            kernel_id: o.get_field("kernelId"),
+            manage_ebs_snapshots: o.get_field("manageEbsSnapshots"),
+            name: o.get_field("name"),
+            owner_id: o.get_field("ownerId"),
+            platform: o.get_field("platform"),
+            platform_details: o.get_field("platformDetails"),
+            public: o.get_field("public"),
+            ramdisk_id: o.get_field("ramdiskId"),
+            root_device_name: o.get_field("rootDeviceName"),
+            root_snapshot_id: o.get_field("rootSnapshotId"),
+            snapshot_without_reboot: o.get_field("snapshotWithoutReboot"),
+            source_instance_id: o.get_field("sourceInstanceId"),
+            sriov_net_support: o.get_field("sriovNetSupport"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tpm_support: o.get_field("tpmSupport"),
+            usage_operation: o.get_field("usageOperation"),
+            virtualization_type: o.get_field("virtualizationType"),
         }
     }
 }

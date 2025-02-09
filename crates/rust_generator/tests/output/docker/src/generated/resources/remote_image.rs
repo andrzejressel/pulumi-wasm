@@ -127,86 +127,66 @@ pub mod remote_image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RemoteImageArgs,
     ) -> RemoteImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let build_binding_1 = args.build.get_output(context);
-        let build_binding = build_binding_1.get_inner();
-        let force_remove_binding_1 = args.force_remove.get_output(context);
-        let force_remove_binding = force_remove_binding_1.get_inner();
-        let keep_locally_binding_1 = args.keep_locally.get_output(context);
-        let keep_locally_binding = keep_locally_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let platform_binding_1 = args.platform.get_output(context);
-        let platform_binding = platform_binding_1.get_inner();
-        let pull_triggers_binding_1 = args.pull_triggers.get_output(context);
-        let pull_triggers_binding = pull_triggers_binding_1.get_inner();
-        let triggers_binding_1 = args.triggers.get_output(context);
-        let triggers_binding = triggers_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let build_binding = args.build.get_output(context);
+        let force_remove_binding = args.force_remove.get_output(context);
+        let keep_locally_binding = args.keep_locally.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let platform_binding = args.platform.get_output(context);
+        let pull_triggers_binding = args.pull_triggers.get_output(context);
+        let triggers_binding = args.triggers.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "docker:index/remoteImage:RemoteImage".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "build".into(),
-                    value: &build_binding,
+                    value: build_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceRemove".into(),
-                    value: &force_remove_binding,
+                    value: force_remove_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepLocally".into(),
-                    value: &keep_locally_binding,
+                    value: keep_locally_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platform".into(),
-                    value: &platform_binding,
+                    value: platform_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pullTriggers".into(),
-                    value: &pull_triggers_binding,
+                    value: pull_triggers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggers".into(),
-                    value: &triggers_binding,
+                    value: triggers_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RemoteImageResult {
-            build: pulumi_gestalt_rust::__private::into_domain(o.extract_field("build")),
-            force_remove: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceRemove"),
-            ),
-            image_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageId"),
-            ),
-            keep_locally: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keepLocally"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            pull_triggers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pullTriggers"),
-            ),
-            repo_digest: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repoDigest"),
-            ),
-            triggers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggers"),
-            ),
+            build: o.get_field("build"),
+            force_remove: o.get_field("forceRemove"),
+            image_id: o.get_field("imageId"),
+            keep_locally: o.get_field("keepLocally"),
+            name: o.get_field("name"),
+            platform: o.get_field("platform"),
+            pull_triggers: o.get_field("pullTriggers"),
+            repo_digest: o.get_field("repoDigest"),
+            triggers: o.get_field("triggers"),
         }
     }
 }

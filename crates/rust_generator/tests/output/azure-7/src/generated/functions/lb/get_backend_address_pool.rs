@@ -40,51 +40,38 @@ pub mod get_backend_address_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBackendAddressPoolArgs,
     ) -> GetBackendAddressPoolResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let loadbalancer_id_binding_1 = args.loadbalancer_id.get_output(context);
-        let loadbalancer_id_binding = loadbalancer_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let loadbalancer_id_binding = args.loadbalancer_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:lb/getBackendAddressPool:getBackendAddressPool".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadbalancerId".into(),
-                    value: &loadbalancer_id_binding,
+                    value: loadbalancer_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBackendAddressPoolResult {
-            backend_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendAddresses"),
-            ),
-            backend_ip_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendIpConfigurations"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            inbound_nat_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inboundNatRules"),
-            ),
-            load_balancing_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancingRules"),
-            ),
-            loadbalancer_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadbalancerId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            outbound_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outboundRules"),
-            ),
+            backend_addresses: o.get_field("backendAddresses"),
+            backend_ip_configurations: o.get_field("backendIpConfigurations"),
+            id: o.get_field("id"),
+            inbound_nat_rules: o.get_field("inboundNatRules"),
+            load_balancing_rules: o.get_field("loadBalancingRules"),
+            loadbalancer_id: o.get_field("loadbalancerId"),
+            name: o.get_field("name"),
+            outbound_rules: o.get_field("outboundRules"),
         }
     }
 }

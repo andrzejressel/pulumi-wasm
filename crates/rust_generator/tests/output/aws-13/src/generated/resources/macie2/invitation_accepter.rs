@@ -56,36 +56,31 @@ pub mod invitation_accepter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InvitationAccepterArgs,
     ) -> InvitationAccepterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let administrator_account_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let administrator_account_id_binding = args
             .administrator_account_id
             .get_output(context);
-        let administrator_account_id_binding = administrator_account_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:macie2/invitationAccepter:InvitationAccepter".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorAccountId".into(),
-                    value: &administrator_account_id_binding,
+                    value: administrator_account_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InvitationAccepterResult {
-            administrator_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("administratorAccountId"),
-            ),
-            invitation_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invitationId"),
-            ),
+            administrator_account_id: o.get_field("administratorAccountId"),
+            invitation_id: o.get_field("invitationId"),
         }
     }
 }

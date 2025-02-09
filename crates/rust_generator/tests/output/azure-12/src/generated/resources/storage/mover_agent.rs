@@ -84,70 +84,56 @@ pub mod mover_agent {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MoverAgentArgs,
     ) -> MoverAgentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arc_virtual_machine_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arc_virtual_machine_id_binding = args
             .arc_virtual_machine_id
             .get_output(context);
-        let arc_virtual_machine_id_binding = arc_virtual_machine_id_binding_1
-            .get_inner();
-        let arc_virtual_machine_uuid_binding_1 = args
+        let arc_virtual_machine_uuid_binding = args
             .arc_virtual_machine_uuid
             .get_output(context);
-        let arc_virtual_machine_uuid_binding = arc_virtual_machine_uuid_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let storage_mover_id_binding_1 = args.storage_mover_id.get_output(context);
-        let storage_mover_id_binding = storage_mover_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let storage_mover_id_binding = args.storage_mover_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:storage/moverAgent:MoverAgent".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arcVirtualMachineId".into(),
-                    value: &arc_virtual_machine_id_binding,
+                    value: arc_virtual_machine_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arcVirtualMachineUuid".into(),
-                    value: &arc_virtual_machine_uuid_binding,
+                    value: arc_virtual_machine_uuid_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageMoverId".into(),
-                    value: &storage_mover_id_binding,
+                    value: storage_mover_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MoverAgentResult {
-            arc_virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("arcVirtualMachineId"),
-            ),
-            arc_virtual_machine_uuid: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("arcVirtualMachineUuid"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            storage_mover_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageMoverId"),
-            ),
+            arc_virtual_machine_id: o.get_field("arcVirtualMachineId"),
+            arc_virtual_machine_uuid: o.get_field("arcVirtualMachineUuid"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            storage_mover_id: o.get_field("storageMoverId"),
         }
     }
 }

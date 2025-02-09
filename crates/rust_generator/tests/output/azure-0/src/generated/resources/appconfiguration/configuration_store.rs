@@ -277,146 +277,105 @@ pub mod configuration_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConfigurationStoreArgs,
     ) -> ConfigurationStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let encryption_binding_1 = args.encryption.get_output(context);
-        let encryption_binding = encryption_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let local_auth_enabled_binding_1 = args.local_auth_enabled.get_output(context);
-        let local_auth_enabled_binding = local_auth_enabled_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let public_network_access_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let encryption_binding = args.encryption.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let local_auth_enabled_binding = args.local_auth_enabled.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let public_network_access_binding = args
             .public_network_access
             .get_output(context);
-        let public_network_access_binding = public_network_access_binding_1.get_inner();
-        let purge_protection_enabled_binding_1 = args
+        let purge_protection_enabled_binding = args
             .purge_protection_enabled
             .get_output(context);
-        let purge_protection_enabled_binding = purge_protection_enabled_binding_1
-            .get_inner();
-        let replicas_binding_1 = args.replicas.get_output(context);
-        let replicas_binding = replicas_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let soft_delete_retention_days_binding_1 = args
+        let replicas_binding = args.replicas.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let soft_delete_retention_days_binding = args
             .soft_delete_retention_days
             .get_output(context);
-        let soft_delete_retention_days_binding = soft_delete_retention_days_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appconfiguration/configurationStore:ConfigurationStore".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryption".into(),
-                    value: &encryption_binding,
+                    value: encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthEnabled".into(),
-                    value: &local_auth_enabled_binding,
+                    value: local_auth_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccess".into(),
-                    value: &public_network_access_binding,
+                    value: public_network_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purgeProtectionEnabled".into(),
-                    value: &purge_protection_enabled_binding,
+                    value: purge_protection_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicas".into(),
-                    value: &replicas_binding,
+                    value: replicas_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "softDeleteRetentionDays".into(),
-                    value: &soft_delete_retention_days_binding,
+                    value: soft_delete_retention_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConfigurationStoreResult {
-            encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryption"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            local_auth_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAuthEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            primary_read_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryReadKeys"),
-            ),
-            primary_write_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryWriteKeys"),
-            ),
-            public_network_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccess"),
-            ),
-            purge_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("purgeProtectionEnabled"),
-            ),
-            replicas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicas"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_read_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryReadKeys"),
-            ),
-            secondary_write_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryWriteKeys"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            soft_delete_retention_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("softDeleteRetentionDays"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            encryption: o.get_field("encryption"),
+            endpoint: o.get_field("endpoint"),
+            identity: o.get_field("identity"),
+            local_auth_enabled: o.get_field("localAuthEnabled"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            primary_read_keys: o.get_field("primaryReadKeys"),
+            primary_write_keys: o.get_field("primaryWriteKeys"),
+            public_network_access: o.get_field("publicNetworkAccess"),
+            purge_protection_enabled: o.get_field("purgeProtectionEnabled"),
+            replicas: o.get_field("replicas"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_read_keys: o.get_field("secondaryReadKeys"),
+            secondary_write_keys: o.get_field("secondaryWriteKeys"),
+            sku: o.get_field("sku"),
+            soft_delete_retention_days: o.get_field("softDeleteRetentionDays"),
+            tags: o.get_field("tags"),
         }
     }
 }

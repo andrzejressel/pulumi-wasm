@@ -148,135 +148,94 @@ pub mod file_system {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FileSystemArgs,
     ) -> FileSystemResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let availability_zone_name_binding = args
             .availability_zone_name
             .get_output(context);
-        let availability_zone_name_binding = availability_zone_name_binding_1
-            .get_inner();
-        let creation_token_binding_1 = args.creation_token.get_output(context);
-        let creation_token_binding = creation_token_binding_1.get_inner();
-        let encrypted_binding_1 = args.encrypted.get_output(context);
-        let encrypted_binding = encrypted_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let lifecycle_policies_binding_1 = args.lifecycle_policies.get_output(context);
-        let lifecycle_policies_binding = lifecycle_policies_binding_1.get_inner();
-        let performance_mode_binding_1 = args.performance_mode.get_output(context);
-        let performance_mode_binding = performance_mode_binding_1.get_inner();
-        let protection_binding_1 = args.protection.get_output(context);
-        let protection_binding = protection_binding_1.get_inner();
-        let provisioned_throughput_in_mibps_binding_1 = args
+        let creation_token_binding = args.creation_token.get_output(context);
+        let encrypted_binding = args.encrypted.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let lifecycle_policies_binding = args.lifecycle_policies.get_output(context);
+        let performance_mode_binding = args.performance_mode.get_output(context);
+        let protection_binding = args.protection.get_output(context);
+        let provisioned_throughput_in_mibps_binding = args
             .provisioned_throughput_in_mibps
             .get_output(context);
-        let provisioned_throughput_in_mibps_binding = provisioned_throughput_in_mibps_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let throughput_mode_binding_1 = args.throughput_mode.get_output(context);
-        let throughput_mode_binding = throughput_mode_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let throughput_mode_binding = args.throughput_mode.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:efs/fileSystem:FileSystem".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneName".into(),
-                    value: &availability_zone_name_binding,
+                    value: availability_zone_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "creationToken".into(),
-                    value: &creation_token_binding,
+                    value: creation_token_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encrypted".into(),
-                    value: &encrypted_binding,
+                    value: encrypted_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifecyclePolicies".into(),
-                    value: &lifecycle_policies_binding,
+                    value: lifecycle_policies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "performanceMode".into(),
-                    value: &performance_mode_binding,
+                    value: performance_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protection".into(),
-                    value: &protection_binding,
+                    value: protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisionedThroughputInMibps".into(),
-                    value: &provisioned_throughput_in_mibps_binding,
+                    value: provisioned_throughput_in_mibps_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throughputMode".into(),
-                    value: &throughput_mode_binding,
+                    value: throughput_mode_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FileSystemResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneId"),
-            ),
-            availability_zone_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneName"),
-            ),
-            creation_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationToken"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encrypted"),
-            ),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            lifecycle_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifecyclePolicies"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            number_of_mount_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberOfMountTargets"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            performance_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("performanceMode"),
-            ),
-            protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protection"),
-            ),
-            provisioned_throughput_in_mibps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisionedThroughputInMibps"),
-            ),
-            size_in_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sizeInBytes"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            throughput_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("throughputMode"),
-            ),
+            arn: o.get_field("arn"),
+            availability_zone_id: o.get_field("availabilityZoneId"),
+            availability_zone_name: o.get_field("availabilityZoneName"),
+            creation_token: o.get_field("creationToken"),
+            dns_name: o.get_field("dnsName"),
+            encrypted: o.get_field("encrypted"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            lifecycle_policies: o.get_field("lifecyclePolicies"),
+            name: o.get_field("name"),
+            number_of_mount_targets: o.get_field("numberOfMountTargets"),
+            owner_id: o.get_field("ownerId"),
+            performance_mode: o.get_field("performanceMode"),
+            protection: o.get_field("protection"),
+            provisioned_throughput_in_mibps: o.get_field("provisionedThroughputInMibps"),
+            size_in_bytes: o.get_field("sizeInBytes"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            throughput_mode: o.get_field("throughputMode"),
         }
     }
 }

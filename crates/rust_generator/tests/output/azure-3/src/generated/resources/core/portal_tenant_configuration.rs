@@ -56,34 +56,32 @@ pub mod portal_tenant_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PortalTenantConfigurationArgs,
     ) -> PortalTenantConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let private_markdown_storage_enforced_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let private_markdown_storage_enforced_binding = args
             .private_markdown_storage_enforced
             .get_output(context);
-        let private_markdown_storage_enforced_binding = private_markdown_storage_enforced_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:core/portalTenantConfiguration:PortalTenantConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateMarkdownStorageEnforced".into(),
-                    value: &private_markdown_storage_enforced_binding,
+                    value: private_markdown_storage_enforced_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PortalTenantConfigurationResult {
-            private_markdown_storage_enforced: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateMarkdownStorageEnforced"),
-            ),
+            private_markdown_storage_enforced: o
+                .get_field("privateMarkdownStorageEnforced"),
         }
     }
 }

@@ -152,46 +152,39 @@ pub mod frontdoor_custom_domain_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FrontdoorCustomDomainAssociationArgs,
     ) -> FrontdoorCustomDomainAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cdn_frontdoor_custom_domain_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cdn_frontdoor_custom_domain_id_binding = args
             .cdn_frontdoor_custom_domain_id
             .get_output(context);
-        let cdn_frontdoor_custom_domain_id_binding = cdn_frontdoor_custom_domain_id_binding_1
-            .get_inner();
-        let cdn_frontdoor_route_ids_binding_1 = args
+        let cdn_frontdoor_route_ids_binding = args
             .cdn_frontdoor_route_ids
             .get_output(context);
-        let cdn_frontdoor_route_ids_binding = cdn_frontdoor_route_ids_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorCustomDomainId".into(),
-                    value: &cdn_frontdoor_custom_domain_id_binding,
+                    value: cdn_frontdoor_custom_domain_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorRouteIds".into(),
-                    value: &cdn_frontdoor_route_ids_binding,
+                    value: cdn_frontdoor_route_ids_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FrontdoorCustomDomainAssociationResult {
-            cdn_frontdoor_custom_domain_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnFrontdoorCustomDomainId"),
-            ),
-            cdn_frontdoor_route_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnFrontdoorRouteIds"),
-            ),
+            cdn_frontdoor_custom_domain_id: o.get_field("cdnFrontdoorCustomDomainId"),
+            cdn_frontdoor_route_ids: o.get_field("cdnFrontdoorRouteIds"),
         }
     }
 }

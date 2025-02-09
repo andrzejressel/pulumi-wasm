@@ -361,260 +361,175 @@ pub mod table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TableArgs,
     ) -> TableResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let biglake_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let biglake_configuration_binding = args
             .biglake_configuration
             .get_output(context);
-        let biglake_configuration_binding = biglake_configuration_binding_1.get_inner();
-        let clusterings_binding_1 = args.clusterings.get_output(context);
-        let clusterings_binding = clusterings_binding_1.get_inner();
-        let dataset_id_binding_1 = args.dataset_id.get_output(context);
-        let dataset_id_binding = dataset_id_binding_1.get_inner();
-        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
-        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let encryption_configuration_binding_1 = args
+        let clusterings_binding = args.clusterings.get_output(context);
+        let dataset_id_binding = args.dataset_id.get_output(context);
+        let deletion_protection_binding = args.deletion_protection.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let encryption_configuration_binding = args
             .encryption_configuration
             .get_output(context);
-        let encryption_configuration_binding = encryption_configuration_binding_1
-            .get_inner();
-        let expiration_time_binding_1 = args.expiration_time.get_output(context);
-        let expiration_time_binding = expiration_time_binding_1.get_inner();
-        let external_data_configuration_binding_1 = args
+        let expiration_time_binding = args.expiration_time.get_output(context);
+        let external_data_configuration_binding = args
             .external_data_configuration
             .get_output(context);
-        let external_data_configuration_binding = external_data_configuration_binding_1
-            .get_inner();
-        let friendly_name_binding_1 = args.friendly_name.get_output(context);
-        let friendly_name_binding = friendly_name_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let materialized_view_binding_1 = args.materialized_view.get_output(context);
-        let materialized_view_binding = materialized_view_binding_1.get_inner();
-        let max_staleness_binding_1 = args.max_staleness.get_output(context);
-        let max_staleness_binding = max_staleness_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let range_partitioning_binding_1 = args.range_partitioning.get_output(context);
-        let range_partitioning_binding = range_partitioning_binding_1.get_inner();
-        let require_partition_filter_binding_1 = args
+        let friendly_name_binding = args.friendly_name.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let materialized_view_binding = args.materialized_view.get_output(context);
+        let max_staleness_binding = args.max_staleness.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let range_partitioning_binding = args.range_partitioning.get_output(context);
+        let require_partition_filter_binding = args
             .require_partition_filter
             .get_output(context);
-        let require_partition_filter_binding = require_partition_filter_binding_1
-            .get_inner();
-        let resource_tags_binding_1 = args.resource_tags.get_output(context);
-        let resource_tags_binding = resource_tags_binding_1.get_inner();
-        let schema_binding_1 = args.schema.get_output(context);
-        let schema_binding = schema_binding_1.get_inner();
-        let table_constraints_binding_1 = args.table_constraints.get_output(context);
-        let table_constraints_binding = table_constraints_binding_1.get_inner();
-        let table_id_binding_1 = args.table_id.get_output(context);
-        let table_id_binding = table_id_binding_1.get_inner();
-        let table_replication_info_binding_1 = args
+        let resource_tags_binding = args.resource_tags.get_output(context);
+        let schema_binding = args.schema.get_output(context);
+        let table_constraints_binding = args.table_constraints.get_output(context);
+        let table_id_binding = args.table_id.get_output(context);
+        let table_replication_info_binding = args
             .table_replication_info
             .get_output(context);
-        let table_replication_info_binding = table_replication_info_binding_1
-            .get_inner();
-        let time_partitioning_binding_1 = args.time_partitioning.get_output(context);
-        let time_partitioning_binding = time_partitioning_binding_1.get_inner();
-        let view_binding_1 = args.view.get_output(context);
-        let view_binding = view_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let time_partitioning_binding = args.time_partitioning.get_output(context);
+        let view_binding = args.view.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:bigquery/table:Table".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "biglakeConfiguration".into(),
-                    value: &biglake_configuration_binding,
+                    value: biglake_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterings".into(),
-                    value: &clusterings_binding,
+                    value: clusterings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datasetId".into(),
-                    value: &dataset_id_binding,
+                    value: dataset_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: &deletion_protection_binding,
+                    value: deletion_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfiguration".into(),
-                    value: &encryption_configuration_binding,
+                    value: encryption_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expirationTime".into(),
-                    value: &expiration_time_binding,
+                    value: expiration_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalDataConfiguration".into(),
-                    value: &external_data_configuration_binding,
+                    value: external_data_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "friendlyName".into(),
-                    value: &friendly_name_binding,
+                    value: friendly_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "materializedView".into(),
-                    value: &materialized_view_binding,
+                    value: materialized_view_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxStaleness".into(),
-                    value: &max_staleness_binding,
+                    value: max_staleness_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rangePartitioning".into(),
-                    value: &range_partitioning_binding,
+                    value: range_partitioning_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requirePartitionFilter".into(),
-                    value: &require_partition_filter_binding,
+                    value: require_partition_filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTags".into(),
-                    value: &resource_tags_binding,
+                    value: resource_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schema".into(),
-                    value: &schema_binding,
+                    value: schema_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableConstraints".into(),
-                    value: &table_constraints_binding,
+                    value: table_constraints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableId".into(),
-                    value: &table_id_binding,
+                    value: table_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableReplicationInfo".into(),
-                    value: &table_replication_info_binding,
+                    value: table_replication_info_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timePartitioning".into(),
-                    value: &time_partitioning_binding,
+                    value: time_partitioning_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "view".into(),
-                    value: &view_binding,
+                    value: view_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TableResult {
-            biglake_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("biglakeConfiguration"),
-            ),
-            clusterings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterings"),
-            ),
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            dataset_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datasetId"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            encryption_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionConfiguration"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            expiration_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationTime"),
-            ),
-            external_data_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("externalDataConfiguration"),
-            ),
-            friendly_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("friendlyName"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            last_modified_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModifiedTime"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            materialized_view: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("materializedView"),
-            ),
-            max_staleness: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxStaleness"),
-            ),
-            num_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numBytes"),
-            ),
-            num_long_term_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numLongTermBytes"),
-            ),
-            num_rows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numRows"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            range_partitioning: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rangePartitioning"),
-            ),
-            require_partition_filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requirePartitionFilter"),
-            ),
-            resource_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceTags"),
-            ),
-            schema: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schema"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            table_constraints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableConstraints"),
-            ),
-            table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableId"),
-            ),
-            table_replication_info: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableReplicationInfo"),
-            ),
-            time_partitioning: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timePartitioning"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            view: pulumi_gestalt_rust::__private::into_domain(o.extract_field("view")),
+            biglake_configuration: o.get_field("biglakeConfiguration"),
+            clusterings: o.get_field("clusterings"),
+            creation_time: o.get_field("creationTime"),
+            dataset_id: o.get_field("datasetId"),
+            deletion_protection: o.get_field("deletionProtection"),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            encryption_configuration: o.get_field("encryptionConfiguration"),
+            etag: o.get_field("etag"),
+            expiration_time: o.get_field("expirationTime"),
+            external_data_configuration: o.get_field("externalDataConfiguration"),
+            friendly_name: o.get_field("friendlyName"),
+            labels: o.get_field("labels"),
+            last_modified_time: o.get_field("lastModifiedTime"),
+            location: o.get_field("location"),
+            materialized_view: o.get_field("materializedView"),
+            max_staleness: o.get_field("maxStaleness"),
+            num_bytes: o.get_field("numBytes"),
+            num_long_term_bytes: o.get_field("numLongTermBytes"),
+            num_rows: o.get_field("numRows"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            range_partitioning: o.get_field("rangePartitioning"),
+            require_partition_filter: o.get_field("requirePartitionFilter"),
+            resource_tags: o.get_field("resourceTags"),
+            schema: o.get_field("schema"),
+            self_link: o.get_field("selfLink"),
+            table_constraints: o.get_field("tableConstraints"),
+            table_id: o.get_field("tableId"),
+            table_replication_info: o.get_field("tableReplicationInfo"),
+            time_partitioning: o.get_field("timePartitioning"),
+            type_: o.get_field("type"),
+            view: o.get_field("view"),
         }
     }
 }

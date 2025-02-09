@@ -84,88 +84,68 @@ pub mod zone {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ZoneArgs,
     ) -> ZoneResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let jump_start_binding_1 = args.jump_start.get_output(context);
-        let jump_start_binding = jump_start_binding_1.get_inner();
-        let paused_binding_1 = args.paused.get_output(context);
-        let paused_binding = paused_binding_1.get_inner();
-        let plan_binding_1 = args.plan.get_output(context);
-        let plan_binding = plan_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let vanity_name_servers_binding_1 = args.vanity_name_servers.get_output(context);
-        let vanity_name_servers_binding = vanity_name_servers_binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let jump_start_binding = args.jump_start.get_output(context);
+        let paused_binding = args.paused.get_output(context);
+        let plan_binding = args.plan.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let vanity_name_servers_binding = args.vanity_name_servers.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/zone:Zone".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jumpStart".into(),
-                    value: &jump_start_binding,
+                    value: jump_start_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "paused".into(),
-                    value: &paused_binding,
+                    value: paused_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plan".into(),
-                    value: &plan_binding,
+                    value: plan_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vanityNameServers".into(),
-                    value: &vanity_name_servers_binding,
+                    value: vanity_name_servers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ZoneResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            jump_start: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jumpStart"),
-            ),
-            meta: pulumi_gestalt_rust::__private::into_domain(o.extract_field("meta")),
-            name_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nameServers"),
-            ),
-            paused: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("paused"),
-            ),
-            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            vanity_name_servers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vanityNameServers"),
-            ),
-            verification_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verificationKey"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            account_id: o.get_field("accountId"),
+            jump_start: o.get_field("jumpStart"),
+            meta: o.get_field("meta"),
+            name_servers: o.get_field("nameServers"),
+            paused: o.get_field("paused"),
+            plan: o.get_field("plan"),
+            status: o.get_field("status"),
+            type_: o.get_field("type"),
+            vanity_name_servers: o.get_field("vanityNameServers"),
+            verification_key: o.get_field("verificationKey"),
+            zone: o.get_field("zone"),
         }
     }
 }

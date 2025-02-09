@@ -286,109 +286,82 @@ pub mod metric {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MetricArgs,
     ) -> MetricResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_name_binding_1 = args.bucket_name.get_output(context);
-        let bucket_name_binding = bucket_name_binding_1.get_inner();
-        let bucket_options_binding_1 = args.bucket_options.get_output(context);
-        let bucket_options_binding = bucket_options_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let filter_binding_1 = args.filter.get_output(context);
-        let filter_binding = filter_binding_1.get_inner();
-        let label_extractors_binding_1 = args.label_extractors.get_output(context);
-        let label_extractors_binding = label_extractors_binding_1.get_inner();
-        let metric_descriptor_binding_1 = args.metric_descriptor.get_output(context);
-        let metric_descriptor_binding = metric_descriptor_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let value_extractor_binding_1 = args.value_extractor.get_output(context);
-        let value_extractor_binding = value_extractor_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_name_binding = args.bucket_name.get_output(context);
+        let bucket_options_binding = args.bucket_options.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let disabled_binding = args.disabled.get_output(context);
+        let filter_binding = args.filter.get_output(context);
+        let label_extractors_binding = args.label_extractors.get_output(context);
+        let metric_descriptor_binding = args.metric_descriptor.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let value_extractor_binding = args.value_extractor.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:logging/metric:Metric".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketName".into(),
-                    value: &bucket_name_binding,
+                    value: bucket_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketOptions".into(),
-                    value: &bucket_options_binding,
+                    value: bucket_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: &filter_binding,
+                    value: filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labelExtractors".into(),
-                    value: &label_extractors_binding,
+                    value: label_extractors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricDescriptor".into(),
-                    value: &metric_descriptor_binding,
+                    value: metric_descriptor_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "valueExtractor".into(),
-                    value: &value_extractor_binding,
+                    value: value_extractor_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MetricResult {
-            bucket_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketName"),
-            ),
-            bucket_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketOptions"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            label_extractors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labelExtractors"),
-            ),
-            metric_descriptor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metricDescriptor"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            value_extractor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("valueExtractor"),
-            ),
+            bucket_name: o.get_field("bucketName"),
+            bucket_options: o.get_field("bucketOptions"),
+            description: o.get_field("description"),
+            disabled: o.get_field("disabled"),
+            filter: o.get_field("filter"),
+            label_extractors: o.get_field("labelExtractors"),
+            metric_descriptor: o.get_field("metricDescriptor"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            value_extractor: o.get_field("valueExtractor"),
         }
     }
 }

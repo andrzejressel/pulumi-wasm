@@ -505,518 +505,359 @@ pub mod linux_virtual_machine {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LinuxVirtualMachineArgs,
     ) -> LinuxVirtualMachineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let additional_capabilities_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let additional_capabilities_binding = args
             .additional_capabilities
             .get_output(context);
-        let additional_capabilities_binding = additional_capabilities_binding_1
-            .get_inner();
-        let admin_password_binding_1 = args.admin_password.get_output(context);
-        let admin_password_binding = admin_password_binding_1.get_inner();
-        let admin_ssh_keys_binding_1 = args.admin_ssh_keys.get_output(context);
-        let admin_ssh_keys_binding = admin_ssh_keys_binding_1.get_inner();
-        let admin_username_binding_1 = args.admin_username.get_output(context);
-        let admin_username_binding = admin_username_binding_1.get_inner();
-        let allow_extension_operations_binding_1 = args
+        let admin_password_binding = args.admin_password.get_output(context);
+        let admin_ssh_keys_binding = args.admin_ssh_keys.get_output(context);
+        let admin_username_binding = args.admin_username.get_output(context);
+        let allow_extension_operations_binding = args
             .allow_extension_operations
             .get_output(context);
-        let allow_extension_operations_binding = allow_extension_operations_binding_1
-            .get_inner();
-        let availability_set_id_binding_1 = args.availability_set_id.get_output(context);
-        let availability_set_id_binding = availability_set_id_binding_1.get_inner();
-        let boot_diagnostics_binding_1 = args.boot_diagnostics.get_output(context);
-        let boot_diagnostics_binding = boot_diagnostics_binding_1.get_inner();
-        let bypass_platform_safety_checks_on_user_schedule_enabled_binding_1 = args
+        let availability_set_id_binding = args.availability_set_id.get_output(context);
+        let boot_diagnostics_binding = args.boot_diagnostics.get_output(context);
+        let bypass_platform_safety_checks_on_user_schedule_enabled_binding = args
             .bypass_platform_safety_checks_on_user_schedule_enabled
             .get_output(context);
-        let bypass_platform_safety_checks_on_user_schedule_enabled_binding = bypass_platform_safety_checks_on_user_schedule_enabled_binding_1
-            .get_inner();
-        let capacity_reservation_group_id_binding_1 = args
+        let capacity_reservation_group_id_binding = args
             .capacity_reservation_group_id
             .get_output(context);
-        let capacity_reservation_group_id_binding = capacity_reservation_group_id_binding_1
-            .get_inner();
-        let computer_name_binding_1 = args.computer_name.get_output(context);
-        let computer_name_binding = computer_name_binding_1.get_inner();
-        let custom_data_binding_1 = args.custom_data.get_output(context);
-        let custom_data_binding = custom_data_binding_1.get_inner();
-        let dedicated_host_group_id_binding_1 = args
+        let computer_name_binding = args.computer_name.get_output(context);
+        let custom_data_binding = args.custom_data.get_output(context);
+        let dedicated_host_group_id_binding = args
             .dedicated_host_group_id
             .get_output(context);
-        let dedicated_host_group_id_binding = dedicated_host_group_id_binding_1
-            .get_inner();
-        let dedicated_host_id_binding_1 = args.dedicated_host_id.get_output(context);
-        let dedicated_host_id_binding = dedicated_host_id_binding_1.get_inner();
-        let disable_password_authentication_binding_1 = args
+        let dedicated_host_id_binding = args.dedicated_host_id.get_output(context);
+        let disable_password_authentication_binding = args
             .disable_password_authentication
             .get_output(context);
-        let disable_password_authentication_binding = disable_password_authentication_binding_1
-            .get_inner();
-        let disk_controller_type_binding_1 = args
-            .disk_controller_type
-            .get_output(context);
-        let disk_controller_type_binding = disk_controller_type_binding_1.get_inner();
-        let edge_zone_binding_1 = args.edge_zone.get_output(context);
-        let edge_zone_binding = edge_zone_binding_1.get_inner();
-        let encryption_at_host_enabled_binding_1 = args
+        let disk_controller_type_binding = args.disk_controller_type.get_output(context);
+        let edge_zone_binding = args.edge_zone.get_output(context);
+        let encryption_at_host_enabled_binding = args
             .encryption_at_host_enabled
             .get_output(context);
-        let encryption_at_host_enabled_binding = encryption_at_host_enabled_binding_1
-            .get_inner();
-        let eviction_policy_binding_1 = args.eviction_policy.get_output(context);
-        let eviction_policy_binding = eviction_policy_binding_1.get_inner();
-        let extensions_time_budget_binding_1 = args
+        let eviction_policy_binding = args.eviction_policy.get_output(context);
+        let extensions_time_budget_binding = args
             .extensions_time_budget
             .get_output(context);
-        let extensions_time_budget_binding = extensions_time_budget_binding_1
-            .get_inner();
-        let gallery_applications_binding_1 = args
-            .gallery_applications
-            .get_output(context);
-        let gallery_applications_binding = gallery_applications_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let license_type_binding_1 = args.license_type.get_output(context);
-        let license_type_binding = license_type_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let max_bid_price_binding_1 = args.max_bid_price.get_output(context);
-        let max_bid_price_binding = max_bid_price_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_interface_ids_binding_1 = args
+        let gallery_applications_binding = args.gallery_applications.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let license_type_binding = args.license_type.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let max_bid_price_binding = args.max_bid_price.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_interface_ids_binding = args
             .network_interface_ids
             .get_output(context);
-        let network_interface_ids_binding = network_interface_ids_binding_1.get_inner();
-        let os_disk_binding_1 = args.os_disk.get_output(context);
-        let os_disk_binding = os_disk_binding_1.get_inner();
-        let os_image_notification_binding_1 = args
+        let os_disk_binding = args.os_disk.get_output(context);
+        let os_image_notification_binding = args
             .os_image_notification
             .get_output(context);
-        let os_image_notification_binding = os_image_notification_binding_1.get_inner();
-        let patch_assessment_mode_binding_1 = args
+        let patch_assessment_mode_binding = args
             .patch_assessment_mode
             .get_output(context);
-        let patch_assessment_mode_binding = patch_assessment_mode_binding_1.get_inner();
-        let patch_mode_binding_1 = args.patch_mode.get_output(context);
-        let patch_mode_binding = patch_mode_binding_1.get_inner();
-        let plan_binding_1 = args.plan.get_output(context);
-        let plan_binding = plan_binding_1.get_inner();
-        let platform_fault_domain_binding_1 = args
+        let patch_mode_binding = args.patch_mode.get_output(context);
+        let plan_binding = args.plan.get_output(context);
+        let platform_fault_domain_binding = args
             .platform_fault_domain
             .get_output(context);
-        let platform_fault_domain_binding = platform_fault_domain_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let provision_vm_agent_binding_1 = args.provision_vm_agent.get_output(context);
-        let provision_vm_agent_binding = provision_vm_agent_binding_1.get_inner();
-        let proximity_placement_group_id_binding_1 = args
+        let priority_binding = args.priority.get_output(context);
+        let provision_vm_agent_binding = args.provision_vm_agent.get_output(context);
+        let proximity_placement_group_id_binding = args
             .proximity_placement_group_id
             .get_output(context);
-        let proximity_placement_group_id_binding = proximity_placement_group_id_binding_1
-            .get_inner();
-        let reboot_setting_binding_1 = args.reboot_setting.get_output(context);
-        let reboot_setting_binding = reboot_setting_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let secrets_binding_1 = args.secrets.get_output(context);
-        let secrets_binding = secrets_binding_1.get_inner();
-        let secure_boot_enabled_binding_1 = args.secure_boot_enabled.get_output(context);
-        let secure_boot_enabled_binding = secure_boot_enabled_binding_1.get_inner();
-        let size_binding_1 = args.size.get_output(context);
-        let size_binding = size_binding_1.get_inner();
-        let source_image_id_binding_1 = args.source_image_id.get_output(context);
-        let source_image_id_binding = source_image_id_binding_1.get_inner();
-        let source_image_reference_binding_1 = args
+        let reboot_setting_binding = args.reboot_setting.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let secrets_binding = args.secrets.get_output(context);
+        let secure_boot_enabled_binding = args.secure_boot_enabled.get_output(context);
+        let size_binding = args.size.get_output(context);
+        let source_image_id_binding = args.source_image_id.get_output(context);
+        let source_image_reference_binding = args
             .source_image_reference
             .get_output(context);
-        let source_image_reference_binding = source_image_reference_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let termination_notification_binding_1 = args
+        let tags_binding = args.tags.get_output(context);
+        let termination_notification_binding = args
             .termination_notification
             .get_output(context);
-        let termination_notification_binding = termination_notification_binding_1
-            .get_inner();
-        let user_data_binding_1 = args.user_data.get_output(context);
-        let user_data_binding = user_data_binding_1.get_inner();
-        let virtual_machine_scale_set_id_binding_1 = args
+        let user_data_binding = args.user_data.get_output(context);
+        let virtual_machine_scale_set_id_binding = args
             .virtual_machine_scale_set_id
             .get_output(context);
-        let virtual_machine_scale_set_id_binding = virtual_machine_scale_set_id_binding_1
-            .get_inner();
-        let vm_agent_platform_updates_enabled_binding_1 = args
+        let vm_agent_platform_updates_enabled_binding = args
             .vm_agent_platform_updates_enabled
             .get_output(context);
-        let vm_agent_platform_updates_enabled_binding = vm_agent_platform_updates_enabled_binding_1
-            .get_inner();
-        let vtpm_enabled_binding_1 = args.vtpm_enabled.get_output(context);
-        let vtpm_enabled_binding = vtpm_enabled_binding_1.get_inner();
-        let zone_binding_1 = args.zone.get_output(context);
-        let zone_binding = zone_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let vtpm_enabled_binding = args.vtpm_enabled.get_output(context);
+        let zone_binding = args.zone.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:compute/linuxVirtualMachine:LinuxVirtualMachine".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalCapabilities".into(),
-                    value: &additional_capabilities_binding,
+                    value: additional_capabilities_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminPassword".into(),
-                    value: &admin_password_binding,
+                    value: admin_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminSshKeys".into(),
-                    value: &admin_ssh_keys_binding,
+                    value: admin_ssh_keys_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminUsername".into(),
-                    value: &admin_username_binding,
+                    value: admin_username_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowExtensionOperations".into(),
-                    value: &allow_extension_operations_binding,
+                    value: allow_extension_operations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilitySetId".into(),
-                    value: &availability_set_id_binding,
+                    value: availability_set_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bootDiagnostics".into(),
-                    value: &boot_diagnostics_binding,
+                    value: boot_diagnostics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bypassPlatformSafetyChecksOnUserScheduleEnabled".into(),
-                    value: &bypass_platform_safety_checks_on_user_schedule_enabled_binding,
+                    value: bypass_platform_safety_checks_on_user_schedule_enabled_binding
+                        .get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityReservationGroupId".into(),
-                    value: &capacity_reservation_group_id_binding,
+                    value: capacity_reservation_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computerName".into(),
-                    value: &computer_name_binding,
+                    value: computer_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customData".into(),
-                    value: &custom_data_binding,
+                    value: custom_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dedicatedHostGroupId".into(),
-                    value: &dedicated_host_group_id_binding,
+                    value: dedicated_host_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dedicatedHostId".into(),
-                    value: &dedicated_host_id_binding,
+                    value: dedicated_host_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disablePasswordAuthentication".into(),
-                    value: &disable_password_authentication_binding,
+                    value: disable_password_authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskControllerType".into(),
-                    value: &disk_controller_type_binding,
+                    value: disk_controller_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeZone".into(),
-                    value: &edge_zone_binding,
+                    value: edge_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionAtHostEnabled".into(),
-                    value: &encryption_at_host_enabled_binding,
+                    value: encryption_at_host_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "evictionPolicy".into(),
-                    value: &eviction_policy_binding,
+                    value: eviction_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extensionsTimeBudget".into(),
-                    value: &extensions_time_budget_binding,
+                    value: extensions_time_budget_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "galleryApplications".into(),
-                    value: &gallery_applications_binding,
+                    value: gallery_applications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseType".into(),
-                    value: &license_type_binding,
+                    value: license_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxBidPrice".into(),
-                    value: &max_bid_price_binding,
+                    value: max_bid_price_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceIds".into(),
-                    value: &network_interface_ids_binding,
+                    value: network_interface_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osDisk".into(),
-                    value: &os_disk_binding,
+                    value: os_disk_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osImageNotification".into(),
-                    value: &os_image_notification_binding,
+                    value: os_image_notification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "patchAssessmentMode".into(),
-                    value: &patch_assessment_mode_binding,
+                    value: patch_assessment_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "patchMode".into(),
-                    value: &patch_mode_binding,
+                    value: patch_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plan".into(),
-                    value: &plan_binding,
+                    value: plan_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformFaultDomain".into(),
-                    value: &platform_fault_domain_binding,
+                    value: platform_fault_domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisionVmAgent".into(),
-                    value: &provision_vm_agent_binding,
+                    value: provision_vm_agent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proximityPlacementGroupId".into(),
-                    value: &proximity_placement_group_id_binding,
+                    value: proximity_placement_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rebootSetting".into(),
-                    value: &reboot_setting_binding,
+                    value: reboot_setting_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secrets".into(),
-                    value: &secrets_binding,
+                    value: secrets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secureBootEnabled".into(),
-                    value: &secure_boot_enabled_binding,
+                    value: secure_boot_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "size".into(),
-                    value: &size_binding,
+                    value: size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceImageId".into(),
-                    value: &source_image_id_binding,
+                    value: source_image_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceImageReference".into(),
-                    value: &source_image_reference_binding,
+                    value: source_image_reference_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terminationNotification".into(),
-                    value: &termination_notification_binding,
+                    value: termination_notification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userData".into(),
-                    value: &user_data_binding,
+                    value: user_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineScaleSetId".into(),
-                    value: &virtual_machine_scale_set_id_binding,
+                    value: virtual_machine_scale_set_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmAgentPlatformUpdatesEnabled".into(),
-                    value: &vm_agent_platform_updates_enabled_binding,
+                    value: vm_agent_platform_updates_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vtpmEnabled".into(),
-                    value: &vtpm_enabled_binding,
+                    value: vtpm_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: &zone_binding,
+                    value: zone_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LinuxVirtualMachineResult {
-            additional_capabilities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalCapabilities"),
-            ),
-            admin_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminPassword"),
-            ),
-            admin_ssh_keys: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminSshKeys"),
-            ),
-            admin_username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminUsername"),
-            ),
-            allow_extension_operations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowExtensionOperations"),
-            ),
-            availability_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilitySetId"),
-            ),
-            boot_diagnostics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootDiagnostics"),
-            ),
-            bypass_platform_safety_checks_on_user_schedule_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bypassPlatformSafetyChecksOnUserScheduleEnabled"),
-            ),
-            capacity_reservation_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityReservationGroupId"),
-            ),
-            computer_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computerName"),
-            ),
-            custom_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customData"),
-            ),
-            dedicated_host_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dedicatedHostGroupId"),
-            ),
-            dedicated_host_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dedicatedHostId"),
-            ),
-            disable_password_authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disablePasswordAuthentication"),
-            ),
-            disk_controller_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskControllerType"),
-            ),
-            edge_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("edgeZone"),
-            ),
-            encryption_at_host_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionAtHostEnabled"),
-            ),
-            eviction_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("evictionPolicy"),
-            ),
-            extensions_time_budget: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extensionsTimeBudget"),
-            ),
-            gallery_applications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("galleryApplications"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            license_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("licenseType"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            max_bid_price: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxBidPrice"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_interface_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceIds"),
-            ),
-            os_disk: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osDisk"),
-            ),
-            os_image_notification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("osImageNotification"),
-            ),
-            patch_assessment_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("patchAssessmentMode"),
-            ),
-            patch_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("patchMode"),
-            ),
-            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
-            platform_fault_domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformFaultDomain"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            private_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpAddress"),
-            ),
-            private_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpAddresses"),
-            ),
-            provision_vm_agent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisionVmAgent"),
-            ),
-            proximity_placement_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proximityPlacementGroupId"),
-            ),
-            public_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIpAddress"),
-            ),
-            public_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicIpAddresses"),
-            ),
-            reboot_setting: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rebootSetting"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secrets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secrets"),
-            ),
-            secure_boot_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secureBootEnabled"),
-            ),
-            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
-            source_image_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceImageId"),
-            ),
-            source_image_reference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceImageReference"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            termination_notification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("terminationNotification"),
-            ),
-            user_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userData"),
-            ),
-            virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachineId"),
-            ),
-            virtual_machine_scale_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachineScaleSetId"),
-            ),
-            vm_agent_platform_updates_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vmAgentPlatformUpdatesEnabled"),
-            ),
-            vtpm_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vtpmEnabled"),
-            ),
-            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
+            additional_capabilities: o.get_field("additionalCapabilities"),
+            admin_password: o.get_field("adminPassword"),
+            admin_ssh_keys: o.get_field("adminSshKeys"),
+            admin_username: o.get_field("adminUsername"),
+            allow_extension_operations: o.get_field("allowExtensionOperations"),
+            availability_set_id: o.get_field("availabilitySetId"),
+            boot_diagnostics: o.get_field("bootDiagnostics"),
+            bypass_platform_safety_checks_on_user_schedule_enabled: o
+                .get_field("bypassPlatformSafetyChecksOnUserScheduleEnabled"),
+            capacity_reservation_group_id: o.get_field("capacityReservationGroupId"),
+            computer_name: o.get_field("computerName"),
+            custom_data: o.get_field("customData"),
+            dedicated_host_group_id: o.get_field("dedicatedHostGroupId"),
+            dedicated_host_id: o.get_field("dedicatedHostId"),
+            disable_password_authentication: o
+                .get_field("disablePasswordAuthentication"),
+            disk_controller_type: o.get_field("diskControllerType"),
+            edge_zone: o.get_field("edgeZone"),
+            encryption_at_host_enabled: o.get_field("encryptionAtHostEnabled"),
+            eviction_policy: o.get_field("evictionPolicy"),
+            extensions_time_budget: o.get_field("extensionsTimeBudget"),
+            gallery_applications: o.get_field("galleryApplications"),
+            identity: o.get_field("identity"),
+            license_type: o.get_field("licenseType"),
+            location: o.get_field("location"),
+            max_bid_price: o.get_field("maxBidPrice"),
+            name: o.get_field("name"),
+            network_interface_ids: o.get_field("networkInterfaceIds"),
+            os_disk: o.get_field("osDisk"),
+            os_image_notification: o.get_field("osImageNotification"),
+            patch_assessment_mode: o.get_field("patchAssessmentMode"),
+            patch_mode: o.get_field("patchMode"),
+            plan: o.get_field("plan"),
+            platform_fault_domain: o.get_field("platformFaultDomain"),
+            priority: o.get_field("priority"),
+            private_ip_address: o.get_field("privateIpAddress"),
+            private_ip_addresses: o.get_field("privateIpAddresses"),
+            provision_vm_agent: o.get_field("provisionVmAgent"),
+            proximity_placement_group_id: o.get_field("proximityPlacementGroupId"),
+            public_ip_address: o.get_field("publicIpAddress"),
+            public_ip_addresses: o.get_field("publicIpAddresses"),
+            reboot_setting: o.get_field("rebootSetting"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secrets: o.get_field("secrets"),
+            secure_boot_enabled: o.get_field("secureBootEnabled"),
+            size: o.get_field("size"),
+            source_image_id: o.get_field("sourceImageId"),
+            source_image_reference: o.get_field("sourceImageReference"),
+            tags: o.get_field("tags"),
+            termination_notification: o.get_field("terminationNotification"),
+            user_data: o.get_field("userData"),
+            virtual_machine_id: o.get_field("virtualMachineId"),
+            virtual_machine_scale_set_id: o.get_field("virtualMachineScaleSetId"),
+            vm_agent_platform_updates_enabled: o
+                .get_field("vmAgentPlatformUpdatesEnabled"),
+            vtpm_enabled: o.get_field("vtpmEnabled"),
+            zone: o.get_field("zone"),
         }
     }
 }

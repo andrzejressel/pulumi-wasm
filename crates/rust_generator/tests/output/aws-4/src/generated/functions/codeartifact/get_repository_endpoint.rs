@@ -33,59 +33,46 @@ pub mod get_repository_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRepositoryEndpointArgs,
     ) -> GetRepositoryEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_binding_1 = args.domain.get_output(context);
-        let domain_binding = domain_binding_1.get_inner();
-        let domain_owner_binding_1 = args.domain_owner.get_output(context);
-        let domain_owner_binding = domain_owner_binding_1.get_inner();
-        let format_binding_1 = args.format.get_output(context);
-        let format_binding = format_binding_1.get_inner();
-        let repository_binding_1 = args.repository.get_output(context);
-        let repository_binding = repository_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_binding = args.domain.get_output(context);
+        let domain_owner_binding = args.domain_owner.get_output(context);
+        let format_binding = args.format.get_output(context);
+        let repository_binding = args.repository.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: &domain_binding,
+                    value: domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainOwner".into(),
-                    value: &domain_owner_binding,
+                    value: domain_owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "format".into(),
-                    value: &format_binding,
+                    value: format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repository".into(),
-                    value: &repository_binding,
+                    value: repository_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRepositoryEndpointResult {
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            domain_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainOwner"),
-            ),
-            format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("format"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            repository: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repository"),
-            ),
-            repository_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositoryEndpoint"),
-            ),
+            domain: o.get_field("domain"),
+            domain_owner: o.get_field("domainOwner"),
+            format: o.get_field("format"),
+            id: o.get_field("id"),
+            repository: o.get_field("repository"),
+            repository_endpoint: o.get_field("repositoryEndpoint"),
         }
     }
 }

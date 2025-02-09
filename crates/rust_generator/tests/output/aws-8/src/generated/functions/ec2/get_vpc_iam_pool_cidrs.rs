@@ -31,41 +31,34 @@ pub mod get_vpc_iam_pool_cidrs {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVpcIamPoolCidrsArgs,
     ) -> GetVpcIamPoolCidrsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let ipam_pool_id_binding_1 = args.ipam_pool_id.get_output(context);
-        let ipam_pool_id_binding = ipam_pool_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let ipam_pool_id_binding = args.ipam_pool_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamPoolId".into(),
-                    value: &ipam_pool_id_binding,
+                    value: ipam_pool_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVpcIamPoolCidrsResult {
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ipam_pool_cidrs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamPoolCidrs"),
-            ),
-            ipam_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipamPoolId"),
-            ),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            ipam_pool_cidrs: o.get_field("ipamPoolCidrs"),
+            ipam_pool_id: o.get_field("ipamPoolId"),
         }
     }
 }

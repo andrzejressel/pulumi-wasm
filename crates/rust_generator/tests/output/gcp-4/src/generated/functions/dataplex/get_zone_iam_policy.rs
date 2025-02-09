@@ -35,58 +35,47 @@ pub mod get_zone_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetZoneIamPolicyArgs,
     ) -> GetZoneIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let dataplex_zone_binding_1 = args.dataplex_zone.get_output(context);
-        let dataplex_zone_binding = dataplex_zone_binding_1.get_inner();
-        let lake_binding_1 = args.lake.get_output(context);
-        let lake_binding = lake_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let dataplex_zone_binding = args.dataplex_zone.get_output(context);
+        let lake_binding = args.lake.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:dataplex/getZoneIamPolicy:getZoneIamPolicy".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataplexZone".into(),
-                    value: &dataplex_zone_binding,
+                    value: dataplex_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lake".into(),
-                    value: &lake_binding,
+                    value: lake_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetZoneIamPolicyResult {
-            dataplex_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataplexZone"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            lake: pulumi_gestalt_rust::__private::into_domain(o.extract_field("lake")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            policy_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyData"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
+            dataplex_zone: o.get_field("dataplexZone"),
+            etag: o.get_field("etag"),
+            id: o.get_field("id"),
+            lake: o.get_field("lake"),
+            location: o.get_field("location"),
+            policy_data: o.get_field("policyData"),
+            project: o.get_field("project"),
         }
     }
 }

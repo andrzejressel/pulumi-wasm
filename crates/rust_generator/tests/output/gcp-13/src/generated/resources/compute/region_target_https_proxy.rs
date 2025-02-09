@@ -485,124 +485,90 @@ pub mod region_target_https_proxy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RegionTargetHttpsProxyArgs,
     ) -> RegionTargetHttpsProxyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_manager_certificates_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_manager_certificates_binding = args
             .certificate_manager_certificates
             .get_output(context);
-        let certificate_manager_certificates_binding = certificate_manager_certificates_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let http_keep_alive_timeout_sec_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let http_keep_alive_timeout_sec_binding = args
             .http_keep_alive_timeout_sec
             .get_output(context);
-        let http_keep_alive_timeout_sec_binding = http_keep_alive_timeout_sec_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let server_tls_policy_binding_1 = args.server_tls_policy.get_output(context);
-        let server_tls_policy_binding = server_tls_policy_binding_1.get_inner();
-        let ssl_certificates_binding_1 = args.ssl_certificates.get_output(context);
-        let ssl_certificates_binding = ssl_certificates_binding_1.get_inner();
-        let ssl_policy_binding_1 = args.ssl_policy.get_output(context);
-        let ssl_policy_binding = ssl_policy_binding_1.get_inner();
-        let url_map_binding_1 = args.url_map.get_output(context);
-        let url_map_binding = url_map_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let server_tls_policy_binding = args.server_tls_policy.get_output(context);
+        let ssl_certificates_binding = args.ssl_certificates.get_output(context);
+        let ssl_policy_binding = args.ssl_policy.get_output(context);
+        let url_map_binding = args.url_map.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/regionTargetHttpsProxy:RegionTargetHttpsProxy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateManagerCertificates".into(),
-                    value: &certificate_manager_certificates_binding,
+                    value: certificate_manager_certificates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpKeepAliveTimeoutSec".into(),
-                    value: &http_keep_alive_timeout_sec_binding,
+                    value: http_keep_alive_timeout_sec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverTlsPolicy".into(),
-                    value: &server_tls_policy_binding,
+                    value: server_tls_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslCertificates".into(),
-                    value: &ssl_certificates_binding,
+                    value: ssl_certificates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslPolicy".into(),
-                    value: &ssl_policy_binding,
+                    value: ssl_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "urlMap".into(),
-                    value: &url_map_binding,
+                    value: url_map_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RegionTargetHttpsProxyResult {
-            certificate_manager_certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateManagerCertificates"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            http_keep_alive_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpKeepAliveTimeoutSec"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            proxy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("proxyId"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            server_tls_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverTlsPolicy"),
-            ),
-            ssl_certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslCertificates"),
-            ),
-            ssl_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sslPolicy"),
-            ),
-            url_map: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("urlMap"),
-            ),
+            certificate_manager_certificates: o
+                .get_field("certificateManagerCertificates"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            http_keep_alive_timeout_sec: o.get_field("httpKeepAliveTimeoutSec"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            proxy_id: o.get_field("proxyId"),
+            region: o.get_field("region"),
+            self_link: o.get_field("selfLink"),
+            server_tls_policy: o.get_field("serverTlsPolicy"),
+            ssl_certificates: o.get_field("sslCertificates"),
+            ssl_policy: o.get_field("sslPolicy"),
+            url_map: o.get_field("urlMap"),
         }
     }
 }

@@ -75,51 +75,35 @@ pub mod resource_share_accepter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResourceShareAccepterArgs,
     ) -> ResourceShareAccepterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let share_arn_binding_1 = args.share_arn.get_output(context);
-        let share_arn_binding = share_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let share_arn_binding = args.share_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ram/resourceShareAccepter:ResourceShareAccepter".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareArn".into(),
-                    value: &share_arn_binding,
+                    value: share_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResourceShareAccepterResult {
-            invitation_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invitationArn"),
-            ),
-            receiver_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("receiverAccountId"),
-            ),
-            resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resources"),
-            ),
-            sender_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("senderAccountId"),
-            ),
-            share_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shareArn"),
-            ),
-            share_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shareId"),
-            ),
-            share_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shareName"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            invitation_arn: o.get_field("invitationArn"),
+            receiver_account_id: o.get_field("receiverAccountId"),
+            resources: o.get_field("resources"),
+            sender_account_id: o.get_field("senderAccountId"),
+            share_arn: o.get_field("shareArn"),
+            share_id: o.get_field("shareId"),
+            share_name: o.get_field("shareName"),
+            status: o.get_field("status"),
         }
     }
 }

@@ -70,67 +70,48 @@ pub mod snapshot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SnapshotArgs,
     ) -> SnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let namespace_name_binding_1 = args.namespace_name.get_output(context);
-        let namespace_name_binding = namespace_name_binding_1.get_inner();
-        let retention_period_binding_1 = args.retention_period.get_output(context);
-        let retention_period_binding = retention_period_binding_1.get_inner();
-        let snapshot_name_binding_1 = args.snapshot_name.get_output(context);
-        let snapshot_name_binding = snapshot_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let namespace_name_binding = args.namespace_name.get_output(context);
+        let retention_period_binding = args.retention_period.get_output(context);
+        let snapshot_name_binding = args.snapshot_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshiftserverless/snapshot:Snapshot".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceName".into(),
-                    value: &namespace_name_binding,
+                    value: namespace_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPeriod".into(),
-                    value: &retention_period_binding,
+                    value: retention_period_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotName".into(),
-                    value: &snapshot_name_binding,
+                    value: snapshot_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SnapshotResult {
-            accounts_with_provisioned_restore_accesses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountsWithProvisionedRestoreAccesses"),
-            ),
-            accounts_with_restore_accesses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountsWithRestoreAccesses"),
-            ),
-            admin_username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminUsername"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            namespace_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceArn"),
-            ),
-            namespace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceName"),
-            ),
-            owner_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerAccount"),
-            ),
-            retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionPeriod"),
-            ),
-            snapshot_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotName"),
-            ),
+            accounts_with_provisioned_restore_accesses: o
+                .get_field("accountsWithProvisionedRestoreAccesses"),
+            accounts_with_restore_accesses: o.get_field("accountsWithRestoreAccesses"),
+            admin_username: o.get_field("adminUsername"),
+            arn: o.get_field("arn"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            namespace_arn: o.get_field("namespaceArn"),
+            namespace_name: o.get_field("namespaceName"),
+            owner_account: o.get_field("ownerAccount"),
+            retention_period: o.get_field("retentionPeriod"),
+            snapshot_name: o.get_field("snapshotName"),
         }
     }
 }

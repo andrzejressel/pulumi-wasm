@@ -34,47 +34,41 @@ pub mod get_open_id_connect_provider {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetOpenIdConnectProviderArgs,
     ) -> GetOpenIdConnectProviderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let url_binding_1 = args.url.get_output(context);
-        let url_binding = url_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let url_binding = args.url.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "url".into(),
-                    value: &url_binding,
+                    value: url_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetOpenIdConnectProviderResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            client_id_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientIdLists"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            thumbprint_lists: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thumbprintLists"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            arn: o.get_field("arn"),
+            client_id_lists: o.get_field("clientIdLists"),
+            id: o.get_field("id"),
+            tags: o.get_field("tags"),
+            thumbprint_lists: o.get_field("thumbprintLists"),
+            url: o.get_field("url"),
         }
     }
 }

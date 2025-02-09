@@ -212,226 +212,157 @@ pub mod service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceArgs,
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aad_auth_enabled_binding_1 = args.aad_auth_enabled.get_output(context);
-        let aad_auth_enabled_binding = aad_auth_enabled_binding_1.get_inner();
-        let connectivity_logs_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aad_auth_enabled_binding = args.aad_auth_enabled.get_output(context);
+        let connectivity_logs_enabled_binding = args
             .connectivity_logs_enabled
             .get_output(context);
-        let connectivity_logs_enabled_binding = connectivity_logs_enabled_binding_1
-            .get_inner();
-        let cors_binding_1 = args.cors.get_output(context);
-        let cors_binding = cors_binding_1.get_inner();
-        let http_request_logs_enabled_binding_1 = args
+        let cors_binding = args.cors.get_output(context);
+        let http_request_logs_enabled_binding = args
             .http_request_logs_enabled
             .get_output(context);
-        let http_request_logs_enabled_binding = http_request_logs_enabled_binding_1
-            .get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let live_trace_binding_1 = args.live_trace.get_output(context);
-        let live_trace_binding = live_trace_binding_1.get_inner();
-        let live_trace_enabled_binding_1 = args.live_trace_enabled.get_output(context);
-        let live_trace_enabled_binding = live_trace_enabled_binding_1.get_inner();
-        let local_auth_enabled_binding_1 = args.local_auth_enabled.get_output(context);
-        let local_auth_enabled_binding = local_auth_enabled_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let messaging_logs_enabled_binding_1 = args
+        let identity_binding = args.identity.get_output(context);
+        let live_trace_binding = args.live_trace.get_output(context);
+        let live_trace_enabled_binding = args.live_trace_enabled.get_output(context);
+        let local_auth_enabled_binding = args.local_auth_enabled.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let messaging_logs_enabled_binding = args
             .messaging_logs_enabled
             .get_output(context);
-        let messaging_logs_enabled_binding = messaging_logs_enabled_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let serverless_connection_timeout_in_seconds_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let serverless_connection_timeout_in_seconds_binding = args
             .serverless_connection_timeout_in_seconds
             .get_output(context);
-        let serverless_connection_timeout_in_seconds_binding = serverless_connection_timeout_in_seconds_binding_1
-            .get_inner();
-        let service_mode_binding_1 = args.service_mode.get_output(context);
-        let service_mode_binding = service_mode_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tls_client_cert_enabled_binding_1 = args
+        let service_mode_binding = args.service_mode.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tls_client_cert_enabled_binding = args
             .tls_client_cert_enabled
             .get_output(context);
-        let tls_client_cert_enabled_binding = tls_client_cert_enabled_binding_1
-            .get_inner();
-        let upstream_endpoints_binding_1 = args.upstream_endpoints.get_output(context);
-        let upstream_endpoints_binding = upstream_endpoints_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let upstream_endpoints_binding = args.upstream_endpoints.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:signalr/service:Service".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aadAuthEnabled".into(),
-                    value: &aad_auth_enabled_binding,
+                    value: aad_auth_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectivityLogsEnabled".into(),
-                    value: &connectivity_logs_enabled_binding,
+                    value: connectivity_logs_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cors".into(),
-                    value: &cors_binding,
+                    value: cors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpRequestLogsEnabled".into(),
-                    value: &http_request_logs_enabled_binding,
+                    value: http_request_logs_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "liveTrace".into(),
-                    value: &live_trace_binding,
+                    value: live_trace_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "liveTraceEnabled".into(),
-                    value: &live_trace_enabled_binding,
+                    value: live_trace_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthEnabled".into(),
-                    value: &local_auth_enabled_binding,
+                    value: local_auth_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messagingLogsEnabled".into(),
-                    value: &messaging_logs_enabled_binding,
+                    value: messaging_logs_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverlessConnectionTimeoutInSeconds".into(),
-                    value: &serverless_connection_timeout_in_seconds_binding,
+                    value: serverless_connection_timeout_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceMode".into(),
-                    value: &service_mode_binding,
+                    value: service_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsClientCertEnabled".into(),
-                    value: &tls_client_cert_enabled_binding,
+                    value: tls_client_cert_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upstreamEndpoints".into(),
-                    value: &upstream_endpoints_binding,
+                    value: upstream_endpoints_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceResult {
-            aad_auth_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aadAuthEnabled"),
-            ),
-            connectivity_logs_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectivityLogsEnabled"),
-            ),
-            cors: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cors")),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            http_request_logs_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("httpRequestLogsEnabled"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            live_trace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("liveTrace"),
-            ),
-            live_trace_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("liveTraceEnabled"),
-            ),
-            local_auth_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAuthEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            messaging_logs_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("messagingLogsEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            primary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryAccessKey"),
-            ),
-            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryConnectionString"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            public_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicPort"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryAccessKey"),
-            ),
-            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryConnectionString"),
-            ),
-            server_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverPort"),
-            ),
-            serverless_connection_timeout_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverlessConnectionTimeoutInSeconds"),
-            ),
-            service_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceMode"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tls_client_cert_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsClientCertEnabled"),
-            ),
-            upstream_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("upstreamEndpoints"),
-            ),
+            aad_auth_enabled: o.get_field("aadAuthEnabled"),
+            connectivity_logs_enabled: o.get_field("connectivityLogsEnabled"),
+            cors: o.get_field("cors"),
+            hostname: o.get_field("hostname"),
+            http_request_logs_enabled: o.get_field("httpRequestLogsEnabled"),
+            identity: o.get_field("identity"),
+            ip_address: o.get_field("ipAddress"),
+            live_trace: o.get_field("liveTrace"),
+            live_trace_enabled: o.get_field("liveTraceEnabled"),
+            local_auth_enabled: o.get_field("localAuthEnabled"),
+            location: o.get_field("location"),
+            messaging_logs_enabled: o.get_field("messagingLogsEnabled"),
+            name: o.get_field("name"),
+            primary_access_key: o.get_field("primaryAccessKey"),
+            primary_connection_string: o.get_field("primaryConnectionString"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            public_port: o.get_field("publicPort"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_access_key: o.get_field("secondaryAccessKey"),
+            secondary_connection_string: o.get_field("secondaryConnectionString"),
+            server_port: o.get_field("serverPort"),
+            serverless_connection_timeout_in_seconds: o
+                .get_field("serverlessConnectionTimeoutInSeconds"),
+            service_mode: o.get_field("serviceMode"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
+            tls_client_cert_enabled: o.get_field("tlsClientCertEnabled"),
+            upstream_endpoints: o.get_field("upstreamEndpoints"),
         }
     }
 }

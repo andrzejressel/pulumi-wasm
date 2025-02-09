@@ -31,48 +31,37 @@ pub mod get_asset {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAssetArgs,
     ) -> GetAssetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let asset_id_binding_1 = args.asset_id.get_output(context);
-        let asset_id_binding = asset_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let asset_id_binding = args.asset_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:outposts/getAsset:getAsset".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assetId".into(),
-                    value: &asset_id_binding,
+                    value: asset_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAssetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            asset_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assetId"),
-            ),
-            asset_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assetType"),
-            ),
-            host_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            rack_elevation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rackElevation"),
-            ),
-            rack_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rackId"),
-            ),
+            arn: o.get_field("arn"),
+            asset_id: o.get_field("assetId"),
+            asset_type: o.get_field("assetType"),
+            host_id: o.get_field("hostId"),
+            id: o.get_field("id"),
+            rack_elevation: o.get_field("rackElevation"),
+            rack_id: o.get_field("rackId"),
         }
     }
 }

@@ -33,56 +33,42 @@ pub mod get_credentials {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCredentialsArgs,
     ) -> GetCredentialsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let db_name_binding_1 = args.db_name.get_output(context);
-        let db_name_binding = db_name_binding_1.get_inner();
-        let duration_seconds_binding_1 = args.duration_seconds.get_output(context);
-        let duration_seconds_binding = duration_seconds_binding_1.get_inner();
-        let workgroup_name_binding_1 = args.workgroup_name.get_output(context);
-        let workgroup_name_binding = workgroup_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let db_name_binding = args.db_name.get_output(context);
+        let duration_seconds_binding = args.duration_seconds.get_output(context);
+        let workgroup_name_binding = args.workgroup_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:redshiftserverless/getCredentials:getCredentials".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbName".into(),
-                    value: &db_name_binding,
+                    value: db_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "durationSeconds".into(),
-                    value: &duration_seconds_binding,
+                    value: duration_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workgroupName".into(),
-                    value: &workgroup_name_binding,
+                    value: workgroup_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCredentialsResult {
-            db_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbName"),
-            ),
-            db_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbPassword"),
-            ),
-            db_user: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbUser"),
-            ),
-            duration_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("durationSeconds"),
-            ),
-            expiration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expiration"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            workgroup_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workgroupName"),
-            ),
+            db_name: o.get_field("dbName"),
+            db_password: o.get_field("dbPassword"),
+            db_user: o.get_field("dbUser"),
+            duration_seconds: o.get_field("durationSeconds"),
+            expiration: o.get_field("expiration"),
+            id: o.get_field("id"),
+            workgroup_name: o.get_field("workgroupName"),
         }
     }
 }

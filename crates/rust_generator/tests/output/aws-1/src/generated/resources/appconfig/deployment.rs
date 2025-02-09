@@ -96,110 +96,81 @@ pub mod deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DeploymentArgs,
     ) -> DeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding_1 = args.application_id.get_output(context);
-        let application_id_binding = application_id_binding_1.get_inner();
-        let configuration_profile_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_id_binding = args.application_id.get_output(context);
+        let configuration_profile_id_binding = args
             .configuration_profile_id
             .get_output(context);
-        let configuration_profile_id_binding = configuration_profile_id_binding_1
-            .get_inner();
-        let configuration_version_binding_1 = args
+        let configuration_version_binding = args
             .configuration_version
             .get_output(context);
-        let configuration_version_binding = configuration_version_binding_1.get_inner();
-        let deployment_strategy_id_binding_1 = args
+        let deployment_strategy_id_binding = args
             .deployment_strategy_id
             .get_output(context);
-        let deployment_strategy_id_binding = deployment_strategy_id_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let environment_id_binding_1 = args.environment_id.get_output(context);
-        let environment_id_binding = environment_id_binding_1.get_inner();
-        let kms_key_identifier_binding_1 = args.kms_key_identifier.get_output(context);
-        let kms_key_identifier_binding = kms_key_identifier_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let environment_id_binding = args.environment_id.get_output(context);
+        let kms_key_identifier_binding = args.kms_key_identifier.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appconfig/deployment:Deployment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: &application_id_binding,
+                    value: application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationProfileId".into(),
-                    value: &configuration_profile_id_binding,
+                    value: configuration_profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationVersion".into(),
-                    value: &configuration_version_binding,
+                    value: configuration_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentStrategyId".into(),
-                    value: &deployment_strategy_id_binding,
+                    value: deployment_strategy_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentId".into(),
-                    value: &environment_id_binding,
+                    value: environment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyIdentifier".into(),
-                    value: &kms_key_identifier_binding,
+                    value: kms_key_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DeploymentResult {
-            application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            configuration_profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationProfileId"),
-            ),
-            configuration_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationVersion"),
-            ),
-            deployment_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentNumber"),
-            ),
-            deployment_strategy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentStrategyId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentId"),
-            ),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            kms_key_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyIdentifier"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            application_id: o.get_field("applicationId"),
+            arn: o.get_field("arn"),
+            configuration_profile_id: o.get_field("configurationProfileId"),
+            configuration_version: o.get_field("configurationVersion"),
+            deployment_number: o.get_field("deploymentNumber"),
+            deployment_strategy_id: o.get_field("deploymentStrategyId"),
+            description: o.get_field("description"),
+            environment_id: o.get_field("environmentId"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            kms_key_identifier: o.get_field("kmsKeyIdentifier"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

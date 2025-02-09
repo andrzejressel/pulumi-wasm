@@ -102,61 +102,50 @@ pub mod organization_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OrganizationConfigurationArgs,
     ) -> OrganizationConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_enable_binding_1 = args.auto_enable.get_output(context);
-        let auto_enable_binding = auto_enable_binding_1.get_inner();
-        let auto_enable_organization_members_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_enable_binding = args.auto_enable.get_output(context);
+        let auto_enable_organization_members_binding = args
             .auto_enable_organization_members
             .get_output(context);
-        let auto_enable_organization_members_binding = auto_enable_organization_members_binding_1
-            .get_inner();
-        let datasources_binding_1 = args.datasources.get_output(context);
-        let datasources_binding = datasources_binding_1.get_inner();
-        let detector_id_binding_1 = args.detector_id.get_output(context);
-        let detector_id_binding = detector_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let datasources_binding = args.datasources.get_output(context);
+        let detector_id_binding = args.detector_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:guardduty/organizationConfiguration:OrganizationConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoEnable".into(),
-                    value: &auto_enable_binding,
+                    value: auto_enable_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoEnableOrganizationMembers".into(),
-                    value: &auto_enable_organization_members_binding,
+                    value: auto_enable_organization_members_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datasources".into(),
-                    value: &datasources_binding,
+                    value: datasources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectorId".into(),
-                    value: &detector_id_binding,
+                    value: detector_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OrganizationConfigurationResult {
-            auto_enable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoEnable"),
-            ),
-            auto_enable_organization_members: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoEnableOrganizationMembers"),
-            ),
-            datasources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datasources"),
-            ),
-            detector_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("detectorId"),
-            ),
+            auto_enable: o.get_field("autoEnable"),
+            auto_enable_organization_members: o
+                .get_field("autoEnableOrganizationMembers"),
+            datasources: o.get_field("datasources"),
+            detector_id: o.get_field("detectorId"),
         }
     }
 }

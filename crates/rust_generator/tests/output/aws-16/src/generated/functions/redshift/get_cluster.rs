@@ -104,146 +104,74 @@ pub mod get_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetClusterArgs,
     ) -> GetClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
-        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_identifier_binding = args.cluster_identifier.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:redshift/getCluster:getCluster".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: &cluster_identifier_binding,
+                    value: cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetClusterResult {
-            allow_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowVersionUpgrade"),
-            ),
-            aqua_configuration_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aquaConfigurationStatus"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            automated_snapshot_retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automatedSnapshotRetentionPeriod"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            availability_zone_relocation_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZoneRelocationEnabled"),
-            ),
-            bucket_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketName"),
-            ),
-            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterIdentifier"),
-            ),
-            cluster_namespace_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterNamespaceArn"),
-            ),
-            cluster_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterNodes"),
-            ),
-            cluster_parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterParameterGroupName"),
-            ),
-            cluster_public_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterPublicKey"),
-            ),
-            cluster_revision_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterRevisionNumber"),
-            ),
-            cluster_subnet_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterSubnetGroupName"),
-            ),
-            cluster_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterType"),
-            ),
-            cluster_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterVersion"),
-            ),
-            database_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseName"),
-            ),
-            default_iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultIamRoleArn"),
-            ),
-            elastic_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("elasticIp"),
-            ),
-            enable_logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableLogging"),
-            ),
-            encrypted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encrypted"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            enhanced_vpc_routing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enhancedVpcRouting"),
-            ),
-            iam_roles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoles"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            log_destination_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logDestinationType"),
-            ),
-            log_exports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logExports"),
-            ),
-            maintenance_track_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceTrackName"),
-            ),
-            manual_snapshot_retention_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manualSnapshotRetentionPeriod"),
-            ),
-            master_username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterUsername"),
-            ),
-            multi_az: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("multiAz"),
-            ),
-            node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeType"),
-            ),
-            number_of_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberOfNodes"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            preferred_maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredMaintenanceWindow"),
-            ),
-            publicly_accessible: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publiclyAccessible"),
-            ),
-            s3_key_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3KeyPrefix"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcId"),
-            ),
-            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcSecurityGroupIds"),
-            ),
+            allow_version_upgrade: o.get_field("allowVersionUpgrade"),
+            aqua_configuration_status: o.get_field("aquaConfigurationStatus"),
+            arn: o.get_field("arn"),
+            automated_snapshot_retention_period: o
+                .get_field("automatedSnapshotRetentionPeriod"),
+            availability_zone: o.get_field("availabilityZone"),
+            availability_zone_relocation_enabled: o
+                .get_field("availabilityZoneRelocationEnabled"),
+            bucket_name: o.get_field("bucketName"),
+            cluster_identifier: o.get_field("clusterIdentifier"),
+            cluster_namespace_arn: o.get_field("clusterNamespaceArn"),
+            cluster_nodes: o.get_field("clusterNodes"),
+            cluster_parameter_group_name: o.get_field("clusterParameterGroupName"),
+            cluster_public_key: o.get_field("clusterPublicKey"),
+            cluster_revision_number: o.get_field("clusterRevisionNumber"),
+            cluster_subnet_group_name: o.get_field("clusterSubnetGroupName"),
+            cluster_type: o.get_field("clusterType"),
+            cluster_version: o.get_field("clusterVersion"),
+            database_name: o.get_field("databaseName"),
+            default_iam_role_arn: o.get_field("defaultIamRoleArn"),
+            elastic_ip: o.get_field("elasticIp"),
+            enable_logging: o.get_field("enableLogging"),
+            encrypted: o.get_field("encrypted"),
+            endpoint: o.get_field("endpoint"),
+            enhanced_vpc_routing: o.get_field("enhancedVpcRouting"),
+            iam_roles: o.get_field("iamRoles"),
+            id: o.get_field("id"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            log_destination_type: o.get_field("logDestinationType"),
+            log_exports: o.get_field("logExports"),
+            maintenance_track_name: o.get_field("maintenanceTrackName"),
+            manual_snapshot_retention_period: o
+                .get_field("manualSnapshotRetentionPeriod"),
+            master_username: o.get_field("masterUsername"),
+            multi_az: o.get_field("multiAz"),
+            node_type: o.get_field("nodeType"),
+            number_of_nodes: o.get_field("numberOfNodes"),
+            port: o.get_field("port"),
+            preferred_maintenance_window: o.get_field("preferredMaintenanceWindow"),
+            publicly_accessible: o.get_field("publiclyAccessible"),
+            s3_key_prefix: o.get_field("s3KeyPrefix"),
+            tags: o.get_field("tags"),
+            vpc_id: o.get_field("vpcId"),
+            vpc_security_group_ids: o.get_field("vpcSecurityGroupIds"),
         }
     }
 }

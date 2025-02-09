@@ -200,103 +200,76 @@ pub mod container_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ContainerServiceArgs,
     ) -> ContainerServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let is_disabled_binding_1 = args.is_disabled.get_output(context);
-        let is_disabled_binding = is_disabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let power_binding_1 = args.power.get_output(context);
-        let power_binding = power_binding_1.get_inner();
-        let private_registry_access_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let is_disabled_binding = args.is_disabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let power_binding = args.power.get_output(context);
+        let private_registry_access_binding = args
             .private_registry_access
             .get_output(context);
-        let private_registry_access_binding = private_registry_access_binding_1
-            .get_inner();
-        let public_domain_names_binding_1 = args.public_domain_names.get_output(context);
-        let public_domain_names_binding = public_domain_names_binding_1.get_inner();
-        let scale_binding_1 = args.scale.get_output(context);
-        let scale_binding = scale_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let public_domain_names_binding = args.public_domain_names.get_output(context);
+        let scale_binding = args.scale.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lightsail/containerService:ContainerService".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isDisabled".into(),
-                    value: &is_disabled_binding,
+                    value: is_disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "power".into(),
-                    value: &power_binding,
+                    value: power_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateRegistryAccess".into(),
-                    value: &private_registry_access_binding,
+                    value: private_registry_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicDomainNames".into(),
-                    value: &public_domain_names_binding,
+                    value: public_domain_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scale".into(),
-                    value: &scale_binding,
+                    value: scale_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ContainerServiceResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            is_disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isDisabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            power: pulumi_gestalt_rust::__private::into_domain(o.extract_field("power")),
-            power_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("powerId"),
-            ),
-            principal_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalArn"),
-            ),
-            private_domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateDomainName"),
-            ),
-            private_registry_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateRegistryAccess"),
-            ),
-            public_domain_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicDomainNames"),
-            ),
-            resource_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceType"),
-            ),
-            scale: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scale")),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            arn: o.get_field("arn"),
+            availability_zone: o.get_field("availabilityZone"),
+            created_at: o.get_field("createdAt"),
+            is_disabled: o.get_field("isDisabled"),
+            name: o.get_field("name"),
+            power: o.get_field("power"),
+            power_id: o.get_field("powerId"),
+            principal_arn: o.get_field("principalArn"),
+            private_domain_name: o.get_field("privateDomainName"),
+            private_registry_access: o.get_field("privateRegistryAccess"),
+            public_domain_names: o.get_field("publicDomainNames"),
+            resource_type: o.get_field("resourceType"),
+            scale: o.get_field("scale"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            url: o.get_field("url"),
         }
     }
 }

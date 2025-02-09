@@ -66,99 +66,54 @@ pub mod get_bucket_object {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBucketObjectArgs,
     ) -> GetBucketObjectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_binding = args.bucket.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:storage/getBucketObject:getBucketObject".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBucketObjectResult {
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            cache_control: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheControl"),
-            ),
-            content: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("content"),
-            ),
-            content_disposition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentDisposition"),
-            ),
-            content_encoding: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentEncoding"),
-            ),
-            content_language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentLanguage"),
-            ),
-            content_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentType"),
-            ),
-            crc32c: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("crc32c"),
-            ),
-            customer_encryptions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerEncryptions"),
-            ),
-            detect_md5hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("detectMd5hash"),
-            ),
-            event_based_hold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventBasedHold"),
-            ),
-            generation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("generation"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyName"),
-            ),
-            md5hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("md5hash"),
-            ),
-            media_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mediaLink"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            output_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputName"),
-            ),
-            retentions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentions"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            storage_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageClass"),
-            ),
-            temporary_hold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("temporaryHold"),
-            ),
+            bucket: o.get_field("bucket"),
+            cache_control: o.get_field("cacheControl"),
+            content: o.get_field("content"),
+            content_disposition: o.get_field("contentDisposition"),
+            content_encoding: o.get_field("contentEncoding"),
+            content_language: o.get_field("contentLanguage"),
+            content_type: o.get_field("contentType"),
+            crc32c: o.get_field("crc32c"),
+            customer_encryptions: o.get_field("customerEncryptions"),
+            detect_md5hash: o.get_field("detectMd5hash"),
+            event_based_hold: o.get_field("eventBasedHold"),
+            generation: o.get_field("generation"),
+            id: o.get_field("id"),
+            kms_key_name: o.get_field("kmsKeyName"),
+            md5hash: o.get_field("md5hash"),
+            media_link: o.get_field("mediaLink"),
+            metadata: o.get_field("metadata"),
+            name: o.get_field("name"),
+            output_name: o.get_field("outputName"),
+            retentions: o.get_field("retentions"),
+            self_link: o.get_field("selfLink"),
+            source: o.get_field("source"),
+            storage_class: o.get_field("storageClass"),
+            temporary_hold: o.get_field("temporaryHold"),
         }
     }
 }

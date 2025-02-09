@@ -143,76 +143,59 @@ pub mod eligible_role_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EligibleRoleAssignmentArgs,
     ) -> EligibleRoleAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let justification_binding_1 = args.justification.get_output(context);
-        let justification_binding = justification_binding_1.get_inner();
-        let principal_id_binding_1 = args.principal_id.get_output(context);
-        let principal_id_binding = principal_id_binding_1.get_inner();
-        let role_definition_id_binding_1 = args.role_definition_id.get_output(context);
-        let role_definition_id_binding = role_definition_id_binding_1.get_inner();
-        let schedule_binding_1 = args.schedule.get_output(context);
-        let schedule_binding = schedule_binding_1.get_inner();
-        let scope_binding_1 = args.scope.get_output(context);
-        let scope_binding = scope_binding_1.get_inner();
-        let ticket_binding_1 = args.ticket.get_output(context);
-        let ticket_binding = ticket_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let justification_binding = args.justification.get_output(context);
+        let principal_id_binding = args.principal_id.get_output(context);
+        let role_definition_id_binding = args.role_definition_id.get_output(context);
+        let schedule_binding = args.schedule.get_output(context);
+        let scope_binding = args.scope.get_output(context);
+        let ticket_binding = args.ticket.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:pim/eligibleRoleAssignment:EligibleRoleAssignment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "justification".into(),
-                    value: &justification_binding,
+                    value: justification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalId".into(),
-                    value: &principal_id_binding,
+                    value: principal_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleDefinitionId".into(),
-                    value: &role_definition_id_binding,
+                    value: role_definition_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: &schedule_binding,
+                    value: schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: &scope_binding,
+                    value: scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ticket".into(),
-                    value: &ticket_binding,
+                    value: ticket_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EligibleRoleAssignmentResult {
-            justification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("justification"),
-            ),
-            principal_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalId"),
-            ),
-            principal_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalType"),
-            ),
-            role_definition_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleDefinitionId"),
-            ),
-            schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedule"),
-            ),
-            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
-            ticket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ticket"),
-            ),
+            justification: o.get_field("justification"),
+            principal_id: o.get_field("principalId"),
+            principal_type: o.get_field("principalType"),
+            role_definition_id: o.get_field("roleDefinitionId"),
+            schedule: o.get_field("schedule"),
+            scope: o.get_field("scope"),
+            ticket: o.get_field("ticket"),
         }
     }
 }

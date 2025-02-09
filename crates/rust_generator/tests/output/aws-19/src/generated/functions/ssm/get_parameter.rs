@@ -30,45 +30,38 @@ pub mod get_parameter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetParameterArgs,
     ) -> GetParameterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let with_decryption_binding_1 = args.with_decryption.get_output(context);
-        let with_decryption_binding = with_decryption_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let with_decryption_binding = args.with_decryption.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ssm/getParameter:getParameter".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "withDecryption".into(),
-                    value: &with_decryption_binding,
+                    value: with_decryption_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetParameterResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            insecure_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("insecureValue"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
-            with_decryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("withDecryption"),
-            ),
+            arn: o.get_field("arn"),
+            id: o.get_field("id"),
+            insecure_value: o.get_field("insecureValue"),
+            name: o.get_field("name"),
+            type_: o.get_field("type"),
+            value: o.get_field("value"),
+            version: o.get_field("version"),
+            with_decryption: o.get_field("withDecryption"),
         }
     }
 }

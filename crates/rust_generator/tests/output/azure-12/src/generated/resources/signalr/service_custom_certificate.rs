@@ -127,52 +127,44 @@ pub mod service_custom_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceCustomCertificateArgs,
     ) -> ServiceCustomCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_certificate_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let custom_certificate_id_binding = args
             .custom_certificate_id
             .get_output(context);
-        let custom_certificate_id_binding = custom_certificate_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let signalr_service_id_binding_1 = args.signalr_service_id.get_output(context);
-        let signalr_service_id_binding = signalr_service_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let signalr_service_id_binding = args.signalr_service_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:signalr/serviceCustomCertificate:ServiceCustomCertificate"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customCertificateId".into(),
-                    value: &custom_certificate_id_binding,
+                    value: custom_certificate_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signalrServiceId".into(),
-                    value: &signalr_service_id_binding,
+                    value: signalr_service_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceCustomCertificateResult {
-            certificate_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateVersion"),
-            ),
-            custom_certificate_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customCertificateId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            signalr_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("signalrServiceId"),
-            ),
+            certificate_version: o.get_field("certificateVersion"),
+            custom_certificate_id: o.get_field("customCertificateId"),
+            name: o.get_field("name"),
+            signalr_service_id: o.get_field("signalrServiceId"),
         }
     }
 }

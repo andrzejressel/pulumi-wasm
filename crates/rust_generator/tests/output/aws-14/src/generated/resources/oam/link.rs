@@ -143,75 +143,57 @@ pub mod link {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LinkArgs,
     ) -> LinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let label_template_binding_1 = args.label_template.get_output(context);
-        let label_template_binding = label_template_binding_1.get_inner();
-        let link_configuration_binding_1 = args.link_configuration.get_output(context);
-        let link_configuration_binding = link_configuration_binding_1.get_inner();
-        let resource_types_binding_1 = args.resource_types.get_output(context);
-        let resource_types_binding = resource_types_binding_1.get_inner();
-        let sink_identifier_binding_1 = args.sink_identifier.get_output(context);
-        let sink_identifier_binding = sink_identifier_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let label_template_binding = args.label_template.get_output(context);
+        let link_configuration_binding = args.link_configuration.get_output(context);
+        let resource_types_binding = args.resource_types.get_output(context);
+        let sink_identifier_binding = args.sink_identifier.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:oam/link:Link".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labelTemplate".into(),
-                    value: &label_template_binding,
+                    value: label_template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkConfiguration".into(),
-                    value: &link_configuration_binding,
+                    value: link_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTypes".into(),
-                    value: &resource_types_binding,
+                    value: resource_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sinkIdentifier".into(),
-                    value: &sink_identifier_binding,
+                    value: sink_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LinkResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            label: pulumi_gestalt_rust::__private::into_domain(o.extract_field("label")),
-            label_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labelTemplate"),
-            ),
-            link_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkConfiguration"),
-            ),
-            link_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkId"),
-            ),
-            resource_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceTypes"),
-            ),
-            sink_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sinkArn"),
-            ),
-            sink_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sinkIdentifier"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            label: o.get_field("label"),
+            label_template: o.get_field("labelTemplate"),
+            link_configuration: o.get_field("linkConfiguration"),
+            link_id: o.get_field("linkId"),
+            resource_types: o.get_field("resourceTypes"),
+            sink_arn: o.get_field("sinkArn"),
+            sink_identifier: o.get_field("sinkIdentifier"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

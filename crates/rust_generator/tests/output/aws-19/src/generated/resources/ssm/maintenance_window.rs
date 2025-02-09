@@ -109,131 +109,97 @@ pub mod maintenance_window {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MaintenanceWindowArgs,
     ) -> MaintenanceWindowResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_unassociated_targets_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_unassociated_targets_binding = args
             .allow_unassociated_targets
             .get_output(context);
-        let allow_unassociated_targets_binding = allow_unassociated_targets_binding_1
-            .get_inner();
-        let cutoff_binding_1 = args.cutoff.get_output(context);
-        let cutoff_binding = cutoff_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let duration_binding_1 = args.duration.get_output(context);
-        let duration_binding = duration_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let end_date_binding_1 = args.end_date.get_output(context);
-        let end_date_binding = end_date_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let schedule_binding_1 = args.schedule.get_output(context);
-        let schedule_binding = schedule_binding_1.get_inner();
-        let schedule_offset_binding_1 = args.schedule_offset.get_output(context);
-        let schedule_offset_binding = schedule_offset_binding_1.get_inner();
-        let schedule_timezone_binding_1 = args.schedule_timezone.get_output(context);
-        let schedule_timezone_binding = schedule_timezone_binding_1.get_inner();
-        let start_date_binding_1 = args.start_date.get_output(context);
-        let start_date_binding = start_date_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let cutoff_binding = args.cutoff.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let duration_binding = args.duration.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let end_date_binding = args.end_date.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let schedule_binding = args.schedule.get_output(context);
+        let schedule_offset_binding = args.schedule_offset.get_output(context);
+        let schedule_timezone_binding = args.schedule_timezone.get_output(context);
+        let start_date_binding = args.start_date.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ssm/maintenanceWindow:MaintenanceWindow".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowUnassociatedTargets".into(),
-                    value: &allow_unassociated_targets_binding,
+                    value: allow_unassociated_targets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cutoff".into(),
-                    value: &cutoff_binding,
+                    value: cutoff_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "duration".into(),
-                    value: &duration_binding,
+                    value: duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endDate".into(),
-                    value: &end_date_binding,
+                    value: end_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: &schedule_binding,
+                    value: schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleOffset".into(),
-                    value: &schedule_offset_binding,
+                    value: schedule_offset_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleTimezone".into(),
-                    value: &schedule_timezone_binding,
+                    value: schedule_timezone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startDate".into(),
-                    value: &start_date_binding,
+                    value: start_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MaintenanceWindowResult {
-            allow_unassociated_targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowUnassociatedTargets"),
-            ),
-            cutoff: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cutoff"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("duration"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            end_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endDate"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedule"),
-            ),
-            schedule_offset: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduleOffset"),
-            ),
-            schedule_timezone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduleTimezone"),
-            ),
-            start_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startDate"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            allow_unassociated_targets: o.get_field("allowUnassociatedTargets"),
+            cutoff: o.get_field("cutoff"),
+            description: o.get_field("description"),
+            duration: o.get_field("duration"),
+            enabled: o.get_field("enabled"),
+            end_date: o.get_field("endDate"),
+            name: o.get_field("name"),
+            schedule: o.get_field("schedule"),
+            schedule_offset: o.get_field("scheduleOffset"),
+            schedule_timezone: o.get_field("scheduleTimezone"),
+            start_date: o.get_field("startDate"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

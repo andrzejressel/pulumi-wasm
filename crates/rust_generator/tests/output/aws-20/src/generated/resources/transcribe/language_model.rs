@@ -127,68 +127,54 @@ pub mod language_model {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LanguageModelArgs,
     ) -> LanguageModelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let base_model_name_binding_1 = args.base_model_name.get_output(context);
-        let base_model_name_binding = base_model_name_binding_1.get_inner();
-        let input_data_config_binding_1 = args.input_data_config.get_output(context);
-        let input_data_config_binding = input_data_config_binding_1.get_inner();
-        let language_code_binding_1 = args.language_code.get_output(context);
-        let language_code_binding = language_code_binding_1.get_inner();
-        let model_name_binding_1 = args.model_name.get_output(context);
-        let model_name_binding = model_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let base_model_name_binding = args.base_model_name.get_output(context);
+        let input_data_config_binding = args.input_data_config.get_output(context);
+        let language_code_binding = args.language_code.get_output(context);
+        let model_name_binding = args.model_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:transcribe/languageModel:LanguageModel".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baseModelName".into(),
-                    value: &base_model_name_binding,
+                    value: base_model_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputDataConfig".into(),
-                    value: &input_data_config_binding,
+                    value: input_data_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageCode".into(),
-                    value: &language_code_binding,
+                    value: language_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelName".into(),
-                    value: &model_name_binding,
+                    value: model_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LanguageModelResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            base_model_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseModelName"),
-            ),
-            input_data_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputDataConfig"),
-            ),
-            language_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("languageCode"),
-            ),
-            model_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modelName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            base_model_name: o.get_field("baseModelName"),
+            input_data_config: o.get_field("inputDataConfig"),
+            language_code: o.get_field("languageCode"),
+            model_name: o.get_field("modelName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

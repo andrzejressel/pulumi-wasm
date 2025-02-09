@@ -61,63 +61,49 @@ pub mod sms_channel {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SmsChannelArgs,
     ) -> SmsChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_id_binding_1 = args.application_id.get_output(context);
-        let application_id_binding = application_id_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let sender_id_binding_1 = args.sender_id.get_output(context);
-        let sender_id_binding = sender_id_binding_1.get_inner();
-        let short_code_binding_1 = args.short_code.get_output(context);
-        let short_code_binding = short_code_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_id_binding = args.application_id.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let sender_id_binding = args.sender_id.get_output(context);
+        let short_code_binding = args.short_code.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:pinpoint/smsChannel:SmsChannel".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationId".into(),
-                    value: &application_id_binding,
+                    value: application_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "senderId".into(),
-                    value: &sender_id_binding,
+                    value: sender_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shortCode".into(),
-                    value: &short_code_binding,
+                    value: short_code_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SmsChannelResult {
-            application_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationId"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            promotional_messages_per_second: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("promotionalMessagesPerSecond"),
-            ),
-            sender_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("senderId"),
-            ),
-            short_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shortCode"),
-            ),
-            transactional_messages_per_second: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transactionalMessagesPerSecond"),
-            ),
+            application_id: o.get_field("applicationId"),
+            enabled: o.get_field("enabled"),
+            promotional_messages_per_second: o.get_field("promotionalMessagesPerSecond"),
+            sender_id: o.get_field("senderId"),
+            short_code: o.get_field("shortCode"),
+            transactional_messages_per_second: o
+                .get_field("transactionalMessagesPerSecond"),
         }
     }
 }

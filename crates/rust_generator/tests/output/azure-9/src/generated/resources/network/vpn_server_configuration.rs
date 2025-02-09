@@ -152,128 +152,97 @@ pub mod vpn_server_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VpnServerConfigurationArgs,
     ) -> VpnServerConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let azure_active_directory_authentications_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let azure_active_directory_authentications_binding = args
             .azure_active_directory_authentications
             .get_output(context);
-        let azure_active_directory_authentications_binding = azure_active_directory_authentications_binding_1
-            .get_inner();
-        let client_revoked_certificates_binding_1 = args
+        let client_revoked_certificates_binding = args
             .client_revoked_certificates
             .get_output(context);
-        let client_revoked_certificates_binding = client_revoked_certificates_binding_1
-            .get_inner();
-        let client_root_certificates_binding_1 = args
+        let client_root_certificates_binding = args
             .client_root_certificates
             .get_output(context);
-        let client_root_certificates_binding = client_root_certificates_binding_1
-            .get_inner();
-        let ipsec_policy_binding_1 = args.ipsec_policy.get_output(context);
-        let ipsec_policy_binding = ipsec_policy_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let radius_binding_1 = args.radius.get_output(context);
-        let radius_binding = radius_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpn_authentication_types_binding_1 = args
+        let ipsec_policy_binding = args.ipsec_policy.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let radius_binding = args.radius.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpn_authentication_types_binding = args
             .vpn_authentication_types
             .get_output(context);
-        let vpn_authentication_types_binding = vpn_authentication_types_binding_1
-            .get_inner();
-        let vpn_protocols_binding_1 = args.vpn_protocols.get_output(context);
-        let vpn_protocols_binding = vpn_protocols_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let vpn_protocols_binding = args.vpn_protocols.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/vpnServerConfiguration:VpnServerConfiguration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureActiveDirectoryAuthentications".into(),
-                    value: &azure_active_directory_authentications_binding,
+                    value: azure_active_directory_authentications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientRevokedCertificates".into(),
-                    value: &client_revoked_certificates_binding,
+                    value: client_revoked_certificates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientRootCertificates".into(),
-                    value: &client_root_certificates_binding,
+                    value: client_root_certificates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipsecPolicy".into(),
-                    value: &ipsec_policy_binding,
+                    value: ipsec_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "radius".into(),
-                    value: &radius_binding,
+                    value: radius_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnAuthenticationTypes".into(),
-                    value: &vpn_authentication_types_binding,
+                    value: vpn_authentication_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnProtocols".into(),
-                    value: &vpn_protocols_binding,
+                    value: vpn_protocols_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VpnServerConfigurationResult {
-            azure_active_directory_authentications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureActiveDirectoryAuthentications"),
-            ),
-            client_revoked_certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientRevokedCertificates"),
-            ),
-            client_root_certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientRootCertificates"),
-            ),
-            ipsec_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipsecPolicy"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            radius: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("radius"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            vpn_authentication_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnAuthenticationTypes"),
-            ),
-            vpn_protocols: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnProtocols"),
-            ),
+            azure_active_directory_authentications: o
+                .get_field("azureActiveDirectoryAuthentications"),
+            client_revoked_certificates: o.get_field("clientRevokedCertificates"),
+            client_root_certificates: o.get_field("clientRootCertificates"),
+            ipsec_policy: o.get_field("ipsecPolicy"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            radius: o.get_field("radius"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            tags: o.get_field("tags"),
+            vpn_authentication_types: o.get_field("vpnAuthenticationTypes"),
+            vpn_protocols: o.get_field("vpnProtocols"),
         }
     }
 }

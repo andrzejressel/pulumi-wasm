@@ -305,61 +305,48 @@ pub mod tag {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TagArgs,
     ) -> TagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let column_binding_1 = args.column.get_output(context);
-        let column_binding = column_binding_1.get_inner();
-        let fields_binding_1 = args.fields.get_output(context);
-        let fields_binding = fields_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let template_binding_1 = args.template.get_output(context);
-        let template_binding = template_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let column_binding = args.column.get_output(context);
+        let fields_binding = args.fields.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let template_binding = args.template.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:datacatalog/tag:Tag".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "column".into(),
-                    value: &column_binding,
+                    value: column_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fields".into(),
-                    value: &fields_binding,
+                    value: fields_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "template".into(),
-                    value: &template_binding,
+                    value: template_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TagResult {
-            column: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("column"),
-            ),
-            fields: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fields"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("template"),
-            ),
-            template_displayname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateDisplayname"),
-            ),
+            column: o.get_field("column"),
+            fields: o.get_field("fields"),
+            name: o.get_field("name"),
+            parent: o.get_field("parent"),
+            template: o.get_field("template"),
+            template_displayname: o.get_field("templateDisplayname"),
         }
     }
 }

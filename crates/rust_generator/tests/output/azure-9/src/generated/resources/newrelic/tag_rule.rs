@@ -130,92 +130,69 @@ pub mod tag_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TagRuleArgs,
     ) -> TagRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let activity_log_enabled_binding_1 = args
-            .activity_log_enabled
-            .get_output(context);
-        let activity_log_enabled_binding = activity_log_enabled_binding_1.get_inner();
-        let azure_active_directory_log_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let activity_log_enabled_binding = args.activity_log_enabled.get_output(context);
+        let azure_active_directory_log_enabled_binding = args
             .azure_active_directory_log_enabled
             .get_output(context);
-        let azure_active_directory_log_enabled_binding = azure_active_directory_log_enabled_binding_1
-            .get_inner();
-        let log_tag_filters_binding_1 = args.log_tag_filters.get_output(context);
-        let log_tag_filters_binding = log_tag_filters_binding_1.get_inner();
-        let metric_enabled_binding_1 = args.metric_enabled.get_output(context);
-        let metric_enabled_binding = metric_enabled_binding_1.get_inner();
-        let metric_tag_filters_binding_1 = args.metric_tag_filters.get_output(context);
-        let metric_tag_filters_binding = metric_tag_filters_binding_1.get_inner();
-        let monitor_id_binding_1 = args.monitor_id.get_output(context);
-        let monitor_id_binding = monitor_id_binding_1.get_inner();
-        let subscription_log_enabled_binding_1 = args
+        let log_tag_filters_binding = args.log_tag_filters.get_output(context);
+        let metric_enabled_binding = args.metric_enabled.get_output(context);
+        let metric_tag_filters_binding = args.metric_tag_filters.get_output(context);
+        let monitor_id_binding = args.monitor_id.get_output(context);
+        let subscription_log_enabled_binding = args
             .subscription_log_enabled
             .get_output(context);
-        let subscription_log_enabled_binding = subscription_log_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:newrelic/tagRule:TagRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activityLogEnabled".into(),
-                    value: &activity_log_enabled_binding,
+                    value: activity_log_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureActiveDirectoryLogEnabled".into(),
-                    value: &azure_active_directory_log_enabled_binding,
+                    value: azure_active_directory_log_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logTagFilters".into(),
-                    value: &log_tag_filters_binding,
+                    value: log_tag_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricEnabled".into(),
-                    value: &metric_enabled_binding,
+                    value: metric_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricTagFilters".into(),
-                    value: &metric_tag_filters_binding,
+                    value: metric_tag_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitorId".into(),
-                    value: &monitor_id_binding,
+                    value: monitor_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionLogEnabled".into(),
-                    value: &subscription_log_enabled_binding,
+                    value: subscription_log_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TagRuleResult {
-            activity_log_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activityLogEnabled"),
-            ),
-            azure_active_directory_log_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureActiveDirectoryLogEnabled"),
-            ),
-            log_tag_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logTagFilters"),
-            ),
-            metric_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metricEnabled"),
-            ),
-            metric_tag_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metricTagFilters"),
-            ),
-            monitor_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitorId"),
-            ),
-            subscription_log_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionLogEnabled"),
-            ),
+            activity_log_enabled: o.get_field("activityLogEnabled"),
+            azure_active_directory_log_enabled: o
+                .get_field("azureActiveDirectoryLogEnabled"),
+            log_tag_filters: o.get_field("logTagFilters"),
+            metric_enabled: o.get_field("metricEnabled"),
+            metric_tag_filters: o.get_field("metricTagFilters"),
+            monitor_id: o.get_field("monitorId"),
+            subscription_log_enabled: o.get_field("subscriptionLogEnabled"),
         }
     }
 }

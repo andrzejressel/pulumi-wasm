@@ -138,112 +138,77 @@ pub mod table_export {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TableExportArgs,
     ) -> TableExportResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let export_format_binding_1 = args.export_format.get_output(context);
-        let export_format_binding = export_format_binding_1.get_inner();
-        let export_time_binding_1 = args.export_time.get_output(context);
-        let export_time_binding = export_time_binding_1.get_inner();
-        let s3_bucket_binding_1 = args.s3_bucket.get_output(context);
-        let s3_bucket_binding = s3_bucket_binding_1.get_inner();
-        let s3_bucket_owner_binding_1 = args.s3_bucket_owner.get_output(context);
-        let s3_bucket_owner_binding = s3_bucket_owner_binding_1.get_inner();
-        let s3_prefix_binding_1 = args.s3_prefix.get_output(context);
-        let s3_prefix_binding = s3_prefix_binding_1.get_inner();
-        let s3_sse_algorithm_binding_1 = args.s3_sse_algorithm.get_output(context);
-        let s3_sse_algorithm_binding = s3_sse_algorithm_binding_1.get_inner();
-        let s3_sse_kms_key_id_binding_1 = args.s3_sse_kms_key_id.get_output(context);
-        let s3_sse_kms_key_id_binding = s3_sse_kms_key_id_binding_1.get_inner();
-        let table_arn_binding_1 = args.table_arn.get_output(context);
-        let table_arn_binding = table_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let export_format_binding = args.export_format.get_output(context);
+        let export_time_binding = args.export_time.get_output(context);
+        let s3_bucket_binding = args.s3_bucket.get_output(context);
+        let s3_bucket_owner_binding = args.s3_bucket_owner.get_output(context);
+        let s3_prefix_binding = args.s3_prefix.get_output(context);
+        let s3_sse_algorithm_binding = args.s3_sse_algorithm.get_output(context);
+        let s3_sse_kms_key_id_binding = args.s3_sse_kms_key_id.get_output(context);
+        let table_arn_binding = args.table_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:dynamodb/tableExport:TableExport".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportFormat".into(),
-                    value: &export_format_binding,
+                    value: export_format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportTime".into(),
-                    value: &export_time_binding,
+                    value: export_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Bucket".into(),
-                    value: &s3_bucket_binding,
+                    value: s3_bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3BucketOwner".into(),
-                    value: &s3_bucket_owner_binding,
+                    value: s3_bucket_owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Prefix".into(),
-                    value: &s3_prefix_binding,
+                    value: s3_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3SseAlgorithm".into(),
-                    value: &s3_sse_algorithm_binding,
+                    value: s3_sse_algorithm_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3SseKmsKeyId".into(),
-                    value: &s3_sse_kms_key_id_binding,
+                    value: s3_sse_kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableArn".into(),
-                    value: &table_arn_binding,
+                    value: table_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TableExportResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            billed_size_in_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billedSizeInBytes"),
-            ),
-            end_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endTime"),
-            ),
-            export_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportFormat"),
-            ),
-            export_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportStatus"),
-            ),
-            export_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportTime"),
-            ),
-            item_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("itemCount"),
-            ),
-            manifest_files_s3_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manifestFilesS3Key"),
-            ),
-            s3_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Bucket"),
-            ),
-            s3_bucket_owner: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3BucketOwner"),
-            ),
-            s3_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Prefix"),
-            ),
-            s3_sse_algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3SseAlgorithm"),
-            ),
-            s3_sse_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3SseKmsKeyId"),
-            ),
-            start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startTime"),
-            ),
-            table_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableArn"),
-            ),
+            arn: o.get_field("arn"),
+            billed_size_in_bytes: o.get_field("billedSizeInBytes"),
+            end_time: o.get_field("endTime"),
+            export_format: o.get_field("exportFormat"),
+            export_status: o.get_field("exportStatus"),
+            export_time: o.get_field("exportTime"),
+            item_count: o.get_field("itemCount"),
+            manifest_files_s3_key: o.get_field("manifestFilesS3Key"),
+            s3_bucket: o.get_field("s3Bucket"),
+            s3_bucket_owner: o.get_field("s3BucketOwner"),
+            s3_prefix: o.get_field("s3Prefix"),
+            s3_sse_algorithm: o.get_field("s3SseAlgorithm"),
+            s3_sse_kms_key_id: o.get_field("s3SseKmsKeyId"),
+            start_time: o.get_field("startTime"),
+            table_arn: o.get_field("tableArn"),
         }
     }
 }

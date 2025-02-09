@@ -179,192 +179,140 @@ pub mod fleet {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FleetArgs,
     ) -> FleetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let context_binding_1 = args.context.get_output(context);
-        let context_binding = context_binding_1.get_inner();
-        let excess_capacity_termination_policy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let context_binding = args.context.get_output(context);
+        let excess_capacity_termination_policy_binding = args
             .excess_capacity_termination_policy
             .get_output(context);
-        let excess_capacity_termination_policy_binding = excess_capacity_termination_policy_binding_1
-            .get_inner();
-        let fleet_instance_sets_binding_1 = args.fleet_instance_sets.get_output(context);
-        let fleet_instance_sets_binding = fleet_instance_sets_binding_1.get_inner();
-        let fleet_state_binding_1 = args.fleet_state.get_output(context);
-        let fleet_state_binding = fleet_state_binding_1.get_inner();
-        let fulfilled_capacity_binding_1 = args.fulfilled_capacity.get_output(context);
-        let fulfilled_capacity_binding = fulfilled_capacity_binding_1.get_inner();
-        let fulfilled_on_demand_capacity_binding_1 = args
+        let fleet_instance_sets_binding = args.fleet_instance_sets.get_output(context);
+        let fleet_state_binding = args.fleet_state.get_output(context);
+        let fulfilled_capacity_binding = args.fulfilled_capacity.get_output(context);
+        let fulfilled_on_demand_capacity_binding = args
             .fulfilled_on_demand_capacity
             .get_output(context);
-        let fulfilled_on_demand_capacity_binding = fulfilled_on_demand_capacity_binding_1
-            .get_inner();
-        let launch_template_configs_binding_1 = args
+        let launch_template_configs_binding = args
             .launch_template_configs
             .get_output(context);
-        let launch_template_configs_binding = launch_template_configs_binding_1
-            .get_inner();
-        let on_demand_options_binding_1 = args.on_demand_options.get_output(context);
-        let on_demand_options_binding = on_demand_options_binding_1.get_inner();
-        let replace_unhealthy_instances_binding_1 = args
+        let on_demand_options_binding = args.on_demand_options.get_output(context);
+        let replace_unhealthy_instances_binding = args
             .replace_unhealthy_instances
             .get_output(context);
-        let replace_unhealthy_instances_binding = replace_unhealthy_instances_binding_1
-            .get_inner();
-        let spot_options_binding_1 = args.spot_options.get_output(context);
-        let spot_options_binding = spot_options_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_capacity_specification_binding_1 = args
+        let spot_options_binding = args.spot_options.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_capacity_specification_binding = args
             .target_capacity_specification
             .get_output(context);
-        let target_capacity_specification_binding = target_capacity_specification_binding_1
-            .get_inner();
-        let terminate_instances_binding_1 = args.terminate_instances.get_output(context);
-        let terminate_instances_binding = terminate_instances_binding_1.get_inner();
-        let terminate_instances_with_expiration_binding_1 = args
+        let terminate_instances_binding = args.terminate_instances.get_output(context);
+        let terminate_instances_with_expiration_binding = args
             .terminate_instances_with_expiration
             .get_output(context);
-        let terminate_instances_with_expiration_binding = terminate_instances_with_expiration_binding_1
-            .get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let valid_from_binding_1 = args.valid_from.get_output(context);
-        let valid_from_binding = valid_from_binding_1.get_inner();
-        let valid_until_binding_1 = args.valid_until.get_output(context);
-        let valid_until_binding = valid_until_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let type__binding = args.type_.get_output(context);
+        let valid_from_binding = args.valid_from.get_output(context);
+        let valid_until_binding = args.valid_until.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/fleet:Fleet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "context".into(),
-                    value: &context_binding,
+                    value: context_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excessCapacityTerminationPolicy".into(),
-                    value: &excess_capacity_termination_policy_binding,
+                    value: excess_capacity_termination_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetInstanceSets".into(),
-                    value: &fleet_instance_sets_binding,
+                    value: fleet_instance_sets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetState".into(),
-                    value: &fleet_state_binding,
+                    value: fleet_state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fulfilledCapacity".into(),
-                    value: &fulfilled_capacity_binding,
+                    value: fulfilled_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fulfilledOnDemandCapacity".into(),
-                    value: &fulfilled_on_demand_capacity_binding,
+                    value: fulfilled_on_demand_capacity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchTemplateConfigs".into(),
-                    value: &launch_template_configs_binding,
+                    value: launch_template_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onDemandOptions".into(),
-                    value: &on_demand_options_binding,
+                    value: on_demand_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replaceUnhealthyInstances".into(),
-                    value: &replace_unhealthy_instances_binding,
+                    value: replace_unhealthy_instances_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spotOptions".into(),
-                    value: &spot_options_binding,
+                    value: spot_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetCapacitySpecification".into(),
-                    value: &target_capacity_specification_binding,
+                    value: target_capacity_specification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terminateInstances".into(),
-                    value: &terminate_instances_binding,
+                    value: terminate_instances_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terminateInstancesWithExpiration".into(),
-                    value: &terminate_instances_with_expiration_binding,
+                    value: terminate_instances_with_expiration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validFrom".into(),
-                    value: &valid_from_binding,
+                    value: valid_from_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validUntil".into(),
-                    value: &valid_until_binding,
+                    value: valid_until_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FleetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            context: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("context"),
-            ),
-            excess_capacity_termination_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("excessCapacityTerminationPolicy"),
-            ),
-            fleet_instance_sets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fleetInstanceSets"),
-            ),
-            fleet_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fleetState"),
-            ),
-            fulfilled_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fulfilledCapacity"),
-            ),
-            fulfilled_on_demand_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fulfilledOnDemandCapacity"),
-            ),
-            launch_template_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchTemplateConfigs"),
-            ),
-            on_demand_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("onDemandOptions"),
-            ),
-            replace_unhealthy_instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replaceUnhealthyInstances"),
-            ),
-            spot_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spotOptions"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_capacity_specification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetCapacitySpecification"),
-            ),
-            terminate_instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("terminateInstances"),
-            ),
-            terminate_instances_with_expiration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("terminateInstancesWithExpiration"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            valid_from: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validFrom"),
-            ),
-            valid_until: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validUntil"),
-            ),
+            arn: o.get_field("arn"),
+            context: o.get_field("context"),
+            excess_capacity_termination_policy: o
+                .get_field("excessCapacityTerminationPolicy"),
+            fleet_instance_sets: o.get_field("fleetInstanceSets"),
+            fleet_state: o.get_field("fleetState"),
+            fulfilled_capacity: o.get_field("fulfilledCapacity"),
+            fulfilled_on_demand_capacity: o.get_field("fulfilledOnDemandCapacity"),
+            launch_template_configs: o.get_field("launchTemplateConfigs"),
+            on_demand_options: o.get_field("onDemandOptions"),
+            replace_unhealthy_instances: o.get_field("replaceUnhealthyInstances"),
+            spot_options: o.get_field("spotOptions"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_capacity_specification: o.get_field("targetCapacitySpecification"),
+            terminate_instances: o.get_field("terminateInstances"),
+            terminate_instances_with_expiration: o
+                .get_field("terminateInstancesWithExpiration"),
+            type_: o.get_field("type"),
+            valid_from: o.get_field("validFrom"),
+            valid_until: o.get_field("validUntil"),
         }
     }
 }

@@ -223,127 +223,91 @@ pub mod data_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DataStoreArgs,
     ) -> DataStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let content_config_binding_1 = args.content_config.get_output(context);
-        let content_config_binding = content_config_binding_1.get_inner();
-        let create_advanced_site_search_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let content_config_binding = args.content_config.get_output(context);
+        let create_advanced_site_search_binding = args
             .create_advanced_site_search
             .get_output(context);
-        let create_advanced_site_search_binding = create_advanced_site_search_binding_1
-            .get_inner();
-        let data_store_id_binding_1 = args.data_store_id.get_output(context);
-        let data_store_id_binding = data_store_id_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let document_processing_config_binding_1 = args
+        let data_store_id_binding = args.data_store_id.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let document_processing_config_binding = args
             .document_processing_config
             .get_output(context);
-        let document_processing_config_binding = document_processing_config_binding_1
-            .get_inner();
-        let industry_vertical_binding_1 = args.industry_vertical.get_output(context);
-        let industry_vertical_binding = industry_vertical_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let skip_default_schema_creation_binding_1 = args
+        let industry_vertical_binding = args.industry_vertical.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let skip_default_schema_creation_binding = args
             .skip_default_schema_creation
             .get_output(context);
-        let skip_default_schema_creation_binding = skip_default_schema_creation_binding_1
-            .get_inner();
-        let solution_types_binding_1 = args.solution_types.get_output(context);
-        let solution_types_binding = solution_types_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let solution_types_binding = args.solution_types.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:discoveryengine/dataStore:DataStore".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentConfig".into(),
-                    value: &content_config_binding,
+                    value: content_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createAdvancedSiteSearch".into(),
-                    value: &create_advanced_site_search_binding,
+                    value: create_advanced_site_search_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataStoreId".into(),
-                    value: &data_store_id_binding,
+                    value: data_store_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentProcessingConfig".into(),
-                    value: &document_processing_config_binding,
+                    value: document_processing_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "industryVertical".into(),
-                    value: &industry_vertical_binding,
+                    value: industry_vertical_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDefaultSchemaCreation".into(),
-                    value: &skip_default_schema_creation_binding,
+                    value: skip_default_schema_creation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "solutionTypes".into(),
-                    value: &solution_types_binding,
+                    value: solution_types_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DataStoreResult {
-            content_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentConfig"),
-            ),
-            create_advanced_site_search: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createAdvancedSiteSearch"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            data_store_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataStoreId"),
-            ),
-            default_schema_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSchemaId"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            document_processing_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentProcessingConfig"),
-            ),
-            industry_vertical: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("industryVertical"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            skip_default_schema_creation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipDefaultSchemaCreation"),
-            ),
-            solution_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("solutionTypes"),
-            ),
+            content_config: o.get_field("contentConfig"),
+            create_advanced_site_search: o.get_field("createAdvancedSiteSearch"),
+            create_time: o.get_field("createTime"),
+            data_store_id: o.get_field("dataStoreId"),
+            default_schema_id: o.get_field("defaultSchemaId"),
+            display_name: o.get_field("displayName"),
+            document_processing_config: o.get_field("documentProcessingConfig"),
+            industry_vertical: o.get_field("industryVertical"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            skip_default_schema_creation: o.get_field("skipDefaultSchemaCreation"),
+            solution_types: o.get_field("solutionTypes"),
         }
     }
 }

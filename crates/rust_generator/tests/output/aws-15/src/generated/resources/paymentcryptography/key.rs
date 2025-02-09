@@ -104,101 +104,73 @@ pub mod key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KeyArgs,
     ) -> KeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let deletion_window_in_days_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let deletion_window_in_days_binding = args
             .deletion_window_in_days
             .get_output(context);
-        let deletion_window_in_days_binding = deletion_window_in_days_binding_1
-            .get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let exportable_binding_1 = args.exportable.get_output(context);
-        let exportable_binding = exportable_binding_1.get_inner();
-        let key_attributes_binding_1 = args.key_attributes.get_output(context);
-        let key_attributes_binding = key_attributes_binding_1.get_inner();
-        let key_check_value_algorithm_binding_1 = args
+        let enabled_binding = args.enabled.get_output(context);
+        let exportable_binding = args.exportable.get_output(context);
+        let key_attributes_binding = args.key_attributes.get_output(context);
+        let key_check_value_algorithm_binding = args
             .key_check_value_algorithm
             .get_output(context);
-        let key_check_value_algorithm_binding = key_check_value_algorithm_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:paymentcryptography/key:Key".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionWindowInDays".into(),
-                    value: &deletion_window_in_days_binding,
+                    value: deletion_window_in_days_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportable".into(),
-                    value: &exportable_binding,
+                    value: exportable_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyAttributes".into(),
-                    value: &key_attributes_binding,
+                    value: key_attributes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyCheckValueAlgorithm".into(),
-                    value: &key_check_value_algorithm_binding,
+                    value: key_check_value_algorithm_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KeyResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            deletion_window_in_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionWindowInDays"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            exportable: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exportable"),
-            ),
-            key_attributes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyAttributes"),
-            ),
-            key_check_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyCheckValue"),
-            ),
-            key_check_value_algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyCheckValueAlgorithm"),
-            ),
-            key_origin: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyOrigin"),
-            ),
-            key_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyState"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            arn: o.get_field("arn"),
+            deletion_window_in_days: o.get_field("deletionWindowInDays"),
+            enabled: o.get_field("enabled"),
+            exportable: o.get_field("exportable"),
+            key_attributes: o.get_field("keyAttributes"),
+            key_check_value: o.get_field("keyCheckValue"),
+            key_check_value_algorithm: o.get_field("keyCheckValueAlgorithm"),
+            key_origin: o.get_field("keyOrigin"),
+            key_state: o.get_field("keyState"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

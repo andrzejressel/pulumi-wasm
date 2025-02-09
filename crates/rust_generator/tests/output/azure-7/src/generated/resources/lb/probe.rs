@@ -115,92 +115,71 @@ pub mod probe {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProbeArgs,
     ) -> ProbeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let interval_in_seconds_binding_1 = args.interval_in_seconds.get_output(context);
-        let interval_in_seconds_binding = interval_in_seconds_binding_1.get_inner();
-        let loadbalancer_id_binding_1 = args.loadbalancer_id.get_output(context);
-        let loadbalancer_id_binding = loadbalancer_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let number_of_probes_binding_1 = args.number_of_probes.get_output(context);
-        let number_of_probes_binding = number_of_probes_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let probe_threshold_binding_1 = args.probe_threshold.get_output(context);
-        let probe_threshold_binding = probe_threshold_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let request_path_binding_1 = args.request_path.get_output(context);
-        let request_path_binding = request_path_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let interval_in_seconds_binding = args.interval_in_seconds.get_output(context);
+        let loadbalancer_id_binding = args.loadbalancer_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let number_of_probes_binding = args.number_of_probes.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let probe_threshold_binding = args.probe_threshold.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let request_path_binding = args.request_path.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:lb/probe:Probe".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "intervalInSeconds".into(),
-                    value: &interval_in_seconds_binding,
+                    value: interval_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadbalancerId".into(),
-                    value: &loadbalancer_id_binding,
+                    value: loadbalancer_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberOfProbes".into(),
-                    value: &number_of_probes_binding,
+                    value: number_of_probes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "probeThreshold".into(),
-                    value: &probe_threshold_binding,
+                    value: probe_threshold_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestPath".into(),
-                    value: &request_path_binding,
+                    value: request_path_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProbeResult {
-            interval_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("intervalInSeconds"),
-            ),
-            load_balancer_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancerRules"),
-            ),
-            loadbalancer_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadbalancerId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            number_of_probes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("numberOfProbes"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            probe_threshold: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("probeThreshold"),
-            ),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
-            request_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestPath"),
-            ),
+            interval_in_seconds: o.get_field("intervalInSeconds"),
+            load_balancer_rules: o.get_field("loadBalancerRules"),
+            loadbalancer_id: o.get_field("loadbalancerId"),
+            name: o.get_field("name"),
+            number_of_probes: o.get_field("numberOfProbes"),
+            port: o.get_field("port"),
+            probe_threshold: o.get_field("probeThreshold"),
+            protocol: o.get_field("protocol"),
+            request_path: o.get_field("requestPath"),
         }
     }
 }

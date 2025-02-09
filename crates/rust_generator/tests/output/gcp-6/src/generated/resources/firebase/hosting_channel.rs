@@ -144,83 +144,63 @@ pub mod hosting_channel {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HostingChannelArgs,
     ) -> HostingChannelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let channel_id_binding_1 = args.channel_id.get_output(context);
-        let channel_id_binding = channel_id_binding_1.get_inner();
-        let expire_time_binding_1 = args.expire_time.get_output(context);
-        let expire_time_binding = expire_time_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let retained_release_count_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let channel_id_binding = args.channel_id.get_output(context);
+        let expire_time_binding = args.expire_time.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let retained_release_count_binding = args
             .retained_release_count
             .get_output(context);
-        let retained_release_count_binding = retained_release_count_binding_1
-            .get_inner();
-        let site_id_binding_1 = args.site_id.get_output(context);
-        let site_id_binding = site_id_binding_1.get_inner();
-        let ttl_binding_1 = args.ttl.get_output(context);
-        let ttl_binding = ttl_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let site_id_binding = args.site_id.get_output(context);
+        let ttl_binding = args.ttl.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:firebase/hostingChannel:HostingChannel".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "channelId".into(),
-                    value: &channel_id_binding,
+                    value: channel_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expireTime".into(),
-                    value: &expire_time_binding,
+                    value: expire_time_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retainedReleaseCount".into(),
-                    value: &retained_release_count_binding,
+                    value: retained_release_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteId".into(),
-                    value: &site_id_binding,
+                    value: site_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: &ttl_binding,
+                    value: ttl_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HostingChannelResult {
-            channel_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("channelId"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            expire_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expireTime"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            retained_release_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retainedReleaseCount"),
-            ),
-            site_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("siteId"),
-            ),
-            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
+            channel_id: o.get_field("channelId"),
+            effective_labels: o.get_field("effectiveLabels"),
+            expire_time: o.get_field("expireTime"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            retained_release_count: o.get_field("retainedReleaseCount"),
+            site_id: o.get_field("siteId"),
+            ttl: o.get_field("ttl"),
         }
     }
 }

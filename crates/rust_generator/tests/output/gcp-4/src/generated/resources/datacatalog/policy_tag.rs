@@ -152,61 +152,48 @@ pub mod policy_tag {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PolicyTagArgs,
     ) -> PolicyTagResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let parent_policy_tag_binding_1 = args.parent_policy_tag.get_output(context);
-        let parent_policy_tag_binding = parent_policy_tag_binding_1.get_inner();
-        let taxonomy_binding_1 = args.taxonomy.get_output(context);
-        let taxonomy_binding = taxonomy_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let parent_policy_tag_binding = args.parent_policy_tag.get_output(context);
+        let taxonomy_binding = args.taxonomy.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:datacatalog/policyTag:PolicyTag".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentPolicyTag".into(),
-                    value: &parent_policy_tag_binding,
+                    value: parent_policy_tag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taxonomy".into(),
-                    value: &taxonomy_binding,
+                    value: taxonomy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PolicyTagResult {
-            child_policy_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("childPolicyTags"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            parent_policy_tag: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentPolicyTag"),
-            ),
-            taxonomy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taxonomy"),
-            ),
+            child_policy_tags: o.get_field("childPolicyTags"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            name: o.get_field("name"),
+            parent_policy_tag: o.get_field("parentPolicyTag"),
+            taxonomy: o.get_field("taxonomy"),
         }
     }
 }

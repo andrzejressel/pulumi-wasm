@@ -109,61 +109,48 @@ pub mod lien {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LienArgs,
     ) -> LienResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let origin_binding_1 = args.origin.get_output(context);
-        let origin_binding = origin_binding_1.get_inner();
-        let parent_binding_1 = args.parent.get_output(context);
-        let parent_binding = parent_binding_1.get_inner();
-        let reason_binding_1 = args.reason.get_output(context);
-        let reason_binding = reason_binding_1.get_inner();
-        let restrictions_binding_1 = args.restrictions.get_output(context);
-        let restrictions_binding = restrictions_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let origin_binding = args.origin.get_output(context);
+        let parent_binding = args.parent.get_output(context);
+        let reason_binding = args.reason.get_output(context);
+        let restrictions_binding = args.restrictions.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:resourcemanager/lien:Lien".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "origin".into(),
-                    value: &origin_binding,
+                    value: origin_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: &parent_binding,
+                    value: parent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reason".into(),
-                    value: &reason_binding,
+                    value: reason_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restrictions".into(),
-                    value: &restrictions_binding,
+                    value: restrictions_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LienResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            origin: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("origin"),
-            ),
-            parent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parent"),
-            ),
-            reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reason"),
-            ),
-            restrictions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restrictions"),
-            ),
+            create_time: o.get_field("createTime"),
+            name: o.get_field("name"),
+            origin: o.get_field("origin"),
+            parent: o.get_field("parent"),
+            reason: o.get_field("reason"),
+            restrictions: o.get_field("restrictions"),
         }
     }
 }

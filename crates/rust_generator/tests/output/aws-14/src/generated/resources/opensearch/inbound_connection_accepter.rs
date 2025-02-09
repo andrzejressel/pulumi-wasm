@@ -63,34 +63,30 @@ pub mod inbound_connection_accepter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InboundConnectionAccepterArgs,
     ) -> InboundConnectionAccepterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_id_binding_1 = args.connection_id.get_output(context);
-        let connection_id_binding = connection_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let connection_id_binding = args.connection_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionId".into(),
-                    value: &connection_id_binding,
+                    value: connection_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InboundConnectionAccepterResult {
-            connection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionId"),
-            ),
-            connection_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionStatus"),
-            ),
+            connection_id: o.get_field("connectionId"),
+            connection_status: o.get_field("connectionStatus"),
         }
     }
 }

@@ -154,126 +154,99 @@ pub mod configuration_feature {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConfigurationFeatureArgs,
     ) -> ConfigurationFeatureResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_store_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let configuration_store_id_binding = args
             .configuration_store_id
             .get_output(context);
-        let configuration_store_id_binding = configuration_store_id_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let etag_binding_1 = args.etag.get_output(context);
-        let etag_binding = etag_binding_1.get_inner();
-        let key_binding_1 = args.key.get_output(context);
-        let key_binding = key_binding_1.get_inner();
-        let label_binding_1 = args.label.get_output(context);
-        let label_binding = label_binding_1.get_inner();
-        let locked_binding_1 = args.locked.get_output(context);
-        let locked_binding = locked_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let percentage_filter_value_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let etag_binding = args.etag.get_output(context);
+        let key_binding = args.key.get_output(context);
+        let label_binding = args.label.get_output(context);
+        let locked_binding = args.locked.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let percentage_filter_value_binding = args
             .percentage_filter_value
             .get_output(context);
-        let percentage_filter_value_binding = percentage_filter_value_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let targeting_filters_binding_1 = args.targeting_filters.get_output(context);
-        let targeting_filters_binding = targeting_filters_binding_1.get_inner();
-        let timewindow_filters_binding_1 = args.timewindow_filters.get_output(context);
-        let timewindow_filters_binding = timewindow_filters_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let targeting_filters_binding = args.targeting_filters.get_output(context);
+        let timewindow_filters_binding = args.timewindow_filters.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appconfiguration/configurationFeature:ConfigurationFeature"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationStoreId".into(),
-                    value: &configuration_store_id_binding,
+                    value: configuration_store_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "etag".into(),
-                    value: &etag_binding,
+                    value: etag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: &key_binding,
+                    value: key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "label".into(),
-                    value: &label_binding,
+                    value: label_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locked".into(),
-                    value: &locked_binding,
+                    value: locked_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "percentageFilterValue".into(),
-                    value: &percentage_filter_value_binding,
+                    value: percentage_filter_value_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetingFilters".into(),
-                    value: &targeting_filters_binding,
+                    value: targeting_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timewindowFilters".into(),
-                    value: &timewindow_filters_binding,
+                    value: timewindow_filters_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConfigurationFeatureResult {
-            configuration_store_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationStoreId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
-            label: pulumi_gestalt_rust::__private::into_domain(o.extract_field("label")),
-            locked: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locked"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            percentage_filter_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("percentageFilterValue"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            targeting_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetingFilters"),
-            ),
-            timewindow_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timewindowFilters"),
-            ),
+            configuration_store_id: o.get_field("configurationStoreId"),
+            description: o.get_field("description"),
+            enabled: o.get_field("enabled"),
+            etag: o.get_field("etag"),
+            key: o.get_field("key"),
+            label: o.get_field("label"),
+            locked: o.get_field("locked"),
+            name: o.get_field("name"),
+            percentage_filter_value: o.get_field("percentageFilterValue"),
+            tags: o.get_field("tags"),
+            targeting_filters: o.get_field("targetingFilters"),
+            timewindow_filters: o.get_field("timewindowFilters"),
         }
     }
 }

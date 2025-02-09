@@ -138,115 +138,86 @@ pub mod application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApplicationArgs,
     ) -> ApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_group_id_binding_1 = args
-            .application_group_id
-            .get_output(context);
-        let application_group_id_binding = application_group_id_binding_1.get_inner();
-        let command_line_argument_policy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_group_id_binding = args.application_group_id.get_output(context);
+        let command_line_argument_policy_binding = args
             .command_line_argument_policy
             .get_output(context);
-        let command_line_argument_policy_binding = command_line_argument_policy_binding_1
-            .get_inner();
-        let command_line_arguments_binding_1 = args
+        let command_line_arguments_binding = args
             .command_line_arguments
             .get_output(context);
-        let command_line_arguments_binding = command_line_arguments_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let friendly_name_binding_1 = args.friendly_name.get_output(context);
-        let friendly_name_binding = friendly_name_binding_1.get_inner();
-        let icon_index_binding_1 = args.icon_index.get_output(context);
-        let icon_index_binding = icon_index_binding_1.get_inner();
-        let icon_path_binding_1 = args.icon_path.get_output(context);
-        let icon_path_binding = icon_path_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let path_binding_1 = args.path.get_output(context);
-        let path_binding = path_binding_1.get_inner();
-        let show_in_portal_binding_1 = args.show_in_portal.get_output(context);
-        let show_in_portal_binding = show_in_portal_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let description_binding = args.description.get_output(context);
+        let friendly_name_binding = args.friendly_name.get_output(context);
+        let icon_index_binding = args.icon_index.get_output(context);
+        let icon_path_binding = args.icon_path.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let path_binding = args.path.get_output(context);
+        let show_in_portal_binding = args.show_in_portal.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:desktopvirtualization/application:Application".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationGroupId".into(),
-                    value: &application_group_id_binding,
+                    value: application_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "commandLineArgumentPolicy".into(),
-                    value: &command_line_argument_policy_binding,
+                    value: command_line_argument_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "commandLineArguments".into(),
-                    value: &command_line_arguments_binding,
+                    value: command_line_arguments_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "friendlyName".into(),
-                    value: &friendly_name_binding,
+                    value: friendly_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iconIndex".into(),
-                    value: &icon_index_binding,
+                    value: icon_index_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iconPath".into(),
-                    value: &icon_path_binding,
+                    value: icon_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: &path_binding,
+                    value: path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "showInPortal".into(),
-                    value: &show_in_portal_binding,
+                    value: show_in_portal_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApplicationResult {
-            application_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationGroupId"),
-            ),
-            command_line_argument_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("commandLineArgumentPolicy"),
-            ),
-            command_line_arguments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("commandLineArguments"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            friendly_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("friendlyName"),
-            ),
-            icon_index: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iconIndex"),
-            ),
-            icon_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iconPath"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            show_in_portal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("showInPortal"),
-            ),
+            application_group_id: o.get_field("applicationGroupId"),
+            command_line_argument_policy: o.get_field("commandLineArgumentPolicy"),
+            command_line_arguments: o.get_field("commandLineArguments"),
+            description: o.get_field("description"),
+            friendly_name: o.get_field("friendlyName"),
+            icon_index: o.get_field("iconIndex"),
+            icon_path: o.get_field("iconPath"),
+            name: o.get_field("name"),
+            path: o.get_field("path"),
+            show_in_portal: o.get_field("showInPortal"),
         }
     }
 }

@@ -123,71 +123,56 @@ pub mod configuration_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ConfigurationSetArgs,
     ) -> ConfigurationSetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delivery_options_binding_1 = args.delivery_options.get_output(context);
-        let delivery_options_binding = delivery_options_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let reputation_metrics_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let delivery_options_binding = args.delivery_options.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let reputation_metrics_enabled_binding = args
             .reputation_metrics_enabled
             .get_output(context);
-        let reputation_metrics_enabled_binding = reputation_metrics_enabled_binding_1
-            .get_inner();
-        let sending_enabled_binding_1 = args.sending_enabled.get_output(context);
-        let sending_enabled_binding = sending_enabled_binding_1.get_inner();
-        let tracking_options_binding_1 = args.tracking_options.get_output(context);
-        let tracking_options_binding = tracking_options_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let sending_enabled_binding = args.sending_enabled.get_output(context);
+        let tracking_options_binding = args.tracking_options.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ses/configurationSet:ConfigurationSet".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryOptions".into(),
-                    value: &delivery_options_binding,
+                    value: delivery_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reputationMetricsEnabled".into(),
-                    value: &reputation_metrics_enabled_binding,
+                    value: reputation_metrics_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sendingEnabled".into(),
-                    value: &sending_enabled_binding,
+                    value: sending_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trackingOptions".into(),
-                    value: &tracking_options_binding,
+                    value: tracking_options_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ConfigurationSetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            delivery_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deliveryOptions"),
-            ),
-            last_fresh_start: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastFreshStart"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            reputation_metrics_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("reputationMetricsEnabled"),
-            ),
-            sending_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sendingEnabled"),
-            ),
-            tracking_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trackingOptions"),
-            ),
+            arn: o.get_field("arn"),
+            delivery_options: o.get_field("deliveryOptions"),
+            last_fresh_start: o.get_field("lastFreshStart"),
+            name: o.get_field("name"),
+            reputation_metrics_enabled: o.get_field("reputationMetricsEnabled"),
+            sending_enabled: o.get_field("sendingEnabled"),
+            tracking_options: o.get_field("trackingOptions"),
         }
     }
 }

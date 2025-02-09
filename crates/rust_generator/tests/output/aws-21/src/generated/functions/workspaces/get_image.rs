@@ -28,40 +28,32 @@ pub mod get_image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetImageArgs,
     ) -> GetImageResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let image_id_binding_1 = args.image_id.get_output(context);
-        let image_id_binding = image_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let image_id_binding = args.image_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:workspaces/getImage:getImage".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageId".into(),
-                    value: &image_id_binding,
+                    value: image_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetImageResult {
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            image_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            operating_system_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operatingSystemType"),
-            ),
-            required_tenancy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requiredTenancy"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            image_id: o.get_field("imageId"),
+            name: o.get_field("name"),
+            operating_system_type: o.get_field("operatingSystemType"),
+            required_tenancy: o.get_field("requiredTenancy"),
+            state: o.get_field("state"),
         }
     }
 }

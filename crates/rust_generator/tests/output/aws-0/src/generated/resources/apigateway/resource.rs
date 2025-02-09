@@ -64,49 +64,41 @@ pub mod resource {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ResourceArgs,
     ) -> ResourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let parent_id_binding_1 = args.parent_id.get_output(context);
-        let parent_id_binding = parent_id_binding_1.get_inner();
-        let path_part_binding_1 = args.path_part.get_output(context);
-        let path_part_binding = path_part_binding_1.get_inner();
-        let rest_api_binding_1 = args.rest_api.get_output(context);
-        let rest_api_binding = rest_api_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let parent_id_binding = args.parent_id.get_output(context);
+        let path_part_binding = args.path_part.get_output(context);
+        let rest_api_binding = args.rest_api.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigateway/resource:Resource".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentId".into(),
-                    value: &parent_id_binding,
+                    value: parent_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pathPart".into(),
-                    value: &path_part_binding,
+                    value: path_part_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApi".into(),
-                    value: &rest_api_binding,
+                    value: rest_api_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ResourceResult {
-            parent_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parentId"),
-            ),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            path_part: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pathPart"),
-            ),
-            rest_api: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("restApi"),
-            ),
+            parent_id: o.get_field("parentId"),
+            path: o.get_field("path"),
+            path_part: o.get_field("pathPart"),
+            rest_api: o.get_field("restApi"),
         }
     }
 }

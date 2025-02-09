@@ -133,136 +133,103 @@ pub mod express_route_circuit {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ExpressRouteCircuitArgs,
     ) -> ExpressRouteCircuitResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_classic_operations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_classic_operations_binding = args
             .allow_classic_operations
             .get_output(context);
-        let allow_classic_operations_binding = allow_classic_operations_binding_1
-            .get_inner();
-        let authorization_key_binding_1 = args.authorization_key.get_output(context);
-        let authorization_key_binding = authorization_key_binding_1.get_inner();
-        let bandwidth_in_gbps_binding_1 = args.bandwidth_in_gbps.get_output(context);
-        let bandwidth_in_gbps_binding = bandwidth_in_gbps_binding_1.get_inner();
-        let bandwidth_in_mbps_binding_1 = args.bandwidth_in_mbps.get_output(context);
-        let bandwidth_in_mbps_binding = bandwidth_in_mbps_binding_1.get_inner();
-        let express_route_port_id_binding_1 = args
+        let authorization_key_binding = args.authorization_key.get_output(context);
+        let bandwidth_in_gbps_binding = args.bandwidth_in_gbps.get_output(context);
+        let bandwidth_in_mbps_binding = args.bandwidth_in_mbps.get_output(context);
+        let express_route_port_id_binding = args
             .express_route_port_id
             .get_output(context);
-        let express_route_port_id_binding = express_route_port_id_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let peering_location_binding_1 = args.peering_location.get_output(context);
-        let peering_location_binding = peering_location_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let service_provider_name_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let peering_location_binding = args.peering_location.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let service_provider_name_binding = args
             .service_provider_name
             .get_output(context);
-        let service_provider_name_binding = service_provider_name_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let sku_binding = args.sku.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/expressRouteCircuit:ExpressRouteCircuit".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowClassicOperations".into(),
-                    value: &allow_classic_operations_binding,
+                    value: allow_classic_operations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationKey".into(),
-                    value: &authorization_key_binding,
+                    value: authorization_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bandwidthInGbps".into(),
-                    value: &bandwidth_in_gbps_binding,
+                    value: bandwidth_in_gbps_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bandwidthInMbps".into(),
-                    value: &bandwidth_in_mbps_binding,
+                    value: bandwidth_in_mbps_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressRoutePortId".into(),
-                    value: &express_route_port_id_binding,
+                    value: express_route_port_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeringLocation".into(),
-                    value: &peering_location_binding,
+                    value: peering_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceProviderName".into(),
-                    value: &service_provider_name_binding,
+                    value: service_provider_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ExpressRouteCircuitResult {
-            allow_classic_operations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowClassicOperations"),
-            ),
-            authorization_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizationKey"),
-            ),
-            bandwidth_in_gbps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bandwidthInGbps"),
-            ),
-            bandwidth_in_mbps: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bandwidthInMbps"),
-            ),
-            express_route_port_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expressRoutePortId"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            peering_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peeringLocation"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            service_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceKey"),
-            ),
-            service_provider_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceProviderName"),
-            ),
-            service_provider_provisioning_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceProviderProvisioningState"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            allow_classic_operations: o.get_field("allowClassicOperations"),
+            authorization_key: o.get_field("authorizationKey"),
+            bandwidth_in_gbps: o.get_field("bandwidthInGbps"),
+            bandwidth_in_mbps: o.get_field("bandwidthInMbps"),
+            express_route_port_id: o.get_field("expressRoutePortId"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            peering_location: o.get_field("peeringLocation"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            service_key: o.get_field("serviceKey"),
+            service_provider_name: o.get_field("serviceProviderName"),
+            service_provider_provisioning_state: o
+                .get_field("serviceProviderProvisioningState"),
+            sku: o.get_field("sku"),
+            tags: o.get_field("tags"),
         }
     }
 }

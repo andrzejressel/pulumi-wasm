@@ -110,106 +110,77 @@ pub mod traffic_mirror_session {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TrafficMirrorSessionArgs,
     ) -> TrafficMirrorSessionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let network_interface_id_binding_1 = args
-            .network_interface_id
-            .get_output(context);
-        let network_interface_id_binding = network_interface_id_binding_1.get_inner();
-        let packet_length_binding_1 = args.packet_length.get_output(context);
-        let packet_length_binding = packet_length_binding_1.get_inner();
-        let session_number_binding_1 = args.session_number.get_output(context);
-        let session_number_binding = session_number_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let traffic_mirror_filter_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let network_interface_id_binding = args.network_interface_id.get_output(context);
+        let packet_length_binding = args.packet_length.get_output(context);
+        let session_number_binding = args.session_number.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let traffic_mirror_filter_id_binding = args
             .traffic_mirror_filter_id
             .get_output(context);
-        let traffic_mirror_filter_id_binding = traffic_mirror_filter_id_binding_1
-            .get_inner();
-        let traffic_mirror_target_id_binding_1 = args
+        let traffic_mirror_target_id_binding = args
             .traffic_mirror_target_id
             .get_output(context);
-        let traffic_mirror_target_id_binding = traffic_mirror_target_id_binding_1
-            .get_inner();
-        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
-        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let virtual_network_id_binding = args.virtual_network_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/trafficMirrorSession:TrafficMirrorSession".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: &network_interface_id_binding,
+                    value: network_interface_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packetLength".into(),
-                    value: &packet_length_binding,
+                    value: packet_length_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionNumber".into(),
-                    value: &session_number_binding,
+                    value: session_number_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficMirrorFilterId".into(),
-                    value: &traffic_mirror_filter_id_binding,
+                    value: traffic_mirror_filter_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficMirrorTargetId".into(),
-                    value: &traffic_mirror_target_id_binding,
+                    value: traffic_mirror_target_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkId".into(),
-                    value: &virtual_network_id_binding,
+                    value: virtual_network_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TrafficMirrorSessionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkInterfaceId"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            packet_length: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("packetLength"),
-            ),
-            session_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionNumber"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            traffic_mirror_filter_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficMirrorFilterId"),
-            ),
-            traffic_mirror_target_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficMirrorTargetId"),
-            ),
-            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkId"),
-            ),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            network_interface_id: o.get_field("networkInterfaceId"),
+            owner_id: o.get_field("ownerId"),
+            packet_length: o.get_field("packetLength"),
+            session_number: o.get_field("sessionNumber"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            traffic_mirror_filter_id: o.get_field("trafficMirrorFilterId"),
+            traffic_mirror_target_id: o.get_field("trafficMirrorTargetId"),
+            virtual_network_id: o.get_field("virtualNetworkId"),
         }
     }
 }

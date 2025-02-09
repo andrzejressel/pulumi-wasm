@@ -892,215 +892,145 @@ pub mod global_forwarding_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GlobalForwardingRuleArgs,
     ) -> GlobalForwardingRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allow_psc_global_access_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allow_psc_global_access_binding = args
             .allow_psc_global_access
             .get_output(context);
-        let allow_psc_global_access_binding = allow_psc_global_access_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let ip_address_binding_1 = args.ip_address.get_output(context);
-        let ip_address_binding = ip_address_binding_1.get_inner();
-        let ip_protocol_binding_1 = args.ip_protocol.get_output(context);
-        let ip_protocol_binding = ip_protocol_binding_1.get_inner();
-        let ip_version_binding_1 = args.ip_version.get_output(context);
-        let ip_version_binding = ip_version_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let load_balancing_scheme_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let ip_address_binding = args.ip_address.get_output(context);
+        let ip_protocol_binding = args.ip_protocol.get_output(context);
+        let ip_version_binding = args.ip_version.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let load_balancing_scheme_binding = args
             .load_balancing_scheme
             .get_output(context);
-        let load_balancing_scheme_binding = load_balancing_scheme_binding_1.get_inner();
-        let metadata_filters_binding_1 = args.metadata_filters.get_output(context);
-        let metadata_filters_binding = metadata_filters_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let network_tier_binding_1 = args.network_tier.get_output(context);
-        let network_tier_binding = network_tier_binding_1.get_inner();
-        let no_automate_dns_zone_binding_1 = args
-            .no_automate_dns_zone
-            .get_output(context);
-        let no_automate_dns_zone_binding = no_automate_dns_zone_binding_1.get_inner();
-        let port_range_binding_1 = args.port_range.get_output(context);
-        let port_range_binding = port_range_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let service_directory_registrations_binding_1 = args
+        let metadata_filters_binding = args.metadata_filters.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let network_tier_binding = args.network_tier.get_output(context);
+        let no_automate_dns_zone_binding = args.no_automate_dns_zone.get_output(context);
+        let port_range_binding = args.port_range.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let service_directory_registrations_binding = args
             .service_directory_registrations
             .get_output(context);
-        let service_directory_registrations_binding = service_directory_registrations_binding_1
-            .get_inner();
-        let source_ip_ranges_binding_1 = args.source_ip_ranges.get_output(context);
-        let source_ip_ranges_binding = source_ip_ranges_binding_1.get_inner();
-        let subnetwork_binding_1 = args.subnetwork.get_output(context);
-        let subnetwork_binding = subnetwork_binding_1.get_inner();
-        let target_binding_1 = args.target.get_output(context);
-        let target_binding = target_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let source_ip_ranges_binding = args.source_ip_ranges.get_output(context);
+        let subnetwork_binding = args.subnetwork.get_output(context);
+        let target_binding = args.target.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/globalForwardingRule:GlobalForwardingRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowPscGlobalAccess".into(),
-                    value: &allow_psc_global_access_binding,
+                    value: allow_psc_global_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: &ip_address_binding,
+                    value: ip_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipProtocol".into(),
-                    value: &ip_protocol_binding,
+                    value: ip_protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipVersion".into(),
-                    value: &ip_version_binding,
+                    value: ip_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancingScheme".into(),
-                    value: &load_balancing_scheme_binding,
+                    value: load_balancing_scheme_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadataFilters".into(),
-                    value: &metadata_filters_binding,
+                    value: metadata_filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkTier".into(),
-                    value: &network_tier_binding,
+                    value: network_tier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "noAutomateDnsZone".into(),
-                    value: &no_automate_dns_zone_binding,
+                    value: no_automate_dns_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portRange".into(),
-                    value: &port_range_binding,
+                    value: port_range_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceDirectoryRegistrations".into(),
-                    value: &service_directory_registrations_binding,
+                    value: service_directory_registrations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceIpRanges".into(),
-                    value: &source_ip_ranges_binding,
+                    value: source_ip_ranges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetwork".into(),
-                    value: &subnetwork_binding,
+                    value: subnetwork_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "target".into(),
-                    value: &target_binding,
+                    value: target_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GlobalForwardingRuleResult {
-            allow_psc_global_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowPscGlobalAccess"),
-            ),
-            base_forwarding_rule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseForwardingRule"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            forwarding_rule_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forwardingRuleId"),
-            ),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            ip_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipProtocol"),
-            ),
-            ip_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipVersion"),
-            ),
-            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labelFingerprint"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            load_balancing_scheme: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancingScheme"),
-            ),
-            metadata_filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadataFilters"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            network_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkTier"),
-            ),
-            no_automate_dns_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("noAutomateDnsZone"),
-            ),
-            port_range: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("portRange"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            psc_connection_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pscConnectionId"),
-            ),
-            psc_connection_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pscConnectionStatus"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            service_directory_registrations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceDirectoryRegistrations"),
-            ),
-            source_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceIpRanges"),
-            ),
-            subnetwork: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetwork"),
-            ),
-            target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("target"),
-            ),
+            allow_psc_global_access: o.get_field("allowPscGlobalAccess"),
+            base_forwarding_rule: o.get_field("baseForwardingRule"),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            forwarding_rule_id: o.get_field("forwardingRuleId"),
+            ip_address: o.get_field("ipAddress"),
+            ip_protocol: o.get_field("ipProtocol"),
+            ip_version: o.get_field("ipVersion"),
+            label_fingerprint: o.get_field("labelFingerprint"),
+            labels: o.get_field("labels"),
+            load_balancing_scheme: o.get_field("loadBalancingScheme"),
+            metadata_filters: o.get_field("metadataFilters"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            network_tier: o.get_field("networkTier"),
+            no_automate_dns_zone: o.get_field("noAutomateDnsZone"),
+            port_range: o.get_field("portRange"),
+            project: o.get_field("project"),
+            psc_connection_id: o.get_field("pscConnectionId"),
+            psc_connection_status: o.get_field("pscConnectionStatus"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            self_link: o.get_field("selfLink"),
+            service_directory_registrations: o
+                .get_field("serviceDirectoryRegistrations"),
+            source_ip_ranges: o.get_field("sourceIpRanges"),
+            subnetwork: o.get_field("subnetwork"),
+            target: o.get_field("target"),
         }
     }
 }

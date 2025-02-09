@@ -67,64 +67,51 @@ pub mod serverless_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServerlessClusterArgs,
     ) -> ServerlessClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let client_authentication_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let client_authentication_binding = args
             .client_authentication
             .get_output(context);
-        let client_authentication_binding = client_authentication_binding_1.get_inner();
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_configs_binding_1 = args.vpc_configs.get_output(context);
-        let vpc_configs_binding = vpc_configs_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_configs_binding = args.vpc_configs.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:msk/serverlessCluster:ServerlessCluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientAuthentication".into(),
-                    value: &client_authentication_binding,
+                    value: client_authentication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfigs".into(),
-                    value: &vpc_configs_binding,
+                    value: vpc_configs_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServerlessClusterResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            client_authentication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientAuthentication"),
-            ),
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            cluster_uuid: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterUuid"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfigs"),
-            ),
+            arn: o.get_field("arn"),
+            client_authentication: o.get_field("clientAuthentication"),
+            cluster_name: o.get_field("clusterName"),
+            cluster_uuid: o.get_field("clusterUuid"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_configs: o.get_field("vpcConfigs"),
         }
     }
 }

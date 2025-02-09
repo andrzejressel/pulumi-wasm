@@ -82,79 +82,61 @@ pub mod member {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MemberArgs,
     ) -> MemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let detector_id_binding_1 = args.detector_id.get_output(context);
-        let detector_id_binding = detector_id_binding_1.get_inner();
-        let disable_email_notification_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let detector_id_binding = args.detector_id.get_output(context);
+        let disable_email_notification_binding = args
             .disable_email_notification
             .get_output(context);
-        let disable_email_notification_binding = disable_email_notification_binding_1
-            .get_inner();
-        let email_binding_1 = args.email.get_output(context);
-        let email_binding = email_binding_1.get_inner();
-        let invitation_message_binding_1 = args.invitation_message.get_output(context);
-        let invitation_message_binding = invitation_message_binding_1.get_inner();
-        let invite_binding_1 = args.invite.get_output(context);
-        let invite_binding = invite_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let email_binding = args.email.get_output(context);
+        let invitation_message_binding = args.invitation_message.get_output(context);
+        let invite_binding = args.invite.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:guardduty/member:Member".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectorId".into(),
-                    value: &detector_id_binding,
+                    value: detector_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableEmailNotification".into(),
-                    value: &disable_email_notification_binding,
+                    value: disable_email_notification_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "email".into(),
-                    value: &email_binding,
+                    value: email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "invitationMessage".into(),
-                    value: &invitation_message_binding,
+                    value: invitation_message_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "invite".into(),
-                    value: &invite_binding,
+                    value: invite_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MemberResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            detector_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("detectorId"),
-            ),
-            disable_email_notification: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableEmailNotification"),
-            ),
-            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
-            invitation_message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invitationMessage"),
-            ),
-            invite: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("invite"),
-            ),
-            relationship_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("relationshipStatus"),
-            ),
+            account_id: o.get_field("accountId"),
+            detector_id: o.get_field("detectorId"),
+            disable_email_notification: o.get_field("disableEmailNotification"),
+            email: o.get_field("email"),
+            invitation_message: o.get_field("invitationMessage"),
+            invite: o.get_field("invite"),
+            relationship_status: o.get_field("relationshipStatus"),
         }
     }
 }

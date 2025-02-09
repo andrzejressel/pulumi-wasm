@@ -80,51 +80,41 @@ pub mod managed_disk_sas_token {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagedDiskSasTokenArgs,
     ) -> ManagedDiskSasTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_level_binding_1 = args.access_level.get_output(context);
-        let access_level_binding = access_level_binding_1.get_inner();
-        let duration_in_seconds_binding_1 = args.duration_in_seconds.get_output(context);
-        let duration_in_seconds_binding = duration_in_seconds_binding_1.get_inner();
-        let managed_disk_id_binding_1 = args.managed_disk_id.get_output(context);
-        let managed_disk_id_binding = managed_disk_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_level_binding = args.access_level.get_output(context);
+        let duration_in_seconds_binding = args.duration_in_seconds.get_output(context);
+        let managed_disk_id_binding = args.managed_disk_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:compute/managedDiskSasToken:ManagedDiskSasToken".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessLevel".into(),
-                    value: &access_level_binding,
+                    value: access_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "durationInSeconds".into(),
-                    value: &duration_in_seconds_binding,
+                    value: duration_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedDiskId".into(),
-                    value: &managed_disk_id_binding,
+                    value: managed_disk_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagedDiskSasTokenResult {
-            access_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessLevel"),
-            ),
-            duration_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("durationInSeconds"),
-            ),
-            managed_disk_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedDiskId"),
-            ),
-            sas_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sasUrl"),
-            ),
+            access_level: o.get_field("accessLevel"),
+            duration_in_seconds: o.get_field("durationInSeconds"),
+            managed_disk_id: o.get_field("managedDiskId"),
+            sas_url: o.get_field("sasUrl"),
         }
     }
 }

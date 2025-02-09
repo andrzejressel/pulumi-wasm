@@ -51,66 +51,52 @@ pub mod get_tags {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetTagsArgs,
     ) -> GetTagsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filter_binding_1 = args.filter.get_output(context);
-        let filter_binding = filter_binding_1.get_inner();
-        let search_string_binding_1 = args.search_string.get_output(context);
-        let search_string_binding = search_string_binding_1.get_inner();
-        let sort_bies_binding_1 = args.sort_bies.get_output(context);
-        let sort_bies_binding = sort_bies_binding_1.get_inner();
-        let tag_key_binding_1 = args.tag_key.get_output(context);
-        let tag_key_binding = tag_key_binding_1.get_inner();
-        let time_period_binding_1 = args.time_period.get_output(context);
-        let time_period_binding = time_period_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filter_binding = args.filter.get_output(context);
+        let search_string_binding = args.search_string.get_output(context);
+        let sort_bies_binding = args.sort_bies.get_output(context);
+        let tag_key_binding = args.tag_key.get_output(context);
+        let time_period_binding = args.time_period.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:costexplorer/getTags:getTags".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: &filter_binding,
+                    value: filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "searchString".into(),
-                    value: &search_string_binding,
+                    value: search_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sortBies".into(),
-                    value: &sort_bies_binding,
+                    value: sort_bies_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagKey".into(),
-                    value: &tag_key_binding,
+                    value: tag_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timePeriod".into(),
-                    value: &time_period_binding,
+                    value: time_period_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetTagsResult {
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            search_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("searchString"),
-            ),
-            sort_bies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sortBies"),
-            ),
-            tag_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagKey"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            time_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timePeriod"),
-            ),
+            filter: o.get_field("filter"),
+            id: o.get_field("id"),
+            search_string: o.get_field("searchString"),
+            sort_bies: o.get_field("sortBies"),
+            tag_key: o.get_field("tagKey"),
+            tags: o.get_field("tags"),
+            time_period: o.get_field("timePeriod"),
         }
     }
 }

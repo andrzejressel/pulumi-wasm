@@ -120,147 +120,106 @@ pub mod scheduled_action {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ScheduledActionArgs,
     ) -> ScheduledActionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let day_of_month_binding_1 = args.day_of_month.get_output(context);
-        let day_of_month_binding = day_of_month_binding_1.get_inner();
-        let days_of_weeks_binding_1 = args.days_of_weeks.get_output(context);
-        let days_of_weeks_binding = days_of_weeks_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let email_address_sender_binding_1 = args
-            .email_address_sender
-            .get_output(context);
-        let email_address_sender_binding = email_address_sender_binding_1.get_inner();
-        let email_addresses_binding_1 = args.email_addresses.get_output(context);
-        let email_addresses_binding = email_addresses_binding_1.get_inner();
-        let email_subject_binding_1 = args.email_subject.get_output(context);
-        let email_subject_binding = email_subject_binding_1.get_inner();
-        let end_date_binding_1 = args.end_date.get_output(context);
-        let end_date_binding = end_date_binding_1.get_inner();
-        let frequency_binding_1 = args.frequency.get_output(context);
-        let frequency_binding = frequency_binding_1.get_inner();
-        let hour_of_day_binding_1 = args.hour_of_day.get_output(context);
-        let hour_of_day_binding = hour_of_day_binding_1.get_inner();
-        let message_binding_1 = args.message.get_output(context);
-        let message_binding = message_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let start_date_binding_1 = args.start_date.get_output(context);
-        let start_date_binding = start_date_binding_1.get_inner();
-        let view_id_binding_1 = args.view_id.get_output(context);
-        let view_id_binding = view_id_binding_1.get_inner();
-        let weeks_of_months_binding_1 = args.weeks_of_months.get_output(context);
-        let weeks_of_months_binding = weeks_of_months_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let day_of_month_binding = args.day_of_month.get_output(context);
+        let days_of_weeks_binding = args.days_of_weeks.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let email_address_sender_binding = args.email_address_sender.get_output(context);
+        let email_addresses_binding = args.email_addresses.get_output(context);
+        let email_subject_binding = args.email_subject.get_output(context);
+        let end_date_binding = args.end_date.get_output(context);
+        let frequency_binding = args.frequency.get_output(context);
+        let hour_of_day_binding = args.hour_of_day.get_output(context);
+        let message_binding = args.message.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let start_date_binding = args.start_date.get_output(context);
+        let view_id_binding = args.view_id.get_output(context);
+        let weeks_of_months_binding = args.weeks_of_months.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:costmanagement/scheduledAction:ScheduledAction".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dayOfMonth".into(),
-                    value: &day_of_month_binding,
+                    value: day_of_month_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "daysOfWeeks".into(),
-                    value: &days_of_weeks_binding,
+                    value: days_of_weeks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddressSender".into(),
-                    value: &email_address_sender_binding,
+                    value: email_address_sender_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddresses".into(),
-                    value: &email_addresses_binding,
+                    value: email_addresses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailSubject".into(),
-                    value: &email_subject_binding,
+                    value: email_subject_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endDate".into(),
-                    value: &end_date_binding,
+                    value: end_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frequency".into(),
-                    value: &frequency_binding,
+                    value: frequency_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hourOfDay".into(),
-                    value: &hour_of_day_binding,
+                    value: hour_of_day_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "message".into(),
-                    value: &message_binding,
+                    value: message_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startDate".into(),
-                    value: &start_date_binding,
+                    value: start_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "viewId".into(),
-                    value: &view_id_binding,
+                    value: view_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weeksOfMonths".into(),
-                    value: &weeks_of_months_binding,
+                    value: weeks_of_months_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ScheduledActionResult {
-            day_of_month: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dayOfMonth"),
-            ),
-            days_of_weeks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("daysOfWeeks"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            email_address_sender: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailAddressSender"),
-            ),
-            email_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailAddresses"),
-            ),
-            email_subject: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailSubject"),
-            ),
-            end_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endDate"),
-            ),
-            frequency: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frequency"),
-            ),
-            hour_of_day: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hourOfDay"),
-            ),
-            message: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("message"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            start_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startDate"),
-            ),
-            view_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("viewId"),
-            ),
-            weeks_of_months: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("weeksOfMonths"),
-            ),
+            day_of_month: o.get_field("dayOfMonth"),
+            days_of_weeks: o.get_field("daysOfWeeks"),
+            display_name: o.get_field("displayName"),
+            email_address_sender: o.get_field("emailAddressSender"),
+            email_addresses: o.get_field("emailAddresses"),
+            email_subject: o.get_field("emailSubject"),
+            end_date: o.get_field("endDate"),
+            frequency: o.get_field("frequency"),
+            hour_of_day: o.get_field("hourOfDay"),
+            message: o.get_field("message"),
+            name: o.get_field("name"),
+            start_date: o.get_field("startDate"),
+            view_id: o.get_field("viewId"),
+            weeks_of_months: o.get_field("weeksOfMonths"),
         }
     }
 }

@@ -90,110 +90,57 @@ pub mod get_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetGroupArgs,
     ) -> GetGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:autoscaling/getGroup:getGroup".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetGroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZones"),
-            ),
-            default_cooldown: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultCooldown"),
-            ),
-            desired_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredCapacity"),
-            ),
-            desired_capacity_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desiredCapacityType"),
-            ),
-            enabled_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabledMetrics"),
-            ),
-            health_check_grace_period: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckGracePeriod"),
-            ),
-            health_check_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheckType"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_maintenance_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceMaintenancePolicies"),
-            ),
-            launch_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchConfiguration"),
-            ),
-            launch_templates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchTemplates"),
-            ),
-            load_balancers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancers"),
-            ),
-            max_instance_lifetime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxInstanceLifetime"),
-            ),
-            max_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxSize"),
-            ),
-            min_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minSize"),
-            ),
-            mixed_instances_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mixedInstancesPolicies"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            new_instances_protected_from_scale_in: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("newInstancesProtectedFromScaleIn"),
-            ),
-            placement_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementGroup"),
-            ),
-            predicted_capacity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("predictedCapacity"),
-            ),
-            service_linked_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceLinkedRoleArn"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            suspended_processes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("suspendedProcesses"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            target_group_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetGroupArns"),
-            ),
-            termination_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("terminationPolicies"),
-            ),
-            traffic_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficSources"),
-            ),
-            vpc_zone_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcZoneIdentifier"),
-            ),
-            warm_pool_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("warmPoolSize"),
-            ),
-            warm_pools: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("warmPools"),
-            ),
+            arn: o.get_field("arn"),
+            availability_zones: o.get_field("availabilityZones"),
+            default_cooldown: o.get_field("defaultCooldown"),
+            desired_capacity: o.get_field("desiredCapacity"),
+            desired_capacity_type: o.get_field("desiredCapacityType"),
+            enabled_metrics: o.get_field("enabledMetrics"),
+            health_check_grace_period: o.get_field("healthCheckGracePeriod"),
+            health_check_type: o.get_field("healthCheckType"),
+            id: o.get_field("id"),
+            instance_maintenance_policies: o.get_field("instanceMaintenancePolicies"),
+            launch_configuration: o.get_field("launchConfiguration"),
+            launch_templates: o.get_field("launchTemplates"),
+            load_balancers: o.get_field("loadBalancers"),
+            max_instance_lifetime: o.get_field("maxInstanceLifetime"),
+            max_size: o.get_field("maxSize"),
+            min_size: o.get_field("minSize"),
+            mixed_instances_policies: o.get_field("mixedInstancesPolicies"),
+            name: o.get_field("name"),
+            new_instances_protected_from_scale_in: o
+                .get_field("newInstancesProtectedFromScaleIn"),
+            placement_group: o.get_field("placementGroup"),
+            predicted_capacity: o.get_field("predictedCapacity"),
+            service_linked_role_arn: o.get_field("serviceLinkedRoleArn"),
+            status: o.get_field("status"),
+            suspended_processes: o.get_field("suspendedProcesses"),
+            tags: o.get_field("tags"),
+            target_group_arns: o.get_field("targetGroupArns"),
+            termination_policies: o.get_field("terminationPolicies"),
+            traffic_sources: o.get_field("trafficSources"),
+            vpc_zone_identifier: o.get_field("vpcZoneIdentifier"),
+            warm_pool_size: o.get_field("warmPoolSize"),
+            warm_pools: o.get_field("warmPools"),
         }
     }
 }

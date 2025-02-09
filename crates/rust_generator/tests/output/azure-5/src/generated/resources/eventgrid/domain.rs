@@ -144,157 +144,113 @@ pub mod domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DomainArgs,
     ) -> DomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_create_topic_with_first_subscription_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_create_topic_with_first_subscription_binding = args
             .auto_create_topic_with_first_subscription
             .get_output(context);
-        let auto_create_topic_with_first_subscription_binding = auto_create_topic_with_first_subscription_binding_1
-            .get_inner();
-        let auto_delete_topic_with_last_subscription_binding_1 = args
+        let auto_delete_topic_with_last_subscription_binding = args
             .auto_delete_topic_with_last_subscription
             .get_output(context);
-        let auto_delete_topic_with_last_subscription_binding = auto_delete_topic_with_last_subscription_binding_1
-            .get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let inbound_ip_rules_binding_1 = args.inbound_ip_rules.get_output(context);
-        let inbound_ip_rules_binding = inbound_ip_rules_binding_1.get_inner();
-        let input_mapping_default_values_binding_1 = args
+        let identity_binding = args.identity.get_output(context);
+        let inbound_ip_rules_binding = args.inbound_ip_rules.get_output(context);
+        let input_mapping_default_values_binding = args
             .input_mapping_default_values
             .get_output(context);
-        let input_mapping_default_values_binding = input_mapping_default_values_binding_1
-            .get_inner();
-        let input_mapping_fields_binding_1 = args
-            .input_mapping_fields
-            .get_output(context);
-        let input_mapping_fields_binding = input_mapping_fields_binding_1.get_inner();
-        let input_schema_binding_1 = args.input_schema.get_output(context);
-        let input_schema_binding = input_schema_binding_1.get_inner();
-        let local_auth_enabled_binding_1 = args.local_auth_enabled.get_output(context);
-        let local_auth_enabled_binding = local_auth_enabled_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let public_network_access_enabled_binding_1 = args
+        let input_mapping_fields_binding = args.input_mapping_fields.get_output(context);
+        let input_schema_binding = args.input_schema.get_output(context);
+        let local_auth_enabled_binding = args.local_auth_enabled.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let public_network_access_enabled_binding = args
             .public_network_access_enabled
             .get_output(context);
-        let public_network_access_enabled_binding = public_network_access_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:eventgrid/domain:Domain".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoCreateTopicWithFirstSubscription".into(),
-                    value: &auto_create_topic_with_first_subscription_binding,
+                    value: auto_create_topic_with_first_subscription_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoDeleteTopicWithLastSubscription".into(),
-                    value: &auto_delete_topic_with_last_subscription_binding,
+                    value: auto_delete_topic_with_last_subscription_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inboundIpRules".into(),
-                    value: &inbound_ip_rules_binding,
+                    value: inbound_ip_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputMappingDefaultValues".into(),
-                    value: &input_mapping_default_values_binding,
+                    value: input_mapping_default_values_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputMappingFields".into(),
-                    value: &input_mapping_fields_binding,
+                    value: input_mapping_fields_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputSchema".into(),
-                    value: &input_schema_binding,
+                    value: input_schema_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthEnabled".into(),
-                    value: &local_auth_enabled_binding,
+                    value: local_auth_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: &public_network_access_enabled_binding,
+                    value: public_network_access_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DomainResult {
-            auto_create_topic_with_first_subscription: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoCreateTopicWithFirstSubscription"),
-            ),
-            auto_delete_topic_with_last_subscription: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoDeleteTopicWithLastSubscription"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            inbound_ip_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inboundIpRules"),
-            ),
-            input_mapping_default_values: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputMappingDefaultValues"),
-            ),
-            input_mapping_fields: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputMappingFields"),
-            ),
-            input_schema: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputSchema"),
-            ),
-            local_auth_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAuthEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            primary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryAccessKey"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryAccessKey"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            auto_create_topic_with_first_subscription: o
+                .get_field("autoCreateTopicWithFirstSubscription"),
+            auto_delete_topic_with_last_subscription: o
+                .get_field("autoDeleteTopicWithLastSubscription"),
+            endpoint: o.get_field("endpoint"),
+            identity: o.get_field("identity"),
+            inbound_ip_rules: o.get_field("inboundIpRules"),
+            input_mapping_default_values: o.get_field("inputMappingDefaultValues"),
+            input_mapping_fields: o.get_field("inputMappingFields"),
+            input_schema: o.get_field("inputSchema"),
+            local_auth_enabled: o.get_field("localAuthEnabled"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            primary_access_key: o.get_field("primaryAccessKey"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_access_key: o.get_field("secondaryAccessKey"),
+            tags: o.get_field("tags"),
         }
     }
 }

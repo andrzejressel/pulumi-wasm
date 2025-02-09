@@ -72,55 +72,45 @@ pub mod custom_domain_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomDomainAssociationArgs,
     ) -> CustomDomainAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_domain_certificate_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let custom_domain_certificate_arn_binding = args
             .custom_domain_certificate_arn
             .get_output(context);
-        let custom_domain_certificate_arn_binding = custom_domain_certificate_arn_binding_1
-            .get_inner();
-        let custom_domain_name_binding_1 = args.custom_domain_name.get_output(context);
-        let custom_domain_name_binding = custom_domain_name_binding_1.get_inner();
-        let workgroup_name_binding_1 = args.workgroup_name.get_output(context);
-        let workgroup_name_binding = workgroup_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let custom_domain_name_binding = args.custom_domain_name.get_output(context);
+        let workgroup_name_binding = args.workgroup_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDomainCertificateArn".into(),
-                    value: &custom_domain_certificate_arn_binding,
+                    value: custom_domain_certificate_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDomainName".into(),
-                    value: &custom_domain_name_binding,
+                    value: custom_domain_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workgroupName".into(),
-                    value: &workgroup_name_binding,
+                    value: workgroup_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomDomainAssociationResult {
-            custom_domain_certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDomainCertificateArn"),
-            ),
-            custom_domain_certificate_expiry_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDomainCertificateExpiryTime"),
-            ),
-            custom_domain_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDomainName"),
-            ),
-            workgroup_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workgroupName"),
-            ),
+            custom_domain_certificate_arn: o.get_field("customDomainCertificateArn"),
+            custom_domain_certificate_expiry_time: o
+                .get_field("customDomainCertificateExpiryTime"),
+            custom_domain_name: o.get_field("customDomainName"),
+            workgroup_name: o.get_field("workgroupName"),
         }
     }
 }

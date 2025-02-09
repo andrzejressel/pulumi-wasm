@@ -81,44 +81,38 @@ pub mod proxy_default_target_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProxyDefaultTargetGroupArgs,
     ) -> ProxyDefaultTargetGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let connection_pool_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let connection_pool_config_binding = args
             .connection_pool_config
             .get_output(context);
-        let connection_pool_config_binding = connection_pool_config_binding_1
-            .get_inner();
-        let db_proxy_name_binding_1 = args.db_proxy_name.get_output(context);
-        let db_proxy_name_binding = db_proxy_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let db_proxy_name_binding = args.db_proxy_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionPoolConfig".into(),
-                    value: &connection_pool_config_binding,
+                    value: connection_pool_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbProxyName".into(),
-                    value: &db_proxy_name_binding,
+                    value: db_proxy_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProxyDefaultTargetGroupResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            connection_pool_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionPoolConfig"),
-            ),
-            db_proxy_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dbProxyName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            arn: o.get_field("arn"),
+            connection_pool_config: o.get_field("connectionPoolConfig"),
+            db_proxy_name: o.get_field("dbProxyName"),
+            name: o.get_field("name"),
         }
     }
 }

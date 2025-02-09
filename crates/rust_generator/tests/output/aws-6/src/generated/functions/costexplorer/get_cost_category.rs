@@ -43,53 +43,40 @@ pub mod get_cost_category {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCostCategoryArgs,
     ) -> GetCostCategoryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cost_category_arn_binding_1 = args.cost_category_arn.get_output(context);
-        let cost_category_arn_binding = cost_category_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cost_category_arn_binding = args.cost_category_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:costexplorer/getCostCategory:getCostCategory".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "costCategoryArn".into(),
-                    value: &cost_category_arn_binding,
+                    value: cost_category_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCostCategoryResult {
-            cost_category_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("costCategoryArn"),
-            ),
-            default_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultValue"),
-            ),
-            effective_end: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveEnd"),
-            ),
-            effective_start: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveStart"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            rule_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleVersion"),
-            ),
-            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
-            split_charge_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("splitChargeRules"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            cost_category_arn: o.get_field("costCategoryArn"),
+            default_value: o.get_field("defaultValue"),
+            effective_end: o.get_field("effectiveEnd"),
+            effective_start: o.get_field("effectiveStart"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            rule_version: o.get_field("ruleVersion"),
+            rules: o.get_field("rules"),
+            split_charge_rules: o.get_field("splitChargeRules"),
+            tags: o.get_field("tags"),
         }
     }
 }

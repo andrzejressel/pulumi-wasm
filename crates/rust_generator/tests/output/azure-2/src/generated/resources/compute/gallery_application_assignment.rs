@@ -129,69 +129,57 @@ pub mod gallery_application_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GalleryApplicationAssignmentArgs,
     ) -> GalleryApplicationAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let configuration_blob_uri_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let configuration_blob_uri_binding = args
             .configuration_blob_uri
             .get_output(context);
-        let configuration_blob_uri_binding = configuration_blob_uri_binding_1
-            .get_inner();
-        let gallery_application_version_id_binding_1 = args
+        let gallery_application_version_id_binding = args
             .gallery_application_version_id
             .get_output(context);
-        let gallery_application_version_id_binding = gallery_application_version_id_binding_1
-            .get_inner();
-        let order_binding_1 = args.order.get_output(context);
-        let order_binding = order_binding_1.get_inner();
-        let tag_binding_1 = args.tag.get_output(context);
-        let tag_binding = tag_binding_1.get_inner();
-        let virtual_machine_id_binding_1 = args.virtual_machine_id.get_output(context);
-        let virtual_machine_id_binding = virtual_machine_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let order_binding = args.order.get_output(context);
+        let tag_binding = args.tag.get_output(context);
+        let virtual_machine_id_binding = args.virtual_machine_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationBlobUri".into(),
-                    value: &configuration_blob_uri_binding,
+                    value: configuration_blob_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "galleryApplicationVersionId".into(),
-                    value: &gallery_application_version_id_binding,
+                    value: gallery_application_version_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "order".into(),
-                    value: &order_binding,
+                    value: order_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tag".into(),
-                    value: &tag_binding,
+                    value: tag_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineId".into(),
-                    value: &virtual_machine_id_binding,
+                    value: virtual_machine_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GalleryApplicationAssignmentResult {
-            configuration_blob_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationBlobUri"),
-            ),
-            gallery_application_version_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("galleryApplicationVersionId"),
-            ),
-            order: pulumi_gestalt_rust::__private::into_domain(o.extract_field("order")),
-            tag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tag")),
-            virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachineId"),
-            ),
+            configuration_blob_uri: o.get_field("configurationBlobUri"),
+            gallery_application_version_id: o.get_field("galleryApplicationVersionId"),
+            order: o.get_field("order"),
+            tag: o.get_field("tag"),
+            virtual_machine_id: o.get_field("virtualMachineId"),
         }
     }
 }

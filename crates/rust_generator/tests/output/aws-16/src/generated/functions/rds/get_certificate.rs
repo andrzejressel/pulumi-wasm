@@ -35,54 +35,39 @@ pub mod get_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCertificateArgs,
     ) -> GetCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let latest_valid_till_binding_1 = args.latest_valid_till.get_output(context);
-        let latest_valid_till_binding = latest_valid_till_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let id_binding = args.id.get_output(context);
+        let latest_valid_till_binding = args.latest_valid_till.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:rds/getCertificate:getCertificate".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "latestValidTill".into(),
-                    value: &latest_valid_till_binding,
+                    value: latest_valid_till_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCertificateResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            certificate_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateType"),
-            ),
-            customer_override: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerOverride"),
-            ),
-            customer_override_valid_till: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerOverrideValidTill"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            latest_valid_till: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latestValidTill"),
-            ),
-            thumbprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thumbprint"),
-            ),
-            valid_from: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validFrom"),
-            ),
-            valid_till: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validTill"),
-            ),
+            arn: o.get_field("arn"),
+            certificate_type: o.get_field("certificateType"),
+            customer_override: o.get_field("customerOverride"),
+            customer_override_valid_till: o.get_field("customerOverrideValidTill"),
+            id: o.get_field("id"),
+            latest_valid_till: o.get_field("latestValidTill"),
+            thumbprint: o.get_field("thumbprint"),
+            valid_from: o.get_field("validFrom"),
+            valid_till: o.get_field("validTill"),
         }
     }
 }

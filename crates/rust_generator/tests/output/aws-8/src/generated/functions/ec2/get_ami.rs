@@ -144,168 +144,94 @@ pub mod get_ami {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAmiArgs,
     ) -> GetAmiResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let executable_users_binding_1 = args.executable_users.get_output(context);
-        let executable_users_binding = executable_users_binding_1.get_inner();
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let include_deprecated_binding_1 = args.include_deprecated.get_output(context);
-        let include_deprecated_binding = include_deprecated_binding_1.get_inner();
-        let most_recent_binding_1 = args.most_recent.get_output(context);
-        let most_recent_binding = most_recent_binding_1.get_inner();
-        let name_regex_binding_1 = args.name_regex.get_output(context);
-        let name_regex_binding = name_regex_binding_1.get_inner();
-        let owners_binding_1 = args.owners.get_output(context);
-        let owners_binding = owners_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let executable_users_binding = args.executable_users.get_output(context);
+        let filters_binding = args.filters.get_output(context);
+        let include_deprecated_binding = args.include_deprecated.get_output(context);
+        let most_recent_binding = args.most_recent.get_output(context);
+        let name_regex_binding = args.name_regex.get_output(context);
+        let owners_binding = args.owners.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getAmi:getAmi".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executableUsers".into(),
-                    value: &executable_users_binding,
+                    value: executable_users_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeDeprecated".into(),
-                    value: &include_deprecated_binding,
+                    value: include_deprecated_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mostRecent".into(),
-                    value: &most_recent_binding,
+                    value: most_recent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nameRegex".into(),
-                    value: &name_regex_binding,
+                    value: name_regex_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "owners".into(),
-                    value: &owners_binding,
+                    value: owners_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAmiResult {
-            architecture: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("architecture"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            block_device_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blockDeviceMappings"),
-            ),
-            boot_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bootMode"),
-            ),
-            creation_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationDate"),
-            ),
-            deprecation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deprecationTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            ena_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enaSupport"),
-            ),
-            executable_users: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executableUsers"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            hypervisor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hypervisor"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            image_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageId"),
-            ),
-            image_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageLocation"),
-            ),
-            image_owner_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageOwnerAlias"),
-            ),
-            image_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageType"),
-            ),
-            imds_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imdsSupport"),
-            ),
-            include_deprecated: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeDeprecated"),
-            ),
-            kernel_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kernelId"),
-            ),
-            most_recent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mostRecent"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_regex: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nameRegex"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            owners: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("owners"),
-            ),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            platform_details: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformDetails"),
-            ),
-            product_codes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("productCodes"),
-            ),
-            public: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("public"),
-            ),
-            ramdisk_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ramdiskId"),
-            ),
-            root_device_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootDeviceName"),
-            ),
-            root_device_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootDeviceType"),
-            ),
-            root_snapshot_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootSnapshotId"),
-            ),
-            sriov_net_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sriovNetSupport"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateReason"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tpm_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tpmSupport"),
-            ),
-            usage_operation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usageOperation"),
-            ),
-            virtualization_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualizationType"),
-            ),
+            architecture: o.get_field("architecture"),
+            arn: o.get_field("arn"),
+            block_device_mappings: o.get_field("blockDeviceMappings"),
+            boot_mode: o.get_field("bootMode"),
+            creation_date: o.get_field("creationDate"),
+            deprecation_time: o.get_field("deprecationTime"),
+            description: o.get_field("description"),
+            ena_support: o.get_field("enaSupport"),
+            executable_users: o.get_field("executableUsers"),
+            filters: o.get_field("filters"),
+            hypervisor: o.get_field("hypervisor"),
+            id: o.get_field("id"),
+            image_id: o.get_field("imageId"),
+            image_location: o.get_field("imageLocation"),
+            image_owner_alias: o.get_field("imageOwnerAlias"),
+            image_type: o.get_field("imageType"),
+            imds_support: o.get_field("imdsSupport"),
+            include_deprecated: o.get_field("includeDeprecated"),
+            kernel_id: o.get_field("kernelId"),
+            most_recent: o.get_field("mostRecent"),
+            name: o.get_field("name"),
+            name_regex: o.get_field("nameRegex"),
+            owner_id: o.get_field("ownerId"),
+            owners: o.get_field("owners"),
+            platform: o.get_field("platform"),
+            platform_details: o.get_field("platformDetails"),
+            product_codes: o.get_field("productCodes"),
+            public: o.get_field("public"),
+            ramdisk_id: o.get_field("ramdiskId"),
+            root_device_name: o.get_field("rootDeviceName"),
+            root_device_type: o.get_field("rootDeviceType"),
+            root_snapshot_id: o.get_field("rootSnapshotId"),
+            sriov_net_support: o.get_field("sriovNetSupport"),
+            state: o.get_field("state"),
+            state_reason: o.get_field("stateReason"),
+            tags: o.get_field("tags"),
+            tpm_support: o.get_field("tpmSupport"),
+            usage_operation: o.get_field("usageOperation"),
+            virtualization_type: o.get_field("virtualizationType"),
         }
     }
 }

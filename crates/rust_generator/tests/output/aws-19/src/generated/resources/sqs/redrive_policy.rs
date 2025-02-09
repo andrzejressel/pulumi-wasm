@@ -65,39 +65,34 @@ pub mod redrive_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RedrivePolicyArgs,
     ) -> RedrivePolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let queue_url_binding_1 = args.queue_url.get_output(context);
-        let queue_url_binding = queue_url_binding_1.get_inner();
-        let redrive_policy_binding_1 = args.redrive_policy.get_output(context);
-        let redrive_policy_binding = redrive_policy_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let queue_url_binding = args.queue_url.get_output(context);
+        let redrive_policy_binding = args.redrive_policy.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sqs/redrivePolicy:RedrivePolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueUrl".into(),
-                    value: &queue_url_binding,
+                    value: queue_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redrivePolicy".into(),
-                    value: &redrive_policy_binding,
+                    value: redrive_policy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RedrivePolicyResult {
-            queue_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queueUrl"),
-            ),
-            redrive_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redrivePolicy"),
-            ),
+            queue_url: o.get_field("queueUrl"),
+            redrive_policy: o.get_field("redrivePolicy"),
         }
     }
 }

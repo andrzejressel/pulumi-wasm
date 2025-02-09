@@ -1,18 +1,14 @@
 use crate::Output;
-use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::output_interface;
+use pulumi_gestalt_rust_adapter::GestaltOutput;
 use serde::Serialize;
-use std::ops::Deref;
 
 macro_rules! impl_combine {
     ($($func_name:ident => ($($var_lower:ident : $var_upper:ident),+)),+) => {
         $(
             #[allow(clippy::too_many_arguments)]
-            pub fn $func_name<A, $($var_upper),+>(a: Output<A>, $($var_lower: Output<$var_upper>),+) -> Output<($($var_upper),+)>
-            where $($var_upper: Serialize),+ {
-                let output_id = output_interface::combine(
-                    &[$($var_lower.get_inner().deref()),+],
-                );
-                unsafe { Output::<($($var_upper),+)>::new_from_handle(output_id) }
+            pub fn $func_name<A, $($var_upper),+>(a: crate::Output<A>, $($var_lower: crate::Output<$var_upper>),+) -> Output<(A, $($var_upper),+)>
+            where A: Serialize, $($var_upper: Serialize),+ {
+                a.combine::<(A, $($var_upper),+)>(&[$($var_lower.get_id()),+])
             }
         )+
     };

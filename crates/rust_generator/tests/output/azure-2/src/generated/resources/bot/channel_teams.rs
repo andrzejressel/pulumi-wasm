@@ -87,78 +87,60 @@ pub mod channel_teams {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ChannelTeamsArgs,
     ) -> ChannelTeamsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_name_binding_1 = args.bot_name.get_output(context);
-        let bot_name_binding = bot_name_binding_1.get_inner();
-        let calling_web_hook_binding_1 = args.calling_web_hook.get_output(context);
-        let calling_web_hook_binding = calling_web_hook_binding_1.get_inner();
-        let deployment_environment_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bot_name_binding = args.bot_name.get_output(context);
+        let calling_web_hook_binding = args.calling_web_hook.get_output(context);
+        let deployment_environment_binding = args
             .deployment_environment
             .get_output(context);
-        let deployment_environment_binding = deployment_environment_binding_1
-            .get_inner();
-        let enable_calling_binding_1 = args.enable_calling.get_output(context);
-        let enable_calling_binding = enable_calling_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let enable_calling_binding = args.enable_calling.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:bot/channelTeams:ChannelTeams".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botName".into(),
-                    value: &bot_name_binding,
+                    value: bot_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "callingWebHook".into(),
-                    value: &calling_web_hook_binding,
+                    value: calling_web_hook_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentEnvironment".into(),
-                    value: &deployment_environment_binding,
+                    value: deployment_environment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableCalling".into(),
-                    value: &enable_calling_binding,
+                    value: enable_calling_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ChannelTeamsResult {
-            bot_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botName"),
-            ),
-            calling_web_hook: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("callingWebHook"),
-            ),
-            deployment_environment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentEnvironment"),
-            ),
-            enable_calling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableCalling"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            bot_name: o.get_field("botName"),
+            calling_web_hook: o.get_field("callingWebHook"),
+            deployment_environment: o.get_field("deploymentEnvironment"),
+            enable_calling: o.get_field("enableCalling"),
+            location: o.get_field("location"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

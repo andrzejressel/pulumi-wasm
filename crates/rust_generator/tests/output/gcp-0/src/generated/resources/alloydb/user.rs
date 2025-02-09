@@ -213,67 +213,53 @@ pub mod user {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserArgs,
     ) -> UserResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cluster_binding_1 = args.cluster.get_output(context);
-        let cluster_binding = cluster_binding_1.get_inner();
-        let database_roles_binding_1 = args.database_roles.get_output(context);
-        let database_roles_binding = database_roles_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let user_id_binding_1 = args.user_id.get_output(context);
-        let user_id_binding = user_id_binding_1.get_inner();
-        let user_type_binding_1 = args.user_type.get_output(context);
-        let user_type_binding = user_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cluster_binding = args.cluster.get_output(context);
+        let database_roles_binding = args.database_roles.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let user_id_binding = args.user_id.get_output(context);
+        let user_type_binding = args.user_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:alloydb/user:User".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cluster".into(),
-                    value: &cluster_binding,
+                    value: cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseRoles".into(),
-                    value: &database_roles_binding,
+                    value: database_roles_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userId".into(),
-                    value: &user_id_binding,
+                    value: user_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userType".into(),
-                    value: &user_type_binding,
+                    value: user_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserResult {
-            cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cluster"),
-            ),
-            database_roles: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseRoles"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            user_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userId"),
-            ),
-            user_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userType"),
-            ),
+            cluster: o.get_field("cluster"),
+            database_roles: o.get_field("databaseRoles"),
+            name: o.get_field("name"),
+            password: o.get_field("password"),
+            user_id: o.get_field("userId"),
+            user_type: o.get_field("userType"),
         }
     }
 }

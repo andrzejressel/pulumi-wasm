@@ -59,49 +59,41 @@ pub mod query_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: QueryDefinitionArgs,
     ) -> QueryDefinitionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let log_group_names_binding_1 = args.log_group_names.get_output(context);
-        let log_group_names_binding = log_group_names_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let query_string_binding_1 = args.query_string.get_output(context);
-        let query_string_binding = query_string_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let log_group_names_binding = args.log_group_names.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let query_string_binding = args.query_string.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudwatch/queryDefinition:QueryDefinition".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logGroupNames".into(),
-                    value: &log_group_names_binding,
+                    value: log_group_names_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryString".into(),
-                    value: &query_string_binding,
+                    value: query_string_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         QueryDefinitionResult {
-            log_group_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logGroupNames"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            query_definition_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryDefinitionId"),
-            ),
-            query_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queryString"),
-            ),
+            log_group_names: o.get_field("logGroupNames"),
+            name: o.get_field("name"),
+            query_definition_id: o.get_field("queryDefinitionId"),
+            query_string: o.get_field("queryString"),
         }
     }
 }

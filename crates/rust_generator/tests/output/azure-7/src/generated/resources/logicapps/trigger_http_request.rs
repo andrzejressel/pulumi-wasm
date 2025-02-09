@@ -93,67 +93,53 @@ pub mod trigger_http_request {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TriggerHttpRequestArgs,
     ) -> TriggerHttpRequestResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let logic_app_id_binding_1 = args.logic_app_id.get_output(context);
-        let logic_app_id_binding = logic_app_id_binding_1.get_inner();
-        let method_binding_1 = args.method.get_output(context);
-        let method_binding = method_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let relative_path_binding_1 = args.relative_path.get_output(context);
-        let relative_path_binding = relative_path_binding_1.get_inner();
-        let schema_binding_1 = args.schema.get_output(context);
-        let schema_binding = schema_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let logic_app_id_binding = args.logic_app_id.get_output(context);
+        let method_binding = args.method.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let relative_path_binding = args.relative_path.get_output(context);
+        let schema_binding = args.schema.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:logicapps/triggerHttpRequest:TriggerHttpRequest".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logicAppId".into(),
-                    value: &logic_app_id_binding,
+                    value: logic_app_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "method".into(),
-                    value: &method_binding,
+                    value: method_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "relativePath".into(),
-                    value: &relative_path_binding,
+                    value: relative_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schema".into(),
-                    value: &schema_binding,
+                    value: schema_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TriggerHttpRequestResult {
-            callback_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("callbackUrl"),
-            ),
-            logic_app_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logicAppId"),
-            ),
-            method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("method"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            relative_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("relativePath"),
-            ),
-            schema: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schema"),
-            ),
+            callback_url: o.get_field("callbackUrl"),
+            logic_app_id: o.get_field("logicAppId"),
+            method: o.get_field("method"),
+            name: o.get_field("name"),
+            relative_path: o.get_field("relativePath"),
+            schema: o.get_field("schema"),
         }
     }
 }

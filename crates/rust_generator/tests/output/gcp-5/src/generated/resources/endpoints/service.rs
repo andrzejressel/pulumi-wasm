@@ -102,78 +102,56 @@ pub mod service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ServiceArgs,
     ) -> ServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let grpc_config_binding_1 = args.grpc_config.get_output(context);
-        let grpc_config_binding = grpc_config_binding_1.get_inner();
-        let openapi_config_binding_1 = args.openapi_config.get_output(context);
-        let openapi_config_binding = openapi_config_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let protoc_output_base64_binding_1 = args
-            .protoc_output_base64
-            .get_output(context);
-        let protoc_output_base64_binding = protoc_output_base64_binding_1.get_inner();
-        let service_name_binding_1 = args.service_name.get_output(context);
-        let service_name_binding = service_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let grpc_config_binding = args.grpc_config.get_output(context);
+        let openapi_config_binding = args.openapi_config.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let protoc_output_base64_binding = args.protoc_output_base64.get_output(context);
+        let service_name_binding = args.service_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:endpoints/service:Service".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grpcConfig".into(),
-                    value: &grpc_config_binding,
+                    value: grpc_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "openapiConfig".into(),
-                    value: &openapi_config_binding,
+                    value: openapi_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocOutputBase64".into(),
-                    value: &protoc_output_base64_binding,
+                    value: protoc_output_base64_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: &service_name_binding,
+                    value: service_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ServiceResult {
-            apis: pulumi_gestalt_rust::__private::into_domain(o.extract_field("apis")),
-            config_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configId"),
-            ),
-            dns_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsAddress"),
-            ),
-            endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoints"),
-            ),
-            grpc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grpcConfig"),
-            ),
-            openapi_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("openapiConfig"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            protoc_output_base64: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocOutputBase64"),
-            ),
-            service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceName"),
-            ),
+            apis: o.get_field("apis"),
+            config_id: o.get_field("configId"),
+            dns_address: o.get_field("dnsAddress"),
+            endpoints: o.get_field("endpoints"),
+            grpc_config: o.get_field("grpcConfig"),
+            openapi_config: o.get_field("openapiConfig"),
+            project: o.get_field("project"),
+            protoc_output_base64: o.get_field("protocOutputBase64"),
+            service_name: o.get_field("serviceName"),
         }
     }
 }

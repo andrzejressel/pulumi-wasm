@@ -211,194 +211,137 @@ pub mod load_balancer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: LoadBalancerArgs,
     ) -> LoadBalancerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_logs_binding_1 = args.access_logs.get_output(context);
-        let access_logs_binding = access_logs_binding_1.get_inner();
-        let availability_zones_binding_1 = args.availability_zones.get_output(context);
-        let availability_zones_binding = availability_zones_binding_1.get_inner();
-        let connection_draining_binding_1 = args.connection_draining.get_output(context);
-        let connection_draining_binding = connection_draining_binding_1.get_inner();
-        let connection_draining_timeout_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_logs_binding = args.access_logs.get_output(context);
+        let availability_zones_binding = args.availability_zones.get_output(context);
+        let connection_draining_binding = args.connection_draining.get_output(context);
+        let connection_draining_timeout_binding = args
             .connection_draining_timeout
             .get_output(context);
-        let connection_draining_timeout_binding = connection_draining_timeout_binding_1
-            .get_inner();
-        let cross_zone_load_balancing_binding_1 = args
+        let cross_zone_load_balancing_binding = args
             .cross_zone_load_balancing
             .get_output(context);
-        let cross_zone_load_balancing_binding = cross_zone_load_balancing_binding_1
-            .get_inner();
-        let desync_mitigation_mode_binding_1 = args
+        let desync_mitigation_mode_binding = args
             .desync_mitigation_mode
             .get_output(context);
-        let desync_mitigation_mode_binding = desync_mitigation_mode_binding_1
-            .get_inner();
-        let health_check_binding_1 = args.health_check.get_output(context);
-        let health_check_binding = health_check_binding_1.get_inner();
-        let idle_timeout_binding_1 = args.idle_timeout.get_output(context);
-        let idle_timeout_binding = idle_timeout_binding_1.get_inner();
-        let instances_binding_1 = args.instances.get_output(context);
-        let instances_binding = instances_binding_1.get_inner();
-        let internal_binding_1 = args.internal.get_output(context);
-        let internal_binding = internal_binding_1.get_inner();
-        let listeners_binding_1 = args.listeners.get_output(context);
-        let listeners_binding = listeners_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let name_prefix_binding_1 = args.name_prefix.get_output(context);
-        let name_prefix_binding = name_prefix_binding_1.get_inner();
-        let security_groups_binding_1 = args.security_groups.get_output(context);
-        let security_groups_binding = security_groups_binding_1.get_inner();
-        let source_security_group_binding_1 = args
+        let health_check_binding = args.health_check.get_output(context);
+        let idle_timeout_binding = args.idle_timeout.get_output(context);
+        let instances_binding = args.instances.get_output(context);
+        let internal_binding = args.internal.get_output(context);
+        let listeners_binding = args.listeners.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let name_prefix_binding = args.name_prefix.get_output(context);
+        let security_groups_binding = args.security_groups.get_output(context);
+        let source_security_group_binding = args
             .source_security_group
             .get_output(context);
-        let source_security_group_binding = source_security_group_binding_1.get_inner();
-        let subnets_binding_1 = args.subnets.get_output(context);
-        let subnets_binding = subnets_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let subnets_binding = args.subnets.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:elb/loadBalancer:LoadBalancer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessLogs".into(),
-                    value: &access_logs_binding,
+                    value: access_logs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZones".into(),
-                    value: &availability_zones_binding,
+                    value: availability_zones_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionDraining".into(),
-                    value: &connection_draining_binding,
+                    value: connection_draining_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionDrainingTimeout".into(),
-                    value: &connection_draining_timeout_binding,
+                    value: connection_draining_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "crossZoneLoadBalancing".into(),
-                    value: &cross_zone_load_balancing_binding,
+                    value: cross_zone_load_balancing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desyncMitigationMode".into(),
-                    value: &desync_mitigation_mode_binding,
+                    value: desync_mitigation_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheck".into(),
-                    value: &health_check_binding,
+                    value: health_check_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleTimeout".into(),
-                    value: &idle_timeout_binding,
+                    value: idle_timeout_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instances".into(),
-                    value: &instances_binding,
+                    value: instances_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internal".into(),
-                    value: &internal_binding,
+                    value: internal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listeners".into(),
-                    value: &listeners_binding,
+                    value: listeners_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: &name_prefix_binding,
+                    value: name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroups".into(),
-                    value: &security_groups_binding,
+                    value: security_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceSecurityGroup".into(),
-                    value: &source_security_group_binding,
+                    value: source_security_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnets".into(),
-                    value: &subnets_binding,
+                    value: subnets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         LoadBalancerResult {
-            access_logs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessLogs"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZones"),
-            ),
-            connection_draining: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionDraining"),
-            ),
-            connection_draining_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionDrainingTimeout"),
-            ),
-            cross_zone_load_balancing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("crossZoneLoadBalancing"),
-            ),
-            desync_mitigation_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("desyncMitigationMode"),
-            ),
-            dns_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsName"),
-            ),
-            health_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("healthCheck"),
-            ),
-            idle_timeout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleTimeout"),
-            ),
-            instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instances"),
-            ),
-            internal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("internal"),
-            ),
-            listeners: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("listeners"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namePrefix"),
-            ),
-            security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroups"),
-            ),
-            source_security_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceSecurityGroup"),
-            ),
-            source_security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceSecurityGroupId"),
-            ),
-            subnets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnets"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            access_logs: o.get_field("accessLogs"),
+            arn: o.get_field("arn"),
+            availability_zones: o.get_field("availabilityZones"),
+            connection_draining: o.get_field("connectionDraining"),
+            connection_draining_timeout: o.get_field("connectionDrainingTimeout"),
+            cross_zone_load_balancing: o.get_field("crossZoneLoadBalancing"),
+            desync_mitigation_mode: o.get_field("desyncMitigationMode"),
+            dns_name: o.get_field("dnsName"),
+            health_check: o.get_field("healthCheck"),
+            idle_timeout: o.get_field("idleTimeout"),
+            instances: o.get_field("instances"),
+            internal: o.get_field("internal"),
+            listeners: o.get_field("listeners"),
+            name: o.get_field("name"),
+            name_prefix: o.get_field("namePrefix"),
+            security_groups: o.get_field("securityGroups"),
+            source_security_group: o.get_field("sourceSecurityGroup"),
+            source_security_group_id: o.get_field("sourceSecurityGroupId"),
+            subnets: o.get_field("subnets"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

@@ -135,78 +135,60 @@ pub mod deployment_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: DeploymentConfigArgs,
     ) -> DeploymentConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compute_platform_binding_1 = args.compute_platform.get_output(context);
-        let compute_platform_binding = compute_platform_binding_1.get_inner();
-        let deployment_config_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let compute_platform_binding = args.compute_platform.get_output(context);
+        let deployment_config_name_binding = args
             .deployment_config_name
             .get_output(context);
-        let deployment_config_name_binding = deployment_config_name_binding_1
-            .get_inner();
-        let minimum_healthy_hosts_binding_1 = args
+        let minimum_healthy_hosts_binding = args
             .minimum_healthy_hosts
             .get_output(context);
-        let minimum_healthy_hosts_binding = minimum_healthy_hosts_binding_1.get_inner();
-        let traffic_routing_config_binding_1 = args
+        let traffic_routing_config_binding = args
             .traffic_routing_config
             .get_output(context);
-        let traffic_routing_config_binding = traffic_routing_config_binding_1
-            .get_inner();
-        let zonal_config_binding_1 = args.zonal_config.get_output(context);
-        let zonal_config_binding = zonal_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let zonal_config_binding = args.zonal_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:codedeploy/deploymentConfig:DeploymentConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computePlatform".into(),
-                    value: &compute_platform_binding,
+                    value: compute_platform_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentConfigName".into(),
-                    value: &deployment_config_name_binding,
+                    value: deployment_config_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumHealthyHosts".into(),
-                    value: &minimum_healthy_hosts_binding,
+                    value: minimum_healthy_hosts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficRoutingConfig".into(),
-                    value: &traffic_routing_config_binding,
+                    value: traffic_routing_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zonalConfig".into(),
-                    value: &zonal_config_binding,
+                    value: zonal_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         DeploymentConfigResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            compute_platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computePlatform"),
-            ),
-            deployment_config_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentConfigId"),
-            ),
-            deployment_config_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentConfigName"),
-            ),
-            minimum_healthy_hosts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumHealthyHosts"),
-            ),
-            traffic_routing_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trafficRoutingConfig"),
-            ),
-            zonal_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zonalConfig"),
-            ),
+            arn: o.get_field("arn"),
+            compute_platform: o.get_field("computePlatform"),
+            deployment_config_id: o.get_field("deploymentConfigId"),
+            deployment_config_name: o.get_field("deploymentConfigName"),
+            minimum_healthy_hosts: o.get_field("minimumHealthyHosts"),
+            traffic_routing_config: o.get_field("trafficRoutingConfig"),
+            zonal_config: o.get_field("zonalConfig"),
         }
     }
 }

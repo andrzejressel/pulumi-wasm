@@ -132,103 +132,78 @@ pub mod outbound_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OutboundRuleArgs,
     ) -> OutboundRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let allocated_outbound_ports_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let allocated_outbound_ports_binding = args
             .allocated_outbound_ports
             .get_output(context);
-        let allocated_outbound_ports_binding = allocated_outbound_ports_binding_1
-            .get_inner();
-        let backend_address_pool_id_binding_1 = args
+        let backend_address_pool_id_binding = args
             .backend_address_pool_id
             .get_output(context);
-        let backend_address_pool_id_binding = backend_address_pool_id_binding_1
-            .get_inner();
-        let enable_tcp_reset_binding_1 = args.enable_tcp_reset.get_output(context);
-        let enable_tcp_reset_binding = enable_tcp_reset_binding_1.get_inner();
-        let frontend_ip_configurations_binding_1 = args
+        let enable_tcp_reset_binding = args.enable_tcp_reset.get_output(context);
+        let frontend_ip_configurations_binding = args
             .frontend_ip_configurations
             .get_output(context);
-        let frontend_ip_configurations_binding = frontend_ip_configurations_binding_1
-            .get_inner();
-        let idle_timeout_in_minutes_binding_1 = args
+        let idle_timeout_in_minutes_binding = args
             .idle_timeout_in_minutes
             .get_output(context);
-        let idle_timeout_in_minutes_binding = idle_timeout_in_minutes_binding_1
-            .get_inner();
-        let loadbalancer_id_binding_1 = args.loadbalancer_id.get_output(context);
-        let loadbalancer_id_binding = loadbalancer_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let protocol_binding_1 = args.protocol.get_output(context);
-        let protocol_binding = protocol_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let loadbalancer_id_binding = args.loadbalancer_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let protocol_binding = args.protocol.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:lb/outboundRule:OutboundRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocatedOutboundPorts".into(),
-                    value: &allocated_outbound_ports_binding,
+                    value: allocated_outbound_ports_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendAddressPoolId".into(),
-                    value: &backend_address_pool_id_binding,
+                    value: backend_address_pool_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableTcpReset".into(),
-                    value: &enable_tcp_reset_binding,
+                    value: enable_tcp_reset_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendIpConfigurations".into(),
-                    value: &frontend_ip_configurations_binding,
+                    value: frontend_ip_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleTimeoutInMinutes".into(),
-                    value: &idle_timeout_in_minutes_binding,
+                    value: idle_timeout_in_minutes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadbalancerId".into(),
-                    value: &loadbalancer_id_binding,
+                    value: loadbalancer_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: &protocol_binding,
+                    value: protocol_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OutboundRuleResult {
-            allocated_outbound_ports: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allocatedOutboundPorts"),
-            ),
-            backend_address_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backendAddressPoolId"),
-            ),
-            enable_tcp_reset: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableTcpReset"),
-            ),
-            frontend_ip_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendIpConfigurations"),
-            ),
-            idle_timeout_in_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idleTimeoutInMinutes"),
-            ),
-            loadbalancer_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadbalancerId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protocol"),
-            ),
+            allocated_outbound_ports: o.get_field("allocatedOutboundPorts"),
+            backend_address_pool_id: o.get_field("backendAddressPoolId"),
+            enable_tcp_reset: o.get_field("enableTcpReset"),
+            frontend_ip_configurations: o.get_field("frontendIpConfigurations"),
+            idle_timeout_in_minutes: o.get_field("idleTimeoutInMinutes"),
+            loadbalancer_id: o.get_field("loadbalancerId"),
+            name: o.get_field("name"),
+            protocol: o.get_field("protocol"),
         }
     }
 }

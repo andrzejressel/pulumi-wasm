@@ -123,81 +123,62 @@ pub mod phone_number {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PhoneNumberArgs,
     ) -> PhoneNumberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let country_code_binding_1 = args.country_code.get_output(context);
-        let country_code_binding = country_code_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let prefix_binding_1 = args.prefix.get_output(context);
-        let prefix_binding = prefix_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_arn_binding_1 = args.target_arn.get_output(context);
-        let target_arn_binding = target_arn_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let country_code_binding = args.country_code.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let prefix_binding = args.prefix.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_arn_binding = args.target_arn.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:connect/phoneNumber:PhoneNumber".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "countryCode".into(),
-                    value: &country_code_binding,
+                    value: country_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefix".into(),
-                    value: &prefix_binding,
+                    value: prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetArn".into(),
-                    value: &target_arn_binding,
+                    value: target_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PhoneNumberResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            country_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("countryCode"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            phone_number: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("phoneNumber"),
-            ),
-            prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefix"),
-            ),
-            statuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statuses"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetArn"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            arn: o.get_field("arn"),
+            country_code: o.get_field("countryCode"),
+            description: o.get_field("description"),
+            phone_number: o.get_field("phoneNumber"),
+            prefix: o.get_field("prefix"),
+            statuses: o.get_field("statuses"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_arn: o.get_field("targetArn"),
+            type_: o.get_field("type"),
         }
     }
 }

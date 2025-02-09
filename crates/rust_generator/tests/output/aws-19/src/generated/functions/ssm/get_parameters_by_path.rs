@@ -35,51 +35,43 @@ pub mod get_parameters_by_path {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetParametersByPathArgs,
     ) -> GetParametersByPathResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let path_binding_1 = args.path.get_output(context);
-        let path_binding = path_binding_1.get_inner();
-        let recursive_binding_1 = args.recursive.get_output(context);
-        let recursive_binding = recursive_binding_1.get_inner();
-        let with_decryption_binding_1 = args.with_decryption.get_output(context);
-        let with_decryption_binding = with_decryption_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let path_binding = args.path.get_output(context);
+        let recursive_binding = args.recursive.get_output(context);
+        let with_decryption_binding = args.with_decryption.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ssm/getParametersByPath:getParametersByPath".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: &path_binding,
+                    value: path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recursive".into(),
-                    value: &recursive_binding,
+                    value: recursive_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "withDecryption".into(),
-                    value: &with_decryption_binding,
+                    value: with_decryption_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetParametersByPathResult {
-            arns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arns")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            names: pulumi_gestalt_rust::__private::into_domain(o.extract_field("names")),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            recursive: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recursive"),
-            ),
-            types: pulumi_gestalt_rust::__private::into_domain(o.extract_field("types")),
-            values: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("values"),
-            ),
-            with_decryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("withDecryption"),
-            ),
+            arns: o.get_field("arns"),
+            id: o.get_field("id"),
+            names: o.get_field("names"),
+            path: o.get_field("path"),
+            recursive: o.get_field("recursive"),
+            types: o.get_field("types"),
+            values: o.get_field("values"),
+            with_decryption: o.get_field("withDecryption"),
         }
     }
 }

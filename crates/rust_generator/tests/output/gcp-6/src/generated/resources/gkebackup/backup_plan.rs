@@ -652,124 +652,89 @@ pub mod backup_plan {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BackupPlanArgs,
     ) -> BackupPlanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let backup_config_binding_1 = args.backup_config.get_output(context);
-        let backup_config_binding = backup_config_binding_1.get_inner();
-        let backup_schedule_binding_1 = args.backup_schedule.get_output(context);
-        let backup_schedule_binding = backup_schedule_binding_1.get_inner();
-        let cluster_binding_1 = args.cluster.get_output(context);
-        let cluster_binding = cluster_binding_1.get_inner();
-        let deactivated_binding_1 = args.deactivated.get_output(context);
-        let deactivated_binding = deactivated_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let retention_policy_binding_1 = args.retention_policy.get_output(context);
-        let retention_policy_binding = retention_policy_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let backup_config_binding = args.backup_config.get_output(context);
+        let backup_schedule_binding = args.backup_schedule.get_output(context);
+        let cluster_binding = args.cluster.get_output(context);
+        let deactivated_binding = args.deactivated.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let retention_policy_binding = args.retention_policy.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:gkebackup/backupPlan:BackupPlan".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupConfig".into(),
-                    value: &backup_config_binding,
+                    value: backup_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupSchedule".into(),
-                    value: &backup_schedule_binding,
+                    value: backup_schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cluster".into(),
-                    value: &cluster_binding,
+                    value: cluster_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deactivated".into(),
-                    value: &deactivated_binding,
+                    value: deactivated_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPolicy".into(),
-                    value: &retention_policy_binding,
+                    value: retention_policy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BackupPlanResult {
-            backup_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupConfig"),
-            ),
-            backup_schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backupSchedule"),
-            ),
-            cluster: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cluster"),
-            ),
-            deactivated: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deactivated"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            protected_pod_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectedPodCount"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            retention_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retentionPolicy"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateReason"),
-            ),
-            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            backup_config: o.get_field("backupConfig"),
+            backup_schedule: o.get_field("backupSchedule"),
+            cluster: o.get_field("cluster"),
+            deactivated: o.get_field("deactivated"),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            etag: o.get_field("etag"),
+            labels: o.get_field("labels"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            project: o.get_field("project"),
+            protected_pod_count: o.get_field("protectedPodCount"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            retention_policy: o.get_field("retentionPolicy"),
+            state: o.get_field("state"),
+            state_reason: o.get_field("stateReason"),
+            uid: o.get_field("uid"),
         }
     }
 }

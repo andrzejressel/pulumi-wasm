@@ -134,135 +134,93 @@ pub mod environment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EnvironmentArgs,
     ) -> EnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_identifier_binding_1 = args.account_identifier.get_output(context);
-        let account_identifier_binding = account_identifier_binding_1.get_inner();
-        let account_region_binding_1 = args.account_region.get_output(context);
-        let account_region_binding = account_region_binding_1.get_inner();
-        let blueprint_identifier_binding_1 = args
-            .blueprint_identifier
-            .get_output(context);
-        let blueprint_identifier_binding = blueprint_identifier_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let domain_identifier_binding_1 = args.domain_identifier.get_output(context);
-        let domain_identifier_binding = domain_identifier_binding_1.get_inner();
-        let glossary_terms_binding_1 = args.glossary_terms.get_output(context);
-        let glossary_terms_binding = glossary_terms_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let profile_identifier_binding_1 = args.profile_identifier.get_output(context);
-        let profile_identifier_binding = profile_identifier_binding_1.get_inner();
-        let project_identifier_binding_1 = args.project_identifier.get_output(context);
-        let project_identifier_binding = project_identifier_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let user_parameters_binding_1 = args.user_parameters.get_output(context);
-        let user_parameters_binding = user_parameters_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_identifier_binding = args.account_identifier.get_output(context);
+        let account_region_binding = args.account_region.get_output(context);
+        let blueprint_identifier_binding = args.blueprint_identifier.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let domain_identifier_binding = args.domain_identifier.get_output(context);
+        let glossary_terms_binding = args.glossary_terms.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let profile_identifier_binding = args.profile_identifier.get_output(context);
+        let project_identifier_binding = args.project_identifier.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let user_parameters_binding = args.user_parameters.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:datazone/environment:Environment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountIdentifier".into(),
-                    value: &account_identifier_binding,
+                    value: account_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountRegion".into(),
-                    value: &account_region_binding,
+                    value: account_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blueprintIdentifier".into(),
-                    value: &blueprint_identifier_binding,
+                    value: blueprint_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainIdentifier".into(),
-                    value: &domain_identifier_binding,
+                    value: domain_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "glossaryTerms".into(),
-                    value: &glossary_terms_binding,
+                    value: glossary_terms_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileIdentifier".into(),
-                    value: &profile_identifier_binding,
+                    value: profile_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectIdentifier".into(),
-                    value: &project_identifier_binding,
+                    value: project_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userParameters".into(),
-                    value: &user_parameters_binding,
+                    value: user_parameters_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EnvironmentResult {
-            account_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountIdentifier"),
-            ),
-            account_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountRegion"),
-            ),
-            blueprint_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("blueprintIdentifier"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            created_by: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdBy"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            domain_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domainIdentifier"),
-            ),
-            glossary_terms: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("glossaryTerms"),
-            ),
-            last_deployments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastDeployments"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            profile_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("profileIdentifier"),
-            ),
-            project_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectIdentifier"),
-            ),
-            provider_environment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("providerEnvironment"),
-            ),
-            provisioned_resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisionedResources"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            user_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userParameters"),
-            ),
+            account_identifier: o.get_field("accountIdentifier"),
+            account_region: o.get_field("accountRegion"),
+            blueprint_identifier: o.get_field("blueprintIdentifier"),
+            created_at: o.get_field("createdAt"),
+            created_by: o.get_field("createdBy"),
+            description: o.get_field("description"),
+            domain_identifier: o.get_field("domainIdentifier"),
+            glossary_terms: o.get_field("glossaryTerms"),
+            last_deployments: o.get_field("lastDeployments"),
+            name: o.get_field("name"),
+            profile_identifier: o.get_field("profileIdentifier"),
+            project_identifier: o.get_field("projectIdentifier"),
+            provider_environment: o.get_field("providerEnvironment"),
+            provisioned_resources: o.get_field("provisionedResources"),
+            timeouts: o.get_field("timeouts"),
+            user_parameters: o.get_field("userParameters"),
         }
     }
 }

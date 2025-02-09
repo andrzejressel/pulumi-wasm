@@ -294,199 +294,127 @@ pub mod interconnect {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InterconnectArgs,
     ) -> InterconnectResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let admin_enabled_binding_1 = args.admin_enabled.get_output(context);
-        let admin_enabled_binding = admin_enabled_binding_1.get_inner();
-        let customer_name_binding_1 = args.customer_name.get_output(context);
-        let customer_name_binding = customer_name_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let interconnect_type_binding_1 = args.interconnect_type.get_output(context);
-        let interconnect_type_binding = interconnect_type_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let link_type_binding_1 = args.link_type.get_output(context);
-        let link_type_binding = link_type_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let macsec_binding_1 = args.macsec.get_output(context);
-        let macsec_binding = macsec_binding_1.get_inner();
-        let macsec_enabled_binding_1 = args.macsec_enabled.get_output(context);
-        let macsec_enabled_binding = macsec_enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let noc_contact_email_binding_1 = args.noc_contact_email.get_output(context);
-        let noc_contact_email_binding = noc_contact_email_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let remote_location_binding_1 = args.remote_location.get_output(context);
-        let remote_location_binding = remote_location_binding_1.get_inner();
-        let requested_features_binding_1 = args.requested_features.get_output(context);
-        let requested_features_binding = requested_features_binding_1.get_inner();
-        let requested_link_count_binding_1 = args
-            .requested_link_count
-            .get_output(context);
-        let requested_link_count_binding = requested_link_count_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let admin_enabled_binding = args.admin_enabled.get_output(context);
+        let customer_name_binding = args.customer_name.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let interconnect_type_binding = args.interconnect_type.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let link_type_binding = args.link_type.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let macsec_binding = args.macsec.get_output(context);
+        let macsec_enabled_binding = args.macsec_enabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let noc_contact_email_binding = args.noc_contact_email.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let remote_location_binding = args.remote_location.get_output(context);
+        let requested_features_binding = args.requested_features.get_output(context);
+        let requested_link_count_binding = args.requested_link_count.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/interconnect:Interconnect".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminEnabled".into(),
-                    value: &admin_enabled_binding,
+                    value: admin_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerName".into(),
-                    value: &customer_name_binding,
+                    value: customer_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interconnectType".into(),
-                    value: &interconnect_type_binding,
+                    value: interconnect_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkType".into(),
-                    value: &link_type_binding,
+                    value: link_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "macsec".into(),
-                    value: &macsec_binding,
+                    value: macsec_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "macsecEnabled".into(),
-                    value: &macsec_enabled_binding,
+                    value: macsec_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nocContactEmail".into(),
-                    value: &noc_contact_email_binding,
+                    value: noc_contact_email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteLocation".into(),
-                    value: &remote_location_binding,
+                    value: remote_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestedFeatures".into(),
-                    value: &requested_features_binding,
+                    value: requested_features_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestedLinkCount".into(),
-                    value: &requested_link_count_binding,
+                    value: requested_link_count_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InterconnectResult {
-            admin_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("adminEnabled"),
-            ),
-            available_features: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availableFeatures"),
-            ),
-            circuit_infos: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("circuitInfos"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            customer_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerName"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            expected_outages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expectedOutages"),
-            ),
-            google_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("googleIpAddress"),
-            ),
-            google_reference_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("googleReferenceId"),
-            ),
-            interconnect_attachments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interconnectAttachments"),
-            ),
-            interconnect_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interconnectType"),
-            ),
-            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labelFingerprint"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            link_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkType"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            macsec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("macsec"),
-            ),
-            macsec_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("macsecEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            noc_contact_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nocContactEmail"),
-            ),
-            operational_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operationalStatus"),
-            ),
-            peer_ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerIpAddress"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            provisioned_link_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisionedLinkCount"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            remote_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteLocation"),
-            ),
-            requested_features: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestedFeatures"),
-            ),
-            requested_link_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestedLinkCount"),
-            ),
-            satisfies_pzs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("satisfiesPzs"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            admin_enabled: o.get_field("adminEnabled"),
+            available_features: o.get_field("availableFeatures"),
+            circuit_infos: o.get_field("circuitInfos"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            customer_name: o.get_field("customerName"),
+            description: o.get_field("description"),
+            effective_labels: o.get_field("effectiveLabels"),
+            expected_outages: o.get_field("expectedOutages"),
+            google_ip_address: o.get_field("googleIpAddress"),
+            google_reference_id: o.get_field("googleReferenceId"),
+            interconnect_attachments: o.get_field("interconnectAttachments"),
+            interconnect_type: o.get_field("interconnectType"),
+            label_fingerprint: o.get_field("labelFingerprint"),
+            labels: o.get_field("labels"),
+            link_type: o.get_field("linkType"),
+            location: o.get_field("location"),
+            macsec: o.get_field("macsec"),
+            macsec_enabled: o.get_field("macsecEnabled"),
+            name: o.get_field("name"),
+            noc_contact_email: o.get_field("nocContactEmail"),
+            operational_status: o.get_field("operationalStatus"),
+            peer_ip_address: o.get_field("peerIpAddress"),
+            project: o.get_field("project"),
+            provisioned_link_count: o.get_field("provisionedLinkCount"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            remote_location: o.get_field("remoteLocation"),
+            requested_features: o.get_field("requestedFeatures"),
+            requested_link_count: o.get_field("requestedLinkCount"),
+            satisfies_pzs: o.get_field("satisfiesPzs"),
+            state: o.get_field("state"),
         }
     }
 }

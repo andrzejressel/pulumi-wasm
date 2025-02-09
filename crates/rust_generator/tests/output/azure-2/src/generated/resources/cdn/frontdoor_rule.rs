@@ -320,77 +320,61 @@ pub mod frontdoor_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FrontdoorRuleArgs,
     ) -> FrontdoorRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding_1 = args.actions.get_output(context);
-        let actions_binding = actions_binding_1.get_inner();
-        let behavior_on_match_binding_1 = args.behavior_on_match.get_output(context);
-        let behavior_on_match_binding = behavior_on_match_binding_1.get_inner();
-        let cdn_frontdoor_rule_set_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let actions_binding = args.actions.get_output(context);
+        let behavior_on_match_binding = args.behavior_on_match.get_output(context);
+        let cdn_frontdoor_rule_set_id_binding = args
             .cdn_frontdoor_rule_set_id
             .get_output(context);
-        let cdn_frontdoor_rule_set_id_binding = cdn_frontdoor_rule_set_id_binding_1
-            .get_inner();
-        let conditions_binding_1 = args.conditions.get_output(context);
-        let conditions_binding = conditions_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let order_binding_1 = args.order.get_output(context);
-        let order_binding = order_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let conditions_binding = args.conditions.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let order_binding = args.order.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorRule:FrontdoorRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actions".into(),
-                    value: &actions_binding,
+                    value: actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "behaviorOnMatch".into(),
-                    value: &behavior_on_match_binding,
+                    value: behavior_on_match_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorRuleSetId".into(),
-                    value: &cdn_frontdoor_rule_set_id_binding,
+                    value: cdn_frontdoor_rule_set_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conditions".into(),
-                    value: &conditions_binding,
+                    value: conditions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "order".into(),
-                    value: &order_binding,
+                    value: order_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FrontdoorRuleResult {
-            actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actions"),
-            ),
-            behavior_on_match: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("behaviorOnMatch"),
-            ),
-            cdn_frontdoor_rule_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnFrontdoorRuleSetId"),
-            ),
-            cdn_frontdoor_rule_set_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnFrontdoorRuleSetName"),
-            ),
-            conditions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("conditions"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            order: pulumi_gestalt_rust::__private::into_domain(o.extract_field("order")),
+            actions: o.get_field("actions"),
+            behavior_on_match: o.get_field("behaviorOnMatch"),
+            cdn_frontdoor_rule_set_id: o.get_field("cdnFrontdoorRuleSetId"),
+            cdn_frontdoor_rule_set_name: o.get_field("cdnFrontdoorRuleSetName"),
+            conditions: o.get_field("conditions"),
+            name: o.get_field("name"),
+            order: o.get_field("order"),
         }
     }
 }

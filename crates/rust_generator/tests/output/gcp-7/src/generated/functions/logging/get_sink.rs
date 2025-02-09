@@ -43,48 +43,34 @@ pub mod get_sink {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSinkArgs,
     ) -> GetSinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let id_binding = args.id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:logging/getSink:getSink".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSinkResult {
-            bigquery_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bigqueryOptions"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destination"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            exclusions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exclusions"),
-            ),
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            writer_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("writerIdentity"),
-            ),
+            bigquery_options: o.get_field("bigqueryOptions"),
+            description: o.get_field("description"),
+            destination: o.get_field("destination"),
+            disabled: o.get_field("disabled"),
+            exclusions: o.get_field("exclusions"),
+            filter: o.get_field("filter"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            writer_identity: o.get_field("writerIdentity"),
         }
     }
 }

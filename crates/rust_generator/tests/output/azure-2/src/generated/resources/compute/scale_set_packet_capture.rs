@@ -197,112 +197,85 @@ pub mod scale_set_packet_capture {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ScaleSetPacketCaptureArgs,
     ) -> ScaleSetPacketCaptureResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let machine_scope_binding_1 = args.machine_scope.get_output(context);
-        let machine_scope_binding = machine_scope_binding_1.get_inner();
-        let maximum_bytes_per_packet_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let machine_scope_binding = args.machine_scope.get_output(context);
+        let maximum_bytes_per_packet_binding = args
             .maximum_bytes_per_packet
             .get_output(context);
-        let maximum_bytes_per_packet_binding = maximum_bytes_per_packet_binding_1
-            .get_inner();
-        let maximum_bytes_per_session_binding_1 = args
+        let maximum_bytes_per_session_binding = args
             .maximum_bytes_per_session
             .get_output(context);
-        let maximum_bytes_per_session_binding = maximum_bytes_per_session_binding_1
-            .get_inner();
-        let maximum_capture_duration_in_seconds_binding_1 = args
+        let maximum_capture_duration_in_seconds_binding = args
             .maximum_capture_duration_in_seconds
             .get_output(context);
-        let maximum_capture_duration_in_seconds_binding = maximum_capture_duration_in_seconds_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_watcher_id_binding_1 = args.network_watcher_id.get_output(context);
-        let network_watcher_id_binding = network_watcher_id_binding_1.get_inner();
-        let storage_location_binding_1 = args.storage_location.get_output(context);
-        let storage_location_binding = storage_location_binding_1.get_inner();
-        let virtual_machine_scale_set_id_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let network_watcher_id_binding = args.network_watcher_id.get_output(context);
+        let storage_location_binding = args.storage_location.get_output(context);
+        let virtual_machine_scale_set_id_binding = args
             .virtual_machine_scale_set_id
             .get_output(context);
-        let virtual_machine_scale_set_id_binding = virtual_machine_scale_set_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "machineScope".into(),
-                    value: &machine_scope_binding,
+                    value: machine_scope_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumBytesPerPacket".into(),
-                    value: &maximum_bytes_per_packet_binding,
+                    value: maximum_bytes_per_packet_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumBytesPerSession".into(),
-                    value: &maximum_bytes_per_session_binding,
+                    value: maximum_bytes_per_session_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumCaptureDurationInSeconds".into(),
-                    value: &maximum_capture_duration_in_seconds_binding,
+                    value: maximum_capture_duration_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkWatcherId".into(),
-                    value: &network_watcher_id_binding,
+                    value: network_watcher_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageLocation".into(),
-                    value: &storage_location_binding,
+                    value: storage_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineScaleSetId".into(),
-                    value: &virtual_machine_scale_set_id_binding,
+                    value: virtual_machine_scale_set_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ScaleSetPacketCaptureResult {
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            machine_scope: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("machineScope"),
-            ),
-            maximum_bytes_per_packet: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumBytesPerPacket"),
-            ),
-            maximum_bytes_per_session: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumBytesPerSession"),
-            ),
-            maximum_capture_duration_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumCaptureDurationInSeconds"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_watcher_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkWatcherId"),
-            ),
-            storage_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageLocation"),
-            ),
-            virtual_machine_scale_set_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualMachineScaleSetId"),
-            ),
+            filters: o.get_field("filters"),
+            machine_scope: o.get_field("machineScope"),
+            maximum_bytes_per_packet: o.get_field("maximumBytesPerPacket"),
+            maximum_bytes_per_session: o.get_field("maximumBytesPerSession"),
+            maximum_capture_duration_in_seconds: o
+                .get_field("maximumCaptureDurationInSeconds"),
+            name: o.get_field("name"),
+            network_watcher_id: o.get_field("networkWatcherId"),
+            storage_location: o.get_field("storageLocation"),
+            virtual_machine_scale_set_id: o.get_field("virtualMachineScaleSetId"),
         }
     }
 }

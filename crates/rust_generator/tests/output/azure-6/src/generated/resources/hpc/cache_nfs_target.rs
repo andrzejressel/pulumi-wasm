@@ -180,97 +180,74 @@ pub mod cache_nfs_target {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CacheNfsTargetArgs,
     ) -> CacheNfsTargetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cache_name_binding_1 = args.cache_name.get_output(context);
-        let cache_name_binding = cache_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let namespace_junctions_binding_1 = args.namespace_junctions.get_output(context);
-        let namespace_junctions_binding = namespace_junctions_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let target_host_name_binding_1 = args.target_host_name.get_output(context);
-        let target_host_name_binding = target_host_name_binding_1.get_inner();
-        let usage_model_binding_1 = args.usage_model.get_output(context);
-        let usage_model_binding = usage_model_binding_1.get_inner();
-        let verification_timer_in_seconds_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cache_name_binding = args.cache_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let namespace_junctions_binding = args.namespace_junctions.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let target_host_name_binding = args.target_host_name.get_output(context);
+        let usage_model_binding = args.usage_model.get_output(context);
+        let verification_timer_in_seconds_binding = args
             .verification_timer_in_seconds
             .get_output(context);
-        let verification_timer_in_seconds_binding = verification_timer_in_seconds_binding_1
-            .get_inner();
-        let write_back_timer_in_seconds_binding_1 = args
+        let write_back_timer_in_seconds_binding = args
             .write_back_timer_in_seconds
             .get_output(context);
-        let write_back_timer_in_seconds_binding = write_back_timer_in_seconds_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:hpc/cacheNfsTarget:CacheNfsTarget".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheName".into(),
-                    value: &cache_name_binding,
+                    value: cache_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceJunctions".into(),
-                    value: &namespace_junctions_binding,
+                    value: namespace_junctions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetHostName".into(),
-                    value: &target_host_name_binding,
+                    value: target_host_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usageModel".into(),
-                    value: &usage_model_binding,
+                    value: usage_model_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verificationTimerInSeconds".into(),
-                    value: &verification_timer_in_seconds_binding,
+                    value: verification_timer_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "writeBackTimerInSeconds".into(),
-                    value: &write_back_timer_in_seconds_binding,
+                    value: write_back_timer_in_seconds_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CacheNfsTargetResult {
-            cache_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cacheName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            namespace_junctions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceJunctions"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            target_host_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetHostName"),
-            ),
-            usage_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usageModel"),
-            ),
-            verification_timer_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verificationTimerInSeconds"),
-            ),
-            write_back_timer_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("writeBackTimerInSeconds"),
-            ),
+            cache_name: o.get_field("cacheName"),
+            name: o.get_field("name"),
+            namespace_junctions: o.get_field("namespaceJunctions"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            target_host_name: o.get_field("targetHostName"),
+            usage_model: o.get_field("usageModel"),
+            verification_timer_in_seconds: o.get_field("verificationTimerInSeconds"),
+            write_back_timer_in_seconds: o.get_field("writeBackTimerInSeconds"),
         }
     }
 }

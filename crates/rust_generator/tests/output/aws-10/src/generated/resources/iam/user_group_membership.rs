@@ -74,37 +74,34 @@ pub mod user_group_membership {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserGroupMembershipArgs,
     ) -> UserGroupMembershipResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let groups_binding_1 = args.groups.get_output(context);
-        let groups_binding = groups_binding_1.get_inner();
-        let user_binding_1 = args.user.get_output(context);
-        let user_binding = user_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let groups_binding = args.groups.get_output(context);
+        let user_binding = args.user.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:iam/userGroupMembership:UserGroupMembership".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groups".into(),
-                    value: &groups_binding,
+                    value: groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "user".into(),
-                    value: &user_binding,
+                    value: user_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserGroupMembershipResult {
-            groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("groups"),
-            ),
-            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
+            groups: o.get_field("groups"),
+            user: o.get_field("user"),
         }
     }
 }

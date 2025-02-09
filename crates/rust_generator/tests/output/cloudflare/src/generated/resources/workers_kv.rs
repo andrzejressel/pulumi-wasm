@@ -67,53 +67,46 @@ pub mod workers_kv {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkersKvArgs,
     ) -> WorkersKvResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let key_binding_1 = args.key.get_output(context);
-        let key_binding = key_binding_1.get_inner();
-        let namespace_id_binding_1 = args.namespace_id.get_output(context);
-        let namespace_id_binding = namespace_id_binding_1.get_inner();
-        let value_binding_1 = args.value.get_output(context);
-        let value_binding = value_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let key_binding = args.key.get_output(context);
+        let namespace_id_binding = args.namespace_id.get_output(context);
+        let value_binding = args.value.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/workersKv:WorkersKv".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: &key_binding,
+                    value: key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceId".into(),
-                    value: &namespace_id_binding,
+                    value: namespace_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "value".into(),
-                    value: &value_binding,
+                    value: value_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkersKvResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
-            namespace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceId"),
-            ),
-            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
+            account_id: o.get_field("accountId"),
+            key: o.get_field("key"),
+            namespace_id: o.get_field("namespaceId"),
+            value: o.get_field("value"),
         }
     }
 }

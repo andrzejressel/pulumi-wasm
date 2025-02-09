@@ -61,110 +61,68 @@ pub mod get_router_nat {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRouterNatArgs,
     ) -> GetRouterNatResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let router_binding_1 = args.router.get_output(context);
-        let router_binding = router_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let router_binding = args.router.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:compute/getRouterNat:getRouterNat".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "router".into(),
-                    value: &router_binding,
+                    value: router_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRouterNatResult {
-            auto_network_tier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoNetworkTier"),
-            ),
-            drain_nat_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("drainNatIps"),
-            ),
-            enable_dynamic_port_allocation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableDynamicPortAllocation"),
-            ),
-            enable_endpoint_independent_mapping: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableEndpointIndependentMapping"),
-            ),
-            endpoint_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointTypes"),
-            ),
-            icmp_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("icmpIdleTimeoutSec"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            initial_nat_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initialNatIps"),
-            ),
-            log_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logConfigs"),
-            ),
-            max_ports_per_vm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxPortsPerVm"),
-            ),
-            min_ports_per_vm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minPortsPerVm"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            nat_ip_allocate_option: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("natIpAllocateOption"),
-            ),
-            nat_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("natIps"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            router: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("router"),
-            ),
-            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
-            source_subnetwork_ip_ranges_to_nat: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceSubnetworkIpRangesToNat"),
-            ),
-            subnetworks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetworks"),
-            ),
-            tcp_established_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tcpEstablishedIdleTimeoutSec"),
-            ),
-            tcp_time_wait_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tcpTimeWaitTimeoutSec"),
-            ),
-            tcp_transitory_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tcpTransitoryIdleTimeoutSec"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            udp_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("udpIdleTimeoutSec"),
-            ),
+            auto_network_tier: o.get_field("autoNetworkTier"),
+            drain_nat_ips: o.get_field("drainNatIps"),
+            enable_dynamic_port_allocation: o.get_field("enableDynamicPortAllocation"),
+            enable_endpoint_independent_mapping: o
+                .get_field("enableEndpointIndependentMapping"),
+            endpoint_types: o.get_field("endpointTypes"),
+            icmp_idle_timeout_sec: o.get_field("icmpIdleTimeoutSec"),
+            id: o.get_field("id"),
+            initial_nat_ips: o.get_field("initialNatIps"),
+            log_configs: o.get_field("logConfigs"),
+            max_ports_per_vm: o.get_field("maxPortsPerVm"),
+            min_ports_per_vm: o.get_field("minPortsPerVm"),
+            name: o.get_field("name"),
+            nat_ip_allocate_option: o.get_field("natIpAllocateOption"),
+            nat_ips: o.get_field("natIps"),
+            project: o.get_field("project"),
+            region: o.get_field("region"),
+            router: o.get_field("router"),
+            rules: o.get_field("rules"),
+            source_subnetwork_ip_ranges_to_nat: o
+                .get_field("sourceSubnetworkIpRangesToNat"),
+            subnetworks: o.get_field("subnetworks"),
+            tcp_established_idle_timeout_sec: o
+                .get_field("tcpEstablishedIdleTimeoutSec"),
+            tcp_time_wait_timeout_sec: o.get_field("tcpTimeWaitTimeoutSec"),
+            tcp_transitory_idle_timeout_sec: o.get_field("tcpTransitoryIdleTimeoutSec"),
+            type_: o.get_field("type"),
+            udp_idle_timeout_sec: o.get_field("udpIdleTimeoutSec"),
         }
     }
 }

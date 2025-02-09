@@ -98,80 +98,61 @@ pub mod outbound_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OutboundConnectionArgs,
     ) -> OutboundConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accept_connection_binding_1 = args.accept_connection.get_output(context);
-        let accept_connection_binding = accept_connection_binding_1.get_inner();
-        let connection_alias_binding_1 = args.connection_alias.get_output(context);
-        let connection_alias_binding = connection_alias_binding_1.get_inner();
-        let connection_mode_binding_1 = args.connection_mode.get_output(context);
-        let connection_mode_binding = connection_mode_binding_1.get_inner();
-        let connection_properties_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accept_connection_binding = args.accept_connection.get_output(context);
+        let connection_alias_binding = args.connection_alias.get_output(context);
+        let connection_mode_binding = args.connection_mode.get_output(context);
+        let connection_properties_binding = args
             .connection_properties
             .get_output(context);
-        let connection_properties_binding = connection_properties_binding_1.get_inner();
-        let local_domain_info_binding_1 = args.local_domain_info.get_output(context);
-        let local_domain_info_binding = local_domain_info_binding_1.get_inner();
-        let remote_domain_info_binding_1 = args.remote_domain_info.get_output(context);
-        let remote_domain_info_binding = remote_domain_info_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let local_domain_info_binding = args.local_domain_info.get_output(context);
+        let remote_domain_info_binding = args.remote_domain_info.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:opensearch/outboundConnection:OutboundConnection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptConnection".into(),
-                    value: &accept_connection_binding,
+                    value: accept_connection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionAlias".into(),
-                    value: &connection_alias_binding,
+                    value: connection_alias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionMode".into(),
-                    value: &connection_mode_binding,
+                    value: connection_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionProperties".into(),
-                    value: &connection_properties_binding,
+                    value: connection_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localDomainInfo".into(),
-                    value: &local_domain_info_binding,
+                    value: local_domain_info_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteDomainInfo".into(),
-                    value: &remote_domain_info_binding,
+                    value: remote_domain_info_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OutboundConnectionResult {
-            accept_connection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceptConnection"),
-            ),
-            connection_alias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionAlias"),
-            ),
-            connection_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionMode"),
-            ),
-            connection_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionProperties"),
-            ),
-            connection_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionStatus"),
-            ),
-            local_domain_info: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localDomainInfo"),
-            ),
-            remote_domain_info: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteDomainInfo"),
-            ),
+            accept_connection: o.get_field("acceptConnection"),
+            connection_alias: o.get_field("connectionAlias"),
+            connection_mode: o.get_field("connectionMode"),
+            connection_properties: o.get_field("connectionProperties"),
+            connection_status: o.get_field("connectionStatus"),
+            local_domain_info: o.get_field("localDomainInfo"),
+            remote_domain_info: o.get_field("remoteDomainInfo"),
         }
     }
 }

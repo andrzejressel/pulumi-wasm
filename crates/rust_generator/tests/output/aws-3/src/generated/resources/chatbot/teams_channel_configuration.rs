@@ -127,148 +127,107 @@ pub mod teams_channel_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TeamsChannelConfigurationArgs,
     ) -> TeamsChannelConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let channel_id_binding_1 = args.channel_id.get_output(context);
-        let channel_id_binding = channel_id_binding_1.get_inner();
-        let channel_name_binding_1 = args.channel_name.get_output(context);
-        let channel_name_binding = channel_name_binding_1.get_inner();
-        let configuration_name_binding_1 = args.configuration_name.get_output(context);
-        let configuration_name_binding = configuration_name_binding_1.get_inner();
-        let guardrail_policy_arns_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let channel_id_binding = args.channel_id.get_output(context);
+        let channel_name_binding = args.channel_name.get_output(context);
+        let configuration_name_binding = args.configuration_name.get_output(context);
+        let guardrail_policy_arns_binding = args
             .guardrail_policy_arns
             .get_output(context);
-        let guardrail_policy_arns_binding = guardrail_policy_arns_binding_1.get_inner();
-        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
-        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
-        let logging_level_binding_1 = args.logging_level.get_output(context);
-        let logging_level_binding = logging_level_binding_1.get_inner();
-        let sns_topic_arns_binding_1 = args.sns_topic_arns.get_output(context);
-        let sns_topic_arns_binding = sns_topic_arns_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let team_id_binding_1 = args.team_id.get_output(context);
-        let team_id_binding = team_id_binding_1.get_inner();
-        let team_name_binding_1 = args.team_name.get_output(context);
-        let team_name_binding = team_name_binding_1.get_inner();
-        let tenant_id_binding_1 = args.tenant_id.get_output(context);
-        let tenant_id_binding = tenant_id_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let user_authorization_required_binding_1 = args
+        let iam_role_arn_binding = args.iam_role_arn.get_output(context);
+        let logging_level_binding = args.logging_level.get_output(context);
+        let sns_topic_arns_binding = args.sns_topic_arns.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let team_id_binding = args.team_id.get_output(context);
+        let team_name_binding = args.team_name.get_output(context);
+        let tenant_id_binding = args.tenant_id.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let user_authorization_required_binding = args
             .user_authorization_required
             .get_output(context);
-        let user_authorization_required_binding = user_authorization_required_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "channelId".into(),
-                    value: &channel_id_binding,
+                    value: channel_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "channelName".into(),
-                    value: &channel_name_binding,
+                    value: channel_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationName".into(),
-                    value: &configuration_name_binding,
+                    value: configuration_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guardrailPolicyArns".into(),
-                    value: &guardrail_policy_arns_binding,
+                    value: guardrail_policy_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: &iam_role_arn_binding,
+                    value: iam_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingLevel".into(),
-                    value: &logging_level_binding,
+                    value: logging_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snsTopicArns".into(),
-                    value: &sns_topic_arns_binding,
+                    value: sns_topic_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "teamId".into(),
-                    value: &team_id_binding,
+                    value: team_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "teamName".into(),
-                    value: &team_name_binding,
+                    value: team_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: &tenant_id_binding,
+                    value: tenant_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userAuthorizationRequired".into(),
-                    value: &user_authorization_required_binding,
+                    value: user_authorization_required_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TeamsChannelConfigurationResult {
-            channel_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("channelId"),
-            ),
-            channel_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("channelName"),
-            ),
-            chat_configuration_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("chatConfigurationArn"),
-            ),
-            configuration_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationName"),
-            ),
-            guardrail_policy_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("guardrailPolicyArns"),
-            ),
-            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoleArn"),
-            ),
-            logging_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingLevel"),
-            ),
-            sns_topic_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snsTopicArns"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            team_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("teamId"),
-            ),
-            team_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("teamName"),
-            ),
-            tenant_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantId"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            user_authorization_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userAuthorizationRequired"),
-            ),
+            channel_id: o.get_field("channelId"),
+            channel_name: o.get_field("channelName"),
+            chat_configuration_arn: o.get_field("chatConfigurationArn"),
+            configuration_name: o.get_field("configurationName"),
+            guardrail_policy_arns: o.get_field("guardrailPolicyArns"),
+            iam_role_arn: o.get_field("iamRoleArn"),
+            logging_level: o.get_field("loggingLevel"),
+            sns_topic_arns: o.get_field("snsTopicArns"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            team_id: o.get_field("teamId"),
+            team_name: o.get_field("teamName"),
+            tenant_id: o.get_field("tenantId"),
+            timeouts: o.get_field("timeouts"),
+            user_authorization_required: o.get_field("userAuthorizationRequired"),
         }
     }
 }

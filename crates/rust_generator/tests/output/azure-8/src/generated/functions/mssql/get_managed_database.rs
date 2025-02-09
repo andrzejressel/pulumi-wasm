@@ -39,51 +39,38 @@ pub mod get_managed_database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetManagedDatabaseArgs,
     ) -> GetManagedDatabaseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let managed_instance_id_binding_1 = args.managed_instance_id.get_output(context);
-        let managed_instance_id_binding = managed_instance_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let managed_instance_id_binding = args.managed_instance_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:mssql/getManagedDatabase:getManagedDatabase".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedInstanceId".into(),
-                    value: &managed_instance_id_binding,
+                    value: managed_instance_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetManagedDatabaseResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            long_term_retention_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("longTermRetentionPolicies"),
-            ),
-            managed_instance_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedInstanceId"),
-            ),
-            managed_instance_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedInstanceName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            point_in_time_restores: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pointInTimeRestores"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            short_term_retention_days: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shortTermRetentionDays"),
-            ),
+            id: o.get_field("id"),
+            long_term_retention_policies: o.get_field("longTermRetentionPolicies"),
+            managed_instance_id: o.get_field("managedInstanceId"),
+            managed_instance_name: o.get_field("managedInstanceName"),
+            name: o.get_field("name"),
+            point_in_time_restores: o.get_field("pointInTimeRestores"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            short_term_retention_days: o.get_field("shortTermRetentionDays"),
         }
     }
 }

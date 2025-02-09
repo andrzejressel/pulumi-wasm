@@ -52,80 +52,61 @@ pub mod get_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCertificateArgs,
     ) -> GetCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let domain_binding_1 = args.domain.get_output(context);
-        let domain_binding = domain_binding_1.get_inner();
-        let key_types_binding_1 = args.key_types.get_output(context);
-        let key_types_binding = key_types_binding_1.get_inner();
-        let most_recent_binding_1 = args.most_recent.get_output(context);
-        let most_recent_binding = most_recent_binding_1.get_inner();
-        let statuses_binding_1 = args.statuses.get_output(context);
-        let statuses_binding = statuses_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let types_binding_1 = args.types.get_output(context);
-        let types_binding = types_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let domain_binding = args.domain.get_output(context);
+        let key_types_binding = args.key_types.get_output(context);
+        let most_recent_binding = args.most_recent.get_output(context);
+        let statuses_binding = args.statuses.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let types_binding = args.types.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:acm/getCertificate:getCertificate".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: &domain_binding,
+                    value: domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyTypes".into(),
-                    value: &key_types_binding,
+                    value: key_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mostRecent".into(),
-                    value: &most_recent_binding,
+                    value: most_recent_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statuses".into(),
-                    value: &statuses_binding,
+                    value: statuses_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "types".into(),
-                    value: &types_binding,
+                    value: types_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCertificateResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificate"),
-            ),
-            certificate_chain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateChain"),
-            ),
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            key_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyTypes"),
-            ),
-            most_recent: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mostRecent"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            statuses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statuses"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            types: pulumi_gestalt_rust::__private::into_domain(o.extract_field("types")),
+            arn: o.get_field("arn"),
+            certificate: o.get_field("certificate"),
+            certificate_chain: o.get_field("certificateChain"),
+            domain: o.get_field("domain"),
+            id: o.get_field("id"),
+            key_types: o.get_field("keyTypes"),
+            most_recent: o.get_field("mostRecent"),
+            status: o.get_field("status"),
+            statuses: o.get_field("statuses"),
+            tags: o.get_field("tags"),
+            types: o.get_field("types"),
         }
     }
 }

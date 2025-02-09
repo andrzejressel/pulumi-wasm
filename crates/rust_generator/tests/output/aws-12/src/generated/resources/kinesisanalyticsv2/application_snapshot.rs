@@ -54,46 +54,37 @@ pub mod application_snapshot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ApplicationSnapshotArgs,
     ) -> ApplicationSnapshotResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_name_binding_1 = args.application_name.get_output(context);
-        let application_name_binding = application_name_binding_1.get_inner();
-        let snapshot_name_binding_1 = args.snapshot_name.get_output(context);
-        let snapshot_name_binding = snapshot_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_name_binding = args.application_name.get_output(context);
+        let snapshot_name_binding = args.snapshot_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationName".into(),
-                    value: &application_name_binding,
+                    value: application_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotName".into(),
-                    value: &snapshot_name_binding,
+                    value: snapshot_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ApplicationSnapshotResult {
-            application_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationName"),
-            ),
-            application_version_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationVersionId"),
-            ),
-            snapshot_creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotCreationTimestamp"),
-            ),
-            snapshot_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotName"),
-            ),
+            application_name: o.get_field("applicationName"),
+            application_version_id: o.get_field("applicationVersionId"),
+            snapshot_creation_timestamp: o.get_field("snapshotCreationTimestamp"),
+            snapshot_name: o.get_field("snapshotName"),
         }
     }
 }

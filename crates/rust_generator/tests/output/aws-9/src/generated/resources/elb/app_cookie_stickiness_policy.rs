@@ -81,55 +81,46 @@ pub mod app_cookie_stickiness_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AppCookieStickinessPolicyArgs,
     ) -> AppCookieStickinessPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cookie_name_binding_1 = args.cookie_name.get_output(context);
-        let cookie_name_binding = cookie_name_binding_1.get_inner();
-        let lb_port_binding_1 = args.lb_port.get_output(context);
-        let lb_port_binding = lb_port_binding_1.get_inner();
-        let load_balancer_binding_1 = args.load_balancer.get_output(context);
-        let load_balancer_binding = load_balancer_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cookie_name_binding = args.cookie_name.get_output(context);
+        let lb_port_binding = args.lb_port.get_output(context);
+        let load_balancer_binding = args.load_balancer.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cookieName".into(),
-                    value: &cookie_name_binding,
+                    value: cookie_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lbPort".into(),
-                    value: &lb_port_binding,
+                    value: lb_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancer".into(),
-                    value: &load_balancer_binding,
+                    value: load_balancer_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AppCookieStickinessPolicyResult {
-            cookie_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cookieName"),
-            ),
-            lb_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lbPort"),
-            ),
-            load_balancer: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loadBalancer"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            cookie_name: o.get_field("cookieName"),
+            lb_port: o.get_field("lbPort"),
+            load_balancer: o.get_field("loadBalancer"),
+            name: o.get_field("name"),
         }
     }
 }

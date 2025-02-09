@@ -29,43 +29,36 @@ pub mod get_web_backend_service_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetWebBackendServiceIamPolicyArgs,
     ) -> GetWebBackendServiceIamPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let web_backend_service_binding_1 = args.web_backend_service.get_output(context);
-        let web_backend_service_binding = web_backend_service_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let project_binding = args.project.get_output(context);
+        let web_backend_service_binding = args.web_backend_service.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:iap/getWebBackendServiceIamPolicy:getWebBackendServiceIamPolicy"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webBackendService".into(),
-                    value: &web_backend_service_binding,
+                    value: web_backend_service_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetWebBackendServiceIamPolicyResult {
-            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            policy_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyData"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            web_backend_service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webBackendService"),
-            ),
+            etag: o.get_field("etag"),
+            id: o.get_field("id"),
+            policy_data: o.get_field("policyData"),
+            project: o.get_field("project"),
+            web_backend_service: o.get_field("webBackendService"),
         }
     }
 }

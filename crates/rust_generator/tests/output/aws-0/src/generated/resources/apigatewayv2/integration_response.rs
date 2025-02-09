@@ -81,84 +81,64 @@ pub mod integration_response {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IntegrationResponseArgs,
     ) -> IntegrationResponseResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_id_binding_1 = args.api_id.get_output(context);
-        let api_id_binding = api_id_binding_1.get_inner();
-        let content_handling_strategy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_id_binding = args.api_id.get_output(context);
+        let content_handling_strategy_binding = args
             .content_handling_strategy
             .get_output(context);
-        let content_handling_strategy_binding = content_handling_strategy_binding_1
-            .get_inner();
-        let integration_id_binding_1 = args.integration_id.get_output(context);
-        let integration_id_binding = integration_id_binding_1.get_inner();
-        let integration_response_key_binding_1 = args
+        let integration_id_binding = args.integration_id.get_output(context);
+        let integration_response_key_binding = args
             .integration_response_key
             .get_output(context);
-        let integration_response_key_binding = integration_response_key_binding_1
-            .get_inner();
-        let response_templates_binding_1 = args.response_templates.get_output(context);
-        let response_templates_binding = response_templates_binding_1.get_inner();
-        let template_selection_expression_binding_1 = args
+        let response_templates_binding = args.response_templates.get_output(context);
+        let template_selection_expression_binding = args
             .template_selection_expression
             .get_output(context);
-        let template_selection_expression_binding = template_selection_expression_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:apigatewayv2/integrationResponse:IntegrationResponse".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: &api_id_binding,
+                    value: api_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentHandlingStrategy".into(),
-                    value: &content_handling_strategy_binding,
+                    value: content_handling_strategy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationId".into(),
-                    value: &integration_id_binding,
+                    value: integration_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationResponseKey".into(),
-                    value: &integration_response_key_binding,
+                    value: integration_response_key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseTemplates".into(),
-                    value: &response_templates_binding,
+                    value: response_templates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateSelectionExpression".into(),
-                    value: &template_selection_expression_binding,
+                    value: template_selection_expression_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IntegrationResponseResult {
-            api_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiId"),
-            ),
-            content_handling_strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("contentHandlingStrategy"),
-            ),
-            integration_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("integrationId"),
-            ),
-            integration_response_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("integrationResponseKey"),
-            ),
-            response_templates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("responseTemplates"),
-            ),
-            template_selection_expression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templateSelectionExpression"),
-            ),
+            api_id: o.get_field("apiId"),
+            content_handling_strategy: o.get_field("contentHandlingStrategy"),
+            integration_id: o.get_field("integrationId"),
+            integration_response_key: o.get_field("integrationResponseKey"),
+            response_templates: o.get_field("responseTemplates"),
+            template_selection_expression: o.get_field("templateSelectionExpression"),
         }
     }
 }

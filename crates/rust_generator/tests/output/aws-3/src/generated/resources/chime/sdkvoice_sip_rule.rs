@@ -82,64 +82,52 @@ pub mod sdkvoice_sip_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SdkvoiceSipRuleArgs,
     ) -> SdkvoiceSipRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let target_applications_binding_1 = args.target_applications.get_output(context);
-        let target_applications_binding = target_applications_binding_1.get_inner();
-        let trigger_type_binding_1 = args.trigger_type.get_output(context);
-        let trigger_type_binding = trigger_type_binding_1.get_inner();
-        let trigger_value_binding_1 = args.trigger_value.get_output(context);
-        let trigger_value_binding = trigger_value_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let disabled_binding = args.disabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let target_applications_binding = args.target_applications.get_output(context);
+        let trigger_type_binding = args.trigger_type.get_output(context);
+        let trigger_value_binding = args.trigger_value.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:chime/sdkvoiceSipRule:SdkvoiceSipRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetApplications".into(),
-                    value: &target_applications_binding,
+                    value: target_applications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerType".into(),
-                    value: &trigger_type_binding,
+                    value: trigger_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerValue".into(),
-                    value: &trigger_value_binding,
+                    value: trigger_value_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SdkvoiceSipRuleResult {
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            target_applications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetApplications"),
-            ),
-            trigger_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggerType"),
-            ),
-            trigger_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("triggerValue"),
-            ),
+            disabled: o.get_field("disabled"),
+            name: o.get_field("name"),
+            target_applications: o.get_field("targetApplications"),
+            trigger_type: o.get_field("triggerType"),
+            trigger_value: o.get_field("triggerValue"),
         }
     }
 }

@@ -65,64 +65,51 @@ pub mod app_authorization_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AppAuthorizationConnectionArgs,
     ) -> AppAuthorizationConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_authorization_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_authorization_arn_binding = args
             .app_authorization_arn
             .get_output(context);
-        let app_authorization_arn_binding = app_authorization_arn_binding_1.get_inner();
-        let app_bundle_arn_binding_1 = args.app_bundle_arn.get_output(context);
-        let app_bundle_arn_binding = app_bundle_arn_binding_1.get_inner();
-        let auth_request_binding_1 = args.auth_request.get_output(context);
-        let auth_request_binding = auth_request_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let app_bundle_arn_binding = args.app_bundle_arn.get_output(context);
+        let auth_request_binding = args.auth_request.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appAuthorizationArn".into(),
-                    value: &app_authorization_arn_binding,
+                    value: app_authorization_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appBundleArn".into(),
-                    value: &app_bundle_arn_binding,
+                    value: app_bundle_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authRequest".into(),
-                    value: &auth_request_binding,
+                    value: auth_request_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AppAuthorizationConnectionResult {
-            app: pulumi_gestalt_rust::__private::into_domain(o.extract_field("app")),
-            app_authorization_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appAuthorizationArn"),
-            ),
-            app_bundle_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appBundleArn"),
-            ),
-            auth_request: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authRequest"),
-            ),
-            tenants: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenants"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            app: o.get_field("app"),
+            app_authorization_arn: o.get_field("appAuthorizationArn"),
+            app_bundle_arn: o.get_field("appBundleArn"),
+            auth_request: o.get_field("authRequest"),
+            tenants: o.get_field("tenants"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

@@ -215,97 +215,73 @@ pub mod access_level_condition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AccessLevelConditionArgs,
     ) -> AccessLevelConditionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_level_binding_1 = args.access_level.get_output(context);
-        let access_level_binding = access_level_binding_1.get_inner();
-        let device_policy_binding_1 = args.device_policy.get_output(context);
-        let device_policy_binding = device_policy_binding_1.get_inner();
-        let ip_subnetworks_binding_1 = args.ip_subnetworks.get_output(context);
-        let ip_subnetworks_binding = ip_subnetworks_binding_1.get_inner();
-        let members_binding_1 = args.members.get_output(context);
-        let members_binding = members_binding_1.get_inner();
-        let negate_binding_1 = args.negate.get_output(context);
-        let negate_binding = negate_binding_1.get_inner();
-        let regions_binding_1 = args.regions.get_output(context);
-        let regions_binding = regions_binding_1.get_inner();
-        let required_access_levels_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_level_binding = args.access_level.get_output(context);
+        let device_policy_binding = args.device_policy.get_output(context);
+        let ip_subnetworks_binding = args.ip_subnetworks.get_output(context);
+        let members_binding = args.members.get_output(context);
+        let negate_binding = args.negate.get_output(context);
+        let regions_binding = args.regions.get_output(context);
+        let required_access_levels_binding = args
             .required_access_levels
             .get_output(context);
-        let required_access_levels_binding = required_access_levels_binding_1
-            .get_inner();
-        let vpc_network_sources_binding_1 = args.vpc_network_sources.get_output(context);
-        let vpc_network_sources_binding = vpc_network_sources_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let vpc_network_sources_binding = args.vpc_network_sources.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/accessLevelCondition:AccessLevelCondition"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessLevel".into(),
-                    value: &access_level_binding,
+                    value: access_level_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "devicePolicy".into(),
-                    value: &device_policy_binding,
+                    value: device_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipSubnetworks".into(),
-                    value: &ip_subnetworks_binding,
+                    value: ip_subnetworks_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "members".into(),
-                    value: &members_binding,
+                    value: members_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "negate".into(),
-                    value: &negate_binding,
+                    value: negate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regions".into(),
-                    value: &regions_binding,
+                    value: regions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requiredAccessLevels".into(),
-                    value: &required_access_levels_binding,
+                    value: required_access_levels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcNetworkSources".into(),
-                    value: &vpc_network_sources_binding,
+                    value: vpc_network_sources_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AccessLevelConditionResult {
-            access_level: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessLevel"),
-            ),
-            device_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("devicePolicy"),
-            ),
-            ip_subnetworks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipSubnetworks"),
-            ),
-            members: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("members"),
-            ),
-            negate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("negate"),
-            ),
-            regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regions"),
-            ),
-            required_access_levels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requiredAccessLevels"),
-            ),
-            vpc_network_sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcNetworkSources"),
-            ),
+            access_level: o.get_field("accessLevel"),
+            device_policy: o.get_field("devicePolicy"),
+            ip_subnetworks: o.get_field("ipSubnetworks"),
+            members: o.get_field("members"),
+            negate: o.get_field("negate"),
+            regions: o.get_field("regions"),
+            required_access_levels: o.get_field("requiredAccessLevels"),
+            vpc_network_sources: o.get_field("vpcNetworkSources"),
         }
     }
 }

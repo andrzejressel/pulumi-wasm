@@ -64,46 +64,40 @@ pub mod managed_prefix_list_entry {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagedPrefixListEntryArgs,
     ) -> ManagedPrefixListEntryResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_binding_1 = args.cidr.get_output(context);
-        let cidr_binding = cidr_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let prefix_list_id_binding_1 = args.prefix_list_id.get_output(context);
-        let prefix_list_id_binding = prefix_list_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cidr_binding = args.cidr.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let prefix_list_id_binding = args.prefix_list_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidr".into(),
-                    value: &cidr_binding,
+                    value: cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefixListId".into(),
-                    value: &prefix_list_id_binding,
+                    value: prefix_list_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagedPrefixListEntryResult {
-            cidr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidr")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            prefix_list_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefixListId"),
-            ),
+            cidr: o.get_field("cidr"),
+            description: o.get_field("description"),
+            prefix_list_id: o.get_field("prefixListId"),
         }
     }
 }

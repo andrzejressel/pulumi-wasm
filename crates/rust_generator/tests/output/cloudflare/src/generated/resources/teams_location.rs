@@ -86,77 +86,57 @@ pub mod teams_location {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TeamsLocationArgs,
     ) -> TeamsLocationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let client_default_binding_1 = args.client_default.get_output(context);
-        let client_default_binding = client_default_binding_1.get_inner();
-        let ecs_support_binding_1 = args.ecs_support.get_output(context);
-        let ecs_support_binding = ecs_support_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let networks_binding_1 = args.networks.get_output(context);
-        let networks_binding = networks_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let client_default_binding = args.client_default.get_output(context);
+        let ecs_support_binding = args.ecs_support.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let networks_binding = args.networks.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/teamsLocation:TeamsLocation".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientDefault".into(),
-                    value: &client_default_binding,
+                    value: client_default_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ecsSupport".into(),
-                    value: &ecs_support_binding,
+                    value: ecs_support_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networks".into(),
-                    value: &networks_binding,
+                    value: networks_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TeamsLocationResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            anonymized_logs_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("anonymizedLogsEnabled"),
-            ),
-            client_default: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clientDefault"),
-            ),
-            doh_subdomain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dohSubdomain"),
-            ),
-            ecs_support: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ecsSupport"),
-            ),
-            ip: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ip")),
-            ipv4_destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv4Destination"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            networks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networks"),
-            ),
-            policy_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("policyIds"),
-            ),
+            account_id: o.get_field("accountId"),
+            anonymized_logs_enabled: o.get_field("anonymizedLogsEnabled"),
+            client_default: o.get_field("clientDefault"),
+            doh_subdomain: o.get_field("dohSubdomain"),
+            ecs_support: o.get_field("ecsSupport"),
+            ip: o.get_field("ip"),
+            ipv4_destination: o.get_field("ipv4Destination"),
+            name: o.get_field("name"),
+            networks: o.get_field("networks"),
+            policy_ids: o.get_field("policyIds"),
         }
     }
 }

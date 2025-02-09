@@ -195,134 +195,96 @@ pub mod gateway_security_policy_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GatewaySecurityPolicyRuleArgs,
     ) -> GatewaySecurityPolicyRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let application_matcher_binding_1 = args.application_matcher.get_output(context);
-        let application_matcher_binding = application_matcher_binding_1.get_inner();
-        let basic_profile_binding_1 = args.basic_profile.get_output(context);
-        let basic_profile_binding = basic_profile_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let gateway_security_policy_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let application_matcher_binding = args.application_matcher.get_output(context);
+        let basic_profile_binding = args.basic_profile.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let gateway_security_policy_binding = args
             .gateway_security_policy
             .get_output(context);
-        let gateway_security_policy_binding = gateway_security_policy_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let session_matcher_binding_1 = args.session_matcher.get_output(context);
-        let session_matcher_binding = session_matcher_binding_1.get_inner();
-        let tls_inspection_enabled_binding_1 = args
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let session_matcher_binding = args.session_matcher.get_output(context);
+        let tls_inspection_enabled_binding = args
             .tls_inspection_enabled
             .get_output(context);
-        let tls_inspection_enabled_binding = tls_inspection_enabled_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:networksecurity/gatewaySecurityPolicyRule:GatewaySecurityPolicyRule"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationMatcher".into(),
-                    value: &application_matcher_binding,
+                    value: application_matcher_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basicProfile".into(),
-                    value: &basic_profile_binding,
+                    value: basic_profile_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewaySecurityPolicy".into(),
-                    value: &gateway_security_policy_binding,
+                    value: gateway_security_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionMatcher".into(),
-                    value: &session_matcher_binding,
+                    value: session_matcher_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsInspectionEnabled".into(),
-                    value: &tls_inspection_enabled_binding,
+                    value: tls_inspection_enabled_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GatewaySecurityPolicyRuleResult {
-            application_matcher: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applicationMatcher"),
-            ),
-            basic_profile: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("basicProfile"),
-            ),
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            gateway_security_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewaySecurityPolicy"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            session_matcher: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sessionMatcher"),
-            ),
-            tls_inspection_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsInspectionEnabled"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            application_matcher: o.get_field("applicationMatcher"),
+            basic_profile: o.get_field("basicProfile"),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            enabled: o.get_field("enabled"),
+            gateway_security_policy: o.get_field("gatewaySecurityPolicy"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            priority: o.get_field("priority"),
+            project: o.get_field("project"),
+            self_link: o.get_field("selfLink"),
+            session_matcher: o.get_field("sessionMatcher"),
+            tls_inspection_enabled: o.get_field("tlsInspectionEnabled"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

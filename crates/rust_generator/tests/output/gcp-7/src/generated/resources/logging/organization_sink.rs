@@ -140,112 +140,83 @@ pub mod organization_sink {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OrganizationSinkArgs,
     ) -> OrganizationSinkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bigquery_options_binding_1 = args.bigquery_options.get_output(context);
-        let bigquery_options_binding = bigquery_options_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let destination_binding_1 = args.destination.get_output(context);
-        let destination_binding = destination_binding_1.get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let exclusions_binding_1 = args.exclusions.get_output(context);
-        let exclusions_binding = exclusions_binding_1.get_inner();
-        let filter_binding_1 = args.filter.get_output(context);
-        let filter_binding = filter_binding_1.get_inner();
-        let include_children_binding_1 = args.include_children.get_output(context);
-        let include_children_binding = include_children_binding_1.get_inner();
-        let intercept_children_binding_1 = args.intercept_children.get_output(context);
-        let intercept_children_binding = intercept_children_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let org_id_binding_1 = args.org_id.get_output(context);
-        let org_id_binding = org_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bigquery_options_binding = args.bigquery_options.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let destination_binding = args.destination.get_output(context);
+        let disabled_binding = args.disabled.get_output(context);
+        let exclusions_binding = args.exclusions.get_output(context);
+        let filter_binding = args.filter.get_output(context);
+        let include_children_binding = args.include_children.get_output(context);
+        let intercept_children_binding = args.intercept_children.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let org_id_binding = args.org_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:logging/organizationSink:OrganizationSink".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bigqueryOptions".into(),
-                    value: &bigquery_options_binding,
+                    value: bigquery_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: &destination_binding,
+                    value: destination_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exclusions".into(),
-                    value: &exclusions_binding,
+                    value: exclusions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: &filter_binding,
+                    value: filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeChildren".into(),
-                    value: &include_children_binding,
+                    value: include_children_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interceptChildren".into(),
-                    value: &intercept_children_binding,
+                    value: intercept_children_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: &org_id_binding,
+                    value: org_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OrganizationSinkResult {
-            bigquery_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bigqueryOptions"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            destination: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destination"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            exclusions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("exclusions"),
-            ),
-            filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filter"),
-            ),
-            include_children: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeChildren"),
-            ),
-            intercept_children: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("interceptChildren"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            org_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orgId"),
-            ),
-            writer_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("writerIdentity"),
-            ),
+            bigquery_options: o.get_field("bigqueryOptions"),
+            description: o.get_field("description"),
+            destination: o.get_field("destination"),
+            disabled: o.get_field("disabled"),
+            exclusions: o.get_field("exclusions"),
+            filter: o.get_field("filter"),
+            include_children: o.get_field("includeChildren"),
+            intercept_children: o.get_field("interceptChildren"),
+            name: o.get_field("name"),
+            org_id: o.get_field("orgId"),
+            writer_identity: o.get_field("writerIdentity"),
         }
     }
 }

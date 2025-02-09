@@ -68,60 +68,47 @@ pub mod framework_share {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FrameworkShareArgs,
     ) -> FrameworkShareResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let comment_binding_1 = args.comment.get_output(context);
-        let comment_binding = comment_binding_1.get_inner();
-        let destination_account_binding_1 = args.destination_account.get_output(context);
-        let destination_account_binding = destination_account_binding_1.get_inner();
-        let destination_region_binding_1 = args.destination_region.get_output(context);
-        let destination_region_binding = destination_region_binding_1.get_inner();
-        let framework_id_binding_1 = args.framework_id.get_output(context);
-        let framework_id_binding = framework_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let comment_binding = args.comment.get_output(context);
+        let destination_account_binding = args.destination_account.get_output(context);
+        let destination_region_binding = args.destination_region.get_output(context);
+        let framework_id_binding = args.framework_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:auditmanager/frameworkShare:FrameworkShare".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: &comment_binding,
+                    value: comment_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationAccount".into(),
-                    value: &destination_account_binding,
+                    value: destination_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationRegion".into(),
-                    value: &destination_region_binding,
+                    value: destination_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frameworkId".into(),
-                    value: &framework_id_binding,
+                    value: framework_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FrameworkShareResult {
-            comment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("comment"),
-            ),
-            destination_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationAccount"),
-            ),
-            destination_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationRegion"),
-            ),
-            framework_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frameworkId"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
+            comment: o.get_field("comment"),
+            destination_account: o.get_field("destinationAccount"),
+            destination_region: o.get_field("destinationRegion"),
+            framework_id: o.get_field("frameworkId"),
+            status: o.get_field("status"),
         }
     }
 }

@@ -208,216 +208,152 @@ pub mod ontap_volume {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OntapVolumeArgs,
     ) -> OntapVolumeResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let aggregate_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let aggregate_configuration_binding = args
             .aggregate_configuration
             .get_output(context);
-        let aggregate_configuration_binding = aggregate_configuration_binding_1
-            .get_inner();
-        let bypass_snaplock_enterprise_retention_binding_1 = args
+        let bypass_snaplock_enterprise_retention_binding = args
             .bypass_snaplock_enterprise_retention
             .get_output(context);
-        let bypass_snaplock_enterprise_retention_binding = bypass_snaplock_enterprise_retention_binding_1
-            .get_inner();
-        let copy_tags_to_backups_binding_1 = args
-            .copy_tags_to_backups
-            .get_output(context);
-        let copy_tags_to_backups_binding = copy_tags_to_backups_binding_1.get_inner();
-        let final_backup_tags_binding_1 = args.final_backup_tags.get_output(context);
-        let final_backup_tags_binding = final_backup_tags_binding_1.get_inner();
-        let junction_path_binding_1 = args.junction_path.get_output(context);
-        let junction_path_binding = junction_path_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let ontap_volume_type_binding_1 = args.ontap_volume_type.get_output(context);
-        let ontap_volume_type_binding = ontap_volume_type_binding_1.get_inner();
-        let security_style_binding_1 = args.security_style.get_output(context);
-        let security_style_binding = security_style_binding_1.get_inner();
-        let size_in_bytes_binding_1 = args.size_in_bytes.get_output(context);
-        let size_in_bytes_binding = size_in_bytes_binding_1.get_inner();
-        let size_in_megabytes_binding_1 = args.size_in_megabytes.get_output(context);
-        let size_in_megabytes_binding = size_in_megabytes_binding_1.get_inner();
-        let skip_final_backup_binding_1 = args.skip_final_backup.get_output(context);
-        let skip_final_backup_binding = skip_final_backup_binding_1.get_inner();
-        let snaplock_configuration_binding_1 = args
+        let copy_tags_to_backups_binding = args.copy_tags_to_backups.get_output(context);
+        let final_backup_tags_binding = args.final_backup_tags.get_output(context);
+        let junction_path_binding = args.junction_path.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let ontap_volume_type_binding = args.ontap_volume_type.get_output(context);
+        let security_style_binding = args.security_style.get_output(context);
+        let size_in_bytes_binding = args.size_in_bytes.get_output(context);
+        let size_in_megabytes_binding = args.size_in_megabytes.get_output(context);
+        let skip_final_backup_binding = args.skip_final_backup.get_output(context);
+        let snaplock_configuration_binding = args
             .snaplock_configuration
             .get_output(context);
-        let snaplock_configuration_binding = snaplock_configuration_binding_1
-            .get_inner();
-        let snapshot_policy_binding_1 = args.snapshot_policy.get_output(context);
-        let snapshot_policy_binding = snapshot_policy_binding_1.get_inner();
-        let storage_efficiency_enabled_binding_1 = args
+        let snapshot_policy_binding = args.snapshot_policy.get_output(context);
+        let storage_efficiency_enabled_binding = args
             .storage_efficiency_enabled
             .get_output(context);
-        let storage_efficiency_enabled_binding = storage_efficiency_enabled_binding_1
-            .get_inner();
-        let storage_virtual_machine_id_binding_1 = args
+        let storage_virtual_machine_id_binding = args
             .storage_virtual_machine_id
             .get_output(context);
-        let storage_virtual_machine_id_binding = storage_virtual_machine_id_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tiering_policy_binding_1 = args.tiering_policy.get_output(context);
-        let tiering_policy_binding = tiering_policy_binding_1.get_inner();
-        let volume_style_binding_1 = args.volume_style.get_output(context);
-        let volume_style_binding = volume_style_binding_1.get_inner();
-        let volume_type_binding_1 = args.volume_type.get_output(context);
-        let volume_type_binding = volume_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let tiering_policy_binding = args.tiering_policy.get_output(context);
+        let volume_style_binding = args.volume_style.get_output(context);
+        let volume_type_binding = args.volume_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:fsx/ontapVolume:OntapVolume".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aggregateConfiguration".into(),
-                    value: &aggregate_configuration_binding,
+                    value: aggregate_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bypassSnaplockEnterpriseRetention".into(),
-                    value: &bypass_snaplock_enterprise_retention_binding,
+                    value: bypass_snaplock_enterprise_retention_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyTagsToBackups".into(),
-                    value: &copy_tags_to_backups_binding,
+                    value: copy_tags_to_backups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "finalBackupTags".into(),
-                    value: &final_backup_tags_binding,
+                    value: final_backup_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "junctionPath".into(),
-                    value: &junction_path_binding,
+                    value: junction_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ontapVolumeType".into(),
-                    value: &ontap_volume_type_binding,
+                    value: ontap_volume_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityStyle".into(),
-                    value: &security_style_binding,
+                    value: security_style_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sizeInBytes".into(),
-                    value: &size_in_bytes_binding,
+                    value: size_in_bytes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sizeInMegabytes".into(),
-                    value: &size_in_megabytes_binding,
+                    value: size_in_megabytes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipFinalBackup".into(),
-                    value: &skip_final_backup_binding,
+                    value: skip_final_backup_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snaplockConfiguration".into(),
-                    value: &snaplock_configuration_binding,
+                    value: snaplock_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotPolicy".into(),
-                    value: &snapshot_policy_binding,
+                    value: snapshot_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageEfficiencyEnabled".into(),
-                    value: &storage_efficiency_enabled_binding,
+                    value: storage_efficiency_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageVirtualMachineId".into(),
-                    value: &storage_virtual_machine_id_binding,
+                    value: storage_virtual_machine_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tieringPolicy".into(),
-                    value: &tiering_policy_binding,
+                    value: tiering_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeStyle".into(),
-                    value: &volume_style_binding,
+                    value: volume_style_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeType".into(),
-                    value: &volume_type_binding,
+                    value: volume_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OntapVolumeResult {
-            aggregate_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aggregateConfiguration"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            bypass_snaplock_enterprise_retention: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bypassSnaplockEnterpriseRetention"),
-            ),
-            copy_tags_to_backups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("copyTagsToBackups"),
-            ),
-            file_system_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemId"),
-            ),
-            final_backup_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("finalBackupTags"),
-            ),
-            flexcache_endpoint_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("flexcacheEndpointType"),
-            ),
-            junction_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("junctionPath"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            ontap_volume_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ontapVolumeType"),
-            ),
-            security_style: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityStyle"),
-            ),
-            size_in_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sizeInBytes"),
-            ),
-            size_in_megabytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sizeInMegabytes"),
-            ),
-            skip_final_backup: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipFinalBackup"),
-            ),
-            snaplock_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snaplockConfiguration"),
-            ),
-            snapshot_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snapshotPolicy"),
-            ),
-            storage_efficiency_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageEfficiencyEnabled"),
-            ),
-            storage_virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageVirtualMachineId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tiering_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tieringPolicy"),
-            ),
-            uuid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uuid")),
-            volume_style: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeStyle"),
-            ),
-            volume_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("volumeType"),
-            ),
+            aggregate_configuration: o.get_field("aggregateConfiguration"),
+            arn: o.get_field("arn"),
+            bypass_snaplock_enterprise_retention: o
+                .get_field("bypassSnaplockEnterpriseRetention"),
+            copy_tags_to_backups: o.get_field("copyTagsToBackups"),
+            file_system_id: o.get_field("fileSystemId"),
+            final_backup_tags: o.get_field("finalBackupTags"),
+            flexcache_endpoint_type: o.get_field("flexcacheEndpointType"),
+            junction_path: o.get_field("junctionPath"),
+            name: o.get_field("name"),
+            ontap_volume_type: o.get_field("ontapVolumeType"),
+            security_style: o.get_field("securityStyle"),
+            size_in_bytes: o.get_field("sizeInBytes"),
+            size_in_megabytes: o.get_field("sizeInMegabytes"),
+            skip_final_backup: o.get_field("skipFinalBackup"),
+            snaplock_configuration: o.get_field("snaplockConfiguration"),
+            snapshot_policy: o.get_field("snapshotPolicy"),
+            storage_efficiency_enabled: o.get_field("storageEfficiencyEnabled"),
+            storage_virtual_machine_id: o.get_field("storageVirtualMachineId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tiering_policy: o.get_field("tieringPolicy"),
+            uuid: o.get_field("uuid"),
+            volume_style: o.get_field("volumeStyle"),
+            volume_type: o.get_field("volumeType"),
         }
     }
 }

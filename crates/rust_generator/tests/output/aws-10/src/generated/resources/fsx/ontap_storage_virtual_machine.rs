@@ -134,89 +134,68 @@ pub mod ontap_storage_virtual_machine {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OntapStorageVirtualMachineArgs,
     ) -> OntapStorageVirtualMachineResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let active_directory_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let active_directory_configuration_binding = args
             .active_directory_configuration
             .get_output(context);
-        let active_directory_configuration_binding = active_directory_configuration_binding_1
-            .get_inner();
-        let file_system_id_binding_1 = args.file_system_id.get_output(context);
-        let file_system_id_binding = file_system_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let root_volume_security_style_binding_1 = args
+        let file_system_id_binding = args.file_system_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let root_volume_security_style_binding = args
             .root_volume_security_style
             .get_output(context);
-        let root_volume_security_style_binding = root_volume_security_style_binding_1
-            .get_inner();
-        let svm_admin_password_binding_1 = args.svm_admin_password.get_output(context);
-        let svm_admin_password_binding = svm_admin_password_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let svm_admin_password_binding = args.svm_admin_password.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activeDirectoryConfiguration".into(),
-                    value: &active_directory_configuration_binding,
+                    value: active_directory_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemId".into(),
-                    value: &file_system_id_binding,
+                    value: file_system_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rootVolumeSecurityStyle".into(),
-                    value: &root_volume_security_style_binding,
+                    value: root_volume_security_style_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "svmAdminPassword".into(),
-                    value: &svm_admin_password_binding,
+                    value: svm_admin_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OntapStorageVirtualMachineResult {
-            active_directory_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("activeDirectoryConfiguration"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoints"),
-            ),
-            file_system_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileSystemId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            root_volume_security_style: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rootVolumeSecurityStyle"),
-            ),
-            subtype: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subtype"),
-            ),
-            svm_admin_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("svmAdminPassword"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            uuid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uuid")),
+            active_directory_configuration: o.get_field("activeDirectoryConfiguration"),
+            arn: o.get_field("arn"),
+            endpoints: o.get_field("endpoints"),
+            file_system_id: o.get_field("fileSystemId"),
+            name: o.get_field("name"),
+            root_volume_security_style: o.get_field("rootVolumeSecurityStyle"),
+            subtype: o.get_field("subtype"),
+            svm_admin_password: o.get_field("svmAdminPassword"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            uuid: o.get_field("uuid"),
         }
     }
 }

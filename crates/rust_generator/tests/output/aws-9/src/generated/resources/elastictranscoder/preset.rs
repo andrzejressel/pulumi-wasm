@@ -152,104 +152,83 @@ pub mod preset {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PresetArgs,
     ) -> PresetResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let audio_binding_1 = args.audio.get_output(context);
-        let audio_binding = audio_binding_1.get_inner();
-        let audio_codec_options_binding_1 = args.audio_codec_options.get_output(context);
-        let audio_codec_options_binding = audio_codec_options_binding_1.get_inner();
-        let container_binding_1 = args.container.get_output(context);
-        let container_binding = container_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let thumbnails_binding_1 = args.thumbnails.get_output(context);
-        let thumbnails_binding = thumbnails_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let video_binding_1 = args.video.get_output(context);
-        let video_binding = video_binding_1.get_inner();
-        let video_codec_options_binding_1 = args.video_codec_options.get_output(context);
-        let video_codec_options_binding = video_codec_options_binding_1.get_inner();
-        let video_watermarks_binding_1 = args.video_watermarks.get_output(context);
-        let video_watermarks_binding = video_watermarks_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let audio_binding = args.audio.get_output(context);
+        let audio_codec_options_binding = args.audio_codec_options.get_output(context);
+        let container_binding = args.container.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let thumbnails_binding = args.thumbnails.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let video_binding = args.video.get_output(context);
+        let video_codec_options_binding = args.video_codec_options.get_output(context);
+        let video_watermarks_binding = args.video_watermarks.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:elastictranscoder/preset:Preset".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "audio".into(),
-                    value: &audio_binding,
+                    value: audio_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "audioCodecOptions".into(),
-                    value: &audio_codec_options_binding,
+                    value: audio_codec_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "container".into(),
-                    value: &container_binding,
+                    value: container_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thumbnails".into(),
-                    value: &thumbnails_binding,
+                    value: thumbnails_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "video".into(),
-                    value: &video_binding,
+                    value: video_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "videoCodecOptions".into(),
-                    value: &video_codec_options_binding,
+                    value: video_codec_options_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "videoWatermarks".into(),
-                    value: &video_watermarks_binding,
+                    value: video_watermarks_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PresetResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            audio: pulumi_gestalt_rust::__private::into_domain(o.extract_field("audio")),
-            audio_codec_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("audioCodecOptions"),
-            ),
-            container: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("container"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            thumbnails: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thumbnails"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            video: pulumi_gestalt_rust::__private::into_domain(o.extract_field("video")),
-            video_codec_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("videoCodecOptions"),
-            ),
-            video_watermarks: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("videoWatermarks"),
-            ),
+            arn: o.get_field("arn"),
+            audio: o.get_field("audio"),
+            audio_codec_options: o.get_field("audioCodecOptions"),
+            container: o.get_field("container"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            thumbnails: o.get_field("thumbnails"),
+            type_: o.get_field("type"),
+            video: o.get_field("video"),
+            video_codec_options: o.get_field("videoCodecOptions"),
+            video_watermarks: o.get_field("videoWatermarks"),
         }
     }
 }

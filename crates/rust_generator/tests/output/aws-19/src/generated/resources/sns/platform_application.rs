@@ -175,164 +175,123 @@ pub mod platform_application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PlatformApplicationArgs,
     ) -> PlatformApplicationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let apple_platform_bundle_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let apple_platform_bundle_id_binding = args
             .apple_platform_bundle_id
             .get_output(context);
-        let apple_platform_bundle_id_binding = apple_platform_bundle_id_binding_1
-            .get_inner();
-        let apple_platform_team_id_binding_1 = args
+        let apple_platform_team_id_binding = args
             .apple_platform_team_id
             .get_output(context);
-        let apple_platform_team_id_binding = apple_platform_team_id_binding_1
-            .get_inner();
-        let event_delivery_failure_topic_arn_binding_1 = args
+        let event_delivery_failure_topic_arn_binding = args
             .event_delivery_failure_topic_arn
             .get_output(context);
-        let event_delivery_failure_topic_arn_binding = event_delivery_failure_topic_arn_binding_1
-            .get_inner();
-        let event_endpoint_created_topic_arn_binding_1 = args
+        let event_endpoint_created_topic_arn_binding = args
             .event_endpoint_created_topic_arn
             .get_output(context);
-        let event_endpoint_created_topic_arn_binding = event_endpoint_created_topic_arn_binding_1
-            .get_inner();
-        let event_endpoint_deleted_topic_arn_binding_1 = args
+        let event_endpoint_deleted_topic_arn_binding = args
             .event_endpoint_deleted_topic_arn
             .get_output(context);
-        let event_endpoint_deleted_topic_arn_binding = event_endpoint_deleted_topic_arn_binding_1
-            .get_inner();
-        let event_endpoint_updated_topic_arn_binding_1 = args
+        let event_endpoint_updated_topic_arn_binding = args
             .event_endpoint_updated_topic_arn
             .get_output(context);
-        let event_endpoint_updated_topic_arn_binding = event_endpoint_updated_topic_arn_binding_1
-            .get_inner();
-        let failure_feedback_role_arn_binding_1 = args
+        let failure_feedback_role_arn_binding = args
             .failure_feedback_role_arn
             .get_output(context);
-        let failure_feedback_role_arn_binding = failure_feedback_role_arn_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let platform_binding_1 = args.platform.get_output(context);
-        let platform_binding = platform_binding_1.get_inner();
-        let platform_credential_binding_1 = args.platform_credential.get_output(context);
-        let platform_credential_binding = platform_credential_binding_1.get_inner();
-        let platform_principal_binding_1 = args.platform_principal.get_output(context);
-        let platform_principal_binding = platform_principal_binding_1.get_inner();
-        let success_feedback_role_arn_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let platform_binding = args.platform.get_output(context);
+        let platform_credential_binding = args.platform_credential.get_output(context);
+        let platform_principal_binding = args.platform_principal.get_output(context);
+        let success_feedback_role_arn_binding = args
             .success_feedback_role_arn
             .get_output(context);
-        let success_feedback_role_arn_binding = success_feedback_role_arn_binding_1
-            .get_inner();
-        let success_feedback_sample_rate_binding_1 = args
+        let success_feedback_sample_rate_binding = args
             .success_feedback_sample_rate
             .get_output(context);
-        let success_feedback_sample_rate_binding = success_feedback_sample_rate_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sns/platformApplication:PlatformApplication".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applePlatformBundleId".into(),
-                    value: &apple_platform_bundle_id_binding,
+                    value: apple_platform_bundle_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applePlatformTeamId".into(),
-                    value: &apple_platform_team_id_binding,
+                    value: apple_platform_team_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventDeliveryFailureTopicArn".into(),
-                    value: &event_delivery_failure_topic_arn_binding,
+                    value: event_delivery_failure_topic_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventEndpointCreatedTopicArn".into(),
-                    value: &event_endpoint_created_topic_arn_binding,
+                    value: event_endpoint_created_topic_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventEndpointDeletedTopicArn".into(),
-                    value: &event_endpoint_deleted_topic_arn_binding,
+                    value: event_endpoint_deleted_topic_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventEndpointUpdatedTopicArn".into(),
-                    value: &event_endpoint_updated_topic_arn_binding,
+                    value: event_endpoint_updated_topic_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failureFeedbackRoleArn".into(),
-                    value: &failure_feedback_role_arn_binding,
+                    value: failure_feedback_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platform".into(),
-                    value: &platform_binding,
+                    value: platform_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformCredential".into(),
-                    value: &platform_credential_binding,
+                    value: platform_credential_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformPrincipal".into(),
-                    value: &platform_principal_binding,
+                    value: platform_principal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "successFeedbackRoleArn".into(),
-                    value: &success_feedback_role_arn_binding,
+                    value: success_feedback_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "successFeedbackSampleRate".into(),
-                    value: &success_feedback_sample_rate_binding,
+                    value: success_feedback_sample_rate_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PlatformApplicationResult {
-            apple_platform_bundle_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applePlatformBundleId"),
-            ),
-            apple_platform_team_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("applePlatformTeamId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            event_delivery_failure_topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventDeliveryFailureTopicArn"),
-            ),
-            event_endpoint_created_topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventEndpointCreatedTopicArn"),
-            ),
-            event_endpoint_deleted_topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventEndpointDeletedTopicArn"),
-            ),
-            event_endpoint_updated_topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventEndpointUpdatedTopicArn"),
-            ),
-            failure_feedback_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("failureFeedbackRoleArn"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platform"),
-            ),
-            platform_credential: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformCredential"),
-            ),
-            platform_principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("platformPrincipal"),
-            ),
-            success_feedback_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("successFeedbackRoleArn"),
-            ),
-            success_feedback_sample_rate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("successFeedbackSampleRate"),
-            ),
+            apple_platform_bundle_id: o.get_field("applePlatformBundleId"),
+            apple_platform_team_id: o.get_field("applePlatformTeamId"),
+            arn: o.get_field("arn"),
+            event_delivery_failure_topic_arn: o
+                .get_field("eventDeliveryFailureTopicArn"),
+            event_endpoint_created_topic_arn: o
+                .get_field("eventEndpointCreatedTopicArn"),
+            event_endpoint_deleted_topic_arn: o
+                .get_field("eventEndpointDeletedTopicArn"),
+            event_endpoint_updated_topic_arn: o
+                .get_field("eventEndpointUpdatedTopicArn"),
+            failure_feedback_role_arn: o.get_field("failureFeedbackRoleArn"),
+            name: o.get_field("name"),
+            platform: o.get_field("platform"),
+            platform_credential: o.get_field("platformCredential"),
+            platform_principal: o.get_field("platformPrincipal"),
+            success_feedback_role_arn: o.get_field("successFeedbackRoleArn"),
+            success_feedback_sample_rate: o.get_field("successFeedbackSampleRate"),
         }
     }
 }

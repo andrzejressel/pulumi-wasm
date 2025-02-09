@@ -129,65 +129,51 @@ pub mod endpoint_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointAttachmentArgs,
     ) -> EndpointAttachmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let endpoint_attachment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let endpoint_attachment_id_binding = args
             .endpoint_attachment_id
             .get_output(context);
-        let endpoint_attachment_id_binding = endpoint_attachment_id_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let org_id_binding_1 = args.org_id.get_output(context);
-        let org_id_binding = org_id_binding_1.get_inner();
-        let service_attachment_binding_1 = args.service_attachment.get_output(context);
-        let service_attachment_binding = service_attachment_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let org_id_binding = args.org_id.get_output(context);
+        let service_attachment_binding = args.service_attachment.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apigee/endpointAttachment:EndpointAttachment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointAttachmentId".into(),
-                    value: &endpoint_attachment_id_binding,
+                    value: endpoint_attachment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: &org_id_binding,
+                    value: org_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAttachment".into(),
-                    value: &service_attachment_binding,
+                    value: service_attachment_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointAttachmentResult {
-            connection_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionState"),
-            ),
-            endpoint_attachment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointAttachmentId"),
-            ),
-            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            org_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("orgId"),
-            ),
-            service_attachment: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAttachment"),
-            ),
+            connection_state: o.get_field("connectionState"),
+            endpoint_attachment_id: o.get_field("endpointAttachmentId"),
+            host: o.get_field("host"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            org_id: o.get_field("orgId"),
+            service_attachment: o.get_field("serviceAttachment"),
         }
     }
 }

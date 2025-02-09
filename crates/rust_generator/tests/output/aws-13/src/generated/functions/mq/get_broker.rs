@@ -60,93 +60,57 @@ pub mod get_broker {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBrokerArgs,
     ) -> GetBrokerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let broker_id_binding_1 = args.broker_id.get_output(context);
-        let broker_id_binding = broker_id_binding_1.get_inner();
-        let broker_name_binding_1 = args.broker_name.get_output(context);
-        let broker_name_binding = broker_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let broker_id_binding = args.broker_id.get_output(context);
+        let broker_name_binding = args.broker_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:mq/getBroker:getBroker".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "brokerId".into(),
-                    value: &broker_id_binding,
+                    value: broker_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "brokerName".into(),
-                    value: &broker_name_binding,
+                    value: broker_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBrokerResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_strategy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationStrategy"),
-            ),
-            auto_minor_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoMinorVersionUpgrade"),
-            ),
-            broker_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("brokerId"),
-            ),
-            broker_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("brokerName"),
-            ),
-            configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configuration"),
-            ),
-            deployment_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deploymentMode"),
-            ),
-            encryption_options: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encryptionOptions"),
-            ),
-            engine_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineType"),
-            ),
-            engine_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("engineVersion"),
-            ),
-            host_instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostInstanceType"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instances: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instances"),
-            ),
-            ldap_server_metadatas: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ldapServerMetadatas"),
-            ),
-            logs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("logs")),
-            maintenance_window_start_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindowStartTime"),
-            ),
-            publicly_accessible: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publiclyAccessible"),
-            ),
-            security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroups"),
-            ),
-            storage_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("storageType"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            users: pulumi_gestalt_rust::__private::into_domain(o.extract_field("users")),
+            arn: o.get_field("arn"),
+            authentication_strategy: o.get_field("authenticationStrategy"),
+            auto_minor_version_upgrade: o.get_field("autoMinorVersionUpgrade"),
+            broker_id: o.get_field("brokerId"),
+            broker_name: o.get_field("brokerName"),
+            configuration: o.get_field("configuration"),
+            deployment_mode: o.get_field("deploymentMode"),
+            encryption_options: o.get_field("encryptionOptions"),
+            engine_type: o.get_field("engineType"),
+            engine_version: o.get_field("engineVersion"),
+            host_instance_type: o.get_field("hostInstanceType"),
+            id: o.get_field("id"),
+            instances: o.get_field("instances"),
+            ldap_server_metadatas: o.get_field("ldapServerMetadatas"),
+            logs: o.get_field("logs"),
+            maintenance_window_start_time: o.get_field("maintenanceWindowStartTime"),
+            publicly_accessible: o.get_field("publiclyAccessible"),
+            security_groups: o.get_field("securityGroups"),
+            storage_type: o.get_field("storageType"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            users: o.get_field("users"),
         }
     }
 }

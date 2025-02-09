@@ -33,52 +33,42 @@ pub mod get_document {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDocumentArgs,
     ) -> GetDocumentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let document_format_binding_1 = args.document_format.get_output(context);
-        let document_format_binding = document_format_binding_1.get_inner();
-        let document_version_binding_1 = args.document_version.get_output(context);
-        let document_version_binding = document_version_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let document_format_binding = args.document_format.get_output(context);
+        let document_version_binding = args.document_version.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ssm/getDocument:getDocument".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentFormat".into(),
-                    value: &document_format_binding,
+                    value: document_format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentVersion".into(),
-                    value: &document_version_binding,
+                    value: document_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDocumentResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            content: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("content"),
-            ),
-            document_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentFormat"),
-            ),
-            document_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentType"),
-            ),
-            document_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentVersion"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            arn: o.get_field("arn"),
+            content: o.get_field("content"),
+            document_format: o.get_field("documentFormat"),
+            document_type: o.get_field("documentType"),
+            document_version: o.get_field("documentVersion"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
         }
     }
 }

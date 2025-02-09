@@ -52,77 +52,63 @@ pub mod get_vpn_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetVpnGatewayArgs,
     ) -> GetVpnGatewayResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let amazon_side_asn_binding_1 = args.amazon_side_asn.get_output(context);
-        let amazon_side_asn_binding = amazon_side_asn_binding_1.get_inner();
-        let attached_vpc_id_binding_1 = args.attached_vpc_id.get_output(context);
-        let attached_vpc_id_binding = attached_vpc_id_binding_1.get_inner();
-        let availability_zone_binding_1 = args.availability_zone.get_output(context);
-        let availability_zone_binding = availability_zone_binding_1.get_inner();
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let state_binding_1 = args.state.get_output(context);
-        let state_binding = state_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let amazon_side_asn_binding = args.amazon_side_asn.get_output(context);
+        let attached_vpc_id_binding = args.attached_vpc_id.get_output(context);
+        let availability_zone_binding = args.availability_zone.get_output(context);
+        let filters_binding = args.filters.get_output(context);
+        let id_binding = args.id.get_output(context);
+        let state_binding = args.state.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getVpnGateway:getVpnGateway".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amazonSideAsn".into(),
-                    value: &amazon_side_asn_binding,
+                    value: amazon_side_asn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachedVpcId".into(),
-                    value: &attached_vpc_id_binding,
+                    value: attached_vpc_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: &availability_zone_binding,
+                    value: availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: &state_binding,
+                    value: state_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetVpnGatewayResult {
-            amazon_side_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("amazonSideAsn"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            attached_vpc_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachedVpcId"),
-            ),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            amazon_side_asn: o.get_field("amazonSideAsn"),
+            arn: o.get_field("arn"),
+            attached_vpc_id: o.get_field("attachedVpcId"),
+            availability_zone: o.get_field("availabilityZone"),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
         }
     }
 }

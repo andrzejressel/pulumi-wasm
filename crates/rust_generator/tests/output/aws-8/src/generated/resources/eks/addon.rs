@@ -266,142 +266,100 @@ pub mod addon {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AddonArgs,
     ) -> AddonResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addon_name_binding_1 = args.addon_name.get_output(context);
-        let addon_name_binding = addon_name_binding_1.get_inner();
-        let addon_version_binding_1 = args.addon_version.get_output(context);
-        let addon_version_binding = addon_version_binding_1.get_inner();
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let configuration_values_binding_1 = args
-            .configuration_values
-            .get_output(context);
-        let configuration_values_binding = configuration_values_binding_1.get_inner();
-        let pod_identity_associations_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let addon_name_binding = args.addon_name.get_output(context);
+        let addon_version_binding = args.addon_version.get_output(context);
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let configuration_values_binding = args.configuration_values.get_output(context);
+        let pod_identity_associations_binding = args
             .pod_identity_associations
             .get_output(context);
-        let pod_identity_associations_binding = pod_identity_associations_binding_1
-            .get_inner();
-        let preserve_binding_1 = args.preserve.get_output(context);
-        let preserve_binding = preserve_binding_1.get_inner();
-        let resolve_conflicts_binding_1 = args.resolve_conflicts.get_output(context);
-        let resolve_conflicts_binding = resolve_conflicts_binding_1.get_inner();
-        let resolve_conflicts_on_create_binding_1 = args
+        let preserve_binding = args.preserve.get_output(context);
+        let resolve_conflicts_binding = args.resolve_conflicts.get_output(context);
+        let resolve_conflicts_on_create_binding = args
             .resolve_conflicts_on_create
             .get_output(context);
-        let resolve_conflicts_on_create_binding = resolve_conflicts_on_create_binding_1
-            .get_inner();
-        let resolve_conflicts_on_update_binding_1 = args
+        let resolve_conflicts_on_update_binding = args
             .resolve_conflicts_on_update
             .get_output(context);
-        let resolve_conflicts_on_update_binding = resolve_conflicts_on_update_binding_1
-            .get_inner();
-        let service_account_role_arn_binding_1 = args
+        let service_account_role_arn_binding = args
             .service_account_role_arn
             .get_output(context);
-        let service_account_role_arn_binding = service_account_role_arn_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:eks/addon:Addon".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addonName".into(),
-                    value: &addon_name_binding,
+                    value: addon_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addonVersion".into(),
-                    value: &addon_version_binding,
+                    value: addon_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationValues".into(),
-                    value: &configuration_values_binding,
+                    value: configuration_values_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "podIdentityAssociations".into(),
-                    value: &pod_identity_associations_binding,
+                    value: pod_identity_associations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preserve".into(),
-                    value: &preserve_binding,
+                    value: preserve_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolveConflicts".into(),
-                    value: &resolve_conflicts_binding,
+                    value: resolve_conflicts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolveConflictsOnCreate".into(),
-                    value: &resolve_conflicts_on_create_binding,
+                    value: resolve_conflicts_on_create_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolveConflictsOnUpdate".into(),
-                    value: &resolve_conflicts_on_update_binding,
+                    value: resolve_conflicts_on_update_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountRoleArn".into(),
-                    value: &service_account_role_arn_binding,
+                    value: service_account_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AddonResult {
-            addon_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addonName"),
-            ),
-            addon_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addonVersion"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            configuration_values: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationValues"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            modified_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modifiedAt"),
-            ),
-            pod_identity_associations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("podIdentityAssociations"),
-            ),
-            preserve: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preserve"),
-            ),
-            resolve_conflicts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resolveConflicts"),
-            ),
-            resolve_conflicts_on_create: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resolveConflictsOnCreate"),
-            ),
-            resolve_conflicts_on_update: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resolveConflictsOnUpdate"),
-            ),
-            service_account_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountRoleArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            addon_name: o.get_field("addonName"),
+            addon_version: o.get_field("addonVersion"),
+            arn: o.get_field("arn"),
+            cluster_name: o.get_field("clusterName"),
+            configuration_values: o.get_field("configurationValues"),
+            created_at: o.get_field("createdAt"),
+            modified_at: o.get_field("modifiedAt"),
+            pod_identity_associations: o.get_field("podIdentityAssociations"),
+            preserve: o.get_field("preserve"),
+            resolve_conflicts: o.get_field("resolveConflicts"),
+            resolve_conflicts_on_create: o.get_field("resolveConflictsOnCreate"),
+            resolve_conflicts_on_update: o.get_field("resolveConflictsOnUpdate"),
+            service_account_role_arn: o.get_field("serviceAccountRoleArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

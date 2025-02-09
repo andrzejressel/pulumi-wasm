@@ -363,175 +363,122 @@ pub mod fhir_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FhirStoreArgs,
     ) -> FhirStoreResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let complex_data_type_reference_parsing_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let complex_data_type_reference_parsing_binding = args
             .complex_data_type_reference_parsing
             .get_output(context);
-        let complex_data_type_reference_parsing_binding = complex_data_type_reference_parsing_binding_1
-            .get_inner();
-        let dataset_binding_1 = args.dataset.get_output(context);
-        let dataset_binding = dataset_binding_1.get_inner();
-        let default_search_handling_strict_binding_1 = args
+        let dataset_binding = args.dataset.get_output(context);
+        let default_search_handling_strict_binding = args
             .default_search_handling_strict
             .get_output(context);
-        let default_search_handling_strict_binding = default_search_handling_strict_binding_1
-            .get_inner();
-        let disable_referential_integrity_binding_1 = args
+        let disable_referential_integrity_binding = args
             .disable_referential_integrity
             .get_output(context);
-        let disable_referential_integrity_binding = disable_referential_integrity_binding_1
-            .get_inner();
-        let disable_resource_versioning_binding_1 = args
+        let disable_resource_versioning_binding = args
             .disable_resource_versioning
             .get_output(context);
-        let disable_resource_versioning_binding = disable_resource_versioning_binding_1
-            .get_inner();
-        let enable_history_import_binding_1 = args
+        let enable_history_import_binding = args
             .enable_history_import
             .get_output(context);
-        let enable_history_import_binding = enable_history_import_binding_1.get_inner();
-        let enable_history_modifications_binding_1 = args
+        let enable_history_modifications_binding = args
             .enable_history_modifications
             .get_output(context);
-        let enable_history_modifications_binding = enable_history_modifications_binding_1
-            .get_inner();
-        let enable_update_create_binding_1 = args
-            .enable_update_create
-            .get_output(context);
-        let enable_update_create_binding = enable_update_create_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let notification_config_binding_1 = args.notification_config.get_output(context);
-        let notification_config_binding = notification_config_binding_1.get_inner();
-        let notification_configs_binding_1 = args
-            .notification_configs
-            .get_output(context);
-        let notification_configs_binding = notification_configs_binding_1.get_inner();
-        let stream_configs_binding_1 = args.stream_configs.get_output(context);
-        let stream_configs_binding = stream_configs_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let enable_update_create_binding = args.enable_update_create.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let notification_config_binding = args.notification_config.get_output(context);
+        let notification_configs_binding = args.notification_configs.get_output(context);
+        let stream_configs_binding = args.stream_configs.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:healthcare/fhirStore:FhirStore".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "complexDataTypeReferenceParsing".into(),
-                    value: &complex_data_type_reference_parsing_binding,
+                    value: complex_data_type_reference_parsing_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: &dataset_binding,
+                    value: dataset_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultSearchHandlingStrict".into(),
-                    value: &default_search_handling_strict_binding,
+                    value: default_search_handling_strict_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableReferentialIntegrity".into(),
-                    value: &disable_referential_integrity_binding,
+                    value: disable_referential_integrity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableResourceVersioning".into(),
-                    value: &disable_resource_versioning_binding,
+                    value: disable_resource_versioning_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableHistoryImport".into(),
-                    value: &enable_history_import_binding,
+                    value: enable_history_import_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableHistoryModifications".into(),
-                    value: &enable_history_modifications_binding,
+                    value: enable_history_modifications_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableUpdateCreate".into(),
-                    value: &enable_update_create_binding,
+                    value: enable_update_create_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationConfig".into(),
-                    value: &notification_config_binding,
+                    value: notification_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationConfigs".into(),
-                    value: &notification_configs_binding,
+                    value: notification_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamConfigs".into(),
-                    value: &stream_configs_binding,
+                    value: stream_configs_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FhirStoreResult {
-            complex_data_type_reference_parsing: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("complexDataTypeReferenceParsing"),
-            ),
-            dataset: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataset"),
-            ),
-            default_search_handling_strict: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSearchHandlingStrict"),
-            ),
-            disable_referential_integrity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableReferentialIntegrity"),
-            ),
-            disable_resource_versioning: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableResourceVersioning"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            enable_history_import: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableHistoryImport"),
-            ),
-            enable_history_modifications: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableHistoryModifications"),
-            ),
-            enable_update_create: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableUpdateCreate"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationConfig"),
-            ),
-            notification_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationConfigs"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            stream_configs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamConfigs"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            complex_data_type_reference_parsing: o
+                .get_field("complexDataTypeReferenceParsing"),
+            dataset: o.get_field("dataset"),
+            default_search_handling_strict: o.get_field("defaultSearchHandlingStrict"),
+            disable_referential_integrity: o.get_field("disableReferentialIntegrity"),
+            disable_resource_versioning: o.get_field("disableResourceVersioning"),
+            effective_labels: o.get_field("effectiveLabels"),
+            enable_history_import: o.get_field("enableHistoryImport"),
+            enable_history_modifications: o.get_field("enableHistoryModifications"),
+            enable_update_create: o.get_field("enableUpdateCreate"),
+            labels: o.get_field("labels"),
+            name: o.get_field("name"),
+            notification_config: o.get_field("notificationConfig"),
+            notification_configs: o.get_field("notificationConfigs"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            self_link: o.get_field("selfLink"),
+            stream_configs: o.get_field("streamConfigs"),
+            version: o.get_field("version"),
         }
     }
 }

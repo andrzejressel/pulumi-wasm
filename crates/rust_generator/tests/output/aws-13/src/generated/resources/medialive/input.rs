@@ -140,121 +140,90 @@ pub mod input {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: InputArgs,
     ) -> InputResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let destinations_binding_1 = args.destinations.get_output(context);
-        let destinations_binding = destinations_binding_1.get_inner();
-        let input_devices_binding_1 = args.input_devices.get_output(context);
-        let input_devices_binding = input_devices_binding_1.get_inner();
-        let input_security_groups_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let destinations_binding = args.destinations.get_output(context);
+        let input_devices_binding = args.input_devices.get_output(context);
+        let input_security_groups_binding = args
             .input_security_groups
             .get_output(context);
-        let input_security_groups_binding = input_security_groups_binding_1.get_inner();
-        let media_connect_flows_binding_1 = args.media_connect_flows.get_output(context);
-        let media_connect_flows_binding = media_connect_flows_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let sources_binding_1 = args.sources.get_output(context);
-        let sources_binding = sources_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let vpc_binding_1 = args.vpc.get_output(context);
-        let vpc_binding = vpc_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let media_connect_flows_binding = args.media_connect_flows.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let sources_binding = args.sources.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let vpc_binding = args.vpc.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:medialive/input:Input".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinations".into(),
-                    value: &destinations_binding,
+                    value: destinations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputDevices".into(),
-                    value: &input_devices_binding,
+                    value: input_devices_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputSecurityGroups".into(),
-                    value: &input_security_groups_binding,
+                    value: input_security_groups_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mediaConnectFlows".into(),
-                    value: &media_connect_flows_binding,
+                    value: media_connect_flows_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sources".into(),
-                    value: &sources_binding,
+                    value: sources_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpc".into(),
-                    value: &vpc_binding,
+                    value: vpc_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         InputResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            attached_channels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attachedChannels"),
-            ),
-            destinations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinations"),
-            ),
-            input_class: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputClass"),
-            ),
-            input_devices: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputDevices"),
-            ),
-            input_partner_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputPartnerIds"),
-            ),
-            input_security_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputSecurityGroups"),
-            ),
-            input_source_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inputSourceType"),
-            ),
-            media_connect_flows: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("mediaConnectFlows"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            sources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sources"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            vpc: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpc")),
+            arn: o.get_field("arn"),
+            attached_channels: o.get_field("attachedChannels"),
+            destinations: o.get_field("destinations"),
+            input_class: o.get_field("inputClass"),
+            input_devices: o.get_field("inputDevices"),
+            input_partner_ids: o.get_field("inputPartnerIds"),
+            input_security_groups: o.get_field("inputSecurityGroups"),
+            input_source_type: o.get_field("inputSourceType"),
+            media_connect_flows: o.get_field("mediaConnectFlows"),
+            name: o.get_field("name"),
+            role_arn: o.get_field("roleArn"),
+            sources: o.get_field("sources"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
+            vpc: o.get_field("vpc"),
         }
     }
 }

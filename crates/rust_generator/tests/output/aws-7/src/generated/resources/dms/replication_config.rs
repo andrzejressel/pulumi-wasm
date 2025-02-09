@@ -117,129 +117,94 @@ pub mod replication_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ReplicationConfigArgs,
     ) -> ReplicationConfigResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let compute_config_binding_1 = args.compute_config.get_output(context);
-        let compute_config_binding = compute_config_binding_1.get_inner();
-        let replication_config_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let compute_config_binding = args.compute_config.get_output(context);
+        let replication_config_identifier_binding = args
             .replication_config_identifier
             .get_output(context);
-        let replication_config_identifier_binding = replication_config_identifier_binding_1
-            .get_inner();
-        let replication_settings_binding_1 = args
-            .replication_settings
-            .get_output(context);
-        let replication_settings_binding = replication_settings_binding_1.get_inner();
-        let replication_type_binding_1 = args.replication_type.get_output(context);
-        let replication_type_binding = replication_type_binding_1.get_inner();
-        let resource_identifier_binding_1 = args.resource_identifier.get_output(context);
-        let resource_identifier_binding = resource_identifier_binding_1.get_inner();
-        let source_endpoint_arn_binding_1 = args.source_endpoint_arn.get_output(context);
-        let source_endpoint_arn_binding = source_endpoint_arn_binding_1.get_inner();
-        let start_replication_binding_1 = args.start_replication.get_output(context);
-        let start_replication_binding = start_replication_binding_1.get_inner();
-        let supplemental_settings_binding_1 = args
+        let replication_settings_binding = args.replication_settings.get_output(context);
+        let replication_type_binding = args.replication_type.get_output(context);
+        let resource_identifier_binding = args.resource_identifier.get_output(context);
+        let source_endpoint_arn_binding = args.source_endpoint_arn.get_output(context);
+        let start_replication_binding = args.start_replication.get_output(context);
+        let supplemental_settings_binding = args
             .supplemental_settings
             .get_output(context);
-        let supplemental_settings_binding = supplemental_settings_binding_1.get_inner();
-        let table_mappings_binding_1 = args.table_mappings.get_output(context);
-        let table_mappings_binding = table_mappings_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let target_endpoint_arn_binding_1 = args.target_endpoint_arn.get_output(context);
-        let target_endpoint_arn_binding = target_endpoint_arn_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let table_mappings_binding = args.table_mappings.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let target_endpoint_arn_binding = args.target_endpoint_arn.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:dms/replicationConfig:ReplicationConfig".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeConfig".into(),
-                    value: &compute_config_binding,
+                    value: compute_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationConfigIdentifier".into(),
-                    value: &replication_config_identifier_binding,
+                    value: replication_config_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationSettings".into(),
-                    value: &replication_settings_binding,
+                    value: replication_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationType".into(),
-                    value: &replication_type_binding,
+                    value: replication_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceIdentifier".into(),
-                    value: &resource_identifier_binding,
+                    value: resource_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceEndpointArn".into(),
-                    value: &source_endpoint_arn_binding,
+                    value: source_endpoint_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startReplication".into(),
-                    value: &start_replication_binding,
+                    value: start_replication_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supplementalSettings".into(),
-                    value: &supplemental_settings_binding,
+                    value: supplemental_settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableMappings".into(),
-                    value: &table_mappings_binding,
+                    value: table_mappings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetEndpointArn".into(),
-                    value: &target_endpoint_arn_binding,
+                    value: target_endpoint_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ReplicationConfigResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            compute_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("computeConfig"),
-            ),
-            replication_config_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationConfigIdentifier"),
-            ),
-            replication_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationSettings"),
-            ),
-            replication_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationType"),
-            ),
-            resource_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceIdentifier"),
-            ),
-            source_endpoint_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceEndpointArn"),
-            ),
-            start_replication: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startReplication"),
-            ),
-            supplemental_settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supplementalSettings"),
-            ),
-            table_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableMappings"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            target_endpoint_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetEndpointArn"),
-            ),
+            arn: o.get_field("arn"),
+            compute_config: o.get_field("computeConfig"),
+            replication_config_identifier: o.get_field("replicationConfigIdentifier"),
+            replication_settings: o.get_field("replicationSettings"),
+            replication_type: o.get_field("replicationType"),
+            resource_identifier: o.get_field("resourceIdentifier"),
+            source_endpoint_arn: o.get_field("sourceEndpointArn"),
+            start_replication: o.get_field("startReplication"),
+            supplemental_settings: o.get_field("supplementalSettings"),
+            table_mappings: o.get_field("tableMappings"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            target_endpoint_arn: o.get_field("targetEndpointArn"),
         }
     }
 }

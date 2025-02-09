@@ -158,164 +158,112 @@ pub mod custom_model {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CustomModelArgs,
     ) -> CustomModelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let base_model_identifier_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let base_model_identifier_binding = args
             .base_model_identifier
             .get_output(context);
-        let base_model_identifier_binding = base_model_identifier_binding_1.get_inner();
-        let custom_model_kms_key_id_binding_1 = args
+        let custom_model_kms_key_id_binding = args
             .custom_model_kms_key_id
             .get_output(context);
-        let custom_model_kms_key_id_binding = custom_model_kms_key_id_binding_1
-            .get_inner();
-        let custom_model_name_binding_1 = args.custom_model_name.get_output(context);
-        let custom_model_name_binding = custom_model_name_binding_1.get_inner();
-        let customization_type_binding_1 = args.customization_type.get_output(context);
-        let customization_type_binding = customization_type_binding_1.get_inner();
-        let hyperparameters_binding_1 = args.hyperparameters.get_output(context);
-        let hyperparameters_binding = hyperparameters_binding_1.get_inner();
-        let job_name_binding_1 = args.job_name.get_output(context);
-        let job_name_binding = job_name_binding_1.get_inner();
-        let output_data_config_binding_1 = args.output_data_config.get_output(context);
-        let output_data_config_binding = output_data_config_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let training_data_config_binding_1 = args
-            .training_data_config
-            .get_output(context);
-        let training_data_config_binding = training_data_config_binding_1.get_inner();
-        let validation_data_config_binding_1 = args
+        let custom_model_name_binding = args.custom_model_name.get_output(context);
+        let customization_type_binding = args.customization_type.get_output(context);
+        let hyperparameters_binding = args.hyperparameters.get_output(context);
+        let job_name_binding = args.job_name.get_output(context);
+        let output_data_config_binding = args.output_data_config.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let training_data_config_binding = args.training_data_config.get_output(context);
+        let validation_data_config_binding = args
             .validation_data_config
             .get_output(context);
-        let validation_data_config_binding = validation_data_config_binding_1
-            .get_inner();
-        let vpc_config_binding_1 = args.vpc_config.get_output(context);
-        let vpc_config_binding = vpc_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let vpc_config_binding = args.vpc_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:bedrock/customModel:CustomModel".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baseModelIdentifier".into(),
-                    value: &base_model_identifier_binding,
+                    value: base_model_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customModelKmsKeyId".into(),
-                    value: &custom_model_kms_key_id_binding,
+                    value: custom_model_kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customModelName".into(),
-                    value: &custom_model_name_binding,
+                    value: custom_model_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customizationType".into(),
-                    value: &customization_type_binding,
+                    value: customization_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hyperparameters".into(),
-                    value: &hyperparameters_binding,
+                    value: hyperparameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobName".into(),
-                    value: &job_name_binding,
+                    value: job_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputDataConfig".into(),
-                    value: &output_data_config_binding,
+                    value: output_data_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trainingDataConfig".into(),
-                    value: &training_data_config_binding,
+                    value: training_data_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationDataConfig".into(),
-                    value: &validation_data_config_binding,
+                    value: validation_data_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfig".into(),
-                    value: &vpc_config_binding,
+                    value: vpc_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CustomModelResult {
-            base_model_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("baseModelIdentifier"),
-            ),
-            custom_model_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customModelArn"),
-            ),
-            custom_model_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customModelKmsKeyId"),
-            ),
-            custom_model_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customModelName"),
-            ),
-            customization_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customizationType"),
-            ),
-            hyperparameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hyperparameters"),
-            ),
-            job_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobArn"),
-            ),
-            job_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobName"),
-            ),
-            job_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("jobStatus"),
-            ),
-            output_data_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outputDataConfig"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            training_data_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trainingDataConfig"),
-            ),
-            training_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("trainingMetrics"),
-            ),
-            validation_data_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationDataConfig"),
-            ),
-            validation_metrics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validationMetrics"),
-            ),
-            vpc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfig"),
-            ),
+            base_model_identifier: o.get_field("baseModelIdentifier"),
+            custom_model_arn: o.get_field("customModelArn"),
+            custom_model_kms_key_id: o.get_field("customModelKmsKeyId"),
+            custom_model_name: o.get_field("customModelName"),
+            customization_type: o.get_field("customizationType"),
+            hyperparameters: o.get_field("hyperparameters"),
+            job_arn: o.get_field("jobArn"),
+            job_name: o.get_field("jobName"),
+            job_status: o.get_field("jobStatus"),
+            output_data_config: o.get_field("outputDataConfig"),
+            role_arn: o.get_field("roleArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
+            training_data_config: o.get_field("trainingDataConfig"),
+            training_metrics: o.get_field("trainingMetrics"),
+            validation_data_config: o.get_field("validationDataConfig"),
+            validation_metrics: o.get_field("validationMetrics"),
+            vpc_config: o.get_field("vpcConfig"),
         }
     }
 }

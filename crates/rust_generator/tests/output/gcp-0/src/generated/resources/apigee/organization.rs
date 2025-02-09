@@ -366,169 +366,121 @@ pub mod organization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: OrganizationArgs,
     ) -> OrganizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let analytics_region_binding_1 = args.analytics_region.get_output(context);
-        let analytics_region_binding = analytics_region_binding_1.get_inner();
-        let api_consumer_data_encryption_key_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let analytics_region_binding = args.analytics_region.get_output(context);
+        let api_consumer_data_encryption_key_name_binding = args
             .api_consumer_data_encryption_key_name
             .get_output(context);
-        let api_consumer_data_encryption_key_name_binding = api_consumer_data_encryption_key_name_binding_1
-            .get_inner();
-        let api_consumer_data_location_binding_1 = args
+        let api_consumer_data_location_binding = args
             .api_consumer_data_location
             .get_output(context);
-        let api_consumer_data_location_binding = api_consumer_data_location_binding_1
-            .get_inner();
-        let authorized_network_binding_1 = args.authorized_network.get_output(context);
-        let authorized_network_binding = authorized_network_binding_1.get_inner();
-        let billing_type_binding_1 = args.billing_type.get_output(context);
-        let billing_type_binding = billing_type_binding_1.get_inner();
-        let control_plane_encryption_key_name_binding_1 = args
+        let authorized_network_binding = args.authorized_network.get_output(context);
+        let billing_type_binding = args.billing_type.get_output(context);
+        let control_plane_encryption_key_name_binding = args
             .control_plane_encryption_key_name
             .get_output(context);
-        let control_plane_encryption_key_name_binding = control_plane_encryption_key_name_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disable_vpc_peering_binding_1 = args.disable_vpc_peering.get_output(context);
-        let disable_vpc_peering_binding = disable_vpc_peering_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let project_id_binding_1 = args.project_id.get_output(context);
-        let project_id_binding = project_id_binding_1.get_inner();
-        let properties_binding_1 = args.properties.get_output(context);
-        let properties_binding = properties_binding_1.get_inner();
-        let retention_binding_1 = args.retention.get_output(context);
-        let retention_binding = retention_binding_1.get_inner();
-        let runtime_database_encryption_key_name_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let disable_vpc_peering_binding = args.disable_vpc_peering.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let project_id_binding = args.project_id.get_output(context);
+        let properties_binding = args.properties.get_output(context);
+        let retention_binding = args.retention.get_output(context);
+        let runtime_database_encryption_key_name_binding = args
             .runtime_database_encryption_key_name
             .get_output(context);
-        let runtime_database_encryption_key_name_binding = runtime_database_encryption_key_name_binding_1
-            .get_inner();
-        let runtime_type_binding_1 = args.runtime_type.get_output(context);
-        let runtime_type_binding = runtime_type_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let runtime_type_binding = args.runtime_type.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:apigee/organization:Organization".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "analyticsRegion".into(),
-                    value: &analytics_region_binding,
+                    value: analytics_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiConsumerDataEncryptionKeyName".into(),
-                    value: &api_consumer_data_encryption_key_name_binding,
+                    value: api_consumer_data_encryption_key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiConsumerDataLocation".into(),
-                    value: &api_consumer_data_location_binding,
+                    value: api_consumer_data_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedNetwork".into(),
-                    value: &authorized_network_binding,
+                    value: authorized_network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingType".into(),
-                    value: &billing_type_binding,
+                    value: billing_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlaneEncryptionKeyName".into(),
-                    value: &control_plane_encryption_key_name_binding,
+                    value: control_plane_encryption_key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableVpcPeering".into(),
-                    value: &disable_vpc_peering_binding,
+                    value: disable_vpc_peering_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectId".into(),
-                    value: &project_id_binding,
+                    value: project_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "properties".into(),
-                    value: &properties_binding,
+                    value: properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retention".into(),
-                    value: &retention_binding,
+                    value: retention_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeDatabaseEncryptionKeyName".into(),
-                    value: &runtime_database_encryption_key_name_binding,
+                    value: runtime_database_encryption_key_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeType".into(),
-                    value: &runtime_type_binding,
+                    value: runtime_type_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         OrganizationResult {
-            analytics_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("analyticsRegion"),
-            ),
-            api_consumer_data_encryption_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiConsumerDataEncryptionKeyName"),
-            ),
-            api_consumer_data_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiConsumerDataLocation"),
-            ),
-            apigee_project_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apigeeProjectId"),
-            ),
-            authorized_network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authorizedNetwork"),
-            ),
-            billing_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingType"),
-            ),
-            ca_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("caCertificate"),
-            ),
-            control_plane_encryption_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlaneEncryptionKeyName"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disable_vpc_peering: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disableVpcPeering"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            project_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectId"),
-            ),
-            properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("properties"),
-            ),
-            retention: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retention"),
-            ),
-            runtime_database_encryption_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtimeDatabaseEncryptionKeyName"),
-            ),
-            runtime_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("runtimeType"),
-            ),
-            subscription_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriptionType"),
-            ),
+            analytics_region: o.get_field("analyticsRegion"),
+            api_consumer_data_encryption_key_name: o
+                .get_field("apiConsumerDataEncryptionKeyName"),
+            api_consumer_data_location: o.get_field("apiConsumerDataLocation"),
+            apigee_project_id: o.get_field("apigeeProjectId"),
+            authorized_network: o.get_field("authorizedNetwork"),
+            billing_type: o.get_field("billingType"),
+            ca_certificate: o.get_field("caCertificate"),
+            control_plane_encryption_key_name: o
+                .get_field("controlPlaneEncryptionKeyName"),
+            description: o.get_field("description"),
+            disable_vpc_peering: o.get_field("disableVpcPeering"),
+            display_name: o.get_field("displayName"),
+            name: o.get_field("name"),
+            project_id: o.get_field("projectId"),
+            properties: o.get_field("properties"),
+            retention: o.get_field("retention"),
+            runtime_database_encryption_key_name: o
+                .get_field("runtimeDatabaseEncryptionKeyName"),
+            runtime_type: o.get_field("runtimeType"),
+            subscription_type: o.get_field("subscriptionType"),
         }
     }
 }

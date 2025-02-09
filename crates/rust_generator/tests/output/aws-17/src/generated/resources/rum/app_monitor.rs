@@ -88,84 +88,64 @@ pub mod app_monitor {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AppMonitorArgs,
     ) -> AppMonitorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_monitor_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_monitor_configuration_binding = args
             .app_monitor_configuration
             .get_output(context);
-        let app_monitor_configuration_binding = app_monitor_configuration_binding_1
-            .get_inner();
-        let custom_events_binding_1 = args.custom_events.get_output(context);
-        let custom_events_binding = custom_events_binding_1.get_inner();
-        let cw_log_enabled_binding_1 = args.cw_log_enabled.get_output(context);
-        let cw_log_enabled_binding = cw_log_enabled_binding_1.get_inner();
-        let domain_binding_1 = args.domain.get_output(context);
-        let domain_binding = domain_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let custom_events_binding = args.custom_events.get_output(context);
+        let cw_log_enabled_binding = args.cw_log_enabled.get_output(context);
+        let domain_binding = args.domain.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rum/appMonitor:AppMonitor".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appMonitorConfiguration".into(),
-                    value: &app_monitor_configuration_binding,
+                    value: app_monitor_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customEvents".into(),
-                    value: &custom_events_binding,
+                    value: custom_events_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cwLogEnabled".into(),
-                    value: &cw_log_enabled_binding,
+                    value: cw_log_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: &domain_binding,
+                    value: domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AppMonitorResult {
-            app_monitor_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appMonitorConfiguration"),
-            ),
-            app_monitor_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appMonitorId"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            custom_events: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customEvents"),
-            ),
-            cw_log_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cwLogEnabled"),
-            ),
-            cw_log_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cwLogGroup"),
-            ),
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            app_monitor_configuration: o.get_field("appMonitorConfiguration"),
+            app_monitor_id: o.get_field("appMonitorId"),
+            arn: o.get_field("arn"),
+            custom_events: o.get_field("customEvents"),
+            cw_log_enabled: o.get_field("cwLogEnabled"),
+            cw_log_group: o.get_field("cwLogGroup"),
+            domain: o.get_field("domain"),
+            name: o.get_field("name"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

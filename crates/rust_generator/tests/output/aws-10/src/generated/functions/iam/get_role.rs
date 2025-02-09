@@ -46,57 +46,42 @@ pub mod get_role {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetRoleArgs,
     ) -> GetRoleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:iam/getRole:getRole".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetRoleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            assume_role_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("assumeRolePolicy"),
-            ),
-            create_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createDate"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            max_session_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxSessionDuration"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
-            permissions_boundary: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("permissionsBoundary"),
-            ),
-            role_last_useds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleLastUseds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            unique_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uniqueId"),
-            ),
+            arn: o.get_field("arn"),
+            assume_role_policy: o.get_field("assumeRolePolicy"),
+            create_date: o.get_field("createDate"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            max_session_duration: o.get_field("maxSessionDuration"),
+            name: o.get_field("name"),
+            path: o.get_field("path"),
+            permissions_boundary: o.get_field("permissionsBoundary"),
+            role_last_useds: o.get_field("roleLastUseds"),
+            tags: o.get_field("tags"),
+            unique_id: o.get_field("uniqueId"),
         }
     }
 }

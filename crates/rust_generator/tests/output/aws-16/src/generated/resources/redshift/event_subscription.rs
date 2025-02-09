@@ -108,99 +108,74 @@ pub mod event_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EventSubscriptionArgs,
     ) -> EventSubscriptionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let event_categories_binding_1 = args.event_categories.get_output(context);
-        let event_categories_binding = event_categories_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let severity_binding_1 = args.severity.get_output(context);
-        let severity_binding = severity_binding_1.get_inner();
-        let sns_topic_arn_binding_1 = args.sns_topic_arn.get_output(context);
-        let sns_topic_arn_binding = sns_topic_arn_binding_1.get_inner();
-        let source_ids_binding_1 = args.source_ids.get_output(context);
-        let source_ids_binding = source_ids_binding_1.get_inner();
-        let source_type_binding_1 = args.source_type.get_output(context);
-        let source_type_binding = source_type_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let enabled_binding = args.enabled.get_output(context);
+        let event_categories_binding = args.event_categories.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let severity_binding = args.severity.get_output(context);
+        let sns_topic_arn_binding = args.sns_topic_arn.get_output(context);
+        let source_ids_binding = args.source_ids.get_output(context);
+        let source_type_binding = args.source_type.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshift/eventSubscription:EventSubscription".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventCategories".into(),
-                    value: &event_categories_binding,
+                    value: event_categories_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "severity".into(),
-                    value: &severity_binding,
+                    value: severity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snsTopicArn".into(),
-                    value: &sns_topic_arn_binding,
+                    value: sns_topic_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceIds".into(),
-                    value: &source_ids_binding,
+                    value: source_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceType".into(),
-                    value: &source_type_binding,
+                    value: source_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EventSubscriptionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            customer_aws_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customerAwsId"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            event_categories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventCategories"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            severity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("severity"),
-            ),
-            sns_topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("snsTopicArn"),
-            ),
-            source_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceIds"),
-            ),
-            source_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceType"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            customer_aws_id: o.get_field("customerAwsId"),
+            enabled: o.get_field("enabled"),
+            event_categories: o.get_field("eventCategories"),
+            name: o.get_field("name"),
+            severity: o.get_field("severity"),
+            sns_topic_arn: o.get_field("snsTopicArn"),
+            source_ids: o.get_field("sourceIds"),
+            source_type: o.get_field("sourceType"),
+            status: o.get_field("status"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

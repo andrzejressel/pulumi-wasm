@@ -139,133 +139,98 @@ pub mod endpoint_storage_container {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointStorageContainerArgs,
     ) -> EndpointStorageContainerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let authentication_type_binding_1 = args.authentication_type.get_output(context);
-        let authentication_type_binding = authentication_type_binding_1.get_inner();
-        let batch_frequency_in_seconds_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let authentication_type_binding = args.authentication_type.get_output(context);
+        let batch_frequency_in_seconds_binding = args
             .batch_frequency_in_seconds
             .get_output(context);
-        let batch_frequency_in_seconds_binding = batch_frequency_in_seconds_binding_1
-            .get_inner();
-        let connection_string_binding_1 = args.connection_string.get_output(context);
-        let connection_string_binding = connection_string_binding_1.get_inner();
-        let container_name_binding_1 = args.container_name.get_output(context);
-        let container_name_binding = container_name_binding_1.get_inner();
-        let encoding_binding_1 = args.encoding.get_output(context);
-        let encoding_binding = encoding_binding_1.get_inner();
-        let endpoint_uri_binding_1 = args.endpoint_uri.get_output(context);
-        let endpoint_uri_binding = endpoint_uri_binding_1.get_inner();
-        let file_name_format_binding_1 = args.file_name_format.get_output(context);
-        let file_name_format_binding = file_name_format_binding_1.get_inner();
-        let identity_id_binding_1 = args.identity_id.get_output(context);
-        let identity_id_binding = identity_id_binding_1.get_inner();
-        let iothub_id_binding_1 = args.iothub_id.get_output(context);
-        let iothub_id_binding = iothub_id_binding_1.get_inner();
-        let max_chunk_size_in_bytes_binding_1 = args
+        let connection_string_binding = args.connection_string.get_output(context);
+        let container_name_binding = args.container_name.get_output(context);
+        let encoding_binding = args.encoding.get_output(context);
+        let endpoint_uri_binding = args.endpoint_uri.get_output(context);
+        let file_name_format_binding = args.file_name_format.get_output(context);
+        let identity_id_binding = args.identity_id.get_output(context);
+        let iothub_id_binding = args.iothub_id.get_output(context);
+        let max_chunk_size_in_bytes_binding = args
             .max_chunk_size_in_bytes
             .get_output(context);
-        let max_chunk_size_in_bytes_binding = max_chunk_size_in_bytes_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:iot/endpointStorageContainer:EndpointStorageContainer".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationType".into(),
-                    value: &authentication_type_binding,
+                    value: authentication_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchFrequencyInSeconds".into(),
-                    value: &batch_frequency_in_seconds_binding,
+                    value: batch_frequency_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionString".into(),
-                    value: &connection_string_binding,
+                    value: connection_string_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerName".into(),
-                    value: &container_name_binding,
+                    value: container_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encoding".into(),
-                    value: &encoding_binding,
+                    value: encoding_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointUri".into(),
-                    value: &endpoint_uri_binding,
+                    value: endpoint_uri_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileNameFormat".into(),
-                    value: &file_name_format_binding,
+                    value: file_name_format_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityId".into(),
-                    value: &identity_id_binding,
+                    value: identity_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubId".into(),
-                    value: &iothub_id_binding,
+                    value: iothub_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxChunkSizeInBytes".into(),
-                    value: &max_chunk_size_in_bytes_binding,
+                    value: max_chunk_size_in_bytes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointStorageContainerResult {
-            authentication_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticationType"),
-            ),
-            batch_frequency_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("batchFrequencyInSeconds"),
-            ),
-            connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionString"),
-            ),
-            container_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerName"),
-            ),
-            encoding: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("encoding"),
-            ),
-            endpoint_uri: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointUri"),
-            ),
-            file_name_format: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fileNameFormat"),
-            ),
-            identity_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityId"),
-            ),
-            iothub_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iothubId"),
-            ),
-            max_chunk_size_in_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxChunkSizeInBytes"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            authentication_type: o.get_field("authenticationType"),
+            batch_frequency_in_seconds: o.get_field("batchFrequencyInSeconds"),
+            connection_string: o.get_field("connectionString"),
+            container_name: o.get_field("containerName"),
+            encoding: o.get_field("encoding"),
+            endpoint_uri: o.get_field("endpointUri"),
+            file_name_format: o.get_field("fileNameFormat"),
+            identity_id: o.get_field("identityId"),
+            iothub_id: o.get_field("iothubId"),
+            max_chunk_size_in_bytes: o.get_field("maxChunkSizeInBytes"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

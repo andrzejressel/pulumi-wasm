@@ -46,83 +46,52 @@ pub mod get_circuit_peering {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetCircuitPeeringArgs,
     ) -> GetCircuitPeeringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let express_route_circuit_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let express_route_circuit_name_binding = args
             .express_route_circuit_name
             .get_output(context);
-        let express_route_circuit_name_binding = express_route_circuit_name_binding_1
-            .get_inner();
-        let peering_type_binding_1 = args.peering_type.get_output(context);
-        let peering_type_binding = peering_type_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let peering_type_binding = args.peering_type.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:expressroute/getCircuitPeering:getCircuitPeering".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressRouteCircuitName".into(),
-                    value: &express_route_circuit_name_binding,
+                    value: express_route_circuit_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeringType".into(),
-                    value: &peering_type_binding,
+                    value: peering_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetCircuitPeeringResult {
-            azure_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureAsn"),
-            ),
-            express_route_circuit_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expressRouteCircuitName"),
-            ),
-            gateway_manager_etag: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayManagerEtag"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ipv4_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipv4Enabled"),
-            ),
-            peer_asn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerAsn"),
-            ),
-            peering_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peeringType"),
-            ),
-            primary_azure_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryAzurePort"),
-            ),
-            primary_peer_address_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryPeerAddressPrefix"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            route_filter_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("routeFilterId"),
-            ),
-            secondary_azure_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryAzurePort"),
-            ),
-            secondary_peer_address_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryPeerAddressPrefix"),
-            ),
-            shared_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharedKey"),
-            ),
-            vlan_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vlanId"),
-            ),
+            azure_asn: o.get_field("azureAsn"),
+            express_route_circuit_name: o.get_field("expressRouteCircuitName"),
+            gateway_manager_etag: o.get_field("gatewayManagerEtag"),
+            id: o.get_field("id"),
+            ipv4_enabled: o.get_field("ipv4Enabled"),
+            peer_asn: o.get_field("peerAsn"),
+            peering_type: o.get_field("peeringType"),
+            primary_azure_port: o.get_field("primaryAzurePort"),
+            primary_peer_address_prefix: o.get_field("primaryPeerAddressPrefix"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            route_filter_id: o.get_field("routeFilterId"),
+            secondary_azure_port: o.get_field("secondaryAzurePort"),
+            secondary_peer_address_prefix: o.get_field("secondaryPeerAddressPrefix"),
+            shared_key: o.get_field("sharedKey"),
+            vlan_id: o.get_field("vlanId"),
         }
     }
 }

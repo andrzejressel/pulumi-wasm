@@ -110,43 +110,36 @@ pub mod web_resource {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WebResourceArgs,
     ) -> WebResourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let site_binding_1 = args.site.get_output(context);
-        let site_binding = site_binding_1.get_inner();
-        let verification_method_binding_1 = args.verification_method.get_output(context);
-        let verification_method_binding = verification_method_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let site_binding = args.site.get_output(context);
+        let verification_method_binding = args.verification_method.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:siteverification/webResource:WebResource".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "site".into(),
-                    value: &site_binding,
+                    value: site_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verificationMethod".into(),
-                    value: &verification_method_binding,
+                    value: verification_method_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WebResourceResult {
-            owners: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("owners"),
-            ),
-            site: pulumi_gestalt_rust::__private::into_domain(o.extract_field("site")),
-            verification_method: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verificationMethod"),
-            ),
-            web_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webResourceId"),
-            ),
+            owners: o.get_field("owners"),
+            site: o.get_field("site"),
+            verification_method: o.get_field("verificationMethod"),
+            web_resource_id: o.get_field("webResourceId"),
         }
     }
 }

@@ -242,161 +242,114 @@ pub mod network_firewall_policy_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkFirewallPolicyRuleArgs,
     ) -> NetworkFirewallPolicyRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let direction_binding_1 = args.direction.get_output(context);
-        let direction_binding = direction_binding_1.get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let enable_logging_binding_1 = args.enable_logging.get_output(context);
-        let enable_logging_binding = enable_logging_binding_1.get_inner();
-        let firewall_policy_binding_1 = args.firewall_policy.get_output(context);
-        let firewall_policy_binding = firewall_policy_binding_1.get_inner();
-        let match__binding_1 = args.match_.get_output(context);
-        let match__binding = match__binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let rule_name_binding_1 = args.rule_name.get_output(context);
-        let rule_name_binding = rule_name_binding_1.get_inner();
-        let security_profile_group_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let direction_binding = args.direction.get_output(context);
+        let disabled_binding = args.disabled.get_output(context);
+        let enable_logging_binding = args.enable_logging.get_output(context);
+        let firewall_policy_binding = args.firewall_policy.get_output(context);
+        let match__binding = args.match_.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let rule_name_binding = args.rule_name.get_output(context);
+        let security_profile_group_binding = args
             .security_profile_group
             .get_output(context);
-        let security_profile_group_binding = security_profile_group_binding_1
-            .get_inner();
-        let target_secure_tags_binding_1 = args.target_secure_tags.get_output(context);
-        let target_secure_tags_binding = target_secure_tags_binding_1.get_inner();
-        let target_service_accounts_binding_1 = args
+        let target_secure_tags_binding = args.target_secure_tags.get_output(context);
+        let target_service_accounts_binding = args
             .target_service_accounts
             .get_output(context);
-        let target_service_accounts_binding = target_service_accounts_binding_1
-            .get_inner();
-        let tls_inspect_binding_1 = args.tls_inspect.get_output(context);
-        let tls_inspect_binding = tls_inspect_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tls_inspect_binding = args.tls_inspect.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/networkFirewallPolicyRule:NetworkFirewallPolicyRule"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "direction".into(),
-                    value: &direction_binding,
+                    value: direction_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableLogging".into(),
-                    value: &enable_logging_binding,
+                    value: enable_logging_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallPolicy".into(),
-                    value: &firewall_policy_binding,
+                    value: firewall_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "match".into(),
-                    value: &match__binding,
+                    value: match__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleName".into(),
-                    value: &rule_name_binding,
+                    value: rule_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityProfileGroup".into(),
-                    value: &security_profile_group_binding,
+                    value: security_profile_group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetSecureTags".into(),
-                    value: &target_secure_tags_binding,
+                    value: target_secure_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetServiceAccounts".into(),
-                    value: &target_service_accounts_binding,
+                    value: target_service_accounts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsInspect".into(),
-                    value: &tls_inspect_binding,
+                    value: tls_inspect_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkFirewallPolicyRuleResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            direction: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("direction"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            enable_logging: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableLogging"),
-            ),
-            firewall_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewallPolicy"),
-            ),
-            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
-            match_: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("match"),
-            ),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            rule_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleName"),
-            ),
-            rule_tuple_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleTupleCount"),
-            ),
-            security_profile_group: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityProfileGroup"),
-            ),
-            target_secure_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetSecureTags"),
-            ),
-            target_service_accounts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetServiceAccounts"),
-            ),
-            tls_inspect: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsInspect"),
-            ),
+            action: o.get_field("action"),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            direction: o.get_field("direction"),
+            disabled: o.get_field("disabled"),
+            enable_logging: o.get_field("enableLogging"),
+            firewall_policy: o.get_field("firewallPolicy"),
+            kind: o.get_field("kind"),
+            match_: o.get_field("match"),
+            priority: o.get_field("priority"),
+            project: o.get_field("project"),
+            rule_name: o.get_field("ruleName"),
+            rule_tuple_count: o.get_field("ruleTupleCount"),
+            security_profile_group: o.get_field("securityProfileGroup"),
+            target_secure_tags: o.get_field("targetSecureTags"),
+            target_service_accounts: o.get_field("targetServiceAccounts"),
+            tls_inspect: o.get_field("tlsInspect"),
         }
     }
 }

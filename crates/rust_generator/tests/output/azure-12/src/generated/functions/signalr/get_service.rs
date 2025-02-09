@@ -52,79 +52,49 @@ pub mod get_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetServiceArgs,
     ) -> GetServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:signalr/getService:getService".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetServiceResult {
-            aad_auth_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aadAuthEnabled"),
-            ),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ip_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAddress"),
-            ),
-            local_auth_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localAuthEnabled"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            primary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryAccessKey"),
-            ),
-            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryConnectionString"),
-            ),
-            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicNetworkAccessEnabled"),
-            ),
-            public_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicPort"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryAccessKey"),
-            ),
-            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secondaryConnectionString"),
-            ),
-            server_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverPort"),
-            ),
-            serverless_connection_timeout_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverlessConnectionTimeoutInSeconds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tls_client_cert_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsClientCertEnabled"),
-            ),
+            aad_auth_enabled: o.get_field("aadAuthEnabled"),
+            hostname: o.get_field("hostname"),
+            id: o.get_field("id"),
+            ip_address: o.get_field("ipAddress"),
+            local_auth_enabled: o.get_field("localAuthEnabled"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            primary_access_key: o.get_field("primaryAccessKey"),
+            primary_connection_string: o.get_field("primaryConnectionString"),
+            public_network_access_enabled: o.get_field("publicNetworkAccessEnabled"),
+            public_port: o.get_field("publicPort"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            secondary_access_key: o.get_field("secondaryAccessKey"),
+            secondary_connection_string: o.get_field("secondaryConnectionString"),
+            server_port: o.get_field("serverPort"),
+            serverless_connection_timeout_in_seconds: o
+                .get_field("serverlessConnectionTimeoutInSeconds"),
+            tags: o.get_field("tags"),
+            tls_client_cert_enabled: o.get_field("tlsClientCertEnabled"),
         }
     }
 }

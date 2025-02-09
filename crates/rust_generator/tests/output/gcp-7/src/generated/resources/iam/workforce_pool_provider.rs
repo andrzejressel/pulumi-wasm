@@ -440,121 +440,92 @@ pub mod workforce_pool_provider {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkforcePoolProviderArgs,
     ) -> WorkforcePoolProviderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let attribute_condition_binding_1 = args.attribute_condition.get_output(context);
-        let attribute_condition_binding = attribute_condition_binding_1.get_inner();
-        let attribute_mapping_binding_1 = args.attribute_mapping.get_output(context);
-        let attribute_mapping_binding = attribute_mapping_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let disabled_binding_1 = args.disabled.get_output(context);
-        let disabled_binding = disabled_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let extra_attributes_oauth2_client_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let attribute_condition_binding = args.attribute_condition.get_output(context);
+        let attribute_mapping_binding = args.attribute_mapping.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let disabled_binding = args.disabled.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let extra_attributes_oauth2_client_binding = args
             .extra_attributes_oauth2_client
             .get_output(context);
-        let extra_attributes_oauth2_client_binding = extra_attributes_oauth2_client_binding_1
-            .get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let oidc_binding_1 = args.oidc.get_output(context);
-        let oidc_binding = oidc_binding_1.get_inner();
-        let provider_id_binding_1 = args.provider_id.get_output(context);
-        let provider_id_binding = provider_id_binding_1.get_inner();
-        let saml_binding_1 = args.saml.get_output(context);
-        let saml_binding = saml_binding_1.get_inner();
-        let workforce_pool_id_binding_1 = args.workforce_pool_id.get_output(context);
-        let workforce_pool_id_binding = workforce_pool_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let location_binding = args.location.get_output(context);
+        let oidc_binding = args.oidc.get_output(context);
+        let provider_id_binding = args.provider_id.get_output(context);
+        let saml_binding = args.saml.get_output(context);
+        let workforce_pool_id_binding = args.workforce_pool_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:iam/workforcePoolProvider:WorkforcePoolProvider".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributeCondition".into(),
-                    value: &attribute_condition_binding,
+                    value: attribute_condition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributeMapping".into(),
-                    value: &attribute_mapping_binding,
+                    value: attribute_mapping_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: &disabled_binding,
+                    value: disabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extraAttributesOauth2Client".into(),
-                    value: &extra_attributes_oauth2_client_binding,
+                    value: extra_attributes_oauth2_client_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oidc".into(),
-                    value: &oidc_binding,
+                    value: oidc_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerId".into(),
-                    value: &provider_id_binding,
+                    value: provider_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "saml".into(),
-                    value: &saml_binding,
+                    value: saml_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workforcePoolId".into(),
-                    value: &workforce_pool_id_binding,
+                    value: workforce_pool_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkforcePoolProviderResult {
-            attribute_condition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attributeCondition"),
-            ),
-            attribute_mapping: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("attributeMapping"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            disabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("disabled"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            extra_attributes_oauth2_client: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("extraAttributesOauth2Client"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            oidc: pulumi_gestalt_rust::__private::into_domain(o.extract_field("oidc")),
-            provider_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("providerId"),
-            ),
-            saml: pulumi_gestalt_rust::__private::into_domain(o.extract_field("saml")),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            workforce_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workforcePoolId"),
-            ),
+            attribute_condition: o.get_field("attributeCondition"),
+            attribute_mapping: o.get_field("attributeMapping"),
+            description: o.get_field("description"),
+            disabled: o.get_field("disabled"),
+            display_name: o.get_field("displayName"),
+            extra_attributes_oauth2_client: o.get_field("extraAttributesOauth2Client"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            oidc: o.get_field("oidc"),
+            provider_id: o.get_field("providerId"),
+            saml: o.get_field("saml"),
+            state: o.get_field("state"),
+            workforce_pool_id: o.get_field("workforcePoolId"),
         }
     }
 }

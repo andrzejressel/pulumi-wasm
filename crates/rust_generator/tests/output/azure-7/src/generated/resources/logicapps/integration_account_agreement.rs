@@ -143,113 +143,85 @@ pub mod integration_account_agreement {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: IntegrationAccountAgreementArgs,
     ) -> IntegrationAccountAgreementResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let agreement_type_binding_1 = args.agreement_type.get_output(context);
-        let agreement_type_binding = agreement_type_binding_1.get_inner();
-        let content_binding_1 = args.content.get_output(context);
-        let content_binding = content_binding_1.get_inner();
-        let guest_identity_binding_1 = args.guest_identity.get_output(context);
-        let guest_identity_binding = guest_identity_binding_1.get_inner();
-        let guest_partner_name_binding_1 = args.guest_partner_name.get_output(context);
-        let guest_partner_name_binding = guest_partner_name_binding_1.get_inner();
-        let host_identity_binding_1 = args.host_identity.get_output(context);
-        let host_identity_binding = host_identity_binding_1.get_inner();
-        let host_partner_name_binding_1 = args.host_partner_name.get_output(context);
-        let host_partner_name_binding = host_partner_name_binding_1.get_inner();
-        let integration_account_name_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let agreement_type_binding = args.agreement_type.get_output(context);
+        let content_binding = args.content.get_output(context);
+        let guest_identity_binding = args.guest_identity.get_output(context);
+        let guest_partner_name_binding = args.guest_partner_name.get_output(context);
+        let host_identity_binding = args.host_identity.get_output(context);
+        let host_partner_name_binding = args.host_partner_name.get_output(context);
+        let integration_account_name_binding = args
             .integration_account_name
             .get_output(context);
-        let integration_account_name_binding = integration_account_name_binding_1
-            .get_inner();
-        let metadata_binding_1 = args.metadata.get_output(context);
-        let metadata_binding = metadata_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let metadata_binding = args.metadata.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agreementType".into(),
-                    value: &agreement_type_binding,
+                    value: agreement_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "content".into(),
-                    value: &content_binding,
+                    value: content_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guestIdentity".into(),
-                    value: &guest_identity_binding,
+                    value: guest_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guestPartnerName".into(),
-                    value: &guest_partner_name_binding,
+                    value: guest_partner_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostIdentity".into(),
-                    value: &host_identity_binding,
+                    value: host_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostPartnerName".into(),
-                    value: &host_partner_name_binding,
+                    value: host_partner_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationAccountName".into(),
-                    value: &integration_account_name_binding,
+                    value: integration_account_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: &metadata_binding,
+                    value: metadata_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         IntegrationAccountAgreementResult {
-            agreement_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("agreementType"),
-            ),
-            content: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("content"),
-            ),
-            guest_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("guestIdentity"),
-            ),
-            guest_partner_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("guestPartnerName"),
-            ),
-            host_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostIdentity"),
-            ),
-            host_partner_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostPartnerName"),
-            ),
-            integration_account_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("integrationAccountName"),
-            ),
-            metadata: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metadata"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            agreement_type: o.get_field("agreementType"),
+            content: o.get_field("content"),
+            guest_identity: o.get_field("guestIdentity"),
+            guest_partner_name: o.get_field("guestPartnerName"),
+            host_identity: o.get_field("hostIdentity"),
+            host_partner_name: o.get_field("hostPartnerName"),
+            integration_account_name: o.get_field("integrationAccountName"),
+            metadata: o.get_field("metadata"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

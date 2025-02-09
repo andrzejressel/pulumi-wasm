@@ -99,67 +99,54 @@ pub mod ami_launch_permission {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AmiLaunchPermissionArgs,
     ) -> AmiLaunchPermissionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let group_binding_1 = args.group.get_output(context);
-        let group_binding = group_binding_1.get_inner();
-        let image_id_binding_1 = args.image_id.get_output(context);
-        let image_id_binding = image_id_binding_1.get_inner();
-        let organization_arn_binding_1 = args.organization_arn.get_output(context);
-        let organization_arn_binding = organization_arn_binding_1.get_inner();
-        let organizational_unit_arn_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let group_binding = args.group.get_output(context);
+        let image_id_binding = args.image_id.get_output(context);
+        let organization_arn_binding = args.organization_arn.get_output(context);
+        let organizational_unit_arn_binding = args
             .organizational_unit_arn
             .get_output(context);
-        let organizational_unit_arn_binding = organizational_unit_arn_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/amiLaunchPermission:AmiLaunchPermission".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "group".into(),
-                    value: &group_binding,
+                    value: group_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageId".into(),
-                    value: &image_id_binding,
+                    value: image_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationArn".into(),
-                    value: &organization_arn_binding,
+                    value: organization_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationalUnitArn".into(),
-                    value: &organizational_unit_arn_binding,
+                    value: organizational_unit_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AmiLaunchPermissionResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            group: pulumi_gestalt_rust::__private::into_domain(o.extract_field("group")),
-            image_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("imageId"),
-            ),
-            organization_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organizationArn"),
-            ),
-            organizational_unit_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("organizationalUnitArn"),
-            ),
+            account_id: o.get_field("accountId"),
+            group: o.get_field("group"),
+            image_id: o.get_field("imageId"),
+            organization_arn: o.get_field("organizationArn"),
+            organizational_unit_arn: o.get_field("organizationalUnitArn"),
         }
     }
 }

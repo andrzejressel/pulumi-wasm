@@ -204,96 +204,70 @@ pub mod core_network {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CoreNetworkArgs,
     ) -> CoreNetworkResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let base_policy_document_binding_1 = args
-            .base_policy_document
-            .get_output(context);
-        let base_policy_document_binding = base_policy_document_binding_1.get_inner();
-        let base_policy_region_binding_1 = args.base_policy_region.get_output(context);
-        let base_policy_region_binding = base_policy_region_binding_1.get_inner();
-        let base_policy_regions_binding_1 = args.base_policy_regions.get_output(context);
-        let base_policy_regions_binding = base_policy_regions_binding_1.get_inner();
-        let create_base_policy_binding_1 = args.create_base_policy.get_output(context);
-        let create_base_policy_binding = create_base_policy_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let global_network_id_binding_1 = args.global_network_id.get_output(context);
-        let global_network_id_binding = global_network_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let base_policy_document_binding = args.base_policy_document.get_output(context);
+        let base_policy_region_binding = args.base_policy_region.get_output(context);
+        let base_policy_regions_binding = args.base_policy_regions.get_output(context);
+        let create_base_policy_binding = args.create_base_policy.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let global_network_id_binding = args.global_network_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:networkmanager/coreNetwork:CoreNetwork".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basePolicyDocument".into(),
-                    value: &base_policy_document_binding,
+                    value: base_policy_document_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basePolicyRegion".into(),
-                    value: &base_policy_region_binding,
+                    value: base_policy_region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basePolicyRegions".into(),
-                    value: &base_policy_regions_binding,
+                    value: base_policy_regions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createBasePolicy".into(),
-                    value: &create_base_policy_binding,
+                    value: create_base_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalNetworkId".into(),
-                    value: &global_network_id_binding,
+                    value: global_network_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CoreNetworkResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            base_policy_document: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("basePolicyDocument"),
-            ),
-            base_policy_region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("basePolicyRegion"),
-            ),
-            base_policy_regions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("basePolicyRegions"),
-            ),
-            create_base_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createBasePolicy"),
-            ),
-            created_at: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAt"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            edges: pulumi_gestalt_rust::__private::into_domain(o.extract_field("edges")),
-            global_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globalNetworkId"),
-            ),
-            segments: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("segments"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            base_policy_document: o.get_field("basePolicyDocument"),
+            base_policy_region: o.get_field("basePolicyRegion"),
+            base_policy_regions: o.get_field("basePolicyRegions"),
+            create_base_policy: o.get_field("createBasePolicy"),
+            created_at: o.get_field("createdAt"),
+            description: o.get_field("description"),
+            edges: o.get_field("edges"),
+            global_network_id: o.get_field("globalNetworkId"),
+            segments: o.get_field("segments"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

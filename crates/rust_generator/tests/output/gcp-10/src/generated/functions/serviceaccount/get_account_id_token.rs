@@ -33,62 +33,48 @@ pub mod get_account_id_token {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAccountIdTokenArgs,
     ) -> GetAccountIdTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delegates_binding_1 = args.delegates.get_output(context);
-        let delegates_binding = delegates_binding_1.get_inner();
-        let include_email_binding_1 = args.include_email.get_output(context);
-        let include_email_binding = include_email_binding_1.get_inner();
-        let target_audience_binding_1 = args.target_audience.get_output(context);
-        let target_audience_binding = target_audience_binding_1.get_inner();
-        let target_service_account_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let delegates_binding = args.delegates.get_output(context);
+        let include_email_binding = args.include_email.get_output(context);
+        let target_audience_binding = args.target_audience.get_output(context);
+        let target_service_account_binding = args
             .target_service_account
             .get_output(context);
-        let target_service_account_binding = target_service_account_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:serviceaccount/getAccountIdToken:getAccountIdToken".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegates".into(),
-                    value: &delegates_binding,
+                    value: delegates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeEmail".into(),
-                    value: &include_email_binding,
+                    value: include_email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetAudience".into(),
-                    value: &target_audience_binding,
+                    value: target_audience_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetServiceAccount".into(),
-                    value: &target_service_account_binding,
+                    value: target_service_account_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAccountIdTokenResult {
-            delegates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delegates"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            id_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("idToken"),
-            ),
-            include_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("includeEmail"),
-            ),
-            target_audience: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetAudience"),
-            ),
-            target_service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetServiceAccount"),
-            ),
+            delegates: o.get_field("delegates"),
+            id: o.get_field("id"),
+            id_token: o.get_field("idToken"),
+            include_email: o.get_field("includeEmail"),
+            target_audience: o.get_field("targetAudience"),
+            target_service_account: o.get_field("targetServiceAccount"),
         }
     }
 }

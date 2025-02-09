@@ -46,53 +46,41 @@ pub mod get_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetConnectionArgs,
     ) -> GetConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let id_binding_1 = args.id.get_output(context);
-        let id_binding = id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let id_binding = args.id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:glue/getConnection:getConnection".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: &id_binding,
+                    value: id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetConnectionResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            catalog_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("catalogId"),
-            ),
-            connection_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionProperties"),
-            ),
-            connection_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionType"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            match_criterias: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("matchCriterias"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            physical_connection_requirements: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("physicalConnectionRequirements"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            arn: o.get_field("arn"),
+            catalog_id: o.get_field("catalogId"),
+            connection_properties: o.get_field("connectionProperties"),
+            connection_type: o.get_field("connectionType"),
+            description: o.get_field("description"),
+            id: o.get_field("id"),
+            match_criterias: o.get_field("matchCriterias"),
+            name: o.get_field("name"),
+            physical_connection_requirements: o
+                .get_field("physicalConnectionRequirements"),
+            tags: o.get_field("tags"),
         }
     }
 }

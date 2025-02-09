@@ -105,66 +105,46 @@ pub mod user_pool_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: UserPoolDomainArgs,
     ) -> UserPoolDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let certificate_arn_binding_1 = args.certificate_arn.get_output(context);
-        let certificate_arn_binding = certificate_arn_binding_1.get_inner();
-        let domain_binding_1 = args.domain.get_output(context);
-        let domain_binding = domain_binding_1.get_inner();
-        let user_pool_id_binding_1 = args.user_pool_id.get_output(context);
-        let user_pool_id_binding = user_pool_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let certificate_arn_binding = args.certificate_arn.get_output(context);
+        let domain_binding = args.domain.get_output(context);
+        let user_pool_id_binding = args.user_pool_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cognito/userPoolDomain:UserPoolDomain".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateArn".into(),
-                    value: &certificate_arn_binding,
+                    value: certificate_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: &domain_binding,
+                    value: domain_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolId".into(),
-                    value: &user_pool_id_binding,
+                    value: user_pool_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         UserPoolDomainResult {
-            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("awsAccountId"),
-            ),
-            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateArn"),
-            ),
-            cloudfront_distribution: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudfrontDistribution"),
-            ),
-            cloudfront_distribution_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudfrontDistributionArn"),
-            ),
-            cloudfront_distribution_zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cloudfrontDistributionZoneId"),
-            ),
-            domain: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("domain"),
-            ),
-            s3_bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3Bucket"),
-            ),
-            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userPoolId"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            aws_account_id: o.get_field("awsAccountId"),
+            certificate_arn: o.get_field("certificateArn"),
+            cloudfront_distribution: o.get_field("cloudfrontDistribution"),
+            cloudfront_distribution_arn: o.get_field("cloudfrontDistributionArn"),
+            cloudfront_distribution_zone_id: o.get_field("cloudfrontDistributionZoneId"),
+            domain: o.get_field("domain"),
+            s3_bucket: o.get_field("s3Bucket"),
+            user_pool_id: o.get_field("userPoolId"),
+            version: o.get_field("version"),
         }
     }
 }

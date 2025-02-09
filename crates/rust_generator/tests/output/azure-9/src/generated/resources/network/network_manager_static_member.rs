@@ -93,53 +93,44 @@ pub mod network_manager_static_member {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkManagerStaticMemberArgs,
     ) -> NetworkManagerStaticMemberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_group_id_binding_1 = args.network_group_id.get_output(context);
-        let network_group_id_binding = network_group_id_binding_1.get_inner();
-        let target_virtual_network_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let network_group_id_binding = args.network_group_id.get_output(context);
+        let target_virtual_network_id_binding = args
             .target_virtual_network_id
             .get_output(context);
-        let target_virtual_network_id_binding = target_virtual_network_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/networkManagerStaticMember:NetworkManagerStaticMember"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkGroupId".into(),
-                    value: &network_group_id_binding,
+                    value: network_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetVirtualNetworkId".into(),
-                    value: &target_virtual_network_id_binding,
+                    value: target_virtual_network_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkManagerStaticMemberResult {
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkGroupId"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            target_virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetVirtualNetworkId"),
-            ),
+            name: o.get_field("name"),
+            network_group_id: o.get_field("networkGroupId"),
+            region: o.get_field("region"),
+            target_virtual_network_id: o.get_field("targetVirtualNetworkId"),
         }
     }
 }

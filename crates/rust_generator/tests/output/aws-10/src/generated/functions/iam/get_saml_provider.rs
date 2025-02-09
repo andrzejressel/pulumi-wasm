@@ -34,44 +34,37 @@ pub mod get_saml_provider {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSamlProviderArgs,
     ) -> GetSamlProviderResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let arn_binding_1 = args.arn.get_output(context);
-        let arn_binding = arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let arn_binding = args.arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:iam/getSamlProvider:getSamlProvider".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: &arn_binding,
+                    value: arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSamlProviderResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            create_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createDate"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            saml_metadata_document: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("samlMetadataDocument"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            valid_until: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validUntil"),
-            ),
+            arn: o.get_field("arn"),
+            create_date: o.get_field("createDate"),
+            id: o.get_field("id"),
+            name: o.get_field("name"),
+            saml_metadata_document: o.get_field("samlMetadataDocument"),
+            tags: o.get_field("tags"),
+            valid_until: o.get_field("validUntil"),
         }
     }
 }

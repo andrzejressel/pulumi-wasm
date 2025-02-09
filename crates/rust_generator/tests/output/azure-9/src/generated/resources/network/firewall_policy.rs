@@ -177,186 +177,134 @@ pub mod firewall_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FirewallPolicyArgs,
     ) -> FirewallPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let auto_learn_private_ranges_enabled_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let auto_learn_private_ranges_enabled_binding = args
             .auto_learn_private_ranges_enabled
             .get_output(context);
-        let auto_learn_private_ranges_enabled_binding = auto_learn_private_ranges_enabled_binding_1
-            .get_inner();
-        let base_policy_id_binding_1 = args.base_policy_id.get_output(context);
-        let base_policy_id_binding = base_policy_id_binding_1.get_inner();
-        let dns_binding_1 = args.dns.get_output(context);
-        let dns_binding = dns_binding_1.get_inner();
-        let explicit_proxy_binding_1 = args.explicit_proxy.get_output(context);
-        let explicit_proxy_binding = explicit_proxy_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let insights_binding_1 = args.insights.get_output(context);
-        let insights_binding = insights_binding_1.get_inner();
-        let intrusion_detection_binding_1 = args.intrusion_detection.get_output(context);
-        let intrusion_detection_binding = intrusion_detection_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let private_ip_ranges_binding_1 = args.private_ip_ranges.get_output(context);
-        let private_ip_ranges_binding = private_ip_ranges_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_binding_1 = args.sku.get_output(context);
-        let sku_binding = sku_binding_1.get_inner();
-        let sql_redirect_allowed_binding_1 = args
-            .sql_redirect_allowed
-            .get_output(context);
-        let sql_redirect_allowed_binding = sql_redirect_allowed_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let threat_intelligence_allowlist_binding_1 = args
+        let base_policy_id_binding = args.base_policy_id.get_output(context);
+        let dns_binding = args.dns.get_output(context);
+        let explicit_proxy_binding = args.explicit_proxy.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let insights_binding = args.insights.get_output(context);
+        let intrusion_detection_binding = args.intrusion_detection.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let private_ip_ranges_binding = args.private_ip_ranges.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_binding = args.sku.get_output(context);
+        let sql_redirect_allowed_binding = args.sql_redirect_allowed.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let threat_intelligence_allowlist_binding = args
             .threat_intelligence_allowlist
             .get_output(context);
-        let threat_intelligence_allowlist_binding = threat_intelligence_allowlist_binding_1
-            .get_inner();
-        let threat_intelligence_mode_binding_1 = args
+        let threat_intelligence_mode_binding = args
             .threat_intelligence_mode
             .get_output(context);
-        let threat_intelligence_mode_binding = threat_intelligence_mode_binding_1
-            .get_inner();
-        let tls_certificate_binding_1 = args.tls_certificate.get_output(context);
-        let tls_certificate_binding = tls_certificate_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tls_certificate_binding = args.tls_certificate.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/firewallPolicy:FirewallPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoLearnPrivateRangesEnabled".into(),
-                    value: &auto_learn_private_ranges_enabled_binding,
+                    value: auto_learn_private_ranges_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basePolicyId".into(),
-                    value: &base_policy_id_binding,
+                    value: base_policy_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dns".into(),
-                    value: &dns_binding,
+                    value: dns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "explicitProxy".into(),
-                    value: &explicit_proxy_binding,
+                    value: explicit_proxy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insights".into(),
-                    value: &insights_binding,
+                    value: insights_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "intrusionDetection".into(),
-                    value: &intrusion_detection_binding,
+                    value: intrusion_detection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpRanges".into(),
-                    value: &private_ip_ranges_binding,
+                    value: private_ip_ranges_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: &sku_binding,
+                    value: sku_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlRedirectAllowed".into(),
-                    value: &sql_redirect_allowed_binding,
+                    value: sql_redirect_allowed_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threatIntelligenceAllowlist".into(),
-                    value: &threat_intelligence_allowlist_binding,
+                    value: threat_intelligence_allowlist_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threatIntelligenceMode".into(),
-                    value: &threat_intelligence_mode_binding,
+                    value: threat_intelligence_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsCertificate".into(),
-                    value: &tls_certificate_binding,
+                    value: tls_certificate_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FirewallPolicyResult {
-            auto_learn_private_ranges_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoLearnPrivateRangesEnabled"),
-            ),
-            base_policy_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("basePolicyId"),
-            ),
-            child_policies: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("childPolicies"),
-            ),
-            dns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("dns")),
-            explicit_proxy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("explicitProxy"),
-            ),
-            firewalls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("firewalls"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            insights: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("insights"),
-            ),
-            intrusion_detection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("intrusionDetection"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpRanges"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            rule_collection_groups: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleCollectionGroups"),
-            ),
-            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
-            sql_redirect_allowed: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sqlRedirectAllowed"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            threat_intelligence_allowlist: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("threatIntelligenceAllowlist"),
-            ),
-            threat_intelligence_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("threatIntelligenceMode"),
-            ),
-            tls_certificate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tlsCertificate"),
-            ),
+            auto_learn_private_ranges_enabled: o
+                .get_field("autoLearnPrivateRangesEnabled"),
+            base_policy_id: o.get_field("basePolicyId"),
+            child_policies: o.get_field("childPolicies"),
+            dns: o.get_field("dns"),
+            explicit_proxy: o.get_field("explicitProxy"),
+            firewalls: o.get_field("firewalls"),
+            identity: o.get_field("identity"),
+            insights: o.get_field("insights"),
+            intrusion_detection: o.get_field("intrusionDetection"),
+            location: o.get_field("location"),
+            name: o.get_field("name"),
+            private_ip_ranges: o.get_field("privateIpRanges"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            rule_collection_groups: o.get_field("ruleCollectionGroups"),
+            sku: o.get_field("sku"),
+            sql_redirect_allowed: o.get_field("sqlRedirectAllowed"),
+            tags: o.get_field("tags"),
+            threat_intelligence_allowlist: o.get_field("threatIntelligenceAllowlist"),
+            threat_intelligence_mode: o.get_field("threatIntelligenceMode"),
+            tls_certificate: o.get_field("tlsCertificate"),
         }
     }
 }

@@ -120,175 +120,125 @@ pub mod matchmaking_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: MatchmakingConfigurationArgs,
     ) -> MatchmakingConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let acceptance_required_binding_1 = args.acceptance_required.get_output(context);
-        let acceptance_required_binding = acceptance_required_binding_1.get_inner();
-        let acceptance_timeout_seconds_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let acceptance_required_binding = args.acceptance_required.get_output(context);
+        let acceptance_timeout_seconds_binding = args
             .acceptance_timeout_seconds
             .get_output(context);
-        let acceptance_timeout_seconds_binding = acceptance_timeout_seconds_binding_1
-            .get_inner();
-        let additional_player_count_binding_1 = args
+        let additional_player_count_binding = args
             .additional_player_count
             .get_output(context);
-        let additional_player_count_binding = additional_player_count_binding_1
-            .get_inner();
-        let backfill_mode_binding_1 = args.backfill_mode.get_output(context);
-        let backfill_mode_binding = backfill_mode_binding_1.get_inner();
-        let custom_event_data_binding_1 = args.custom_event_data.get_output(context);
-        let custom_event_data_binding = custom_event_data_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let flex_match_mode_binding_1 = args.flex_match_mode.get_output(context);
-        let flex_match_mode_binding = flex_match_mode_binding_1.get_inner();
-        let game_properties_binding_1 = args.game_properties.get_output(context);
-        let game_properties_binding = game_properties_binding_1.get_inner();
-        let game_session_data_binding_1 = args.game_session_data.get_output(context);
-        let game_session_data_binding = game_session_data_binding_1.get_inner();
-        let game_session_queue_arns_binding_1 = args
+        let backfill_mode_binding = args.backfill_mode.get_output(context);
+        let custom_event_data_binding = args.custom_event_data.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let flex_match_mode_binding = args.flex_match_mode.get_output(context);
+        let game_properties_binding = args.game_properties.get_output(context);
+        let game_session_data_binding = args.game_session_data.get_output(context);
+        let game_session_queue_arns_binding = args
             .game_session_queue_arns
             .get_output(context);
-        let game_session_queue_arns_binding = game_session_queue_arns_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let notification_target_binding_1 = args.notification_target.get_output(context);
-        let notification_target_binding = notification_target_binding_1.get_inner();
-        let request_timeout_seconds_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let notification_target_binding = args.notification_target.get_output(context);
+        let request_timeout_seconds_binding = args
             .request_timeout_seconds
             .get_output(context);
-        let request_timeout_seconds_binding = request_timeout_seconds_binding_1
-            .get_inner();
-        let rule_set_name_binding_1 = args.rule_set_name.get_output(context);
-        let rule_set_name_binding = rule_set_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let rule_set_name_binding = args.rule_set_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptanceRequired".into(),
-                    value: &acceptance_required_binding,
+                    value: acceptance_required_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptanceTimeoutSeconds".into(),
-                    value: &acceptance_timeout_seconds_binding,
+                    value: acceptance_timeout_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalPlayerCount".into(),
-                    value: &additional_player_count_binding,
+                    value: additional_player_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backfillMode".into(),
-                    value: &backfill_mode_binding,
+                    value: backfill_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customEventData".into(),
-                    value: &custom_event_data_binding,
+                    value: custom_event_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "flexMatchMode".into(),
-                    value: &flex_match_mode_binding,
+                    value: flex_match_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gameProperties".into(),
-                    value: &game_properties_binding,
+                    value: game_properties_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gameSessionData".into(),
-                    value: &game_session_data_binding,
+                    value: game_session_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gameSessionQueueArns".into(),
-                    value: &game_session_queue_arns_binding,
+                    value: game_session_queue_arns_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationTarget".into(),
-                    value: &notification_target_binding,
+                    value: notification_target_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestTimeoutSeconds".into(),
-                    value: &request_timeout_seconds_binding,
+                    value: request_timeout_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleSetName".into(),
-                    value: &rule_set_name_binding,
+                    value: rule_set_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         MatchmakingConfigurationResult {
-            acceptance_required: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceptanceRequired"),
-            ),
-            acceptance_timeout_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceptanceTimeoutSeconds"),
-            ),
-            additional_player_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("additionalPlayerCount"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            backfill_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("backfillMode"),
-            ),
-            creation_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTime"),
-            ),
-            custom_event_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customEventData"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            flex_match_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("flexMatchMode"),
-            ),
-            game_properties: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gameProperties"),
-            ),
-            game_session_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gameSessionData"),
-            ),
-            game_session_queue_arns: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gameSessionQueueArns"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_target: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationTarget"),
-            ),
-            request_timeout_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestTimeoutSeconds"),
-            ),
-            rule_set_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleSetArn"),
-            ),
-            rule_set_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ruleSetName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            acceptance_required: o.get_field("acceptanceRequired"),
+            acceptance_timeout_seconds: o.get_field("acceptanceTimeoutSeconds"),
+            additional_player_count: o.get_field("additionalPlayerCount"),
+            arn: o.get_field("arn"),
+            backfill_mode: o.get_field("backfillMode"),
+            creation_time: o.get_field("creationTime"),
+            custom_event_data: o.get_field("customEventData"),
+            description: o.get_field("description"),
+            flex_match_mode: o.get_field("flexMatchMode"),
+            game_properties: o.get_field("gameProperties"),
+            game_session_data: o.get_field("gameSessionData"),
+            game_session_queue_arns: o.get_field("gameSessionQueueArns"),
+            name: o.get_field("name"),
+            notification_target: o.get_field("notificationTarget"),
+            request_timeout_seconds: o.get_field("requestTimeoutSeconds"),
+            rule_set_arn: o.get_field("ruleSetArn"),
+            rule_set_name: o.get_field("ruleSetName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

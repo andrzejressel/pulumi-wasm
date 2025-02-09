@@ -118,146 +118,105 @@ pub mod capacity_reservation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: CapacityReservationArgs,
     ) -> CapacityReservationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding_1 = args.availability_zone.get_output(context);
-        let availability_zone_binding = availability_zone_binding_1.get_inner();
-        let ebs_optimized_binding_1 = args.ebs_optimized.get_output(context);
-        let ebs_optimized_binding = ebs_optimized_binding_1.get_inner();
-        let end_date_binding_1 = args.end_date.get_output(context);
-        let end_date_binding = end_date_binding_1.get_inner();
-        let end_date_type_binding_1 = args.end_date_type.get_output(context);
-        let end_date_type_binding = end_date_type_binding_1.get_inner();
-        let ephemeral_storage_binding_1 = args.ephemeral_storage.get_output(context);
-        let ephemeral_storage_binding = ephemeral_storage_binding_1.get_inner();
-        let instance_count_binding_1 = args.instance_count.get_output(context);
-        let instance_count_binding = instance_count_binding_1.get_inner();
-        let instance_match_criteria_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let availability_zone_binding = args.availability_zone.get_output(context);
+        let ebs_optimized_binding = args.ebs_optimized.get_output(context);
+        let end_date_binding = args.end_date.get_output(context);
+        let end_date_type_binding = args.end_date_type.get_output(context);
+        let ephemeral_storage_binding = args.ephemeral_storage.get_output(context);
+        let instance_count_binding = args.instance_count.get_output(context);
+        let instance_match_criteria_binding = args
             .instance_match_criteria
             .get_output(context);
-        let instance_match_criteria_binding = instance_match_criteria_binding_1
-            .get_inner();
-        let instance_platform_binding_1 = args.instance_platform.get_output(context);
-        let instance_platform_binding = instance_platform_binding_1.get_inner();
-        let instance_type_binding_1 = args.instance_type.get_output(context);
-        let instance_type_binding = instance_type_binding_1.get_inner();
-        let outpost_arn_binding_1 = args.outpost_arn.get_output(context);
-        let outpost_arn_binding = outpost_arn_binding_1.get_inner();
-        let placement_group_arn_binding_1 = args.placement_group_arn.get_output(context);
-        let placement_group_arn_binding = placement_group_arn_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let tenancy_binding_1 = args.tenancy.get_output(context);
-        let tenancy_binding = tenancy_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let instance_platform_binding = args.instance_platform.get_output(context);
+        let instance_type_binding = args.instance_type.get_output(context);
+        let outpost_arn_binding = args.outpost_arn.get_output(context);
+        let placement_group_arn_binding = args.placement_group_arn.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let tenancy_binding = args.tenancy.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2/capacityReservation:CapacityReservation".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: &availability_zone_binding,
+                    value: availability_zone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsOptimized".into(),
-                    value: &ebs_optimized_binding,
+                    value: ebs_optimized_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endDate".into(),
-                    value: &end_date_binding,
+                    value: end_date_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endDateType".into(),
-                    value: &end_date_type_binding,
+                    value: end_date_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ephemeralStorage".into(),
-                    value: &ephemeral_storage_binding,
+                    value: ephemeral_storage_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceCount".into(),
-                    value: &instance_count_binding,
+                    value: instance_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceMatchCriteria".into(),
-                    value: &instance_match_criteria_binding,
+                    value: instance_match_criteria_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instancePlatform".into(),
-                    value: &instance_platform_binding,
+                    value: instance_platform_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: &instance_type_binding,
+                    value: instance_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outpostArn".into(),
-                    value: &outpost_arn_binding,
+                    value: outpost_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementGroupArn".into(),
-                    value: &placement_group_arn_binding,
+                    value: placement_group_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenancy".into(),
-                    value: &tenancy_binding,
+                    value: tenancy_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         CapacityReservationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZone"),
-            ),
-            ebs_optimized: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ebsOptimized"),
-            ),
-            end_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endDate"),
-            ),
-            end_date_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endDateType"),
-            ),
-            ephemeral_storage: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ephemeralStorage"),
-            ),
-            instance_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceCount"),
-            ),
-            instance_match_criteria: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceMatchCriteria"),
-            ),
-            instance_platform: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instancePlatform"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outpostArn"),
-            ),
-            owner_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ownerId"),
-            ),
-            placement_group_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("placementGroupArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            tenancy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenancy"),
-            ),
+            arn: o.get_field("arn"),
+            availability_zone: o.get_field("availabilityZone"),
+            ebs_optimized: o.get_field("ebsOptimized"),
+            end_date: o.get_field("endDate"),
+            end_date_type: o.get_field("endDateType"),
+            ephemeral_storage: o.get_field("ephemeralStorage"),
+            instance_count: o.get_field("instanceCount"),
+            instance_match_criteria: o.get_field("instanceMatchCriteria"),
+            instance_platform: o.get_field("instancePlatform"),
+            instance_type: o.get_field("instanceType"),
+            outpost_arn: o.get_field("outpostArn"),
+            owner_id: o.get_field("ownerId"),
+            placement_group_arn: o.get_field("placementGroupArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            tenancy: o.get_field("tenancy"),
         }
     }
 }

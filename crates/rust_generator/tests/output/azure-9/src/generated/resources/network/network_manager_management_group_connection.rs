@@ -109,59 +109,48 @@ pub mod network_manager_management_group_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NetworkManagerManagementGroupConnectionArgs,
     ) -> NetworkManagerManagementGroupConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let management_group_id_binding_1 = args.management_group_id.get_output(context);
-        let management_group_id_binding = management_group_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_manager_id_binding_1 = args.network_manager_id.get_output(context);
-        let network_manager_id_binding = network_manager_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let management_group_id_binding = args.management_group_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_manager_id_binding = args.network_manager_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managementGroupId".into(),
-                    value: &management_group_id_binding,
+                    value: management_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkManagerId".into(),
-                    value: &network_manager_id_binding,
+                    value: network_manager_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NetworkManagerManagementGroupConnectionResult {
-            connection_state: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionState"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            management_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managementGroupId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network_manager_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkManagerId"),
-            ),
+            connection_state: o.get_field("connectionState"),
+            description: o.get_field("description"),
+            management_group_id: o.get_field("managementGroupId"),
+            name: o.get_field("name"),
+            network_manager_id: o.get_field("networkManagerId"),
         }
     }
 }

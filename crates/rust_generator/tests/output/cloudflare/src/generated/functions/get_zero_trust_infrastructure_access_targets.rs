@@ -58,92 +58,71 @@ pub mod get_zero_trust_infrastructure_access_targets {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetZeroTrustInfrastructureAccessTargetsArgs,
     ) -> GetZeroTrustInfrastructureAccessTargetsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let created_after_binding_1 = args.created_after.get_output(context);
-        let created_after_binding = created_after_binding_1.get_inner();
-        let hostname_binding_1 = args.hostname.get_output(context);
-        let hostname_binding = hostname_binding_1.get_inner();
-        let hostname_contains_binding_1 = args.hostname_contains.get_output(context);
-        let hostname_contains_binding = hostname_contains_binding_1.get_inner();
-        let ipv4_binding_1 = args.ipv4.get_output(context);
-        let ipv4_binding = ipv4_binding_1.get_inner();
-        let ipv6_binding_1 = args.ipv6.get_output(context);
-        let ipv6_binding = ipv6_binding_1.get_inner();
-        let modified_after_binding_1 = args.modified_after.get_output(context);
-        let modified_after_binding = modified_after_binding_1.get_inner();
-        let virtual_network_id_binding_1 = args.virtual_network_id.get_output(context);
-        let virtual_network_id_binding = virtual_network_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let created_after_binding = args.created_after.get_output(context);
+        let hostname_binding = args.hostname.get_output(context);
+        let hostname_contains_binding = args.hostname_contains.get_output(context);
+        let ipv4_binding = args.ipv4.get_output(context);
+        let ipv6_binding = args.ipv6.get_output(context);
+        let modified_after_binding = args.modified_after.get_output(context);
+        let virtual_network_id_binding = args.virtual_network_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "cloudflare:index/getZeroTrustInfrastructureAccessTargets:getZeroTrustInfrastructureAccessTargets"
                 .into(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createdAfter".into(),
-                    value: &created_after_binding,
+                    value: created_after_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostname".into(),
-                    value: &hostname_binding,
+                    value: hostname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostnameContains".into(),
-                    value: &hostname_contains_binding,
+                    value: hostname_contains_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv4".into(),
-                    value: &ipv4_binding,
+                    value: ipv4_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6".into(),
-                    value: &ipv6_binding,
+                    value: ipv6_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modifiedAfter".into(),
-                    value: &modified_after_binding,
+                    value: modified_after_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkId".into(),
-                    value: &virtual_network_id_binding,
+                    value: virtual_network_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetZeroTrustInfrastructureAccessTargetsResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            created_after: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdAfter"),
-            ),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            hostname_contains: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostnameContains"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ipv4: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ipv4")),
-            ipv6: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ipv6")),
-            modified_after: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("modifiedAfter"),
-            ),
-            targets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targets"),
-            ),
-            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("virtualNetworkId"),
-            ),
+            account_id: o.get_field("accountId"),
+            created_after: o.get_field("createdAfter"),
+            hostname: o.get_field("hostname"),
+            hostname_contains: o.get_field("hostnameContains"),
+            id: o.get_field("id"),
+            ipv4: o.get_field("ipv4"),
+            ipv6: o.get_field("ipv6"),
+            modified_after: o.get_field("modifiedAfter"),
+            targets: o.get_field("targets"),
+            virtual_network_id: o.get_field("virtualNetworkId"),
         }
     }
 }

@@ -176,168 +176,119 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let availability_zones_binding_1 = args.availability_zones.get_output(context);
-        let availability_zones_binding = availability_zones_binding_1.get_inner();
-        let cluster_endpoint_encryption_type_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let availability_zones_binding = args.availability_zones.get_output(context);
+        let cluster_endpoint_encryption_type_binding = args
             .cluster_endpoint_encryption_type
             .get_output(context);
-        let cluster_endpoint_encryption_type_binding = cluster_endpoint_encryption_type_binding_1
-            .get_inner();
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let iam_role_arn_binding_1 = args.iam_role_arn.get_output(context);
-        let iam_role_arn_binding = iam_role_arn_binding_1.get_inner();
-        let maintenance_window_binding_1 = args.maintenance_window.get_output(context);
-        let maintenance_window_binding = maintenance_window_binding_1.get_inner();
-        let node_type_binding_1 = args.node_type.get_output(context);
-        let node_type_binding = node_type_binding_1.get_inner();
-        let notification_topic_arn_binding_1 = args
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let iam_role_arn_binding = args.iam_role_arn.get_output(context);
+        let maintenance_window_binding = args.maintenance_window.get_output(context);
+        let node_type_binding = args.node_type.get_output(context);
+        let notification_topic_arn_binding = args
             .notification_topic_arn
             .get_output(context);
-        let notification_topic_arn_binding = notification_topic_arn_binding_1
-            .get_inner();
-        let parameter_group_name_binding_1 = args
-            .parameter_group_name
-            .get_output(context);
-        let parameter_group_name_binding = parameter_group_name_binding_1.get_inner();
-        let replication_factor_binding_1 = args.replication_factor.get_output(context);
-        let replication_factor_binding = replication_factor_binding_1.get_inner();
-        let security_group_ids_binding_1 = args.security_group_ids.get_output(context);
-        let security_group_ids_binding = security_group_ids_binding_1.get_inner();
-        let server_side_encryption_binding_1 = args
+        let parameter_group_name_binding = args.parameter_group_name.get_output(context);
+        let replication_factor_binding = args.replication_factor.get_output(context);
+        let security_group_ids_binding = args.security_group_ids.get_output(context);
+        let server_side_encryption_binding = args
             .server_side_encryption
             .get_output(context);
-        let server_side_encryption_binding = server_side_encryption_binding_1
-            .get_inner();
-        let subnet_group_name_binding_1 = args.subnet_group_name.get_output(context);
-        let subnet_group_name_binding = subnet_group_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let subnet_group_name_binding = args.subnet_group_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:dax/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZones".into(),
-                    value: &availability_zones_binding,
+                    value: availability_zones_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterEndpointEncryptionType".into(),
-                    value: &cluster_endpoint_encryption_type_binding,
+                    value: cluster_endpoint_encryption_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: &iam_role_arn_binding,
+                    value: iam_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceWindow".into(),
-                    value: &maintenance_window_binding,
+                    value: maintenance_window_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeType".into(),
-                    value: &node_type_binding,
+                    value: node_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationTopicArn".into(),
-                    value: &notification_topic_arn_binding,
+                    value: notification_topic_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameterGroupName".into(),
-                    value: &parameter_group_name_binding,
+                    value: parameter_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationFactor".into(),
-                    value: &replication_factor_binding,
+                    value: replication_factor_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: &security_group_ids_binding,
+                    value: security_group_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverSideEncryption".into(),
-                    value: &server_side_encryption_binding,
+                    value: server_side_encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetGroupName".into(),
-                    value: &subnet_group_name_binding,
+                    value: subnet_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zones: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("availabilityZones"),
-            ),
-            cluster_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterAddress"),
-            ),
-            cluster_endpoint_encryption_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterEndpointEncryptionType"),
-            ),
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            configuration_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configurationEndpoint"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iamRoleArn"),
-            ),
-            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenanceWindow"),
-            ),
-            node_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeType"),
-            ),
-            nodes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("nodes")),
-            notification_topic_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationTopicArn"),
-            ),
-            parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameterGroupName"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            replication_factor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicationFactor"),
-            ),
-            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupIds"),
-            ),
-            server_side_encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverSideEncryption"),
-            ),
-            subnet_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetGroupName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            availability_zones: o.get_field("availabilityZones"),
+            cluster_address: o.get_field("clusterAddress"),
+            cluster_endpoint_encryption_type: o
+                .get_field("clusterEndpointEncryptionType"),
+            cluster_name: o.get_field("clusterName"),
+            configuration_endpoint: o.get_field("configurationEndpoint"),
+            description: o.get_field("description"),
+            iam_role_arn: o.get_field("iamRoleArn"),
+            maintenance_window: o.get_field("maintenanceWindow"),
+            node_type: o.get_field("nodeType"),
+            nodes: o.get_field("nodes"),
+            notification_topic_arn: o.get_field("notificationTopicArn"),
+            parameter_group_name: o.get_field("parameterGroupName"),
+            port: o.get_field("port"),
+            replication_factor: o.get_field("replicationFactor"),
+            security_group_ids: o.get_field("securityGroupIds"),
+            server_side_encryption: o.get_field("serverSideEncryption"),
+            subnet_group_name: o.get_field("subnetGroupName"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

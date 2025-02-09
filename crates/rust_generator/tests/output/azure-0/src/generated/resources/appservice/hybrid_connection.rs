@@ -130,88 +130,63 @@ pub mod hybrid_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: HybridConnectionArgs,
     ) -> HybridConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let app_service_name_binding_1 = args.app_service_name.get_output(context);
-        let app_service_name_binding = app_service_name_binding_1.get_inner();
-        let hostname_binding_1 = args.hostname.get_output(context);
-        let hostname_binding = hostname_binding_1.get_inner();
-        let port_binding_1 = args.port.get_output(context);
-        let port_binding = port_binding_1.get_inner();
-        let relay_id_binding_1 = args.relay_id.get_output(context);
-        let relay_id_binding = relay_id_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let send_key_name_binding_1 = args.send_key_name.get_output(context);
-        let send_key_name_binding = send_key_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let app_service_name_binding = args.app_service_name.get_output(context);
+        let hostname_binding = args.hostname.get_output(context);
+        let port_binding = args.port.get_output(context);
+        let relay_id_binding = args.relay_id.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let send_key_name_binding = args.send_key_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appservice/hybridConnection:HybridConnection".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServiceName".into(),
-                    value: &app_service_name_binding,
+                    value: app_service_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostname".into(),
-                    value: &hostname_binding,
+                    value: hostname_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: &port_binding,
+                    value: port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "relayId".into(),
-                    value: &relay_id_binding,
+                    value: relay_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sendKeyName".into(),
-                    value: &send_key_name_binding,
+                    value: send_key_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         HybridConnectionResult {
-            app_service_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("appServiceName"),
-            ),
-            hostname: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostname"),
-            ),
-            namespace_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("namespaceName"),
-            ),
-            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
-            relay_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("relayId"),
-            ),
-            relay_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("relayName"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            send_key_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sendKeyName"),
-            ),
-            send_key_value: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sendKeyValue"),
-            ),
-            service_bus_namespace: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceBusNamespace"),
-            ),
-            service_bus_suffix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceBusSuffix"),
-            ),
+            app_service_name: o.get_field("appServiceName"),
+            hostname: o.get_field("hostname"),
+            namespace_name: o.get_field("namespaceName"),
+            port: o.get_field("port"),
+            relay_id: o.get_field("relayId"),
+            relay_name: o.get_field("relayName"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            send_key_name: o.get_field("sendKeyName"),
+            send_key_value: o.get_field("sendKeyValue"),
+            service_bus_namespace: o.get_field("serviceBusNamespace"),
+            service_bus_suffix: o.get_field("serviceBusSuffix"),
         }
     }
 }

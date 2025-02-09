@@ -177,146 +177,109 @@ pub mod traffic_manager_nested_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TrafficManagerNestedEndpointArgs,
     ) -> TrafficManagerNestedEndpointResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_headers_binding_1 = args.custom_headers.get_output(context);
-        let custom_headers_binding = custom_headers_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let endpoint_location_binding_1 = args.endpoint_location.get_output(context);
-        let endpoint_location_binding = endpoint_location_binding_1.get_inner();
-        let geo_mappings_binding_1 = args.geo_mappings.get_output(context);
-        let geo_mappings_binding = geo_mappings_binding_1.get_inner();
-        let minimum_child_endpoints_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let custom_headers_binding = args.custom_headers.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let endpoint_location_binding = args.endpoint_location.get_output(context);
+        let geo_mappings_binding = args.geo_mappings.get_output(context);
+        let minimum_child_endpoints_binding = args
             .minimum_child_endpoints
             .get_output(context);
-        let minimum_child_endpoints_binding = minimum_child_endpoints_binding_1
-            .get_inner();
-        let minimum_required_child_endpoints_ipv4_binding_1 = args
+        let minimum_required_child_endpoints_ipv4_binding = args
             .minimum_required_child_endpoints_ipv4
             .get_output(context);
-        let minimum_required_child_endpoints_ipv4_binding = minimum_required_child_endpoints_ipv4_binding_1
-            .get_inner();
-        let minimum_required_child_endpoints_ipv6_binding_1 = args
+        let minimum_required_child_endpoints_ipv6_binding = args
             .minimum_required_child_endpoints_ipv6
             .get_output(context);
-        let minimum_required_child_endpoints_ipv6_binding = minimum_required_child_endpoints_ipv6_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let priority_binding_1 = args.priority.get_output(context);
-        let priority_binding = priority_binding_1.get_inner();
-        let profile_id_binding_1 = args.profile_id.get_output(context);
-        let profile_id_binding = profile_id_binding_1.get_inner();
-        let subnets_binding_1 = args.subnets.get_output(context);
-        let subnets_binding = subnets_binding_1.get_inner();
-        let target_resource_id_binding_1 = args.target_resource_id.get_output(context);
-        let target_resource_id_binding = target_resource_id_binding_1.get_inner();
-        let weight_binding_1 = args.weight.get_output(context);
-        let weight_binding = weight_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let priority_binding = args.priority.get_output(context);
+        let profile_id_binding = args.profile_id.get_output(context);
+        let subnets_binding = args.subnets.get_output(context);
+        let target_resource_id_binding = args.target_resource_id.get_output(context);
+        let weight_binding = args.weight.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customHeaders".into(),
-                    value: &custom_headers_binding,
+                    value: custom_headers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointLocation".into(),
-                    value: &endpoint_location_binding,
+                    value: endpoint_location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geoMappings".into(),
-                    value: &geo_mappings_binding,
+                    value: geo_mappings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumChildEndpoints".into(),
-                    value: &minimum_child_endpoints_binding,
+                    value: minimum_child_endpoints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumRequiredChildEndpointsIpv4".into(),
-                    value: &minimum_required_child_endpoints_ipv4_binding,
+                    value: minimum_required_child_endpoints_ipv4_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumRequiredChildEndpointsIpv6".into(),
-                    value: &minimum_required_child_endpoints_ipv6_binding,
+                    value: minimum_required_child_endpoints_ipv6_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: &priority_binding,
+                    value: priority_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileId".into(),
-                    value: &profile_id_binding,
+                    value: profile_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnets".into(),
-                    value: &subnets_binding,
+                    value: subnets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceId".into(),
-                    value: &target_resource_id_binding,
+                    value: target_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weight".into(),
-                    value: &weight_binding,
+                    value: weight_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TrafficManagerNestedEndpointResult {
-            custom_headers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customHeaders"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            endpoint_location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointLocation"),
-            ),
-            geo_mappings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("geoMappings"),
-            ),
-            minimum_child_endpoints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumChildEndpoints"),
-            ),
-            minimum_required_child_endpoints_ipv4: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumRequiredChildEndpointsIpv4"),
-            ),
-            minimum_required_child_endpoints_ipv6: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minimumRequiredChildEndpointsIpv6"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("priority"),
-            ),
-            profile_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("profileId"),
-            ),
-            subnets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnets"),
-            ),
-            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetResourceId"),
-            ),
-            weight: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("weight"),
-            ),
+            custom_headers: o.get_field("customHeaders"),
+            enabled: o.get_field("enabled"),
+            endpoint_location: o.get_field("endpointLocation"),
+            geo_mappings: o.get_field("geoMappings"),
+            minimum_child_endpoints: o.get_field("minimumChildEndpoints"),
+            minimum_required_child_endpoints_ipv4: o
+                .get_field("minimumRequiredChildEndpointsIpv4"),
+            minimum_required_child_endpoints_ipv6: o
+                .get_field("minimumRequiredChildEndpointsIpv6"),
+            name: o.get_field("name"),
+            priority: o.get_field("priority"),
+            profile_id: o.get_field("profileId"),
+            subnets: o.get_field("subnets"),
+            target_resource_id: o.get_field("targetResourceId"),
+            weight: o.get_field("weight"),
         }
     }
 }

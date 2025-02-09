@@ -94,75 +94,58 @@ pub mod signing_profile_permission {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SigningProfilePermissionArgs,
     ) -> SigningProfilePermissionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let action_binding_1 = args.action.get_output(context);
-        let action_binding = action_binding_1.get_inner();
-        let principal_binding_1 = args.principal.get_output(context);
-        let principal_binding = principal_binding_1.get_inner();
-        let profile_name_binding_1 = args.profile_name.get_output(context);
-        let profile_name_binding = profile_name_binding_1.get_inner();
-        let profile_version_binding_1 = args.profile_version.get_output(context);
-        let profile_version_binding = profile_version_binding_1.get_inner();
-        let statement_id_binding_1 = args.statement_id.get_output(context);
-        let statement_id_binding = statement_id_binding_1.get_inner();
-        let statement_id_prefix_binding_1 = args.statement_id_prefix.get_output(context);
-        let statement_id_prefix_binding = statement_id_prefix_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let action_binding = args.action.get_output(context);
+        let principal_binding = args.principal.get_output(context);
+        let profile_name_binding = args.profile_name.get_output(context);
+        let profile_version_binding = args.profile_version.get_output(context);
+        let statement_id_binding = args.statement_id.get_output(context);
+        let statement_id_prefix_binding = args.statement_id_prefix.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:signer/signingProfilePermission:SigningProfilePermission".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: &action_binding,
+                    value: action_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: &principal_binding,
+                    value: principal_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileName".into(),
-                    value: &profile_name_binding,
+                    value: profile_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileVersion".into(),
-                    value: &profile_version_binding,
+                    value: profile_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statementId".into(),
-                    value: &statement_id_binding,
+                    value: statement_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statementIdPrefix".into(),
-                    value: &statement_id_prefix_binding,
+                    value: statement_id_prefix_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SigningProfilePermissionResult {
-            action: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("action"),
-            ),
-            principal: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principal"),
-            ),
-            profile_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("profileName"),
-            ),
-            profile_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("profileVersion"),
-            ),
-            statement_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statementId"),
-            ),
-            statement_id_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statementIdPrefix"),
-            ),
+            action: o.get_field("action"),
+            principal: o.get_field("principal"),
+            profile_name: o.get_field("profileName"),
+            profile_version: o.get_field("profileVersion"),
+            statement_id: o.get_field("statementId"),
+            statement_id_prefix: o.get_field("statementIdPrefix"),
         }
     }
 }

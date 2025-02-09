@@ -120,95 +120,73 @@ pub mod spring_cloud_customized_accelerator {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudCustomizedAcceleratorArgs,
     ) -> SpringCloudCustomizedAcceleratorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accelerator_tags_binding_1 = args.accelerator_tags.get_output(context);
-        let accelerator_tags_binding = accelerator_tags_binding_1.get_inner();
-        let accelerator_type_binding_1 = args.accelerator_type.get_output(context);
-        let accelerator_type_binding = accelerator_type_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let git_repository_binding_1 = args.git_repository.get_output(context);
-        let git_repository_binding = git_repository_binding_1.get_inner();
-        let icon_url_binding_1 = args.icon_url.get_output(context);
-        let icon_url_binding = icon_url_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let spring_cloud_accelerator_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accelerator_tags_binding = args.accelerator_tags.get_output(context);
+        let accelerator_type_binding = args.accelerator_type.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let git_repository_binding = args.git_repository.get_output(context);
+        let icon_url_binding = args.icon_url.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let spring_cloud_accelerator_id_binding = args
             .spring_cloud_accelerator_id
             .get_output(context);
-        let spring_cloud_accelerator_id_binding = spring_cloud_accelerator_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudCustomizedAccelerator:SpringCloudCustomizedAccelerator"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceleratorTags".into(),
-                    value: &accelerator_tags_binding,
+                    value: accelerator_tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceleratorType".into(),
-                    value: &accelerator_type_binding,
+                    value: accelerator_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gitRepository".into(),
-                    value: &git_repository_binding,
+                    value: git_repository_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iconUrl".into(),
-                    value: &icon_url_binding,
+                    value: icon_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudAcceleratorId".into(),
-                    value: &spring_cloud_accelerator_id_binding,
+                    value: spring_cloud_accelerator_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudCustomizedAcceleratorResult {
-            accelerator_tags: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceleratorTags"),
-            ),
-            accelerator_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceleratorType"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            git_repository: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gitRepository"),
-            ),
-            icon_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("iconUrl"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            spring_cloud_accelerator_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudAcceleratorId"),
-            ),
+            accelerator_tags: o.get_field("acceleratorTags"),
+            accelerator_type: o.get_field("acceleratorType"),
+            description: o.get_field("description"),
+            display_name: o.get_field("displayName"),
+            git_repository: o.get_field("gitRepository"),
+            icon_url: o.get_field("iconUrl"),
+            name: o.get_field("name"),
+            spring_cloud_accelerator_id: o.get_field("springCloudAcceleratorId"),
         }
     }
 }

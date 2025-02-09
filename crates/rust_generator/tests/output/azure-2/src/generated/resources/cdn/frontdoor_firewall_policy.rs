@@ -199,135 +199,102 @@ pub mod frontdoor_firewall_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: FrontdoorFirewallPolicyArgs,
     ) -> FrontdoorFirewallPolicyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_block_response_body_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let custom_block_response_body_binding = args
             .custom_block_response_body
             .get_output(context);
-        let custom_block_response_body_binding = custom_block_response_body_binding_1
-            .get_inner();
-        let custom_block_response_status_code_binding_1 = args
+        let custom_block_response_status_code_binding = args
             .custom_block_response_status_code
             .get_output(context);
-        let custom_block_response_status_code_binding = custom_block_response_status_code_binding_1
-            .get_inner();
-        let custom_rules_binding_1 = args.custom_rules.get_output(context);
-        let custom_rules_binding = custom_rules_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let managed_rules_binding_1 = args.managed_rules.get_output(context);
-        let managed_rules_binding = managed_rules_binding_1.get_inner();
-        let mode_binding_1 = args.mode.get_output(context);
-        let mode_binding = mode_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let redirect_url_binding_1 = args.redirect_url.get_output(context);
-        let redirect_url_binding = redirect_url_binding_1.get_inner();
-        let request_body_check_enabled_binding_1 = args
+        let custom_rules_binding = args.custom_rules.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let managed_rules_binding = args.managed_rules.get_output(context);
+        let mode_binding = args.mode.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let redirect_url_binding = args.redirect_url.get_output(context);
+        let request_body_check_enabled_binding = args
             .request_body_check_enabled
             .get_output(context);
-        let request_body_check_enabled_binding = request_body_check_enabled_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let sku_name_binding_1 = args.sku_name.get_output(context);
-        let sku_name_binding = sku_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let sku_name_binding = args.sku_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customBlockResponseBody".into(),
-                    value: &custom_block_response_body_binding,
+                    value: custom_block_response_body_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customBlockResponseStatusCode".into(),
-                    value: &custom_block_response_status_code_binding,
+                    value: custom_block_response_status_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customRules".into(),
-                    value: &custom_rules_binding,
+                    value: custom_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedRules".into(),
-                    value: &managed_rules_binding,
+                    value: managed_rules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: &mode_binding,
+                    value: mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redirectUrl".into(),
-                    value: &redirect_url_binding,
+                    value: redirect_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestBodyCheckEnabled".into(),
-                    value: &request_body_check_enabled_binding,
+                    value: request_body_check_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: &sku_name_binding,
+                    value: sku_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         FrontdoorFirewallPolicyResult {
-            custom_block_response_body: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customBlockResponseBody"),
-            ),
-            custom_block_response_status_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customBlockResponseStatusCode"),
-            ),
-            custom_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customRules"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            frontend_endpoint_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("frontendEndpointIds"),
-            ),
-            managed_rules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("managedRules"),
-            ),
-            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            redirect_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("redirectUrl"),
-            ),
-            request_body_check_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("requestBodyCheckEnabled"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            sku_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skuName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            custom_block_response_body: o.get_field("customBlockResponseBody"),
+            custom_block_response_status_code: o
+                .get_field("customBlockResponseStatusCode"),
+            custom_rules: o.get_field("customRules"),
+            enabled: o.get_field("enabled"),
+            frontend_endpoint_ids: o.get_field("frontendEndpointIds"),
+            managed_rules: o.get_field("managedRules"),
+            mode: o.get_field("mode"),
+            name: o.get_field("name"),
+            redirect_url: o.get_field("redirectUrl"),
+            request_body_check_enabled: o.get_field("requestBodyCheckEnabled"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            sku_name: o.get_field("skuName"),
+            tags: o.get_field("tags"),
         }
     }
 }

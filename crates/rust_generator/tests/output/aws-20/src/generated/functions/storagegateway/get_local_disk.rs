@@ -29,50 +29,40 @@ pub mod get_local_disk {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetLocalDiskArgs,
     ) -> GetLocalDiskResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let disk_node_binding_1 = args.disk_node.get_output(context);
-        let disk_node_binding = disk_node_binding_1.get_inner();
-        let disk_path_binding_1 = args.disk_path.get_output(context);
-        let disk_path_binding = disk_path_binding_1.get_inner();
-        let gateway_arn_binding_1 = args.gateway_arn.get_output(context);
-        let gateway_arn_binding = gateway_arn_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let disk_node_binding = args.disk_node.get_output(context);
+        let disk_path_binding = args.disk_path.get_output(context);
+        let gateway_arn_binding = args.gateway_arn.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:storagegateway/getLocalDisk:getLocalDisk".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskNode".into(),
-                    value: &disk_node_binding,
+                    value: disk_node_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskPath".into(),
-                    value: &disk_path_binding,
+                    value: disk_path_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayArn".into(),
-                    value: &gateway_arn_binding,
+                    value: gateway_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetLocalDiskResult {
-            disk_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskId"),
-            ),
-            disk_node: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskNode"),
-            ),
-            disk_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskPath"),
-            ),
-            gateway_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayArn"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            disk_id: o.get_field("diskId"),
+            disk_node: o.get_field("diskNode"),
+            disk_path: o.get_field("diskPath"),
+            gateway_arn: o.get_field("gatewayArn"),
+            id: o.get_field("id"),
         }
     }
 }

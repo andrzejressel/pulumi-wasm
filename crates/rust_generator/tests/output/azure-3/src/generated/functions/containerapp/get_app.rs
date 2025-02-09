@@ -63,80 +63,49 @@ pub mod get_app {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAppArgs,
     ) -> GetAppResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:containerapp/getApp:getApp".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAppResult {
-            container_app_environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerAppEnvironmentId"),
-            ),
-            custom_domain_verification_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customDomainVerificationId"),
-            ),
-            daprs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("daprs")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identities"),
-            ),
-            ingresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ingresses"),
-            ),
-            latest_revision_fqdn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latestRevisionFqdn"),
-            ),
-            latest_revision_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("latestRevisionName"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            max_inactive_revisions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maxInactiveRevisions"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outboundIpAddresses"),
-            ),
-            registries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registries"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            revision_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("revisionMode"),
-            ),
-            secrets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secrets"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            templates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("templates"),
-            ),
-            workload_profile_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadProfileName"),
-            ),
+            container_app_environment_id: o.get_field("containerAppEnvironmentId"),
+            custom_domain_verification_id: o.get_field("customDomainVerificationId"),
+            daprs: o.get_field("daprs"),
+            id: o.get_field("id"),
+            identities: o.get_field("identities"),
+            ingresses: o.get_field("ingresses"),
+            latest_revision_fqdn: o.get_field("latestRevisionFqdn"),
+            latest_revision_name: o.get_field("latestRevisionName"),
+            location: o.get_field("location"),
+            max_inactive_revisions: o.get_field("maxInactiveRevisions"),
+            name: o.get_field("name"),
+            outbound_ip_addresses: o.get_field("outboundIpAddresses"),
+            registries: o.get_field("registries"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            revision_mode: o.get_field("revisionMode"),
+            secrets: o.get_field("secrets"),
+            tags: o.get_field("tags"),
+            templates: o.get_field("templates"),
+            workload_profile_name: o.get_field("workloadProfileName"),
         }
     }
 }

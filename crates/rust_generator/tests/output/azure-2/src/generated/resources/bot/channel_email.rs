@@ -89,75 +89,58 @@ pub mod channel_email {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ChannelEmailArgs,
     ) -> ChannelEmailResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bot_name_binding_1 = args.bot_name.get_output(context);
-        let bot_name_binding = bot_name_binding_1.get_inner();
-        let email_address_binding_1 = args.email_address.get_output(context);
-        let email_address_binding = email_address_binding_1.get_inner();
-        let email_password_binding_1 = args.email_password.get_output(context);
-        let email_password_binding = email_password_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let magic_code_binding_1 = args.magic_code.get_output(context);
-        let magic_code_binding = magic_code_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bot_name_binding = args.bot_name.get_output(context);
+        let email_address_binding = args.email_address.get_output(context);
+        let email_password_binding = args.email_password.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let magic_code_binding = args.magic_code.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:bot/channelEmail:ChannelEmail".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botName".into(),
-                    value: &bot_name_binding,
+                    value: bot_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddress".into(),
-                    value: &email_address_binding,
+                    value: email_address_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailPassword".into(),
-                    value: &email_password_binding,
+                    value: email_password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "magicCode".into(),
-                    value: &magic_code_binding,
+                    value: magic_code_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ChannelEmailResult {
-            bot_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("botName"),
-            ),
-            email_address: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailAddress"),
-            ),
-            email_password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailPassword"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            magic_code: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("magicCode"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
+            bot_name: o.get_field("botName"),
+            email_address: o.get_field("emailAddress"),
+            email_password: o.get_field("emailPassword"),
+            location: o.get_field("location"),
+            magic_code: o.get_field("magicCode"),
+            resource_group_name: o.get_field("resourceGroupName"),
         }
     }
 }

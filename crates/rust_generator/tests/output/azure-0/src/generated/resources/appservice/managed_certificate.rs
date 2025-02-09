@@ -140,64 +140,44 @@ pub mod managed_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ManagedCertificateArgs,
     ) -> ManagedCertificateResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let custom_hostname_binding_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let custom_hostname_binding_id_binding = args
             .custom_hostname_binding_id
             .get_output(context);
-        let custom_hostname_binding_id_binding = custom_hostname_binding_id_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appservice/managedCertificate:ManagedCertificate".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customHostnameBindingId".into(),
-                    value: &custom_hostname_binding_id_binding,
+                    value: custom_hostname_binding_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ManagedCertificateResult {
-            canonical_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("canonicalName"),
-            ),
-            custom_hostname_binding_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("customHostnameBindingId"),
-            ),
-            expiration_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("expirationDate"),
-            ),
-            friendly_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("friendlyName"),
-            ),
-            host_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostNames"),
-            ),
-            issue_date: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issueDate"),
-            ),
-            issuer: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("issuer"),
-            ),
-            subject_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subjectName"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            thumbprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("thumbprint"),
-            ),
+            canonical_name: o.get_field("canonicalName"),
+            custom_hostname_binding_id: o.get_field("customHostnameBindingId"),
+            expiration_date: o.get_field("expirationDate"),
+            friendly_name: o.get_field("friendlyName"),
+            host_names: o.get_field("hostNames"),
+            issue_date: o.get_field("issueDate"),
+            issuer: o.get_field("issuer"),
+            subject_name: o.get_field("subjectName"),
+            tags: o.get_field("tags"),
+            thumbprint: o.get_field("thumbprint"),
         }
     }
 }

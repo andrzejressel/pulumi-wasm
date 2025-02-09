@@ -112,119 +112,87 @@ pub mod security_group_egress_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SecurityGroupEgressRuleArgs,
     ) -> SecurityGroupEgressRuleResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cidr_ipv4_binding_1 = args.cidr_ipv4.get_output(context);
-        let cidr_ipv4_binding = cidr_ipv4_binding_1.get_inner();
-        let cidr_ipv6_binding_1 = args.cidr_ipv6.get_output(context);
-        let cidr_ipv6_binding = cidr_ipv6_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let from_port_binding_1 = args.from_port.get_output(context);
-        let from_port_binding = from_port_binding_1.get_inner();
-        let ip_protocol_binding_1 = args.ip_protocol.get_output(context);
-        let ip_protocol_binding = ip_protocol_binding_1.get_inner();
-        let prefix_list_id_binding_1 = args.prefix_list_id.get_output(context);
-        let prefix_list_id_binding = prefix_list_id_binding_1.get_inner();
-        let referenced_security_group_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cidr_ipv4_binding = args.cidr_ipv4.get_output(context);
+        let cidr_ipv6_binding = args.cidr_ipv6.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let from_port_binding = args.from_port.get_output(context);
+        let ip_protocol_binding = args.ip_protocol.get_output(context);
+        let prefix_list_id_binding = args.prefix_list_id.get_output(context);
+        let referenced_security_group_id_binding = args
             .referenced_security_group_id
             .get_output(context);
-        let referenced_security_group_id_binding = referenced_security_group_id_binding_1
-            .get_inner();
-        let security_group_id_binding_1 = args.security_group_id.get_output(context);
-        let security_group_id_binding = security_group_id_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let to_port_binding_1 = args.to_port.get_output(context);
-        let to_port_binding = to_port_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let security_group_id_binding = args.security_group_id.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let to_port_binding = args.to_port.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrIpv4".into(),
-                    value: &cidr_ipv4_binding,
+                    value: cidr_ipv4_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrIpv6".into(),
-                    value: &cidr_ipv6_binding,
+                    value: cidr_ipv6_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fromPort".into(),
-                    value: &from_port_binding,
+                    value: from_port_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipProtocol".into(),
-                    value: &ip_protocol_binding,
+                    value: ip_protocol_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefixListId".into(),
-                    value: &prefix_list_id_binding,
+                    value: prefix_list_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "referencedSecurityGroupId".into(),
-                    value: &referenced_security_group_id_binding,
+                    value: referenced_security_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupId".into(),
-                    value: &security_group_id_binding,
+                    value: security_group_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "toPort".into(),
-                    value: &to_port_binding,
+                    value: to_port_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SecurityGroupEgressRuleResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            cidr_ipv4: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrIpv4"),
-            ),
-            cidr_ipv6: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cidrIpv6"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            from_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fromPort"),
-            ),
-            ip_protocol: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipProtocol"),
-            ),
-            prefix_list_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefixListId"),
-            ),
-            referenced_security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("referencedSecurityGroupId"),
-            ),
-            security_group_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupId"),
-            ),
-            security_group_rule_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityGroupRuleId"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            to_port: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("toPort"),
-            ),
+            arn: o.get_field("arn"),
+            cidr_ipv4: o.get_field("cidrIpv4"),
+            cidr_ipv6: o.get_field("cidrIpv6"),
+            description: o.get_field("description"),
+            from_port: o.get_field("fromPort"),
+            ip_protocol: o.get_field("ipProtocol"),
+            prefix_list_id: o.get_field("prefixListId"),
+            referenced_security_group_id: o.get_field("referencedSecurityGroupId"),
+            security_group_id: o.get_field("securityGroupId"),
+            security_group_rule_id: o.get_field("securityGroupRuleId"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            to_port: o.get_field("toPort"),
         }
     }
 }

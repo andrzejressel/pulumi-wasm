@@ -31,42 +31,35 @@ pub mod get_workspace_private_endpoint_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetWorkspacePrivateEndpointConnectionArgs,
     ) -> GetWorkspacePrivateEndpointConnectionResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let private_endpoint_id_binding_1 = args.private_endpoint_id.get_output(context);
-        let private_endpoint_id_binding = private_endpoint_id_binding_1.get_inner();
-        let workspace_id_binding_1 = args.workspace_id.get_output(context);
-        let workspace_id_binding = workspace_id_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let private_endpoint_id_binding = args.private_endpoint_id.get_output(context);
+        let workspace_id_binding = args.workspace_id.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateEndpointId".into(),
-                    value: &private_endpoint_id_binding,
+                    value: private_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: &workspace_id_binding,
+                    value: workspace_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetWorkspacePrivateEndpointConnectionResult {
-            connections: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connections"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            private_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateEndpointId"),
-            ),
-            workspace_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workspaceId"),
-            ),
+            connections: o.get_field("connections"),
+            id: o.get_field("id"),
+            private_endpoint_id: o.get_field("privateEndpointId"),
+            workspace_id: o.get_field("workspaceId"),
         }
     }
 }

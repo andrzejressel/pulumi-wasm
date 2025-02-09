@@ -1010,781 +1010,521 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let addons_config_binding_1 = args.addons_config.get_output(context);
-        let addons_config_binding = addons_config_binding_1.get_inner();
-        let allow_net_admin_binding_1 = args.allow_net_admin.get_output(context);
-        let allow_net_admin_binding = allow_net_admin_binding_1.get_inner();
-        let authenticator_groups_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let addons_config_binding = args.addons_config.get_output(context);
+        let allow_net_admin_binding = args.allow_net_admin.get_output(context);
+        let authenticator_groups_config_binding = args
             .authenticator_groups_config
             .get_output(context);
-        let authenticator_groups_config_binding = authenticator_groups_config_binding_1
-            .get_inner();
-        let binary_authorization_binding_1 = args
-            .binary_authorization
-            .get_output(context);
-        let binary_authorization_binding = binary_authorization_binding_1.get_inner();
-        let cluster_autoscaling_binding_1 = args.cluster_autoscaling.get_output(context);
-        let cluster_autoscaling_binding = cluster_autoscaling_binding_1.get_inner();
-        let cluster_ipv4_cidr_binding_1 = args.cluster_ipv4_cidr.get_output(context);
-        let cluster_ipv4_cidr_binding = cluster_ipv4_cidr_binding_1.get_inner();
-        let cluster_telemetry_binding_1 = args.cluster_telemetry.get_output(context);
-        let cluster_telemetry_binding = cluster_telemetry_binding_1.get_inner();
-        let confidential_nodes_binding_1 = args.confidential_nodes.get_output(context);
-        let confidential_nodes_binding = confidential_nodes_binding_1.get_inner();
-        let control_plane_endpoints_config_binding_1 = args
+        let binary_authorization_binding = args.binary_authorization.get_output(context);
+        let cluster_autoscaling_binding = args.cluster_autoscaling.get_output(context);
+        let cluster_ipv4_cidr_binding = args.cluster_ipv4_cidr.get_output(context);
+        let cluster_telemetry_binding = args.cluster_telemetry.get_output(context);
+        let confidential_nodes_binding = args.confidential_nodes.get_output(context);
+        let control_plane_endpoints_config_binding = args
             .control_plane_endpoints_config
             .get_output(context);
-        let control_plane_endpoints_config_binding = control_plane_endpoints_config_binding_1
-            .get_inner();
-        let cost_management_config_binding_1 = args
+        let cost_management_config_binding = args
             .cost_management_config
             .get_output(context);
-        let cost_management_config_binding = cost_management_config_binding_1
-            .get_inner();
-        let database_encryption_binding_1 = args.database_encryption.get_output(context);
-        let database_encryption_binding = database_encryption_binding_1.get_inner();
-        let datapath_provider_binding_1 = args.datapath_provider.get_output(context);
-        let datapath_provider_binding = datapath_provider_binding_1.get_inner();
-        let default_max_pods_per_node_binding_1 = args
+        let database_encryption_binding = args.database_encryption.get_output(context);
+        let datapath_provider_binding = args.datapath_provider.get_output(context);
+        let default_max_pods_per_node_binding = args
             .default_max_pods_per_node
             .get_output(context);
-        let default_max_pods_per_node_binding = default_max_pods_per_node_binding_1
-            .get_inner();
-        let default_snat_status_binding_1 = args.default_snat_status.get_output(context);
-        let default_snat_status_binding = default_snat_status_binding_1.get_inner();
-        let deletion_protection_binding_1 = args.deletion_protection.get_output(context);
-        let deletion_protection_binding = deletion_protection_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let dns_config_binding_1 = args.dns_config.get_output(context);
-        let dns_config_binding = dns_config_binding_1.get_inner();
-        let enable_autopilot_binding_1 = args.enable_autopilot.get_output(context);
-        let enable_autopilot_binding = enable_autopilot_binding_1.get_inner();
-        let enable_cilium_clusterwide_network_policy_binding_1 = args
+        let default_snat_status_binding = args.default_snat_status.get_output(context);
+        let deletion_protection_binding = args.deletion_protection.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let dns_config_binding = args.dns_config.get_output(context);
+        let enable_autopilot_binding = args.enable_autopilot.get_output(context);
+        let enable_cilium_clusterwide_network_policy_binding = args
             .enable_cilium_clusterwide_network_policy
             .get_output(context);
-        let enable_cilium_clusterwide_network_policy_binding = enable_cilium_clusterwide_network_policy_binding_1
-            .get_inner();
-        let enable_fqdn_network_policy_binding_1 = args
+        let enable_fqdn_network_policy_binding = args
             .enable_fqdn_network_policy
             .get_output(context);
-        let enable_fqdn_network_policy_binding = enable_fqdn_network_policy_binding_1
-            .get_inner();
-        let enable_intranode_visibility_binding_1 = args
+        let enable_intranode_visibility_binding = args
             .enable_intranode_visibility
             .get_output(context);
-        let enable_intranode_visibility_binding = enable_intranode_visibility_binding_1
-            .get_inner();
-        let enable_k8s_beta_apis_binding_1 = args
-            .enable_k8s_beta_apis
-            .get_output(context);
-        let enable_k8s_beta_apis_binding = enable_k8s_beta_apis_binding_1.get_inner();
-        let enable_kubernetes_alpha_binding_1 = args
+        let enable_k8s_beta_apis_binding = args.enable_k8s_beta_apis.get_output(context);
+        let enable_kubernetes_alpha_binding = args
             .enable_kubernetes_alpha
             .get_output(context);
-        let enable_kubernetes_alpha_binding = enable_kubernetes_alpha_binding_1
-            .get_inner();
-        let enable_l4_ilb_subsetting_binding_1 = args
+        let enable_l4_ilb_subsetting_binding = args
             .enable_l4_ilb_subsetting
             .get_output(context);
-        let enable_l4_ilb_subsetting_binding = enable_l4_ilb_subsetting_binding_1
-            .get_inner();
-        let enable_legacy_abac_binding_1 = args.enable_legacy_abac.get_output(context);
-        let enable_legacy_abac_binding = enable_legacy_abac_binding_1.get_inner();
-        let enable_multi_networking_binding_1 = args
+        let enable_legacy_abac_binding = args.enable_legacy_abac.get_output(context);
+        let enable_multi_networking_binding = args
             .enable_multi_networking
             .get_output(context);
-        let enable_multi_networking_binding = enable_multi_networking_binding_1
-            .get_inner();
-        let enable_shielded_nodes_binding_1 = args
+        let enable_shielded_nodes_binding = args
             .enable_shielded_nodes
             .get_output(context);
-        let enable_shielded_nodes_binding = enable_shielded_nodes_binding_1.get_inner();
-        let enable_tpu_binding_1 = args.enable_tpu.get_output(context);
-        let enable_tpu_binding = enable_tpu_binding_1.get_inner();
-        let enterprise_config_binding_1 = args.enterprise_config.get_output(context);
-        let enterprise_config_binding = enterprise_config_binding_1.get_inner();
-        let fleet_binding_1 = args.fleet.get_output(context);
-        let fleet_binding = fleet_binding_1.get_inner();
-        let gateway_api_config_binding_1 = args.gateway_api_config.get_output(context);
-        let gateway_api_config_binding = gateway_api_config_binding_1.get_inner();
-        let identity_service_config_binding_1 = args
+        let enable_tpu_binding = args.enable_tpu.get_output(context);
+        let enterprise_config_binding = args.enterprise_config.get_output(context);
+        let fleet_binding = args.fleet.get_output(context);
+        let gateway_api_config_binding = args.gateway_api_config.get_output(context);
+        let identity_service_config_binding = args
             .identity_service_config
             .get_output(context);
-        let identity_service_config_binding = identity_service_config_binding_1
-            .get_inner();
-        let initial_node_count_binding_1 = args.initial_node_count.get_output(context);
-        let initial_node_count_binding = initial_node_count_binding_1.get_inner();
-        let ip_allocation_policy_binding_1 = args
-            .ip_allocation_policy
-            .get_output(context);
-        let ip_allocation_policy_binding = ip_allocation_policy_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let logging_config_binding_1 = args.logging_config.get_output(context);
-        let logging_config_binding = logging_config_binding_1.get_inner();
-        let logging_service_binding_1 = args.logging_service.get_output(context);
-        let logging_service_binding = logging_service_binding_1.get_inner();
-        let maintenance_policy_binding_1 = args.maintenance_policy.get_output(context);
-        let maintenance_policy_binding = maintenance_policy_binding_1.get_inner();
-        let master_auth_binding_1 = args.master_auth.get_output(context);
-        let master_auth_binding = master_auth_binding_1.get_inner();
-        let master_authorized_networks_config_binding_1 = args
+        let initial_node_count_binding = args.initial_node_count.get_output(context);
+        let ip_allocation_policy_binding = args.ip_allocation_policy.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let logging_config_binding = args.logging_config.get_output(context);
+        let logging_service_binding = args.logging_service.get_output(context);
+        let maintenance_policy_binding = args.maintenance_policy.get_output(context);
+        let master_auth_binding = args.master_auth.get_output(context);
+        let master_authorized_networks_config_binding = args
             .master_authorized_networks_config
             .get_output(context);
-        let master_authorized_networks_config_binding = master_authorized_networks_config_binding_1
-            .get_inner();
-        let mesh_certificates_binding_1 = args.mesh_certificates.get_output(context);
-        let mesh_certificates_binding = mesh_certificates_binding_1.get_inner();
-        let min_master_version_binding_1 = args.min_master_version.get_output(context);
-        let min_master_version_binding = min_master_version_binding_1.get_inner();
-        let monitoring_config_binding_1 = args.monitoring_config.get_output(context);
-        let monitoring_config_binding = monitoring_config_binding_1.get_inner();
-        let monitoring_service_binding_1 = args.monitoring_service.get_output(context);
-        let monitoring_service_binding = monitoring_service_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let network_binding_1 = args.network.get_output(context);
-        let network_binding = network_binding_1.get_inner();
-        let network_policy_binding_1 = args.network_policy.get_output(context);
-        let network_policy_binding = network_policy_binding_1.get_inner();
-        let networking_mode_binding_1 = args.networking_mode.get_output(context);
-        let networking_mode_binding = networking_mode_binding_1.get_inner();
-        let node_config_binding_1 = args.node_config.get_output(context);
-        let node_config_binding = node_config_binding_1.get_inner();
-        let node_locations_binding_1 = args.node_locations.get_output(context);
-        let node_locations_binding = node_locations_binding_1.get_inner();
-        let node_pool_auto_config_binding_1 = args
+        let mesh_certificates_binding = args.mesh_certificates.get_output(context);
+        let min_master_version_binding = args.min_master_version.get_output(context);
+        let monitoring_config_binding = args.monitoring_config.get_output(context);
+        let monitoring_service_binding = args.monitoring_service.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let network_binding = args.network.get_output(context);
+        let network_policy_binding = args.network_policy.get_output(context);
+        let networking_mode_binding = args.networking_mode.get_output(context);
+        let node_config_binding = args.node_config.get_output(context);
+        let node_locations_binding = args.node_locations.get_output(context);
+        let node_pool_auto_config_binding = args
             .node_pool_auto_config
             .get_output(context);
-        let node_pool_auto_config_binding = node_pool_auto_config_binding_1.get_inner();
-        let node_pool_defaults_binding_1 = args.node_pool_defaults.get_output(context);
-        let node_pool_defaults_binding = node_pool_defaults_binding_1.get_inner();
-        let node_pools_binding_1 = args.node_pools.get_output(context);
-        let node_pools_binding = node_pools_binding_1.get_inner();
-        let node_version_binding_1 = args.node_version.get_output(context);
-        let node_version_binding = node_version_binding_1.get_inner();
-        let notification_config_binding_1 = args.notification_config.get_output(context);
-        let notification_config_binding = notification_config_binding_1.get_inner();
-        let pod_security_policy_config_binding_1 = args
+        let node_pool_defaults_binding = args.node_pool_defaults.get_output(context);
+        let node_pools_binding = args.node_pools.get_output(context);
+        let node_version_binding = args.node_version.get_output(context);
+        let notification_config_binding = args.notification_config.get_output(context);
+        let pod_security_policy_config_binding = args
             .pod_security_policy_config
             .get_output(context);
-        let pod_security_policy_config_binding = pod_security_policy_config_binding_1
-            .get_inner();
-        let private_cluster_config_binding_1 = args
+        let private_cluster_config_binding = args
             .private_cluster_config
             .get_output(context);
-        let private_cluster_config_binding = private_cluster_config_binding_1
-            .get_inner();
-        let private_ipv6_google_access_binding_1 = args
+        let private_ipv6_google_access_binding = args
             .private_ipv6_google_access
             .get_output(context);
-        let private_ipv6_google_access_binding = private_ipv6_google_access_binding_1
-            .get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let protect_config_binding_1 = args.protect_config.get_output(context);
-        let protect_config_binding = protect_config_binding_1.get_inner();
-        let release_channel_binding_1 = args.release_channel.get_output(context);
-        let release_channel_binding = release_channel_binding_1.get_inner();
-        let remove_default_node_pool_binding_1 = args
+        let project_binding = args.project.get_output(context);
+        let protect_config_binding = args.protect_config.get_output(context);
+        let release_channel_binding = args.release_channel.get_output(context);
+        let remove_default_node_pool_binding = args
             .remove_default_node_pool
             .get_output(context);
-        let remove_default_node_pool_binding = remove_default_node_pool_binding_1
-            .get_inner();
-        let resource_labels_binding_1 = args.resource_labels.get_output(context);
-        let resource_labels_binding = resource_labels_binding_1.get_inner();
-        let resource_usage_export_config_binding_1 = args
+        let resource_labels_binding = args.resource_labels.get_output(context);
+        let resource_usage_export_config_binding = args
             .resource_usage_export_config
             .get_output(context);
-        let resource_usage_export_config_binding = resource_usage_export_config_binding_1
-            .get_inner();
-        let secret_manager_config_binding_1 = args
+        let secret_manager_config_binding = args
             .secret_manager_config
             .get_output(context);
-        let secret_manager_config_binding = secret_manager_config_binding_1.get_inner();
-        let security_posture_config_binding_1 = args
+        let security_posture_config_binding = args
             .security_posture_config
             .get_output(context);
-        let security_posture_config_binding = security_posture_config_binding_1
-            .get_inner();
-        let service_external_ips_config_binding_1 = args
+        let service_external_ips_config_binding = args
             .service_external_ips_config
             .get_output(context);
-        let service_external_ips_config_binding = service_external_ips_config_binding_1
-            .get_inner();
-        let subnetwork_binding_1 = args.subnetwork.get_output(context);
-        let subnetwork_binding = subnetwork_binding_1.get_inner();
-        let tpu_config_binding_1 = args.tpu_config.get_output(context);
-        let tpu_config_binding = tpu_config_binding_1.get_inner();
-        let user_managed_keys_config_binding_1 = args
+        let subnetwork_binding = args.subnetwork.get_output(context);
+        let tpu_config_binding = args.tpu_config.get_output(context);
+        let user_managed_keys_config_binding = args
             .user_managed_keys_config
             .get_output(context);
-        let user_managed_keys_config_binding = user_managed_keys_config_binding_1
-            .get_inner();
-        let vertical_pod_autoscaling_binding_1 = args
+        let vertical_pod_autoscaling_binding = args
             .vertical_pod_autoscaling
             .get_output(context);
-        let vertical_pod_autoscaling_binding = vertical_pod_autoscaling_binding_1
-            .get_inner();
-        let workload_alts_config_binding_1 = args
-            .workload_alts_config
-            .get_output(context);
-        let workload_alts_config_binding = workload_alts_config_binding_1.get_inner();
-        let workload_identity_config_binding_1 = args
+        let workload_alts_config_binding = args.workload_alts_config.get_output(context);
+        let workload_identity_config_binding = args
             .workload_identity_config
             .get_output(context);
-        let workload_identity_config_binding = workload_identity_config_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:container/cluster:Cluster".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addonsConfig".into(),
-                    value: &addons_config_binding,
+                    value: addons_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowNetAdmin".into(),
-                    value: &allow_net_admin_binding,
+                    value: allow_net_admin_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticatorGroupsConfig".into(),
-                    value: &authenticator_groups_config_binding,
+                    value: authenticator_groups_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "binaryAuthorization".into(),
-                    value: &binary_authorization_binding,
+                    value: binary_authorization_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterAutoscaling".into(),
-                    value: &cluster_autoscaling_binding,
+                    value: cluster_autoscaling_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIpv4Cidr".into(),
-                    value: &cluster_ipv4_cidr_binding,
+                    value: cluster_ipv4_cidr_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterTelemetry".into(),
-                    value: &cluster_telemetry_binding,
+                    value: cluster_telemetry_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confidentialNodes".into(),
-                    value: &confidential_nodes_binding,
+                    value: confidential_nodes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlaneEndpointsConfig".into(),
-                    value: &control_plane_endpoints_config_binding,
+                    value: control_plane_endpoints_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "costManagementConfig".into(),
-                    value: &cost_management_config_binding,
+                    value: cost_management_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseEncryption".into(),
-                    value: &database_encryption_binding,
+                    value: database_encryption_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datapathProvider".into(),
-                    value: &datapath_provider_binding,
+                    value: datapath_provider_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultMaxPodsPerNode".into(),
-                    value: &default_max_pods_per_node_binding,
+                    value: default_max_pods_per_node_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultSnatStatus".into(),
-                    value: &default_snat_status_binding,
+                    value: default_snat_status_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: &deletion_protection_binding,
+                    value: deletion_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsConfig".into(),
-                    value: &dns_config_binding,
+                    value: dns_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableAutopilot".into(),
-                    value: &enable_autopilot_binding,
+                    value: enable_autopilot_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableCiliumClusterwideNetworkPolicy".into(),
-                    value: &enable_cilium_clusterwide_network_policy_binding,
+                    value: enable_cilium_clusterwide_network_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableFqdnNetworkPolicy".into(),
-                    value: &enable_fqdn_network_policy_binding,
+                    value: enable_fqdn_network_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableIntranodeVisibility".into(),
-                    value: &enable_intranode_visibility_binding,
+                    value: enable_intranode_visibility_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableK8sBetaApis".into(),
-                    value: &enable_k8s_beta_apis_binding,
+                    value: enable_k8s_beta_apis_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableKubernetesAlpha".into(),
-                    value: &enable_kubernetes_alpha_binding,
+                    value: enable_kubernetes_alpha_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableL4IlbSubsetting".into(),
-                    value: &enable_l4_ilb_subsetting_binding,
+                    value: enable_l4_ilb_subsetting_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableLegacyAbac".into(),
-                    value: &enable_legacy_abac_binding,
+                    value: enable_legacy_abac_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableMultiNetworking".into(),
-                    value: &enable_multi_networking_binding,
+                    value: enable_multi_networking_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableShieldedNodes".into(),
-                    value: &enable_shielded_nodes_binding,
+                    value: enable_shielded_nodes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableTpu".into(),
-                    value: &enable_tpu_binding,
+                    value: enable_tpu_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enterpriseConfig".into(),
-                    value: &enterprise_config_binding,
+                    value: enterprise_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleet".into(),
-                    value: &fleet_binding,
+                    value: fleet_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayApiConfig".into(),
-                    value: &gateway_api_config_binding,
+                    value: gateway_api_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityServiceConfig".into(),
-                    value: &identity_service_config_binding,
+                    value: identity_service_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialNodeCount".into(),
-                    value: &initial_node_count_binding,
+                    value: initial_node_count_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAllocationPolicy".into(),
-                    value: &ip_allocation_policy_binding,
+                    value: ip_allocation_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingConfig".into(),
-                    value: &logging_config_binding,
+                    value: logging_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingService".into(),
-                    value: &logging_service_binding,
+                    value: logging_service_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenancePolicy".into(),
-                    value: &maintenance_policy_binding,
+                    value: maintenance_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterAuth".into(),
-                    value: &master_auth_binding,
+                    value: master_auth_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterAuthorizedNetworksConfig".into(),
-                    value: &master_authorized_networks_config_binding,
+                    value: master_authorized_networks_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "meshCertificates".into(),
-                    value: &mesh_certificates_binding,
+                    value: mesh_certificates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minMasterVersion".into(),
-                    value: &min_master_version_binding,
+                    value: min_master_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitoringConfig".into(),
-                    value: &monitoring_config_binding,
+                    value: monitoring_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitoringService".into(),
-                    value: &monitoring_service_binding,
+                    value: monitoring_service_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: &network_binding,
+                    value: network_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkPolicy".into(),
-                    value: &network_policy_binding,
+                    value: network_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkingMode".into(),
-                    value: &networking_mode_binding,
+                    value: networking_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeConfig".into(),
-                    value: &node_config_binding,
+                    value: node_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeLocations".into(),
-                    value: &node_locations_binding,
+                    value: node_locations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodePoolAutoConfig".into(),
-                    value: &node_pool_auto_config_binding,
+                    value: node_pool_auto_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodePoolDefaults".into(),
-                    value: &node_pool_defaults_binding,
+                    value: node_pool_defaults_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodePools".into(),
-                    value: &node_pools_binding,
+                    value: node_pools_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeVersion".into(),
-                    value: &node_version_binding,
+                    value: node_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationConfig".into(),
-                    value: &notification_config_binding,
+                    value: notification_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "podSecurityPolicyConfig".into(),
-                    value: &pod_security_policy_config_binding,
+                    value: pod_security_policy_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateClusterConfig".into(),
-                    value: &private_cluster_config_binding,
+                    value: private_cluster_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpv6GoogleAccess".into(),
-                    value: &private_ipv6_google_access_binding,
+                    value: private_ipv6_google_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectConfig".into(),
-                    value: &protect_config_binding,
+                    value: protect_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseChannel".into(),
-                    value: &release_channel_binding,
+                    value: release_channel_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "removeDefaultNodePool".into(),
-                    value: &remove_default_node_pool_binding,
+                    value: remove_default_node_pool_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceLabels".into(),
-                    value: &resource_labels_binding,
+                    value: resource_labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceUsageExportConfig".into(),
-                    value: &resource_usage_export_config_binding,
+                    value: resource_usage_export_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretManagerConfig".into(),
-                    value: &secret_manager_config_binding,
+                    value: secret_manager_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityPostureConfig".into(),
-                    value: &security_posture_config_binding,
+                    value: security_posture_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceExternalIpsConfig".into(),
-                    value: &service_external_ips_config_binding,
+                    value: service_external_ips_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetwork".into(),
-                    value: &subnetwork_binding,
+                    value: subnetwork_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tpuConfig".into(),
-                    value: &tpu_config_binding,
+                    value: tpu_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userManagedKeysConfig".into(),
-                    value: &user_managed_keys_config_binding,
+                    value: user_managed_keys_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verticalPodAutoscaling".into(),
-                    value: &vertical_pod_autoscaling_binding,
+                    value: vertical_pod_autoscaling_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadAltsConfig".into(),
-                    value: &workload_alts_config_binding,
+                    value: workload_alts_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadIdentityConfig".into(),
-                    value: &workload_identity_config_binding,
+                    value: workload_identity_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ClusterResult {
-            addons_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("addonsConfig"),
-            ),
-            allow_net_admin: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowNetAdmin"),
-            ),
-            authenticator_groups_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("authenticatorGroupsConfig"),
-            ),
-            binary_authorization: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("binaryAuthorization"),
-            ),
-            cluster_autoscaling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterAutoscaling"),
-            ),
-            cluster_ipv4_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterIpv4Cidr"),
-            ),
-            cluster_telemetry: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterTelemetry"),
-            ),
-            confidential_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("confidentialNodes"),
-            ),
-            control_plane_endpoints_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("controlPlaneEndpointsConfig"),
-            ),
-            cost_management_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("costManagementConfig"),
-            ),
-            database_encryption: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("databaseEncryption"),
-            ),
-            datapath_provider: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("datapathProvider"),
-            ),
-            default_max_pods_per_node: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultMaxPodsPerNode"),
-            ),
-            default_snat_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("defaultSnatStatus"),
-            ),
-            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deletionProtection"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            dns_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dnsConfig"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            enable_autopilot: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableAutopilot"),
-            ),
-            enable_cilium_clusterwide_network_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableCiliumClusterwideNetworkPolicy"),
-            ),
-            enable_fqdn_network_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableFqdnNetworkPolicy"),
-            ),
-            enable_intranode_visibility: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableIntranodeVisibility"),
-            ),
-            enable_k8s_beta_apis: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableK8sBetaApis"),
-            ),
-            enable_kubernetes_alpha: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableKubernetesAlpha"),
-            ),
-            enable_l4_ilb_subsetting: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableL4IlbSubsetting"),
-            ),
-            enable_legacy_abac: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableLegacyAbac"),
-            ),
-            enable_multi_networking: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableMultiNetworking"),
-            ),
-            enable_shielded_nodes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableShieldedNodes"),
-            ),
-            enable_tpu: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableTpu"),
-            ),
-            endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpoint"),
-            ),
-            enterprise_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enterpriseConfig"),
-            ),
-            fleet: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fleet")),
-            gateway_api_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayApiConfig"),
-            ),
-            identity_service_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identityServiceConfig"),
-            ),
-            initial_node_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("initialNodeCount"),
-            ),
-            ip_allocation_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ipAllocationPolicy"),
-            ),
-            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labelFingerprint"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            logging_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingConfig"),
-            ),
-            logging_service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("loggingService"),
-            ),
-            maintenance_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maintenancePolicy"),
-            ),
-            master_auth: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterAuth"),
-            ),
-            master_authorized_networks_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterAuthorizedNetworksConfig"),
-            ),
-            master_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("masterVersion"),
-            ),
-            mesh_certificates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("meshCertificates"),
-            ),
-            min_master_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("minMasterVersion"),
-            ),
-            monitoring_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoringConfig"),
-            ),
-            monitoring_service: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("monitoringService"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("network"),
-            ),
-            network_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkPolicy"),
-            ),
-            networking_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("networkingMode"),
-            ),
-            node_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeConfig"),
-            ),
-            node_locations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeLocations"),
-            ),
-            node_pool_auto_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodePoolAutoConfig"),
-            ),
-            node_pool_defaults: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodePoolDefaults"),
-            ),
-            node_pools: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodePools"),
-            ),
-            node_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeVersion"),
-            ),
-            notification_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationConfig"),
-            ),
-            operation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("operation"),
-            ),
-            pod_security_policy_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("podSecurityPolicyConfig"),
-            ),
-            private_cluster_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateClusterConfig"),
-            ),
-            private_ipv6_google_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateIpv6GoogleAccess"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            protect_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("protectConfig"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            release_channel: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseChannel"),
-            ),
-            remove_default_node_pool: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("removeDefaultNodePool"),
-            ),
-            resource_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceLabels"),
-            ),
-            resource_usage_export_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceUsageExportConfig"),
-            ),
-            secret_manager_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secretManagerConfig"),
-            ),
-            security_posture_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("securityPostureConfig"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            service_external_ips_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceExternalIpsConfig"),
-            ),
-            services_ipv4_cidr: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("servicesIpv4Cidr"),
-            ),
-            subnetwork: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetwork"),
-            ),
-            tpu_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tpuConfig"),
-            ),
-            tpu_ipv4_cidr_block: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tpuIpv4CidrBlock"),
-            ),
-            user_managed_keys_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userManagedKeysConfig"),
-            ),
-            vertical_pod_autoscaling: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("verticalPodAutoscaling"),
-            ),
-            workload_alts_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadAltsConfig"),
-            ),
-            workload_identity_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadIdentityConfig"),
-            ),
+            addons_config: o.get_field("addonsConfig"),
+            allow_net_admin: o.get_field("allowNetAdmin"),
+            authenticator_groups_config: o.get_field("authenticatorGroupsConfig"),
+            binary_authorization: o.get_field("binaryAuthorization"),
+            cluster_autoscaling: o.get_field("clusterAutoscaling"),
+            cluster_ipv4_cidr: o.get_field("clusterIpv4Cidr"),
+            cluster_telemetry: o.get_field("clusterTelemetry"),
+            confidential_nodes: o.get_field("confidentialNodes"),
+            control_plane_endpoints_config: o.get_field("controlPlaneEndpointsConfig"),
+            cost_management_config: o.get_field("costManagementConfig"),
+            database_encryption: o.get_field("databaseEncryption"),
+            datapath_provider: o.get_field("datapathProvider"),
+            default_max_pods_per_node: o.get_field("defaultMaxPodsPerNode"),
+            default_snat_status: o.get_field("defaultSnatStatus"),
+            deletion_protection: o.get_field("deletionProtection"),
+            description: o.get_field("description"),
+            dns_config: o.get_field("dnsConfig"),
+            effective_labels: o.get_field("effectiveLabels"),
+            enable_autopilot: o.get_field("enableAutopilot"),
+            enable_cilium_clusterwide_network_policy: o
+                .get_field("enableCiliumClusterwideNetworkPolicy"),
+            enable_fqdn_network_policy: o.get_field("enableFqdnNetworkPolicy"),
+            enable_intranode_visibility: o.get_field("enableIntranodeVisibility"),
+            enable_k8s_beta_apis: o.get_field("enableK8sBetaApis"),
+            enable_kubernetes_alpha: o.get_field("enableKubernetesAlpha"),
+            enable_l4_ilb_subsetting: o.get_field("enableL4IlbSubsetting"),
+            enable_legacy_abac: o.get_field("enableLegacyAbac"),
+            enable_multi_networking: o.get_field("enableMultiNetworking"),
+            enable_shielded_nodes: o.get_field("enableShieldedNodes"),
+            enable_tpu: o.get_field("enableTpu"),
+            endpoint: o.get_field("endpoint"),
+            enterprise_config: o.get_field("enterpriseConfig"),
+            fleet: o.get_field("fleet"),
+            gateway_api_config: o.get_field("gatewayApiConfig"),
+            identity_service_config: o.get_field("identityServiceConfig"),
+            initial_node_count: o.get_field("initialNodeCount"),
+            ip_allocation_policy: o.get_field("ipAllocationPolicy"),
+            label_fingerprint: o.get_field("labelFingerprint"),
+            location: o.get_field("location"),
+            logging_config: o.get_field("loggingConfig"),
+            logging_service: o.get_field("loggingService"),
+            maintenance_policy: o.get_field("maintenancePolicy"),
+            master_auth: o.get_field("masterAuth"),
+            master_authorized_networks_config: o
+                .get_field("masterAuthorizedNetworksConfig"),
+            master_version: o.get_field("masterVersion"),
+            mesh_certificates: o.get_field("meshCertificates"),
+            min_master_version: o.get_field("minMasterVersion"),
+            monitoring_config: o.get_field("monitoringConfig"),
+            monitoring_service: o.get_field("monitoringService"),
+            name: o.get_field("name"),
+            network: o.get_field("network"),
+            network_policy: o.get_field("networkPolicy"),
+            networking_mode: o.get_field("networkingMode"),
+            node_config: o.get_field("nodeConfig"),
+            node_locations: o.get_field("nodeLocations"),
+            node_pool_auto_config: o.get_field("nodePoolAutoConfig"),
+            node_pool_defaults: o.get_field("nodePoolDefaults"),
+            node_pools: o.get_field("nodePools"),
+            node_version: o.get_field("nodeVersion"),
+            notification_config: o.get_field("notificationConfig"),
+            operation: o.get_field("operation"),
+            pod_security_policy_config: o.get_field("podSecurityPolicyConfig"),
+            private_cluster_config: o.get_field("privateClusterConfig"),
+            private_ipv6_google_access: o.get_field("privateIpv6GoogleAccess"),
+            project: o.get_field("project"),
+            protect_config: o.get_field("protectConfig"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            release_channel: o.get_field("releaseChannel"),
+            remove_default_node_pool: o.get_field("removeDefaultNodePool"),
+            resource_labels: o.get_field("resourceLabels"),
+            resource_usage_export_config: o.get_field("resourceUsageExportConfig"),
+            secret_manager_config: o.get_field("secretManagerConfig"),
+            security_posture_config: o.get_field("securityPostureConfig"),
+            self_link: o.get_field("selfLink"),
+            service_external_ips_config: o.get_field("serviceExternalIpsConfig"),
+            services_ipv4_cidr: o.get_field("servicesIpv4Cidr"),
+            subnetwork: o.get_field("subnetwork"),
+            tpu_config: o.get_field("tpuConfig"),
+            tpu_ipv4_cidr_block: o.get_field("tpuIpv4CidrBlock"),
+            user_managed_keys_config: o.get_field("userManagedKeysConfig"),
+            vertical_pod_autoscaling: o.get_field("verticalPodAutoscaling"),
+            workload_alts_config: o.get_field("workloadAltsConfig"),
+            workload_identity_config: o.get_field("workloadIdentityConfig"),
         }
     }
 }

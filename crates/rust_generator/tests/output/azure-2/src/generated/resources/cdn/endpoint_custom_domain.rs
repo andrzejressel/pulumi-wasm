@@ -123,64 +123,52 @@ pub mod endpoint_custom_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointCustomDomainArgs,
     ) -> EndpointCustomDomainResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let cdn_endpoint_id_binding_1 = args.cdn_endpoint_id.get_output(context);
-        let cdn_endpoint_id_binding = cdn_endpoint_id_binding_1.get_inner();
-        let cdn_managed_https_binding_1 = args.cdn_managed_https.get_output(context);
-        let cdn_managed_https_binding = cdn_managed_https_binding_1.get_inner();
-        let host_name_binding_1 = args.host_name.get_output(context);
-        let host_name_binding = host_name_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let user_managed_https_binding_1 = args.user_managed_https.get_output(context);
-        let user_managed_https_binding = user_managed_https_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let cdn_endpoint_id_binding = args.cdn_endpoint_id.get_output(context);
+        let cdn_managed_https_binding = args.cdn_managed_https.get_output(context);
+        let host_name_binding = args.host_name.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let user_managed_https_binding = args.user_managed_https.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:cdn/endpointCustomDomain:EndpointCustomDomain".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnEndpointId".into(),
-                    value: &cdn_endpoint_id_binding,
+                    value: cdn_endpoint_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnManagedHttps".into(),
-                    value: &cdn_managed_https_binding,
+                    value: cdn_managed_https_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostName".into(),
-                    value: &host_name_binding,
+                    value: host_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userManagedHttps".into(),
-                    value: &user_managed_https_binding,
+                    value: user_managed_https_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointCustomDomainResult {
-            cdn_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnEndpointId"),
-            ),
-            cdn_managed_https: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("cdnManagedHttps"),
-            ),
-            host_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hostName"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            user_managed_https: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("userManagedHttps"),
-            ),
+            cdn_endpoint_id: o.get_field("cdnEndpointId"),
+            cdn_managed_https: o.get_field("cdnManagedHttps"),
+            host_name: o.get_field("hostName"),
+            name: o.get_field("name"),
+            user_managed_https: o.get_field("userManagedHttps"),
         }
     }
 }

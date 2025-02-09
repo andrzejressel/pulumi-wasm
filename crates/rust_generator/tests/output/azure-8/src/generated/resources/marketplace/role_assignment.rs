@@ -47,111 +47,82 @@ pub mod role_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RoleAssignmentArgs,
     ) -> RoleAssignmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let condition_binding_1 = args.condition.get_output(context);
-        let condition_binding = condition_binding_1.get_inner();
-        let condition_version_binding_1 = args.condition_version.get_output(context);
-        let condition_version_binding = condition_version_binding_1.get_inner();
-        let delegated_managed_identity_resource_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let condition_binding = args.condition.get_output(context);
+        let condition_version_binding = args.condition_version.get_output(context);
+        let delegated_managed_identity_resource_id_binding = args
             .delegated_managed_identity_resource_id
             .get_output(context);
-        let delegated_managed_identity_resource_id_binding = delegated_managed_identity_resource_id_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let principal_id_binding_1 = args.principal_id.get_output(context);
-        let principal_id_binding = principal_id_binding_1.get_inner();
-        let role_definition_id_binding_1 = args.role_definition_id.get_output(context);
-        let role_definition_id_binding = role_definition_id_binding_1.get_inner();
-        let role_definition_name_binding_1 = args
-            .role_definition_name
-            .get_output(context);
-        let role_definition_name_binding = role_definition_name_binding_1.get_inner();
-        let skip_service_principal_aad_check_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let principal_id_binding = args.principal_id.get_output(context);
+        let role_definition_id_binding = args.role_definition_id.get_output(context);
+        let role_definition_name_binding = args.role_definition_name.get_output(context);
+        let skip_service_principal_aad_check_binding = args
             .skip_service_principal_aad_check
             .get_output(context);
-        let skip_service_principal_aad_check_binding = skip_service_principal_aad_check_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:marketplace/roleAssignment:RoleAssignment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: &condition_binding,
+                    value: condition_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conditionVersion".into(),
-                    value: &condition_version_binding,
+                    value: condition_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegatedManagedIdentityResourceId".into(),
-                    value: &delegated_managed_identity_resource_id_binding,
+                    value: delegated_managed_identity_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalId".into(),
-                    value: &principal_id_binding,
+                    value: principal_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleDefinitionId".into(),
-                    value: &role_definition_id_binding,
+                    value: role_definition_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleDefinitionName".into(),
-                    value: &role_definition_name_binding,
+                    value: role_definition_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipServicePrincipalAadCheck".into(),
-                    value: &skip_service_principal_aad_check_binding,
+                    value: skip_service_principal_aad_check_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RoleAssignmentResult {
-            condition: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("condition"),
-            ),
-            condition_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("conditionVersion"),
-            ),
-            delegated_managed_identity_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delegatedManagedIdentityResourceId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            principal_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalId"),
-            ),
-            principal_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("principalType"),
-            ),
-            role_definition_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleDefinitionId"),
-            ),
-            role_definition_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleDefinitionName"),
-            ),
-            skip_service_principal_aad_check: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("skipServicePrincipalAadCheck"),
-            ),
+            condition: o.get_field("condition"),
+            condition_version: o.get_field("conditionVersion"),
+            delegated_managed_identity_resource_id: o
+                .get_field("delegatedManagedIdentityResourceId"),
+            description: o.get_field("description"),
+            name: o.get_field("name"),
+            principal_id: o.get_field("principalId"),
+            principal_type: o.get_field("principalType"),
+            role_definition_id: o.get_field("roleDefinitionId"),
+            role_definition_name: o.get_field("roleDefinitionName"),
+            skip_service_principal_aad_check: o.get_field("skipServicePrincipalAadCheck"),
         }
     }
 }

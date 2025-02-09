@@ -35,41 +35,35 @@ pub mod get_supported_instance_types {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetSupportedInstanceTypesArgs,
     ) -> GetSupportedInstanceTypesResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let release_label_binding_1 = args.release_label.get_output(context);
-        let release_label_binding = release_label_binding_1.get_inner();
-        let supported_instance_types_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let release_label_binding = args.release_label.get_output(context);
+        let supported_instance_types_binding = args
             .supported_instance_types
             .get_output(context);
-        let supported_instance_types_binding = supported_instance_types_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseLabel".into(),
-                    value: &release_label_binding,
+                    value: release_label_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedInstanceTypes".into(),
-                    value: &supported_instance_types_binding,
+                    value: supported_instance_types_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetSupportedInstanceTypesResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            release_label: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseLabel"),
-            ),
-            supported_instance_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportedInstanceTypes"),
-            ),
+            id: o.get_field("id"),
+            release_label: o.get_field("releaseLabel"),
+            supported_instance_types: o.get_field("supportedInstanceTypes"),
         }
     }
 }

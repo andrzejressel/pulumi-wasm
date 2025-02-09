@@ -289,127 +289,92 @@ pub mod stream_processor {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: StreamProcessorArgs,
     ) -> StreamProcessorResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_sharing_preference_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_sharing_preference_binding = args
             .data_sharing_preference
             .get_output(context);
-        let data_sharing_preference_binding = data_sharing_preference_binding_1
-            .get_inner();
-        let input_binding_1 = args.input.get_output(context);
-        let input_binding = input_binding_1.get_inner();
-        let kms_key_id_binding_1 = args.kms_key_id.get_output(context);
-        let kms_key_id_binding = kms_key_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let notification_channel_binding_1 = args
-            .notification_channel
-            .get_output(context);
-        let notification_channel_binding = notification_channel_binding_1.get_inner();
-        let output_binding_1 = args.output.get_output(context);
-        let output_binding = output_binding_1.get_inner();
-        let regions_of_interests_binding_1 = args
-            .regions_of_interests
-            .get_output(context);
-        let regions_of_interests_binding = regions_of_interests_binding_1.get_inner();
-        let role_arn_binding_1 = args.role_arn.get_output(context);
-        let role_arn_binding = role_arn_binding_1.get_inner();
-        let settings_binding_1 = args.settings.get_output(context);
-        let settings_binding = settings_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let input_binding = args.input.get_output(context);
+        let kms_key_id_binding = args.kms_key_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let notification_channel_binding = args.notification_channel.get_output(context);
+        let output_binding = args.output.get_output(context);
+        let regions_of_interests_binding = args.regions_of_interests.get_output(context);
+        let role_arn_binding = args.role_arn.get_output(context);
+        let settings_binding = args.settings.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:rekognition/streamProcessor:StreamProcessor".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSharingPreference".into(),
-                    value: &data_sharing_preference_binding,
+                    value: data_sharing_preference_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "input".into(),
-                    value: &input_binding,
+                    value: input_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: &kms_key_id_binding,
+                    value: kms_key_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationChannel".into(),
-                    value: &notification_channel_binding,
+                    value: notification_channel_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "output".into(),
-                    value: &output_binding,
+                    value: output_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regionsOfInterests".into(),
-                    value: &regions_of_interests_binding,
+                    value: regions_of_interests_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: &role_arn_binding,
+                    value: role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: &settings_binding,
+                    value: settings_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         StreamProcessorResult {
-            data_sharing_preference: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSharingPreference"),
-            ),
-            input: pulumi_gestalt_rust::__private::into_domain(o.extract_field("input")),
-            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            notification_channel: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("notificationChannel"),
-            ),
-            output: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("output"),
-            ),
-            regions_of_interests: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("regionsOfInterests"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            settings: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("settings"),
-            ),
-            stream_processor_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamProcessorArn"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            data_sharing_preference: o.get_field("dataSharingPreference"),
+            input: o.get_field("input"),
+            kms_key_id: o.get_field("kmsKeyId"),
+            name: o.get_field("name"),
+            notification_channel: o.get_field("notificationChannel"),
+            output: o.get_field("output"),
+            regions_of_interests: o.get_field("regionsOfInterests"),
+            role_arn: o.get_field("roleArn"),
+            settings: o.get_field("settings"),
+            stream_processor_arn: o.get_field("streamProcessorArn"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

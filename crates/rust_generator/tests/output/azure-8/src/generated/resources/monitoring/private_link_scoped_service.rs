@@ -85,56 +85,47 @@ pub mod private_link_scoped_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PrivateLinkScopedServiceArgs,
     ) -> PrivateLinkScopedServiceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let linked_resource_id_binding_1 = args.linked_resource_id.get_output(context);
-        let linked_resource_id_binding = linked_resource_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let scope_name_binding_1 = args.scope_name.get_output(context);
-        let scope_name_binding = scope_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let linked_resource_id_binding = args.linked_resource_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let scope_name_binding = args.scope_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:monitoring/privateLinkScopedService:PrivateLinkScopedService"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedResourceId".into(),
-                    value: &linked_resource_id_binding,
+                    value: linked_resource_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopeName".into(),
-                    value: &scope_name_binding,
+                    value: scope_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PrivateLinkScopedServiceResult {
-            linked_resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("linkedResourceId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            scope_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopeName"),
-            ),
+            linked_resource_id: o.get_field("linkedResourceId"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            scope_name: o.get_field("scopeName"),
         }
     }
 }

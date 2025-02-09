@@ -79,98 +79,70 @@ pub mod get_dev_environment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetDevEnvironmentArgs,
     ) -> GetDevEnvironmentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let alias_binding_1 = args.alias.get_output(context);
-        let alias_binding = alias_binding_1.get_inner();
-        let creator_id_binding_1 = args.creator_id.get_output(context);
-        let creator_id_binding = creator_id_binding_1.get_inner();
-        let env_id_binding_1 = args.env_id.get_output(context);
-        let env_id_binding = env_id_binding_1.get_inner();
-        let project_name_binding_1 = args.project_name.get_output(context);
-        let project_name_binding = project_name_binding_1.get_inner();
-        let repositories_binding_1 = args.repositories.get_output(context);
-        let repositories_binding = repositories_binding_1.get_inner();
-        let space_name_binding_1 = args.space_name.get_output(context);
-        let space_name_binding = space_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let alias_binding = args.alias.get_output(context);
+        let creator_id_binding = args.creator_id.get_output(context);
+        let env_id_binding = args.env_id.get_output(context);
+        let project_name_binding = args.project_name.get_output(context);
+        let repositories_binding = args.repositories.get_output(context);
+        let space_name_binding = args.space_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:codecatalyst/getDevEnvironment:getDevEnvironment".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alias".into(),
-                    value: &alias_binding,
+                    value: alias_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "creatorId".into(),
-                    value: &creator_id_binding,
+                    value: creator_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "envId".into(),
-                    value: &env_id_binding,
+                    value: env_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectName".into(),
-                    value: &project_name_binding,
+                    value: project_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositories".into(),
-                    value: &repositories_binding,
+                    value: repositories_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spaceName".into(),
-                    value: &space_name_binding,
+                    value: space_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetDevEnvironmentResult {
-            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
-            creator_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creatorId"),
-            ),
-            env_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("envId"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            ides: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ides")),
-            inactivity_timeout_minutes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inactivityTimeoutMinutes"),
-            ),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            last_updated_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastUpdatedTime"),
-            ),
-            persistent_storages: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("persistentStorages"),
-            ),
-            project_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectName"),
-            ),
-            repositories: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("repositories"),
-            ),
-            space_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("spaceName"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            status_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("statusReason"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            alias: o.get_field("alias"),
+            creator_id: o.get_field("creatorId"),
+            env_id: o.get_field("envId"),
+            id: o.get_field("id"),
+            ides: o.get_field("ides"),
+            inactivity_timeout_minutes: o.get_field("inactivityTimeoutMinutes"),
+            instance_type: o.get_field("instanceType"),
+            last_updated_time: o.get_field("lastUpdatedTime"),
+            persistent_storages: o.get_field("persistentStorages"),
+            project_name: o.get_field("projectName"),
+            repositories: o.get_field("repositories"),
+            space_name: o.get_field("spaceName"),
+            status: o.get_field("status"),
+            status_reason: o.get_field("statusReason"),
+            tags: o.get_field("tags"),
         }
     }
 }

@@ -146,117 +146,87 @@ pub mod remediation_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RemediationConfigurationArgs,
     ) -> RemediationConfigurationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let automatic_binding_1 = args.automatic.get_output(context);
-        let automatic_binding = automatic_binding_1.get_inner();
-        let config_rule_name_binding_1 = args.config_rule_name.get_output(context);
-        let config_rule_name_binding = config_rule_name_binding_1.get_inner();
-        let execution_controls_binding_1 = args.execution_controls.get_output(context);
-        let execution_controls_binding = execution_controls_binding_1.get_inner();
-        let maximum_automatic_attempts_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let automatic_binding = args.automatic.get_output(context);
+        let config_rule_name_binding = args.config_rule_name.get_output(context);
+        let execution_controls_binding = args.execution_controls.get_output(context);
+        let maximum_automatic_attempts_binding = args
             .maximum_automatic_attempts
             .get_output(context);
-        let maximum_automatic_attempts_binding = maximum_automatic_attempts_binding_1
-            .get_inner();
-        let parameters_binding_1 = args.parameters.get_output(context);
-        let parameters_binding = parameters_binding_1.get_inner();
-        let resource_type_binding_1 = args.resource_type.get_output(context);
-        let resource_type_binding = resource_type_binding_1.get_inner();
-        let retry_attempt_seconds_binding_1 = args
+        let parameters_binding = args.parameters.get_output(context);
+        let resource_type_binding = args.resource_type.get_output(context);
+        let retry_attempt_seconds_binding = args
             .retry_attempt_seconds
             .get_output(context);
-        let retry_attempt_seconds_binding = retry_attempt_seconds_binding_1.get_inner();
-        let target_id_binding_1 = args.target_id.get_output(context);
-        let target_id_binding = target_id_binding_1.get_inner();
-        let target_type_binding_1 = args.target_type.get_output(context);
-        let target_type_binding = target_type_binding_1.get_inner();
-        let target_version_binding_1 = args.target_version.get_output(context);
-        let target_version_binding = target_version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let target_id_binding = args.target_id.get_output(context);
+        let target_type_binding = args.target_type.get_output(context);
+        let target_version_binding = args.target_version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cfg/remediationConfiguration:RemediationConfiguration".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automatic".into(),
-                    value: &automatic_binding,
+                    value: automatic_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configRuleName".into(),
-                    value: &config_rule_name_binding,
+                    value: config_rule_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionControls".into(),
-                    value: &execution_controls_binding,
+                    value: execution_controls_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumAutomaticAttempts".into(),
-                    value: &maximum_automatic_attempts_binding,
+                    value: maximum_automatic_attempts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: &parameters_binding,
+                    value: parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceType".into(),
-                    value: &resource_type_binding,
+                    value: resource_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retryAttemptSeconds".into(),
-                    value: &retry_attempt_seconds_binding,
+                    value: retry_attempt_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetId".into(),
-                    value: &target_id_binding,
+                    value: target_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetType".into(),
-                    value: &target_type_binding,
+                    value: target_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetVersion".into(),
-                    value: &target_version_binding,
+                    value: target_version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RemediationConfigurationResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            automatic: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automatic"),
-            ),
-            config_rule_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("configRuleName"),
-            ),
-            execution_controls: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionControls"),
-            ),
-            maximum_automatic_attempts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumAutomaticAttempts"),
-            ),
-            parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parameters"),
-            ),
-            resource_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceType"),
-            ),
-            retry_attempt_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("retryAttemptSeconds"),
-            ),
-            target_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetId"),
-            ),
-            target_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetType"),
-            ),
-            target_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetVersion"),
-            ),
+            arn: o.get_field("arn"),
+            automatic: o.get_field("automatic"),
+            config_rule_name: o.get_field("configRuleName"),
+            execution_controls: o.get_field("executionControls"),
+            maximum_automatic_attempts: o.get_field("maximumAutomaticAttempts"),
+            parameters: o.get_field("parameters"),
+            resource_type: o.get_field("resourceType"),
+            retry_attempt_seconds: o.get_field("retryAttemptSeconds"),
+            target_id: o.get_field("targetId"),
+            target_type: o.get_field("targetType"),
+            target_version: o.get_field("targetVersion"),
         }
     }
 }

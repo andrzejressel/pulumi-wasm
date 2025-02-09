@@ -159,88 +159,63 @@ pub mod key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KeyArgs,
     ) -> KeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let keepers_binding_1 = args.keepers.get_output(context);
-        let keepers_binding = keepers_binding_1.get_inner();
-        let key_algorithm_binding_1 = args.key_algorithm.get_output(context);
-        let key_algorithm_binding = key_algorithm_binding_1.get_inner();
-        let private_key_type_binding_1 = args.private_key_type.get_output(context);
-        let private_key_type_binding = private_key_type_binding_1.get_inner();
-        let public_key_data_binding_1 = args.public_key_data.get_output(context);
-        let public_key_data_binding = public_key_data_binding_1.get_inner();
-        let public_key_type_binding_1 = args.public_key_type.get_output(context);
-        let public_key_type_binding = public_key_type_binding_1.get_inner();
-        let service_account_id_binding_1 = args.service_account_id.get_output(context);
-        let service_account_id_binding = service_account_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let keepers_binding = args.keepers.get_output(context);
+        let key_algorithm_binding = args.key_algorithm.get_output(context);
+        let private_key_type_binding = args.private_key_type.get_output(context);
+        let public_key_data_binding = args.public_key_data.get_output(context);
+        let public_key_type_binding = args.public_key_type.get_output(context);
+        let service_account_id_binding = args.service_account_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:serviceaccount/key:Key".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepers".into(),
-                    value: &keepers_binding,
+                    value: keepers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyAlgorithm".into(),
-                    value: &key_algorithm_binding,
+                    value: key_algorithm_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateKeyType".into(),
-                    value: &private_key_type_binding,
+                    value: private_key_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicKeyData".into(),
-                    value: &public_key_data_binding,
+                    value: public_key_data_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicKeyType".into(),
-                    value: &public_key_type_binding,
+                    value: public_key_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountId".into(),
-                    value: &service_account_id_binding,
+                    value: service_account_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KeyResult {
-            keepers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keepers"),
-            ),
-            key_algorithm: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyAlgorithm"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            private_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateKey"),
-            ),
-            private_key_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("privateKeyType"),
-            ),
-            public_key: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKey"),
-            ),
-            public_key_data: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKeyData"),
-            ),
-            public_key_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("publicKeyType"),
-            ),
-            service_account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serviceAccountId"),
-            ),
-            valid_after: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validAfter"),
-            ),
-            valid_before: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("validBefore"),
-            ),
+            keepers: o.get_field("keepers"),
+            key_algorithm: o.get_field("keyAlgorithm"),
+            name: o.get_field("name"),
+            private_key: o.get_field("privateKey"),
+            private_key_type: o.get_field("privateKeyType"),
+            public_key: o.get_field("publicKey"),
+            public_key_data: o.get_field("publicKeyData"),
+            public_key_type: o.get_field("publicKeyType"),
+            service_account_id: o.get_field("serviceAccountId"),
+            valid_after: o.get_field("validAfter"),
+            valid_before: o.get_field("validBefore"),
         }
     }
 }

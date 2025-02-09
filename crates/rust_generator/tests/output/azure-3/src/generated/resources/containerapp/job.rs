@@ -213,173 +213,124 @@ pub mod job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: JobArgs,
     ) -> JobResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let container_app_environment_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let container_app_environment_id_binding = args
             .container_app_environment_id
             .get_output(context);
-        let container_app_environment_id_binding = container_app_environment_id_binding_1
-            .get_inner();
-        let event_trigger_config_binding_1 = args
-            .event_trigger_config
-            .get_output(context);
-        let event_trigger_config_binding = event_trigger_config_binding_1.get_inner();
-        let identity_binding_1 = args.identity.get_output(context);
-        let identity_binding = identity_binding_1.get_inner();
-        let location_binding_1 = args.location.get_output(context);
-        let location_binding = location_binding_1.get_inner();
-        let manual_trigger_config_binding_1 = args
+        let event_trigger_config_binding = args.event_trigger_config.get_output(context);
+        let identity_binding = args.identity.get_output(context);
+        let location_binding = args.location.get_output(context);
+        let manual_trigger_config_binding = args
             .manual_trigger_config
             .get_output(context);
-        let manual_trigger_config_binding = manual_trigger_config_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let registries_binding_1 = args.registries.get_output(context);
-        let registries_binding = registries_binding_1.get_inner();
-        let replica_retry_limit_binding_1 = args.replica_retry_limit.get_output(context);
-        let replica_retry_limit_binding = replica_retry_limit_binding_1.get_inner();
-        let replica_timeout_in_seconds_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let registries_binding = args.registries.get_output(context);
+        let replica_retry_limit_binding = args.replica_retry_limit.get_output(context);
+        let replica_timeout_in_seconds_binding = args
             .replica_timeout_in_seconds
             .get_output(context);
-        let replica_timeout_in_seconds_binding = replica_timeout_in_seconds_binding_1
-            .get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let schedule_trigger_config_binding_1 = args
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let schedule_trigger_config_binding = args
             .schedule_trigger_config
             .get_output(context);
-        let schedule_trigger_config_binding = schedule_trigger_config_binding_1
-            .get_inner();
-        let secrets_binding_1 = args.secrets.get_output(context);
-        let secrets_binding = secrets_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let template_binding_1 = args.template.get_output(context);
-        let template_binding = template_binding_1.get_inner();
-        let workload_profile_name_binding_1 = args
+        let secrets_binding = args.secrets.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let template_binding = args.template.get_output(context);
+        let workload_profile_name_binding = args
             .workload_profile_name
             .get_output(context);
-        let workload_profile_name_binding = workload_profile_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:containerapp/job:Job".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerAppEnvironmentId".into(),
-                    value: &container_app_environment_id_binding,
+                    value: container_app_environment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventTriggerConfig".into(),
-                    value: &event_trigger_config_binding,
+                    value: event_trigger_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: &identity_binding,
+                    value: identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: &location_binding,
+                    value: location_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manualTriggerConfig".into(),
-                    value: &manual_trigger_config_binding,
+                    value: manual_trigger_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registries".into(),
-                    value: &registries_binding,
+                    value: registries_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaRetryLimit".into(),
-                    value: &replica_retry_limit_binding,
+                    value: replica_retry_limit_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaTimeoutInSeconds".into(),
-                    value: &replica_timeout_in_seconds_binding,
+                    value: replica_timeout_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleTriggerConfig".into(),
-                    value: &schedule_trigger_config_binding,
+                    value: schedule_trigger_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secrets".into(),
-                    value: &secrets_binding,
+                    value: secrets_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "template".into(),
-                    value: &template_binding,
+                    value: template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadProfileName".into(),
-                    value: &workload_profile_name_binding,
+                    value: workload_profile_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         JobResult {
-            container_app_environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containerAppEnvironmentId"),
-            ),
-            event_stream_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventStreamEndpoint"),
-            ),
-            event_trigger_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventTriggerConfig"),
-            ),
-            identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("identity"),
-            ),
-            location: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("location"),
-            ),
-            manual_trigger_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("manualTriggerConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("outboundIpAddresses"),
-            ),
-            registries: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("registries"),
-            ),
-            replica_retry_limit: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaRetryLimit"),
-            ),
-            replica_timeout_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replicaTimeoutInSeconds"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            schedule_trigger_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduleTriggerConfig"),
-            ),
-            secrets: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("secrets"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("template"),
-            ),
-            workload_profile_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workloadProfileName"),
-            ),
+            container_app_environment_id: o.get_field("containerAppEnvironmentId"),
+            event_stream_endpoint: o.get_field("eventStreamEndpoint"),
+            event_trigger_config: o.get_field("eventTriggerConfig"),
+            identity: o.get_field("identity"),
+            location: o.get_field("location"),
+            manual_trigger_config: o.get_field("manualTriggerConfig"),
+            name: o.get_field("name"),
+            outbound_ip_addresses: o.get_field("outboundIpAddresses"),
+            registries: o.get_field("registries"),
+            replica_retry_limit: o.get_field("replicaRetryLimit"),
+            replica_timeout_in_seconds: o.get_field("replicaTimeoutInSeconds"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            schedule_trigger_config: o.get_field("scheduleTriggerConfig"),
+            secrets: o.get_field("secrets"),
+            tags: o.get_field("tags"),
+            template: o.get_field("template"),
+            workload_profile_name: o.get_field("workloadProfileName"),
         }
     }
 }

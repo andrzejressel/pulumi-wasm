@@ -374,112 +374,80 @@ pub mod patch_deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: PatchDeploymentArgs,
     ) -> PatchDeploymentResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let duration_binding_1 = args.duration.get_output(context);
-        let duration_binding = duration_binding_1.get_inner();
-        let instance_filter_binding_1 = args.instance_filter.get_output(context);
-        let instance_filter_binding = instance_filter_binding_1.get_inner();
-        let one_time_schedule_binding_1 = args.one_time_schedule.get_output(context);
-        let one_time_schedule_binding = one_time_schedule_binding_1.get_inner();
-        let patch_config_binding_1 = args.patch_config.get_output(context);
-        let patch_config_binding = patch_config_binding_1.get_inner();
-        let patch_deployment_id_binding_1 = args.patch_deployment_id.get_output(context);
-        let patch_deployment_id_binding = patch_deployment_id_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let recurring_schedule_binding_1 = args.recurring_schedule.get_output(context);
-        let recurring_schedule_binding = recurring_schedule_binding_1.get_inner();
-        let rollout_binding_1 = args.rollout.get_output(context);
-        let rollout_binding = rollout_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let duration_binding = args.duration.get_output(context);
+        let instance_filter_binding = args.instance_filter.get_output(context);
+        let one_time_schedule_binding = args.one_time_schedule.get_output(context);
+        let patch_config_binding = args.patch_config.get_output(context);
+        let patch_deployment_id_binding = args.patch_deployment_id.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let recurring_schedule_binding = args.recurring_schedule.get_output(context);
+        let rollout_binding = args.rollout.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:osconfig/patchDeployment:PatchDeployment".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "duration".into(),
-                    value: &duration_binding,
+                    value: duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceFilter".into(),
-                    value: &instance_filter_binding,
+                    value: instance_filter_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oneTimeSchedule".into(),
-                    value: &one_time_schedule_binding,
+                    value: one_time_schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "patchConfig".into(),
-                    value: &patch_config_binding,
+                    value: patch_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "patchDeploymentId".into(),
-                    value: &patch_deployment_id_binding,
+                    value: patch_deployment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recurringSchedule".into(),
-                    value: &recurring_schedule_binding,
+                    value: recurring_schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rollout".into(),
-                    value: &rollout_binding,
+                    value: rollout_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         PatchDeploymentResult {
-            create_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("duration"),
-            ),
-            instance_filter: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceFilter"),
-            ),
-            last_execute_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastExecuteTime"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            one_time_schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("oneTimeSchedule"),
-            ),
-            patch_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("patchConfig"),
-            ),
-            patch_deployment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("patchDeploymentId"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            recurring_schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recurringSchedule"),
-            ),
-            rollout: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("rollout"),
-            ),
-            update_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateTime"),
-            ),
+            create_time: o.get_field("createTime"),
+            description: o.get_field("description"),
+            duration: o.get_field("duration"),
+            instance_filter: o.get_field("instanceFilter"),
+            last_execute_time: o.get_field("lastExecuteTime"),
+            name: o.get_field("name"),
+            one_time_schedule: o.get_field("oneTimeSchedule"),
+            patch_config: o.get_field("patchConfig"),
+            patch_deployment_id: o.get_field("patchDeploymentId"),
+            project: o.get_field("project"),
+            recurring_schedule: o.get_field("recurringSchedule"),
+            rollout: o.get_field("rollout"),
+            update_time: o.get_field("updateTime"),
         }
     }
 }

@@ -137,134 +137,99 @@ pub mod reference_input_mssql {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ReferenceInputMssqlArgs,
     ) -> ReferenceInputMssqlResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let database_binding_1 = args.database.get_output(context);
-        let database_binding = database_binding_1.get_inner();
-        let delta_snapshot_query_binding_1 = args
-            .delta_snapshot_query
-            .get_output(context);
-        let delta_snapshot_query_binding = delta_snapshot_query_binding_1.get_inner();
-        let full_snapshot_query_binding_1 = args.full_snapshot_query.get_output(context);
-        let full_snapshot_query_binding = full_snapshot_query_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let password_binding_1 = args.password.get_output(context);
-        let password_binding = password_binding_1.get_inner();
-        let refresh_interval_duration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let database_binding = args.database.get_output(context);
+        let delta_snapshot_query_binding = args.delta_snapshot_query.get_output(context);
+        let full_snapshot_query_binding = args.full_snapshot_query.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let password_binding = args.password.get_output(context);
+        let refresh_interval_duration_binding = args
             .refresh_interval_duration
             .get_output(context);
-        let refresh_interval_duration_binding = refresh_interval_duration_binding_1
-            .get_inner();
-        let refresh_type_binding_1 = args.refresh_type.get_output(context);
-        let refresh_type_binding = refresh_type_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let server_binding_1 = args.server.get_output(context);
-        let server_binding = server_binding_1.get_inner();
-        let stream_analytics_job_name_binding_1 = args
+        let refresh_type_binding = args.refresh_type.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let server_binding = args.server.get_output(context);
+        let stream_analytics_job_name_binding = args
             .stream_analytics_job_name
             .get_output(context);
-        let stream_analytics_job_name_binding = stream_analytics_job_name_binding_1
-            .get_inner();
-        let table_binding_1 = args.table.get_output(context);
-        let table_binding = table_binding_1.get_inner();
-        let username_binding_1 = args.username.get_output(context);
-        let username_binding = username_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let table_binding = args.table.get_output(context);
+        let username_binding = args.username.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:streamanalytics/referenceInputMssql:ReferenceInputMssql"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "database".into(),
-                    value: &database_binding,
+                    value: database_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deltaSnapshotQuery".into(),
-                    value: &delta_snapshot_query_binding,
+                    value: delta_snapshot_query_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fullSnapshotQuery".into(),
-                    value: &full_snapshot_query_binding,
+                    value: full_snapshot_query_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: &password_binding,
+                    value: password_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "refreshIntervalDuration".into(),
-                    value: &refresh_interval_duration_binding,
+                    value: refresh_interval_duration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "refreshType".into(),
-                    value: &refresh_type_binding,
+                    value: refresh_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "server".into(),
-                    value: &server_binding,
+                    value: server_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobName".into(),
-                    value: &stream_analytics_job_name_binding,
+                    value: stream_analytics_job_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "table".into(),
-                    value: &table_binding,
+                    value: table_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: &username_binding,
+                    value: username_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ReferenceInputMssqlResult {
-            database: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("database"),
-            ),
-            delta_snapshot_query: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("deltaSnapshotQuery"),
-            ),
-            full_snapshot_query: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fullSnapshotQuery"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("password"),
-            ),
-            refresh_interval_duration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("refreshIntervalDuration"),
-            ),
-            refresh_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("refreshType"),
-            ),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            server: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("server"),
-            ),
-            stream_analytics_job_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamAnalyticsJobName"),
-            ),
-            table: pulumi_gestalt_rust::__private::into_domain(o.extract_field("table")),
-            username: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("username"),
-            ),
+            database: o.get_field("database"),
+            delta_snapshot_query: o.get_field("deltaSnapshotQuery"),
+            full_snapshot_query: o.get_field("fullSnapshotQuery"),
+            name: o.get_field("name"),
+            password: o.get_field("password"),
+            refresh_interval_duration: o.get_field("refreshIntervalDuration"),
+            refresh_type: o.get_field("refreshType"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            server: o.get_field("server"),
+            stream_analytics_job_name: o.get_field("streamAnalyticsJobName"),
+            table: o.get_field("table"),
+            username: o.get_field("username"),
         }
     }
 }

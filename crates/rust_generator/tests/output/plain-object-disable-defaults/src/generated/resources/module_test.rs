@@ -14,31 +14,30 @@ pub mod module_test {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: moduleTestArgs,
     ) {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let mod1_binding_1 = args.mod1.get_output(context);
-        let mod1_binding = mod1_binding_1.get_inner();
-        let val_binding_1 = args.val.get_output(context);
-        let val_binding = val_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let mod1_binding = args.mod1.get_output(context);
+        let val_binding = args.val.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "example:index:moduleTest".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mod1".into(),
-                    value: &mod1_binding,
+                    value: mod1_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "val".into(),
-                    value: &val_binding,
+                    value: val_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        register_interface::register(context.get_inner(), &request);
+        context.register_resource(request);
     }
 }

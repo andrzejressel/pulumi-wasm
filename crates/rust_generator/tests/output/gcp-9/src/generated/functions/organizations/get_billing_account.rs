@@ -39,58 +39,47 @@ pub mod get_billing_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBillingAccountArgs,
     ) -> GetBillingAccountResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let billing_account_binding_1 = args.billing_account.get_output(context);
-        let billing_account_binding = billing_account_binding_1.get_inner();
-        let display_name_binding_1 = args.display_name.get_output(context);
-        let display_name_binding = display_name_binding_1.get_inner();
-        let lookup_projects_binding_1 = args.lookup_projects.get_output(context);
-        let lookup_projects_binding = lookup_projects_binding_1.get_inner();
-        let open_binding_1 = args.open.get_output(context);
-        let open_binding = open_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let billing_account_binding = args.billing_account.get_output(context);
+        let display_name_binding = args.display_name.get_output(context);
+        let lookup_projects_binding = args.lookup_projects.get_output(context);
+        let open_binding = args.open.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:organizations/getBillingAccount:getBillingAccount".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAccount".into(),
-                    value: &billing_account_binding,
+                    value: billing_account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: &display_name_binding,
+                    value: display_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lookupProjects".into(),
-                    value: &lookup_projects_binding,
+                    value: lookup_projects_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "open".into(),
-                    value: &open_binding,
+                    value: open_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBillingAccountResult {
-            billing_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("billingAccount"),
-            ),
-            display_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("displayName"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            lookup_projects: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lookupProjects"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            open: pulumi_gestalt_rust::__private::into_domain(o.extract_field("open")),
-            project_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("projectIds"),
-            ),
+            billing_account: o.get_field("billingAccount"),
+            display_name: o.get_field("displayName"),
+            id: o.get_field("id"),
+            lookup_projects: o.get_field("lookupProjects"),
+            name: o.get_field("name"),
+            open: o.get_field("open"),
+            project_ids: o.get_field("projectIds"),
         }
     }
 }

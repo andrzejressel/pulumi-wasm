@@ -66,47 +66,41 @@ pub mod keyvaluestore_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KeyvaluestoreKeyArgs,
     ) -> KeyvaluestoreKeyResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let key_binding_1 = args.key.get_output(context);
-        let key_binding = key_binding_1.get_inner();
-        let key_value_store_arn_binding_1 = args.key_value_store_arn.get_output(context);
-        let key_value_store_arn_binding = key_value_store_arn_binding_1.get_inner();
-        let value_binding_1 = args.value.get_output(context);
-        let value_binding = value_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let key_binding = args.key.get_output(context);
+        let key_value_store_arn_binding = args.key_value_store_arn.get_output(context);
+        let value_binding = args.value.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: &key_binding,
+                    value: key_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyValueStoreArn".into(),
-                    value: &key_value_store_arn_binding,
+                    value: key_value_store_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "value".into(),
-                    value: &value_binding,
+                    value: value_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KeyvaluestoreKeyResult {
-            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
-            key_value_store_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("keyValueStoreArn"),
-            ),
-            total_size_in_bytes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("totalSizeInBytes"),
-            ),
-            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
+            key: o.get_field("key"),
+            key_value_store_arn: o.get_field("keyValueStoreArn"),
+            total_size_in_bytes: o.get_field("totalSizeInBytes"),
+            value: o.get_field("value"),
         }
     }
 }

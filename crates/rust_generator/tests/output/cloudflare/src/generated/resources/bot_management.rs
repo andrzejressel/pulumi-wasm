@@ -110,134 +110,97 @@ pub mod bot_management {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: BotManagementArgs,
     ) -> BotManagementResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ai_bots_protection_binding_1 = args.ai_bots_protection.get_output(context);
-        let ai_bots_protection_binding = ai_bots_protection_binding_1.get_inner();
-        let auto_update_model_binding_1 = args.auto_update_model.get_output(context);
-        let auto_update_model_binding = auto_update_model_binding_1.get_inner();
-        let enable_js_binding_1 = args.enable_js.get_output(context);
-        let enable_js_binding = enable_js_binding_1.get_inner();
-        let fight_mode_binding_1 = args.fight_mode.get_output(context);
-        let fight_mode_binding = fight_mode_binding_1.get_inner();
-        let optimize_wordpress_binding_1 = args.optimize_wordpress.get_output(context);
-        let optimize_wordpress_binding = optimize_wordpress_binding_1.get_inner();
-        let sbfm_definitely_automated_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let ai_bots_protection_binding = args.ai_bots_protection.get_output(context);
+        let auto_update_model_binding = args.auto_update_model.get_output(context);
+        let enable_js_binding = args.enable_js.get_output(context);
+        let fight_mode_binding = args.fight_mode.get_output(context);
+        let optimize_wordpress_binding = args.optimize_wordpress.get_output(context);
+        let sbfm_definitely_automated_binding = args
             .sbfm_definitely_automated
             .get_output(context);
-        let sbfm_definitely_automated_binding = sbfm_definitely_automated_binding_1
-            .get_inner();
-        let sbfm_likely_automated_binding_1 = args
+        let sbfm_likely_automated_binding = args
             .sbfm_likely_automated
             .get_output(context);
-        let sbfm_likely_automated_binding = sbfm_likely_automated_binding_1.get_inner();
-        let sbfm_static_resource_protection_binding_1 = args
+        let sbfm_static_resource_protection_binding = args
             .sbfm_static_resource_protection
             .get_output(context);
-        let sbfm_static_resource_protection_binding = sbfm_static_resource_protection_binding_1
-            .get_inner();
-        let sbfm_verified_bots_binding_1 = args.sbfm_verified_bots.get_output(context);
-        let sbfm_verified_bots_binding = sbfm_verified_bots_binding_1.get_inner();
-        let suppress_session_score_binding_1 = args
+        let sbfm_verified_bots_binding = args.sbfm_verified_bots.get_output(context);
+        let suppress_session_score_binding = args
             .suppress_session_score
             .get_output(context);
-        let suppress_session_score_binding = suppress_session_score_binding_1
-            .get_inner();
-        let zone_id_binding_1 = args.zone_id.get_output(context);
-        let zone_id_binding = zone_id_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let zone_id_binding = args.zone_id.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/botManagement:BotManagement".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aiBotsProtection".into(),
-                    value: &ai_bots_protection_binding,
+                    value: ai_bots_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoUpdateModel".into(),
-                    value: &auto_update_model_binding,
+                    value: auto_update_model_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableJs".into(),
-                    value: &enable_js_binding,
+                    value: enable_js_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fightMode".into(),
-                    value: &fight_mode_binding,
+                    value: fight_mode_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "optimizeWordpress".into(),
-                    value: &optimize_wordpress_binding,
+                    value: optimize_wordpress_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sbfmDefinitelyAutomated".into(),
-                    value: &sbfm_definitely_automated_binding,
+                    value: sbfm_definitely_automated_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sbfmLikelyAutomated".into(),
-                    value: &sbfm_likely_automated_binding,
+                    value: sbfm_likely_automated_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sbfmStaticResourceProtection".into(),
-                    value: &sbfm_static_resource_protection_binding,
+                    value: sbfm_static_resource_protection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sbfmVerifiedBots".into(),
-                    value: &sbfm_verified_bots_binding,
+                    value: sbfm_verified_bots_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suppressSessionScore".into(),
-                    value: &suppress_session_score_binding,
+                    value: suppress_session_score_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: &zone_id_binding,
+                    value: zone_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         BotManagementResult {
-            ai_bots_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("aiBotsProtection"),
-            ),
-            auto_update_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("autoUpdateModel"),
-            ),
-            enable_js: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableJs"),
-            ),
-            fight_mode: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("fightMode"),
-            ),
-            optimize_wordpress: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("optimizeWordpress"),
-            ),
-            sbfm_definitely_automated: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sbfmDefinitelyAutomated"),
-            ),
-            sbfm_likely_automated: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sbfmLikelyAutomated"),
-            ),
-            sbfm_static_resource_protection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sbfmStaticResourceProtection"),
-            ),
-            sbfm_verified_bots: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sbfmVerifiedBots"),
-            ),
-            suppress_session_score: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("suppressSessionScore"),
-            ),
-            using_latest_model: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("usingLatestModel"),
-            ),
-            zone_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("zoneId"),
-            ),
+            ai_bots_protection: o.get_field("aiBotsProtection"),
+            auto_update_model: o.get_field("autoUpdateModel"),
+            enable_js: o.get_field("enableJs"),
+            fight_mode: o.get_field("fightMode"),
+            optimize_wordpress: o.get_field("optimizeWordpress"),
+            sbfm_definitely_automated: o.get_field("sbfmDefinitelyAutomated"),
+            sbfm_likely_automated: o.get_field("sbfmLikelyAutomated"),
+            sbfm_static_resource_protection: o.get_field("sbfmStaticResourceProtection"),
+            sbfm_verified_bots: o.get_field("sbfmVerifiedBots"),
+            suppress_session_score: o.get_field("suppressSessionScore"),
+            using_latest_model: o.get_field("usingLatestModel"),
+            zone_id: o.get_field("zoneId"),
         }
     }
 }

@@ -253,122 +253,93 @@ pub mod trigger {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: TriggerArgs,
     ) -> TriggerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let actions_binding_1 = args.actions.get_output(context);
-        let actions_binding = actions_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let event_batching_conditions_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let actions_binding = args.actions.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let enabled_binding = args.enabled.get_output(context);
+        let event_batching_conditions_binding = args
             .event_batching_conditions
             .get_output(context);
-        let event_batching_conditions_binding = event_batching_conditions_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let predicate_binding_1 = args.predicate.get_output(context);
-        let predicate_binding = predicate_binding_1.get_inner();
-        let schedule_binding_1 = args.schedule.get_output(context);
-        let schedule_binding = schedule_binding_1.get_inner();
-        let start_on_creation_binding_1 = args.start_on_creation.get_output(context);
-        let start_on_creation_binding = start_on_creation_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let workflow_name_binding_1 = args.workflow_name.get_output(context);
-        let workflow_name_binding = workflow_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let predicate_binding = args.predicate.get_output(context);
+        let schedule_binding = args.schedule.get_output(context);
+        let start_on_creation_binding = args.start_on_creation.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let workflow_name_binding = args.workflow_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:glue/trigger:Trigger".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actions".into(),
-                    value: &actions_binding,
+                    value: actions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventBatchingConditions".into(),
-                    value: &event_batching_conditions_binding,
+                    value: event_batching_conditions_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "predicate".into(),
-                    value: &predicate_binding,
+                    value: predicate_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: &schedule_binding,
+                    value: schedule_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startOnCreation".into(),
-                    value: &start_on_creation_binding,
+                    value: start_on_creation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workflowName".into(),
-                    value: &workflow_name_binding,
+                    value: workflow_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         TriggerResult {
-            actions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("actions"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            event_batching_conditions: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventBatchingConditions"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            predicate: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("predicate"),
-            ),
-            schedule: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedule"),
-            ),
-            start_on_creation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startOnCreation"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
-            workflow_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("workflowName"),
-            ),
+            actions: o.get_field("actions"),
+            arn: o.get_field("arn"),
+            description: o.get_field("description"),
+            enabled: o.get_field("enabled"),
+            event_batching_conditions: o.get_field("eventBatchingConditions"),
+            name: o.get_field("name"),
+            predicate: o.get_field("predicate"),
+            schedule: o.get_field("schedule"),
+            start_on_creation: o.get_field("startOnCreation"),
+            state: o.get_field("state"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
+            workflow_name: o.get_field("workflowName"),
         }
     }
 }

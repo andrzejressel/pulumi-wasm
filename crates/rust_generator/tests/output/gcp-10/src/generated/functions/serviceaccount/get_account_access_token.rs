@@ -33,63 +33,49 @@ pub mod get_account_access_token {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetAccountAccessTokenArgs,
     ) -> GetAccountAccessTokenResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let delegates_binding_1 = args.delegates.get_output(context);
-        let delegates_binding = delegates_binding_1.get_inner();
-        let lifetime_binding_1 = args.lifetime.get_output(context);
-        let lifetime_binding = lifetime_binding_1.get_inner();
-        let scopes_binding_1 = args.scopes.get_output(context);
-        let scopes_binding = scopes_binding_1.get_inner();
-        let target_service_account_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let delegates_binding = args.delegates.get_output(context);
+        let lifetime_binding = args.lifetime.get_output(context);
+        let scopes_binding = args.scopes.get_output(context);
+        let target_service_account_binding = args
             .target_service_account
             .get_output(context);
-        let target_service_account_binding = target_service_account_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:serviceaccount/getAccountAccessToken:getAccountAccessToken"
                 .into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegates".into(),
-                    value: &delegates_binding,
+                    value: delegates_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifetime".into(),
-                    value: &lifetime_binding,
+                    value: lifetime_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopes".into(),
-                    value: &scopes_binding,
+                    value: scopes_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetServiceAccount".into(),
-                    value: &target_service_account_binding,
+                    value: target_service_account_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetAccountAccessTokenResult {
-            access_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessToken"),
-            ),
-            delegates: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("delegates"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            lifetime: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lifetime"),
-            ),
-            scopes: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scopes"),
-            ),
-            target_service_account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetServiceAccount"),
-            ),
+            access_token: o.get_field("accessToken"),
+            delegates: o.get_field("delegates"),
+            id: o.get_field("id"),
+            lifetime: o.get_field("lifetime"),
+            scopes: o.get_field("scopes"),
+            target_service_account: o.get_field("targetServiceAccount"),
         }
     }
 }

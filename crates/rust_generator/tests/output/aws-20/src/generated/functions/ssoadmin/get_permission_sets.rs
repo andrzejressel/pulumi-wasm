@@ -20,30 +20,28 @@ pub mod get_permission_sets {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetPermissionSetsArgs,
     ) -> GetPermissionSetsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let instance_arn_binding_1 = args.instance_arn.get_output(context);
-        let instance_arn_binding = instance_arn_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let instance_arn_binding = args.instance_arn.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ssoadmin/getPermissionSets:getPermissionSets".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceArn".into(),
-                    value: &instance_arn_binding,
+                    value: instance_arn_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetPermissionSetsResult {
-            arns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arns")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceArn"),
-            ),
+            arns: o.get_field("arns"),
+            id: o.get_field("id"),
+            instance_arn: o.get_field("instanceArn"),
         }
     }
 }

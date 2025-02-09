@@ -123,128 +123,96 @@ pub mod product {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ProductArgs,
     ) -> ProductResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding_1 = args.accept_language.get_output(context);
-        let accept_language_binding = accept_language_binding_1.get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let distributor_binding_1 = args.distributor.get_output(context);
-        let distributor_binding = distributor_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let owner_binding_1 = args.owner.get_output(context);
-        let owner_binding = owner_binding_1.get_inner();
-        let provisioning_artifact_parameters_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let accept_language_binding = args.accept_language.get_output(context);
+        let description_binding = args.description.get_output(context);
+        let distributor_binding = args.distributor.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let owner_binding = args.owner.get_output(context);
+        let provisioning_artifact_parameters_binding = args
             .provisioning_artifact_parameters
             .get_output(context);
-        let provisioning_artifact_parameters_binding = provisioning_artifact_parameters_binding_1
-            .get_inner();
-        let support_description_binding_1 = args.support_description.get_output(context);
-        let support_description_binding = support_description_binding_1.get_inner();
-        let support_email_binding_1 = args.support_email.get_output(context);
-        let support_email_binding = support_email_binding_1.get_inner();
-        let support_url_binding_1 = args.support_url.get_output(context);
-        let support_url_binding = support_url_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let type__binding_1 = args.type_.get_output(context);
-        let type__binding = type__binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let support_description_binding = args.support_description.get_output(context);
+        let support_email_binding = args.support_email.get_output(context);
+        let support_url_binding = args.support_url.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let type__binding = args.type_.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:servicecatalog/product:Product".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptLanguage".into(),
-                    value: &accept_language_binding,
+                    value: accept_language_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "distributor".into(),
-                    value: &distributor_binding,
+                    value: distributor_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "owner".into(),
-                    value: &owner_binding,
+                    value: owner_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisioningArtifactParameters".into(),
-                    value: &provisioning_artifact_parameters_binding,
+                    value: provisioning_artifact_parameters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportDescription".into(),
-                    value: &support_description_binding,
+                    value: support_description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportEmail".into(),
-                    value: &support_email_binding,
+                    value: support_email_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportUrl".into(),
-                    value: &support_url_binding,
+                    value: support_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: &type__binding,
+                    value: type__binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ProductResult {
-            accept_language: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("acceptLanguage"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            created_time: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("createdTime"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            distributor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("distributor"),
-            ),
-            has_default_path: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("hasDefaultPath"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
-            provisioning_artifact_parameters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisioningArtifactParameters"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            support_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportDescription"),
-            ),
-            support_email: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportEmail"),
-            ),
-            support_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("supportUrl"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            accept_language: o.get_field("acceptLanguage"),
+            arn: o.get_field("arn"),
+            created_time: o.get_field("createdTime"),
+            description: o.get_field("description"),
+            distributor: o.get_field("distributor"),
+            has_default_path: o.get_field("hasDefaultPath"),
+            name: o.get_field("name"),
+            owner: o.get_field("owner"),
+            provisioning_artifact_parameters: o
+                .get_field("provisioningArtifactParameters"),
+            status: o.get_field("status"),
+            support_description: o.get_field("supportDescription"),
+            support_email: o.get_field("supportEmail"),
+            support_url: o.get_field("supportUrl"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            type_: o.get_field("type"),
         }
     }
 }

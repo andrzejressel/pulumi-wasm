@@ -91,81 +91,64 @@ pub mod restore_testing_plan {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RestoreTestingPlanArgs,
     ) -> RestoreTestingPlanResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let recovery_point_selection_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let recovery_point_selection_binding = args
             .recovery_point_selection
             .get_output(context);
-        let recovery_point_selection_binding = recovery_point_selection_binding_1
-            .get_inner();
-        let schedule_expression_binding_1 = args.schedule_expression.get_output(context);
-        let schedule_expression_binding = schedule_expression_binding_1.get_inner();
-        let schedule_expression_timezone_binding_1 = args
+        let schedule_expression_binding = args.schedule_expression.get_output(context);
+        let schedule_expression_timezone_binding = args
             .schedule_expression_timezone
             .get_output(context);
-        let schedule_expression_timezone_binding = schedule_expression_timezone_binding_1
-            .get_inner();
-        let start_window_hours_binding_1 = args.start_window_hours.get_output(context);
-        let start_window_hours_binding = start_window_hours_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let start_window_hours_binding = args.start_window_hours.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:backup/restoreTestingPlan:RestoreTestingPlan".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryPointSelection".into(),
-                    value: &recovery_point_selection_binding,
+                    value: recovery_point_selection_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleExpression".into(),
-                    value: &schedule_expression_binding,
+                    value: schedule_expression_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleExpressionTimezone".into(),
-                    value: &schedule_expression_timezone_binding,
+                    value: schedule_expression_timezone_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startWindowHours".into(),
-                    value: &start_window_hours_binding,
+                    value: start_window_hours_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RestoreTestingPlanResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            recovery_point_selection: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("recoveryPointSelection"),
-            ),
-            schedule_expression: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduleExpression"),
-            ),
-            schedule_expression_timezone: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scheduleExpressionTimezone"),
-            ),
-            start_window_hours: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startWindowHours"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
+            arn: o.get_field("arn"),
+            name: o.get_field("name"),
+            recovery_point_selection: o.get_field("recoveryPointSelection"),
+            schedule_expression: o.get_field("scheduleExpression"),
+            schedule_expression_timezone: o.get_field("scheduleExpressionTimezone"),
+            start_window_hours: o.get_field("startWindowHours"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
         }
     }
 }

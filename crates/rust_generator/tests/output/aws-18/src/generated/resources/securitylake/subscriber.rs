@@ -124,107 +124,74 @@ pub mod subscriber {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SubscriberArgs,
     ) -> SubscriberResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let access_type_binding_1 = args.access_type.get_output(context);
-        let access_type_binding = access_type_binding_1.get_inner();
-        let source_binding_1 = args.source.get_output(context);
-        let source_binding = source_binding_1.get_inner();
-        let subscriber_description_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let access_type_binding = args.access_type.get_output(context);
+        let source_binding = args.source.get_output(context);
+        let subscriber_description_binding = args
             .subscriber_description
             .get_output(context);
-        let subscriber_description_binding = subscriber_description_binding_1
-            .get_inner();
-        let subscriber_identity_binding_1 = args.subscriber_identity.get_output(context);
-        let subscriber_identity_binding = subscriber_identity_binding_1.get_inner();
-        let subscriber_name_binding_1 = args.subscriber_name.get_output(context);
-        let subscriber_name_binding = subscriber_name_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let subscriber_identity_binding = args.subscriber_identity.get_output(context);
+        let subscriber_name_binding = args.subscriber_name.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let timeouts_binding = args.timeouts.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:securitylake/subscriber:Subscriber".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessType".into(),
-                    value: &access_type_binding,
+                    value: access_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: &source_binding,
+                    value: source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriberDescription".into(),
-                    value: &subscriber_description_binding,
+                    value: subscriber_description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriberIdentity".into(),
-                    value: &subscriber_identity_binding,
+                    value: subscriber_identity_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriberName".into(),
-                    value: &subscriber_name_binding,
+                    value: subscriber_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SubscriberResult {
-            access_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accessType"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            resource_share_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceShareArn"),
-            ),
-            resource_share_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceShareName"),
-            ),
-            role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("roleArn"),
-            ),
-            s3_bucket_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("s3BucketArn"),
-            ),
-            source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("source"),
-            ),
-            subscriber_description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriberDescription"),
-            ),
-            subscriber_endpoint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriberEndpoint"),
-            ),
-            subscriber_identity: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriberIdentity"),
-            ),
-            subscriber_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriberName"),
-            ),
-            subscriber_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subscriberStatus"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
+            access_type: o.get_field("accessType"),
+            arn: o.get_field("arn"),
+            resource_share_arn: o.get_field("resourceShareArn"),
+            resource_share_name: o.get_field("resourceShareName"),
+            role_arn: o.get_field("roleArn"),
+            s3_bucket_arn: o.get_field("s3BucketArn"),
+            source: o.get_field("source"),
+            subscriber_description: o.get_field("subscriberDescription"),
+            subscriber_endpoint: o.get_field("subscriberEndpoint"),
+            subscriber_identity: o.get_field("subscriberIdentity"),
+            subscriber_name: o.get_field("subscriberName"),
+            subscriber_status: o.get_field("subscriberStatus"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            timeouts: o.get_field("timeouts"),
         }
     }
 }

@@ -35,53 +35,42 @@ pub mod get_instance_type_offering {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetInstanceTypeOfferingArgs,
     ) -> GetInstanceTypeOfferingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let filters_binding_1 = args.filters.get_output(context);
-        let filters_binding = filters_binding_1.get_inner();
-        let location_type_binding_1 = args.location_type.get_output(context);
-        let location_type_binding = location_type_binding_1.get_inner();
-        let preferred_instance_types_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let filters_binding = args.filters.get_output(context);
+        let location_type_binding = args.location_type.get_output(context);
+        let preferred_instance_types_binding = args
             .preferred_instance_types
             .get_output(context);
-        let preferred_instance_types_binding = preferred_instance_types_binding_1
-            .get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: &filters_binding,
+                    value: filters_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationType".into(),
-                    value: &location_type_binding,
+                    value: location_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredInstanceTypes".into(),
-                    value: &preferred_instance_types_binding,
+                    value: preferred_instance_types_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetInstanceTypeOfferingResult {
-            filters: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filters"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            instance_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceType"),
-            ),
-            location_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("locationType"),
-            ),
-            preferred_instance_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("preferredInstanceTypes"),
-            ),
+            filters: o.get_field("filters"),
+            id: o.get_field("id"),
+            instance_type: o.get_field("instanceType"),
+            location_type: o.get_field("locationType"),
+            preferred_instance_types: o.get_field("preferredInstanceTypes"),
         }
     }
 }

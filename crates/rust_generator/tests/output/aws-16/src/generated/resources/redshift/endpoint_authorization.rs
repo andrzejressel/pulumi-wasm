@@ -67,69 +67,50 @@ pub mod endpoint_authorization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EndpointAuthorizationArgs,
     ) -> EndpointAuthorizationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_binding_1 = args.account.get_output(context);
-        let account_binding = account_binding_1.get_inner();
-        let cluster_identifier_binding_1 = args.cluster_identifier.get_output(context);
-        let cluster_identifier_binding = cluster_identifier_binding_1.get_inner();
-        let force_delete_binding_1 = args.force_delete.get_output(context);
-        let force_delete_binding = force_delete_binding_1.get_inner();
-        let vpc_ids_binding_1 = args.vpc_ids.get_output(context);
-        let vpc_ids_binding = vpc_ids_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_binding = args.account.get_output(context);
+        let cluster_identifier_binding = args.cluster_identifier.get_output(context);
+        let force_delete_binding = args.force_delete.get_output(context);
+        let vpc_ids_binding = args.vpc_ids.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:redshift/endpointAuthorization:EndpointAuthorization".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "account".into(),
-                    value: &account_binding,
+                    value: account_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: &cluster_identifier_binding,
+                    value: cluster_identifier_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDelete".into(),
-                    value: &force_delete_binding,
+                    value: force_delete_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcIds".into(),
-                    value: &vpc_ids_binding,
+                    value: vpc_ids_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EndpointAuthorizationResult {
-            account: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("account"),
-            ),
-            allowed_all_vpcs: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("allowedAllVpcs"),
-            ),
-            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterIdentifier"),
-            ),
-            endpoint_count: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("endpointCount"),
-            ),
-            force_delete: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceDelete"),
-            ),
-            grantee: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grantee"),
-            ),
-            grantor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("grantor"),
-            ),
-            vpc_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcIds"),
-            ),
+            account: o.get_field("account"),
+            allowed_all_vpcs: o.get_field("allowedAllVpcs"),
+            cluster_identifier: o.get_field("clusterIdentifier"),
+            endpoint_count: o.get_field("endpointCount"),
+            force_delete: o.get_field("forceDelete"),
+            grantee: o.get_field("grantee"),
+            grantor: o.get_field("grantor"),
+            vpc_ids: o.get_field("vpcIds"),
         }
     }
 }

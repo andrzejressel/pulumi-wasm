@@ -66,48 +66,40 @@ pub mod worker_cron_trigger {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: WorkerCronTriggerArgs,
     ) -> WorkerCronTriggerResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let account_id_binding_1 = args.account_id.get_output(context);
-        let account_id_binding = account_id_binding_1.get_inner();
-        let schedules_binding_1 = args.schedules.get_output(context);
-        let schedules_binding = schedules_binding_1.get_inner();
-        let script_name_binding_1 = args.script_name.get_output(context);
-        let script_name_binding = script_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let account_id_binding = args.account_id.get_output(context);
+        let schedules_binding = args.schedules.get_output(context);
+        let script_name_binding = args.script_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "cloudflare:index/workerCronTrigger:WorkerCronTrigger".into(),
             name: name.to_string(),
             version: super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: &account_id_binding,
+                    value: account_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedules".into(),
-                    value: &schedules_binding,
+                    value: schedules_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scriptName".into(),
-                    value: &script_name_binding,
+                    value: script_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         WorkerCronTriggerResult {
-            account_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("accountId"),
-            ),
-            schedules: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("schedules"),
-            ),
-            script_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scriptName"),
-            ),
+            account_id: o.get_field("accountId"),
+            schedules: o.get_field("schedules"),
+            script_name: o.get_field("scriptName"),
         }
     }
 }

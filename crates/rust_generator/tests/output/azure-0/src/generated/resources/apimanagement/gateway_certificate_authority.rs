@@ -97,58 +97,47 @@ pub mod gateway_certificate_authority {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: GatewayCertificateAuthorityArgs,
     ) -> GatewayCertificateAuthorityResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding_1 = args.api_management_id.get_output(context);
-        let api_management_id_binding = api_management_id_binding_1.get_inner();
-        let certificate_name_binding_1 = args.certificate_name.get_output(context);
-        let certificate_name_binding = certificate_name_binding_1.get_inner();
-        let gateway_name_binding_1 = args.gateway_name.get_output(context);
-        let gateway_name_binding = gateway_name_binding_1.get_inner();
-        let is_trusted_binding_1 = args.is_trusted.get_output(context);
-        let is_trusted_binding = is_trusted_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_management_id_binding = args.api_management_id.get_output(context);
+        let certificate_name_binding = args.certificate_name.get_output(context);
+        let gateway_name_binding = args.gateway_name.get_output(context);
+        let is_trusted_binding = args.is_trusted.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementId".into(),
-                    value: &api_management_id_binding,
+                    value: api_management_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateName".into(),
-                    value: &certificate_name_binding,
+                    value: certificate_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayName".into(),
-                    value: &gateway_name_binding,
+                    value: gateway_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isTrusted".into(),
-                    value: &is_trusted_binding,
+                    value: is_trusted_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         GatewayCertificateAuthorityResult {
-            api_management_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiManagementId"),
-            ),
-            certificate_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("certificateName"),
-            ),
-            gateway_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("gatewayName"),
-            ),
-            is_trusted: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("isTrusted"),
-            ),
+            api_management_id: o.get_field("apiManagementId"),
+            certificate_name: o.get_field("certificateName"),
+            gateway_name: o.get_field("gatewayName"),
+            is_trusted: o.get_field("isTrusted"),
         }
     }
 }

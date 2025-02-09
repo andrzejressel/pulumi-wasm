@@ -13,22 +13,19 @@ pub mod get_uptime_check_i_ps {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
-    ) -> GetUptimeCheckIPsResult {
+    pub fn invoke(context: &pulumi_gestalt_rust::Context) -> GetUptimeCheckIPsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:monitoring/getUptimeCheckIPs:getUptimeCheckIPs".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([]),
+            object: &[],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetUptimeCheckIPsResult {
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            uptime_check_ips: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("uptimeCheckIps"),
-            ),
+            id: o.get_field("id"),
+            uptime_check_ips: o.get_field("uptimeCheckIps"),
         }
     }
 }

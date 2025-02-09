@@ -78,75 +78,46 @@ pub mod get_action_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetActionGroupArgs,
     ) -> GetActionGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let resource_group_name_binding_1 = args.resource_group_name.get_output(context);
-        let resource_group_name_binding = resource_group_name_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let name_binding = args.name.get_output(context);
+        let resource_group_name_binding = args.resource_group_name.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "azure:monitoring/getActionGroup:getActionGroup".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: &resource_group_name_binding,
+                    value: resource_group_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetActionGroupResult {
-            arm_role_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("armRoleReceivers"),
-            ),
-            automation_runbook_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("automationRunbookReceivers"),
-            ),
-            azure_app_push_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureAppPushReceivers"),
-            ),
-            azure_function_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("azureFunctionReceivers"),
-            ),
-            email_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("emailReceivers"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            event_hub_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventHubReceivers"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            itsm_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("itsmReceivers"),
-            ),
-            logic_app_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logicAppReceivers"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceGroupName"),
-            ),
-            short_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("shortName"),
-            ),
-            sms_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("smsReceivers"),
-            ),
-            voice_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("voiceReceivers"),
-            ),
-            webhook_receivers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("webhookReceivers"),
-            ),
+            arm_role_receivers: o.get_field("armRoleReceivers"),
+            automation_runbook_receivers: o.get_field("automationRunbookReceivers"),
+            azure_app_push_receivers: o.get_field("azureAppPushReceivers"),
+            azure_function_receivers: o.get_field("azureFunctionReceivers"),
+            email_receivers: o.get_field("emailReceivers"),
+            enabled: o.get_field("enabled"),
+            event_hub_receivers: o.get_field("eventHubReceivers"),
+            id: o.get_field("id"),
+            itsm_receivers: o.get_field("itsmReceivers"),
+            logic_app_receivers: o.get_field("logicAppReceivers"),
+            name: o.get_field("name"),
+            resource_group_name: o.get_field("resourceGroupName"),
+            short_name: o.get_field("shortName"),
+            sms_receivers: o.get_field("smsReceivers"),
+            voice_receivers: o.get_field("voiceReceivers"),
+            webhook_receivers: o.get_field("webhookReceivers"),
         }
     }
 }

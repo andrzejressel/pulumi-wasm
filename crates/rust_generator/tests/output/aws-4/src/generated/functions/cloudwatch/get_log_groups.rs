@@ -23,35 +23,31 @@ pub mod get_log_groups {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetLogGroupsArgs,
     ) -> GetLogGroupsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let log_group_name_prefix_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let log_group_name_prefix_binding = args
             .log_group_name_prefix
             .get_output(context);
-        let log_group_name_prefix_binding = log_group_name_prefix_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "aws:cloudwatch/getLogGroups:getLogGroups".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logGroupNamePrefix".into(),
-                    value: &log_group_name_prefix_binding,
+                    value: log_group_name_prefix_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetLogGroupsResult {
-            arns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arns")),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            log_group_name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logGroupNamePrefix"),
-            ),
-            log_group_names: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("logGroupNames"),
-            ),
+            arns: o.get_field("arns"),
+            id: o.get_field("id"),
+            log_group_name_prefix: o.get_field("logGroupNamePrefix"),
+            log_group_names: o.get_field("logGroupNames"),
         }
     }
 }

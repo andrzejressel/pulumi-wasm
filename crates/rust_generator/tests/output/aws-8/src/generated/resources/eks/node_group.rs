@@ -221,205 +221,142 @@ pub mod node_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: NodeGroupArgs,
     ) -> NodeGroupResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let ami_type_binding_1 = args.ami_type.get_output(context);
-        let ami_type_binding = ami_type_binding_1.get_inner();
-        let capacity_type_binding_1 = args.capacity_type.get_output(context);
-        let capacity_type_binding = capacity_type_binding_1.get_inner();
-        let cluster_name_binding_1 = args.cluster_name.get_output(context);
-        let cluster_name_binding = cluster_name_binding_1.get_inner();
-        let disk_size_binding_1 = args.disk_size.get_output(context);
-        let disk_size_binding = disk_size_binding_1.get_inner();
-        let force_update_version_binding_1 = args
-            .force_update_version
-            .get_output(context);
-        let force_update_version_binding = force_update_version_binding_1.get_inner();
-        let instance_types_binding_1 = args.instance_types.get_output(context);
-        let instance_types_binding = instance_types_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let launch_template_binding_1 = args.launch_template.get_output(context);
-        let launch_template_binding = launch_template_binding_1.get_inner();
-        let node_group_name_binding_1 = args.node_group_name.get_output(context);
-        let node_group_name_binding = node_group_name_binding_1.get_inner();
-        let node_group_name_prefix_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let ami_type_binding = args.ami_type.get_output(context);
+        let capacity_type_binding = args.capacity_type.get_output(context);
+        let cluster_name_binding = args.cluster_name.get_output(context);
+        let disk_size_binding = args.disk_size.get_output(context);
+        let force_update_version_binding = args.force_update_version.get_output(context);
+        let instance_types_binding = args.instance_types.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let launch_template_binding = args.launch_template.get_output(context);
+        let node_group_name_binding = args.node_group_name.get_output(context);
+        let node_group_name_prefix_binding = args
             .node_group_name_prefix
             .get_output(context);
-        let node_group_name_prefix_binding = node_group_name_prefix_binding_1
-            .get_inner();
-        let node_role_arn_binding_1 = args.node_role_arn.get_output(context);
-        let node_role_arn_binding = node_role_arn_binding_1.get_inner();
-        let release_version_binding_1 = args.release_version.get_output(context);
-        let release_version_binding = release_version_binding_1.get_inner();
-        let remote_access_binding_1 = args.remote_access.get_output(context);
-        let remote_access_binding = remote_access_binding_1.get_inner();
-        let scaling_config_binding_1 = args.scaling_config.get_output(context);
-        let scaling_config_binding = scaling_config_binding_1.get_inner();
-        let subnet_ids_binding_1 = args.subnet_ids.get_output(context);
-        let subnet_ids_binding = subnet_ids_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let taints_binding_1 = args.taints.get_output(context);
-        let taints_binding = taints_binding_1.get_inner();
-        let update_config_binding_1 = args.update_config.get_output(context);
-        let update_config_binding = update_config_binding_1.get_inner();
-        let version_binding_1 = args.version.get_output(context);
-        let version_binding = version_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let node_role_arn_binding = args.node_role_arn.get_output(context);
+        let release_version_binding = args.release_version.get_output(context);
+        let remote_access_binding = args.remote_access.get_output(context);
+        let scaling_config_binding = args.scaling_config.get_output(context);
+        let subnet_ids_binding = args.subnet_ids.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let taints_binding = args.taints.get_output(context);
+        let update_config_binding = args.update_config.get_output(context);
+        let version_binding = args.version.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:eks/nodeGroup:NodeGroup".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amiType".into(),
-                    value: &ami_type_binding,
+                    value: ami_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityType".into(),
-                    value: &capacity_type_binding,
+                    value: capacity_type_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: &cluster_name_binding,
+                    value: cluster_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskSize".into(),
-                    value: &disk_size_binding,
+                    value: disk_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceUpdateVersion".into(),
-                    value: &force_update_version_binding,
+                    value: force_update_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceTypes".into(),
-                    value: &instance_types_binding,
+                    value: instance_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchTemplate".into(),
-                    value: &launch_template_binding,
+                    value: launch_template_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeGroupName".into(),
-                    value: &node_group_name_binding,
+                    value: node_group_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeGroupNamePrefix".into(),
-                    value: &node_group_name_prefix_binding,
+                    value: node_group_name_prefix_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeRoleArn".into(),
-                    value: &node_role_arn_binding,
+                    value: node_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseVersion".into(),
-                    value: &release_version_binding,
+                    value: release_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteAccess".into(),
-                    value: &remote_access_binding,
+                    value: remote_access_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingConfig".into(),
-                    value: &scaling_config_binding,
+                    value: scaling_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: &subnet_ids_binding,
+                    value: subnet_ids_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taints".into(),
-                    value: &taints_binding,
+                    value: taints_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "updateConfig".into(),
-                    value: &update_config_binding,
+                    value: update_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: &version_binding,
+                    value: version_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         NodeGroupResult {
-            ami_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("amiType"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            capacity_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("capacityType"),
-            ),
-            cluster_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("clusterName"),
-            ),
-            disk_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("diskSize"),
-            ),
-            force_update_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("forceUpdateVersion"),
-            ),
-            instance_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("instanceTypes"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            launch_template: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("launchTemplate"),
-            ),
-            node_group_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeGroupName"),
-            ),
-            node_group_name_prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeGroupNamePrefix"),
-            ),
-            node_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("nodeRoleArn"),
-            ),
-            release_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("releaseVersion"),
-            ),
-            remote_access: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteAccess"),
-            ),
-            resources: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resources"),
-            ),
-            scaling_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalingConfig"),
-            ),
-            status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("status"),
-            ),
-            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("subnetIds"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            taints: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("taints"),
-            ),
-            update_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("updateConfig"),
-            ),
-            version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("version"),
-            ),
+            ami_type: o.get_field("amiType"),
+            arn: o.get_field("arn"),
+            capacity_type: o.get_field("capacityType"),
+            cluster_name: o.get_field("clusterName"),
+            disk_size: o.get_field("diskSize"),
+            force_update_version: o.get_field("forceUpdateVersion"),
+            instance_types: o.get_field("instanceTypes"),
+            labels: o.get_field("labels"),
+            launch_template: o.get_field("launchTemplate"),
+            node_group_name: o.get_field("nodeGroupName"),
+            node_group_name_prefix: o.get_field("nodeGroupNamePrefix"),
+            node_role_arn: o.get_field("nodeRoleArn"),
+            release_version: o.get_field("releaseVersion"),
+            remote_access: o.get_field("remoteAccess"),
+            resources: o.get_field("resources"),
+            scaling_config: o.get_field("scalingConfig"),
+            status: o.get_field("status"),
+            subnet_ids: o.get_field("subnetIds"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            taints: o.get_field("taints"),
+            update_config: o.get_field("updateConfig"),
+            version: o.get_field("version"),
         }
     }
 }

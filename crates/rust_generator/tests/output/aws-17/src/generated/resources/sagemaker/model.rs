@@ -129,99 +129,76 @@ pub mod model {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: ModelArgs,
     ) -> ModelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let containers_binding_1 = args.containers.get_output(context);
-        let containers_binding = containers_binding_1.get_inner();
-        let enable_network_isolation_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let containers_binding = args.containers.get_output(context);
+        let enable_network_isolation_binding = args
             .enable_network_isolation
             .get_output(context);
-        let enable_network_isolation_binding = enable_network_isolation_binding_1
-            .get_inner();
-        let execution_role_arn_binding_1 = args.execution_role_arn.get_output(context);
-        let execution_role_arn_binding = execution_role_arn_binding_1.get_inner();
-        let inference_execution_config_binding_1 = args
+        let execution_role_arn_binding = args.execution_role_arn.get_output(context);
+        let inference_execution_config_binding = args
             .inference_execution_config
             .get_output(context);
-        let inference_execution_config_binding = inference_execution_config_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let primary_container_binding_1 = args.primary_container.get_output(context);
-        let primary_container_binding = primary_container_binding_1.get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let vpc_config_binding_1 = args.vpc_config.get_output(context);
-        let vpc_config_binding = vpc_config_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let name_binding = args.name.get_output(context);
+        let primary_container_binding = args.primary_container.get_output(context);
+        let tags_binding = args.tags.get_output(context);
+        let vpc_config_binding = args.vpc_config.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:sagemaker/model:Model".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containers".into(),
-                    value: &containers_binding,
+                    value: containers_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableNetworkIsolation".into(),
-                    value: &enable_network_isolation_binding,
+                    value: enable_network_isolation_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionRoleArn".into(),
-                    value: &execution_role_arn_binding,
+                    value: execution_role_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inferenceExecutionConfig".into(),
-                    value: &inference_execution_config_binding,
+                    value: inference_execution_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryContainer".into(),
-                    value: &primary_container_binding,
+                    value: primary_container_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfig".into(),
-                    value: &vpc_config_binding,
+                    value: vpc_config_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         ModelResult {
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            containers: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("containers"),
-            ),
-            enable_network_isolation: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enableNetworkIsolation"),
-            ),
-            execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("executionRoleArn"),
-            ),
-            inference_execution_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("inferenceExecutionConfig"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            primary_container: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("primaryContainer"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            vpc_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpcConfig"),
-            ),
+            arn: o.get_field("arn"),
+            containers: o.get_field("containers"),
+            enable_network_isolation: o.get_field("enableNetworkIsolation"),
+            execution_role_arn: o.get_field("executionRoleArn"),
+            inference_execution_config: o.get_field("inferenceExecutionConfig"),
+            name: o.get_field("name"),
+            primary_container: o.get_field("primaryContainer"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            vpc_config: o.get_field("vpcConfig"),
         }
     }
 }

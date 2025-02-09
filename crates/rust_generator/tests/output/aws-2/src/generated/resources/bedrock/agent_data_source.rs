@@ -107,105 +107,78 @@ pub mod agent_data_source {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: AgentDataSourceArgs,
     ) -> AgentDataSourceResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let data_deletion_policy_binding_1 = args
-            .data_deletion_policy
-            .get_output(context);
-        let data_deletion_policy_binding = data_deletion_policy_binding_1.get_inner();
-        let data_source_configuration_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let data_deletion_policy_binding = args.data_deletion_policy.get_output(context);
+        let data_source_configuration_binding = args
             .data_source_configuration
             .get_output(context);
-        let data_source_configuration_binding = data_source_configuration_binding_1
-            .get_inner();
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let knowledge_base_id_binding_1 = args.knowledge_base_id.get_output(context);
-        let knowledge_base_id_binding = knowledge_base_id_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let server_side_encryption_configuration_binding_1 = args
+        let description_binding = args.description.get_output(context);
+        let knowledge_base_id_binding = args.knowledge_base_id.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let server_side_encryption_configuration_binding = args
             .server_side_encryption_configuration
             .get_output(context);
-        let server_side_encryption_configuration_binding = server_side_encryption_configuration_binding_1
-            .get_inner();
-        let timeouts_binding_1 = args.timeouts.get_output(context);
-        let timeouts_binding = timeouts_binding_1.get_inner();
-        let vector_ingestion_configuration_binding_1 = args
+        let timeouts_binding = args.timeouts.get_output(context);
+        let vector_ingestion_configuration_binding = args
             .vector_ingestion_configuration
             .get_output(context);
-        let vector_ingestion_configuration_binding = vector_ingestion_configuration_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:bedrock/agentDataSource:AgentDataSource".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataDeletionPolicy".into(),
-                    value: &data_deletion_policy_binding,
+                    value: data_deletion_policy_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSourceConfiguration".into(),
-                    value: &data_source_configuration_binding,
+                    value: data_source_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "knowledgeBaseId".into(),
-                    value: &knowledge_base_id_binding,
+                    value: knowledge_base_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverSideEncryptionConfiguration".into(),
-                    value: &server_side_encryption_configuration_binding,
+                    value: server_side_encryption_configuration_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: &timeouts_binding,
+                    value: timeouts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vectorIngestionConfiguration".into(),
-                    value: &vector_ingestion_configuration_binding,
+                    value: vector_ingestion_configuration_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         AgentDataSourceResult {
-            data_deletion_policy: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataDeletionPolicy"),
-            ),
-            data_source_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSourceConfiguration"),
-            ),
-            data_source_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("dataSourceId"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            knowledge_base_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("knowledgeBaseId"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            server_side_encryption_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("serverSideEncryptionConfiguration"),
-            ),
-            timeouts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("timeouts"),
-            ),
-            vector_ingestion_configuration: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vectorIngestionConfiguration"),
-            ),
+            data_deletion_policy: o.get_field("dataDeletionPolicy"),
+            data_source_configuration: o.get_field("dataSourceConfiguration"),
+            data_source_id: o.get_field("dataSourceId"),
+            description: o.get_field("description"),
+            knowledge_base_id: o.get_field("knowledgeBaseId"),
+            name: o.get_field("name"),
+            server_side_encryption_configuration: o
+                .get_field("serverSideEncryptionConfiguration"),
+            timeouts: o.get_field("timeouts"),
+            vector_ingestion_configuration: o.get_field("vectorIngestionConfiguration"),
         }
     }
 }

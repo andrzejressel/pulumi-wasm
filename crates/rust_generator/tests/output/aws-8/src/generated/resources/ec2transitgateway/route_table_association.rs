@@ -64,64 +64,49 @@ pub mod route_table_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: RouteTableAssociationArgs,
     ) -> RouteTableAssociationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let replace_existing_association_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let replace_existing_association_binding = args
             .replace_existing_association
             .get_output(context);
-        let replace_existing_association_binding = replace_existing_association_binding_1
-            .get_inner();
-        let transit_gateway_attachment_id_binding_1 = args
+        let transit_gateway_attachment_id_binding = args
             .transit_gateway_attachment_id
             .get_output(context);
-        let transit_gateway_attachment_id_binding = transit_gateway_attachment_id_binding_1
-            .get_inner();
-        let transit_gateway_route_table_id_binding_1 = args
+        let transit_gateway_route_table_id_binding = args
             .transit_gateway_route_table_id
             .get_output(context);
-        let transit_gateway_route_table_id_binding = transit_gateway_route_table_id_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replaceExistingAssociation".into(),
-                    value: &replace_existing_association_binding,
+                    value: replace_existing_association_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayAttachmentId".into(),
-                    value: &transit_gateway_attachment_id_binding,
+                    value: transit_gateway_attachment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayRouteTableId".into(),
-                    value: &transit_gateway_route_table_id_binding,
+                    value: transit_gateway_route_table_id_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         RouteTableAssociationResult {
-            replace_existing_association: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("replaceExistingAssociation"),
-            ),
-            resource_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceId"),
-            ),
-            resource_type: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("resourceType"),
-            ),
-            transit_gateway_attachment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayAttachmentId"),
-            ),
-            transit_gateway_route_table_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("transitGatewayRouteTableId"),
-            ),
+            replace_existing_association: o.get_field("replaceExistingAssociation"),
+            resource_id: o.get_field("resourceId"),
+            resource_type: o.get_field("resourceType"),
+            transit_gateway_attachment_id: o.get_field("transitGatewayAttachmentId"),
+            transit_gateway_route_table_id: o.get_field("transitGatewayRouteTableId"),
         }
     }
 }

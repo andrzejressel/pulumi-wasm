@@ -73,52 +73,44 @@ pub mod kinesis_streaming_destination {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: KinesisStreamingDestinationArgs,
     ) -> KinesisStreamingDestinationResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let approximate_creation_date_time_precision_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let approximate_creation_date_time_precision_binding = args
             .approximate_creation_date_time_precision
             .get_output(context);
-        let approximate_creation_date_time_precision_binding = approximate_creation_date_time_precision_binding_1
-            .get_inner();
-        let stream_arn_binding_1 = args.stream_arn.get_output(context);
-        let stream_arn_binding = stream_arn_binding_1.get_inner();
-        let table_name_binding_1 = args.table_name.get_output(context);
-        let table_name_binding = table_name_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let stream_arn_binding = args.stream_arn.get_output(context);
+        let table_name_binding = args.table_name.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approximateCreationDateTimePrecision".into(),
-                    value: &approximate_creation_date_time_precision_binding,
+                    value: approximate_creation_date_time_precision_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamArn".into(),
-                    value: &stream_arn_binding,
+                    value: stream_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableName".into(),
-                    value: &table_name_binding,
+                    value: table_name_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         KinesisStreamingDestinationResult {
-            approximate_creation_date_time_precision: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("approximateCreationDateTimePrecision"),
-            ),
-            stream_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("streamArn"),
-            ),
-            table_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tableName"),
-            ),
+            approximate_creation_date_time_precision: o
+                .get_field("approximateCreationDateTimePrecision"),
+            stream_arn: o.get_field("streamArn"),
+            table_name: o.get_field("tableName"),
         }
     }
 }

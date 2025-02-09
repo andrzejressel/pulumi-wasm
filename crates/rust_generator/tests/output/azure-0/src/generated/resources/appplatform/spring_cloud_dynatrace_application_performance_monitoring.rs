@@ -114,104 +114,79 @@ pub mod spring_cloud_dynatrace_application_performance_monitoring {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: SpringCloudDynatraceApplicationPerformanceMonitoringArgs,
     ) -> SpringCloudDynatraceApplicationPerformanceMonitoringResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let api_token_binding_1 = args.api_token.get_output(context);
-        let api_token_binding = api_token_binding_1.get_inner();
-        let api_url_binding_1 = args.api_url.get_output(context);
-        let api_url_binding = api_url_binding_1.get_inner();
-        let connection_point_binding_1 = args.connection_point.get_output(context);
-        let connection_point_binding = connection_point_binding_1.get_inner();
-        let environment_id_binding_1 = args.environment_id.get_output(context);
-        let environment_id_binding = environment_id_binding_1.get_inner();
-        let globally_enabled_binding_1 = args.globally_enabled.get_output(context);
-        let globally_enabled_binding = globally_enabled_binding_1.get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let spring_cloud_service_id_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let api_token_binding = args.api_token.get_output(context);
+        let api_url_binding = args.api_url.get_output(context);
+        let connection_point_binding = args.connection_point.get_output(context);
+        let environment_id_binding = args.environment_id.get_output(context);
+        let globally_enabled_binding = args.globally_enabled.get_output(context);
+        let name_binding = args.name.get_output(context);
+        let spring_cloud_service_id_binding = args
             .spring_cloud_service_id
             .get_output(context);
-        let spring_cloud_service_id_binding = spring_cloud_service_id_binding_1
-            .get_inner();
-        let tenant_binding_1 = args.tenant.get_output(context);
-        let tenant_binding = tenant_binding_1.get_inner();
-        let tenant_token_binding_1 = args.tenant_token.get_output(context);
-        let tenant_token_binding = tenant_token_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let tenant_binding = args.tenant.get_output(context);
+        let tenant_token_binding = args.tenant_token.get_output(context);
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring"
                 .into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiToken".into(),
-                    value: &api_token_binding,
+                    value: api_token_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiUrl".into(),
-                    value: &api_url_binding,
+                    value: api_url_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionPoint".into(),
-                    value: &connection_point_binding,
+                    value: connection_point_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentId".into(),
-                    value: &environment_id_binding,
+                    value: environment_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globallyEnabled".into(),
-                    value: &globally_enabled_binding,
+                    value: globally_enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: &spring_cloud_service_id_binding,
+                    value: spring_cloud_service_id_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenant".into(),
-                    value: &tenant_binding,
+                    value: tenant_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantToken".into(),
-                    value: &tenant_token_binding,
+                    value: tenant_token_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         SpringCloudDynatraceApplicationPerformanceMonitoringResult {
-            api_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiToken"),
-            ),
-            api_url: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("apiUrl"),
-            ),
-            connection_point: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("connectionPoint"),
-            ),
-            environment_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("environmentId"),
-            ),
-            globally_enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("globallyEnabled"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            spring_cloud_service_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("springCloudServiceId"),
-            ),
-            tenant: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenant"),
-            ),
-            tenant_token: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tenantToken"),
-            ),
+            api_token: o.get_field("apiToken"),
+            api_url: o.get_field("apiUrl"),
+            connection_point: o.get_field("connectionPoint"),
+            environment_id: o.get_field("environmentId"),
+            globally_enabled: o.get_field("globallyEnabled"),
+            name: o.get_field("name"),
+            spring_cloud_service_id: o.get_field("springCloudServiceId"),
+            tenant: o.get_field("tenant"),
+            tenant_token: o.get_field("tenantToken"),
         }
     }
 }

@@ -300,209 +300,142 @@ pub mod vpn_tunnel {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: VPNTunnelArgs,
     ) -> VPNTunnelResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let description_binding_1 = args.description.get_output(context);
-        let description_binding = description_binding_1.get_inner();
-        let ike_version_binding_1 = args.ike_version.get_output(context);
-        let ike_version_binding = ike_version_binding_1.get_inner();
-        let labels_binding_1 = args.labels.get_output(context);
-        let labels_binding = labels_binding_1.get_inner();
-        let local_traffic_selectors_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let description_binding = args.description.get_output(context);
+        let ike_version_binding = args.ike_version.get_output(context);
+        let labels_binding = args.labels.get_output(context);
+        let local_traffic_selectors_binding = args
             .local_traffic_selectors
             .get_output(context);
-        let local_traffic_selectors_binding = local_traffic_selectors_binding_1
-            .get_inner();
-        let name_binding_1 = args.name.get_output(context);
-        let name_binding = name_binding_1.get_inner();
-        let peer_external_gateway_binding_1 = args
+        let name_binding = args.name.get_output(context);
+        let peer_external_gateway_binding = args
             .peer_external_gateway
             .get_output(context);
-        let peer_external_gateway_binding = peer_external_gateway_binding_1.get_inner();
-        let peer_external_gateway_interface_binding_1 = args
+        let peer_external_gateway_interface_binding = args
             .peer_external_gateway_interface
             .get_output(context);
-        let peer_external_gateway_interface_binding = peer_external_gateway_interface_binding_1
-            .get_inner();
-        let peer_gcp_gateway_binding_1 = args.peer_gcp_gateway.get_output(context);
-        let peer_gcp_gateway_binding = peer_gcp_gateway_binding_1.get_inner();
-        let peer_ip_binding_1 = args.peer_ip.get_output(context);
-        let peer_ip_binding = peer_ip_binding_1.get_inner();
-        let project_binding_1 = args.project.get_output(context);
-        let project_binding = project_binding_1.get_inner();
-        let region_binding_1 = args.region.get_output(context);
-        let region_binding = region_binding_1.get_inner();
-        let remote_traffic_selectors_binding_1 = args
+        let peer_gcp_gateway_binding = args.peer_gcp_gateway.get_output(context);
+        let peer_ip_binding = args.peer_ip.get_output(context);
+        let project_binding = args.project.get_output(context);
+        let region_binding = args.region.get_output(context);
+        let remote_traffic_selectors_binding = args
             .remote_traffic_selectors
             .get_output(context);
-        let remote_traffic_selectors_binding = remote_traffic_selectors_binding_1
-            .get_inner();
-        let router_binding_1 = args.router.get_output(context);
-        let router_binding = router_binding_1.get_inner();
-        let shared_secret_binding_1 = args.shared_secret.get_output(context);
-        let shared_secret_binding = shared_secret_binding_1.get_inner();
-        let target_vpn_gateway_binding_1 = args.target_vpn_gateway.get_output(context);
-        let target_vpn_gateway_binding = target_vpn_gateway_binding_1.get_inner();
-        let vpn_gateway_binding_1 = args.vpn_gateway.get_output(context);
-        let vpn_gateway_binding = vpn_gateway_binding_1.get_inner();
-        let vpn_gateway_interface_binding_1 = args
+        let router_binding = args.router.get_output(context);
+        let shared_secret_binding = args.shared_secret.get_output(context);
+        let target_vpn_gateway_binding = args.target_vpn_gateway.get_output(context);
+        let vpn_gateway_binding = args.vpn_gateway.get_output(context);
+        let vpn_gateway_interface_binding = args
             .vpn_gateway_interface
             .get_output(context);
-        let vpn_gateway_interface_binding = vpn_gateway_interface_binding_1.get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "gcp:compute/vPNTunnel:VPNTunnel".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: &description_binding,
+                    value: description_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ikeVersion".into(),
-                    value: &ike_version_binding,
+                    value: ike_version_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: &labels_binding,
+                    value: labels_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localTrafficSelectors".into(),
-                    value: &local_traffic_selectors_binding,
+                    value: local_traffic_selectors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: &name_binding,
+                    value: name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerExternalGateway".into(),
-                    value: &peer_external_gateway_binding,
+                    value: peer_external_gateway_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerExternalGatewayInterface".into(),
-                    value: &peer_external_gateway_interface_binding,
+                    value: peer_external_gateway_interface_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerGcpGateway".into(),
-                    value: &peer_gcp_gateway_binding,
+                    value: peer_gcp_gateway_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerIp".into(),
-                    value: &peer_ip_binding,
+                    value: peer_ip_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: &project_binding,
+                    value: project_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: &region_binding,
+                    value: region_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteTrafficSelectors".into(),
-                    value: &remote_traffic_selectors_binding,
+                    value: remote_traffic_selectors_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "router".into(),
-                    value: &router_binding,
+                    value: router_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedSecret".into(),
-                    value: &shared_secret_binding,
+                    value: shared_secret_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetVpnGateway".into(),
-                    value: &target_vpn_gateway_binding,
+                    value: target_vpn_gateway_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnGateway".into(),
-                    value: &vpn_gateway_binding,
+                    value: vpn_gateway_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnGatewayInterface".into(),
-                    value: &vpn_gateway_interface_binding,
+                    value: vpn_gateway_interface_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         VPNTunnelResult {
-            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("creationTimestamp"),
-            ),
-            description: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("description"),
-            ),
-            detailed_status: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("detailedStatus"),
-            ),
-            effective_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("effectiveLabels"),
-            ),
-            ike_version: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("ikeVersion"),
-            ),
-            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labelFingerprint"),
-            ),
-            labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("labels"),
-            ),
-            local_traffic_selectors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("localTrafficSelectors"),
-            ),
-            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
-            peer_external_gateway: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerExternalGateway"),
-            ),
-            peer_external_gateway_interface: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerExternalGatewayInterface"),
-            ),
-            peer_gcp_gateway: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerGcpGateway"),
-            ),
-            peer_ip: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("peerIp"),
-            ),
-            project: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("project"),
-            ),
-            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("pulumiLabels"),
-            ),
-            region: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("region"),
-            ),
-            remote_traffic_selectors: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("remoteTrafficSelectors"),
-            ),
-            router: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("router"),
-            ),
-            self_link: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfLink"),
-            ),
-            shared_secret: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharedSecret"),
-            ),
-            shared_secret_hash: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sharedSecretHash"),
-            ),
-            target_vpn_gateway: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("targetVpnGateway"),
-            ),
-            tunnel_id: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tunnelId"),
-            ),
-            vpn_gateway: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnGateway"),
-            ),
-            vpn_gateway_interface: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("vpnGatewayInterface"),
-            ),
+            creation_timestamp: o.get_field("creationTimestamp"),
+            description: o.get_field("description"),
+            detailed_status: o.get_field("detailedStatus"),
+            effective_labels: o.get_field("effectiveLabels"),
+            ike_version: o.get_field("ikeVersion"),
+            label_fingerprint: o.get_field("labelFingerprint"),
+            labels: o.get_field("labels"),
+            local_traffic_selectors: o.get_field("localTrafficSelectors"),
+            name: o.get_field("name"),
+            peer_external_gateway: o.get_field("peerExternalGateway"),
+            peer_external_gateway_interface: o.get_field("peerExternalGatewayInterface"),
+            peer_gcp_gateway: o.get_field("peerGcpGateway"),
+            peer_ip: o.get_field("peerIp"),
+            project: o.get_field("project"),
+            pulumi_labels: o.get_field("pulumiLabels"),
+            region: o.get_field("region"),
+            remote_traffic_selectors: o.get_field("remoteTrafficSelectors"),
+            router: o.get_field("router"),
+            self_link: o.get_field("selfLink"),
+            shared_secret: o.get_field("sharedSecret"),
+            shared_secret_hash: o.get_field("sharedSecretHash"),
+            target_vpn_gateway: o.get_field("targetVpnGateway"),
+            tunnel_id: o.get_field("tunnelId"),
+            vpn_gateway: o.get_field("vpnGateway"),
+            vpn_gateway_interface: o.get_field("vpnGatewayInterface"),
         }
     }
 }

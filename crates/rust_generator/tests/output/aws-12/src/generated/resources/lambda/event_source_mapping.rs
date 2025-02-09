@@ -428,322 +428,223 @@ pub mod event_source_mapping {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         name: &str,
         args: EventSourceMappingArgs,
     ) -> EventSourceMappingResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let amazon_managed_kafka_event_source_config_binding_1 = args
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let amazon_managed_kafka_event_source_config_binding = args
             .amazon_managed_kafka_event_source_config
             .get_output(context);
-        let amazon_managed_kafka_event_source_config_binding = amazon_managed_kafka_event_source_config_binding_1
-            .get_inner();
-        let batch_size_binding_1 = args.batch_size.get_output(context);
-        let batch_size_binding = batch_size_binding_1.get_inner();
-        let bisect_batch_on_function_error_binding_1 = args
+        let batch_size_binding = args.batch_size.get_output(context);
+        let bisect_batch_on_function_error_binding = args
             .bisect_batch_on_function_error
             .get_output(context);
-        let bisect_batch_on_function_error_binding = bisect_batch_on_function_error_binding_1
-            .get_inner();
-        let destination_config_binding_1 = args.destination_config.get_output(context);
-        let destination_config_binding = destination_config_binding_1.get_inner();
-        let document_db_event_source_config_binding_1 = args
+        let destination_config_binding = args.destination_config.get_output(context);
+        let document_db_event_source_config_binding = args
             .document_db_event_source_config
             .get_output(context);
-        let document_db_event_source_config_binding = document_db_event_source_config_binding_1
-            .get_inner();
-        let enabled_binding_1 = args.enabled.get_output(context);
-        let enabled_binding = enabled_binding_1.get_inner();
-        let event_source_arn_binding_1 = args.event_source_arn.get_output(context);
-        let event_source_arn_binding = event_source_arn_binding_1.get_inner();
-        let filter_criteria_binding_1 = args.filter_criteria.get_output(context);
-        let filter_criteria_binding = filter_criteria_binding_1.get_inner();
-        let function_name_binding_1 = args.function_name.get_output(context);
-        let function_name_binding = function_name_binding_1.get_inner();
-        let function_response_types_binding_1 = args
+        let enabled_binding = args.enabled.get_output(context);
+        let event_source_arn_binding = args.event_source_arn.get_output(context);
+        let filter_criteria_binding = args.filter_criteria.get_output(context);
+        let function_name_binding = args.function_name.get_output(context);
+        let function_response_types_binding = args
             .function_response_types
             .get_output(context);
-        let function_response_types_binding = function_response_types_binding_1
-            .get_inner();
-        let kms_key_arn_binding_1 = args.kms_key_arn.get_output(context);
-        let kms_key_arn_binding = kms_key_arn_binding_1.get_inner();
-        let maximum_batching_window_in_seconds_binding_1 = args
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context);
+        let maximum_batching_window_in_seconds_binding = args
             .maximum_batching_window_in_seconds
             .get_output(context);
-        let maximum_batching_window_in_seconds_binding = maximum_batching_window_in_seconds_binding_1
-            .get_inner();
-        let maximum_record_age_in_seconds_binding_1 = args
+        let maximum_record_age_in_seconds_binding = args
             .maximum_record_age_in_seconds
             .get_output(context);
-        let maximum_record_age_in_seconds_binding = maximum_record_age_in_seconds_binding_1
-            .get_inner();
-        let maximum_retry_attempts_binding_1 = args
+        let maximum_retry_attempts_binding = args
             .maximum_retry_attempts
             .get_output(context);
-        let maximum_retry_attempts_binding = maximum_retry_attempts_binding_1
-            .get_inner();
-        let metrics_config_binding_1 = args.metrics_config.get_output(context);
-        let metrics_config_binding = metrics_config_binding_1.get_inner();
-        let parallelization_factor_binding_1 = args
+        let metrics_config_binding = args.metrics_config.get_output(context);
+        let parallelization_factor_binding = args
             .parallelization_factor
             .get_output(context);
-        let parallelization_factor_binding = parallelization_factor_binding_1
-            .get_inner();
-        let provisioned_poller_config_binding_1 = args
+        let provisioned_poller_config_binding = args
             .provisioned_poller_config
             .get_output(context);
-        let provisioned_poller_config_binding = provisioned_poller_config_binding_1
-            .get_inner();
-        let queues_binding_1 = args.queues.get_output(context);
-        let queues_binding = queues_binding_1.get_inner();
-        let scaling_config_binding_1 = args.scaling_config.get_output(context);
-        let scaling_config_binding = scaling_config_binding_1.get_inner();
-        let self_managed_event_source_binding_1 = args
+        let queues_binding = args.queues.get_output(context);
+        let scaling_config_binding = args.scaling_config.get_output(context);
+        let self_managed_event_source_binding = args
             .self_managed_event_source
             .get_output(context);
-        let self_managed_event_source_binding = self_managed_event_source_binding_1
-            .get_inner();
-        let self_managed_kafka_event_source_config_binding_1 = args
+        let self_managed_kafka_event_source_config_binding = args
             .self_managed_kafka_event_source_config
             .get_output(context);
-        let self_managed_kafka_event_source_config_binding = self_managed_kafka_event_source_config_binding_1
-            .get_inner();
-        let source_access_configurations_binding_1 = args
+        let source_access_configurations_binding = args
             .source_access_configurations
             .get_output(context);
-        let source_access_configurations_binding = source_access_configurations_binding_1
-            .get_inner();
-        let starting_position_binding_1 = args.starting_position.get_output(context);
-        let starting_position_binding = starting_position_binding_1.get_inner();
-        let starting_position_timestamp_binding_1 = args
+        let starting_position_binding = args.starting_position.get_output(context);
+        let starting_position_timestamp_binding = args
             .starting_position_timestamp
             .get_output(context);
-        let starting_position_timestamp_binding = starting_position_timestamp_binding_1
-            .get_inner();
-        let tags_binding_1 = args.tags.get_output(context);
-        let tags_binding = tags_binding_1.get_inner();
-        let topics_binding_1 = args.topics.get_output(context);
-        let topics_binding = topics_binding_1.get_inner();
-        let tumbling_window_in_seconds_binding_1 = args
+        let tags_binding = args.tags.get_output(context);
+        let topics_binding = args.topics.get_output(context);
+        let tumbling_window_in_seconds_binding = args
             .tumbling_window_in_seconds
             .get_output(context);
-        let tumbling_window_in_seconds_binding = tumbling_window_in_seconds_binding_1
-            .get_inner();
-        let request = register_interface::RegisterResourceRequest {
+        let request = pulumi_gestalt_rust::RegisterResourceRequest {
             type_: "aws:lambda/eventSourceMapping:EventSourceMapping".into(),
             name: name.to_string(),
             version: super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amazonManagedKafkaEventSourceConfig".into(),
-                    value: &amazon_managed_kafka_event_source_config_binding,
+                    value: amazon_managed_kafka_event_source_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchSize".into(),
-                    value: &batch_size_binding,
+                    value: batch_size_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bisectBatchOnFunctionError".into(),
-                    value: &bisect_batch_on_function_error_binding,
+                    value: bisect_batch_on_function_error_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationConfig".into(),
-                    value: &destination_config_binding,
+                    value: destination_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentDbEventSourceConfig".into(),
-                    value: &document_db_event_source_config_binding,
+                    value: document_db_event_source_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: &enabled_binding,
+                    value: enabled_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventSourceArn".into(),
-                    value: &event_source_arn_binding,
+                    value: event_source_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterCriteria".into(),
-                    value: &filter_criteria_binding,
+                    value: filter_criteria_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: &function_name_binding,
+                    value: function_name_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionResponseTypes".into(),
-                    value: &function_response_types_binding,
+                    value: function_response_types_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: &kms_key_arn_binding,
+                    value: kms_key_arn_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumBatchingWindowInSeconds".into(),
-                    value: &maximum_batching_window_in_seconds_binding,
+                    value: maximum_batching_window_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumRecordAgeInSeconds".into(),
-                    value: &maximum_record_age_in_seconds_binding,
+                    value: maximum_record_age_in_seconds_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumRetryAttempts".into(),
-                    value: &maximum_retry_attempts_binding,
+                    value: maximum_retry_attempts_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricsConfig".into(),
-                    value: &metrics_config_binding,
+                    value: metrics_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parallelizationFactor".into(),
-                    value: &parallelization_factor_binding,
+                    value: parallelization_factor_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisionedPollerConfig".into(),
-                    value: &provisioned_poller_config_binding,
+                    value: provisioned_poller_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queues".into(),
-                    value: &queues_binding,
+                    value: queues_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingConfig".into(),
-                    value: &scaling_config_binding,
+                    value: scaling_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfManagedEventSource".into(),
-                    value: &self_managed_event_source_binding,
+                    value: self_managed_event_source_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfManagedKafkaEventSourceConfig".into(),
-                    value: &self_managed_kafka_event_source_config_binding,
+                    value: self_managed_kafka_event_source_config_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceAccessConfigurations".into(),
-                    value: &source_access_configurations_binding,
+                    value: source_access_configurations_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startingPosition".into(),
-                    value: &starting_position_binding,
+                    value: starting_position_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startingPositionTimestamp".into(),
-                    value: &starting_position_timestamp_binding,
+                    value: starting_position_timestamp_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: &tags_binding,
+                    value: tags_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topics".into(),
-                    value: &topics_binding,
+                    value: topics_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tumblingWindowInSeconds".into(),
-                    value: &tumbling_window_in_seconds_binding,
+                    value: tumbling_window_in_seconds_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::register(context.get_inner(), &request);
+        let o = context.register_resource(request);
         EventSourceMappingResult {
-            amazon_managed_kafka_event_source_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("amazonManagedKafkaEventSourceConfig"),
-            ),
-            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
-            batch_size: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("batchSize"),
-            ),
-            bisect_batch_on_function_error: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bisectBatchOnFunctionError"),
-            ),
-            destination_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("destinationConfig"),
-            ),
-            document_db_event_source_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("documentDbEventSourceConfig"),
-            ),
-            enabled: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("enabled"),
-            ),
-            event_source_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("eventSourceArn"),
-            ),
-            filter_criteria: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("filterCriteria"),
-            ),
-            function_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionArn"),
-            ),
-            function_name: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionName"),
-            ),
-            function_response_types: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("functionResponseTypes"),
-            ),
-            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("kmsKeyArn"),
-            ),
-            last_modified: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastModified"),
-            ),
-            last_processing_result: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("lastProcessingResult"),
-            ),
-            maximum_batching_window_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumBatchingWindowInSeconds"),
-            ),
-            maximum_record_age_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumRecordAgeInSeconds"),
-            ),
-            maximum_retry_attempts: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("maximumRetryAttempts"),
-            ),
-            metrics_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("metricsConfig"),
-            ),
-            parallelization_factor: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("parallelizationFactor"),
-            ),
-            provisioned_poller_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("provisionedPollerConfig"),
-            ),
-            queues: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("queues"),
-            ),
-            scaling_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("scalingConfig"),
-            ),
-            self_managed_event_source: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfManagedEventSource"),
-            ),
-            self_managed_kafka_event_source_config: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("selfManagedKafkaEventSourceConfig"),
-            ),
-            source_access_configurations: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("sourceAccessConfigurations"),
-            ),
-            starting_position: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startingPosition"),
-            ),
-            starting_position_timestamp: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("startingPositionTimestamp"),
-            ),
-            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
-            state_transition_reason: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("stateTransitionReason"),
-            ),
-            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tagsAll"),
-            ),
-            topics: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("topics"),
-            ),
-            tumbling_window_in_seconds: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("tumblingWindowInSeconds"),
-            ),
-            uuid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uuid")),
+            amazon_managed_kafka_event_source_config: o
+                .get_field("amazonManagedKafkaEventSourceConfig"),
+            arn: o.get_field("arn"),
+            batch_size: o.get_field("batchSize"),
+            bisect_batch_on_function_error: o.get_field("bisectBatchOnFunctionError"),
+            destination_config: o.get_field("destinationConfig"),
+            document_db_event_source_config: o.get_field("documentDbEventSourceConfig"),
+            enabled: o.get_field("enabled"),
+            event_source_arn: o.get_field("eventSourceArn"),
+            filter_criteria: o.get_field("filterCriteria"),
+            function_arn: o.get_field("functionArn"),
+            function_name: o.get_field("functionName"),
+            function_response_types: o.get_field("functionResponseTypes"),
+            kms_key_arn: o.get_field("kmsKeyArn"),
+            last_modified: o.get_field("lastModified"),
+            last_processing_result: o.get_field("lastProcessingResult"),
+            maximum_batching_window_in_seconds: o
+                .get_field("maximumBatchingWindowInSeconds"),
+            maximum_record_age_in_seconds: o.get_field("maximumRecordAgeInSeconds"),
+            maximum_retry_attempts: o.get_field("maximumRetryAttempts"),
+            metrics_config: o.get_field("metricsConfig"),
+            parallelization_factor: o.get_field("parallelizationFactor"),
+            provisioned_poller_config: o.get_field("provisionedPollerConfig"),
+            queues: o.get_field("queues"),
+            scaling_config: o.get_field("scalingConfig"),
+            self_managed_event_source: o.get_field("selfManagedEventSource"),
+            self_managed_kafka_event_source_config: o
+                .get_field("selfManagedKafkaEventSourceConfig"),
+            source_access_configurations: o.get_field("sourceAccessConfigurations"),
+            starting_position: o.get_field("startingPosition"),
+            starting_position_timestamp: o.get_field("startingPositionTimestamp"),
+            state: o.get_field("state"),
+            state_transition_reason: o.get_field("stateTransitionReason"),
+            tags: o.get_field("tags"),
+            tags_all: o.get_field("tagsAll"),
+            topics: o.get_field("topics"),
+            tumbling_window_in_seconds: o.get_field("tumblingWindowInSeconds"),
+            uuid: o.get_field("uuid"),
         }
     }
 }

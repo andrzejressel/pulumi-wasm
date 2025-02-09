@@ -31,50 +31,40 @@ pub mod get_bucket_objects {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_gestalt_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::Context,
         args: GetBucketObjectsArgs,
     ) -> GetBucketObjectsResult {
         use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
-        let bucket_binding_1 = args.bucket.get_output(context);
-        let bucket_binding = bucket_binding_1.get_inner();
-        let match_glob_binding_1 = args.match_glob.get_output(context);
-        let match_glob_binding = match_glob_binding_1.get_inner();
-        let prefix_binding_1 = args.prefix.get_output(context);
-        let prefix_binding = prefix_binding_1.get_inner();
-        let request = register_interface::ResourceInvokeRequest {
+        use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
+        let bucket_binding = args.bucket.get_output(context);
+        let match_glob_binding = args.match_glob.get_output(context);
+        let prefix_binding = args.prefix.get_output(context);
+        let request = pulumi_gestalt_rust::InvokeResourceRequest {
             token: "gcp:storage/getBucketObjects:getBucketObjects".into(),
             version: super::super::super::get_version(),
-            object: Vec::from([
-                register_interface::ObjectField {
+            object: &[
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: &bucket_binding,
+                    value: bucket_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "matchGlob".into(),
-                    value: &match_glob_binding,
+                    value: match_glob_binding.get_id(),
                 },
-                register_interface::ObjectField {
+                pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefix".into(),
-                    value: &prefix_binding,
+                    value: prefix_binding.get_id(),
                 },
-            ]),
+            ],
         };
-        let o = register_interface::invoke(context.get_inner(), &request);
+        let o = context.invoke_resource(request);
         GetBucketObjectsResult {
-            bucket: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucket"),
-            ),
-            bucket_objects: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("bucketObjects"),
-            ),
-            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
-            match_glob: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("matchGlob"),
-            ),
-            prefix: pulumi_gestalt_rust::__private::into_domain(
-                o.extract_field("prefix"),
-            ),
+            bucket: o.get_field("bucket"),
+            bucket_objects: o.get_field("bucketObjects"),
+            id: o.get_field("id"),
+            match_glob: o.get_field("matchGlob"),
+            prefix: o.get_field("prefix"),
         }
     }
 }
