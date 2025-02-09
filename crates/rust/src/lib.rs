@@ -62,7 +62,7 @@ macro_rules! include_provider {
 /// }
 /// ```
 #[macro_export]
-// #[cfg(target_arch = "wasm32")]
+#[cfg(target_arch = "wasm32")]
 macro_rules! pulumi_main {
     () => {
         #[export_name = "component:pulumi-gestalt-external/pulumi-main@0.0.0-STABLE-DEV#main"]
