@@ -6,15 +6,12 @@ use serde::Serialize;
 /// Format string passed as first arguments is the same as in `format!` macro.
 /// ```no_run
 /// use anyhow::Result;
-/// use pulumi_gestalt_rust::GestaltContext;
-/// use pulumi_gestalt_rust::{pulumi_format, Output, ToOutput};///
+/// use pulumi_gestalt_rust::*;
 ///
-/// use pulumi_gestalt_rust_adapter::GestaltContext;
-///
-/// fn pulumi_main(engine: &GestaltContext) -> Result<()> {
-///   let a = engine.new_output(&1);
-///   let b = engine.new_output(&"test".to_string());
-///   let formatted: Output<String> = pulumi_format!(engine, "{} {}", a, b); // "1 test"
+/// fn pulumi_main(context: &Context) -> Result<()> {
+///   let a = context.new_output(&1);
+///   let b = context.new_output(&"test".to_string());
+///   let formatted: Output<String> = pulumi_format!(context, "{} {}", a, b); // "1 test"
 ///   Ok(())
 /// }
 #[macro_export]
@@ -253,13 +250,11 @@ macro_rules! pulumi_format {
 /// Combine multiple Outputs into a single Output of [tuple] type. Supports up to 16 arguments.
 /// ```no_run
 /// use anyhow::Result;
-/// use pulumi_gestalt_rust::GestaltContext;
-/// use pulumi_gestalt_rust::{pulumi_combine, Output, ToOutput};
-/// use pulumi_gestalt_rust_adapter::GestaltContext;
+/// use pulumi_gestalt_rust::*;
 ///
-/// fn pulumi_main(engine: &GestaltContext) -> Result<()> {
-///   let a = engine.new_output(&1);
-///   let b = engine.new_output(&"test".to_string());
+/// fn pulumi_main(context: &Context) -> Result<()> {
+///   let a = context.new_output(&1);
+///   let b = context.new_output(&"test".to_string());
 ///   let combined: Output<(i32, String)> = pulumi_combine!(a, b);
 ///   Ok(())
 /// }
