@@ -510,7 +510,7 @@ pub mod exports {
                         #[cfg(target_arch = "wasm32")]
                         {
                             #[link(
-                                wasm_import_module = "[export]component:pulumi-gestalt/pulumi-engine@0.0.0-DEV"
+                                wasm_import_module = "[export]component:pulumi-gestalt/pulumi-engine@25.2.10-6669fee"
                             )]
                             extern "C" {
                                 #[link_name = "[resource-drop]engine"]
@@ -546,7 +546,7 @@ pub mod exports {
                         #[cfg(target_arch = "wasm32")]
                         {
                             #[link(
-                                wasm_import_module = "[export]component:pulumi-gestalt/pulumi-engine@0.0.0-DEV"
+                                wasm_import_module = "[export]component:pulumi-gestalt/pulumi-engine@25.2.10-6669fee"
                             )]
                             extern "C" {
                                 #[link_name = "[resource-new]engine"]
@@ -568,7 +568,7 @@ pub mod exports {
                         #[cfg(target_arch = "wasm32")]
                         {
                             #[link(
-                                wasm_import_module = "[export]component:pulumi-gestalt/pulumi-engine@0.0.0-DEV"
+                                wasm_import_module = "[export]component:pulumi-gestalt/pulumi-engine@25.2.10-6669fee"
                             )]
                             extern "C" {
                                 #[link_name = "[resource-rep]engine"]
@@ -580,22 +580,22 @@ pub mod exports {
                     fn new(in_preview: bool) -> Self;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_component_pulumi_gestalt_pulumi_engine_0_0_0_dev_cabi {
+                macro_rules! __export_component_pulumi_gestalt_pulumi_engine_25_2_10_6669fee_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "component:pulumi-gestalt/pulumi-engine@0.0.0-DEV#[constructor]engine"]
+                        "component:pulumi-gestalt/pulumi-engine@25.2.10-6669fee#[constructor]engine"]
                         unsafe extern "C" fn export_constructor_engine(arg0 : i32,) ->
                         i32 { $($path_to_types)*:: _export_constructor_engine_cabi::<<$ty
                         as $($path_to_types)*:: Guest >::Engine > (arg0) } const _ : () =
                         { #[doc(hidden)] #[export_name =
-                        "component:pulumi-gestalt/pulumi-engine@0.0.0-DEV#[dtor]engine"]
+                        "component:pulumi-gestalt/pulumi-engine@25.2.10-6669fee#[dtor]engine"]
                         #[allow(non_snake_case)] unsafe extern "C" fn dtor(rep : * mut
                         u8) { $($path_to_types)*:: Engine::dtor::< <$ty as
                         $($path_to_types)*:: Guest >::Engine > (rep) } }; };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_component_pulumi_gestalt_pulumi_engine_0_0_0_dev_cabi;
+                pub(crate) use __export_component_pulumi_gestalt_pulumi_engine_25_2_10_6669fee_cabi;
             }
             #[allow(dead_code, clippy::all)]
             pub mod output_interface {
@@ -718,7 +718,7 @@ pub mod exports {
                         #[cfg(target_arch = "wasm32")]
                         {
                             #[link(
-                                wasm_import_module = "[export]component:pulumi-gestalt/output-interface@0.0.0-DEV"
+                                wasm_import_module = "[export]component:pulumi-gestalt/output-interface@25.2.10-6669fee"
                             )]
                             extern "C" {
                                 #[link_name = "[resource-drop]output"]
@@ -841,7 +841,7 @@ pub mod exports {
                         #[cfg(target_arch = "wasm32")]
                         {
                             #[link(
-                                wasm_import_module = "[export]component:pulumi-gestalt/output-interface@0.0.0-DEV"
+                                wasm_import_module = "[export]component:pulumi-gestalt/output-interface@25.2.10-6669fee"
                             )]
                             extern "C" {
                                 #[link_name = "[resource-drop]register-output"]
@@ -953,7 +953,7 @@ pub mod exports {
                         #[cfg(target_arch = "wasm32")]
                         {
                             #[link(
-                                wasm_import_module = "[export]component:pulumi-gestalt/output-interface@0.0.0-DEV"
+                                wasm_import_module = "[export]component:pulumi-gestalt/output-interface@25.2.10-6669fee"
                             )]
                             extern "C" {
                                 #[link_name = "[resource-new]output"]
@@ -975,7 +975,7 @@ pub mod exports {
                         #[cfg(target_arch = "wasm32")]
                         {
                             #[link(
-                                wasm_import_module = "[export]component:pulumi-gestalt/output-interface@0.0.0-DEV"
+                                wasm_import_module = "[export]component:pulumi-gestalt/output-interface@25.2.10-6669fee"
                             )]
                             extern "C" {
                                 #[link_name = "[resource-rep]output"]
@@ -1006,7 +1006,7 @@ pub mod exports {
                         #[cfg(target_arch = "wasm32")]
                         {
                             #[link(
-                                wasm_import_module = "[export]component:pulumi-gestalt/output-interface@0.0.0-DEV"
+                                wasm_import_module = "[export]component:pulumi-gestalt/output-interface@25.2.10-6669fee"
                             )]
                             extern "C" {
                                 #[link_name = "[resource-new]register-output"]
@@ -1028,7 +1028,7 @@ pub mod exports {
                         #[cfg(target_arch = "wasm32")]
                         {
                             #[link(
-                                wasm_import_module = "[export]component:pulumi-gestalt/output-interface@0.0.0-DEV"
+                                wasm_import_module = "[export]component:pulumi-gestalt/output-interface@25.2.10-6669fee"
                             )]
                             extern "C" {
                                 #[link_name = "[resource-rep]register-output"]
@@ -1040,49 +1040,49 @@ pub mod exports {
                     fn extract_field(&self, field_name: _rt::String) -> Output;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_component_pulumi_gestalt_output_interface_0_0_0_dev_cabi {
+                macro_rules! __export_component_pulumi_gestalt_output_interface_25_2_10_6669fee_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "component:pulumi-gestalt/output-interface@0.0.0-DEV#[constructor]output"]
+                        "component:pulumi-gestalt/output-interface@25.2.10-6669fee#[constructor]output"]
                         unsafe extern "C" fn export_constructor_output(arg0 : i32, arg1 :
                         * mut u8, arg2 : usize, arg3 : i32,) -> i32 {
                         $($path_to_types)*:: _export_constructor_output_cabi::<<$ty as
                         $($path_to_types)*:: Guest >::Output > (arg0, arg1, arg2, arg3) }
                         #[export_name =
-                        "component:pulumi-gestalt/output-interface@0.0.0-DEV#[method]output.map"]
+                        "component:pulumi-gestalt/output-interface@25.2.10-6669fee#[method]output.map"]
                         unsafe extern "C" fn export_method_output_map(arg0 : * mut u8,
                         arg1 : * mut u8, arg2 : usize,) -> i32 { $($path_to_types)*::
                         _export_method_output_map_cabi::<<$ty as $($path_to_types)*::
                         Guest >::Output > (arg0, arg1, arg2) } #[export_name =
-                        "component:pulumi-gestalt/output-interface@0.0.0-DEV#[method]output.clone"]
+                        "component:pulumi-gestalt/output-interface@25.2.10-6669fee#[method]output.clone"]
                         unsafe extern "C" fn export_method_output_clone(arg0 : * mut u8,)
                         -> i32 { $($path_to_types)*::
                         _export_method_output_clone_cabi::<<$ty as $($path_to_types)*::
                         Guest >::Output > (arg0) } #[export_name =
-                        "component:pulumi-gestalt/output-interface@0.0.0-DEV#combine"]
+                        "component:pulumi-gestalt/output-interface@25.2.10-6669fee#combine"]
                         unsafe extern "C" fn export_combine(arg0 : * mut u8, arg1 :
                         usize,) -> i32 { $($path_to_types)*:: _export_combine_cabi::<$ty
                         > (arg0, arg1) } #[export_name =
-                        "component:pulumi-gestalt/output-interface@0.0.0-DEV#[method]register-output.extract-field"]
+                        "component:pulumi-gestalt/output-interface@25.2.10-6669fee#[method]register-output.extract-field"]
                         unsafe extern "C" fn
                         export_method_register_output_extract_field(arg0 : * mut u8, arg1
                         : * mut u8, arg2 : usize,) -> i32 { $($path_to_types)*::
                         _export_method_register_output_extract_field_cabi::<<$ty as
                         $($path_to_types)*:: Guest >::RegisterOutput > (arg0, arg1, arg2)
                         } const _ : () = { #[doc(hidden)] #[export_name =
-                        "component:pulumi-gestalt/output-interface@0.0.0-DEV#[dtor]output"]
+                        "component:pulumi-gestalt/output-interface@25.2.10-6669fee#[dtor]output"]
                         #[allow(non_snake_case)] unsafe extern "C" fn dtor(rep : * mut
                         u8) { $($path_to_types)*:: Output::dtor::< <$ty as
                         $($path_to_types)*:: Guest >::Output > (rep) } }; const _ : () =
                         { #[doc(hidden)] #[export_name =
-                        "component:pulumi-gestalt/output-interface@0.0.0-DEV#[dtor]register-output"]
+                        "component:pulumi-gestalt/output-interface@25.2.10-6669fee#[dtor]register-output"]
                         #[allow(non_snake_case)] unsafe extern "C" fn dtor(rep : * mut
                         u8) { $($path_to_types)*:: RegisterOutput::dtor::< <$ty as
                         $($path_to_types)*:: Guest >::RegisterOutput > (rep) } }; };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_component_pulumi_gestalt_output_interface_0_0_0_dev_cabi;
+                pub(crate) use __export_component_pulumi_gestalt_output_interface_25_2_10_6669fee_cabi;
             }
             #[allow(dead_code, clippy::all)]
             pub mod register_interface {
@@ -1259,16 +1259,16 @@ pub mod exports {
                     ) -> RegisterOutput;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_component_pulumi_gestalt_register_interface_0_0_0_dev_cabi {
+                macro_rules! __export_component_pulumi_gestalt_register_interface_25_2_10_6669fee_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "component:pulumi-gestalt/register-interface@0.0.0-DEV#register"]
+                        "component:pulumi-gestalt/register-interface@25.2.10-6669fee#register"]
                         unsafe extern "C" fn export_register(arg0 : i32, arg1 : * mut u8,
                         arg2 : usize, arg3 : * mut u8, arg4 : usize, arg5 : * mut u8,
                         arg6 : usize, arg7 : * mut u8, arg8 : usize,) -> i32 {
                         $($path_to_types)*:: _export_register_cabi::<$ty > (arg0, arg1,
                         arg2, arg3, arg4, arg5, arg6, arg7, arg8) } #[export_name =
-                        "component:pulumi-gestalt/register-interface@0.0.0-DEV#invoke"]
+                        "component:pulumi-gestalt/register-interface@25.2.10-6669fee#invoke"]
                         unsafe extern "C" fn export_invoke(arg0 : i32, arg1 : * mut u8,
                         arg2 : usize, arg3 : * mut u8, arg4 : usize, arg5 : * mut u8,
                         arg6 : usize,) -> i32 { $($path_to_types)*::
@@ -1277,7 +1277,7 @@ pub mod exports {
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_component_pulumi_gestalt_register_interface_0_0_0_dev_cabi;
+                pub(crate) use __export_component_pulumi_gestalt_register_interface_25_2_10_6669fee_cabi;
             }
             #[allow(dead_code, clippy::all)]
             pub mod stack_interface {
@@ -1442,25 +1442,25 @@ pub mod exports {
                     ) -> _rt::Vec<FunctionInvocationRequest>;
                 }
                 #[doc(hidden)]
-                macro_rules! __export_component_pulumi_gestalt_stack_interface_0_0_0_dev_cabi {
+                macro_rules! __export_component_pulumi_gestalt_stack_interface_25_2_10_6669fee_cabi {
                     ($ty:ident with_types_in $($path_to_types:tt)*) => {
                         const _ : () = { #[export_name =
-                        "component:pulumi-gestalt/stack-interface@0.0.0-DEV#add-export"]
+                        "component:pulumi-gestalt/stack-interface@25.2.10-6669fee#add-export"]
                         unsafe extern "C" fn export_add_export(arg0 : * mut u8, arg1 :
                         usize, arg2 : i32,) { $($path_to_types)*::
                         _export_add_export_cabi::<$ty > (arg0, arg1, arg2) }
                         #[export_name =
-                        "component:pulumi-gestalt/stack-interface@0.0.0-DEV#finish"]
+                        "component:pulumi-gestalt/stack-interface@25.2.10-6669fee#finish"]
                         unsafe extern "C" fn export_finish(arg0 : i32, arg1 : * mut u8,
                         arg2 : usize,) -> * mut u8 { $($path_to_types)*::
                         _export_finish_cabi::<$ty > (arg0, arg1, arg2) } #[export_name =
-                        "cabi_post_component:pulumi-gestalt/stack-interface@0.0.0-DEV#finish"]
+                        "cabi_post_component:pulumi-gestalt/stack-interface@25.2.10-6669fee#finish"]
                         unsafe extern "C" fn _post_return_finish(arg0 : * mut u8,) {
                         $($path_to_types)*:: __post_return_finish::<$ty > (arg0) } };
                     };
                 }
                 #[doc(hidden)]
-                pub(crate) use __export_component_pulumi_gestalt_stack_interface_0_0_0_dev_cabi;
+                pub(crate) use __export_component_pulumi_gestalt_stack_interface_25_2_10_6669fee_cabi;
                 #[repr(align(4))]
                 struct _RetArea([::core::mem::MaybeUninit<u8>; 8]);
                 static mut _RET_AREA: _RetArea = _RetArea(
@@ -1664,17 +1664,17 @@ macro_rules! __export_pulumi_gestalt_impl {
     };
     ($ty:ident with_types_in $($path_to_types_root:tt)*) => {
         $($path_to_types_root)*::
-        exports::component::pulumi_gestalt::pulumi_engine::__export_component_pulumi_gestalt_pulumi_engine_0_0_0_dev_cabi!($ty
+        exports::component::pulumi_gestalt::pulumi_engine::__export_component_pulumi_gestalt_pulumi_engine_25_2_10_6669fee_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::component::pulumi_gestalt::pulumi_engine); $($path_to_types_root)*::
-        exports::component::pulumi_gestalt::output_interface::__export_component_pulumi_gestalt_output_interface_0_0_0_dev_cabi!($ty
+        exports::component::pulumi_gestalt::output_interface::__export_component_pulumi_gestalt_output_interface_25_2_10_6669fee_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::component::pulumi_gestalt::output_interface); $($path_to_types_root)*::
-        exports::component::pulumi_gestalt::register_interface::__export_component_pulumi_gestalt_register_interface_0_0_0_dev_cabi!($ty
+        exports::component::pulumi_gestalt::register_interface::__export_component_pulumi_gestalt_register_interface_25_2_10_6669fee_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::component::pulumi_gestalt::register_interface);
         $($path_to_types_root)*::
-        exports::component::pulumi_gestalt::stack_interface::__export_component_pulumi_gestalt_stack_interface_0_0_0_dev_cabi!($ty
+        exports::component::pulumi_gestalt::stack_interface::__export_component_pulumi_gestalt_stack_interface_25_2_10_6669fee_cabi!($ty
         with_types_in $($path_to_types_root)*::
         exports::component::pulumi_gestalt::stack_interface);
     };
@@ -1682,10 +1682,10 @@ macro_rules! __export_pulumi_gestalt_impl {
 #[doc(inline)]
 pub(crate) use __export_pulumi_gestalt_impl as export;
 #[cfg(target_arch = "wasm32")]
-#[link_section = "component-type:wit-bindgen:0.36.0:component:pulumi-gestalt@0.0.0-DEV:pulumi-gestalt:encoded world"]
+#[link_section = "component-type:wit-bindgen:0.36.0:component:pulumi-gestalt@25.2.10-6669fee:pulumi-gestalt:encoded world"]
 #[doc(hidden)]
-pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1921] = *b"\
-\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\xfc\x0d\x01A\x02\x01\
+pub static __WIT_BINDGEN_COMPONENT_TYPE: [u8; 1951] = *b"\
+\0asm\x0d\0\x01\0\0\x19\x16wit-component-encoding\x04\0\x07\x9a\x0e\x01A\x02\x01\
 A\x0f\x01B\x0a\x01m\x05\x05TRACE\x05DEBUG\x04INFO\x04WARN\x05ERROR\x04\0\x05leve\
 l\x03\0\0\x01ks\x01ky\x01o\x02ss\x01p\x04\x01r\x07\x05level\x01\x06targets\x04ar\
 gss\x0bmodule-path\x02\x04file\x02\x04line\x03\x0akey-values\x05\x04\0\x07conten\
@@ -1699,33 +1699,33 @@ esource-invoke\x01\x08\x01@\x01\x07request\x04\x01\0\x04\0\x11register-resource\
 \x09\x01p\x06\x01@\0\0\x0a\x04\0\x1cwait-for-resource-operations\x01\x0b\x03\0Ac\
 omponent:pulumi-gestalt-external/external-world@0.0.0-STABLE-DEV\x05\x01\x01B\x04\
 \x04\0\x06engine\x03\x01\x01i\0\x01@\x01\x0ain-preview\x7f\0\x01\x04\0\x13[const\
-ructor]engine\x01\x02\x04\00component:pulumi-gestalt/pulumi-engine@0.0.0-DEV\x05\
-\x02\x02\x03\0\x02\x06engine\x01B\x13\x02\x03\x02\x01\x03\x04\0\x06engine\x03\0\0\
-\x04\0\x06output\x03\x01\x04\0\x0fregister-output\x03\x01\x01h\x01\x01i\x02\x01@\
-\x03\x06engine\x04\x05values\x06secret\x7f\0\x05\x04\0\x13[constructor]output\x01\
+ructor]engine\x01\x02\x04\06component:pulumi-gestalt/pulumi-engine@25.2.10-6669f\
+ee\x05\x02\x02\x03\0\x02\x06engine\x01B\x13\x02\x03\x02\x01\x03\x04\0\x06engine\x03\
+\0\0\x04\0\x06output\x03\x01\x04\0\x0fregister-output\x03\x01\x01h\x01\x01i\x02\x01\
+@\x03\x06engine\x04\x05values\x06secret\x7f\0\x05\x04\0\x13[constructor]output\x01\
 \x06\x01h\x02\x01@\x02\x04self\x07\x0dfunction-names\0\x05\x04\0\x12[method]outp\
 ut.map\x01\x08\x01@\x01\x04self\x07\0\x05\x04\0\x14[method]output.clone\x01\x09\x01\
 h\x03\x01@\x02\x04self\x0a\x0afield-names\0\x05\x04\0%[method]register-output.ex\
 tract-field\x01\x0b\x01p\x07\x01@\x01\x07outputs\x0c\0\x05\x04\0\x07combine\x01\x0d\
-\x04\03component:pulumi-gestalt/output-interface@0.0.0-DEV\x05\x04\x02\x03\0\x03\
-\x06output\x02\x03\0\x03\x0fregister-output\x01B\x14\x02\x03\x02\x01\x03\x04\0\x06\
-engine\x03\0\0\x02\x03\x02\x01\x05\x04\0\x06output\x03\0\x02\x02\x03\x02\x01\x06\
-\x04\0\x0fregister-output\x03\0\x04\x01h\x03\x01r\x02\x04names\x05value\x06\x04\0\
-\x0cobject-field\x03\0\x07\x01p\x08\x01r\x04\x04types\x04names\x07versions\x06ob\
-ject\x09\x04\0\x19register-resource-request\x03\0\x0a\x01r\x03\x05tokens\x07vers\
-ions\x06object\x09\x04\0\x17resource-invoke-request\x03\0\x0c\x01h\x01\x01i\x05\x01\
-@\x02\x06engine\x0e\x07request\x0b\0\x0f\x04\0\x08register\x01\x10\x01@\x02\x06e\
-ngine\x0e\x07request\x0d\0\x0f\x04\0\x06invoke\x01\x11\x04\05component:pulumi-ge\
-stalt/register-interface@0.0.0-DEV\x05\x07\x01B\x11\x02\x03\x02\x01\x03\x04\0\x06\
-engine\x03\0\0\x02\x03\x02\x01\x05\x04\0\x06output\x03\0\x02\x01i\x03\x01r\x03\x02\
-id\x04\x0bfunction-ids\x05values\x04\0\x1bfunction-invocation-request\x03\0\x05\x01\
-h\x03\x01r\x02\x02id\x07\x05values\x04\0\x1afunction-invocation-result\x03\0\x08\
-\x01@\x02\x04names\x05value\x07\x01\0\x04\0\x0aadd-export\x01\x0a\x01h\x01\x01p\x09\
-\x01p\x06\x01@\x02\x06engine\x0b\x09functions\x0c\0\x0d\x04\0\x06finish\x01\x0e\x04\
-\02component:pulumi-gestalt/stack-interface@0.0.0-DEV\x05\x08\x04\01component:pu\
-lumi-gestalt/pulumi-gestalt@0.0.0-DEV\x04\0\x0b\x14\x01\0\x0epulumi-gestalt\x03\0\
-\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-component\x070.220.0\x10wit-bi\
-ndgen-rust\x060.36.0";
+\x04\09component:pulumi-gestalt/output-interface@25.2.10-6669fee\x05\x04\x02\x03\
+\0\x03\x06output\x02\x03\0\x03\x0fregister-output\x01B\x14\x02\x03\x02\x01\x03\x04\
+\0\x06engine\x03\0\0\x02\x03\x02\x01\x05\x04\0\x06output\x03\0\x02\x02\x03\x02\x01\
+\x06\x04\0\x0fregister-output\x03\0\x04\x01h\x03\x01r\x02\x04names\x05value\x06\x04\
+\0\x0cobject-field\x03\0\x07\x01p\x08\x01r\x04\x04types\x04names\x07versions\x06\
+object\x09\x04\0\x19register-resource-request\x03\0\x0a\x01r\x03\x05tokens\x07ve\
+rsions\x06object\x09\x04\0\x17resource-invoke-request\x03\0\x0c\x01h\x01\x01i\x05\
+\x01@\x02\x06engine\x0e\x07request\x0b\0\x0f\x04\0\x08register\x01\x10\x01@\x02\x06\
+engine\x0e\x07request\x0d\0\x0f\x04\0\x06invoke\x01\x11\x04\0;component:pulumi-g\
+estalt/register-interface@25.2.10-6669fee\x05\x07\x01B\x11\x02\x03\x02\x01\x03\x04\
+\0\x06engine\x03\0\0\x02\x03\x02\x01\x05\x04\0\x06output\x03\0\x02\x01i\x03\x01r\
+\x03\x02id\x04\x0bfunction-ids\x05values\x04\0\x1bfunction-invocation-request\x03\
+\0\x05\x01h\x03\x01r\x02\x02id\x07\x05values\x04\0\x1afunction-invocation-result\
+\x03\0\x08\x01@\x02\x04names\x05value\x07\x01\0\x04\0\x0aadd-export\x01\x0a\x01h\
+\x01\x01p\x09\x01p\x06\x01@\x02\x06engine\x0b\x09functions\x0c\0\x0d\x04\0\x06fi\
+nish\x01\x0e\x04\08component:pulumi-gestalt/stack-interface@25.2.10-6669fee\x05\x08\
+\x04\07component:pulumi-gestalt/pulumi-gestalt@25.2.10-6669fee\x04\0\x0b\x14\x01\
+\0\x0epulumi-gestalt\x03\0\0\0G\x09producers\x01\x0cprocessed-by\x02\x0dwit-comp\
+onent\x070.220.0\x10wit-bindgen-rust\x060.36.0";
 #[inline(never)]
 #[doc(hidden)]
 pub fn __link_custom_section_describing_imports() {
