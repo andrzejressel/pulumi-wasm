@@ -13,6 +13,7 @@ nav:
   - index.md
   - crates.md
   - rustdoc: "/pulumi-gestalt/rust-docs/pulumi_gestalt_rust/index.html"
+  - rustdoc (Wasm): "/pulumi-gestalt/rust-docs-wasm/pulumi_gestalt_rust/index.html"
   - DevBlog: https://dev.to/andrzejressel/series/30425
   - Internal:
       - Internal/Output.md
