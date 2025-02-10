@@ -105,7 +105,6 @@ pub mod zone_cache_variants {
         name: &str,
         args: ZoneCacheVariantsArgs,
     ) -> ZoneCacheVariantsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let avifs_binding = args.avifs.get_output(context);

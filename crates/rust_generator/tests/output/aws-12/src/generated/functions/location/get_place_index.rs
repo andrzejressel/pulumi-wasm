@@ -45,7 +45,6 @@ pub mod get_place_index {
         context: &pulumi_gestalt_rust::Context,
         args: GetPlaceIndexArgs,
     ) -> GetPlaceIndexResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let index_name_binding = args.index_name.get_output(context);

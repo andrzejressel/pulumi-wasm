@@ -129,7 +129,6 @@ pub mod managed_instance_active_directory_administrator {
         name: &str,
         args: ManagedInstanceActiveDirectoryAdministratorArgs,
     ) -> ManagedInstanceActiveDirectoryAdministratorResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let azuread_authentication_only_binding = args

@@ -144,7 +144,6 @@ pub mod serverless_cache {
         name: &str,
         args: ServerlessCacheArgs,
     ) -> ServerlessCacheResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cache_usage_limits_binding = args.cache_usage_limits.get_output(context);

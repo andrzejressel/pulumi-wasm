@@ -84,7 +84,6 @@ pub mod secret_rotation {
         name: &str,
         args: SecretRotationArgs,
     ) -> SecretRotationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let rotate_immediately_binding = args.rotate_immediately.get_output(context);

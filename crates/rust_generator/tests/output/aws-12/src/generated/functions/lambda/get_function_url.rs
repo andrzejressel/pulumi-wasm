@@ -44,7 +44,6 @@ pub mod get_function_url {
         context: &pulumi_gestalt_rust::Context,
         args: GetFunctionUrlArgs,
     ) -> GetFunctionUrlResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let function_name_binding = args.function_name.get_output(context);

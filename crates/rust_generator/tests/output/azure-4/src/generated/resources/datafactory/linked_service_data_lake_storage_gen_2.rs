@@ -145,7 +145,6 @@ pub mod linked_service_data_lake_storage_gen_2 {
         name: &str,
         args: LinkedServiceDataLakeStorageGen2Args,
     ) -> LinkedServiceDataLakeStorageGen2Result {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let additional_properties_binding = args

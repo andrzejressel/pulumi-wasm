@@ -219,7 +219,6 @@ pub mod access_level_condition {
         name: &str,
         args: AccessLevelConditionArgs,
     ) -> AccessLevelConditionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let access_level_binding = args.access_level.get_output(context);

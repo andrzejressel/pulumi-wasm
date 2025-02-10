@@ -58,7 +58,6 @@ pub mod endpoint_private_dns {
         name: &str,
         args: EndpointPrivateDnsArgs,
     ) -> EndpointPrivateDnsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let private_dns_enabled_binding = args.private_dns_enabled.get_output(context);

@@ -187,7 +187,6 @@ pub mod time_series_database_connection {
         name: &str,
         args: TimeSeriesDatabaseConnectionArgs,
     ) -> TimeSeriesDatabaseConnectionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let digital_twins_id_binding = args.digital_twins_id.get_output(context);

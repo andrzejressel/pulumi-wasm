@@ -217,7 +217,6 @@ pub mod frontdoor {
         name: &str,
         args: FrontdoorArgs,
     ) -> FrontdoorResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let backend_pool_health_probes_binding = args

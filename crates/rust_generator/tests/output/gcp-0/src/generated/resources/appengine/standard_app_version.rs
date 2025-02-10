@@ -309,7 +309,6 @@ pub mod standard_app_version {
         name: &str,
         args: StandardAppVersionArgs,
     ) -> StandardAppVersionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let app_engine_apis_binding = args.app_engine_apis.get_output(context);

@@ -48,7 +48,6 @@ pub mod get_local_gateway_virtual_interface_groups {
         context: &pulumi_gestalt_rust::Context,
         args: GetLocalGatewayVirtualInterfaceGroupsArgs,
     ) -> GetLocalGatewayVirtualInterfaceGroupsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let filters_binding = args.filters.get_output(context);

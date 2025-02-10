@@ -94,7 +94,6 @@ pub mod medical_vocabulary {
         name: &str,
         args: MedicalVocabularyArgs,
     ) -> MedicalVocabularyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let language_code_binding = args.language_code.get_output(context);

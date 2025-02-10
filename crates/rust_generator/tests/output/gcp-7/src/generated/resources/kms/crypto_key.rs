@@ -229,7 +229,6 @@ pub mod crypto_key {
         name: &str,
         args: CryptoKeyArgs,
     ) -> CryptoKeyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let crypto_key_backend_binding = args.crypto_key_backend.get_output(context);

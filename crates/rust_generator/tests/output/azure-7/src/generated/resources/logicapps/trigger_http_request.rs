@@ -97,7 +97,6 @@ pub mod trigger_http_request {
         name: &str,
         args: TriggerHttpRequestArgs,
     ) -> TriggerHttpRequestResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let logic_app_id_binding = args.logic_app_id.get_output(context);

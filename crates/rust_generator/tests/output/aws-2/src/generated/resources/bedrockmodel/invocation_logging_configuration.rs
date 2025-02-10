@@ -104,7 +104,6 @@ pub mod invocation_logging_configuration {
         name: &str,
         args: InvocationLoggingConfigurationArgs,
     ) -> InvocationLoggingConfigurationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let logging_config_binding = args.logging_config.get_output(context);

@@ -129,7 +129,6 @@ pub mod resource_group_cost_management_view {
         name: &str,
         args: ResourceGroupCostManagementViewArgs,
     ) -> ResourceGroupCostManagementViewResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let accumulated_binding = args.accumulated.get_output(context);

@@ -48,7 +48,6 @@ pub mod retention_configuration {
         name: &str,
         args: RetentionConfigurationArgs,
     ) -> RetentionConfigurationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let retention_period_in_days_binding = args

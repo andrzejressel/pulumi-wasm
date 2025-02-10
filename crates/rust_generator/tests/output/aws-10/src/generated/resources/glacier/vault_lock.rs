@@ -98,7 +98,6 @@ pub mod vault_lock {
         name: &str,
         args: VaultLockArgs,
     ) -> VaultLockResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let complete_lock_binding = args.complete_lock.get_output(context);

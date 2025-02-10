@@ -153,7 +153,6 @@ pub mod repository_creation_template {
         name: &str,
         args: RepositoryCreationTemplateArgs,
     ) -> RepositoryCreationTemplateResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let applied_fors_binding = args.applied_fors.get_output(context);

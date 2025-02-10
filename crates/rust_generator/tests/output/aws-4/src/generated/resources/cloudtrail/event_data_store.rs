@@ -147,7 +147,6 @@ pub mod event_data_store {
         name: &str,
         args: EventDataStoreArgs,
     ) -> EventDataStoreResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let advanced_event_selectors_binding = args

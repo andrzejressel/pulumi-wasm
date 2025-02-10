@@ -81,7 +81,6 @@ pub mod monitoring_schedule {
         name: &str,
         args: MonitoringScheduleArgs,
     ) -> MonitoringScheduleResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let monitoring_schedule_config_binding = args

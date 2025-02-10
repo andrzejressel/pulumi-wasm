@@ -195,7 +195,6 @@ pub mod resource_deployment_script_power_shell {
         name: &str,
         args: ResourceDeploymentScriptPowerShellArgs,
     ) -> ResourceDeploymentScriptPowerShellResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cleanup_preference_binding = args.cleanup_preference.get_output(context);

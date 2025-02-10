@@ -50,7 +50,6 @@ pub mod get_experience {
         context: &pulumi_gestalt_rust::Context,
         args: GetExperienceArgs,
     ) -> GetExperienceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let experience_id_binding = args.experience_id.get_output(context);

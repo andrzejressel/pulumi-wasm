@@ -118,7 +118,6 @@ pub mod pipeline_definition {
         name: &str,
         args: PipelineDefinitionArgs,
     ) -> PipelineDefinitionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let parameter_objects_binding = args.parameter_objects.get_output(context);

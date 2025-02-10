@@ -149,7 +149,6 @@ pub mod service {
         name: &str,
         args: ServiceArgs,
     ) -> ServiceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let aad_auth_enabled_binding = args.aad_auth_enabled.get_output(context);

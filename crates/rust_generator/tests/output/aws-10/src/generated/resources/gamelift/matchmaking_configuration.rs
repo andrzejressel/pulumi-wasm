@@ -124,7 +124,6 @@ pub mod matchmaking_configuration {
         name: &str,
         args: MatchmakingConfigurationArgs,
     ) -> MatchmakingConfigurationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let acceptance_required_binding = args.acceptance_required.get_output(context);

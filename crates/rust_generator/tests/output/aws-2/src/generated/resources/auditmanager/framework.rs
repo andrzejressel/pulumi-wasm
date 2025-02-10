@@ -98,7 +98,6 @@ pub mod framework {
         name: &str,
         args: FrameworkArgs,
     ) -> FrameworkResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let compliance_type_binding = args.compliance_type.get_output(context);

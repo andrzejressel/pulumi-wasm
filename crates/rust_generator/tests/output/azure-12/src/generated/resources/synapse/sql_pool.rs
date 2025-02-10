@@ -138,7 +138,6 @@ pub mod sql_pool {
         name: &str,
         args: SqlPoolArgs,
     ) -> SqlPoolResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let collation_binding = args.collation.get_output(context);

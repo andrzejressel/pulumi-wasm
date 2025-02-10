@@ -53,7 +53,6 @@ pub mod get_user {
         context: &pulumi_gestalt_rust::Context,
         args: GetUserArgs,
     ) -> GetUserResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let access_string_binding = args.access_string.get_output(context);

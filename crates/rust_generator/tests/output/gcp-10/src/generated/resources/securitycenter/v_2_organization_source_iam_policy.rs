@@ -221,7 +221,6 @@ pub mod v_2_organization_source_iam_policy {
         name: &str,
         args: V2OrganizationSourceIamPolicyArgs,
     ) -> V2OrganizationSourceIamPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let organization_binding = args.organization.get_output(context);

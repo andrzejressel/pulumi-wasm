@@ -80,7 +80,6 @@ pub mod secret_policy {
         name: &str,
         args: SecretPolicyArgs,
     ) -> SecretPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let block_public_policy_binding = args.block_public_policy.get_output(context);

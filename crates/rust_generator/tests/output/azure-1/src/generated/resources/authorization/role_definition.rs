@@ -120,7 +120,6 @@ pub mod role_definition {
         name: &str,
         args: RoleDefinitionArgs,
     ) -> RoleDefinitionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let assignable_scopes_binding = args.assignable_scopes.get_output(context);

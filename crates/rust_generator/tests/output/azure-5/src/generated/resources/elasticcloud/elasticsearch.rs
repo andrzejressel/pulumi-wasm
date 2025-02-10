@@ -122,7 +122,6 @@ pub mod elasticsearch {
         name: &str,
         args: ElasticsearchArgs,
     ) -> ElasticsearchResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let elastic_cloud_email_address_binding = args

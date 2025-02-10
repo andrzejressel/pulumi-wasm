@@ -38,7 +38,6 @@ pub mod example_server {
         name: &str,
         args: ExampleServerArgs,
     ) -> ExampleServerResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let map_array_enum_binding = args.map_array_enum.get_output(context);

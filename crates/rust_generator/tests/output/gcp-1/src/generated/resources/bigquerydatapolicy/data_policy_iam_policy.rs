@@ -247,7 +247,6 @@ pub mod data_policy_iam_policy {
         name: &str,
         args: DataPolicyIamPolicyArgs,
     ) -> DataPolicyIamPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let data_policy_id_binding = args.data_policy_id.get_output(context);

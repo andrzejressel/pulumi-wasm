@@ -29,7 +29,6 @@ pub mod get_endpoint {
         context: &pulumi_gestalt_rust::Context,
         args: GetEndpointArgs,
     ) -> GetEndpointResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let endpoint_type_binding = args.endpoint_type.get_output(context);

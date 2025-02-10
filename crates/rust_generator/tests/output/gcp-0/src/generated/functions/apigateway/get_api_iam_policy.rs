@@ -31,7 +31,6 @@ pub mod get_api_iam_policy {
         context: &pulumi_gestalt_rust::Context,
         args: GetApiIamPolicyArgs,
     ) -> GetApiIamPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let api_binding = args.api.get_output(context);

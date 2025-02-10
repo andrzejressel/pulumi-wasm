@@ -42,7 +42,6 @@ pub mod get_network_packet_core_data_plane {
         context: &pulumi_gestalt_rust::Context,
         args: GetNetworkPacketCoreDataPlaneArgs,
     ) -> GetNetworkPacketCoreDataPlaneResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let mobile_network_packet_core_control_plane_id_binding = args

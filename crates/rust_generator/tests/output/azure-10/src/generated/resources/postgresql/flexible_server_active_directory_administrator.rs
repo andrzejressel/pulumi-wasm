@@ -105,7 +105,6 @@ pub mod flexible_server_active_directory_administrator {
         name: &str,
         args: FlexibleServerActiveDirectoryAdministratorArgs,
     ) -> FlexibleServerActiveDirectoryAdministratorResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let object_id_binding = args.object_id.get_output(context);

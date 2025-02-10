@@ -94,7 +94,6 @@ pub mod hosted_private_virtual_interface_accepter {
         name: &str,
         args: HostedPrivateVirtualInterfaceAccepterArgs,
     ) -> HostedPrivateVirtualInterfaceAccepterResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let dx_gateway_id_binding = args.dx_gateway_id.get_output(context);

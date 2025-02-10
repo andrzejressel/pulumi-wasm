@@ -132,7 +132,6 @@ pub mod spring_cloud_app_dynamics_application_performance_monitoring {
         name: &str,
         args: SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs,
     ) -> SpringCloudAppDynamicsApplicationPerformanceMonitoringResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let agent_account_access_key_binding = args

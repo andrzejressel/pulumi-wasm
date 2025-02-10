@@ -80,7 +80,6 @@ pub mod log_analytics_workspace_onboarding {
         name: &str,
         args: LogAnalyticsWorkspaceOnboardingArgs,
     ) -> LogAnalyticsWorkspaceOnboardingResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let customer_managed_key_enabled_binding = args

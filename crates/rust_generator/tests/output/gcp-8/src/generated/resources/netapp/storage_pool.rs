@@ -214,7 +214,6 @@ pub mod storage_pool {
         name: &str,
         args: StoragePoolArgs,
     ) -> StoragePoolResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let active_directory_binding = args.active_directory.get_output(context);

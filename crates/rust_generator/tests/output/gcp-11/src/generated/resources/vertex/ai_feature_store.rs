@@ -195,7 +195,6 @@ pub mod ai_feature_store {
         name: &str,
         args: AiFeatureStoreArgs,
     ) -> AiFeatureStoreResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let encryption_spec_binding = args.encryption_spec.get_output(context);

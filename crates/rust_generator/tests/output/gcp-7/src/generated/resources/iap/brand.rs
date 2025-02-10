@@ -116,7 +116,6 @@ pub mod brand {
         name: &str,
         args: BrandArgs,
     ) -> BrandResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let application_title_binding = args.application_title.get_output(context);

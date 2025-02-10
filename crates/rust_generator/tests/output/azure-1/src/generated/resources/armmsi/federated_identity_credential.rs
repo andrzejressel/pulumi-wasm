@@ -93,7 +93,6 @@ pub mod federated_identity_credential {
         name: &str,
         args: FederatedIdentityCredentialArgs,
     ) -> FederatedIdentityCredentialResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let audience_binding = args.audience.get_output(context);

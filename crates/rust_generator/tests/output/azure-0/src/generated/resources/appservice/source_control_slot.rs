@@ -136,7 +136,6 @@ pub mod source_control_slot {
         name: &str,
         args: SourceControlSlotArgs,
     ) -> SourceControlSlotResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let branch_binding = args.branch.get_output(context);

@@ -86,7 +86,6 @@ pub mod channel_direct_line {
         name: &str,
         args: ChannelDirectLineArgs,
     ) -> ChannelDirectLineResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let bot_name_binding = args.bot_name.get_output(context);

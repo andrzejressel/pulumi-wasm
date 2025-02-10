@@ -84,7 +84,6 @@ pub mod monitor_sso_configuration {
         name: &str,
         args: MonitorSsoConfigurationArgs,
     ) -> MonitorSsoConfigurationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let datadog_monitor_id_binding = args.datadog_monitor_id.get_output(context);

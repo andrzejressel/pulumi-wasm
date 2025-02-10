@@ -77,7 +77,6 @@ pub mod geofence_collection {
         name: &str,
         args: GeofenceCollectionArgs,
     ) -> GeofenceCollectionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let collection_name_binding = args.collection_name.get_output(context);

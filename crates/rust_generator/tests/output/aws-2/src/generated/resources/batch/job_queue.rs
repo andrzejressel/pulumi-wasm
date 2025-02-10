@@ -170,7 +170,6 @@ pub mod job_queue {
         name: &str,
         args: JobQueueArgs,
     ) -> JobQueueResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let compute_environment_orders_binding = args

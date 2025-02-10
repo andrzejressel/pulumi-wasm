@@ -110,7 +110,6 @@ pub mod gcp_user_access_binding {
         name: &str,
         args: GcpUserAccessBindingArgs,
     ) -> GcpUserAccessBindingResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let access_levels_binding = args.access_levels.get_output(context);

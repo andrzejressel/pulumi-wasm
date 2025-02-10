@@ -74,7 +74,6 @@ pub mod smsvoicev_2_configuration_set {
         name: &str,
         args: Smsvoicev2ConfigurationSetArgs,
     ) -> Smsvoicev2ConfigurationSetResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let default_message_type_binding = args.default_message_type.get_output(context);

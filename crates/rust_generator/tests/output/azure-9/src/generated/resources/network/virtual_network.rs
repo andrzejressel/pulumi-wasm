@@ -164,7 +164,6 @@ pub mod virtual_network {
         name: &str,
         args: VirtualNetworkArgs,
     ) -> VirtualNetworkResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let address_spaces_binding = args.address_spaces.get_output(context);

@@ -98,7 +98,6 @@ pub mod backend_bucket_signed_url_key {
         name: &str,
         args: BackendBucketSignedUrlKeyArgs,
     ) -> BackendBucketSignedUrlKeyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let backend_bucket_binding = args.backend_bucket.get_output(context);

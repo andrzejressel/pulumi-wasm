@@ -56,7 +56,6 @@ pub mod alert_manager_definition {
         name: &str,
         args: AlertManagerDefinitionArgs,
     ) -> AlertManagerDefinitionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let definition_binding = args.definition.get_output(context);

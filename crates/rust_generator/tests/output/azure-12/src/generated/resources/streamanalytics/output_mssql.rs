@@ -135,7 +135,6 @@ pub mod output_mssql {
         name: &str,
         args: OutputMssqlArgs,
     ) -> OutputMssqlResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let authentication_mode_binding = args.authentication_mode.get_output(context);

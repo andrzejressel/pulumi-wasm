@@ -130,7 +130,6 @@ pub mod default_subnet {
         name: &str,
         args: DefaultSubnetArgs,
     ) -> DefaultSubnetResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let assign_ipv6_address_on_creation_binding = args

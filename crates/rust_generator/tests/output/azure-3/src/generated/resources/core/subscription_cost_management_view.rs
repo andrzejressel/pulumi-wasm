@@ -122,7 +122,6 @@ pub mod subscription_cost_management_view {
         name: &str,
         args: SubscriptionCostManagementViewArgs,
     ) -> SubscriptionCostManagementViewResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let accumulated_binding = args.accumulated.get_output(context);

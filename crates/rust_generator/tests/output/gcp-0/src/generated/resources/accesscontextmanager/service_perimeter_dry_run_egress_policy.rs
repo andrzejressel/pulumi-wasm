@@ -85,7 +85,6 @@ pub mod service_perimeter_dry_run_egress_policy {
         name: &str,
         args: ServicePerimeterDryRunEgressPolicyArgs,
     ) -> ServicePerimeterDryRunEgressPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let egress_from_binding = args.egress_from.get_output(context);

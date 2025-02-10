@@ -34,7 +34,6 @@ pub mod get_recommendations {
         context: &pulumi_gestalt_rust::Context,
         args: GetRecommendationsArgs,
     ) -> GetRecommendationsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let filter_by_categories_binding = args.filter_by_categories.get_output(context);

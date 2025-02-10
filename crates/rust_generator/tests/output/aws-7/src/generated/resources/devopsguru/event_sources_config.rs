@@ -57,7 +57,6 @@ pub mod event_sources_config {
         name: &str,
         args: EventSourcesConfigArgs,
     ) -> EventSourcesConfigResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let event_sources_binding = args.event_sources.get_output(context);

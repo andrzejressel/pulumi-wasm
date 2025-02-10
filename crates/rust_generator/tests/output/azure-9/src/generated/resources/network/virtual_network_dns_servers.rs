@@ -67,7 +67,6 @@ pub mod virtual_network_dns_servers {
         name: &str,
         args: VirtualNetworkDnsServersArgs,
     ) -> VirtualNetworkDnsServersResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let dns_servers_binding = args.dns_servers.get_output(context);

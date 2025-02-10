@@ -337,7 +337,6 @@ pub mod media_insights_pipeline_configuration {
         name: &str,
         args: MediaInsightsPipelineConfigurationArgs,
     ) -> MediaInsightsPipelineConfigurationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let elements_binding = args.elements.get_output(context);

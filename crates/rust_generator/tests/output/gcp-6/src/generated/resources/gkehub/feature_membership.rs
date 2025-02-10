@@ -446,7 +446,6 @@ pub mod feature_membership {
         name: &str,
         args: FeatureMembershipArgs,
     ) -> FeatureMembershipResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let configmanagement_binding = args.configmanagement.get_output(context);

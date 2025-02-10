@@ -88,7 +88,6 @@ pub mod sql_dedicated_gateway {
         name: &str,
         args: SqlDedicatedGatewayArgs,
     ) -> SqlDedicatedGatewayResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cosmosdb_account_id_binding = args.cosmosdb_account_id.get_output(context);

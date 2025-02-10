@@ -585,7 +585,6 @@ pub mod ai_feature_online_store_featureview {
         name: &str,
         args: AiFeatureOnlineStoreFeatureviewArgs,
     ) -> AiFeatureOnlineStoreFeatureviewResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let big_query_source_binding = args.big_query_source.get_output(context);

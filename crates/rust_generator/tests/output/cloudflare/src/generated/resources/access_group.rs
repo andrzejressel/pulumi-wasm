@@ -65,7 +65,6 @@ pub mod access_group {
         name: &str,
         args: AccessGroupArgs,
     ) -> AccessGroupResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let account_id_binding = args.account_id.get_output(context);

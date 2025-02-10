@@ -65,7 +65,6 @@ pub mod resource {
         name: &str,
         args: ResourceArgs,
     ) -> ResourceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let desired_state_binding = args.desired_state.get_output(context);

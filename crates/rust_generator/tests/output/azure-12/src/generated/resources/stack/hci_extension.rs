@@ -111,7 +111,6 @@ pub mod hci_extension {
         name: &str,
         args: HciExtensionArgs,
     ) -> HciExtensionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let arc_setting_id_binding = args.arc_setting_id.get_output(context);

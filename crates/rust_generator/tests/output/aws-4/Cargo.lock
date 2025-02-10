@@ -526,10 +526,8 @@ dependencies = [
  "bon",
  "pulumi_gestalt_rust_adapter",
  "pulumi_gestalt_rust_adapter_wasm",
- "pulumi_gestalt_wit",
  "serde",
  "serde_json",
- "wit-bindgen 0.39.0",
 ]
 
 [[package]]

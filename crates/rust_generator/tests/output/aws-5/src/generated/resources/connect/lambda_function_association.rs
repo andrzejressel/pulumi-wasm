@@ -54,7 +54,6 @@ pub mod lambda_function_association {
         name: &str,
         args: LambdaFunctionAssociationArgs,
     ) -> LambdaFunctionAssociationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let function_arn_binding = args.function_arn.get_output(context);

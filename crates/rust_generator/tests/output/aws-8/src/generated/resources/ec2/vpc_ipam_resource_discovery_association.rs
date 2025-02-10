@@ -78,7 +78,6 @@ pub mod vpc_ipam_resource_discovery_association {
         name: &str,
         args: VpcIpamResourceDiscoveryAssociationArgs,
     ) -> VpcIpamResourceDiscoveryAssociationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let ipam_id_binding = args.ipam_id.get_output(context);

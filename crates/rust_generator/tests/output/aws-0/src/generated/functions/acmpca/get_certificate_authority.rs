@@ -54,7 +54,6 @@ pub mod get_certificate_authority {
         context: &pulumi_gestalt_rust::Context,
         args: GetCertificateAuthorityArgs,
     ) -> GetCertificateAuthorityResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let arn_binding = args.arn.get_output(context);

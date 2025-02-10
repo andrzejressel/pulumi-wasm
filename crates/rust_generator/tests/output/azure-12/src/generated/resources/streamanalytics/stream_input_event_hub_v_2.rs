@@ -146,7 +146,6 @@ pub mod stream_input_event_hub_v_2 {
         name: &str,
         args: StreamInputEventHubV2Args,
     ) -> StreamInputEventHubV2Result {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let authentication_mode_binding = args.authentication_mode.get_output(context);

@@ -38,7 +38,6 @@ pub mod get_public_i_ps {
         context: &pulumi_gestalt_rust::Context,
         args: GetPublicIPsArgs,
     ) -> GetPublicIPsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let allocation_type_binding = args.allocation_type.get_output(context);

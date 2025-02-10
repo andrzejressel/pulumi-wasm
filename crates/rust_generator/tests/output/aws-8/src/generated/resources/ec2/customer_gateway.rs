@@ -87,7 +87,6 @@ pub mod customer_gateway {
         name: &str,
         args: CustomerGatewayArgs,
     ) -> CustomerGatewayResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let bgp_asn_binding = args.bgp_asn.get_output(context);

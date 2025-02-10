@@ -45,7 +45,6 @@ pub mod image_block_public_access {
         name: &str,
         args: ImageBlockPublicAccessArgs,
     ) -> ImageBlockPublicAccessResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let state_binding = args.state.get_output(context);

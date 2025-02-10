@@ -123,7 +123,6 @@ pub mod backup_policy_kubernetes_cluster {
         name: &str,
         args: BackupPolicyKubernetesClusterArgs,
     ) -> BackupPolicyKubernetesClusterResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let backup_repeating_time_intervals_binding = args

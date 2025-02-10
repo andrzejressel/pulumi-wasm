@@ -72,7 +72,6 @@ pub mod region_settings {
         name: &str,
         args: RegionSettingsArgs,
     ) -> RegionSettingsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let resource_type_management_preference_binding = args

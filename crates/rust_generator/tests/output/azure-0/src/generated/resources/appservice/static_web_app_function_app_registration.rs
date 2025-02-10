@@ -111,7 +111,6 @@ pub mod static_web_app_function_app_registration {
         name: &str,
         args: StaticWebAppFunctionAppRegistrationArgs,
     ) -> StaticWebAppFunctionAppRegistrationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let function_app_id_binding = args.function_app_id.get_output(context);

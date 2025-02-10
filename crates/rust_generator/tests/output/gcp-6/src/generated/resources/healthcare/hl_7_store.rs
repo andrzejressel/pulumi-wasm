@@ -245,7 +245,6 @@ pub mod hl_7_store {
         name: &str,
         args: Hl7StoreArgs,
     ) -> Hl7StoreResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let dataset_binding = args.dataset.get_output(context);

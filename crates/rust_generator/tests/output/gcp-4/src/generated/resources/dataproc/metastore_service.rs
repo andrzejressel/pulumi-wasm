@@ -654,7 +654,6 @@ pub mod metastore_service {
         name: &str,
         args: MetastoreServiceArgs,
     ) -> MetastoreServiceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let database_type_binding = args.database_type.get_output(context);

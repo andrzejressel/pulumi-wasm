@@ -52,7 +52,6 @@ pub mod default_kms_key {
         name: &str,
         args: DefaultKmsKeyArgs,
     ) -> DefaultKmsKeyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let key_arn_binding = args.key_arn.get_output(context);

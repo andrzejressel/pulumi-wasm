@@ -55,7 +55,6 @@ pub mod bucket_access_key {
         name: &str,
         args: BucketAccessKeyArgs,
     ) -> BucketAccessKeyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let bucket_name_binding = args.bucket_name.get_output(context);

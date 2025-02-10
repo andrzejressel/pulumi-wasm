@@ -221,7 +221,6 @@ pub mod global_address {
         name: &str,
         args: GlobalAddressArgs,
     ) -> GlobalAddressResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let address_binding = args.address.get_output(context);

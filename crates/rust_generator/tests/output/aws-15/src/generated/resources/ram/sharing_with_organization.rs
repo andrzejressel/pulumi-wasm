@@ -30,7 +30,6 @@ pub mod sharing_with_organization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(context: &pulumi_gestalt_rust::Context, name: &str) {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let request = pulumi_gestalt_rust::RegisterResourceRequest {

@@ -182,7 +182,6 @@ pub mod canary {
         name: &str,
         args: CanaryArgs,
     ) -> CanaryResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let artifact_config_binding = args.artifact_config.get_output(context);

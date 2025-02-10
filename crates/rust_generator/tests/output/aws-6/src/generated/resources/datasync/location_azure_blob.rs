@@ -108,7 +108,6 @@ pub mod location_azure_blob {
         name: &str,
         args: LocationAzureBlobArgs,
     ) -> LocationAzureBlobResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let access_tier_binding = args.access_tier.get_output(context);

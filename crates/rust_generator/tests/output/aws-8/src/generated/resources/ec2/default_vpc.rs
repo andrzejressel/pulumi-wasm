@@ -107,7 +107,6 @@ pub mod default_vpc {
         name: &str,
         args: DefaultVpcArgs,
     ) -> DefaultVpcResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let assign_generated_ipv6_cidr_block_binding = args

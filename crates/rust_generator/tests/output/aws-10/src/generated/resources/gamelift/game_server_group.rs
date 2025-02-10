@@ -221,7 +221,6 @@ pub mod game_server_group {
         name: &str,
         args: GameServerGroupArgs,
     ) -> GameServerGroupResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let auto_scaling_policy_binding = args.auto_scaling_policy.get_output(context);

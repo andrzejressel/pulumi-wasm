@@ -211,7 +211,6 @@ pub mod bastion_host {
         name: &str,
         args: BastionHostArgs,
     ) -> BastionHostResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let copy_paste_enabled_binding = args.copy_paste_enabled.get_output(context);

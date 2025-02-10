@@ -86,7 +86,6 @@ pub mod vault_notifications {
         name: &str,
         args: VaultNotificationsArgs,
     ) -> VaultNotificationsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let backup_vault_events_binding = args.backup_vault_events.get_output(context);

@@ -153,7 +153,6 @@ pub mod catalog_table_optimizer {
         name: &str,
         args: CatalogTableOptimizerArgs,
     ) -> CatalogTableOptimizerResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let catalog_id_binding = args.catalog_id.get_output(context);

@@ -151,7 +151,6 @@ pub mod datastore_datalake_gen_2 {
         name: &str,
         args: DatastoreDatalakeGen2Args,
     ) -> DatastoreDatalakeGen2Result {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let authority_url_binding = args.authority_url.get_output(context);

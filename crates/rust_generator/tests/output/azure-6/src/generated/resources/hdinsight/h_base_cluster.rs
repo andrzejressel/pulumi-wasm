@@ -278,7 +278,6 @@ pub mod h_base_cluster {
         name: &str,
         args: HBaseClusterArgs,
     ) -> HBaseClusterResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cluster_version_binding = args.cluster_version.get_output(context);

@@ -305,7 +305,6 @@ pub mod dataset_access {
         name: &str,
         args: DatasetAccessArgs,
     ) -> DatasetAccessResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let authorized_dataset_binding = args.authorized_dataset.get_output(context);

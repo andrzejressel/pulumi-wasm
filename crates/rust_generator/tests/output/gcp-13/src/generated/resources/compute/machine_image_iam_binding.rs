@@ -415,7 +415,6 @@ pub mod machine_image_iam_binding {
         name: &str,
         args: MachineImageIamBindingArgs,
     ) -> MachineImageIamBindingResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let condition_binding = args.condition.get_output(context);

@@ -160,7 +160,6 @@ pub mod insights_report_config {
         name: &str,
         args: InsightsReportConfigArgs,
     ) -> InsightsReportConfigResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let csv_options_binding = args.csv_options.get_output(context);

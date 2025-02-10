@@ -55,7 +55,6 @@ pub mod invitation_accepter {
         name: &str,
         args: InvitationAccepterArgs,
     ) -> InvitationAccepterResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let graph_arn_binding = args.graph_arn.get_output(context);

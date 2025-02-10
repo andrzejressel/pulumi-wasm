@@ -69,7 +69,6 @@ pub mod resource_share {
         name: &str,
         args: ResourceShareArgs,
     ) -> ResourceShareResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let allow_external_principals_binding = args

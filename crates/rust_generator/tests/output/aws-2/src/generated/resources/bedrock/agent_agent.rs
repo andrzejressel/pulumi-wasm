@@ -197,7 +197,6 @@ pub mod agent_agent {
         name: &str,
         args: AgentAgentArgs,
     ) -> AgentAgentResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let agent_collaboration_binding = args.agent_collaboration.get_output(context);

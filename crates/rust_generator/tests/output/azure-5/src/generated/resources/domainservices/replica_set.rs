@@ -298,7 +298,6 @@ pub mod replica_set {
         name: &str,
         args: ReplicaSetArgs,
     ) -> ReplicaSetResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let domain_service_id_binding = args.domain_service_id.get_output(context);

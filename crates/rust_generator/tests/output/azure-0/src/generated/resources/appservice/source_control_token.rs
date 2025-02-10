@@ -61,7 +61,6 @@ pub mod source_control_token {
         name: &str,
         args: SourceControlTokenArgs,
     ) -> SourceControlTokenResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let token_binding = args.token.get_output(context);

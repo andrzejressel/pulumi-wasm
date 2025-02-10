@@ -55,7 +55,6 @@ pub mod hci_deployment_setting {
         name: &str,
         args: HciDeploymentSettingArgs,
     ) -> HciDeploymentSettingResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let arc_resource_ids_binding = args.arc_resource_ids.get_output(context);

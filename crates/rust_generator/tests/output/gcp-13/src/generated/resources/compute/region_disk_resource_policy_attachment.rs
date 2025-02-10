@@ -142,7 +142,6 @@ pub mod region_disk_resource_policy_attachment {
         name: &str,
         args: RegionDiskResourcePolicyAttachmentArgs,
     ) -> RegionDiskResourcePolicyAttachmentResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let disk_binding = args.disk.get_output(context);

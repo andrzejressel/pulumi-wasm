@@ -110,7 +110,6 @@ pub mod network_insights_analysis {
         name: &str,
         args: NetworkInsightsAnalysisArgs,
     ) -> NetworkInsightsAnalysisResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let filter_in_arns_binding = args.filter_in_arns.get_output(context);

@@ -93,7 +93,6 @@ pub mod log_resource_policy {
         name: &str,
         args: LogResourcePolicyArgs,
     ) -> LogResourcePolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let policy_document_binding = args.policy_document.get_output(context);

@@ -70,7 +70,6 @@ pub mod custom_ssl {
         name: &str,
         args: CustomSslArgs,
     ) -> CustomSslResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let custom_ssl_options_binding = args.custom_ssl_options.get_output(context);

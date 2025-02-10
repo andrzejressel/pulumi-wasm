@@ -160,7 +160,6 @@ pub mod managed_storage_account_sas_token_definition {
         name: &str,
         args: ManagedStorageAccountSasTokenDefinitionArgs,
     ) -> ManagedStorageAccountSasTokenDefinitionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let managed_storage_account_id_binding = args

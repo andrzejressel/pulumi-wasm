@@ -153,7 +153,6 @@ pub mod network_manager_connectivity_configuration {
         name: &str,
         args: NetworkManagerConnectivityConfigurationArgs,
     ) -> NetworkManagerConnectivityConfigurationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let applies_to_groups_binding = args.applies_to_groups.get_output(context);

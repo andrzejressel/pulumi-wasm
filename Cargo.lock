@@ -2573,10 +2573,8 @@ dependencies = [
  "pulumi_gestalt_build",
  "pulumi_gestalt_rust_adapter",
  "pulumi_gestalt_rust_adapter_wasm",
- "pulumi_gestalt_wit",
  "serde",
  "serde_json",
- "wit-bindgen",
 ]
 
 [[package]]

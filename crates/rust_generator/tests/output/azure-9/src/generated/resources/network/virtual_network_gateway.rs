@@ -287,7 +287,6 @@ pub mod virtual_network_gateway {
         name: &str,
         args: VirtualNetworkGatewayArgs,
     ) -> VirtualNetworkGatewayResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let active_active_binding = args.active_active.get_output(context);

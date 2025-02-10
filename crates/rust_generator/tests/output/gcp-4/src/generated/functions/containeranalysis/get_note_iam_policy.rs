@@ -32,7 +32,6 @@ pub mod get_note_iam_policy {
         context: &pulumi_gestalt_rust::Context,
         args: GetNoteIamPolicyArgs,
     ) -> GetNoteIamPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let note_binding = args.note.get_output(context);

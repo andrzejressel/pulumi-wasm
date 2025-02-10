@@ -131,7 +131,6 @@ pub mod route_server {
         name: &str,
         args: RouteServerArgs,
     ) -> RouteServerResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let branch_to_branch_traffic_enabled_binding = args

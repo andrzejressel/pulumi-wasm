@@ -396,7 +396,6 @@ pub mod deployment_group {
         name: &str,
         args: DeploymentGroupArgs,
     ) -> DeploymentGroupResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let alarm_configuration_binding = args.alarm_configuration.get_output(context);

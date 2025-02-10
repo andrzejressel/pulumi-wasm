@@ -178,7 +178,6 @@ pub mod endpoint_policy {
         name: &str,
         args: EndpointPolicyArgs,
     ) -> EndpointPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let authorization_policy_binding = args.authorization_policy.get_output(context);

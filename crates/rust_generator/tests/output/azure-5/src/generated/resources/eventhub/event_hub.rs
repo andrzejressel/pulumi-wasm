@@ -111,7 +111,6 @@ pub mod event_hub {
         name: &str,
         args: EventHubArgs,
     ) -> EventHubResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let capture_description_binding = args.capture_description.get_output(context);

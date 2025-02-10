@@ -26,7 +26,6 @@ pub mod get_email_identity_mail_from_attributes {
         context: &pulumi_gestalt_rust::Context,
         args: GetEmailIdentityMailFromAttributesArgs,
     ) -> GetEmailIdentityMailFromAttributesResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let email_identity_binding = args.email_identity.get_output(context);

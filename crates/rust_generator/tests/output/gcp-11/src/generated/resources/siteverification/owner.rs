@@ -130,7 +130,6 @@ pub mod owner {
         name: &str,
         args: OwnerArgs,
     ) -> OwnerResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let email_binding = args.email.get_output(context);

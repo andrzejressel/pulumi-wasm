@@ -226,7 +226,6 @@ pub mod integration_runtime_ssis {
         name: &str,
         args: IntegrationRuntimeSsisArgs,
     ) -> IntegrationRuntimeSsisResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let catalog_info_binding = args.catalog_info.get_output(context);

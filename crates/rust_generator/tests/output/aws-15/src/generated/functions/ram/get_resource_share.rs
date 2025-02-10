@@ -53,7 +53,6 @@ pub mod get_resource_share {
         context: &pulumi_gestalt_rust::Context,
         args: GetResourceShareArgs,
     ) -> GetResourceShareResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let filters_binding = args.filters.get_output(context);

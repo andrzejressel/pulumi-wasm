@@ -118,7 +118,6 @@ pub mod notification_config {
         name: &str,
         args: NotificationConfigArgs,
     ) -> NotificationConfigResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let config_id_binding = args.config_id.get_output(context);

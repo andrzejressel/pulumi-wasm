@@ -122,7 +122,6 @@ pub mod replication_task {
         name: &str,
         args: ReplicationTaskArgs,
     ) -> ReplicationTaskResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cdc_start_position_binding = args.cdc_start_position.get_output(context);

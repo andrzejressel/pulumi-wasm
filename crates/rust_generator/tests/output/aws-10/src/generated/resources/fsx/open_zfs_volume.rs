@@ -136,7 +136,6 @@ pub mod open_zfs_volume {
         name: &str,
         args: OpenZfsVolumeArgs,
     ) -> OpenZfsVolumeResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let copy_tags_to_snapshots_binding = args

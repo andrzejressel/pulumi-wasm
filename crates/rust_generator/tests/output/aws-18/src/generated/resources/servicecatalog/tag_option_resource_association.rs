@@ -65,7 +65,6 @@ pub mod tag_option_resource_association {
         name: &str,
         args: TagOptionResourceAssociationArgs,
     ) -> TagOptionResourceAssociationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let resource_id_binding = args.resource_id.get_output(context);

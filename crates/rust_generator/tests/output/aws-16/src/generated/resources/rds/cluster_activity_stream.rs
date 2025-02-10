@@ -105,7 +105,6 @@ pub mod cluster_activity_stream {
         name: &str,
         args: ClusterActivityStreamArgs,
     ) -> ClusterActivityStreamResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let engine_native_audit_fields_included_binding = args

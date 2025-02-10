@@ -339,7 +339,6 @@ pub mod edge_cache_origin {
         name: &str,
         args: EdgeCacheOriginArgs,
     ) -> EdgeCacheOriginResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let aws_v4_authentication_binding = args

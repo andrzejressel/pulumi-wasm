@@ -133,7 +133,6 @@ pub mod engine_split_traffic {
         name: &str,
         args: EngineSplitTrafficArgs,
     ) -> EngineSplitTrafficResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let migrate_traffic_binding = args.migrate_traffic.get_output(context);

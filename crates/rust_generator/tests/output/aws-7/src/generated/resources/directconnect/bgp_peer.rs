@@ -76,7 +76,6 @@ pub mod bgp_peer {
         name: &str,
         args: BgpPeerArgs,
     ) -> BgpPeerResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let address_family_binding = args.address_family.get_output(context);

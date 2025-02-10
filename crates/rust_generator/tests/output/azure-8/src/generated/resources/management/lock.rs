@@ -118,7 +118,6 @@ pub mod lock {
         name: &str,
         args: LockArgs,
     ) -> LockResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let lock_level_binding = args.lock_level.get_output(context);

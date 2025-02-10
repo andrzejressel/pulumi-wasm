@@ -160,7 +160,6 @@ pub mod classifier {
         name: &str,
         args: ClassifierArgs,
     ) -> ClassifierResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let csv_classifier_binding = args.csv_classifier.get_output(context);

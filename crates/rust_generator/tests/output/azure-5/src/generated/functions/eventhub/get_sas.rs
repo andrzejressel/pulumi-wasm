@@ -28,7 +28,6 @@ pub mod get_sas {
         context: &pulumi_gestalt_rust::Context,
         args: GetSasArgs,
     ) -> GetSasResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let connection_string_binding = args.connection_string.get_output(context);

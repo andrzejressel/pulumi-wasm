@@ -255,7 +255,6 @@ pub mod node_template {
         name: &str,
         args: NodeTemplateArgs,
     ) -> NodeTemplateResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let accelerators_binding = args.accelerators.get_output(context);

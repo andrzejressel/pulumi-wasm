@@ -74,7 +74,6 @@ pub mod get_account_blob_container_sas {
         context: &pulumi_gestalt_rust::Context,
         args: GetAccountBlobContainerSasArgs,
     ) -> GetAccountBlobContainerSasResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cache_control_binding = args.cache_control.get_output(context);

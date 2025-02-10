@@ -24,7 +24,6 @@ pub mod get_slack_workspace {
         context: &pulumi_gestalt_rust::Context,
         args: GetSlackWorkspaceArgs,
     ) -> GetSlackWorkspaceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let slack_team_name_binding = args.slack_team_name.get_output(context);

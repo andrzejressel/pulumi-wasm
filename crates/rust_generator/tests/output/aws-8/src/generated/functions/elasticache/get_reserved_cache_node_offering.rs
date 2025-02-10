@@ -45,7 +45,6 @@ pub mod get_reserved_cache_node_offering {
         context: &pulumi_gestalt_rust::Context,
         args: GetReservedCacheNodeOfferingArgs,
     ) -> GetReservedCacheNodeOfferingResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cache_node_type_binding = args.cache_node_type.get_output(context);

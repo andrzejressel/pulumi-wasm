@@ -96,7 +96,6 @@ pub mod runtime_management_config {
         name: &str,
         args: RuntimeManagementConfigArgs,
     ) -> RuntimeManagementConfigResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let function_name_binding = args.function_name.get_output(context);

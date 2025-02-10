@@ -368,7 +368,6 @@ pub mod managed_instance {
         name: &str,
         args: ManagedInstanceArgs,
     ) -> ManagedInstanceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let administrator_login_binding = args.administrator_login.get_output(context);

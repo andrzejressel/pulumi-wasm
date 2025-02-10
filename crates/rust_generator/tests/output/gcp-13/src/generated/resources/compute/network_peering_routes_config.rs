@@ -206,7 +206,6 @@ pub mod network_peering_routes_config {
         name: &str,
         args: NetworkPeeringRoutesConfigArgs,
     ) -> NetworkPeeringRoutesConfigResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let export_custom_routes_binding = args.export_custom_routes.get_output(context);

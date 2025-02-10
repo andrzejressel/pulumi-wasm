@@ -135,7 +135,6 @@ pub mod ai_deployment_resource_pool {
         name: &str,
         args: AiDeploymentResourcePoolArgs,
     ) -> AiDeploymentResourcePoolResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let dedicated_resources_binding = args.dedicated_resources.get_output(context);

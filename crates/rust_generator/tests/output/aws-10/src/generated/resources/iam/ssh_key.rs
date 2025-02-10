@@ -74,7 +74,6 @@ pub mod ssh_key {
         name: &str,
         args: SshKeyArgs,
     ) -> SshKeyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let encoding_binding = args.encoding.get_output(context);

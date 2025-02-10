@@ -198,7 +198,6 @@ pub mod alert_rule_nrt {
         name: &str,
         args: AlertRuleNrtArgs,
     ) -> AlertRuleNrtResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let alert_details_overrides_binding = args

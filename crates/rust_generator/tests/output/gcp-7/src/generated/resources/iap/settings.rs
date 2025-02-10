@@ -172,7 +172,6 @@ pub mod settings {
         name: &str,
         args: SettingsArgs,
     ) -> SettingsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let access_settings_binding = args.access_settings.get_output(context);

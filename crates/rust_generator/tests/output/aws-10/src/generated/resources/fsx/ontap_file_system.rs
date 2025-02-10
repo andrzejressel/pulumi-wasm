@@ -232,7 +232,6 @@ pub mod ontap_file_system {
         name: &str,
         args: OntapFileSystemArgs,
     ) -> OntapFileSystemResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let automatic_backup_retention_days_binding = args

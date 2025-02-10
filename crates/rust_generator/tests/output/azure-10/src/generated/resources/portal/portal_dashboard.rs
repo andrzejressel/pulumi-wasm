@@ -62,7 +62,6 @@ pub mod portal_dashboard {
         name: &str,
         args: PortalDashboardArgs,
     ) -> PortalDashboardResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let dashboard_properties_binding = args.dashboard_properties.get_output(context);

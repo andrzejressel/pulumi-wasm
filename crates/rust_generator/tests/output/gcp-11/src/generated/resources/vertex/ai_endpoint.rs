@@ -312,7 +312,6 @@ pub mod ai_endpoint {
         name: &str,
         args: AiEndpointArgs,
     ) -> AiEndpointResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let dedicated_endpoint_enabled_binding = args

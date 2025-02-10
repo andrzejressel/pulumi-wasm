@@ -381,7 +381,6 @@ pub mod web_type_app_enging_iam_policy {
         name: &str,
         args: WebTypeAppEngingIamPolicyArgs,
     ) -> WebTypeAppEngingIamPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let app_id_binding = args.app_id.get_output(context);

@@ -57,7 +57,6 @@ pub mod sdkvoice_global_settings {
         name: &str,
         args: SdkvoiceGlobalSettingsArgs,
     ) -> SdkvoiceGlobalSettingsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let voice_connector_binding = args.voice_connector.get_output(context);

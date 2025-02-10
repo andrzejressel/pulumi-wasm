@@ -138,7 +138,6 @@ pub mod server_key {
         name: &str,
         args: ServerKeyArgs,
     ) -> ServerKeyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let key_vault_key_id_binding = args.key_vault_key_id.get_output(context);

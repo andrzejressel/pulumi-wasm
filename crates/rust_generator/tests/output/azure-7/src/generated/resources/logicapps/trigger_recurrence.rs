@@ -104,7 +104,6 @@ pub mod trigger_recurrence {
         name: &str,
         args: TriggerRecurrenceArgs,
     ) -> TriggerRecurrenceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let frequency_binding = args.frequency.get_output(context);

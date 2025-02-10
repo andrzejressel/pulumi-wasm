@@ -211,7 +211,6 @@ pub mod consumer_quota_override {
         name: &str,
         args: ConsumerQuotaOverrideArgs,
     ) -> ConsumerQuotaOverrideResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let dimensions_binding = args.dimensions.get_output(context);

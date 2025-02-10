@@ -78,7 +78,6 @@ pub mod get_budget {
         context: &pulumi_gestalt_rust::Context,
         args: GetBudgetArgs,
     ) -> GetBudgetResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let account_id_binding = args.account_id.get_output(context);

@@ -71,7 +71,6 @@ pub mod get_received_license {
         context: &pulumi_gestalt_rust::Context,
         args: GetReceivedLicenseArgs,
     ) -> GetReceivedLicenseResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let license_arn_binding = args.license_arn.get_output(context);

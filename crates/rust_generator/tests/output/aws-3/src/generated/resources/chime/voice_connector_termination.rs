@@ -83,7 +83,6 @@ pub mod voice_connector_termination {
         name: &str,
         args: VoiceConnectorTerminationArgs,
     ) -> VoiceConnectorTerminationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let calling_regions_binding = args.calling_regions.get_output(context);

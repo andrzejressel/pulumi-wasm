@@ -99,7 +99,6 @@ pub mod spring_cloud_build_pack_binding {
         name: &str,
         args: SpringCloudBuildPackBindingArgs,
     ) -> SpringCloudBuildPackBindingResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let binding_type_binding = args.binding_type.get_output(context);

@@ -161,7 +161,6 @@ pub mod target_pool {
         name: &str,
         args: TargetPoolArgs,
     ) -> TargetPoolResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let backup_pool_binding = args.backup_pool.get_output(context);

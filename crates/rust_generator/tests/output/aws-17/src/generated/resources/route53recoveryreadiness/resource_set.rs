@@ -89,7 +89,6 @@ pub mod resource_set {
         name: &str,
         args: ResourceSetArgs,
     ) -> ResourceSetResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let resource_set_name_binding = args.resource_set_name.get_output(context);

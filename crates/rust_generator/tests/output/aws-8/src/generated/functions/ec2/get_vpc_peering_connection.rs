@@ -103,7 +103,6 @@ pub mod get_vpc_peering_connection {
         context: &pulumi_gestalt_rust::Context,
         args: GetVpcPeeringConnectionArgs,
     ) -> GetVpcPeeringConnectionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cidr_block_binding = args.cidr_block.get_output(context);

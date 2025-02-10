@@ -97,7 +97,6 @@ pub mod dashboard {
         name: &str,
         args: DashboardArgs,
     ) -> DashboardResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let dashboard_json_binding = args.dashboard_json.get_output(context);

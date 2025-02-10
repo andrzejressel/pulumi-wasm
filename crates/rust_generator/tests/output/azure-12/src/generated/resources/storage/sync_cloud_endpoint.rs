@@ -122,7 +122,6 @@ pub mod sync_cloud_endpoint {
         name: &str,
         args: SyncCloudEndpointArgs,
     ) -> SyncCloudEndpointResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let file_share_name_binding = args.file_share_name.get_output(context);

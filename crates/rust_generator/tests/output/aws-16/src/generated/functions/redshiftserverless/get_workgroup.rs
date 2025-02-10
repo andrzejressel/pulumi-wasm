@@ -39,7 +39,6 @@ pub mod get_workgroup {
         context: &pulumi_gestalt_rust::Context,
         args: GetWorkgroupArgs,
     ) -> GetWorkgroupResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let workgroup_name_binding = args.workgroup_name.get_output(context);

@@ -36,7 +36,6 @@ pub mod model_package_group_policy {
         name: &str,
         args: ModelPackageGroupPolicyArgs,
     ) -> ModelPackageGroupPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let model_package_group_name_binding = args

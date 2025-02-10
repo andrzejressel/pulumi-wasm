@@ -143,7 +143,6 @@ pub mod enterprise_database {
         name: &str,
         args: EnterpriseDatabaseArgs,
     ) -> EnterpriseDatabaseResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let client_protocol_binding = args.client_protocol.get_output(context);

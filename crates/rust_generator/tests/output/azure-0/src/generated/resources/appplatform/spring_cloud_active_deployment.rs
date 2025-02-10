@@ -84,7 +84,6 @@ pub mod spring_cloud_active_deployment {
         name: &str,
         args: SpringCloudActiveDeploymentArgs,
     ) -> SpringCloudActiveDeploymentResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let deployment_name_binding = args.deployment_name.get_output(context);

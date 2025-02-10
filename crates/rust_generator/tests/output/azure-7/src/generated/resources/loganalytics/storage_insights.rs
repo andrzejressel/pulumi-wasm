@@ -111,7 +111,6 @@ pub mod storage_insights {
         name: &str,
         args: StorageInsightsArgs,
     ) -> StorageInsightsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let blob_container_names_binding = args.blob_container_names.get_output(context);

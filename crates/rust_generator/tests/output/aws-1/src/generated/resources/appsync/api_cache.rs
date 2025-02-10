@@ -82,7 +82,6 @@ pub mod api_cache {
         name: &str,
         args: ApiCacheArgs,
     ) -> ApiCacheResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let api_caching_behavior_binding = args.api_caching_behavior.get_output(context);

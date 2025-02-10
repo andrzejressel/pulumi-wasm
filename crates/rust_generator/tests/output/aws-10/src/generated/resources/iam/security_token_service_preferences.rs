@@ -39,7 +39,6 @@ pub mod security_token_service_preferences {
         name: &str,
         args: SecurityTokenServicePreferencesArgs,
     ) -> SecurityTokenServicePreferencesResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let global_endpoint_token_version_binding = args

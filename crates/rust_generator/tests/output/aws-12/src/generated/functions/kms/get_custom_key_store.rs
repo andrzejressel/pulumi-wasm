@@ -33,7 +33,6 @@ pub mod get_custom_key_store {
         context: &pulumi_gestalt_rust::Context,
         args: GetCustomKeyStoreArgs,
     ) -> GetCustomKeyStoreResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let custom_key_store_id_binding = args.custom_key_store_id.get_output(context);

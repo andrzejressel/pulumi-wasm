@@ -82,7 +82,6 @@ pub mod role_policy_attachments_exclusive {
         name: &str,
         args: RolePolicyAttachmentsExclusiveArgs,
     ) -> RolePolicyAttachmentsExclusiveResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let policy_arns_binding = args.policy_arns.get_output(context);

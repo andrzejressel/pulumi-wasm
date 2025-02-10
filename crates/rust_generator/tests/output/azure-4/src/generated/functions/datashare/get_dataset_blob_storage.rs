@@ -41,7 +41,6 @@ pub mod get_dataset_blob_storage {
         context: &pulumi_gestalt_rust::Context,
         args: GetDatasetBlobStorageArgs,
     ) -> GetDatasetBlobStorageResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let data_share_id_binding = args.data_share_id.get_output(context);

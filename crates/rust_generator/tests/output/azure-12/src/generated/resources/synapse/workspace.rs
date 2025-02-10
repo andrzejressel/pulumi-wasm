@@ -336,7 +336,6 @@ pub mod workspace {
         name: &str,
         args: WorkspaceArgs,
     ) -> WorkspaceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let azure_devops_repo_binding = args.azure_devops_repo.get_output(context);

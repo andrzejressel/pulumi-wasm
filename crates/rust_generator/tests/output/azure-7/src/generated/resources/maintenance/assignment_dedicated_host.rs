@@ -95,7 +95,6 @@ pub mod assignment_dedicated_host {
         name: &str,
         args: AssignmentDedicatedHostArgs,
     ) -> AssignmentDedicatedHostResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let dedicated_host_id_binding = args.dedicated_host_id.get_output(context);

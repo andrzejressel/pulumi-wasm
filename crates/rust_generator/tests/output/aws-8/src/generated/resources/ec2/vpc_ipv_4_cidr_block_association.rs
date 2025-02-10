@@ -70,7 +70,6 @@ pub mod vpc_ipv_4_cidr_block_association {
         name: &str,
         args: VpcIpv4CidrBlockAssociationArgs,
     ) -> VpcIpv4CidrBlockAssociationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cidr_block_binding = args.cidr_block.get_output(context);

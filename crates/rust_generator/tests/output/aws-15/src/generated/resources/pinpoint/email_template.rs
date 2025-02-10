@@ -77,7 +77,6 @@ pub mod email_template {
         name: &str,
         args: EmailTemplateArgs,
     ) -> EmailTemplateResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let email_templates_binding = args.email_templates.get_output(context);

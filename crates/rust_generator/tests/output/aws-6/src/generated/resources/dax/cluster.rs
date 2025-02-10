@@ -180,7 +180,6 @@ pub mod cluster {
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let availability_zones_binding = args.availability_zones.get_output(context);

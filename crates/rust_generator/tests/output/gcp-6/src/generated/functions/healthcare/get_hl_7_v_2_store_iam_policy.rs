@@ -29,7 +29,6 @@ pub mod get_hl_7_v_2_store_iam_policy {
         context: &pulumi_gestalt_rust::Context,
         args: GetHl7V2StoreIamPolicyArgs,
     ) -> GetHl7V2StoreIamPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let hl7_v2_store_id_binding = args.hl7_v2_store_id.get_output(context);

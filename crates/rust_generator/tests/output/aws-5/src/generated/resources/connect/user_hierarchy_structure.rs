@@ -113,7 +113,6 @@ pub mod user_hierarchy_structure {
         name: &str,
         args: UserHierarchyStructureArgs,
     ) -> UserHierarchyStructureResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let hierarchy_structure_binding = args.hierarchy_structure.get_output(context);

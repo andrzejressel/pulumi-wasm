@@ -139,7 +139,6 @@ pub mod integration_response {
         name: &str,
         args: IntegrationResponseArgs,
     ) -> IntegrationResponseResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let content_handling_binding = args.content_handling.get_output(context);

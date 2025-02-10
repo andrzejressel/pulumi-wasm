@@ -66,7 +66,6 @@ pub mod custom_key_store {
         name: &str,
         args: CustomKeyStoreArgs,
     ) -> CustomKeyStoreResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cloud_hsm_cluster_id_binding = args.cloud_hsm_cluster_id.get_output(context);

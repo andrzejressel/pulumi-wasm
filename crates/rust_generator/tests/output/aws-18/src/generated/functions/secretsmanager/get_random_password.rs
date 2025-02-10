@@ -52,7 +52,6 @@ pub mod get_random_password {
         context: &pulumi_gestalt_rust::Context,
         args: GetRandomPasswordArgs,
     ) -> GetRandomPasswordResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let exclude_characters_binding = args.exclude_characters.get_output(context);

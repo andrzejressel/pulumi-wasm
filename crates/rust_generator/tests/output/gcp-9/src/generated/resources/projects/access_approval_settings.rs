@@ -176,7 +176,6 @@ pub mod access_approval_settings {
         name: &str,
         args: AccessApprovalSettingsArgs,
     ) -> AccessApprovalSettingsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let active_key_version_binding = args.active_key_version.get_output(context);

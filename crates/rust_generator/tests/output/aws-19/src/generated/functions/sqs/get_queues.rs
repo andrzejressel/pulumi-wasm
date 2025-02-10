@@ -24,7 +24,6 @@ pub mod get_queues {
         context: &pulumi_gestalt_rust::Context,
         args: GetQueuesArgs,
     ) -> GetQueuesResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let queue_name_prefix_binding = args.queue_name_prefix.get_output(context);

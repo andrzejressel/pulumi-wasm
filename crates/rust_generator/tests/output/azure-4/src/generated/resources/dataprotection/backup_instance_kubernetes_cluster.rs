@@ -266,7 +266,6 @@ pub mod backup_instance_kubernetes_cluster {
         name: &str,
         args: BackupInstanceKubernetesClusterArgs,
     ) -> BackupInstanceKubernetesClusterResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let backup_datasource_parameters_binding = args

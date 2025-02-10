@@ -63,7 +63,6 @@ pub mod cidr_location {
         name: &str,
         args: CidrLocationArgs,
     ) -> CidrLocationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cidr_blocks_binding = args.cidr_blocks.get_output(context);

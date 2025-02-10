@@ -33,7 +33,6 @@ pub mod get_pipeline {
         context: &pulumi_gestalt_rust::Context,
         args: GetPipelineArgs,
     ) -> GetPipelineResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let pipeline_id_binding = args.pipeline_id.get_output(context);

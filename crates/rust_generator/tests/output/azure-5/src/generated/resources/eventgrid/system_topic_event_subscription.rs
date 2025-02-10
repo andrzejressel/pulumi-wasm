@@ -286,7 +286,6 @@ pub mod system_topic_event_subscription {
         name: &str,
         args: SystemTopicEventSubscriptionArgs,
     ) -> SystemTopicEventSubscriptionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let advanced_filter_binding = args.advanced_filter.get_output(context);

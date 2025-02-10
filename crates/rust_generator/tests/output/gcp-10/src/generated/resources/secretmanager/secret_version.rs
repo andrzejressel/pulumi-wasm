@@ -174,7 +174,6 @@ pub mod secret_version {
         name: &str,
         args: SecretVersionArgs,
     ) -> SecretVersionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let deletion_policy_binding = args.deletion_policy.get_output(context);

@@ -208,7 +208,6 @@ pub mod branch_rule {
         name: &str,
         args: BranchRuleArgs,
     ) -> BranchRuleResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let allow_stale_reviews_binding = args.allow_stale_reviews.get_output(context);

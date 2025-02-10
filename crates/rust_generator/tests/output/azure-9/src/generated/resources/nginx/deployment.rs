@@ -204,7 +204,6 @@ pub mod deployment {
         name: &str,
         args: DeploymentArgs,
     ) -> DeploymentResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let auto_scale_profiles_binding = args.auto_scale_profiles.get_output(context);

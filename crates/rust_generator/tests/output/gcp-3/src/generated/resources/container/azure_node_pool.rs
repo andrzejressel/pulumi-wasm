@@ -230,7 +230,6 @@ pub mod azure_node_pool {
         name: &str,
         args: AzureNodePoolArgs,
     ) -> AzureNodePoolResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let annotations_binding = args.annotations.get_output(context);

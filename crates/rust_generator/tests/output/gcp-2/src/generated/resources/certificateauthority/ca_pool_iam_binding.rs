@@ -420,7 +420,6 @@ pub mod ca_pool_iam_binding {
         name: &str,
         args: CaPoolIamBindingArgs,
     ) -> CaPoolIamBindingResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let ca_pool_binding = args.ca_pool.get_output(context);

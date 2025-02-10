@@ -185,7 +185,6 @@ pub mod target_ssl_proxy {
         name: &str,
         args: TargetSSLProxyArgs,
     ) -> TargetSSLProxyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let backend_service_binding = args.backend_service.get_output(context);

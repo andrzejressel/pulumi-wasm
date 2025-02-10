@@ -38,7 +38,6 @@ pub mod get_supported_instance_types {
         context: &pulumi_gestalt_rust::Context,
         args: GetSupportedInstanceTypesArgs,
     ) -> GetSupportedInstanceTypesResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let release_label_binding = args.release_label.get_output(context);

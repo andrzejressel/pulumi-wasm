@@ -114,7 +114,6 @@ pub mod bot_management {
         name: &str,
         args: BotManagementArgs,
     ) -> BotManagementResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let ai_bots_protection_binding = args.ai_bots_protection.get_output(context);

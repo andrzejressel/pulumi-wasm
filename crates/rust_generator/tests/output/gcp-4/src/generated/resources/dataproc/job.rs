@@ -218,7 +218,6 @@ pub mod job {
         name: &str,
         args: JobArgs,
     ) -> JobResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let force_delete_binding = args.force_delete.get_output(context);

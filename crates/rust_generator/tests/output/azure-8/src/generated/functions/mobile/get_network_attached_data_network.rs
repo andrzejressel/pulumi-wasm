@@ -56,7 +56,6 @@ pub mod get_network_attached_data_network {
         context: &pulumi_gestalt_rust::Context,
         args: GetNetworkAttachedDataNetworkArgs,
     ) -> GetNetworkAttachedDataNetworkResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let mobile_network_data_network_name_binding = args

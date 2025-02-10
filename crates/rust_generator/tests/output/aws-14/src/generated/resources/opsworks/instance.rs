@@ -281,7 +281,6 @@ pub mod instance {
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let agent_version_binding = args.agent_version.get_output(context);

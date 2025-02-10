@@ -65,7 +65,6 @@ pub mod email_identity_mail_from_attributes {
         name: &str,
         args: EmailIdentityMailFromAttributesArgs,
     ) -> EmailIdentityMailFromAttributesResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let behavior_on_mx_failure_binding = args

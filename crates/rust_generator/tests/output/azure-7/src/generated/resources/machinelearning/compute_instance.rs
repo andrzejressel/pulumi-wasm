@@ -196,7 +196,6 @@ pub mod compute_instance {
         name: &str,
         args: ComputeInstanceArgs,
     ) -> ComputeInstanceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let assign_to_user_binding = args.assign_to_user.get_output(context);

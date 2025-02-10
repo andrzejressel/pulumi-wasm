@@ -65,7 +65,6 @@ pub mod proxy_protocol_policy {
         name: &str,
         args: ProxyProtocolPolicyArgs,
     ) -> ProxyProtocolPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let instance_ports_binding = args.instance_ports.get_output(context);

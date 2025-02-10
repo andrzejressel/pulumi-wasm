@@ -45,7 +45,6 @@ pub mod get_database_instances {
         context: &pulumi_gestalt_rust::Context,
         args: GetDatabaseInstancesArgs,
     ) -> GetDatabaseInstancesResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let database_version_binding = args.database_version.get_output(context);

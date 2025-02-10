@@ -26,7 +26,6 @@ pub mod get_db_nodes {
         context: &pulumi_gestalt_rust::Context,
         args: GetDbNodesArgs,
     ) -> GetDbNodesResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cloud_vm_cluster_id_binding = args.cloud_vm_cluster_id.get_output(context);

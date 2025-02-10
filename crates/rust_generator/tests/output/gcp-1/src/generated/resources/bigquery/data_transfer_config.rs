@@ -363,7 +363,6 @@ pub mod data_transfer_config {
         name: &str,
         args: DataTransferConfigArgs,
     ) -> DataTransferConfigResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let data_refresh_window_days_binding = args

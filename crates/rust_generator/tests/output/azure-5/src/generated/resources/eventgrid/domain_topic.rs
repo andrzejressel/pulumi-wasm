@@ -69,7 +69,6 @@ pub mod domain_topic {
         name: &str,
         args: DomainTopicArgs,
     ) -> DomainTopicResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let domain_name_binding = args.domain_name.get_output(context);

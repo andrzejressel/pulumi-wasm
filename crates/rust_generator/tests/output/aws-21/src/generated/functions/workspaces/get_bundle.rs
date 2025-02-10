@@ -47,7 +47,6 @@ pub mod get_bundle {
         context: &pulumi_gestalt_rust::Context,
         args: GetBundleArgs,
     ) -> GetBundleResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let bundle_id_binding = args.bundle_id.get_output(context);

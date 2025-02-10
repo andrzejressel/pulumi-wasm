@@ -158,7 +158,6 @@ pub mod vpn_gateway_connection {
         name: &str,
         args: VpnGatewayConnectionArgs,
     ) -> VpnGatewayConnectionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let internet_security_enabled_binding = args

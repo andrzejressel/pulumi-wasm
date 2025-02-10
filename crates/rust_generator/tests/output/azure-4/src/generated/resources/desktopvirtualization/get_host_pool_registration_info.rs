@@ -74,7 +74,6 @@ pub mod get_host_pool_registration_info {
         name: &str,
         args: getHostPoolRegistrationInfoArgs,
     ) -> getHostPoolRegistrationInfoResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let expiration_date_binding = args.expiration_date.get_output(context);

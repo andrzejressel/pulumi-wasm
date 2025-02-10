@@ -27,7 +27,6 @@ pub mod get_domain_identity {
         context: &pulumi_gestalt_rust::Context,
         args: GetDomainIdentityArgs,
     ) -> GetDomainIdentityResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let domain_binding = args.domain.get_output(context);

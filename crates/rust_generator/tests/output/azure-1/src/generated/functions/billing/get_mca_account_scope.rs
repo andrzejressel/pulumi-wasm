@@ -30,7 +30,6 @@ pub mod get_mca_account_scope {
         context: &pulumi_gestalt_rust::Context,
         args: GetMcaAccountScopeArgs,
     ) -> GetMcaAccountScopeResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let billing_account_name_binding = args.billing_account_name.get_output(context);

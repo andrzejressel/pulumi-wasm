@@ -349,7 +349,6 @@ pub mod windows_function_app_slot {
         name: &str,
         args: WindowsFunctionAppSlotArgs,
     ) -> WindowsFunctionAppSlotResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let app_settings_binding = args.app_settings.get_output(context);

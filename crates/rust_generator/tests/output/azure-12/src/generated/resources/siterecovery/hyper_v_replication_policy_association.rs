@@ -93,7 +93,6 @@ pub mod hyper_v_replication_policy_association {
         name: &str,
         args: HyperVReplicationPolicyAssociationArgs,
     ) -> HyperVReplicationPolicyAssociationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let hyperv_site_id_binding = args.hyperv_site_id.get_output(context);

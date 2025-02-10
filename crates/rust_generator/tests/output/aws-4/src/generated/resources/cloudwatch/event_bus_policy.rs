@@ -156,7 +156,6 @@ pub mod event_bus_policy {
         name: &str,
         args: EventBusPolicyArgs,
     ) -> EventBusPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let event_bus_name_binding = args.event_bus_name.get_output(context);
