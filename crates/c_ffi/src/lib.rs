@@ -209,7 +209,6 @@ extern "C" fn pulumi_register_resource(
     let mut objects: HashMap<FieldName, OutputId> = HashMap::new();
 
     unsafe {
-        let request = request;
         std::slice::from_raw_parts(request.object, request.object_len)
             .iter()
             .for_each(|field| {
