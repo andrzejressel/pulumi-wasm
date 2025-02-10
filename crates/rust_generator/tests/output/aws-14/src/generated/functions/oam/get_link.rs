@@ -43,7 +43,6 @@ pub mod get_link {
         context: &pulumi_gestalt_rust::Context,
         args: GetLinkArgs,
     ) -> GetLinkResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let link_identifier_binding = args.link_identifier.get_output(context);

@@ -109,7 +109,6 @@ pub mod composite_alarm {
         name: &str,
         args: CompositeAlarmArgs,
     ) -> CompositeAlarmResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let actions_enabled_binding = args.actions_enabled.get_output(context);

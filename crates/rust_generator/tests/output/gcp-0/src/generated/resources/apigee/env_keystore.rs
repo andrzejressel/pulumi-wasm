@@ -64,7 +64,6 @@ pub mod env_keystore {
         name: &str,
         args: EnvKeystoreArgs,
     ) -> EnvKeystoreResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let env_id_binding = args.env_id.get_output(context);

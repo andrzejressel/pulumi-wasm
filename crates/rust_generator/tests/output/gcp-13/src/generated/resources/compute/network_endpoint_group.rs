@@ -211,7 +211,6 @@ pub mod network_endpoint_group {
         name: &str,
         args: NetworkEndpointGroupArgs,
     ) -> NetworkEndpointGroupResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let default_port_binding = args.default_port.get_output(context);

@@ -314,7 +314,6 @@ pub mod hosting_custom_domain {
         name: &str,
         args: HostingCustomDomainArgs,
     ) -> HostingCustomDomainResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cert_preference_binding = args.cert_preference.get_output(context);

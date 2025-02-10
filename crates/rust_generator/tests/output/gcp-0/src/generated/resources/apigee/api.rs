@@ -75,7 +75,6 @@ pub mod api {
         name: &str,
         args: ApiArgs,
     ) -> ApiResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let config_bundle_binding = args.config_bundle.get_output(context);

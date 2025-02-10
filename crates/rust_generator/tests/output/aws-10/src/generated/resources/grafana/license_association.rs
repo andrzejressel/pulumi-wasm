@@ -80,7 +80,6 @@ pub mod license_association {
         name: &str,
         args: LicenseAssociationArgs,
     ) -> LicenseAssociationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let grafana_token_binding = args.grafana_token.get_output(context);

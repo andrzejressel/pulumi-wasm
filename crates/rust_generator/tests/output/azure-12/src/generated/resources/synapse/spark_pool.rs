@@ -193,7 +193,6 @@ pub mod spark_pool {
         name: &str,
         args: SparkPoolArgs,
     ) -> SparkPoolResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let auto_pause_binding = args.auto_pause.get_output(context);

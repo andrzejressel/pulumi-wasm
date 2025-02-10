@@ -61,7 +61,6 @@ pub mod internet_gateway_attachment {
         name: &str,
         args: InternetGatewayAttachmentArgs,
     ) -> InternetGatewayAttachmentResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let internet_gateway_id_binding = args.internet_gateway_id.get_output(context);

@@ -141,7 +141,6 @@ pub mod backup_policy_postgresql_flexible_server {
         name: &str,
         args: BackupPolicyPostgresqlFlexibleServerArgs,
     ) -> BackupPolicyPostgresqlFlexibleServerResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let backup_repeating_time_intervals_binding = args

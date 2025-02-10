@@ -36,7 +36,6 @@ pub mod get_dataset_data_lake_gen_2 {
         context: &pulumi_gestalt_rust::Context,
         args: GetDatasetDataLakeGen2Args,
     ) -> GetDatasetDataLakeGen2Result {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let name_binding = args.name.get_output(context);

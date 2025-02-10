@@ -83,7 +83,6 @@ pub mod indexing_configuration {
         name: &str,
         args: IndexingConfigurationArgs,
     ) -> IndexingConfigurationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let thing_group_indexing_configuration_binding = args

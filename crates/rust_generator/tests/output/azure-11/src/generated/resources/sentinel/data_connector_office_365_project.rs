@@ -87,7 +87,6 @@ pub mod data_connector_office_365_project {
         name: &str,
         args: DataConnectorOffice365ProjectArgs,
     ) -> DataConnectorOffice365ProjectResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let log_analytics_workspace_id_binding = args

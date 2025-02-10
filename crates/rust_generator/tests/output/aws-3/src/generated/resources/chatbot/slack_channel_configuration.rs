@@ -117,7 +117,6 @@ pub mod slack_channel_configuration {
         name: &str,
         args: SlackChannelConfigurationArgs,
     ) -> SlackChannelConfigurationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let configuration_name_binding = args.configuration_name.get_output(context);

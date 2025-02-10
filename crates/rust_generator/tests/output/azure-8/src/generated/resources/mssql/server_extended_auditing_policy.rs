@@ -254,7 +254,6 @@ pub mod server_extended_auditing_policy {
         name: &str,
         args: ServerExtendedAuditingPolicyArgs,
     ) -> ServerExtendedAuditingPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let audit_actions_and_groups_binding = args

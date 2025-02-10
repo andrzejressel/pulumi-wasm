@@ -124,7 +124,6 @@ pub mod medtech_service {
         name: &str,
         args: MedtechServiceArgs,
     ) -> MedtechServiceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let device_mapping_json_binding = args.device_mapping_json.get_output(context);

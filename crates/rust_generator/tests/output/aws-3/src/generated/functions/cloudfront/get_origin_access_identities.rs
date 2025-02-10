@@ -28,7 +28,6 @@ pub mod get_origin_access_identities {
         context: &pulumi_gestalt_rust::Context,
         args: GetOriginAccessIdentitiesArgs,
     ) -> GetOriginAccessIdentitiesResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let comments_binding = args.comments.get_output(context);

@@ -168,7 +168,6 @@ pub mod express_route_circuit_connection {
         name: &str,
         args: ExpressRouteCircuitConnectionArgs,
     ) -> ExpressRouteCircuitConnectionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let address_prefix_ipv4_binding = args.address_prefix_ipv4.get_output(context);

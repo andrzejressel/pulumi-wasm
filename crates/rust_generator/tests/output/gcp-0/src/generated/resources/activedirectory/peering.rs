@@ -127,7 +127,6 @@ pub mod peering {
         name: &str,
         args: PeeringArgs,
     ) -> PeeringResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let authorized_network_binding = args.authorized_network.get_output(context);

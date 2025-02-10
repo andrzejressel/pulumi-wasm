@@ -30,7 +30,6 @@ pub mod get_location {
         context: &pulumi_gestalt_rust::Context,
         args: GetLocationArgs,
     ) -> GetLocationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let location_code_binding = args.location_code.get_output(context);

@@ -261,7 +261,6 @@ pub mod guest_policies {
         name: &str,
         args: GuestPoliciesArgs,
     ) -> GuestPoliciesResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let assignment_binding = args.assignment.get_output(context);

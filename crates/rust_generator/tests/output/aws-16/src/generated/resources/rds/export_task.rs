@@ -212,7 +212,6 @@ pub mod export_task {
         name: &str,
         args: ExportTaskArgs,
     ) -> ExportTaskResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let export_onlies_binding = args.export_onlies.get_output(context);

@@ -110,7 +110,6 @@ pub mod repository_association {
         name: &str,
         args: RepositoryAssociationArgs,
     ) -> RepositoryAssociationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let kms_key_details_binding = args.kms_key_details.get_output(context);

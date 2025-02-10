@@ -96,7 +96,6 @@ pub mod link {
         name: &str,
         args: LinkArgs,
     ) -> LinkResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let bandwidth_binding = args.bandwidth.get_output(context);

@@ -69,7 +69,6 @@ pub mod get_dataset {
         context: &pulumi_gestalt_rust::Context,
         args: GetDatasetArgs,
     ) -> GetDatasetResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let dataset_id_binding = args.dataset_id.get_output(context);

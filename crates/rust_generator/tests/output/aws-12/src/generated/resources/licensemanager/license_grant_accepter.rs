@@ -65,7 +65,6 @@ pub mod license_grant_accepter {
         name: &str,
         args: LicenseGrantAccepterArgs,
     ) -> LicenseGrantAccepterResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let grant_arn_binding = args.grant_arn.get_output(context);

@@ -247,7 +247,6 @@ pub mod function_iam_policy {
         name: &str,
         args: FunctionIamPolicyArgs,
     ) -> FunctionIamPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cloud_function_binding = args.cloud_function.get_output(context);

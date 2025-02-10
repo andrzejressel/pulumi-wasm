@@ -110,7 +110,6 @@ pub mod linked_server {
         name: &str,
         args: LinkedServerArgs,
     ) -> LinkedServerResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let linked_redis_cache_id_binding = args

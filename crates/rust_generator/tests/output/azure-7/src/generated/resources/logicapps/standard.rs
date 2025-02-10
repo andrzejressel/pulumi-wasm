@@ -275,7 +275,6 @@ pub mod standard {
         name: &str,
         args: StandardArgs,
     ) -> StandardResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let app_service_plan_id_binding = args.app_service_plan_id.get_output(context);

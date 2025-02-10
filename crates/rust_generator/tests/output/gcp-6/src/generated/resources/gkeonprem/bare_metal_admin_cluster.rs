@@ -406,7 +406,6 @@ pub mod bare_metal_admin_cluster {
         name: &str,
         args: BareMetalAdminClusterArgs,
     ) -> BareMetalAdminClusterResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let annotations_binding = args.annotations.get_output(context);

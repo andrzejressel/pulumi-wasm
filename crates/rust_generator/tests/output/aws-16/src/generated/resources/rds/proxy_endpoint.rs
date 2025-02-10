@@ -76,7 +76,6 @@ pub mod proxy_endpoint {
         name: &str,
         args: ProxyEndpointArgs,
     ) -> ProxyEndpointResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let db_proxy_endpoint_name_binding = args

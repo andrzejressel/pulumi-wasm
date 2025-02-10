@@ -79,7 +79,6 @@ pub mod response {
         name: &str,
         args: ResponseArgs,
     ) -> ResponseResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let response_parameters_binding = args.response_parameters.get_output(context);

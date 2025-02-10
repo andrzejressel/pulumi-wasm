@@ -58,7 +58,6 @@ pub mod get_signing_job {
         context: &pulumi_gestalt_rust::Context,
         args: GetSigningJobArgs,
     ) -> GetSigningJobResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let job_id_binding = args.job_id.get_output(context);

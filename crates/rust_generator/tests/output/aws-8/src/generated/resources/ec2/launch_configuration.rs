@@ -176,7 +176,6 @@ pub mod launch_configuration {
         name: &str,
         args: LaunchConfigurationArgs,
     ) -> LaunchConfigurationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let associate_public_ip_address_binding = args

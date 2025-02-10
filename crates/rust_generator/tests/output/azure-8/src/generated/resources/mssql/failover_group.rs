@@ -130,7 +130,6 @@ pub mod failover_group {
         name: &str,
         args: FailoverGroupArgs,
     ) -> FailoverGroupResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let databases_binding = args.databases.get_output(context);

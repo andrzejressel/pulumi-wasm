@@ -57,7 +57,6 @@ pub mod get_traffic_manager_profile {
         context: &pulumi_gestalt_rust::Context,
         args: GetTrafficManagerProfileArgs,
     ) -> GetTrafficManagerProfileResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let name_binding = args.name.get_output(context);

@@ -241,7 +241,6 @@ pub mod spring_cloud_gateway {
         name: &str,
         args: SpringCloudGatewayArgs,
     ) -> SpringCloudGatewayResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let api_metadata_binding = args.api_metadata.get_output(context);

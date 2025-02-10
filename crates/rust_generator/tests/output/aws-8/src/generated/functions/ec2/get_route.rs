@@ -82,7 +82,6 @@ pub mod get_route {
         context: &pulumi_gestalt_rust::Context,
         args: GetRouteArgs,
     ) -> GetRouteResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let carrier_gateway_id_binding = args.carrier_gateway_id.get_output(context);

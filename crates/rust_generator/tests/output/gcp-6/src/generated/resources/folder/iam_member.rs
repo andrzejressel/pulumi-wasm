@@ -374,7 +374,6 @@ pub mod iam_member {
         name: &str,
         args: IAMMemberArgs,
     ) -> IAMMemberResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let condition_binding = args.condition.get_output(context);

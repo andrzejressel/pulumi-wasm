@@ -168,7 +168,6 @@ pub mod ai_feature_group {
         name: &str,
         args: AiFeatureGroupArgs,
     ) -> AiFeatureGroupResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let big_query_binding = args.big_query.get_output(context);

@@ -38,7 +38,6 @@ pub mod get_shared_access_policy {
         context: &pulumi_gestalt_rust::Context,
         args: GetSharedAccessPolicyArgs,
     ) -> GetSharedAccessPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let iothub_name_binding = args.iothub_name.get_output(context);

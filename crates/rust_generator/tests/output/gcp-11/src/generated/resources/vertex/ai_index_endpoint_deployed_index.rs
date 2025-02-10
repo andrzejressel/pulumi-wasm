@@ -349,7 +349,6 @@ pub mod ai_index_endpoint_deployed_index {
         name: &str,
         args: AiIndexEndpointDeployedIndexArgs,
     ) -> AiIndexEndpointDeployedIndexResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let automatic_resources_binding = args.automatic_resources.get_output(context);

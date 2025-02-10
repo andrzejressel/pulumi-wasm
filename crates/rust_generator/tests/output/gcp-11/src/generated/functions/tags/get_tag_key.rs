@@ -37,7 +37,6 @@ pub mod get_tag_key {
         context: &pulumi_gestalt_rust::Context,
         args: GetTagKeyArgs,
     ) -> GetTagKeyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let parent_binding = args.parent.get_output(context);

@@ -16,7 +16,6 @@ pub mod func_with_empty_outputs {
         context: &pulumi_gestalt_rust::Context,
         args: FuncWithEmptyOutputsArgs,
     ) {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let name_binding = args.name.get_output(context);

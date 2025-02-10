@@ -1419,7 +1419,6 @@ pub mod forwarding_rule {
         name: &str,
         args: ForwardingRuleArgs,
     ) -> ForwardingRuleResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let all_ports_binding = args.all_ports.get_output(context);

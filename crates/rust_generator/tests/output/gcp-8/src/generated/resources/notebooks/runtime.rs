@@ -289,7 +289,6 @@ pub mod runtime {
         name: &str,
         args: RuntimeArgs,
     ) -> RuntimeResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let access_config_binding = args.access_config.get_output(context);

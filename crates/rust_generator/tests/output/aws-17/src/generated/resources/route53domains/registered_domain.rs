@@ -160,7 +160,6 @@ pub mod registered_domain {
         name: &str,
         args: RegisteredDomainArgs,
     ) -> RegisteredDomainResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let admin_contact_binding = args.admin_contact.get_output(context);

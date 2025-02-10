@@ -32,7 +32,6 @@ pub mod get_ipam_preview_next_cidr {
         context: &pulumi_gestalt_rust::Context,
         args: GetIpamPreviewNextCidrArgs,
     ) -> GetIpamPreviewNextCidrResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let disallowed_cidrs_binding = args.disallowed_cidrs.get_output(context);

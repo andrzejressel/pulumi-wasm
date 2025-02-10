@@ -102,7 +102,6 @@ pub mod managed_prefix_list {
         name: &str,
         args: ManagedPrefixListArgs,
     ) -> ManagedPrefixListResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let address_family_binding = args.address_family.get_output(context);

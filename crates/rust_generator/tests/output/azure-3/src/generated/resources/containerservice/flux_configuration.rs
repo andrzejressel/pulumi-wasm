@@ -138,7 +138,6 @@ pub mod flux_configuration {
         name: &str,
         args: FluxConfigurationArgs,
     ) -> FluxConfigurationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let blob_storage_binding = args.blob_storage.get_output(context);

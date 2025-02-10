@@ -910,7 +910,6 @@ pub mod region_backend_service {
         name: &str,
         args: RegionBackendServiceArgs,
     ) -> RegionBackendServiceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let affinity_cookie_ttl_sec_binding = args

@@ -140,7 +140,6 @@ pub mod collector_policy {
         name: &str,
         args: CollectorPolicyArgs,
     ) -> CollectorPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let ipfx_emission_binding = args.ipfx_emission.get_output(context);

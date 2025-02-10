@@ -209,7 +209,6 @@ pub mod registry_task {
         name: &str,
         args: RegistryTaskArgs,
     ) -> RegistryTaskResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let agent_pool_name_binding = args.agent_pool_name.get_output(context);

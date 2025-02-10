@@ -39,7 +39,6 @@ pub mod get_agent_agent_versions {
         context: &pulumi_gestalt_rust::Context,
         args: GetAgentAgentVersionsArgs,
     ) -> GetAgentAgentVersionsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let agent_id_binding = args.agent_id.get_output(context);

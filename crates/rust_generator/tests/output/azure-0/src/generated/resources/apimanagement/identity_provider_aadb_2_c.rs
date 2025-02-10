@@ -135,7 +135,6 @@ pub mod identity_provider_aadb_2_c {
         name: &str,
         args: IdentityProviderAadb2cArgs,
     ) -> IdentityProviderAadb2cResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let allowed_tenant_binding = args.allowed_tenant.get_output(context);

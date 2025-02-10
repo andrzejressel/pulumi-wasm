@@ -67,7 +67,6 @@ pub mod eip_domain_name {
         name: &str,
         args: EipDomainNameArgs,
     ) -> EipDomainNameResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let allocation_id_binding = args.allocation_id.get_output(context);

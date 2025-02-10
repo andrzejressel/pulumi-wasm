@@ -102,7 +102,6 @@ pub mod mlflow_tracking_server {
         name: &str,
         args: MlflowTrackingServerArgs,
     ) -> MlflowTrackingServerResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let artifact_store_uri_binding = args.artifact_store_uri.get_output(context);

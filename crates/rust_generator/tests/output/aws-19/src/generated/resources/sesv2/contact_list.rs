@@ -106,7 +106,6 @@ pub mod contact_list {
         name: &str,
         args: ContactListArgs,
     ) -> ContactListResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let contact_list_name_binding = args.contact_list_name.get_output(context);

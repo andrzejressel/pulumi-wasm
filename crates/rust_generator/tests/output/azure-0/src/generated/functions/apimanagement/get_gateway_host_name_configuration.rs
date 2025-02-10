@@ -43,7 +43,6 @@ pub mod get_gateway_host_name_configuration {
         context: &pulumi_gestalt_rust::Context,
         args: GetGatewayHostNameConfigurationArgs,
     ) -> GetGatewayHostNameConfigurationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let api_management_id_binding = args.api_management_id.get_output(context);

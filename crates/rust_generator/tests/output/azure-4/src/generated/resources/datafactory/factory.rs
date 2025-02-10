@@ -143,7 +143,6 @@ pub mod factory {
         name: &str,
         args: FactoryArgs,
     ) -> FactoryResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let customer_managed_key_id_binding = args

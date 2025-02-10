@@ -53,7 +53,6 @@ pub mod vpc_endpoint_service_allowed_principle {
         name: &str,
         args: VpcEndpointServiceAllowedPrincipleArgs,
     ) -> VpcEndpointServiceAllowedPrincipleResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let principal_arn_binding = args.principal_arn.get_output(context);

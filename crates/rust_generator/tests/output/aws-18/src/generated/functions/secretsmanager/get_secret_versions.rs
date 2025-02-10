@@ -34,7 +34,6 @@ pub mod get_secret_versions {
         context: &pulumi_gestalt_rust::Context,
         args: GetSecretVersionsArgs,
     ) -> GetSecretVersionsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let include_deprecated_binding = args.include_deprecated.get_output(context);

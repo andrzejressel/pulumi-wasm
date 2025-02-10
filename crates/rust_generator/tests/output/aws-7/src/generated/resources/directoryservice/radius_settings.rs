@@ -94,7 +94,6 @@ pub mod radius_settings {
         name: &str,
         args: RadiusSettingsArgs,
     ) -> RadiusSettingsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let authentication_protocol_binding = args

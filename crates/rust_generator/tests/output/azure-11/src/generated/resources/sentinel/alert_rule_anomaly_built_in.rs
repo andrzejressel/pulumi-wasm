@@ -139,7 +139,6 @@ pub mod alert_rule_anomaly_built_in {
         name: &str,
         args: AlertRuleAnomalyBuiltInArgs,
     ) -> AlertRuleAnomalyBuiltInResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let display_name_binding = args.display_name.get_output(context);

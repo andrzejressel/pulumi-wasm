@@ -441,7 +441,6 @@ pub mod v_mware_cluster {
         name: &str,
         args: VMwareClusterArgs,
     ) -> VMwareClusterResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let admin_cluster_membership_binding = args

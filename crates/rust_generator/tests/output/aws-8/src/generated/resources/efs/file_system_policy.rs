@@ -87,7 +87,6 @@ pub mod file_system_policy {
         name: &str,
         args: FileSystemPolicyArgs,
     ) -> FileSystemPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let bypass_policy_lockout_safety_check_binding = args

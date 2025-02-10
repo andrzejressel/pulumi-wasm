@@ -77,7 +77,6 @@ pub mod account_rai_blocklist {
         name: &str,
         args: AccountRaiBlocklistArgs,
     ) -> AccountRaiBlocklistResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cognitive_account_id_binding = args.cognitive_account_id.get_output(context);

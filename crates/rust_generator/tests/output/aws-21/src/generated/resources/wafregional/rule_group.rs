@@ -88,7 +88,6 @@ pub mod rule_group {
         name: &str,
         args: RuleGroupArgs,
     ) -> RuleGroupResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let activated_rules_binding = args.activated_rules.get_output(context);

@@ -104,7 +104,6 @@ pub mod account_password_policy {
         name: &str,
         args: AccountPasswordPolicyArgs,
     ) -> AccountPasswordPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let allow_users_to_change_password_binding = args

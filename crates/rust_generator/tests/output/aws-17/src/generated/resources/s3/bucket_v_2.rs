@@ -229,7 +229,6 @@ pub mod bucket_v_2 {
         name: &str,
         args: BucketV2Args,
     ) -> BucketV2Result {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let acceleration_status_binding = args.acceleration_status.get_output(context);

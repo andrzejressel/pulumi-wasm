@@ -126,7 +126,6 @@ pub mod connector_profile {
         name: &str,
         args: ConnectorProfileArgs,
     ) -> ConnectorProfileResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let connection_mode_binding = args.connection_mode.get_output(context);

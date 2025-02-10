@@ -225,7 +225,6 @@ pub mod node_group {
         name: &str,
         args: NodeGroupArgs,
     ) -> NodeGroupResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let ami_type_binding = args.ami_type.get_output(context);

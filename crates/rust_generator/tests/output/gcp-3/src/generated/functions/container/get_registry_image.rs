@@ -40,7 +40,6 @@ pub mod get_registry_image {
         context: &pulumi_gestalt_rust::Context,
         args: GetRegistryImageArgs,
     ) -> GetRegistryImageResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let digest_binding = args.digest.get_output(context);

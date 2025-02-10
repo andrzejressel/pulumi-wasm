@@ -134,7 +134,6 @@ pub mod hci_virtual_hard_disk {
         name: &str,
         args: HciVirtualHardDiskArgs,
     ) -> HciVirtualHardDiskResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let block_size_in_bytes_binding = args.block_size_in_bytes.get_output(context);

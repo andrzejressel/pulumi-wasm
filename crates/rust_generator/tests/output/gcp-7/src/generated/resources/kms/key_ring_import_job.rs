@@ -101,7 +101,6 @@ pub mod key_ring_import_job {
         name: &str,
         args: KeyRingImportJobArgs,
     ) -> KeyRingImportJobResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let import_job_id_binding = args.import_job_id.get_output(context);

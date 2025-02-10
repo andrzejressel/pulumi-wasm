@@ -142,7 +142,6 @@ pub mod collaboration {
         name: &str,
         args: CollaborationArgs,
     ) -> CollaborationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let creator_display_name_binding = args.creator_display_name.get_output(context);

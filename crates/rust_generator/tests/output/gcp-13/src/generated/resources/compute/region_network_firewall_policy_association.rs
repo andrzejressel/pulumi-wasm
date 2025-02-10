@@ -134,7 +134,6 @@ pub mod region_network_firewall_policy_association {
         name: &str,
         args: RegionNetworkFirewallPolicyAssociationArgs,
     ) -> RegionNetworkFirewallPolicyAssociationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let attachment_target_binding = args.attachment_target.get_output(context);

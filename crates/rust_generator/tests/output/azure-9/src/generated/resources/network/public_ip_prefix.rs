@@ -111,7 +111,6 @@ pub mod public_ip_prefix {
         name: &str,
         args: PublicIpPrefixArgs,
     ) -> PublicIpPrefixResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let ip_version_binding = args.ip_version.get_output(context);

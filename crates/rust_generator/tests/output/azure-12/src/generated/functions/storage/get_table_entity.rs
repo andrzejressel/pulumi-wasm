@@ -34,7 +34,6 @@ pub mod get_table_entity {
         context: &pulumi_gestalt_rust::Context,
         args: GetTableEntityArgs,
     ) -> GetTableEntityResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let partition_key_binding = args.partition_key.get_output(context);

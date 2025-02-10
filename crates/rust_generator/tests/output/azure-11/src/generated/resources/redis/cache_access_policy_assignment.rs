@@ -92,7 +92,6 @@ pub mod cache_access_policy_assignment {
         name: &str,
         args: CacheAccessPolicyAssignmentArgs,
     ) -> CacheAccessPolicyAssignmentResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let access_policy_name_binding = args.access_policy_name.get_output(context);

@@ -24,7 +24,6 @@ pub mod get_environments {
         context: &pulumi_gestalt_rust::Context,
         args: GetEnvironmentsArgs,
     ) -> GetEnvironmentsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let application_id_binding = args.application_id.get_output(context);

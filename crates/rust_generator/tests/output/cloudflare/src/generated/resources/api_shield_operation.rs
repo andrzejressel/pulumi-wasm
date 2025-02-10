@@ -57,7 +57,6 @@ pub mod api_shield_operation {
         name: &str,
         args: ApiShieldOperationArgs,
     ) -> ApiShieldOperationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let endpoint_binding = args.endpoint.get_output(context);

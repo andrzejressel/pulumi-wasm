@@ -63,7 +63,6 @@ pub mod aws_log_source {
         name: &str,
         args: AwsLogSourceArgs,
     ) -> AwsLogSourceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let source_binding = args.source.get_output(context);

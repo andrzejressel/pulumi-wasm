@@ -202,7 +202,6 @@ pub mod repository_workflow_config {
         name: &str,
         args: RepositoryWorkflowConfigArgs,
     ) -> RepositoryWorkflowConfigResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cron_schedule_binding = args.cron_schedule.get_output(context);

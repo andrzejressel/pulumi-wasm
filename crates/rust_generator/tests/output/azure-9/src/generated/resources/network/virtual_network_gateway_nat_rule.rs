@@ -158,7 +158,6 @@ pub mod virtual_network_gateway_nat_rule {
         name: &str,
         args: VirtualNetworkGatewayNatRuleArgs,
     ) -> VirtualNetworkGatewayNatRuleResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let external_mappings_binding = args.external_mappings.get_output(context);

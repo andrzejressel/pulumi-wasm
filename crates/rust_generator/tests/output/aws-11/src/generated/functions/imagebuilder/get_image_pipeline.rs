@@ -70,7 +70,6 @@ pub mod get_image_pipeline {
         context: &pulumi_gestalt_rust::Context,
         args: GetImagePipelineArgs,
     ) -> GetImagePipelineResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let arn_binding = args.arn.get_output(context);

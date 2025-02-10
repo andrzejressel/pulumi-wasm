@@ -35,7 +35,6 @@ pub mod get_taxonomy_iam_policy {
         context: &pulumi_gestalt_rust::Context,
         args: GetTaxonomyIamPolicyArgs,
     ) -> GetTaxonomyIamPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let project_binding = args.project.get_output(context);

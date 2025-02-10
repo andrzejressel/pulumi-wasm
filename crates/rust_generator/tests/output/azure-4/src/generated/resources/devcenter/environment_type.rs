@@ -74,7 +74,6 @@ pub mod environment_type {
         name: &str,
         args: EnvironmentTypeArgs,
     ) -> EnvironmentTypeResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let dev_center_id_binding = args.dev_center_id.get_output(context);

@@ -130,7 +130,6 @@ pub mod linked_service_cosmos_db {
         name: &str,
         args: LinkedServiceCosmosDbArgs,
     ) -> LinkedServiceCosmosDbResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let account_endpoint_binding = args.account_endpoint.get_output(context);

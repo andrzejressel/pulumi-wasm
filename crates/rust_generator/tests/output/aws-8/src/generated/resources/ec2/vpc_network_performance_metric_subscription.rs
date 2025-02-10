@@ -57,7 +57,6 @@ pub mod vpc_network_performance_metric_subscription {
         name: &str,
         args: VpcNetworkPerformanceMetricSubscriptionArgs,
     ) -> VpcNetworkPerformanceMetricSubscriptionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let destination_binding = args.destination.get_output(context);

@@ -56,7 +56,6 @@ pub mod get_policy_document {
         context: &pulumi_gestalt_rust::Context,
         args: GetPolicyDocumentArgs,
     ) -> GetPolicyDocumentResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let override_json_binding = args.override_json.get_output(context);

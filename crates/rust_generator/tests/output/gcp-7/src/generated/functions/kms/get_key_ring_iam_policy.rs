@@ -29,7 +29,6 @@ pub mod get_key_ring_iam_policy {
         context: &pulumi_gestalt_rust::Context,
         args: GetKeyRingIamPolicyArgs,
     ) -> GetKeyRingIamPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let key_ring_id_binding = args.key_ring_id.get_output(context);

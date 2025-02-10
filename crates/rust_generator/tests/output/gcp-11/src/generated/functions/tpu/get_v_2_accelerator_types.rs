@@ -30,7 +30,6 @@ pub mod get_v_2_accelerator_types {
         context: &pulumi_gestalt_rust::Context,
         args: GetV2AcceleratorTypesArgs,
     ) -> GetV2AcceleratorTypesResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let project_binding = args.project.get_output(context);

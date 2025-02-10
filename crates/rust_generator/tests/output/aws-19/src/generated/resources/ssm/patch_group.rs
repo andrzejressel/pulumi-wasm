@@ -52,7 +52,6 @@ pub mod patch_group {
         name: &str,
         args: PatchGroupArgs,
     ) -> PatchGroupResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let baseline_id_binding = args.baseline_id.get_output(context);

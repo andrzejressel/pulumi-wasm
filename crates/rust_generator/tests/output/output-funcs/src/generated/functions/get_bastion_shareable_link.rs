@@ -29,7 +29,6 @@ pub mod get_bastion_shareable_link {
         context: &pulumi_gestalt_rust::Context,
         args: GetBastionShareableLinkArgs,
     ) -> GetBastionShareableLinkResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let bastion_host_name_binding = args.bastion_host_name.get_output(context);

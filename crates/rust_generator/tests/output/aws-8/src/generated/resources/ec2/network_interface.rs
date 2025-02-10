@@ -195,7 +195,6 @@ pub mod network_interface {
         name: &str,
         args: NetworkInterfaceArgs,
     ) -> NetworkInterfaceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let attachments_binding = args.attachments.get_output(context);

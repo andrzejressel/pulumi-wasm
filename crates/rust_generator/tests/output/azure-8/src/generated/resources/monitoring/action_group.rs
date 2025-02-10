@@ -258,7 +258,6 @@ pub mod action_group {
         name: &str,
         args: ActionGroupArgs,
     ) -> ActionGroupResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let arm_role_receivers_binding = args.arm_role_receivers.get_output(context);

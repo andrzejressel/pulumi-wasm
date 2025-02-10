@@ -30,7 +30,6 @@ pub mod get_roles {
         context: &pulumi_gestalt_rust::Context,
         args: GetRolesArgs,
     ) -> GetRolesResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let name_regex_binding = args.name_regex.get_output(context);

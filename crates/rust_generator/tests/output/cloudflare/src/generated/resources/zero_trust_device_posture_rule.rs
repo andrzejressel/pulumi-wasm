@@ -106,7 +106,6 @@ pub mod zero_trust_device_posture_rule {
         name: &str,
         args: ZeroTrustDevicePostureRuleArgs,
     ) -> ZeroTrustDevicePostureRuleResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let account_id_binding = args.account_id.get_output(context);

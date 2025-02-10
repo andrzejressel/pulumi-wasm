@@ -74,7 +74,6 @@ pub mod permission_set_inline_policy {
         name: &str,
         args: PermissionSetInlinePolicyArgs,
     ) -> PermissionSetInlinePolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let inline_policy_binding = args.inline_policy.get_output(context);

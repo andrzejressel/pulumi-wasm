@@ -26,7 +26,6 @@ pub mod get_crypto_key_iam_policy {
         context: &pulumi_gestalt_rust::Context,
         args: GetCryptoKeyIamPolicyArgs,
     ) -> GetCryptoKeyIamPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let crypto_key_id_binding = args.crypto_key_id.get_output(context);

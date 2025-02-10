@@ -402,7 +402,6 @@ pub mod vpc_flow_logs_config {
         name: &str,
         args: VpcFlowLogsConfigArgs,
     ) -> VpcFlowLogsConfigResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let aggregation_interval_binding = args.aggregation_interval.get_output(context);

@@ -104,7 +104,6 @@ pub mod trusted_token_issuer {
         name: &str,
         args: TrustedTokenIssuerArgs,
     ) -> TrustedTokenIssuerResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let client_token_binding = args.client_token.get_output(context);

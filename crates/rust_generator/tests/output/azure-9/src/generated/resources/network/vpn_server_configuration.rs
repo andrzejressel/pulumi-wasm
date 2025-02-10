@@ -156,7 +156,6 @@ pub mod vpn_server_configuration {
         name: &str,
         args: VpnServerConfigurationArgs,
     ) -> VpnServerConfigurationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let azure_active_directory_authentications_binding = args

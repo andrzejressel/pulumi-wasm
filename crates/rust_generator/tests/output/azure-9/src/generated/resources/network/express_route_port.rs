@@ -132,7 +132,6 @@ pub mod express_route_port {
         name: &str,
         args: ExpressRoutePortArgs,
     ) -> ExpressRoutePortResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let bandwidth_in_gbps_binding = args.bandwidth_in_gbps.get_output(context);

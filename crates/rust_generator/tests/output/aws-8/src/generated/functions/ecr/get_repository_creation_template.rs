@@ -51,7 +51,6 @@ pub mod get_repository_creation_template {
         context: &pulumi_gestalt_rust::Context,
         args: GetRepositoryCreationTemplateArgs,
     ) -> GetRepositoryCreationTemplateResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let prefix_binding = args.prefix.get_output(context);

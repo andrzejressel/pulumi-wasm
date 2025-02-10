@@ -54,7 +54,6 @@ pub mod get_managed_prefix_list {
         context: &pulumi_gestalt_rust::Context,
         args: GetManagedPrefixListArgs,
     ) -> GetManagedPrefixListResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let filters_binding = args.filters.get_output(context);

@@ -159,7 +159,6 @@ pub mod environment_ec_2 {
         name: &str,
         args: EnvironmentEC2Args,
     ) -> EnvironmentEC2Result {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let automatic_stop_time_minutes_binding = args

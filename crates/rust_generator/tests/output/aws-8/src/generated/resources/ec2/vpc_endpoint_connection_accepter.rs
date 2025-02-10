@@ -74,7 +74,6 @@ pub mod vpc_endpoint_connection_accepter {
         name: &str,
         args: VpcEndpointConnectionAccepterArgs,
     ) -> VpcEndpointConnectionAccepterResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let vpc_endpoint_id_binding = args.vpc_endpoint_id.get_output(context);

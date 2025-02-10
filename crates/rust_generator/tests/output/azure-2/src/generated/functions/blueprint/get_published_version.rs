@@ -40,7 +40,6 @@ pub mod get_published_version {
         context: &pulumi_gestalt_rust::Context,
         args: GetPublishedVersionArgs,
     ) -> GetPublishedVersionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let blueprint_name_binding = args.blueprint_name.get_output(context);

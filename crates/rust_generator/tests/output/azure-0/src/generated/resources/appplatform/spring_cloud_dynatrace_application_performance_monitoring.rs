@@ -118,7 +118,6 @@ pub mod spring_cloud_dynatrace_application_performance_monitoring {
         name: &str,
         args: SpringCloudDynatraceApplicationPerformanceMonitoringArgs,
     ) -> SpringCloudDynatraceApplicationPerformanceMonitoringResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let api_token_binding = args.api_token.get_output(context);

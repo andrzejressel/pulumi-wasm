@@ -138,7 +138,6 @@ pub mod workspace_security_alert_policy {
         name: &str,
         args: WorkspaceSecurityAlertPolicyArgs,
     ) -> WorkspaceSecurityAlertPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let disabled_alerts_binding = args.disabled_alerts.get_output(context);

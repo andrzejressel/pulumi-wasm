@@ -316,7 +316,6 @@ pub mod record {
         name: &str,
         args: RecordArgs,
     ) -> RecordResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let aliases_binding = args.aliases.get_output(context);

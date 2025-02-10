@@ -121,7 +121,6 @@ pub mod share_file {
         name: &str,
         args: ShareFileArgs,
     ) -> ShareFileResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let content_disposition_binding = args.content_disposition.get_output(context);

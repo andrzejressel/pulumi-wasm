@@ -159,7 +159,6 @@ pub mod virtual_hub_route_table_route {
         name: &str,
         args: VirtualHubRouteTableRouteArgs,
     ) -> VirtualHubRouteTableRouteResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let destinations_binding = args.destinations.get_output(context);

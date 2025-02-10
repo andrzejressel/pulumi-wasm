@@ -47,7 +47,6 @@ pub mod get_contact_flow_module {
         context: &pulumi_gestalt_rust::Context,
         args: GetContactFlowModuleArgs,
     ) -> GetContactFlowModuleResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let contact_flow_module_id_binding = args

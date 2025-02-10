@@ -136,7 +136,6 @@ pub mod data_repository_association {
         name: &str,
         args: DataRepositoryAssociationArgs,
     ) -> DataRepositoryAssociationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let batch_import_meta_data_on_create_binding = args

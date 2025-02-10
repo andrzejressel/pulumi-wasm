@@ -62,7 +62,6 @@ pub mod lb_stickiness_policy {
         name: &str,
         args: LbStickinessPolicyArgs,
     ) -> LbStickinessPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cookie_duration_binding = args.cookie_duration.get_output(context);

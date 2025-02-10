@@ -185,7 +185,6 @@ pub mod windows_virtual_machine {
         name: &str,
         args: WindowsVirtualMachineArgs,
     ) -> WindowsVirtualMachineResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let allow_claim_binding = args.allow_claim.get_output(context);

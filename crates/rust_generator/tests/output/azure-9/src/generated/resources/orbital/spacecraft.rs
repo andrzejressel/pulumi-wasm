@@ -108,7 +108,6 @@ pub mod spacecraft {
         name: &str,
         args: SpacecraftArgs,
     ) -> SpacecraftResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let links_binding = args.links.get_output(context);

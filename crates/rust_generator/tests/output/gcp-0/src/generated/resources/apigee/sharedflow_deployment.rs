@@ -75,7 +75,6 @@ pub mod sharedflow_deployment {
         name: &str,
         args: SharedflowDeploymentArgs,
     ) -> SharedflowDeploymentResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let environment_binding = args.environment.get_output(context);

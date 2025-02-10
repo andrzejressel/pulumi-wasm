@@ -73,7 +73,6 @@ pub mod zone_dnssec {
         name: &str,
         args: ZoneDnssecArgs,
     ) -> ZoneDnssecResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let modified_on_binding = args.modified_on.get_output(context);

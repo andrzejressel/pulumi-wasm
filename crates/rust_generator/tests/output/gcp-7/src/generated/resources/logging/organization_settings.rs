@@ -107,7 +107,6 @@ pub mod organization_settings {
         name: &str,
         args: OrganizationSettingsArgs,
     ) -> OrganizationSettingsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let disable_default_sink_binding = args.disable_default_sink.get_output(context);

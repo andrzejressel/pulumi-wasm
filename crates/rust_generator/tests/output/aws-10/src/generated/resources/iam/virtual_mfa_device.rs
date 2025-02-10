@@ -80,7 +80,6 @@ pub mod virtual_mfa_device {
         name: &str,
         args: VirtualMfaDeviceArgs,
     ) -> VirtualMfaDeviceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let path_binding = args.path.get_output(context);

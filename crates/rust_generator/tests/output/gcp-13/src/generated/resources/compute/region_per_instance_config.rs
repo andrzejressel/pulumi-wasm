@@ -221,7 +221,6 @@ pub mod region_per_instance_config {
         name: &str,
         args: RegionPerInstanceConfigArgs,
     ) -> RegionPerInstanceConfigResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let minimal_action_binding = args.minimal_action.get_output(context);

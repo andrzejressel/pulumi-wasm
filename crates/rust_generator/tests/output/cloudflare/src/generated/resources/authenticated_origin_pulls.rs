@@ -117,7 +117,6 @@ pub mod authenticated_origin_pulls {
         name: &str,
         args: AuthenticatedOriginPullsArgs,
     ) -> AuthenticatedOriginPullsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let authenticated_origin_pulls_certificate_binding = args

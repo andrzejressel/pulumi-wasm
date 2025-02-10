@@ -93,7 +93,6 @@ pub mod kubernetes_fleet_manager {
         name: &str,
         args: KubernetesFleetManagerArgs,
     ) -> KubernetesFleetManagerResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let hub_profile_binding = args.hub_profile.get_output(context);

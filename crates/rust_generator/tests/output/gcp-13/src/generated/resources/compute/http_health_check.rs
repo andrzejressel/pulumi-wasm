@@ -173,7 +173,6 @@ pub mod http_health_check {
         name: &str,
         args: HttpHealthCheckArgs,
     ) -> HttpHealthCheckResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let check_interval_sec_binding = args.check_interval_sec.get_output(context);

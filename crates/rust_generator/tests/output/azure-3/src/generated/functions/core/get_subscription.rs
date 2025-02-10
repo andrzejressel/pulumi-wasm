@@ -37,7 +37,6 @@ pub mod get_subscription {
         context: &pulumi_gestalt_rust::Context,
         args: GetSubscriptionArgs,
     ) -> GetSubscriptionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let subscription_id_binding = args.subscription_id.get_output(context);

@@ -391,7 +391,6 @@ pub mod s_3_endpoint {
         name: &str,
         args: S3EndpointArgs,
     ) -> S3EndpointResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let add_column_name_binding = args.add_column_name.get_output(context);

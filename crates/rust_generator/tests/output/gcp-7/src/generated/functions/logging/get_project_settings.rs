@@ -40,7 +40,6 @@ pub mod get_project_settings {
         context: &pulumi_gestalt_rust::Context,
         args: GetProjectSettingsArgs,
     ) -> GetProjectSettingsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let project_binding = args.project.get_output(context);

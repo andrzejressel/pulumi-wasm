@@ -329,7 +329,6 @@ pub mod launch_template {
         name: &str,
         args: LaunchTemplateArgs,
     ) -> LaunchTemplateResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let block_device_mappings_binding = args

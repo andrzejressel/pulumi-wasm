@@ -84,7 +84,6 @@ pub mod consumers_iam_policy {
         name: &str,
         args: ConsumersIamPolicyArgs,
     ) -> ConsumersIamPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let consumer_project_binding = args.consumer_project.get_output(context);

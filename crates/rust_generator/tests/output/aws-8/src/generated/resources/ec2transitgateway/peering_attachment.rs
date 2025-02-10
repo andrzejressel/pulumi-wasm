@@ -101,7 +101,6 @@ pub mod peering_attachment {
         name: &str,
         args: PeeringAttachmentArgs,
     ) -> PeeringAttachmentResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let options_binding = args.options.get_output(context);

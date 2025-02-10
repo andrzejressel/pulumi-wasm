@@ -75,7 +75,6 @@ pub mod license_grant {
         name: &str,
         args: LicenseGrantArgs,
     ) -> LicenseGrantResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let allowed_operations_binding = args.allowed_operations.get_output(context);

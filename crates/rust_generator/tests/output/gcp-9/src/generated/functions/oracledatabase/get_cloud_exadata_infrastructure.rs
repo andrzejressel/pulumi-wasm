@@ -53,7 +53,6 @@ pub mod get_cloud_exadata_infrastructure {
         context: &pulumi_gestalt_rust::Context,
         args: GetCloudExadataInfrastructureArgs,
     ) -> GetCloudExadataInfrastructureResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cloud_exadata_infrastructure_id_binding = args

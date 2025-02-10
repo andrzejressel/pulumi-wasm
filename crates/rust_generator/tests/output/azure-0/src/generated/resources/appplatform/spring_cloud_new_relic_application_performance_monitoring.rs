@@ -127,7 +127,6 @@ pub mod spring_cloud_new_relic_application_performance_monitoring {
         name: &str,
         args: SpringCloudNewRelicApplicationPerformanceMonitoringArgs,
     ) -> SpringCloudNewRelicApplicationPerformanceMonitoringResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let agent_enabled_binding = args.agent_enabled.get_output(context);

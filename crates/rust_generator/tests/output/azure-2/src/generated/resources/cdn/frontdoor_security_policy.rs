@@ -150,7 +150,6 @@ pub mod frontdoor_security_policy {
         name: &str,
         args: FrontdoorSecurityPolicyArgs,
     ) -> FrontdoorSecurityPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cdn_frontdoor_profile_id_binding = args

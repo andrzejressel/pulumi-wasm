@@ -128,7 +128,6 @@ pub mod spectrum_application {
         name: &str,
         args: SpectrumApplicationArgs,
     ) -> SpectrumApplicationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let argo_smart_routing_binding = args.argo_smart_routing.get_output(context);

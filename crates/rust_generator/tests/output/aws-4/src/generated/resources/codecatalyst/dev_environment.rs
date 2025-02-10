@@ -107,7 +107,6 @@ pub mod dev_environment {
         name: &str,
         args: DevEnvironmentArgs,
     ) -> DevEnvironmentResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let alias_binding = args.alias.get_output(context);

@@ -12,7 +12,6 @@ struct TemplateModel<'a> {
     resources: String,
     types: String,
     constants: Vec<String>,
-    pulumi_gestalt_wit: String,
     pulumi_gestalt_version: &'a str,
     provider_name: &'a str,
     provider_version: &'a str,
@@ -33,8 +32,6 @@ pub(crate) fn generate(
     constants: Vec<String>,
     package: &Package,
 ) -> anyhow::Result<String> {
-    let wit = wit::get_dependencies(&package.name)?;
-
     let provider = WasmProviderVersion {
         version: package.version.clone(),
         plugin_download_url: package.plugin_download_url.clone(),
@@ -47,7 +44,6 @@ pub(crate) fn generate(
         resources,
         types,
         constants,
-        pulumi_gestalt_wit: wit,
         pulumi_gestalt_version: get_main_version(),
         provider_name: &package.name,
         provider_version: &package.version,

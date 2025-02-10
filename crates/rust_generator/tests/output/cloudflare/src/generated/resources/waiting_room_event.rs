@@ -126,7 +126,6 @@ pub mod waiting_room_event {
         name: &str,
         args: WaitingRoomEventArgs,
     ) -> WaitingRoomEventResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let custom_page_html_binding = args.custom_page_html.get_output(context);

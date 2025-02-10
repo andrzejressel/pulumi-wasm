@@ -194,7 +194,6 @@ pub mod next_generation_firewall_virtual_network_panorama {
         name: &str,
         args: NextGenerationFirewallVirtualNetworkPanoramaArgs,
     ) -> NextGenerationFirewallVirtualNetworkPanoramaResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let destination_nats_binding = args.destination_nats.get_output(context);

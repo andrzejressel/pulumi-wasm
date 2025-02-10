@@ -71,7 +71,6 @@ pub mod drt_access_role_arn_association {
         name: &str,
         args: DrtAccessRoleArnAssociationArgs,
     ) -> DrtAccessRoleArnAssociationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let role_arn_binding = args.role_arn.get_output(context);

@@ -54,7 +54,6 @@ pub mod custom_hostname_fallback_origin {
         name: &str,
         args: CustomHostnameFallbackOriginArgs,
     ) -> CustomHostnameFallbackOriginResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let origin_binding = args.origin.get_output(context);

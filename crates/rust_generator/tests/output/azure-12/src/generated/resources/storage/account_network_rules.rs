@@ -151,7 +151,6 @@ pub mod account_network_rules {
         name: &str,
         args: AccountNetworkRulesArgs,
     ) -> AccountNetworkRulesResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let bypasses_binding = args.bypasses.get_output(context);

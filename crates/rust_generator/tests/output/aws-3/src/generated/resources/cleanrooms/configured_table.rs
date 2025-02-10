@@ -101,7 +101,6 @@ pub mod configured_table {
         name: &str,
         args: ConfiguredTableArgs,
     ) -> ConfiguredTableResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let allowed_columns_binding = args.allowed_columns.get_output(context);

@@ -154,7 +154,6 @@ pub mod ai_services {
         name: &str,
         args: AIServicesArgs,
     ) -> AIServicesResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let custom_subdomain_name_binding = args

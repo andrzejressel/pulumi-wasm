@@ -104,7 +104,6 @@ pub mod data_lake_gen_2_path {
         name: &str,
         args: DataLakeGen2PathArgs,
     ) -> DataLakeGen2PathResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let aces_binding = args.aces.get_output(context);

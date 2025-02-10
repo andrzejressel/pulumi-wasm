@@ -32,7 +32,6 @@ pub mod get_db_servers {
         context: &pulumi_gestalt_rust::Context,
         args: GetDbServersArgs,
     ) -> GetDbServersResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cloud_exadata_infrastructure_name_binding = args

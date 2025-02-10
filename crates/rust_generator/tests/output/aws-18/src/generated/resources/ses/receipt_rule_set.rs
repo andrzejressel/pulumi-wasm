@@ -47,7 +47,6 @@ pub mod receipt_rule_set {
         name: &str,
         args: ReceiptRuleSetArgs,
     ) -> ReceiptRuleSetResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let rule_set_name_binding = args.rule_set_name.get_output(context);

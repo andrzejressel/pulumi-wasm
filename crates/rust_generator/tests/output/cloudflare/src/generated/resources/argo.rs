@@ -59,7 +59,6 @@ pub mod argo {
         name: &str,
         args: ArgoArgs,
     ) -> ArgoResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let smart_routing_binding = args.smart_routing.get_output(context);

@@ -100,7 +100,6 @@ pub mod integration_account_partner {
         name: &str,
         args: IntegrationAccountPartnerArgs,
     ) -> IntegrationAccountPartnerResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let business_identities_binding = args.business_identities.get_output(context);

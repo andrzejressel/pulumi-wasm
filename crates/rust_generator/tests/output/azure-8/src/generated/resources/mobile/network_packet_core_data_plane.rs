@@ -138,7 +138,6 @@ pub mod network_packet_core_data_plane {
         name: &str,
         args: NetworkPacketCoreDataPlaneArgs,
     ) -> NetworkPacketCoreDataPlaneResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let location_binding = args.location.get_output(context);

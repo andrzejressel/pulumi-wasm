@@ -108,7 +108,6 @@ pub mod shared_access_policy {
         name: &str,
         args: SharedAccessPolicyArgs,
     ) -> SharedAccessPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let device_connect_binding = args.device_connect.get_output(context);

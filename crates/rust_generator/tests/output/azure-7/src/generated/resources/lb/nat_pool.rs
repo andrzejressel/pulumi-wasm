@@ -141,7 +141,6 @@ pub mod nat_pool {
         name: &str,
         args: NatPoolArgs,
     ) -> NatPoolResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let backend_port_binding = args.backend_port.get_output(context);

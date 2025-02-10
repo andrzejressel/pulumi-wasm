@@ -66,7 +66,6 @@ pub mod disk_async_replication {
         name: &str,
         args: DiskAsyncReplicationArgs,
     ) -> DiskAsyncReplicationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let primary_disk_binding = args.primary_disk.get_output(context);

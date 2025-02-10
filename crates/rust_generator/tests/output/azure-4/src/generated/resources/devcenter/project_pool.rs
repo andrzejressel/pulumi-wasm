@@ -157,7 +157,6 @@ pub mod project_pool {
         name: &str,
         args: ProjectPoolArgs,
     ) -> ProjectPoolResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let dev_box_definition_name_binding = args

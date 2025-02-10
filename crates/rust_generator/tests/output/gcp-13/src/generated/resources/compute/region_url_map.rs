@@ -779,7 +779,6 @@ pub mod region_url_map {
         name: &str,
         args: RegionUrlMapArgs,
     ) -> RegionUrlMapResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let default_route_action_binding = args.default_route_action.get_output(context);

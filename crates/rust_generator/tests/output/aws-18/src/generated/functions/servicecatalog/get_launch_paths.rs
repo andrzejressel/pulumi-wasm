@@ -32,7 +32,6 @@ pub mod get_launch_paths {
         context: &pulumi_gestalt_rust::Context,
         args: GetLaunchPathsArgs,
     ) -> GetLaunchPathsResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let accept_language_binding = args.accept_language.get_output(context);

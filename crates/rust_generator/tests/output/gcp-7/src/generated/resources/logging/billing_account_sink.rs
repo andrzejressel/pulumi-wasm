@@ -134,7 +134,6 @@ pub mod billing_account_sink {
         name: &str,
         args: BillingAccountSinkArgs,
     ) -> BillingAccountSinkResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let bigquery_options_binding = args.bigquery_options.get_output(context);

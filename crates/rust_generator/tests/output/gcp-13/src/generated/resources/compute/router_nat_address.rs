@@ -104,7 +104,6 @@ pub mod router_nat_address {
         name: &str,
         args: RouterNatAddressArgs,
     ) -> RouterNatAddressResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let drain_nat_ips_binding = args.drain_nat_ips.get_output(context);

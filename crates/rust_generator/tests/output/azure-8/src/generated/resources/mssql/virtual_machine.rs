@@ -179,7 +179,6 @@ pub mod virtual_machine {
         name: &str,
         args: VirtualMachineArgs,
     ) -> VirtualMachineResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let assessment_binding = args.assessment.get_output(context);

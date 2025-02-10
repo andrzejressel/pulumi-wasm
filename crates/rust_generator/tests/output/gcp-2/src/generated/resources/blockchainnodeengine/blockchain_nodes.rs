@@ -187,7 +187,6 @@ pub mod blockchain_nodes {
         name: &str,
         args: BlockchainNodesArgs,
     ) -> BlockchainNodesResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let blockchain_node_id_binding = args.blockchain_node_id.get_output(context);

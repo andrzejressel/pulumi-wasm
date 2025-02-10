@@ -88,7 +88,6 @@ pub mod subscription_template_deployment {
         name: &str,
         args: SubscriptionTemplateDeploymentArgs,
     ) -> SubscriptionTemplateDeploymentResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let debug_level_binding = args.debug_level.get_output(context);

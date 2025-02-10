@@ -84,7 +84,6 @@ pub mod data_connector_aws_cloud_trail {
         name: &str,
         args: DataConnectorAwsCloudTrailArgs,
     ) -> DataConnectorAwsCloudTrailResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let aws_role_arn_binding = args.aws_role_arn.get_output(context);

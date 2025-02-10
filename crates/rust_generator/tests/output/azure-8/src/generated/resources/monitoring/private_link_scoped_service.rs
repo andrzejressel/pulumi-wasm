@@ -89,7 +89,6 @@ pub mod private_link_scoped_service {
         name: &str,
         args: PrivateLinkScopedServiceArgs,
     ) -> PrivateLinkScopedServiceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let linked_resource_id_binding = args.linked_resource_id.get_output(context);

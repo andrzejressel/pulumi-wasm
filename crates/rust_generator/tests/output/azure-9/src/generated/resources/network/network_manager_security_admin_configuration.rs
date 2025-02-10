@@ -95,7 +95,6 @@ pub mod network_manager_security_admin_configuration {
         name: &str,
         args: NetworkManagerSecurityAdminConfigurationArgs,
     ) -> NetworkManagerSecurityAdminConfigurationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let apply_on_network_intent_policy_based_services_binding = args

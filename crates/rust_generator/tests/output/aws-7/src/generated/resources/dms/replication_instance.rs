@@ -229,7 +229,6 @@ pub mod replication_instance {
         name: &str,
         args: ReplicationInstanceArgs,
     ) -> ReplicationInstanceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let allocated_storage_binding = args.allocated_storage.get_output(context);

@@ -183,7 +183,6 @@ pub mod router {
         name: &str,
         args: RouterArgs,
     ) -> RouterResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let bgp_binding = args.bgp.get_output(context);

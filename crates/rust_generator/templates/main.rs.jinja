@@ -15,18 +15,6 @@ pub mod constants {
 {% endfor %}
 }
 
-mod bindings {
-    pulumi_gestalt_rust::__private::wit_bindgen::generate!({
-        // the name of the world in the `*.wit` input file
-        inline: r"
-            {{ pulumi_gestalt_wit|safe }}
-        ",
-        with: {
-            "component:pulumi-gestalt/output-interface@{{pulumi_gestalt_version}}": pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::output_interface
-        }
-    });
-}
-
 #[link_section = "pulumi_gestalt_provider::{{ provider_name }}"]
 #[no_mangle]
 #[cfg(target_arch = "wasm32")]

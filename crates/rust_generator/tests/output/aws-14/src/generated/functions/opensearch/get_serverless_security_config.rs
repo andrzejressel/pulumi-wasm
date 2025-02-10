@@ -43,7 +43,6 @@ pub mod get_serverless_security_config {
         context: &pulumi_gestalt_rust::Context,
         args: GetServerlessSecurityConfigArgs,
     ) -> GetServerlessSecurityConfigResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let id_binding = args.id.get_output(context);

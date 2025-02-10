@@ -43,7 +43,6 @@ pub mod get_application {
         context: &pulumi_gestalt_rust::Context,
         args: GetApplicationArgs,
     ) -> GetApplicationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let application_arn_binding = args.application_arn.get_output(context);

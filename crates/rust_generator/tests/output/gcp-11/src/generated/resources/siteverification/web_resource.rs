@@ -114,7 +114,6 @@ pub mod web_resource {
         name: &str,
         args: WebResourceArgs,
     ) -> WebResourceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let site_binding = args.site.get_output(context);

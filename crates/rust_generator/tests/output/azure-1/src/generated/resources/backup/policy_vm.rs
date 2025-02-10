@@ -186,7 +186,6 @@ pub mod policy_vm {
         name: &str,
         args: PolicyVMArgs,
     ) -> PolicyVMResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let backup_binding = args.backup.get_output(context);

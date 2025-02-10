@@ -81,7 +81,6 @@ pub mod instance_state {
         name: &str,
         args: InstanceStateArgs,
     ) -> InstanceStateResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let force_binding = args.force.get_output(context);

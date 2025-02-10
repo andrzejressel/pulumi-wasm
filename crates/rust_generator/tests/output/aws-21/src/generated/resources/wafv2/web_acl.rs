@@ -125,7 +125,6 @@ pub mod web_acl {
         name: &str,
         args: WebAclArgs,
     ) -> WebAclResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let association_config_binding = args.association_config.get_output(context);

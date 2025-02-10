@@ -32,7 +32,6 @@ pub mod get_auth_policy {
         context: &pulumi_gestalt_rust::Context,
         args: GetAuthPolicyArgs,
     ) -> GetAuthPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let policy_binding = args.policy.get_output(context);

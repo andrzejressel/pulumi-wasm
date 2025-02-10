@@ -70,7 +70,6 @@ pub mod keyvaluestore_key {
         name: &str,
         args: KeyvaluestoreKeyArgs,
     ) -> KeyvaluestoreKeyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let key_binding = args.key.get_output(context);

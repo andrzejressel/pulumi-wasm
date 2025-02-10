@@ -55,7 +55,6 @@ pub mod get_listener {
         context: &pulumi_gestalt_rust::Context,
         args: GetListenerArgs,
     ) -> GetListenerResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let listener_identifier_binding = args.listener_identifier.get_output(context);

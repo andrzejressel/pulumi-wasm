@@ -61,7 +61,6 @@ pub mod main_route_table_association {
         name: &str,
         args: MainRouteTableAssociationArgs,
     ) -> MainRouteTableAssociationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let route_table_id_binding = args.route_table_id.get_output(context);

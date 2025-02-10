@@ -112,7 +112,6 @@ pub mod reserved_cache_node {
         name: &str,
         args: ReservedCacheNodeArgs,
     ) -> ReservedCacheNodeResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cache_node_count_binding = args.cache_node_count.get_output(context);

@@ -71,7 +71,6 @@ pub mod drt_access_log_bucket_association {
         name: &str,
         args: DrtAccessLogBucketAssociationArgs,
     ) -> DrtAccessLogBucketAssociationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let log_bucket_binding = args.log_bucket.get_output(context);

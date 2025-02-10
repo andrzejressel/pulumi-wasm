@@ -139,7 +139,6 @@ pub mod v_2_project_mute_config {
         name: &str,
         args: V2ProjectMuteConfigArgs,
     ) -> V2ProjectMuteConfigResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let description_binding = args.description.get_output(context);

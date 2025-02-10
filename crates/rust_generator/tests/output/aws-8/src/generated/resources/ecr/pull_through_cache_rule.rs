@@ -66,7 +66,6 @@ pub mod pull_through_cache_rule {
         name: &str,
         args: PullThroughCacheRuleArgs,
     ) -> PullThroughCacheRuleResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let credential_arn_binding = args.credential_arn.get_output(context);

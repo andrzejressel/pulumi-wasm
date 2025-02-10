@@ -147,7 +147,6 @@ pub mod router_interface {
         name: &str,
         args: RouterInterfaceArgs,
     ) -> RouterInterfaceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let interconnect_attachment_binding = args

@@ -156,7 +156,6 @@ pub mod frontdoor_custom_domain_association {
         name: &str,
         args: FrontdoorCustomDomainAssociationArgs,
     ) -> FrontdoorCustomDomainAssociationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cdn_frontdoor_custom_domain_id_binding = args

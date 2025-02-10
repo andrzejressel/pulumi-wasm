@@ -707,7 +707,6 @@ pub mod router_peer {
         name: &str,
         args: RouterPeerArgs,
     ) -> RouterPeerResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let advertise_mode_binding = args.advertise_mode.get_output(context);

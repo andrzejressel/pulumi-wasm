@@ -160,7 +160,6 @@ pub mod server_certificate {
         name: &str,
         args: ServerCertificateArgs,
     ) -> ServerCertificateResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let certificate_body_binding = args.certificate_body.get_output(context);

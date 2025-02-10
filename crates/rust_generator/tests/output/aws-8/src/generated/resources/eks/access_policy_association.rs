@@ -70,7 +70,6 @@ pub mod access_policy_association {
         name: &str,
         args: AccessPolicyAssociationArgs,
     ) -> AccessPolicyAssociationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let access_scope_binding = args.access_scope.get_output(context);

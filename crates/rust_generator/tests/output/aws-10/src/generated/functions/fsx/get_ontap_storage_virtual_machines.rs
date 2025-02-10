@@ -36,7 +36,6 @@ pub mod get_ontap_storage_virtual_machines {
         context: &pulumi_gestalt_rust::Context,
         args: GetOntapStorageVirtualMachinesArgs,
     ) -> GetOntapStorageVirtualMachinesResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let filters_binding = args.filters.get_output(context);

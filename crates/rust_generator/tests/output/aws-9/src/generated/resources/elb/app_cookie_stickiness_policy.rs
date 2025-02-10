@@ -85,7 +85,6 @@ pub mod app_cookie_stickiness_policy {
         name: &str,
         args: AppCookieStickinessPolicyArgs,
     ) -> AppCookieStickinessPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let cookie_name_binding = args.cookie_name.get_output(context);

@@ -203,7 +203,6 @@ pub mod data_policy {
         name: &str,
         args: DataPolicyArgs,
     ) -> DataPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let data_masking_policy_binding = args.data_masking_policy.get_output(context);

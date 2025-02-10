@@ -92,7 +92,6 @@ pub mod event_hub_consumer_group {
         name: &str,
         args: EventHubConsumerGroupArgs,
     ) -> EventHubConsumerGroupResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let eventhub_name_binding = args.eventhub_name.get_output(context);

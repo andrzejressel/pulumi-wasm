@@ -177,7 +177,6 @@ pub mod network_endpoint_list {
         name: &str,
         args: NetworkEndpointListArgs,
     ) -> NetworkEndpointListResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let network_endpoint_group_binding = args

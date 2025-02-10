@@ -78,7 +78,6 @@ pub mod vpc_connector {
         name: &str,
         args: VpcConnectorArgs,
     ) -> VpcConnectorResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let security_groups_binding = args.security_groups.get_output(context);

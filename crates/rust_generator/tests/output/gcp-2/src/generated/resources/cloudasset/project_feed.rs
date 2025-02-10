@@ -166,7 +166,6 @@ pub mod project_feed {
         name: &str,
         args: ProjectFeedArgs,
     ) -> ProjectFeedResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let asset_names_binding = args.asset_names.get_output(context);

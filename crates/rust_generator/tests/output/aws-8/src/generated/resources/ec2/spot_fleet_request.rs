@@ -403,7 +403,6 @@ pub mod spot_fleet_request {
         name: &str,
         args: SpotFleetRequestArgs,
     ) -> SpotFleetRequestResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let allocation_strategy_binding = args.allocation_strategy.get_output(context);

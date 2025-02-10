@@ -72,7 +72,6 @@ pub mod project_metadata_item {
         name: &str,
         args: ProjectMetadataItemArgs,
     ) -> ProjectMetadataItemResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let key_binding = args.key.get_output(context);

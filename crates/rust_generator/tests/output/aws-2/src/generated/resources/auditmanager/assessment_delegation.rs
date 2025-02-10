@@ -80,7 +80,6 @@ pub mod assessment_delegation {
         name: &str,
         args: AssessmentDelegationArgs,
     ) -> AssessmentDelegationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let assessment_id_binding = args.assessment_id.get_output(context);

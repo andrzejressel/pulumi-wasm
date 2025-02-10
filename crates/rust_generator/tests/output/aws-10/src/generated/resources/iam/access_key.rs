@@ -108,7 +108,6 @@ pub mod access_key {
         name: &str,
         args: AccessKeyArgs,
     ) -> AccessKeyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let pgp_key_binding = args.pgp_key.get_output(context);

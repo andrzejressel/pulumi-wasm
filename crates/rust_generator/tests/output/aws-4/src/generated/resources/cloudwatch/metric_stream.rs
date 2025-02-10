@@ -266,7 +266,6 @@ pub mod metric_stream {
         name: &str,
         args: MetricStreamArgs,
     ) -> MetricStreamResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let exclude_filters_binding = args.exclude_filters.get_output(context);

@@ -260,7 +260,6 @@ pub mod listing_iam_policy {
         name: &str,
         args: ListingIamPolicyArgs,
     ) -> ListingIamPolicyResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let data_exchange_id_binding = args.data_exchange_id.get_output(context);

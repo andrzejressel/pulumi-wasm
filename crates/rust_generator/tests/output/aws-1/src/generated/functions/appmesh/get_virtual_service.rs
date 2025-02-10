@@ -49,7 +49,6 @@ pub mod get_virtual_service {
         context: &pulumi_gestalt_rust::Context,
         args: GetVirtualServiceArgs,
     ) -> GetVirtualServiceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let mesh_name_binding = args.mesh_name.get_output(context);

@@ -97,7 +97,6 @@ pub mod vpc_endpoint_connection_notification {
         name: &str,
         args: VpcEndpointConnectionNotificationArgs,
     ) -> VpcEndpointConnectionNotificationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let connection_events_binding = args.connection_events.get_output(context);

@@ -156,7 +156,6 @@ pub mod glossary_term {
         name: &str,
         args: GlossaryTermArgs,
     ) -> GlossaryTermResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let domain_identifier_binding = args.domain_identifier.get_output(context);

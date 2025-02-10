@@ -119,7 +119,6 @@ pub mod iot_hub_device_update_instance {
         name: &str,
         args: IotHubDeviceUpdateInstanceArgs,
     ) -> IotHubDeviceUpdateInstanceResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let device_update_account_id_binding = args

@@ -80,7 +80,6 @@ pub mod nat_gateway_public_ip_association {
         name: &str,
         args: NatGatewayPublicIpAssociationArgs,
     ) -> NatGatewayPublicIpAssociationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let nat_gateway_id_binding = args.nat_gateway_id.get_output(context);

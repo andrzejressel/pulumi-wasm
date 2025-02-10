@@ -208,7 +208,6 @@ pub mod core_network {
         name: &str,
         args: CoreNetworkArgs,
     ) -> CoreNetworkResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let base_policy_document_binding = args.base_policy_document.get_output(context);

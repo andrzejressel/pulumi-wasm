@@ -91,7 +91,6 @@ pub mod monitored_project {
         name: &str,
         args: MonitoredProjectArgs,
     ) -> MonitoredProjectResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let metrics_scope_binding = args.metrics_scope.get_output(context);

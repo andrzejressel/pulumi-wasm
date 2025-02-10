@@ -83,7 +83,6 @@ pub mod event_api_destination {
         name: &str,
         args: EventApiDestinationArgs,
     ) -> EventApiDestinationResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let connection_arn_binding = args.connection_arn.get_output(context);

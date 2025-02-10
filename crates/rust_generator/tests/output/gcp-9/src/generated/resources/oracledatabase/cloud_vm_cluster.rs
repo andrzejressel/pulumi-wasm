@@ -274,7 +274,6 @@ pub mod cloud_vm_cluster {
         name: &str,
         args: CloudVmClusterArgs,
     ) -> CloudVmClusterResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let backup_subnet_cidr_binding = args.backup_subnet_cidr.get_output(context);

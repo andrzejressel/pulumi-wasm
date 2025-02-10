@@ -216,7 +216,6 @@ pub mod custom_db_engine_version {
         name: &str,
         args: CustomDbEngineVersionArgs,
     ) -> CustomDbEngineVersionResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let database_installation_files_s3_bucket_name_binding = args

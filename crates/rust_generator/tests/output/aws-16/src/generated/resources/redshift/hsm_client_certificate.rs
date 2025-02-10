@@ -66,7 +66,6 @@ pub mod hsm_client_certificate {
         name: &str,
         args: HsmClientCertificateArgs,
     ) -> HsmClientCertificateResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let hsm_client_certificate_identifier_binding = args

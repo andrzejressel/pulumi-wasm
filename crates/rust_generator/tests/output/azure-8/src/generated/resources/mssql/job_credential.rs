@@ -101,7 +101,6 @@ pub mod job_credential {
         name: &str,
         args: JobCredentialArgs,
     ) -> JobCredentialResult {
-        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         use pulumi_gestalt_rust::{GestaltCompositeOutput, GestaltContext, GestaltOutput};
         let job_agent_id_binding = args.job_agent_id.get_output(context);
