@@ -1,5 +1,4 @@
 use crate::model::Package;
-use crate::output::wit;
 use crate::utils::get_main_version;
 use anyhow::Context;
 use rinja::Template;

@@ -100,14 +100,16 @@ regenerate-generator-tests $DO_NOT_COMPILE="true":
 publish:
     cargo hack publish -p pulumi_gestalt_wit --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_proto --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_core --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_rust_common --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_grpc_connection --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_rust_adapter --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_rust_adapter_wasm --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_rust_adapter_native_simple --all-features --no-dev-deps --allow-dirty
+    cargo hack publish -p pulumi_gestalt_rust_adapter_native --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_rust --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_generator --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_build --all-features --no-dev-deps --allow-dirty
-    cargo hack publish -p pulumi_gestalt_core --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_wasm_component_creator --all-features --no-dev-deps --allow-dirty
     cargo hack publish -p pulumi_gestalt_wasm_runner --all-features --no-dev-deps --allow-dirty
 
@@ -158,7 +160,8 @@ rust-docs:
         -p pulumi_gestalt_rust \
         -p pulumi_gestalt_build \
         -p pulumi_gestalt_rust_adapter \
-        -p pulumi_gestalt_rust_adapter_wasm \
+        -p pulumi_gestalt_rust_adapter_native \
+        -p pulumi_gestalt_rust_adapter_native_simple \
         -p pulumi_gestalt_providers_aws_mini \
         -p pulumi_gestalt_providers_azure_mini \
         -p pulumi_gestalt_providers_cloudflare \

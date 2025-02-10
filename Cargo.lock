@@ -2585,6 +2585,31 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_gestalt_rust_adapter_native"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "pulumi_gestalt_core",
+ "pulumi_gestalt_grpc_connection",
+ "pulumi_gestalt_proto",
+ "pulumi_gestalt_rust_adapter_native_simple",
+ "serde_json",
+ "uuid",
+]
+
+[[package]]
+name = "pulumi_gestalt_rust_adapter_native_simple"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "pulumi_gestalt_core",
+ "pulumi_gestalt_grpc_connection",
+ "pulumi_gestalt_proto",
+ "serde_json",
+ "uuid",
+]
+
+[[package]]
 name = "pulumi_gestalt_rust_adapter_wasm"
 version = "0.0.0-DEV"
 dependencies = [
@@ -2661,10 +2686,7 @@ dependencies = [
  "cbindgen",
  "libc",
  "pulumi_gestalt_core",
- "pulumi_gestalt_grpc_connection",
- "pulumi_gestalt_proto",
- "serde_json",
- "uuid",
+ "pulumi_gestalt_rust_adapter_native_simple",
 ]
 
 [[package]]
