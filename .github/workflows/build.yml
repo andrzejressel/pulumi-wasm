@@ -115,6 +115,12 @@ jobs:
         with:
           lookup-only: "true"
           save-if: "false"
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v3
+        with:
+          version: "25.3"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: protoc --version
       - run: just test-provider-compilation ${{ matrix.provider }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
