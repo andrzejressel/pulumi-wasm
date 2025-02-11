@@ -1,0 +1,17 @@
+set windows-shell := ["pwsh.exe", "-c"]
+binary := "../../target/debug/pulumi_gestalt_example_native"
+
+run:
+    {{binary}}
+
+[windows]
+local-test:
+    #!pwsh
+    Set-StrictMode -Version Latest
+    $ErrorActionPreference = "Stop"
+    $PSNativeCommandUseErrorActionPreference = $true
+
+    cargo build -p pulumi_gestalt_example_native
+    $env:PULUMI_CONFIG_PASSPHRASE=" "
+    pulumi destroy -y
+    pulumi up -y

@@ -12,6 +12,7 @@ pub use input_or_output::InputOrOutput;
 pub use oneof::OneOf2;
 pub use oneof::OneOf3;
 pub use oneof::OneOf4;
+
 pub use pulumi_gestalt_rust_adapter::GestaltCompositeOutput;
 pub use pulumi_gestalt_rust_adapter::GestaltContext;
 pub use pulumi_gestalt_rust_adapter::GestaltOutput;
@@ -19,8 +20,15 @@ pub use pulumi_gestalt_rust_adapter::InvokeResourceRequest;
 pub use pulumi_gestalt_rust_adapter::RegisterResourceRequest;
 pub use pulumi_gestalt_rust_adapter::ResourceRequestObjectField;
 
+#[cfg(target_arch = "wasm32")]
 pub type Context = pulumi_gestalt_rust_adapter_wasm::WasmContext;
+#[cfg(target_arch = "wasm32")]
 pub type Output<T> = pulumi_gestalt_rust_adapter_wasm::WasmOutput<T>;
+
+#[cfg(not(target_arch = "wasm32"))]
+pub type Context = pulumi_gestalt_rust_adapter_native::NativeContext;
+#[cfg(not(target_arch = "wasm32"))]
+pub type Output<T> = pulumi_gestalt_rust_adapter_native::NativeOutput<T>;
 
 /// Add the given [Output] to [Stack Output](https://www.pulumi.com/tutorials/building-with-pulumi/stack-outputs/)
 pub fn add_export<T>(name: &str, output: &Output<T>) {
@@ -62,9 +70,9 @@ macro_rules! include_provider {
 /// }
 /// ```
 #[macro_export]
-#[cfg(target_arch = "wasm32")]
 macro_rules! pulumi_main {
     () => {
+        #[cfg(target_arch = "wasm32")]
         #[export_name = "component:pulumi-gestalt-external/pulumi-main@0.0.0-STABLE-DEV#main"]
         unsafe extern "C" fn __exported(arg: i32) {
             let mapped = arg as u8;
@@ -74,6 +82,13 @@ macro_rules! pulumi_main {
                 |engine| pulumi_main(&engine),
             )
             .unwrap();
+        }
+
+        #[cfg(not(target_arch = "wasm32"))]
+        fn main() {
+            let context = Context::new();
+            pulumi_main(&context).unwrap();
+            context.finish();
         }
     };
 }

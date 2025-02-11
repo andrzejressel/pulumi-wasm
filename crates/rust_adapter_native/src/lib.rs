@@ -3,7 +3,7 @@ use serde::Serialize;
 use pulumi_gestalt_rust_adapter::{GestaltCompositeOutput, GestaltContext, GestaltOutput, InvokeResourceRequest, RegisterResourceRequest};
 use pulumi_gestalt_rust_adapter_native_simple as simple;
 
-struct NativeOutput<T> {
+pub struct NativeOutput<T> {
     inner: simple::CustomOutputId,
     tpe: PhantomData<T>
 }
@@ -17,11 +17,11 @@ impl <T> Clone for NativeOutput<T> {
     }
 }
 
-struct NativeContext {
+pub struct NativeContext {
     inner: simple::PulumiEngine
 }
 
-struct NativeCompositeOutput {
+pub struct NativeCompositeOutput {
     inner: simple::CustomRegisterOutputId
 }
 
@@ -38,17 +38,20 @@ impl GestaltCompositeOutput for NativeCompositeOutput {
 }
 
 impl NativeContext {
-    fn new() -> NativeContext {
+    pub fn new() -> NativeContext {
         NativeContext {
             inner: simple::PulumiEngine::create_engine()
         }
+    }
+
+    pub fn finish(&self) {
+        self.inner.finish();
     }
 }
 
 impl GestaltContext for NativeContext {
     type Output<T> = NativeOutput<T>;
-    type CompositeOutput = ();
-    type OutputId = ();
+    type CompositeOutput = NativeCompositeOutput;
 
     fn new_output<T: Serialize>(&self, value: &T) -> Self::Output<T> {
         let json = serde_json::to_string(value).unwrap();
@@ -66,27 +69,41 @@ impl GestaltContext for NativeContext {
         }
     }
 
-    fn register_resource(&self, request: RegisterResourceRequest<Self::OutputId>) -> Self::CompositeOutput {
+    fn register_resource(&self, request: RegisterResourceRequest<Self::Output<()>>) -> Self::CompositeOutput {
 
         let result = self.inner.pulumi_register_resource(simple::RegisterResourceRequest {
             type_: request.type_,
             name: request.name,
             version: request.version,
             objects: request.object.iter().map(|k| {
-                (k.name.clone(), k.value.inner)
+                (k.name.clone().into(), k.value.inner.get_id().clone())
             }).collect()
         });
 
+        NativeCompositeOutput {
+            inner: result
+        }
+
     }
 
-    fn invoke_resource(&self, request: InvokeResourceRequest<Self::OutputId>) -> Self::CompositeOutput {
-        todo!()
+    fn invoke_resource(&self, request: InvokeResourceRequest<Self::Output<()>>) -> Self::CompositeOutput {
+
+        let result = self.inner.pulumi_invoke_resource(simple::InvokeResourceRequest {
+            token: request.token,
+            version: request.version,
+            objects: request.object.iter().map(|k| {
+                (k.name.clone().into(), k.value.inner.get_id().clone())
+            }).collect()
+        });
+
+        NativeCompositeOutput {
+            inner: result
+        }
     }
 }
 
 impl <T> GestaltOutput<T> for NativeOutput<T> {
     type Me<A> = NativeOutput<A>;
-    type OutputId = ();
 
     fn map<B, F>(&self, f: F) -> Self::Me<B>
     where
@@ -101,33 +118,33 @@ impl <T> GestaltOutput<T> for NativeOutput<T> {
             serde_json::to_string(&v).unwrap()
         };
 
-        let res = self.inner.map(function);
+        let res = self.inner.map(Box::new(function));
 
-        // let res = &self.inner.map(|v| {
-        //     let v: T = serde_json::from_str(&v).unwrap();
-        //     let v = f(v);
-        //     serde_json::to_string(&v).unwrap()
-        // });
-
-        todo!()
+        NativeOutput {
+            inner: res,
+            tpe: PhantomData
+        }
     }
 
     fn add_to_export(&self, key: &str) {
         self.inner.add_export(key.to_string());
     }
 
-    fn combine<RESULT>(&self, others: &[&Self::OutputId]) -> Self::Me<RESULT> {
-        todo!()
-    }
+    fn combine<RESULT>(&self, others: &[&Self::Me<()>]) -> Self::Me<RESULT> {
+        let all_outputs = others.iter().map(|other| &other.inner).collect::<Vec<_>>();
 
-    unsafe fn transmute<F>(self) -> Self::Me<F> {
-        Self {
-            inner: self.inner,
+        let combined = self.inner.combine(&all_outputs);
+
+        NativeOutput {
+            inner: combined,
             tpe: PhantomData
         }
     }
 
-    fn get_id(&self) -> &Self::OutputId {
-        todo!()
+    unsafe fn transmute<F>(self) -> Self::Me<F> {
+        NativeOutput {
+            inner: self.inner,
+            tpe: PhantomData
+        }
     }
 }
