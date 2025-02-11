@@ -175,43 +175,43 @@ pub mod file_system {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneName".into(),
-                    value: availability_zone_name_binding.get_id(),
+                    value: &availability_zone_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "creationToken".into(),
-                    value: creation_token_binding.get_id(),
+                    value: &creation_token_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encrypted".into(),
-                    value: encrypted_binding.get_id(),
+                    value: &encrypted_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifecyclePolicies".into(),
-                    value: lifecycle_policies_binding.get_id(),
+                    value: &lifecycle_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "performanceMode".into(),
-                    value: performance_mode_binding.get_id(),
+                    value: &performance_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protection".into(),
-                    value: protection_binding.get_id(),
+                    value: &protection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisionedThroughputInMibps".into(),
-                    value: provisioned_throughput_in_mibps_binding.get_id(),
+                    value: &provisioned_throughput_in_mibps_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throughputMode".into(),
-                    value: throughput_mode_binding.get_id(),
+                    value: &throughput_mode_binding.drop_type(),
                 },
             ],
         };

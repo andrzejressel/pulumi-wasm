@@ -78,11 +78,11 @@ pub mod instance_public_ports {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceName".into(),
-                    value: instance_name_binding.get_id(),
+                    value: &instance_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portInfos".into(),
-                    value: port_infos_binding.get_id(),
+                    value: &port_infos_binding.drop_type(),
                 },
             ],
         };

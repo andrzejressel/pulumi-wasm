@@ -140,43 +140,43 @@ pub mod security_group_ingress_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrIpv4".into(),
-                    value: cidr_ipv4_binding.get_id(),
+                    value: &cidr_ipv4_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrIpv6".into(),
-                    value: cidr_ipv6_binding.get_id(),
+                    value: &cidr_ipv6_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fromPort".into(),
-                    value: from_port_binding.get_id(),
+                    value: &from_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipProtocol".into(),
-                    value: ip_protocol_binding.get_id(),
+                    value: &ip_protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefixListId".into(),
-                    value: prefix_list_id_binding.get_id(),
+                    value: &prefix_list_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "referencedSecurityGroupId".into(),
-                    value: referenced_security_group_id_binding.get_id(),
+                    value: &referenced_security_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupId".into(),
-                    value: security_group_id_binding.get_id(),
+                    value: &security_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "toPort".into(),
-                    value: to_port_binding.get_id(),
+                    value: &to_port_binding.drop_type(),
                 },
             ],
         };

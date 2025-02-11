@@ -86,7 +86,7 @@ pub mod registry_task_schedule_run_now {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRegistryTaskId".into(),
-                    value: container_registry_task_id_binding.get_id(),
+                    value: &container_registry_task_id_binding.drop_type(),
                 },
             ],
         };

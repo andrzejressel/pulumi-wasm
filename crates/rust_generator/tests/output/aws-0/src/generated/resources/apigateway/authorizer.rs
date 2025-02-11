@@ -189,39 +189,39 @@ pub mod authorizer {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizerCredentials".into(),
-                    value: authorizer_credentials_binding.get_id(),
+                    value: &authorizer_credentials_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizerResultTtlInSeconds".into(),
-                    value: authorizer_result_ttl_in_seconds_binding.get_id(),
+                    value: &authorizer_result_ttl_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizerUri".into(),
-                    value: authorizer_uri_binding.get_id(),
+                    value: &authorizer_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identitySource".into(),
-                    value: identity_source_binding.get_id(),
+                    value: &identity_source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityValidationExpression".into(),
-                    value: identity_validation_expression_binding.get_id(),
+                    value: &identity_validation_expression_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerArns".into(),
-                    value: provider_arns_binding.get_id(),
+                    value: &provider_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApi".into(),
-                    value: rest_api_binding.get_id(),
+                    value: &rest_api_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

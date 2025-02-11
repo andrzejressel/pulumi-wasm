@@ -34,7 +34,7 @@ pub mod get_finding_ids {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectorId".into(),
-                    value: detector_id_binding.get_id(),
+                    value: &detector_id_binding.drop_type(),
                 },
             ],
         };

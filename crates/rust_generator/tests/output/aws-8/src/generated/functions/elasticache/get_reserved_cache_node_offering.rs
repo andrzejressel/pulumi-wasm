@@ -58,19 +58,19 @@ pub mod get_reserved_cache_node_offering {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheNodeType".into(),
-                    value: cache_node_type_binding.get_id(),
+                    value: &cache_node_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "duration".into(),
-                    value: duration_binding.get_id(),
+                    value: &duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "offeringType".into(),
-                    value: offering_type_binding.get_id(),
+                    value: &offering_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productDescription".into(),
-                    value: product_description_binding.get_id(),
+                    value: &product_description_binding.drop_type(),
                 },
             ],
         };

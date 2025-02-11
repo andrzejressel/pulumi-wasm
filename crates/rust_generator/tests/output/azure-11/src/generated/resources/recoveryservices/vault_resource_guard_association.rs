@@ -91,11 +91,11 @@ pub mod vault_resource_guard_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGuardId".into(),
-                    value: resource_guard_id_binding.get_id(),
+                    value: &resource_guard_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vaultId".into(),
-                    value: vault_id_binding.get_id(),
+                    value: &vault_id_binding.drop_type(),
                 },
             ],
         };

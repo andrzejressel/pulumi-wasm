@@ -47,15 +47,15 @@ pub mod get_document {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentFormat".into(),
-                    value: document_format_binding.get_id(),
+                    value: &document_format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentVersion".into(),
-                    value: document_version_binding.get_id(),
+                    value: &document_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

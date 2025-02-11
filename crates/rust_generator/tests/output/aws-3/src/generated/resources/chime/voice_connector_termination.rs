@@ -99,27 +99,27 @@ pub mod voice_connector_termination {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "callingRegions".into(),
-                    value: calling_regions_binding.get_id(),
+                    value: &calling_regions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrAllowLists".into(),
-                    value: cidr_allow_lists_binding.get_id(),
+                    value: &cidr_allow_lists_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cpsLimit".into(),
-                    value: cps_limit_binding.get_id(),
+                    value: &cps_limit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultPhoneNumber".into(),
-                    value: default_phone_number_binding.get_id(),
+                    value: &default_phone_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: disabled_binding.get_id(),
+                    value: &disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceConnectorId".into(),
-                    value: voice_connector_id_binding.get_id(),
+                    value: &voice_connector_id_binding.drop_type(),
                 },
             ],
         };

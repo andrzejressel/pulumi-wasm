@@ -99,15 +99,15 @@ pub mod dedicated_ip_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "poolName".into(),
-                    value: pool_name_binding.get_id(),
+                    value: &pool_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingMode".into(),
-                    value: scaling_mode_binding.get_id(),
+                    value: &scaling_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

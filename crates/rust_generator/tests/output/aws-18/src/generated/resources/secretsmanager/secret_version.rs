@@ -114,19 +114,19 @@ pub mod secret_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretBinary".into(),
-                    value: secret_binary_binding.get_id(),
+                    value: &secret_binary_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretId".into(),
-                    value: secret_id_binding.get_id(),
+                    value: &secret_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretString".into(),
-                    value: secret_string_binding.get_id(),
+                    value: &secret_string_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionStages".into(),
-                    value: version_stages_binding.get_id(),
+                    value: &version_stages_binding.drop_type(),
                 },
             ],
         };

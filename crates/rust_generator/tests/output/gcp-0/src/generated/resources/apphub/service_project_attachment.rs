@@ -156,15 +156,15 @@ pub mod service_project_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceProject".into(),
-                    value: service_project_binding.get_id(),
+                    value: &service_project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceProjectAttachmentId".into(),
-                    value: service_project_attachment_id_binding.get_id(),
+                    value: &service_project_attachment_id_binding.drop_type(),
                 },
             ],
         };

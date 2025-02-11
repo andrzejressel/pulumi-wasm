@@ -45,11 +45,11 @@ pub mod get_solution_stack {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mostRecent".into(),
-                    value: most_recent_binding.get_id(),
+                    value: &most_recent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nameRegex".into(),
-                    value: name_regex_binding.get_id(),
+                    value: &name_regex_binding.drop_type(),
                 },
             ],
         };

@@ -138,11 +138,11 @@ pub mod automanage_configuration_assignment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationId".into(),
-                    value: configuration_id_binding.get_id(),
+                    value: &configuration_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineId".into(),
-                    value: virtual_machine_id_binding.get_id(),
+                    value: &virtual_machine_id_binding.drop_type(),
                 },
             ],
         };

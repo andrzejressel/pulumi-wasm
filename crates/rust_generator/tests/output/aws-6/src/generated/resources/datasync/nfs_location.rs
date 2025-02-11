@@ -108,23 +108,23 @@ pub mod nfs_location {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mountOptions".into(),
-                    value: mount_options_binding.get_id(),
+                    value: &mount_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onPremConfig".into(),
-                    value: on_prem_config_binding.get_id(),
+                    value: &on_prem_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverHostname".into(),
-                    value: server_hostname_binding.get_id(),
+                    value: &server_hostname_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subdirectory".into(),
-                    value: subdirectory_binding.get_id(),
+                    value: &subdirectory_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

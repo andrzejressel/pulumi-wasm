@@ -101,19 +101,19 @@ pub mod plan {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advancedBackupSettings".into(),
-                    value: advanced_backup_settings_binding.get_id(),
+                    value: &advanced_backup_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: rules_binding.get_id(),
+                    value: &rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

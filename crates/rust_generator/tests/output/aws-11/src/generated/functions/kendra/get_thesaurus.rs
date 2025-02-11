@@ -70,15 +70,15 @@ pub mod get_thesaurus {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexId".into(),
-                    value: index_id_binding.get_id(),
+                    value: &index_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thesaurusId".into(),
-                    value: thesaurus_id_binding.get_id(),
+                    value: &thesaurus_id_binding.drop_type(),
                 },
             ],
         };

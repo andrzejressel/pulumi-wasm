@@ -55,7 +55,7 @@ pub mod image_block_public_access {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "state".into(),
-                    value: state_binding.get_id(),
+                    value: &state_binding.drop_type(),
                 },
             ],
         };

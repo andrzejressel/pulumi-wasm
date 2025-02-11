@@ -486,195 +486,197 @@ pub mod s_3_endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addColumnName".into(),
-                    value: add_column_name_binding.get_id(),
+                    value: &add_column_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addTrailingPaddingCharacter".into(),
-                    value: add_trailing_padding_character_binding.get_id(),
+                    value: &add_trailing_padding_character_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketFolder".into(),
-                    value: bucket_folder_binding.get_id(),
+                    value: &bucket_folder_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketName".into(),
-                    value: bucket_name_binding.get_id(),
+                    value: &bucket_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cannedAclForObjects".into(),
-                    value: canned_acl_for_objects_binding.get_id(),
+                    value: &canned_acl_for_objects_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdcInsertsAndUpdates".into(),
-                    value: cdc_inserts_and_updates_binding.get_id(),
+                    value: &cdc_inserts_and_updates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdcInsertsOnly".into(),
-                    value: cdc_inserts_only_binding.get_id(),
+                    value: &cdc_inserts_only_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdcMaxBatchInterval".into(),
-                    value: cdc_max_batch_interval_binding.get_id(),
+                    value: &cdc_max_batch_interval_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdcMinFileSize".into(),
-                    value: cdc_min_file_size_binding.get_id(),
+                    value: &cdc_min_file_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdcPath".into(),
-                    value: cdc_path_binding.get_id(),
+                    value: &cdc_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateArn".into(),
-                    value: certificate_arn_binding.get_id(),
+                    value: &certificate_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compressionType".into(),
-                    value: compression_type_binding.get_id(),
+                    value: &compression_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "csvDelimiter".into(),
-                    value: csv_delimiter_binding.get_id(),
+                    value: &csv_delimiter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "csvNoSupValue".into(),
-                    value: csv_no_sup_value_binding.get_id(),
+                    value: &csv_no_sup_value_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "csvNullValue".into(),
-                    value: csv_null_value_binding.get_id(),
+                    value: &csv_null_value_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "csvRowDelimiter".into(),
-                    value: csv_row_delimiter_binding.get_id(),
+                    value: &csv_row_delimiter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFormat".into(),
-                    value: data_format_binding.get_id(),
+                    value: &data_format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataPageSize".into(),
-                    value: data_page_size_binding.get_id(),
+                    value: &data_page_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datePartitionDelimiter".into(),
-                    value: date_partition_delimiter_binding.get_id(),
+                    value: &date_partition_delimiter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datePartitionEnabled".into(),
-                    value: date_partition_enabled_binding.get_id(),
+                    value: &date_partition_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datePartitionSequence".into(),
-                    value: date_partition_sequence_binding.get_id(),
+                    value: &date_partition_sequence_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datePartitionTimezone".into(),
-                    value: date_partition_timezone_binding.get_id(),
+                    value: &date_partition_timezone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detachTargetOnLobLookupFailureParquet".into(),
-                    value: detach_target_on_lob_lookup_failure_parquet_binding.get_id(),
+                    value: &detach_target_on_lob_lookup_failure_parquet_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dictPageSizeLimit".into(),
-                    value: dict_page_size_limit_binding.get_id(),
+                    value: &dict_page_size_limit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableStatistics".into(),
-                    value: enable_statistics_binding.get_id(),
+                    value: &enable_statistics_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encodingType".into(),
-                    value: encoding_type_binding.get_id(),
+                    value: &encoding_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionMode".into(),
-                    value: encryption_mode_binding.get_id(),
+                    value: &encryption_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointId".into(),
-                    value: endpoint_id_binding.get_id(),
+                    value: &endpoint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointType".into(),
-                    value: endpoint_type_binding.get_id(),
+                    value: &endpoint_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedBucketOwner".into(),
-                    value: expected_bucket_owner_binding.get_id(),
+                    value: &expected_bucket_owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalTableDefinition".into(),
-                    value: external_table_definition_binding.get_id(),
+                    value: &external_table_definition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "glueCatalogGeneration".into(),
-                    value: glue_catalog_generation_binding.get_id(),
+                    value: &glue_catalog_generation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreHeaderRows".into(),
-                    value: ignore_header_rows_binding.get_id(),
+                    value: &ignore_header_rows_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeOpForFullLoad".into(),
-                    value: include_op_for_full_load_binding.get_id(),
+                    value: &include_op_for_full_load_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: kms_key_arn_binding.get_id(),
+                    value: &kms_key_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxFileSize".into(),
-                    value: max_file_size_binding.get_id(),
+                    value: &max_file_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parquetTimestampInMillisecond".into(),
-                    value: parquet_timestamp_in_millisecond_binding.get_id(),
+                    value: &parquet_timestamp_in_millisecond_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parquetVersion".into(),
-                    value: parquet_version_binding.get_id(),
+                    value: &parquet_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preserveTransactions".into(),
-                    value: preserve_transactions_binding.get_id(),
+                    value: &preserve_transactions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rfc4180".into(),
-                    value: rfc4180_binding.get_id(),
+                    value: &rfc4180_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rowGroupLength".into(),
-                    value: row_group_length_binding.get_id(),
+                    value: &row_group_length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverSideEncryptionKmsKeyId".into(),
-                    value: server_side_encryption_kms_key_id_binding.get_id(),
+                    value: &server_side_encryption_kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccessRoleArn".into(),
-                    value: service_access_role_arn_binding.get_id(),
+                    value: &service_access_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslMode".into(),
-                    value: ssl_mode_binding.get_id(),
+                    value: &ssl_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timestampColumnName".into(),
-                    value: timestamp_column_name_binding.get_id(),
+                    value: &timestamp_column_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useCsvNoSupValue".into(),
-                    value: use_csv_no_sup_value_binding.get_id(),
+                    value: &use_csv_no_sup_value_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useTaskStartTimeForFullLoadTimestamp".into(),
-                    value: use_task_start_time_for_full_load_timestamp_binding.get_id(),
+                    value: &use_task_start_time_for_full_load_timestamp_binding
+                        .drop_type(),
                 },
             ],
         };

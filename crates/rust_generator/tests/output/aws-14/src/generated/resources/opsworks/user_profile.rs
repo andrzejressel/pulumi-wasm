@@ -70,19 +70,19 @@ pub mod user_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowSelfManagement".into(),
-                    value: allow_self_management_binding.get_id(),
+                    value: &allow_self_management_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshPublicKey".into(),
-                    value: ssh_public_key_binding.get_id(),
+                    value: &ssh_public_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshUsername".into(),
-                    value: ssh_username_binding.get_id(),
+                    value: &ssh_username_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userArn".into(),
-                    value: user_arn_binding.get_id(),
+                    value: &user_arn_binding.drop_type(),
                 },
             ],
         };

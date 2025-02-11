@@ -148,31 +148,31 @@ pub mod access_grant {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessGrantsLocationConfiguration".into(),
-                    value: access_grants_location_configuration_binding.get_id(),
+                    value: &access_grants_location_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessGrantsLocationId".into(),
-                    value: access_grants_location_id_binding.get_id(),
+                    value: &access_grants_location_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grantee".into(),
-                    value: grantee_binding.get_id(),
+                    value: &grantee_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permission".into(),
-                    value: permission_binding.get_id(),
+                    value: &permission_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3PrefixType".into(),
-                    value: s3_prefix_type_binding.get_id(),
+                    value: &s3_prefix_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

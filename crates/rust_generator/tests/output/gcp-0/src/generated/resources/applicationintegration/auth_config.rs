@@ -216,39 +216,39 @@ pub mod auth_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificate".into(),
-                    value: client_certificate_binding.get_id(),
+                    value: &client_certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "decryptedCredential".into(),
-                    value: decrypted_credential_binding.get_id(),
+                    value: &decrypted_credential_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiryNotificationDurations".into(),
-                    value: expiry_notification_durations_binding.get_id(),
+                    value: &expiry_notification_durations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrideValidTime".into(),
-                    value: override_valid_time_binding.get_id(),
+                    value: &override_valid_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "visibility".into(),
-                    value: visibility_binding.get_id(),
+                    value: &visibility_binding.drop_type(),
                 },
             ],
         };

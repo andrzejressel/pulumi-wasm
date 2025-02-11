@@ -295,115 +295,115 @@ pub mod shared_image {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceleratedNetworkSupportEnabled".into(),
-                    value: accelerated_network_support_enabled_binding.get_id(),
+                    value: &accelerated_network_support_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "architecture".into(),
-                    value: architecture_binding.get_id(),
+                    value: &architecture_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confidentialVmEnabled".into(),
-                    value: confidential_vm_enabled_binding.get_id(),
+                    value: &confidential_vm_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confidentialVmSupported".into(),
-                    value: confidential_vm_supported_binding.get_id(),
+                    value: &confidential_vm_supported_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskControllerTypeNvmeEnabled".into(),
-                    value: disk_controller_type_nvme_enabled_binding.get_id(),
+                    value: &disk_controller_type_nvme_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskTypesNotAlloweds".into(),
-                    value: disk_types_not_alloweds_binding.get_id(),
+                    value: &disk_types_not_alloweds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endOfLifeDate".into(),
-                    value: end_of_life_date_binding.get_id(),
+                    value: &end_of_life_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eula".into(),
-                    value: eula_binding.get_id(),
+                    value: &eula_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "galleryName".into(),
-                    value: gallery_name_binding.get_id(),
+                    value: &gallery_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hibernationEnabled".into(),
-                    value: hibernation_enabled_binding.get_id(),
+                    value: &hibernation_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hyperVGeneration".into(),
-                    value: hyper_v_generation_binding.get_id(),
+                    value: &hyper_v_generation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identifier".into(),
-                    value: identifier_binding.get_id(),
+                    value: &identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxRecommendedMemoryInGb".into(),
-                    value: max_recommended_memory_in_gb_binding.get_id(),
+                    value: &max_recommended_memory_in_gb_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxRecommendedVcpuCount".into(),
-                    value: max_recommended_vcpu_count_binding.get_id(),
+                    value: &max_recommended_vcpu_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minRecommendedMemoryInGb".into(),
-                    value: min_recommended_memory_in_gb_binding.get_id(),
+                    value: &min_recommended_memory_in_gb_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minRecommendedVcpuCount".into(),
-                    value: min_recommended_vcpu_count_binding.get_id(),
+                    value: &min_recommended_vcpu_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osType".into(),
-                    value: os_type_binding.get_id(),
+                    value: &os_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privacyStatementUri".into(),
-                    value: privacy_statement_uri_binding.get_id(),
+                    value: &privacy_statement_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purchasePlan".into(),
-                    value: purchase_plan_binding.get_id(),
+                    value: &purchase_plan_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseNoteUri".into(),
-                    value: release_note_uri_binding.get_id(),
+                    value: &release_note_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "specialized".into(),
-                    value: specialized_binding.get_id(),
+                    value: &specialized_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustedLaunchEnabled".into(),
-                    value: trusted_launch_enabled_binding.get_id(),
+                    value: &trusted_launch_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustedLaunchSupported".into(),
-                    value: trusted_launch_supported_binding.get_id(),
+                    value: &trusted_launch_supported_binding.drop_type(),
                 },
             ],
         };

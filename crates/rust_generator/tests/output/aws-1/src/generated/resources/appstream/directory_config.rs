@@ -90,15 +90,15 @@ pub mod directory_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryName".into(),
-                    value: directory_name_binding.get_id(),
+                    value: &directory_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationalUnitDistinguishedNames".into(),
-                    value: organizational_unit_distinguished_names_binding.get_id(),
+                    value: &organizational_unit_distinguished_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountCredentials".into(),
-                    value: service_account_credentials_binding.get_id(),
+                    value: &service_account_credentials_binding.drop_type(),
                 },
             ],
         };

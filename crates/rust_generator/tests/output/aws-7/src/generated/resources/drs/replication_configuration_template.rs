@@ -184,67 +184,67 @@ pub mod replication_configuration_template {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associateDefaultSecurityGroup".into(),
-                    value: associate_default_security_group_binding.get_id(),
+                    value: &associate_default_security_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoReplicateNewDisks".into(),
-                    value: auto_replicate_new_disks_binding.get_id(),
+                    value: &auto_replicate_new_disks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bandwidthThrottling".into(),
-                    value: bandwidth_throttling_binding.get_id(),
+                    value: &bandwidth_throttling_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createPublicIp".into(),
-                    value: create_public_ip_binding.get_id(),
+                    value: &create_public_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataPlaneRouting".into(),
-                    value: data_plane_routing_binding.get_id(),
+                    value: &data_plane_routing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultLargeStagingDiskType".into(),
-                    value: default_large_staging_disk_type_binding.get_id(),
+                    value: &default_large_staging_disk_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsEncryption".into(),
-                    value: ebs_encryption_binding.get_id(),
+                    value: &ebs_encryption_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsEncryptionKeyArn".into(),
-                    value: ebs_encryption_key_arn_binding.get_id(),
+                    value: &ebs_encryption_key_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pitPolicies".into(),
-                    value: pit_policies_binding.get_id(),
+                    value: &pit_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationServerInstanceType".into(),
-                    value: replication_server_instance_type_binding.get_id(),
+                    value: &replication_server_instance_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationServersSecurityGroupsIds".into(),
-                    value: replication_servers_security_groups_ids_binding.get_id(),
+                    value: &replication_servers_security_groups_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stagingAreaSubnetId".into(),
-                    value: staging_area_subnet_id_binding.get_id(),
+                    value: &staging_area_subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stagingAreaTags".into(),
-                    value: staging_area_tags_binding.get_id(),
+                    value: &staging_area_tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useDedicatedReplicationServer".into(),
-                    value: use_dedicated_replication_server_binding.get_id(),
+                    value: &use_dedicated_replication_server_binding.drop_type(),
                 },
             ],
         };

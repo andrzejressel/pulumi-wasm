@@ -113,19 +113,19 @@ pub mod contact {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "email".into(),
-                    value: email_binding.get_id(),
+                    value: &email_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageTag".into(),
-                    value: language_tag_binding.get_id(),
+                    value: &language_tag_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationCategorySubscriptions".into(),
-                    value: notification_category_subscriptions_binding.get_id(),
+                    value: &notification_category_subscriptions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
             ],
         };

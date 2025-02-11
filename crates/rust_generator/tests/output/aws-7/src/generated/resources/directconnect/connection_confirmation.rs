@@ -50,7 +50,7 @@ pub mod connection_confirmation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionId".into(),
-                    value: connection_id_binding.get_id(),
+                    value: &connection_id_binding.drop_type(),
                 },
             ],
         };

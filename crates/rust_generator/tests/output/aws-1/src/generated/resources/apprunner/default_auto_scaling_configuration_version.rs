@@ -72,7 +72,7 @@ pub mod default_auto_scaling_configuration_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScalingConfigurationArn".into(),
-                    value: auto_scaling_configuration_arn_binding.get_id(),
+                    value: &auto_scaling_configuration_arn_binding.drop_type(),
                 },
             ],
         };

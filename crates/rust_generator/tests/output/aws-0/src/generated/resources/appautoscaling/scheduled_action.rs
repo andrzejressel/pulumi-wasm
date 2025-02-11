@@ -163,39 +163,39 @@ pub mod scheduled_action {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endTime".into(),
-                    value: end_time_binding.get_id(),
+                    value: &end_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: resource_id_binding.get_id(),
+                    value: &resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalableDimension".into(),
-                    value: scalable_dimension_binding.get_id(),
+                    value: &scalable_dimension_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalableTargetAction".into(),
-                    value: scalable_target_action_binding.get_id(),
+                    value: &scalable_target_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: schedule_binding.get_id(),
+                    value: &schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceNamespace".into(),
-                    value: service_namespace_binding.get_id(),
+                    value: &service_namespace_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startTime".into(),
-                    value: start_time_binding.get_id(),
+                    value: &start_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timezone".into(),
-                    value: timezone_binding.get_id(),
+                    value: &timezone_binding.drop_type(),
                 },
             ],
         };

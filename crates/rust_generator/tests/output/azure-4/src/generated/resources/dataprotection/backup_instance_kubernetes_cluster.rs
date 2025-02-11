@@ -289,31 +289,31 @@ pub mod backup_instance_kubernetes_cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupDatasourceParameters".into(),
-                    value: backup_datasource_parameters_binding.get_id(),
+                    value: &backup_datasource_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupPolicyId".into(),
-                    value: backup_policy_id_binding.get_id(),
+                    value: &backup_policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesClusterId".into(),
-                    value: kubernetes_cluster_id_binding.get_id(),
+                    value: &kubernetes_cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotResourceGroupName".into(),
-                    value: snapshot_resource_group_name_binding.get_id(),
+                    value: &snapshot_resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vaultId".into(),
-                    value: vault_id_binding.get_id(),
+                    value: &vault_id_binding.drop_type(),
                 },
             ],
         };

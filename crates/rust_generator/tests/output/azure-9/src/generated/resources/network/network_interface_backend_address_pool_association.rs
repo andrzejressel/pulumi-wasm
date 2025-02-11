@@ -147,15 +147,15 @@ pub mod network_interface_backend_address_pool_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendAddressPoolId".into(),
-                    value: backend_address_pool_id_binding.get_id(),
+                    value: &backend_address_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipConfigurationName".into(),
-                    value: ip_configuration_name_binding.get_id(),
+                    value: &ip_configuration_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: network_interface_id_binding.get_id(),
+                    value: &network_interface_id_binding.drop_type(),
                 },
             ],
         };

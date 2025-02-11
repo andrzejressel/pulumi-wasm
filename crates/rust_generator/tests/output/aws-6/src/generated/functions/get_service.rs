@@ -56,27 +56,27 @@ pub mod get_service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsName".into(),
-                    value: dns_name_binding.get_id(),
+                    value: &dns_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: id_binding.get_id(),
+                    value: &id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reverseDnsName".into(),
-                    value: reverse_dns_name_binding.get_id(),
+                    value: &reverse_dns_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reverseDnsPrefix".into(),
-                    value: reverse_dns_prefix_binding.get_id(),
+                    value: &reverse_dns_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceId".into(),
-                    value: service_id_binding.get_id(),
+                    value: &service_id_binding.drop_type(),
                 },
             ],
         };

@@ -45,15 +45,15 @@ pub mod get_table_entity {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKey".into(),
-                    value: partition_key_binding.get_id(),
+                    value: &partition_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rowKey".into(),
-                    value: row_key_binding.get_id(),
+                    value: &row_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageTableId".into(),
-                    value: storage_table_id_binding.get_id(),
+                    value: &storage_table_id_binding.drop_type(),
                 },
             ],
         };

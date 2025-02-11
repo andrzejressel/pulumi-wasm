@@ -159,31 +159,31 @@ pub mod ca_certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "active".into(),
-                    value: active_binding.get_id(),
+                    value: &active_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowAutoRegistration".into(),
-                    value: allow_auto_registration_binding.get_id(),
+                    value: &allow_auto_registration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caCertificatePem".into(),
-                    value: ca_certificate_pem_binding.get_id(),
+                    value: &ca_certificate_pem_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateMode".into(),
-                    value: certificate_mode_binding.get_id(),
+                    value: &certificate_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registrationConfig".into(),
-                    value: registration_config_binding.get_id(),
+                    value: &registration_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verificationCertificatePem".into(),
-                    value: verification_certificate_pem_binding.get_id(),
+                    value: &verification_certificate_pem_binding.drop_type(),
                 },
             ],
         };

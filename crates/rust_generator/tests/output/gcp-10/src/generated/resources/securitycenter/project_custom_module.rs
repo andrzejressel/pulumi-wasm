@@ -210,19 +210,19 @@ pub mod project_custom_module {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customConfig".into(),
-                    value: custom_config_binding.get_id(),
+                    value: &custom_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enablementState".into(),
-                    value: enablement_state_binding.get_id(),
+                    value: &enablement_state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

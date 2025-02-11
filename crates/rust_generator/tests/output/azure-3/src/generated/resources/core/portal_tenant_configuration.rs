@@ -73,7 +73,7 @@ pub mod portal_tenant_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateMarkdownStorageEnforced".into(),
-                    value: private_markdown_storage_enforced_binding.get_id(),
+                    value: &private_markdown_storage_enforced_binding.drop_type(),
                 },
             ],
         };

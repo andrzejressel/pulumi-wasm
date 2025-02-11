@@ -159,23 +159,23 @@ pub mod hub {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "anonymousConnectionsEnabled".into(),
-                    value: anonymous_connections_enabled_binding.get_id(),
+                    value: &anonymous_connections_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventHandlers".into(),
-                    value: event_handlers_binding.get_id(),
+                    value: &event_handlers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventListeners".into(),
-                    value: event_listeners_binding.get_id(),
+                    value: &event_listeners_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webPubsubId".into(),
-                    value: web_pubsub_id_binding.get_id(),
+                    value: &web_pubsub_id_binding.drop_type(),
                 },
             ],
         };

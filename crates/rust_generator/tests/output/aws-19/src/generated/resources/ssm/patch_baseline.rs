@@ -282,51 +282,51 @@ pub mod patch_baseline {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvalRules".into(),
-                    value: approval_rules_binding.get_id(),
+                    value: &approval_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvedPatches".into(),
-                    value: approved_patches_binding.get_id(),
+                    value: &approved_patches_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvedPatchesComplianceLevel".into(),
-                    value: approved_patches_compliance_level_binding.get_id(),
+                    value: &approved_patches_compliance_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvedPatchesEnableNonSecurity".into(),
-                    value: approved_patches_enable_non_security_binding.get_id(),
+                    value: &approved_patches_enable_non_security_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalFilters".into(),
-                    value: global_filters_binding.get_id(),
+                    value: &global_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operatingSystem".into(),
-                    value: operating_system_binding.get_id(),
+                    value: &operating_system_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rejectedPatches".into(),
-                    value: rejected_patches_binding.get_id(),
+                    value: &rejected_patches_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rejectedPatchesAction".into(),
-                    value: rejected_patches_action_binding.get_id(),
+                    value: &rejected_patches_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sources".into(),
-                    value: sources_binding.get_id(),
+                    value: &sources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

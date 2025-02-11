@@ -69,11 +69,11 @@ pub mod get_replication_instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationInstanceId".into(),
-                    value: replication_instance_id_binding.get_id(),
+                    value: &replication_instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

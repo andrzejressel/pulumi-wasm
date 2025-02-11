@@ -47,11 +47,11 @@ pub mod get_replication_subnet_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationSubnetGroupId".into(),
-                    value: replication_subnet_group_id_binding.get_id(),
+                    value: &replication_subnet_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

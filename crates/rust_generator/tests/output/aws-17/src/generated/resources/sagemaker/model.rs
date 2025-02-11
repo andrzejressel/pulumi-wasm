@@ -154,35 +154,35 @@ pub mod model {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containers".into(),
-                    value: containers_binding.get_id(),
+                    value: &containers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableNetworkIsolation".into(),
-                    value: enable_network_isolation_binding.get_id(),
+                    value: &enable_network_isolation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionRoleArn".into(),
-                    value: execution_role_arn_binding.get_id(),
+                    value: &execution_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inferenceExecutionConfig".into(),
-                    value: inference_execution_config_binding.get_id(),
+                    value: &inference_execution_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryContainer".into(),
-                    value: primary_container_binding.get_id(),
+                    value: &primary_container_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfig".into(),
-                    value: vpc_config_binding.get_id(),
+                    value: &vpc_config_binding.drop_type(),
                 },
             ],
         };

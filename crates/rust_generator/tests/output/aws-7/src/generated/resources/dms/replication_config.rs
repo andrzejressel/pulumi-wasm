@@ -145,47 +145,47 @@ pub mod replication_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeConfig".into(),
-                    value: compute_config_binding.get_id(),
+                    value: &compute_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationConfigIdentifier".into(),
-                    value: replication_config_identifier_binding.get_id(),
+                    value: &replication_config_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationSettings".into(),
-                    value: replication_settings_binding.get_id(),
+                    value: &replication_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationType".into(),
-                    value: replication_type_binding.get_id(),
+                    value: &replication_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceIdentifier".into(),
-                    value: resource_identifier_binding.get_id(),
+                    value: &resource_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceEndpointArn".into(),
-                    value: source_endpoint_arn_binding.get_id(),
+                    value: &source_endpoint_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startReplication".into(),
-                    value: start_replication_binding.get_id(),
+                    value: &start_replication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supplementalSettings".into(),
-                    value: supplemental_settings_binding.get_id(),
+                    value: &supplemental_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableMappings".into(),
-                    value: table_mappings_binding.get_id(),
+                    value: &table_mappings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetEndpointArn".into(),
-                    value: target_endpoint_arn_binding.get_id(),
+                    value: &target_endpoint_arn_binding.drop_type(),
                 },
             ],
         };

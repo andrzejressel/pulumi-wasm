@@ -56,19 +56,19 @@ pub mod get_voices {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: engine_binding.get_id(),
+                    value: &engine_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeAdditionalLanguageCodes".into(),
-                    value: include_additional_language_codes_binding.get_id(),
+                    value: &include_additional_language_codes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageCode".into(),
-                    value: language_code_binding.get_id(),
+                    value: &language_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voices".into(),
-                    value: voices_binding.get_id(),
+                    value: &voices_binding.drop_type(),
                 },
             ],
         };

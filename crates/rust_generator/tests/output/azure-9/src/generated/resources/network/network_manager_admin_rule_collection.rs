@@ -113,19 +113,19 @@ pub mod network_manager_admin_rule_collection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkGroupIds".into(),
-                    value: network_group_ids_binding.get_id(),
+                    value: &network_group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityAdminConfigurationId".into(),
-                    value: security_admin_configuration_id_binding.get_id(),
+                    value: &security_admin_configuration_id_binding.drop_type(),
                 },
             ],
         };

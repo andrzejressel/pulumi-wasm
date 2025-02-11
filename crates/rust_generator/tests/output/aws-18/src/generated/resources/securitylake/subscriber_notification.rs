@@ -104,11 +104,11 @@ pub mod subscriber_notification {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configuration".into(),
-                    value: configuration_binding.get_id(),
+                    value: &configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriberId".into(),
-                    value: subscriber_id_binding.get_id(),
+                    value: &subscriber_id_binding.drop_type(),
                 },
             ],
         };

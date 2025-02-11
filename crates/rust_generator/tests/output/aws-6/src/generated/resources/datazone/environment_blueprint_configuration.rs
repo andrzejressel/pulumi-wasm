@@ -128,27 +128,27 @@ pub mod environment_blueprint_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainId".into(),
-                    value: domain_id_binding.get_id(),
+                    value: &domain_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabledRegions".into(),
-                    value: enabled_regions_binding.get_id(),
+                    value: &enabled_regions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentBlueprintId".into(),
-                    value: environment_blueprint_id_binding.get_id(),
+                    value: &environment_blueprint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manageAccessRoleArn".into(),
-                    value: manage_access_role_arn_binding.get_id(),
+                    value: &manage_access_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisioningRoleArn".into(),
-                    value: provisioning_role_arn_binding.get_id(),
+                    value: &provisioning_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regionalParameters".into(),
-                    value: regional_parameters_binding.get_id(),
+                    value: &regional_parameters_binding.drop_type(),
                 },
             ],
         };

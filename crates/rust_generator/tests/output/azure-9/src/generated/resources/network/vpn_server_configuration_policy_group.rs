@@ -124,23 +124,23 @@ pub mod vpn_server_configuration_policy_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isDefault".into(),
-                    value: is_default_binding.get_id(),
+                    value: &is_default_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policies".into(),
-                    value: policies_binding.get_id(),
+                    value: &policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnServerConfigurationId".into(),
-                    value: vpn_server_configuration_id_binding.get_id(),
+                    value: &vpn_server_configuration_id_binding.drop_type(),
                 },
             ],
         };

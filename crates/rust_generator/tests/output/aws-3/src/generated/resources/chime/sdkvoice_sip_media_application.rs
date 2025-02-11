@@ -102,19 +102,19 @@ pub mod sdkvoice_sip_media_application {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsRegion".into(),
-                    value: aws_region_binding.get_id(),
+                    value: &aws_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoints".into(),
-                    value: endpoints_binding.get_id(),
+                    value: &endpoints_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

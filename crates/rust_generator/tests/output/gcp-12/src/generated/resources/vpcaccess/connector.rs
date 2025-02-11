@@ -215,47 +215,47 @@ pub mod connector {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipCidrRange".into(),
-                    value: ip_cidr_range_binding.get_id(),
+                    value: &ip_cidr_range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "machineType".into(),
-                    value: machine_type_binding.get_id(),
+                    value: &machine_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxInstances".into(),
-                    value: max_instances_binding.get_id(),
+                    value: &max_instances_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxThroughput".into(),
-                    value: max_throughput_binding.get_id(),
+                    value: &max_throughput_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minInstances".into(),
-                    value: min_instances_binding.get_id(),
+                    value: &min_instances_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minThroughput".into(),
-                    value: min_throughput_binding.get_id(),
+                    value: &min_throughput_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: network_binding.get_id(),
+                    value: &network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnet".into(),
-                    value: subnet_binding.get_id(),
+                    value: &subnet_binding.drop_type(),
                 },
             ],
         };

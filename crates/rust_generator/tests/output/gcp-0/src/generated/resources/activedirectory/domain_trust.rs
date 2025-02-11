@@ -151,35 +151,35 @@ pub mod domain_trust {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selectiveAuthentication".into(),
-                    value: selective_authentication_binding.get_id(),
+                    value: &selective_authentication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetDnsIpAddresses".into(),
-                    value: target_dns_ip_addresses_binding.get_id(),
+                    value: &target_dns_ip_addresses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetDomainName".into(),
-                    value: target_domain_name_binding.get_id(),
+                    value: &target_domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustDirection".into(),
-                    value: trust_direction_binding.get_id(),
+                    value: &trust_direction_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustHandshakeSecret".into(),
-                    value: trust_handshake_secret_binding.get_id(),
+                    value: &trust_handshake_secret_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustType".into(),
-                    value: trust_type_binding.get_id(),
+                    value: &trust_type_binding.drop_type(),
                 },
             ],
         };

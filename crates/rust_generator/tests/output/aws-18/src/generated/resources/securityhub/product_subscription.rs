@@ -140,7 +140,7 @@ pub mod product_subscription {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productArn".into(),
-                    value: product_arn_binding.get_id(),
+                    value: &product_arn_binding.drop_type(),
                 },
             ],
         };

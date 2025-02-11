@@ -79,19 +79,19 @@ pub mod random_pet {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepers".into(),
-                    value: keepers_binding.get_id(),
+                    value: &keepers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "length".into(),
-                    value: length_binding.get_id(),
+                    value: &length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefix".into(),
-                    value: prefix_binding.get_id(),
+                    value: &prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "separator".into(),
-                    value: separator_binding.get_id(),
+                    value: &separator_binding.drop_type(),
                 },
             ],
         };

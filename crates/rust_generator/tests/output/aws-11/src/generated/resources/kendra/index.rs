@@ -626,47 +626,47 @@ pub mod index {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityUnits".into(),
-                    value: capacity_units_binding.get_id(),
+                    value: &capacity_units_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentMetadataConfigurationUpdates".into(),
-                    value: document_metadata_configuration_updates_binding.get_id(),
+                    value: &document_metadata_configuration_updates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edition".into(),
-                    value: edition_binding.get_id(),
+                    value: &edition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverSideEncryptionConfiguration".into(),
-                    value: server_side_encryption_configuration_binding.get_id(),
+                    value: &server_side_encryption_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userContextPolicy".into(),
-                    value: user_context_policy_binding.get_id(),
+                    value: &user_context_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userGroupResolutionConfiguration".into(),
-                    value: user_group_resolution_configuration_binding.get_id(),
+                    value: &user_group_resolution_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userTokenConfigurations".into(),
-                    value: user_token_configurations_binding.get_id(),
+                    value: &user_token_configurations_binding.drop_type(),
                 },
             ],
         };

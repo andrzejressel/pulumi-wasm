@@ -93,11 +93,11 @@ pub mod hosted_public_virtual_interface_accepter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualInterfaceId".into(),
-                    value: virtual_interface_id_binding.get_id(),
+                    value: &virtual_interface_id_binding.drop_type(),
                 },
             ],
         };

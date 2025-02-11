@@ -23,7 +23,7 @@ pub mod func_with_const_input {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plainInput".into(),
-                    value: plain_input_binding.get_id(),
+                    value: &plain_input_binding.drop_type(),
                 },
             ],
         };

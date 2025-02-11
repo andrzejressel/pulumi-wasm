@@ -78,11 +78,11 @@ pub mod geo_match_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geoMatchConstraints".into(),
-                    value: geo_match_constraints_binding.get_id(),
+                    value: &geo_match_constraints_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

@@ -1119,51 +1119,51 @@ pub mod stream {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backfillAll".into(),
-                    value: backfill_all_binding.get_id(),
+                    value: &backfill_all_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backfillNone".into(),
-                    value: backfill_none_binding.get_id(),
+                    value: &backfill_none_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createWithoutValidation".into(),
-                    value: create_without_validation_binding.get_id(),
+                    value: &create_without_validation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedEncryptionKey".into(),
-                    value: customer_managed_encryption_key_binding.get_id(),
+                    value: &customer_managed_encryption_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredState".into(),
-                    value: desired_state_binding.get_id(),
+                    value: &desired_state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationConfig".into(),
-                    value: destination_config_binding.get_id(),
+                    value: &destination_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceConfig".into(),
-                    value: source_config_binding.get_id(),
+                    value: &source_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamId".into(),
-                    value: stream_id_binding.get_id(),
+                    value: &stream_id_binding.drop_type(),
                 },
             ],
         };

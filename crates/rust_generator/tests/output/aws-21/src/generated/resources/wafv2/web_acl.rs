@@ -149,55 +149,55 @@ pub mod web_acl {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associationConfig".into(),
-                    value: association_config_binding.get_id(),
+                    value: &association_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "captchaConfig".into(),
-                    value: captcha_config_binding.get_id(),
+                    value: &captcha_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "challengeConfig".into(),
-                    value: challenge_config_binding.get_id(),
+                    value: &challenge_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customResponseBodies".into(),
-                    value: custom_response_bodies_binding.get_id(),
+                    value: &custom_response_bodies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAction".into(),
-                    value: default_action_binding.get_id(),
+                    value: &default_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleJson".into(),
-                    value: rule_json_binding.get_id(),
+                    value: &rule_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: rules_binding.get_id(),
+                    value: &rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: scope_binding.get_id(),
+                    value: &scope_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenDomains".into(),
-                    value: token_domains_binding.get_id(),
+                    value: &token_domains_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "visibilityConfig".into(),
-                    value: visibility_config_binding.get_id(),
+                    value: &visibility_config_binding.drop_type(),
                 },
             ],
         };

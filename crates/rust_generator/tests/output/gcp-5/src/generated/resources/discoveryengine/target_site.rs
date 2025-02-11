@@ -212,27 +212,27 @@ pub mod target_site {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataStoreId".into(),
-                    value: data_store_id_binding.get_id(),
+                    value: &data_store_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exactMatch".into(),
-                    value: exact_match_binding.get_id(),
+                    value: &exact_match_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providedUriPattern".into(),
-                    value: provided_uri_pattern_binding.get_id(),
+                    value: &provided_uri_pattern_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

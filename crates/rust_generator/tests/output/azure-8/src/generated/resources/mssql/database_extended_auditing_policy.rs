@@ -156,31 +156,31 @@ pub mod database_extended_auditing_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseId".into(),
-                    value: database_id_binding.get_id(),
+                    value: &database_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logMonitoringEnabled".into(),
-                    value: log_monitoring_enabled_binding.get_id(),
+                    value: &log_monitoring_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionInDays".into(),
-                    value: retention_in_days_binding.get_id(),
+                    value: &retention_in_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountAccessKey".into(),
-                    value: storage_account_access_key_binding.get_id(),
+                    value: &storage_account_access_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountAccessKeyIsSecondary".into(),
-                    value: storage_account_access_key_is_secondary_binding.get_id(),
+                    value: &storage_account_access_key_is_secondary_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageEndpoint".into(),
-                    value: storage_endpoint_binding.get_id(),
+                    value: &storage_endpoint_binding.drop_type(),
                 },
             ],
         };

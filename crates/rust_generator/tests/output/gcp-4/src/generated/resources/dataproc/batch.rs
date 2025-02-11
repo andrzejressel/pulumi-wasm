@@ -468,43 +468,43 @@ pub mod batch {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchId".into(),
-                    value: batch_id_binding.get_id(),
+                    value: &batch_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentConfig".into(),
-                    value: environment_config_binding.get_id(),
+                    value: &environment_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pysparkBatch".into(),
-                    value: pyspark_batch_binding.get_id(),
+                    value: &pyspark_batch_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeConfig".into(),
-                    value: runtime_config_binding.get_id(),
+                    value: &runtime_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkBatch".into(),
-                    value: spark_batch_binding.get_id(),
+                    value: &spark_batch_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkRBatch".into(),
-                    value: spark_r_batch_binding.get_id(),
+                    value: &spark_r_batch_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkSqlBatch".into(),
-                    value: spark_sql_batch_binding.get_id(),
+                    value: &spark_sql_batch_binding.drop_type(),
                 },
             ],
         };

@@ -103,11 +103,11 @@ pub mod encryption_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyId".into(),
-                    value: key_id_binding.get_id(),
+                    value: &key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

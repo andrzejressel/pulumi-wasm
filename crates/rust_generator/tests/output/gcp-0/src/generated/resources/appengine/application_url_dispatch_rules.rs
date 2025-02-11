@@ -109,11 +109,11 @@ pub mod application_url_dispatch_rules {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dispatchRules".into(),
-                    value: dispatch_rules_binding.get_id(),
+                    value: &dispatch_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

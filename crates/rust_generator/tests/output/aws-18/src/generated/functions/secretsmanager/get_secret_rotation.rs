@@ -41,7 +41,7 @@ pub mod get_secret_rotation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretId".into(),
-                    value: secret_id_binding.get_id(),
+                    value: &secret_id_binding.drop_type(),
                 },
             ],
         };

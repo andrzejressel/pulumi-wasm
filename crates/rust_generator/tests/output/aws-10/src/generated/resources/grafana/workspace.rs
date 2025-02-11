@@ -221,67 +221,67 @@ pub mod workspace {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountAccessType".into(),
-                    value: account_access_type_binding.get_id(),
+                    value: &account_access_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationProviders".into(),
-                    value: authentication_providers_binding.get_id(),
+                    value: &authentication_providers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configuration".into(),
-                    value: configuration_binding.get_id(),
+                    value: &configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSources".into(),
-                    value: data_sources_binding.get_id(),
+                    value: &data_sources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grafanaVersion".into(),
-                    value: grafana_version_binding.get_id(),
+                    value: &grafana_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkAccessControl".into(),
-                    value: network_access_control_binding.get_id(),
+                    value: &network_access_control_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationDestinations".into(),
-                    value: notification_destinations_binding.get_id(),
+                    value: &notification_destinations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationRoleName".into(),
-                    value: organization_role_name_binding.get_id(),
+                    value: &organization_role_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationalUnits".into(),
-                    value: organizational_units_binding.get_id(),
+                    value: &organizational_units_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionType".into(),
-                    value: permission_type_binding.get_id(),
+                    value: &permission_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackSetName".into(),
-                    value: stack_set_name_binding.get_id(),
+                    value: &stack_set_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfiguration".into(),
-                    value: vpc_configuration_binding.get_id(),
+                    value: &vpc_configuration_binding.drop_type(),
                 },
             ],
         };

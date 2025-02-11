@@ -100,15 +100,15 @@ pub mod sql_dedicated_gateway {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cosmosdbAccountId".into(),
-                    value: cosmosdb_account_id_binding.get_id(),
+                    value: &cosmosdb_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceCount".into(),
-                    value: instance_count_binding.get_id(),
+                    value: &instance_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceSize".into(),
-                    value: instance_size_binding.get_id(),
+                    value: &instance_size_binding.drop_type(),
                 },
             ],
         };

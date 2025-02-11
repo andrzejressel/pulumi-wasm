@@ -77,11 +77,11 @@ pub mod disk_async_replication {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryDisk".into(),
-                    value: primary_disk_binding.get_id(),
+                    value: &primary_disk_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryDisk".into(),
-                    value: secondary_disk_binding.get_id(),
+                    value: &secondary_disk_binding.drop_type(),
                 },
             ],
         };

@@ -202,35 +202,35 @@ pub mod target_ssl_proxy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendService".into(),
-                    value: backend_service_binding.get_id(),
+                    value: &backend_service_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateMap".into(),
-                    value: certificate_map_binding.get_id(),
+                    value: &certificate_map_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyHeader".into(),
-                    value: proxy_header_binding.get_id(),
+                    value: &proxy_header_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslCertificates".into(),
-                    value: ssl_certificates_binding.get_id(),
+                    value: &ssl_certificates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslPolicy".into(),
-                    value: ssl_policy_binding.get_id(),
+                    value: &ssl_policy_binding.drop_type(),
                 },
             ],
         };

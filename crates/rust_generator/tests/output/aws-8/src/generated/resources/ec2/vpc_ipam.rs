@@ -121,27 +121,27 @@ pub mod vpc_ipam {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cascade".into(),
-                    value: cascade_binding.get_id(),
+                    value: &cascade_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enablePrivateGua".into(),
-                    value: enable_private_gua_binding.get_id(),
+                    value: &enable_private_gua_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operatingRegions".into(),
-                    value: operating_regions_binding.get_id(),
+                    value: &operating_regions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tier".into(),
-                    value: tier_binding.get_id(),
+                    value: &tier_binding.drop_type(),
                 },
             ],
         };

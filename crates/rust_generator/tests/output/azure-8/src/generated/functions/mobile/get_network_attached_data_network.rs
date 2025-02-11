@@ -71,11 +71,11 @@ pub mod get_network_attached_data_network {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkDataNetworkName".into(),
-                    value: mobile_network_data_network_name_binding.get_id(),
+                    value: &mobile_network_data_network_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobileNetworkPacketCoreDataPlaneId".into(),
-                    value: mobile_network_packet_core_data_plane_id_binding.get_id(),
+                    value: &mobile_network_packet_core_data_plane_id_binding.drop_type(),
                 },
             ],
         };

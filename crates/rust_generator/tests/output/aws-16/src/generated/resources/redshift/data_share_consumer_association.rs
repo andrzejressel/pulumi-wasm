@@ -116,23 +116,23 @@ pub mod data_share_consumer_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowWrites".into(),
-                    value: allow_writes_binding.get_id(),
+                    value: &allow_writes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associateEntireAccount".into(),
-                    value: associate_entire_account_binding.get_id(),
+                    value: &associate_entire_account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consumerArn".into(),
-                    value: consumer_arn_binding.get_id(),
+                    value: &consumer_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consumerRegion".into(),
-                    value: consumer_region_binding.get_id(),
+                    value: &consumer_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataShareArn".into(),
-                    value: data_share_arn_binding.get_id(),
+                    value: &data_share_arn_binding.drop_type(),
                 },
             ],
         };

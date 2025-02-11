@@ -117,11 +117,11 @@ pub mod access_levels {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessLevels".into(),
-                    value: access_levels_binding.get_id(),
+                    value: &access_levels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
             ],
         };

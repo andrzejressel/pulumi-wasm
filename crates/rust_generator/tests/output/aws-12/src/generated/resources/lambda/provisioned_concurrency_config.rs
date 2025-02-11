@@ -106,19 +106,19 @@ pub mod provisioned_concurrency_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: function_name_binding.get_id(),
+                    value: &function_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisionedConcurrentExecutions".into(),
-                    value: provisioned_concurrent_executions_binding.get_id(),
+                    value: &provisioned_concurrent_executions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qualifier".into(),
-                    value: qualifier_binding.get_id(),
+                    value: &qualifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: skip_destroy_binding.get_id(),
+                    value: &skip_destroy_binding.drop_type(),
                 },
             ],
         };

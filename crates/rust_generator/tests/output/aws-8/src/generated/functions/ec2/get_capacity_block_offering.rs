@@ -63,23 +63,23 @@ pub mod get_capacity_block_offering {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityDurationHours".into(),
-                    value: capacity_duration_hours_binding.get_id(),
+                    value: &capacity_duration_hours_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endDateRange".into(),
-                    value: end_date_range_binding.get_id(),
+                    value: &end_date_range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceCount".into(),
-                    value: instance_count_binding.get_id(),
+                    value: &instance_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: instance_type_binding.get_id(),
+                    value: &instance_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startDateRange".into(),
-                    value: start_date_range_binding.get_id(),
+                    value: &start_date_range_binding.drop_type(),
                 },
             ],
         };

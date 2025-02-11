@@ -197,63 +197,63 @@ pub mod subscription {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoDeleteOnIdle".into(),
-                    value: auto_delete_on_idle_binding.get_id(),
+                    value: &auto_delete_on_idle_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchedOperationsEnabled".into(),
-                    value: batched_operations_enabled_binding.get_id(),
+                    value: &batched_operations_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientScopedSubscription".into(),
-                    value: client_scoped_subscription_binding.get_id(),
+                    value: &client_scoped_subscription_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientScopedSubscriptionEnabled".into(),
-                    value: client_scoped_subscription_enabled_binding.get_id(),
+                    value: &client_scoped_subscription_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deadLetteringOnFilterEvaluationError".into(),
-                    value: dead_lettering_on_filter_evaluation_error_binding.get_id(),
+                    value: &dead_lettering_on_filter_evaluation_error_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deadLetteringOnMessageExpiration".into(),
-                    value: dead_lettering_on_message_expiration_binding.get_id(),
+                    value: &dead_lettering_on_message_expiration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultMessageTtl".into(),
-                    value: default_message_ttl_binding.get_id(),
+                    value: &default_message_ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forwardDeadLetteredMessagesTo".into(),
-                    value: forward_dead_lettered_messages_to_binding.get_id(),
+                    value: &forward_dead_lettered_messages_to_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forwardTo".into(),
-                    value: forward_to_binding.get_id(),
+                    value: &forward_to_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lockDuration".into(),
-                    value: lock_duration_binding.get_id(),
+                    value: &lock_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxDeliveryCount".into(),
-                    value: max_delivery_count_binding.get_id(),
+                    value: &max_delivery_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requiresSession".into(),
-                    value: requires_session_binding.get_id(),
+                    value: &requires_session_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topicId".into(),
-                    value: topic_id_binding.get_id(),
+                    value: &topic_id_binding.drop_type(),
                 },
             ],
         };

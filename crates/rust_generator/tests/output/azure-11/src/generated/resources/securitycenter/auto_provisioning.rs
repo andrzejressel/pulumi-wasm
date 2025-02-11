@@ -60,7 +60,7 @@ pub mod auto_provisioning {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoProvision".into(),
-                    value: auto_provision_binding.get_id(),
+                    value: &auto_provision_binding.drop_type(),
                 },
             ],
         };

@@ -192,43 +192,43 @@ pub mod https_health_check {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "checkIntervalSec".into(),
-                    value: check_interval_sec_binding.get_id(),
+                    value: &check_interval_sec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthyThreshold".into(),
-                    value: healthy_threshold_binding.get_id(),
+                    value: &healthy_threshold_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: host_binding.get_id(),
+                    value: &host_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestPath".into(),
-                    value: request_path_binding.get_id(),
+                    value: &request_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeoutSec".into(),
-                    value: timeout_sec_binding.get_id(),
+                    value: &timeout_sec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "unhealthyThreshold".into(),
-                    value: unhealthy_threshold_binding.get_id(),
+                    value: &unhealthy_threshold_binding.drop_type(),
                 },
             ],
         };

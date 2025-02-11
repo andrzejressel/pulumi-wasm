@@ -79,23 +79,23 @@ pub mod get_resources {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeCompliantResources".into(),
-                    value: exclude_compliant_resources_binding.get_id(),
+                    value: &exclude_compliant_resources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeComplianceDetails".into(),
-                    value: include_compliance_details_binding.get_id(),
+                    value: &include_compliance_details_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArnLists".into(),
-                    value: resource_arn_lists_binding.get_id(),
+                    value: &resource_arn_lists_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTypeFilters".into(),
-                    value: resource_type_filters_binding.get_id(),
+                    value: &resource_type_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagFilters".into(),
-                    value: tag_filters_binding.get_id(),
+                    value: &tag_filters_binding.drop_type(),
                 },
             ],
         };

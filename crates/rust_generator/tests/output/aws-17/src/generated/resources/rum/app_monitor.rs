@@ -109,27 +109,27 @@ pub mod app_monitor {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appMonitorConfiguration".into(),
-                    value: app_monitor_configuration_binding.get_id(),
+                    value: &app_monitor_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customEvents".into(),
-                    value: custom_events_binding.get_id(),
+                    value: &custom_events_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cwLogEnabled".into(),
-                    value: cw_log_enabled_binding.get_id(),
+                    value: &cw_log_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

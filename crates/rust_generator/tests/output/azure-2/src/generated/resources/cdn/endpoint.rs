@@ -225,75 +225,75 @@ pub mod endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentTypesToCompresses".into(),
-                    value: content_types_to_compresses_binding.get_id(),
+                    value: &content_types_to_compresses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryRules".into(),
-                    value: delivery_rules_binding.get_id(),
+                    value: &delivery_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geoFilters".into(),
-                    value: geo_filters_binding.get_id(),
+                    value: &geo_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalDeliveryRule".into(),
-                    value: global_delivery_rule_binding.get_id(),
+                    value: &global_delivery_rule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isCompressionEnabled".into(),
-                    value: is_compression_enabled_binding.get_id(),
+                    value: &is_compression_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isHttpAllowed".into(),
-                    value: is_http_allowed_binding.get_id(),
+                    value: &is_http_allowed_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isHttpsAllowed".into(),
-                    value: is_https_allowed_binding.get_id(),
+                    value: &is_https_allowed_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "optimizationType".into(),
-                    value: optimization_type_binding.get_id(),
+                    value: &optimization_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originHostHeader".into(),
-                    value: origin_host_header_binding.get_id(),
+                    value: &origin_host_header_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originPath".into(),
-                    value: origin_path_binding.get_id(),
+                    value: &origin_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "origins".into(),
-                    value: origins_binding.get_id(),
+                    value: &origins_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "probePath".into(),
-                    value: probe_path_binding.get_id(),
+                    value: &probe_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileName".into(),
-                    value: profile_name_binding.get_id(),
+                    value: &profile_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "querystringCachingBehaviour".into(),
-                    value: querystring_caching_behaviour_binding.get_id(),
+                    value: &querystring_caching_behaviour_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -174,11 +174,11 @@ pub mod autokey_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: folder_binding.get_id(),
+                    value: &folder_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyProject".into(),
-                    value: key_project_binding.get_id(),
+                    value: &key_project_binding.drop_type(),
                 },
             ],
         };

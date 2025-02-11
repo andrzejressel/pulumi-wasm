@@ -56,11 +56,11 @@ pub mod get_container_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerName".into(),
-                    value: container_name_binding.get_id(),
+                    value: &container_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskDefinition".into(),
-                    value: task_definition_binding.get_id(),
+                    value: &task_definition_binding.drop_type(),
                 },
             ],
         };

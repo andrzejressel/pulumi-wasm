@@ -50,15 +50,15 @@ pub mod get_configuration_keys {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationStoreId".into(),
-                    value: configuration_store_id_binding.get_id(),
+                    value: &configuration_store_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: key_binding.get_id(),
+                    value: &key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "label".into(),
-                    value: label_binding.get_id(),
+                    value: &label_binding.drop_type(),
                 },
             ],
         };

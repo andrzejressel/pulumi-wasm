@@ -424,35 +424,35 @@ pub mod pipeline_job {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backfillPipelineJob".into(),
-                    value: backfill_pipeline_job_binding.get_id(),
+                    value: &backfill_pipeline_job_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: dataset_binding.get_id(),
+                    value: &dataset_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableLineage".into(),
-                    value: disable_lineage_binding.get_id(),
+                    value: &disable_lineage_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mappingPipelineJob".into(),
-                    value: mapping_pipeline_job_binding.get_id(),
+                    value: &mapping_pipeline_job_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reconciliationPipelineJob".into(),
-                    value: reconciliation_pipeline_job_binding.get_id(),
+                    value: &reconciliation_pipeline_job_binding.drop_type(),
                 },
             ],
         };

@@ -79,11 +79,11 @@ pub mod hsm_client_certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hsmClientCertificateIdentifier".into(),
-                    value: hsm_client_certificate_identifier_binding.get_id(),
+                    value: &hsm_client_certificate_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

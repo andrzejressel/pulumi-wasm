@@ -37,11 +37,11 @@ pub mod get_hosted_zone_id {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerType".into(),
-                    value: load_balancer_type_binding.get_id(),
+                    value: &load_balancer_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
             ],
         };

@@ -99,23 +99,23 @@ pub mod member {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableEmailNotification".into(),
-                    value: disable_email_notification_binding.get_id(),
+                    value: &disable_email_notification_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddress".into(),
-                    value: email_address_binding.get_id(),
+                    value: &email_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "graphArn".into(),
-                    value: graph_arn_binding.get_id(),
+                    value: &graph_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "message".into(),
-                    value: message_binding.get_id(),
+                    value: &message_binding.drop_type(),
                 },
             ],
         };

@@ -35,7 +35,7 @@ pub mod get_vcenter_credentials {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
             ],
         };

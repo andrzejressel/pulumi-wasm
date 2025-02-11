@@ -118,19 +118,19 @@ pub mod spring_cloud_builder {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildPackGroups".into(),
-                    value: build_pack_groups_binding.get_id(),
+                    value: &build_pack_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: spring_cloud_service_id_binding.get_id(),
+                    value: &spring_cloud_service_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stack".into(),
-                    value: stack_binding.get_id(),
+                    value: &stack_binding.drop_type(),
                 },
             ],
         };

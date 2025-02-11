@@ -96,15 +96,15 @@ pub mod cluster_capacity_providers {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityProviders".into(),
-                    value: capacity_providers_binding.get_id(),
+                    value: &capacity_providers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: cluster_name_binding.get_id(),
+                    value: &cluster_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultCapacityProviderStrategies".into(),
-                    value: default_capacity_provider_strategies_binding.get_id(),
+                    value: &default_capacity_provider_strategies_binding.drop_type(),
                 },
             ],
         };

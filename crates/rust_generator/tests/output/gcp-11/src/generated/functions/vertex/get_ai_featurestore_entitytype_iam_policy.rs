@@ -42,11 +42,11 @@ pub mod get_ai_featurestore_entitytype_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entitytype".into(),
-                    value: entitytype_binding.get_id(),
+                    value: &entitytype_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featurestore".into(),
-                    value: featurestore_binding.get_id(),
+                    value: &featurestore_binding.drop_type(),
                 },
             ],
         };

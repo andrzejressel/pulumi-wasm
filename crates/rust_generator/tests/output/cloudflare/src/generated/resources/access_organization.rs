@@ -167,55 +167,55 @@ pub mod access_organization {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowAuthenticateViaWarp".into(),
-                    value: allow_authenticate_via_warp_binding.get_id(),
+                    value: &allow_authenticate_via_warp_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authDomain".into(),
-                    value: auth_domain_binding.get_id(),
+                    value: &auth_domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRedirectToIdentity".into(),
-                    value: auto_redirect_to_identity_binding.get_id(),
+                    value: &auto_redirect_to_identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customPages".into(),
-                    value: custom_pages_binding.get_id(),
+                    value: &custom_pages_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isUiReadOnly".into(),
-                    value: is_ui_read_only_binding.get_id(),
+                    value: &is_ui_read_only_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loginDesigns".into(),
-                    value: login_designs_binding.get_id(),
+                    value: &login_designs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionDuration".into(),
-                    value: session_duration_binding.get_id(),
+                    value: &session_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uiReadOnlyToggleReason".into(),
-                    value: ui_read_only_toggle_reason_binding.get_id(),
+                    value: &ui_read_only_toggle_reason_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userSeatExpirationInactiveTime".into(),
-                    value: user_seat_expiration_inactive_time_binding.get_id(),
+                    value: &user_seat_expiration_inactive_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "warpAuthSessionDuration".into(),
-                    value: warp_auth_session_duration_binding.get_id(),
+                    value: &warp_auth_session_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

@@ -33,7 +33,7 @@ pub mod get_tracker_associations {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trackerName".into(),
-                    value: tracker_name_binding.get_id(),
+                    value: &tracker_name_binding.drop_type(),
                 },
             ],
         };

@@ -37,7 +37,7 @@ pub mod get_log_groups {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logGroupNamePrefix".into(),
-                    value: log_group_name_prefix_binding.get_id(),
+                    value: &log_group_name_prefix_binding.drop_type(),
                 },
             ],
         };

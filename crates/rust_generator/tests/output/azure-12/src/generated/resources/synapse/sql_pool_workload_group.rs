@@ -155,35 +155,35 @@ pub mod sql_pool_workload_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importance".into(),
-                    value: importance_binding.get_id(),
+                    value: &importance_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxResourcePercent".into(),
-                    value: max_resource_percent_binding.get_id(),
+                    value: &max_resource_percent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxResourcePercentPerRequest".into(),
-                    value: max_resource_percent_per_request_binding.get_id(),
+                    value: &max_resource_percent_per_request_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minResourcePercent".into(),
-                    value: min_resource_percent_binding.get_id(),
+                    value: &min_resource_percent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minResourcePercentPerRequest".into(),
-                    value: min_resource_percent_per_request_binding.get_id(),
+                    value: &min_resource_percent_per_request_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryExecutionTimeoutInSeconds".into(),
-                    value: query_execution_timeout_in_seconds_binding.get_id(),
+                    value: &query_execution_timeout_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlPoolId".into(),
-                    value: sql_pool_id_binding.get_id(),
+                    value: &sql_pool_id_binding.drop_type(),
                 },
             ],
         };

@@ -66,15 +66,15 @@ pub mod get_listener {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listenerIdentifier".into(),
-                    value: listener_identifier_binding.get_id(),
+                    value: &listener_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceIdentifier".into(),
-                    value: service_identifier_binding.get_id(),
+                    value: &service_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

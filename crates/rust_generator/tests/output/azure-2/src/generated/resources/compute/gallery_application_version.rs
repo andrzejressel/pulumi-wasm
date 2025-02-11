@@ -215,51 +215,51 @@ pub mod gallery_application_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configFile".into(),
-                    value: config_file_binding.get_id(),
+                    value: &config_file_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableHealthCheck".into(),
-                    value: enable_health_check_binding.get_id(),
+                    value: &enable_health_check_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endOfLifeDate".into(),
-                    value: end_of_life_date_binding.get_id(),
+                    value: &end_of_life_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeFromLatest".into(),
-                    value: exclude_from_latest_binding.get_id(),
+                    value: &exclude_from_latest_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "galleryApplicationId".into(),
-                    value: gallery_application_id_binding.get_id(),
+                    value: &gallery_application_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manageAction".into(),
-                    value: manage_action_binding.get_id(),
+                    value: &manage_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageFile".into(),
-                    value: package_file_binding.get_id(),
+                    value: &package_file_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: source_binding.get_id(),
+                    value: &source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetRegions".into(),
-                    value: target_regions_binding.get_id(),
+                    value: &target_regions_binding.drop_type(),
                 },
             ],
         };

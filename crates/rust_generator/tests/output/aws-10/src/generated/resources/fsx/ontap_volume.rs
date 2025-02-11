@@ -250,79 +250,79 @@ pub mod ontap_volume {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aggregateConfiguration".into(),
-                    value: aggregate_configuration_binding.get_id(),
+                    value: &aggregate_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bypassSnaplockEnterpriseRetention".into(),
-                    value: bypass_snaplock_enterprise_retention_binding.get_id(),
+                    value: &bypass_snaplock_enterprise_retention_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyTagsToBackups".into(),
-                    value: copy_tags_to_backups_binding.get_id(),
+                    value: &copy_tags_to_backups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "finalBackupTags".into(),
-                    value: final_backup_tags_binding.get_id(),
+                    value: &final_backup_tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "junctionPath".into(),
-                    value: junction_path_binding.get_id(),
+                    value: &junction_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ontapVolumeType".into(),
-                    value: ontap_volume_type_binding.get_id(),
+                    value: &ontap_volume_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityStyle".into(),
-                    value: security_style_binding.get_id(),
+                    value: &security_style_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sizeInBytes".into(),
-                    value: size_in_bytes_binding.get_id(),
+                    value: &size_in_bytes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sizeInMegabytes".into(),
-                    value: size_in_megabytes_binding.get_id(),
+                    value: &size_in_megabytes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipFinalBackup".into(),
-                    value: skip_final_backup_binding.get_id(),
+                    value: &skip_final_backup_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snaplockConfiguration".into(),
-                    value: snaplock_configuration_binding.get_id(),
+                    value: &snaplock_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotPolicy".into(),
-                    value: snapshot_policy_binding.get_id(),
+                    value: &snapshot_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageEfficiencyEnabled".into(),
-                    value: storage_efficiency_enabled_binding.get_id(),
+                    value: &storage_efficiency_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageVirtualMachineId".into(),
-                    value: storage_virtual_machine_id_binding.get_id(),
+                    value: &storage_virtual_machine_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tieringPolicy".into(),
-                    value: tiering_policy_binding.get_id(),
+                    value: &tiering_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeStyle".into(),
-                    value: volume_style_binding.get_id(),
+                    value: &volume_style_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeType".into(),
-                    value: volume_type_binding.get_id(),
+                    value: &volume_type_binding.drop_type(),
                 },
             ],
         };

@@ -207,23 +207,23 @@ pub mod data_collection_rule_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCollectionEndpointId".into(),
-                    value: data_collection_endpoint_id_binding.get_id(),
+                    value: &data_collection_endpoint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCollectionRuleId".into(),
-                    value: data_collection_rule_id_binding.get_id(),
+                    value: &data_collection_rule_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceId".into(),
-                    value: target_resource_id_binding.get_id(),
+                    value: &target_resource_id_binding.drop_type(),
                 },
             ],
         };

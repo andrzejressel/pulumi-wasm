@@ -81,19 +81,19 @@ pub mod template_alias {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aliasName".into(),
-                    value: alias_name_binding.get_id(),
+                    value: &alias_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: aws_account_id_binding.get_id(),
+                    value: &aws_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateId".into(),
-                    value: template_id_binding.get_id(),
+                    value: &template_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateVersionNumber".into(),
-                    value: template_version_number_binding.get_id(),
+                    value: &template_version_number_binding.drop_type(),
                 },
             ],
         };

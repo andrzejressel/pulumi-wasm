@@ -94,23 +94,23 @@ pub mod api_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: api_management_name_binding.get_id(),
+                    value: &api_management_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiName".into(),
-                    value: api_name_binding.get_id(),
+                    value: &api_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "xmlContent".into(),
-                    value: xml_content_binding.get_id(),
+                    value: &xml_content_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "xmlLink".into(),
-                    value: xml_link_binding.get_id(),
+                    value: &xml_link_binding.drop_type(),
                 },
             ],
         };

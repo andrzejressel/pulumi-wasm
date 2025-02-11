@@ -134,35 +134,35 @@ pub mod agent_data_source {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataDeletionPolicy".into(),
-                    value: data_deletion_policy_binding.get_id(),
+                    value: &data_deletion_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSourceConfiguration".into(),
-                    value: data_source_configuration_binding.get_id(),
+                    value: &data_source_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "knowledgeBaseId".into(),
-                    value: knowledge_base_id_binding.get_id(),
+                    value: &knowledge_base_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverSideEncryptionConfiguration".into(),
-                    value: server_side_encryption_configuration_binding.get_id(),
+                    value: &server_side_encryption_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vectorIngestionConfiguration".into(),
-                    value: vector_ingestion_configuration_binding.get_id(),
+                    value: &vector_ingestion_configuration_binding.drop_type(),
                 },
             ],
         };

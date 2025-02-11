@@ -119,19 +119,19 @@ pub mod contact_list {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactListName".into(),
-                    value: contact_list_name_binding.get_id(),
+                    value: &contact_list_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topics".into(),
-                    value: topics_binding.get_id(),
+                    value: &topics_binding.drop_type(),
                 },
             ],
         };

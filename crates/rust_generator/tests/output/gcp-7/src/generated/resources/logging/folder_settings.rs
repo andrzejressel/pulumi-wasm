@@ -127,19 +127,19 @@ pub mod folder_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableDefaultSink".into(),
-                    value: disable_default_sink_binding.get_id(),
+                    value: &disable_default_sink_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: folder_binding.get_id(),
+                    value: &folder_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyName".into(),
-                    value: kms_key_name_binding.get_id(),
+                    value: &kms_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageLocation".into(),
-                    value: storage_location_binding.get_id(),
+                    value: &storage_location_binding.drop_type(),
                 },
             ],
         };

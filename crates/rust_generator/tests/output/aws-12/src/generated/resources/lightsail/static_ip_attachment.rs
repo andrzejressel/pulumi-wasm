@@ -74,11 +74,11 @@ pub mod static_ip_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceName".into(),
-                    value: instance_name_binding.get_id(),
+                    value: &instance_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staticIpName".into(),
-                    value: static_ip_name_binding.get_id(),
+                    value: &static_ip_name_binding.drop_type(),
                 },
             ],
         };

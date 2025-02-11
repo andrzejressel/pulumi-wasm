@@ -153,43 +153,43 @@ pub mod vpn_site {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressCidrs".into(),
-                    value: address_cidrs_binding.get_id(),
+                    value: &address_cidrs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceModel".into(),
-                    value: device_model_binding.get_id(),
+                    value: &device_model_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceVendor".into(),
-                    value: device_vendor_binding.get_id(),
+                    value: &device_vendor_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "links".into(),
-                    value: links_binding.get_id(),
+                    value: &links_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "o365Policy".into(),
-                    value: o365_policy_binding.get_id(),
+                    value: &o365_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualWanId".into(),
-                    value: virtual_wan_id_binding.get_id(),
+                    value: &virtual_wan_id_binding.drop_type(),
                 },
             ],
         };

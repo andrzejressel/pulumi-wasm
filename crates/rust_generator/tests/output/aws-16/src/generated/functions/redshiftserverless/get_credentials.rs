@@ -47,15 +47,15 @@ pub mod get_credentials {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbName".into(),
-                    value: db_name_binding.get_id(),
+                    value: &db_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "durationSeconds".into(),
-                    value: duration_seconds_binding.get_id(),
+                    value: &duration_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workgroupName".into(),
-                    value: workgroup_name_binding.get_id(),
+                    value: &workgroup_name_binding.drop_type(),
                 },
             ],
         };

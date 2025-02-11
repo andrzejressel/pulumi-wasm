@@ -156,11 +156,11 @@ pub mod application_security_group_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationSecurityGroupId".into(),
-                    value: application_security_group_id_binding.get_id(),
+                    value: &application_security_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateEndpointId".into(),
-                    value: private_endpoint_id_binding.get_id(),
+                    value: &private_endpoint_id_binding.drop_type(),
                 },
             ],
         };

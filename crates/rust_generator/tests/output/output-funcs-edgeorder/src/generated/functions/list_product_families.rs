@@ -57,19 +57,19 @@ pub mod list_product_families {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerSubscriptionDetails".into(),
-                    value: customer_subscription_details_binding.get_id(),
+                    value: &customer_subscription_details_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expand".into(),
-                    value: expand_binding.get_id(),
+                    value: &expand_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterableProperties".into(),
-                    value: filterable_properties_binding.get_id(),
+                    value: &filterable_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipToken".into(),
-                    value: skip_token_binding.get_id(),
+                    value: &skip_token_binding.drop_type(),
                 },
             ],
         };

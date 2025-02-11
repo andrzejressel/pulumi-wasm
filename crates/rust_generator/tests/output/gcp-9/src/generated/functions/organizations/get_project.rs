@@ -49,7 +49,7 @@ pub mod get_project {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectId".into(),
-                    value: project_id_binding.get_id(),
+                    value: &project_id_binding.drop_type(),
                 },
             ],
         };

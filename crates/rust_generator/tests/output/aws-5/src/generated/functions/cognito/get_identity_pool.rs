@@ -61,11 +61,11 @@ pub mod get_identity_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityPoolName".into(),
-                    value: identity_pool_name_binding.get_id(),
+                    value: &identity_pool_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

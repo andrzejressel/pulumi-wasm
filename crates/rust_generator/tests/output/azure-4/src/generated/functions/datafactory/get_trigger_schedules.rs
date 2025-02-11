@@ -33,7 +33,7 @@ pub mod get_trigger_schedules {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: data_factory_id_binding.get_id(),
+                    value: &data_factory_id_binding.drop_type(),
                 },
             ],
         };

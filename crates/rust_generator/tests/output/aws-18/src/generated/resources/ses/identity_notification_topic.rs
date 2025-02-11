@@ -80,19 +80,19 @@ pub mod identity_notification_topic {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeOriginalHeaders".into(),
-                    value: include_original_headers_binding.get_id(),
+                    value: &include_original_headers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationType".into(),
-                    value: notification_type_binding.get_id(),
+                    value: &notification_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topicArn".into(),
-                    value: topic_arn_binding.get_id(),
+                    value: &topic_arn_binding.drop_type(),
                 },
             ],
         };

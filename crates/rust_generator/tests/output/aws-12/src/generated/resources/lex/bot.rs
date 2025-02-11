@@ -209,59 +209,59 @@ pub mod bot {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "abortStatement".into(),
-                    value: abort_statement_binding.get_id(),
+                    value: &abort_statement_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "childDirected".into(),
-                    value: child_directed_binding.get_id(),
+                    value: &child_directed_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clarificationPrompt".into(),
-                    value: clarification_prompt_binding.get_id(),
+                    value: &clarification_prompt_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createVersion".into(),
-                    value: create_version_binding.get_id(),
+                    value: &create_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectSentiment".into(),
-                    value: detect_sentiment_binding.get_id(),
+                    value: &detect_sentiment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableModelImprovements".into(),
-                    value: enable_model_improvements_binding.get_id(),
+                    value: &enable_model_improvements_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleSessionTtlInSeconds".into(),
-                    value: idle_session_ttl_in_seconds_binding.get_id(),
+                    value: &idle_session_ttl_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "intents".into(),
-                    value: intents_binding.get_id(),
+                    value: &intents_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locale".into(),
-                    value: locale_binding.get_id(),
+                    value: &locale_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nluIntentConfidenceThreshold".into(),
-                    value: nlu_intent_confidence_threshold_binding.get_id(),
+                    value: &nlu_intent_confidence_threshold_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "processBehavior".into(),
-                    value: process_behavior_binding.get_id(),
+                    value: &process_behavior_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceId".into(),
-                    value: voice_id_binding.get_id(),
+                    value: &voice_id_binding.drop_type(),
                 },
             ],
         };

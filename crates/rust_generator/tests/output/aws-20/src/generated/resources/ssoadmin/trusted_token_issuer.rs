@@ -123,27 +123,27 @@ pub mod trusted_token_issuer {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientToken".into(),
-                    value: client_token_binding.get_id(),
+                    value: &client_token_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceArn".into(),
-                    value: instance_arn_binding.get_id(),
+                    value: &instance_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustedTokenIssuerConfiguration".into(),
-                    value: trusted_token_issuer_configuration_binding.get_id(),
+                    value: &trusted_token_issuer_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustedTokenIssuerType".into(),
-                    value: trusted_token_issuer_type_binding.get_id(),
+                    value: &trusted_token_issuer_type_binding.drop_type(),
                 },
             ],
         };

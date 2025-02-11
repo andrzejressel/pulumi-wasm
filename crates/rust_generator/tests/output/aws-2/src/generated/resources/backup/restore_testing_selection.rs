@@ -148,35 +148,35 @@ pub mod restore_testing_selection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: iam_role_arn_binding.get_id(),
+                    value: &iam_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedResourceArns".into(),
-                    value: protected_resource_arns_binding.get_id(),
+                    value: &protected_resource_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedResourceConditions".into(),
-                    value: protected_resource_conditions_binding.get_id(),
+                    value: &protected_resource_conditions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedResourceType".into(),
-                    value: protected_resource_type_binding.get_id(),
+                    value: &protected_resource_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreMetadataOverrides".into(),
-                    value: restore_metadata_overrides_binding.get_id(),
+                    value: &restore_metadata_overrides_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreTestingPlanName".into(),
-                    value: restore_testing_plan_name_binding.get_id(),
+                    value: &restore_testing_plan_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationWindowHours".into(),
-                    value: validation_window_hours_binding.get_id(),
+                    value: &validation_window_hours_binding.drop_type(),
                 },
             ],
         };

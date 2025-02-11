@@ -95,27 +95,27 @@ pub mod trust_store {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caCertificatesBundleS3Bucket".into(),
-                    value: ca_certificates_bundle_s3_bucket_binding.get_id(),
+                    value: &ca_certificates_bundle_s3_bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caCertificatesBundleS3Key".into(),
-                    value: ca_certificates_bundle_s3_key_binding.get_id(),
+                    value: &ca_certificates_bundle_s3_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caCertificatesBundleS3ObjectVersion".into(),
-                    value: ca_certificates_bundle_s3_object_version_binding.get_id(),
+                    value: &ca_certificates_bundle_s3_object_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

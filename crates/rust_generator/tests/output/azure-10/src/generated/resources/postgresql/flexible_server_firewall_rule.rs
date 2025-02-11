@@ -100,19 +100,19 @@ pub mod flexible_server_firewall_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endIpAddress".into(),
-                    value: end_ip_address_binding.get_id(),
+                    value: &end_ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: server_id_binding.get_id(),
+                    value: &server_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startIpAddress".into(),
-                    value: start_ip_address_binding.get_id(),
+                    value: &start_ip_address_binding.drop_type(),
                 },
             ],
         };

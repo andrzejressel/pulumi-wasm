@@ -206,67 +206,67 @@ pub mod endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationOptions".into(),
-                    value: authentication_options_binding.get_id(),
+                    value: &authentication_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCidrBlock".into(),
-                    value: client_cidr_block_binding.get_id(),
+                    value: &client_cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientConnectOptions".into(),
-                    value: client_connect_options_binding.get_id(),
+                    value: &client_connect_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientLoginBannerOptions".into(),
-                    value: client_login_banner_options_binding.get_id(),
+                    value: &client_login_banner_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionLogOptions".into(),
-                    value: connection_log_options_binding.get_id(),
+                    value: &connection_log_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsServers".into(),
-                    value: dns_servers_binding.get_id(),
+                    value: &dns_servers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: security_group_ids_binding.get_id(),
+                    value: &security_group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfServicePortal".into(),
-                    value: self_service_portal_binding.get_id(),
+                    value: &self_service_portal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverCertificateArn".into(),
-                    value: server_certificate_arn_binding.get_id(),
+                    value: &server_certificate_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionTimeoutHours".into(),
-                    value: session_timeout_hours_binding.get_id(),
+                    value: &session_timeout_hours_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "splitTunnel".into(),
-                    value: split_tunnel_binding.get_id(),
+                    value: &split_tunnel_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transportProtocol".into(),
-                    value: transport_protocol_binding.get_id(),
+                    value: &transport_protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: vpc_id_binding.get_id(),
+                    value: &vpc_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnPort".into(),
-                    value: vpn_port_binding.get_id(),
+                    value: &vpn_port_binding.drop_type(),
                 },
             ],
         };

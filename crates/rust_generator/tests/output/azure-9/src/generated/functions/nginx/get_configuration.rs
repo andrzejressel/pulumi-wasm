@@ -43,7 +43,7 @@ pub mod get_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nginxDeploymentId".into(),
-                    value: nginx_deployment_id_binding.get_id(),
+                    value: &nginx_deployment_id_binding.drop_type(),
                 },
             ],
         };

@@ -158,19 +158,19 @@ pub mod account_encryption {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionKey".into(),
-                    value: encryption_key_binding.get_id(),
+                    value: &encryption_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "netappAccountId".into(),
-                    value: netapp_account_id_binding.get_id(),
+                    value: &netapp_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "systemAssignedIdentityPrincipalId".into(),
-                    value: system_assigned_identity_principal_id_binding.get_id(),
+                    value: &system_assigned_identity_principal_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userAssignedIdentityId".into(),
-                    value: user_assigned_identity_id_binding.get_id(),
+                    value: &user_assigned_identity_id_binding.drop_type(),
                 },
             ],
         };

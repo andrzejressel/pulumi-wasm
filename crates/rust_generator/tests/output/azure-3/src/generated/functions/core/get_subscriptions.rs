@@ -42,11 +42,11 @@ pub mod get_subscriptions {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayNameContains".into(),
-                    value: display_name_contains_binding.get_id(),
+                    value: &display_name_contains_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayNamePrefix".into(),
-                    value: display_name_prefix_binding.get_id(),
+                    value: &display_name_prefix_binding.drop_type(),
                 },
             ],
         };

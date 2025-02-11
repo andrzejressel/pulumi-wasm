@@ -108,15 +108,15 @@ pub mod default_service_accounts {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: action_binding.get_id(),
+                    value: &action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restorePolicy".into(),
-                    value: restore_policy_binding.get_id(),
+                    value: &restore_policy_binding.drop_type(),
                 },
             ],
         };

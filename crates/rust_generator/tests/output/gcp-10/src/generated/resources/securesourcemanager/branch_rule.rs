@@ -237,51 +237,51 @@ pub mod branch_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowStaleReviews".into(),
-                    value: allow_stale_reviews_binding.get_id(),
+                    value: &allow_stale_reviews_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "branchRuleId".into(),
-                    value: branch_rule_id_binding.get_id(),
+                    value: &branch_rule_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: disabled_binding.get_id(),
+                    value: &disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includePattern".into(),
-                    value: include_pattern_binding.get_id(),
+                    value: &include_pattern_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumApprovalsCount".into(),
-                    value: minimum_approvals_count_binding.get_id(),
+                    value: &minimum_approvals_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumReviewsCount".into(),
-                    value: minimum_reviews_count_binding.get_id(),
+                    value: &minimum_reviews_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryId".into(),
-                    value: repository_id_binding.get_id(),
+                    value: &repository_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireCommentsResolved".into(),
-                    value: require_comments_resolved_binding.get_id(),
+                    value: &require_comments_resolved_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireLinearHistory".into(),
-                    value: require_linear_history_binding.get_id(),
+                    value: &require_linear_history_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requirePullRequest".into(),
-                    value: require_pull_request_binding.get_id(),
+                    value: &require_pull_request_binding.drop_type(),
                 },
             ],
         };

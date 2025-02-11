@@ -159,47 +159,47 @@ pub mod transit_gateway {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amazonSideAsn".into(),
-                    value: amazon_side_asn_binding.get_id(),
+                    value: &amazon_side_asn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoAcceptSharedAttachments".into(),
-                    value: auto_accept_shared_attachments_binding.get_id(),
+                    value: &auto_accept_shared_attachments_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRouteTableAssociation".into(),
-                    value: default_route_table_association_binding.get_id(),
+                    value: &default_route_table_association_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRouteTablePropagation".into(),
-                    value: default_route_table_propagation_binding.get_id(),
+                    value: &default_route_table_propagation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsSupport".into(),
-                    value: dns_support_binding.get_id(),
+                    value: &dns_support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multicastSupport".into(),
-                    value: multicast_support_binding.get_id(),
+                    value: &multicast_support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupReferencingSupport".into(),
-                    value: security_group_referencing_support_binding.get_id(),
+                    value: &security_group_referencing_support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayCidrBlocks".into(),
-                    value: transit_gateway_cidr_blocks_binding.get_id(),
+                    value: &transit_gateway_cidr_blocks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnEcmpSupport".into(),
-                    value: vpn_ecmp_support_binding.get_id(),
+                    value: &vpn_ecmp_support_binding.drop_type(),
                 },
             ],
         };

@@ -184,55 +184,55 @@ pub mod gremlin_graph {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: account_name_binding.get_id(),
+                    value: &account_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "analyticalStorageTtl".into(),
-                    value: analytical_storage_ttl_binding.get_id(),
+                    value: &analytical_storage_ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscaleSettings".into(),
-                    value: autoscale_settings_binding.get_id(),
+                    value: &autoscale_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conflictResolutionPolicy".into(),
-                    value: conflict_resolution_policy_binding.get_id(),
+                    value: &conflict_resolution_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: database_name_binding.get_id(),
+                    value: &database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTtl".into(),
-                    value: default_ttl_binding.get_id(),
+                    value: &default_ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexPolicy".into(),
-                    value: index_policy_binding.get_id(),
+                    value: &index_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKeyPath".into(),
-                    value: partition_key_path_binding.get_id(),
+                    value: &partition_key_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKeyVersion".into(),
-                    value: partition_key_version_binding.get_id(),
+                    value: &partition_key_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throughput".into(),
-                    value: throughput_binding.get_id(),
+                    value: &throughput_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "uniqueKeys".into(),
-                    value: unique_keys_binding.get_id(),
+                    value: &unique_keys_binding.drop_type(),
                 },
             ],
         };

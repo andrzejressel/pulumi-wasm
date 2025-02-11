@@ -255,47 +255,47 @@ pub mod crypto_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoKeyBackend".into(),
-                    value: crypto_key_backend_binding.get_id(),
+                    value: &crypto_key_backend_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destroyScheduledDuration".into(),
-                    value: destroy_scheduled_duration_binding.get_id(),
+                    value: &destroy_scheduled_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importOnly".into(),
-                    value: import_only_binding.get_id(),
+                    value: &import_only_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyAccessJustificationsPolicy".into(),
-                    value: key_access_justifications_policy_binding.get_id(),
+                    value: &key_access_justifications_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyRing".into(),
-                    value: key_ring_binding.get_id(),
+                    value: &key_ring_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purpose".into(),
-                    value: purpose_binding.get_id(),
+                    value: &purpose_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rotationPeriod".into(),
-                    value: rotation_period_binding.get_id(),
+                    value: &rotation_period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipInitialVersionCreation".into(),
-                    value: skip_initial_version_creation_binding.get_id(),
+                    value: &skip_initial_version_creation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionTemplate".into(),
-                    value: version_template_binding.get_id(),
+                    value: &version_template_binding.drop_type(),
                 },
             ],
         };

@@ -38,7 +38,7 @@ pub mod get_dicom_store_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dicomStoreId".into(),
-                    value: dicom_store_id_binding.get_id(),
+                    value: &dicom_store_id_binding.drop_type(),
                 },
             ],
         };

@@ -57,11 +57,11 @@ pub mod tiered_cache {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheType".into(),
-                    value: cache_type_binding.get_id(),
+                    value: &cache_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

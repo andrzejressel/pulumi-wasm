@@ -202,27 +202,27 @@ pub mod blockchain_nodes {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockchainNodeId".into(),
-                    value: blockchain_node_id_binding.get_id(),
+                    value: &blockchain_node_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockchainType".into(),
-                    value: blockchain_type_binding.get_id(),
+                    value: &blockchain_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ethereumDetails".into(),
-                    value: ethereum_details_binding.get_id(),
+                    value: &ethereum_details_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

@@ -108,23 +108,23 @@ pub mod logging {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketName".into(),
-                    value: bucket_name_binding.get_id(),
+                    value: &bucket_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: cluster_identifier_binding.get_id(),
+                    value: &cluster_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logDestinationType".into(),
-                    value: log_destination_type_binding.get_id(),
+                    value: &log_destination_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logExports".into(),
-                    value: log_exports_binding.get_id(),
+                    value: &log_exports_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3KeyPrefix".into(),
-                    value: s3_key_prefix_binding.get_id(),
+                    value: &s3_key_prefix_binding.drop_type(),
                 },
             ],
         };

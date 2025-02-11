@@ -98,19 +98,19 @@ pub mod app_cookie_stickiness_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cookieName".into(),
-                    value: cookie_name_binding.get_id(),
+                    value: &cookie_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lbPort".into(),
-                    value: lb_port_binding.get_id(),
+                    value: &lb_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancer".into(),
-                    value: load_balancer_binding.get_id(),
+                    value: &load_balancer_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

@@ -72,15 +72,15 @@ pub mod get_connect_peer {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayConnectPeerId".into(),
-                    value: transit_gateway_connect_peer_id_binding.get_id(),
+                    value: &transit_gateway_connect_peer_id_binding.drop_type(),
                 },
             ],
         };

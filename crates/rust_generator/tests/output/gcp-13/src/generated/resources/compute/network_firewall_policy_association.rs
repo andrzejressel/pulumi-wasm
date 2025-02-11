@@ -129,19 +129,19 @@ pub mod network_firewall_policy_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachmentTarget".into(),
-                    value: attachment_target_binding.get_id(),
+                    value: &attachment_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallPolicy".into(),
-                    value: firewall_policy_binding.get_id(),
+                    value: &firewall_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

@@ -123,11 +123,11 @@ pub mod static_web_app_function_app_registration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionAppId".into(),
-                    value: function_app_id_binding.get_id(),
+                    value: &function_app_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staticWebAppId".into(),
-                    value: static_web_app_id_binding.get_id(),
+                    value: &static_web_app_id_binding.drop_type(),
                 },
             ],
         };

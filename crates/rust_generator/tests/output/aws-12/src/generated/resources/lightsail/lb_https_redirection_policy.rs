@@ -81,11 +81,11 @@ pub mod lb_https_redirection_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lbName".into(),
-                    value: lb_name_binding.get_id(),
+                    value: &lb_name_binding.drop_type(),
                 },
             ],
         };

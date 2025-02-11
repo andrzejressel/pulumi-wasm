@@ -92,23 +92,23 @@ pub mod service_trust {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainServiceId".into(),
-                    value: domain_service_id_binding.get_id(),
+                    value: &domain_service_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: password_binding.get_id(),
+                    value: &password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustedDomainDnsIps".into(),
-                    value: trusted_domain_dns_ips_binding.get_id(),
+                    value: &trusted_domain_dns_ips_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustedDomainFqdn".into(),
-                    value: trusted_domain_fqdn_binding.get_id(),
+                    value: &trusted_domain_fqdn_binding.drop_type(),
                 },
             ],
         };

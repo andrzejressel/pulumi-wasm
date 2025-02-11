@@ -32,7 +32,7 @@ pub mod get_permission_sets {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceArn".into(),
-                    value: instance_arn_binding.get_id(),
+                    value: &instance_arn_binding.drop_type(),
                 },
             ],
         };

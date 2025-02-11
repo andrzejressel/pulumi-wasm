@@ -39,7 +39,7 @@ pub mod get_event_source {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
             ],
         };

@@ -103,31 +103,31 @@ pub mod stream {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exclusiveEndTime".into(),
-                    value: exclusive_end_time_binding.get_id(),
+                    value: &exclusive_end_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inclusiveStartTime".into(),
-                    value: inclusive_start_time_binding.get_id(),
+                    value: &inclusive_start_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kinesisConfiguration".into(),
-                    value: kinesis_configuration_binding.get_id(),
+                    value: &kinesis_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ledgerName".into(),
-                    value: ledger_name_binding.get_id(),
+                    value: &ledger_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamName".into(),
-                    value: stream_name_binding.get_id(),
+                    value: &stream_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -62,27 +62,27 @@ pub mod get_orderable_db_instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: engine_binding.get_id(),
+                    value: &engine_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineVersion".into(),
-                    value: engine_version_binding.get_id(),
+                    value: &engine_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceClass".into(),
-                    value: instance_class_binding.get_id(),
+                    value: &instance_class_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseModel".into(),
-                    value: license_model_binding.get_id(),
+                    value: &license_model_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredInstanceClasses".into(),
-                    value: preferred_instance_classes_binding.get_id(),
+                    value: &preferred_instance_classes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpc".into(),
-                    value: vpc_binding.get_id(),
+                    value: &vpc_binding.drop_type(),
                 },
             ],
         };

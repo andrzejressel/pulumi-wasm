@@ -90,15 +90,15 @@ pub mod iam_member_remove {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "member".into(),
-                    value: member_binding.get_id(),
+                    value: &member_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: role_binding.get_id(),
+                    value: &role_binding.drop_type(),
                 },
             ],
         };

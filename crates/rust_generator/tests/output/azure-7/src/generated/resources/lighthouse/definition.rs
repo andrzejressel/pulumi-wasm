@@ -123,35 +123,35 @@ pub mod definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizations".into(),
-                    value: authorizations_binding.get_id(),
+                    value: &authorizations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eligibleAuthorizations".into(),
-                    value: eligible_authorizations_binding.get_id(),
+                    value: &eligible_authorizations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lighthouseDefinitionId".into(),
-                    value: lighthouse_definition_id_binding.get_id(),
+                    value: &lighthouse_definition_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managingTenantId".into(),
-                    value: managing_tenant_id_binding.get_id(),
+                    value: &managing_tenant_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plan".into(),
-                    value: plan_binding.get_id(),
+                    value: &plan_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: scope_binding.get_id(),
+                    value: &scope_binding.drop_type(),
                 },
             ],
         };

@@ -143,28 +143,28 @@ pub mod frontdoor_origin_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorProfileId".into(),
-                    value: cdn_frontdoor_profile_id_binding.get_id(),
+                    value: &cdn_frontdoor_profile_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthProbe".into(),
-                    value: health_probe_binding.get_id(),
+                    value: &health_probe_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancing".into(),
-                    value: load_balancing_binding.get_id(),
+                    value: &load_balancing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restoreTrafficTimeToHealedOrNewEndpointInMinutes".into(),
-                    value: restore_traffic_time_to_healed_or_new_endpoint_in_minutes_binding
-                        .get_id(),
+                    value: &restore_traffic_time_to_healed_or_new_endpoint_in_minutes_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionAffinityEnabled".into(),
-                    value: session_affinity_enabled_binding.get_id(),
+                    value: &session_affinity_enabled_binding.drop_type(),
                 },
             ],
         };

@@ -116,19 +116,19 @@ pub mod security_device_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowRule".into(),
-                    value: allow_rule_binding.get_id(),
+                    value: &allow_rule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubId".into(),
-                    value: iothub_id_binding.get_id(),
+                    value: &iothub_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rangeRules".into(),
-                    value: range_rules_binding.get_id(),
+                    value: &range_rules_binding.drop_type(),
                 },
             ],
         };

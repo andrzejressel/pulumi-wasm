@@ -46,7 +46,7 @@ pub mod get_model {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelId".into(),
-                    value: model_id_binding.get_id(),
+                    value: &model_id_binding.drop_type(),
                 },
             ],
         };

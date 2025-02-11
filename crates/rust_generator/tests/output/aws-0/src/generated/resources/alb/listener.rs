@@ -348,43 +348,43 @@ pub mod listener {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alpnPolicy".into(),
-                    value: alpn_policy_binding.get_id(),
+                    value: &alpn_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateArn".into(),
-                    value: certificate_arn_binding.get_id(),
+                    value: &certificate_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultActions".into(),
-                    value: default_actions_binding.get_id(),
+                    value: &default_actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerArn".into(),
-                    value: load_balancer_arn_binding.get_id(),
+                    value: &load_balancer_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mutualAuthentication".into(),
-                    value: mutual_authentication_binding.get_id(),
+                    value: &mutual_authentication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslPolicy".into(),
-                    value: ssl_policy_binding.get_id(),
+                    value: &ssl_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tcpIdleTimeoutSeconds".into(),
-                    value: tcp_idle_timeout_seconds_binding.get_id(),
+                    value: &tcp_idle_timeout_seconds_binding.drop_type(),
                 },
             ],
         };

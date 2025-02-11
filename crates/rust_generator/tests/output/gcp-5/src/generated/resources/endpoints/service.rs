@@ -120,23 +120,23 @@ pub mod service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grpcConfig".into(),
-                    value: grpc_config_binding.get_id(),
+                    value: &grpc_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "openapiConfig".into(),
-                    value: openapi_config_binding.get_id(),
+                    value: &openapi_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocOutputBase64".into(),
-                    value: protoc_output_base64_binding.get_id(),
+                    value: &protoc_output_base64_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceName".into(),
-                    value: service_name_binding.get_id(),
+                    value: &service_name_binding.drop_type(),
                 },
             ],
         };

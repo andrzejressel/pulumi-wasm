@@ -175,27 +175,27 @@ pub mod virtual_hub_route_table_route {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinations".into(),
-                    value: destinations_binding.get_id(),
+                    value: &destinations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationsType".into(),
-                    value: destinations_type_binding.get_id(),
+                    value: &destinations_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nextHop".into(),
-                    value: next_hop_binding.get_id(),
+                    value: &next_hop_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nextHopType".into(),
-                    value: next_hop_type_binding.get_id(),
+                    value: &next_hop_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeTableId".into(),
-                    value: route_table_id_binding.get_id(),
+                    value: &route_table_id_binding.drop_type(),
                 },
             ],
         };

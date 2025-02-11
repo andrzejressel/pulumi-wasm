@@ -140,19 +140,19 @@ pub mod repository {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createIgnoreAlreadyExists".into(),
-                    value: create_ignore_already_exists_binding.get_id(),
+                    value: &create_ignore_already_exists_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pubsubConfigs".into(),
-                    value: pubsub_configs_binding.get_id(),
+                    value: &pubsub_configs_binding.drop_type(),
                 },
             ],
         };

@@ -131,27 +131,27 @@ pub mod domain_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appId".into(),
-                    value: app_id_binding.get_id(),
+                    value: &app_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateSettings".into(),
-                    value: certificate_settings_binding.get_id(),
+                    value: &certificate_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableAutoSubDomain".into(),
-                    value: enable_auto_sub_domain_binding.get_id(),
+                    value: &enable_auto_sub_domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subDomains".into(),
-                    value: sub_domains_binding.get_id(),
+                    value: &sub_domains_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForVerification".into(),
-                    value: wait_for_verification_binding.get_id(),
+                    value: &wait_for_verification_binding.drop_type(),
                 },
             ],
         };

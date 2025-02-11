@@ -81,24 +81,24 @@ pub mod replication_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationConsistentSnapshotFrequencyInMinutes".into(),
-                    value: application_consistent_snapshot_frequency_in_minutes_binding
-                        .get_id(),
+                    value: &application_consistent_snapshot_frequency_in_minutes_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryPointRetentionInMinutes".into(),
-                    value: recovery_point_retention_in_minutes_binding.get_id(),
+                    value: &recovery_point_retention_in_minutes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultName".into(),
-                    value: recovery_vault_name_binding.get_id(),
+                    value: &recovery_vault_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

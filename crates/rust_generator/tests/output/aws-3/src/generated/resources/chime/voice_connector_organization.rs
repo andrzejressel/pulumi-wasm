@@ -90,15 +90,15 @@ pub mod voice_connector_organization {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: disabled_binding.get_id(),
+                    value: &disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routes".into(),
-                    value: routes_binding.get_id(),
+                    value: &routes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceConnectorId".into(),
-                    value: voice_connector_id_binding.get_id(),
+                    value: &voice_connector_id_binding.drop_type(),
                 },
             ],
         };

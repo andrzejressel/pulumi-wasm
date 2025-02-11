@@ -59,11 +59,11 @@ pub mod get_report_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reportName".into(),
-                    value: report_name_binding.get_id(),
+                    value: &report_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

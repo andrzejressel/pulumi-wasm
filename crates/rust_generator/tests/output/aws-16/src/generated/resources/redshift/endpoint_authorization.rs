@@ -84,19 +84,19 @@ pub mod endpoint_authorization {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "account".into(),
-                    value: account_binding.get_id(),
+                    value: &account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: cluster_identifier_binding.get_id(),
+                    value: &cluster_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDelete".into(),
-                    value: force_delete_binding.get_id(),
+                    value: &force_delete_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcIds".into(),
-                    value: vpc_ids_binding.get_id(),
+                    value: &vpc_ids_binding.drop_type(),
                 },
             ],
         };

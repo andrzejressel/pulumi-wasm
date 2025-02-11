@@ -48,15 +48,15 @@ pub mod get_kubernetes_service_versions {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includePreview".into(),
-                    value: include_preview_binding.get_id(),
+                    value: &include_preview_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionPrefix".into(),
-                    value: version_prefix_binding.get_id(),
+                    value: &version_prefix_binding.drop_type(),
                 },
             ],
         };

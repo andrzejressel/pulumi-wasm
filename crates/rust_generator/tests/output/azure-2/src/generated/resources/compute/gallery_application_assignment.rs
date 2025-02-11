@@ -152,23 +152,23 @@ pub mod gallery_application_assignment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationBlobUri".into(),
-                    value: configuration_blob_uri_binding.get_id(),
+                    value: &configuration_blob_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "galleryApplicationVersionId".into(),
-                    value: gallery_application_version_id_binding.get_id(),
+                    value: &gallery_application_version_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "order".into(),
-                    value: order_binding.get_id(),
+                    value: &order_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tag".into(),
-                    value: tag_binding.get_id(),
+                    value: &tag_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineId".into(),
-                    value: virtual_machine_id_binding.get_id(),
+                    value: &virtual_machine_id_binding.drop_type(),
                 },
             ],
         };

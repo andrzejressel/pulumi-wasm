@@ -139,39 +139,39 @@ pub mod spring_cloud_dynatrace_application_performance_monitoring {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiToken".into(),
-                    value: api_token_binding.get_id(),
+                    value: &api_token_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiUrl".into(),
-                    value: api_url_binding.get_id(),
+                    value: &api_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionPoint".into(),
-                    value: connection_point_binding.get_id(),
+                    value: &connection_point_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentId".into(),
-                    value: environment_id_binding.get_id(),
+                    value: &environment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globallyEnabled".into(),
-                    value: globally_enabled_binding.get_id(),
+                    value: &globally_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: spring_cloud_service_id_binding.get_id(),
+                    value: &spring_cloud_service_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenant".into(),
-                    value: tenant_binding.get_id(),
+                    value: &tenant_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantToken".into(),
-                    value: tenant_token_binding.get_id(),
+                    value: &tenant_token_binding.drop_type(),
                 },
             ],
         };

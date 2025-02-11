@@ -273,71 +273,71 @@ pub mod teams_account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activityLogEnabled".into(),
-                    value: activity_log_enabled_binding.get_id(),
+                    value: &activity_log_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "antivirus".into(),
-                    value: antivirus_binding.get_id(),
+                    value: &antivirus_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockPage".into(),
-                    value: block_page_binding.get_id(),
+                    value: &block_page_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bodyScanning".into(),
-                    value: body_scanning_binding.get_id(),
+                    value: &body_scanning_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificate".into(),
-                    value: certificate_binding.get_id(),
+                    value: &certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customCertificate".into(),
-                    value: custom_certificate_binding.get_id(),
+                    value: &custom_certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "extendedEmailMatching".into(),
-                    value: extended_email_matching_binding.get_id(),
+                    value: &extended_email_matching_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fips".into(),
-                    value: fips_binding.get_id(),
+                    value: &fips_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logging".into(),
-                    value: logging_binding.get_id(),
+                    value: &logging_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nonIdentityBrowserIsolationEnabled".into(),
-                    value: non_identity_browser_isolation_enabled_binding.get_id(),
+                    value: &non_identity_browser_isolation_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "payloadLog".into(),
-                    value: payload_log_binding.get_id(),
+                    value: &payload_log_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocolDetectionEnabled".into(),
-                    value: protocol_detection_enabled_binding.get_id(),
+                    value: &protocol_detection_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxy".into(),
-                    value: proxy_binding.get_id(),
+                    value: &proxy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshSessionLog".into(),
-                    value: ssh_session_log_binding.get_id(),
+                    value: &ssh_session_log_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsDecryptEnabled".into(),
-                    value: tls_decrypt_enabled_binding.get_id(),
+                    value: &tls_decrypt_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "urlBrowserIsolationEnabled".into(),
-                    value: url_browser_isolation_enabled_binding.get_id(),
+                    value: &url_browser_isolation_enabled_binding.drop_type(),
                 },
             ],
         };

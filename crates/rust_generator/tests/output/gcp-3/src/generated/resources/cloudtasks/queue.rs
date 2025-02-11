@@ -300,35 +300,35 @@ pub mod queue {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appEngineRoutingOverride".into(),
-                    value: app_engine_routing_override_binding.get_id(),
+                    value: &app_engine_routing_override_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpTarget".into(),
-                    value: http_target_binding.get_id(),
+                    value: &http_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rateLimits".into(),
-                    value: rate_limits_binding.get_id(),
+                    value: &rate_limits_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retryConfig".into(),
-                    value: retry_config_binding.get_id(),
+                    value: &retry_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackdriverLoggingConfig".into(),
-                    value: stackdriver_logging_config_binding.get_id(),
+                    value: &stackdriver_logging_config_binding.drop_type(),
                 },
             ],
         };

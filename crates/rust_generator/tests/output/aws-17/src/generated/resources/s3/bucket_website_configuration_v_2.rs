@@ -185,31 +185,31 @@ pub mod bucket_website_configuration_v_2 {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "errorDocument".into(),
-                    value: error_document_binding.get_id(),
+                    value: &error_document_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedBucketOwner".into(),
-                    value: expected_bucket_owner_binding.get_id(),
+                    value: &expected_bucket_owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexDocument".into(),
-                    value: index_document_binding.get_id(),
+                    value: &index_document_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redirectAllRequestsTo".into(),
-                    value: redirect_all_requests_to_binding.get_id(),
+                    value: &redirect_all_requests_to_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingRuleDetails".into(),
-                    value: routing_rule_details_binding.get_id(),
+                    value: &routing_rule_details_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingRules".into(),
-                    value: routing_rules_binding.get_id(),
+                    value: &routing_rules_binding.drop_type(),
                 },
             ],
         };

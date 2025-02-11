@@ -146,19 +146,19 @@ pub mod engine_split_traffic {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "migrateTraffic".into(),
-                    value: migrate_traffic_binding.get_id(),
+                    value: &migrate_traffic_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: service_binding.get_id(),
+                    value: &service_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "split".into(),
-                    value: split_binding.get_id(),
+                    value: &split_binding.drop_type(),
                 },
             ],
         };

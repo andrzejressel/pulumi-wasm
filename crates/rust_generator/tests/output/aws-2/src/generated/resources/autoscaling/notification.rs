@@ -88,15 +88,15 @@ pub mod notification {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupNames".into(),
-                    value: group_names_binding.get_id(),
+                    value: &group_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notifications".into(),
-                    value: notifications_binding.get_id(),
+                    value: &notifications_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topicArn".into(),
-                    value: topic_arn_binding.get_id(),
+                    value: &topic_arn_binding.drop_type(),
                 },
             ],
         };

@@ -45,11 +45,11 @@ pub mod get_custom_key_store {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customKeyStoreId".into(),
-                    value: custom_key_store_id_binding.get_id(),
+                    value: &custom_key_store_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customKeyStoreName".into(),
-                    value: custom_key_store_name_binding.get_id(),
+                    value: &custom_key_store_name_binding.drop_type(),
                 },
             ],
         };

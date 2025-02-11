@@ -126,35 +126,35 @@ pub mod authorizer {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizerFunctionArn".into(),
-                    value: authorizer_function_arn_binding.get_id(),
+                    value: &authorizer_function_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableCachingForHttp".into(),
-                    value: enable_caching_for_http_binding.get_id(),
+                    value: &enable_caching_for_http_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signingDisabled".into(),
-                    value: signing_disabled_binding.get_id(),
+                    value: &signing_disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenKeyName".into(),
-                    value: token_key_name_binding.get_id(),
+                    value: &token_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenSigningPublicKeys".into(),
-                    value: token_signing_public_keys_binding.get_id(),
+                    value: &token_signing_public_keys_binding.drop_type(),
                 },
             ],
         };

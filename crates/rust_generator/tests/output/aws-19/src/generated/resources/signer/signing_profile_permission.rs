@@ -113,27 +113,27 @@ pub mod signing_profile_permission {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: action_binding.get_id(),
+                    value: &action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: principal_binding.get_id(),
+                    value: &principal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileName".into(),
-                    value: profile_name_binding.get_id(),
+                    value: &profile_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileVersion".into(),
-                    value: profile_version_binding.get_id(),
+                    value: &profile_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statementId".into(),
-                    value: statement_id_binding.get_id(),
+                    value: &statement_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statementIdPrefix".into(),
-                    value: statement_id_prefix_binding.get_id(),
+                    value: &statement_id_prefix_binding.drop_type(),
                 },
             ],
         };

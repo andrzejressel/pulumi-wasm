@@ -47,11 +47,11 @@ pub mod get_vpc_link {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcLinkId".into(),
-                    value: vpc_link_id_binding.get_id(),
+                    value: &vpc_link_id_binding.drop_type(),
                 },
             ],
         };

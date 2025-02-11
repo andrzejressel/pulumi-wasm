@@ -126,51 +126,51 @@ pub mod zone_cache_variants {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "avifs".into(),
-                    value: avifs_binding.get_id(),
+                    value: &avifs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bmps".into(),
-                    value: bmps_binding.get_id(),
+                    value: &bmps_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gifs".into(),
-                    value: gifs_binding.get_id(),
+                    value: &gifs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jp2s".into(),
-                    value: jp2s_binding.get_id(),
+                    value: &jp2s_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jpegs".into(),
-                    value: jpegs_binding.get_id(),
+                    value: &jpegs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jpg2s".into(),
-                    value: jpg2s_binding.get_id(),
+                    value: &jpg2s_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jpgs".into(),
-                    value: jpgs_binding.get_id(),
+                    value: &jpgs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pngs".into(),
-                    value: pngs_binding.get_id(),
+                    value: &pngs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tiffs".into(),
-                    value: tiffs_binding.get_id(),
+                    value: &tiffs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tifs".into(),
-                    value: tifs_binding.get_id(),
+                    value: &tifs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webps".into(),
-                    value: webps_binding.get_id(),
+                    value: &webps_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

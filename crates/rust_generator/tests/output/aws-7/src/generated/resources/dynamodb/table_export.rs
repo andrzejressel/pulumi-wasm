@@ -159,35 +159,35 @@ pub mod table_export {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportFormat".into(),
-                    value: export_format_binding.get_id(),
+                    value: &export_format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportTime".into(),
-                    value: export_time_binding.get_id(),
+                    value: &export_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Bucket".into(),
-                    value: s3_bucket_binding.get_id(),
+                    value: &s3_bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3BucketOwner".into(),
-                    value: s3_bucket_owner_binding.get_id(),
+                    value: &s3_bucket_owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Prefix".into(),
-                    value: s3_prefix_binding.get_id(),
+                    value: &s3_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3SseAlgorithm".into(),
-                    value: s3_sse_algorithm_binding.get_id(),
+                    value: &s3_sse_algorithm_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3SseKmsKeyId".into(),
-                    value: s3_sse_kms_key_id_binding.get_id(),
+                    value: &s3_sse_kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableArn".into(),
-                    value: table_arn_binding.get_id(),
+                    value: &table_arn_binding.drop_type(),
                 },
             ],
         };

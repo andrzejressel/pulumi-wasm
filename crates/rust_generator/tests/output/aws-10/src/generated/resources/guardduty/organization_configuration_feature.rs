@@ -96,19 +96,19 @@ pub mod organization_configuration_feature {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalConfigurations".into(),
-                    value: additional_configurations_binding.get_id(),
+                    value: &additional_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoEnable".into(),
-                    value: auto_enable_binding.get_id(),
+                    value: &auto_enable_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectorId".into(),
-                    value: detector_id_binding.get_id(),
+                    value: &detector_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

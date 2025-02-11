@@ -157,47 +157,47 @@ pub mod classification_job {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDataIdentifierIds".into(),
-                    value: custom_data_identifier_ids_binding.get_id(),
+                    value: &custom_data_identifier_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialRun".into(),
-                    value: initial_run_binding.get_id(),
+                    value: &initial_run_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobStatus".into(),
-                    value: job_status_binding.get_id(),
+                    value: &job_status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobType".into(),
-                    value: job_type_binding.get_id(),
+                    value: &job_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3JobDefinition".into(),
-                    value: s3_job_definition_binding.get_id(),
+                    value: &s3_job_definition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "samplingPercentage".into(),
-                    value: sampling_percentage_binding.get_id(),
+                    value: &sampling_percentage_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleFrequency".into(),
-                    value: schedule_frequency_binding.get_id(),
+                    value: &schedule_frequency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

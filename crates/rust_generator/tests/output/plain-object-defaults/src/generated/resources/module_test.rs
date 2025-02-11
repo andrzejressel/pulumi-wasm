@@ -29,11 +29,11 @@ pub mod module_test {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mod1".into(),
-                    value: mod1_binding.get_id(),
+                    value: &mod1_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "val".into(),
-                    value: val_binding.get_id(),
+                    value: &val_binding.drop_type(),
                 },
             ],
         };

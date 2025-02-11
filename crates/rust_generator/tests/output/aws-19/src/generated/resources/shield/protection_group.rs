@@ -159,27 +159,27 @@ pub mod protection_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aggregation".into(),
-                    value: aggregation_binding.get_id(),
+                    value: &aggregation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "members".into(),
-                    value: members_binding.get_id(),
+                    value: &members_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pattern".into(),
-                    value: pattern_binding.get_id(),
+                    value: &pattern_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectionGroupId".into(),
-                    value: protection_group_id_binding.get_id(),
+                    value: &protection_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceType".into(),
-                    value: resource_type_binding.get_id(),
+                    value: &resource_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

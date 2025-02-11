@@ -227,79 +227,79 @@ pub mod spark_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoPause".into(),
-                    value: auto_pause_binding.get_id(),
+                    value: &auto_pause_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScale".into(),
-                    value: auto_scale_binding.get_id(),
+                    value: &auto_scale_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheSize".into(),
-                    value: cache_size_binding.get_id(),
+                    value: &cache_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeIsolationEnabled".into(),
-                    value: compute_isolation_enabled_binding.get_id(),
+                    value: &compute_isolation_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamicExecutorAllocationEnabled".into(),
-                    value: dynamic_executor_allocation_enabled_binding.get_id(),
+                    value: &dynamic_executor_allocation_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "libraryRequirement".into(),
-                    value: library_requirement_binding.get_id(),
+                    value: &library_requirement_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxExecutors".into(),
-                    value: max_executors_binding.get_id(),
+                    value: &max_executors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minExecutors".into(),
-                    value: min_executors_binding.get_id(),
+                    value: &min_executors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeCount".into(),
-                    value: node_count_binding.get_id(),
+                    value: &node_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeSize".into(),
-                    value: node_size_binding.get_id(),
+                    value: &node_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeSizeFamily".into(),
-                    value: node_size_family_binding.get_id(),
+                    value: &node_size_family_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionLevelPackagesEnabled".into(),
-                    value: session_level_packages_enabled_binding.get_id(),
+                    value: &session_level_packages_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkConfig".into(),
-                    value: spark_config_binding.get_id(),
+                    value: &spark_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkEventsFolder".into(),
-                    value: spark_events_folder_binding.get_id(),
+                    value: &spark_events_folder_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkLogFolder".into(),
-                    value: spark_log_folder_binding.get_id(),
+                    value: &spark_log_folder_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sparkVersion".into(),
-                    value: spark_version_binding.get_id(),
+                    value: &spark_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "synapseWorkspaceId".into(),
-                    value: synapse_workspace_id_binding.get_id(),
+                    value: &synapse_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -47,7 +47,7 @@ pub mod get_namespace {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceName".into(),
-                    value: namespace_name_binding.get_id(),
+                    value: &namespace_name_binding.drop_type(),
                 },
             ],
         };

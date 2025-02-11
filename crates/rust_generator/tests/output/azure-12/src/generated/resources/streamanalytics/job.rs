@@ -220,75 +220,75 @@ pub mod job {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compatibilityLevel".into(),
-                    value: compatibility_level_binding.get_id(),
+                    value: &compatibility_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentStoragePolicy".into(),
-                    value: content_storage_policy_binding.get_id(),
+                    value: &content_storage_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataLocale".into(),
-                    value: data_locale_binding.get_id(),
+                    value: &data_locale_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventsLateArrivalMaxDelayInSeconds".into(),
-                    value: events_late_arrival_max_delay_in_seconds_binding.get_id(),
+                    value: &events_late_arrival_max_delay_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventsOutOfOrderMaxDelayInSeconds".into(),
-                    value: events_out_of_order_max_delay_in_seconds_binding.get_id(),
+                    value: &events_out_of_order_max_delay_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventsOutOfOrderPolicy".into(),
-                    value: events_out_of_order_policy_binding.get_id(),
+                    value: &events_out_of_order_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobStorageAccounts".into(),
-                    value: job_storage_accounts_binding.get_id(),
+                    value: &job_storage_accounts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputErrorPolicy".into(),
-                    value: output_error_policy_binding.get_id(),
+                    value: &output_error_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: sku_name_binding.get_id(),
+                    value: &sku_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsClusterId".into(),
-                    value: stream_analytics_cluster_id_binding.get_id(),
+                    value: &stream_analytics_cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamingUnits".into(),
-                    value: streaming_units_binding.get_id(),
+                    value: &streaming_units_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transformationQuery".into(),
-                    value: transformation_query_binding.get_id(),
+                    value: &transformation_query_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

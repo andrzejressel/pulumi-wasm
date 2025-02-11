@@ -109,19 +109,19 @@ pub mod runtime_management_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: function_name_binding.get_id(),
+                    value: &function_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qualifier".into(),
-                    value: qualifier_binding.get_id(),
+                    value: &qualifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeVersionArn".into(),
-                    value: runtime_version_arn_binding.get_id(),
+                    value: &runtime_version_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "updateRuntimeOn".into(),
-                    value: update_runtime_on_binding.get_id(),
+                    value: &update_runtime_on_binding.drop_type(),
                 },
             ],
         };

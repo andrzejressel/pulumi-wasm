@@ -126,23 +126,23 @@ pub mod origin_request_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: comment_binding.get_id(),
+                    value: &comment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cookiesConfig".into(),
-                    value: cookies_config_binding.get_id(),
+                    value: &cookies_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "headersConfig".into(),
-                    value: headers_config_binding.get_id(),
+                    value: &headers_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryStringsConfig".into(),
-                    value: query_strings_config_binding.get_id(),
+                    value: &query_strings_config_binding.drop_type(),
                 },
             ],
         };

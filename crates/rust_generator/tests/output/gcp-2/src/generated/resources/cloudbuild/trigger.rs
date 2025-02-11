@@ -932,95 +932,95 @@ pub mod trigger {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvalConfig".into(),
-                    value: approval_config_binding.get_id(),
+                    value: &approval_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bitbucketServerTriggerConfig".into(),
-                    value: bitbucket_server_trigger_config_binding.get_id(),
+                    value: &bitbucket_server_trigger_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "build".into(),
-                    value: build_binding.get_id(),
+                    value: &build_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: disabled_binding.get_id(),
+                    value: &disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filename".into(),
-                    value: filename_binding.get_id(),
+                    value: &filename_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: filter_binding.get_id(),
+                    value: &filter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gitFileSource".into(),
-                    value: git_file_source_binding.get_id(),
+                    value: &git_file_source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "github".into(),
-                    value: github_binding.get_id(),
+                    value: &github_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoredFiles".into(),
-                    value: ignored_files_binding.get_id(),
+                    value: &ignored_files_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeBuildLogs".into(),
-                    value: include_build_logs_binding.get_id(),
+                    value: &include_build_logs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includedFiles".into(),
-                    value: included_files_binding.get_id(),
+                    value: &included_files_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pubsubConfig".into(),
-                    value: pubsub_config_binding.get_id(),
+                    value: &pubsub_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryEventConfig".into(),
-                    value: repository_event_config_binding.get_id(),
+                    value: &repository_event_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccount".into(),
-                    value: service_account_binding.get_id(),
+                    value: &service_account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceToBuild".into(),
-                    value: source_to_build_binding.get_id(),
+                    value: &source_to_build_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "substitutions".into(),
-                    value: substitutions_binding.get_id(),
+                    value: &substitutions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerTemplate".into(),
-                    value: trigger_template_binding.get_id(),
+                    value: &trigger_template_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webhookConfig".into(),
-                    value: webhook_config_binding.get_id(),
+                    value: &webhook_config_binding.drop_type(),
                 },
             ],
         };

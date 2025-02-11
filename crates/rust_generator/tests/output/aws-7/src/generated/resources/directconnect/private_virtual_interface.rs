@@ -151,55 +151,55 @@ pub mod private_virtual_interface {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressFamily".into(),
-                    value: address_family_binding.get_id(),
+                    value: &address_family_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amazonAddress".into(),
-                    value: amazon_address_binding.get_id(),
+                    value: &amazon_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpAsn".into(),
-                    value: bgp_asn_binding.get_id(),
+                    value: &bgp_asn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpAuthKey".into(),
-                    value: bgp_auth_key_binding.get_id(),
+                    value: &bgp_auth_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionId".into(),
-                    value: connection_id_binding.get_id(),
+                    value: &connection_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerAddress".into(),
-                    value: customer_address_binding.get_id(),
+                    value: &customer_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dxGatewayId".into(),
-                    value: dx_gateway_id_binding.get_id(),
+                    value: &dx_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mtu".into(),
-                    value: mtu_binding.get_id(),
+                    value: &mtu_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sitelinkEnabled".into(),
-                    value: sitelink_enabled_binding.get_id(),
+                    value: &sitelink_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vlan".into(),
-                    value: vlan_binding.get_id(),
+                    value: &vlan_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnGatewayId".into(),
-                    value: vpn_gateway_id_binding.get_id(),
+                    value: &vpn_gateway_id_binding.drop_type(),
                 },
             ],
         };

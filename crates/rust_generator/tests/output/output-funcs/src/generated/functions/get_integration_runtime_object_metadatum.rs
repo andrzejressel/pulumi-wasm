@@ -57,19 +57,19 @@ pub mod get_integration_runtime_object_metadatum {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "factoryName".into(),
-                    value: factory_name_binding.get_id(),
+                    value: &factory_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationRuntimeName".into(),
-                    value: integration_runtime_name_binding.get_id(),
+                    value: &integration_runtime_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadataPath".into(),
-                    value: metadata_path_binding.get_id(),
+                    value: &metadata_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

@@ -373,43 +373,43 @@ pub mod ai_index_endpoint_deployed_index {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticResources".into(),
-                    value: automatic_resources_binding.get_id(),
+                    value: &automatic_resources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dedicatedResources".into(),
-                    value: dedicated_resources_binding.get_id(),
+                    value: &dedicated_resources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deployedIndexAuthConfig".into(),
-                    value: deployed_index_auth_config_binding.get_id(),
+                    value: &deployed_index_auth_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deployedIndexId".into(),
-                    value: deployed_index_id_binding.get_id(),
+                    value: &deployed_index_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentGroup".into(),
-                    value: deployment_group_binding.get_id(),
+                    value: &deployment_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableAccessLogging".into(),
-                    value: enable_access_logging_binding.get_id(),
+                    value: &enable_access_logging_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "index".into(),
-                    value: index_binding.get_id(),
+                    value: &index_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexEndpoint".into(),
-                    value: index_endpoint_binding.get_id(),
+                    value: &index_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservedIpRanges".into(),
-                    value: reserved_ip_ranges_binding.get_id(),
+                    value: &reserved_ip_ranges_binding.drop_type(),
                 },
             ],
         };

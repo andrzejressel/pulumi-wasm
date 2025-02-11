@@ -113,11 +113,11 @@ pub mod account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchRoleArn".into(),
-                    value: cloudwatch_role_arn_binding.get_id(),
+                    value: &cloudwatch_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resetOnDelete".into(),
-                    value: reset_on_delete_binding.get_id(),
+                    value: &reset_on_delete_binding.drop_type(),
                 },
             ],
         };

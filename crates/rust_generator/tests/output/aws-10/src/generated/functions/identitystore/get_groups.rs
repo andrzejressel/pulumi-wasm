@@ -35,7 +35,7 @@ pub mod get_groups {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityStoreId".into(),
-                    value: identity_store_id_binding.get_id(),
+                    value: &identity_store_id_binding.drop_type(),
                 },
             ],
         };

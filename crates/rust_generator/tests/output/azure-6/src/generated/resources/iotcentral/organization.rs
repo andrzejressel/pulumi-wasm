@@ -103,19 +103,19 @@ pub mod organization {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iotcentralApplicationId".into(),
-                    value: iotcentral_application_id_binding.get_id(),
+                    value: &iotcentral_application_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationId".into(),
-                    value: organization_id_binding.get_id(),
+                    value: &organization_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentOrganizationId".into(),
-                    value: parent_organization_id_binding.get_id(),
+                    value: &parent_organization_id_binding.drop_type(),
                 },
             ],
         };

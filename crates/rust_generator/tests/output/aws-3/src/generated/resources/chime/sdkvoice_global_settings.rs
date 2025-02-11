@@ -67,7 +67,7 @@ pub mod sdkvoice_global_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceConnector".into(),
-                    value: voice_connector_binding.get_id(),
+                    value: &voice_connector_binding.drop_type(),
                 },
             ],
         };

@@ -175,23 +175,23 @@ pub mod configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configFiles".into(),
-                    value: config_files_binding.get_id(),
+                    value: &config_files_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nginxDeploymentId".into(),
-                    value: nginx_deployment_id_binding.get_id(),
+                    value: &nginx_deployment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageData".into(),
-                    value: package_data_binding.get_id(),
+                    value: &package_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectedFiles".into(),
-                    value: protected_files_binding.get_id(),
+                    value: &protected_files_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rootFile".into(),
-                    value: root_file_binding.get_id(),
+                    value: &root_file_binding.drop_type(),
                 },
             ],
         };

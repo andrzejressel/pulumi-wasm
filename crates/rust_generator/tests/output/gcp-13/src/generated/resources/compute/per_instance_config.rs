@@ -242,39 +242,39 @@ pub mod per_instance_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceGroupManager".into(),
-                    value: instance_group_manager_binding.get_id(),
+                    value: &instance_group_manager_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimalAction".into(),
-                    value: minimal_action_binding.get_id(),
+                    value: &minimal_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mostDisruptiveAllowedAction".into(),
-                    value: most_disruptive_allowed_action_binding.get_id(),
+                    value: &most_disruptive_allowed_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preservedState".into(),
-                    value: preserved_state_binding.get_id(),
+                    value: &preserved_state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "removeInstanceOnDestroy".into(),
-                    value: remove_instance_on_destroy_binding.get_id(),
+                    value: &remove_instance_on_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "removeInstanceStateOnDestroy".into(),
-                    value: remove_instance_state_on_destroy_binding.get_id(),
+                    value: &remove_instance_state_on_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: zone_binding.get_id(),
+                    value: &zone_binding.drop_type(),
                 },
             ],
         };

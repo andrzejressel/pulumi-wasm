@@ -94,23 +94,23 @@ pub mod tape_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "poolName".into(),
-                    value: pool_name_binding.get_id(),
+                    value: &pool_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionLockTimeInDays".into(),
-                    value: retention_lock_time_in_days_binding.get_id(),
+                    value: &retention_lock_time_in_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionLockType".into(),
-                    value: retention_lock_type_binding.get_id(),
+                    value: &retention_lock_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageClass".into(),
-                    value: storage_class_binding.get_id(),
+                    value: &storage_class_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -88,19 +88,19 @@ pub mod api {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configBundle".into(),
-                    value: config_bundle_binding.get_id(),
+                    value: &config_bundle_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectMd5hash".into(),
-                    value: detect_md5hash_binding.get_id(),
+                    value: &detect_md5hash_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "orgId".into(),
-                    value: org_id_binding.get_id(),
+                    value: &org_id_binding.drop_type(),
                 },
             ],
         };

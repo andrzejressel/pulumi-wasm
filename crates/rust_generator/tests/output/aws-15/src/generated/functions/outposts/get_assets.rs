@@ -43,15 +43,15 @@ pub mod get_assets {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: arn_binding.get_id(),
+                    value: &arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostIdFilters".into(),
-                    value: host_id_filters_binding.get_id(),
+                    value: &host_id_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statusIdFilters".into(),
-                    value: status_id_filters_binding.get_id(),
+                    value: &status_id_filters_binding.drop_type(),
                 },
             ],
         };

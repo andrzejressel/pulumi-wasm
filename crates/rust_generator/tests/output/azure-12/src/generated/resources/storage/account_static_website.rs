@@ -82,15 +82,15 @@ pub mod account_static_website {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "error404Document".into(),
-                    value: error404_document_binding.get_id(),
+                    value: &error404_document_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexDocument".into(),
-                    value: index_document_binding.get_id(),
+                    value: &index_document_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
             ],
         };

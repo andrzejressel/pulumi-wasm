@@ -190,11 +190,11 @@ pub mod addons_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addonsConfig".into(),
-                    value: addons_config_binding.get_id(),
+                    value: &addons_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "org".into(),
-                    value: org_binding.get_id(),
+                    value: &org_binding.drop_type(),
                 },
             ],
         };

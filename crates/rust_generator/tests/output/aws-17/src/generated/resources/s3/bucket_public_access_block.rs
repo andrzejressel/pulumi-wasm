@@ -103,23 +103,23 @@ pub mod bucket_public_access_block {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockPublicAcls".into(),
-                    value: block_public_acls_binding.get_id(),
+                    value: &block_public_acls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockPublicPolicy".into(),
-                    value: block_public_policy_binding.get_id(),
+                    value: &block_public_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignorePublicAcls".into(),
-                    value: ignore_public_acls_binding.get_id(),
+                    value: &ignore_public_acls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restrictPublicBuckets".into(),
-                    value: restrict_public_buckets_binding.get_id(),
+                    value: &restrict_public_buckets_binding.drop_type(),
                 },
             ],
         };

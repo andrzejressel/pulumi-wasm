@@ -141,23 +141,23 @@ pub mod webhook {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "branchFilter".into(),
-                    value: branch_filter_binding.get_id(),
+                    value: &branch_filter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildType".into(),
-                    value: build_type_binding.get_id(),
+                    value: &build_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterGroups".into(),
-                    value: filter_groups_binding.get_id(),
+                    value: &filter_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectName".into(),
-                    value: project_name_binding.get_id(),
+                    value: &project_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopeConfiguration".into(),
-                    value: scope_configuration_binding.get_id(),
+                    value: &scope_configuration_binding.drop_type(),
                 },
             ],
         };

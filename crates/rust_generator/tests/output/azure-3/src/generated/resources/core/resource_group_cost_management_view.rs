@@ -149,43 +149,43 @@ pub mod resource_group_cost_management_view {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accumulated".into(),
-                    value: accumulated_binding.get_id(),
+                    value: &accumulated_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "chartType".into(),
-                    value: chart_type_binding.get_id(),
+                    value: &chart_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: dataset_binding.get_id(),
+                    value: &dataset_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kpis".into(),
-                    value: kpis_binding.get_id(),
+                    value: &kpis_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pivots".into(),
-                    value: pivots_binding.get_id(),
+                    value: &pivots_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reportType".into(),
-                    value: report_type_binding.get_id(),
+                    value: &report_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupId".into(),
-                    value: resource_group_id_binding.get_id(),
+                    value: &resource_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeframe".into(),
-                    value: timeframe_binding.get_id(),
+                    value: &timeframe_binding.drop_type(),
                 },
             ],
         };

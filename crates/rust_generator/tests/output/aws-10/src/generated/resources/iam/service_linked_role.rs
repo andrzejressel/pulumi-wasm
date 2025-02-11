@@ -93,19 +93,19 @@ pub mod service_linked_role {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsServiceName".into(),
-                    value: aws_service_name_binding.get_id(),
+                    value: &aws_service_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSuffix".into(),
-                    value: custom_suffix_binding.get_id(),
+                    value: &custom_suffix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

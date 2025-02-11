@@ -157,43 +157,43 @@ pub mod alert_rule_ms_security_incident {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertRuleTemplateGuid".into(),
-                    value: alert_rule_template_guid_binding.get_id(),
+                    value: &alert_rule_template_guid_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayNameExcludeFilters".into(),
-                    value: display_name_exclude_filters_binding.get_id(),
+                    value: &display_name_exclude_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayNameFilters".into(),
-                    value: display_name_filters_binding.get_id(),
+                    value: &display_name_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: log_analytics_workspace_id_binding.get_id(),
+                    value: &log_analytics_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productFilter".into(),
-                    value: product_filter_binding.get_id(),
+                    value: &product_filter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "severityFilters".into(),
-                    value: severity_filters_binding.get_id(),
+                    value: &severity_filters_binding.drop_type(),
                 },
             ],
         };

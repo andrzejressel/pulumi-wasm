@@ -36,7 +36,7 @@ pub mod get_broker_engine_types {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineType".into(),
-                    value: engine_type_binding.get_id(),
+                    value: &engine_type_binding.drop_type(),
                 },
             ],
         };

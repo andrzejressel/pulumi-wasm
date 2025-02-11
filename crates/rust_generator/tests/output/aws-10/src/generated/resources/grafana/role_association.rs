@@ -93,19 +93,19 @@ pub mod role_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupIds".into(),
-                    value: group_ids_binding.get_id(),
+                    value: &group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: role_binding.get_id(),
+                    value: &role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userIds".into(),
-                    value: user_ids_binding.get_id(),
+                    value: &user_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: workspace_id_binding.get_id(),
+                    value: &workspace_id_binding.drop_type(),
                 },
             ],
         };

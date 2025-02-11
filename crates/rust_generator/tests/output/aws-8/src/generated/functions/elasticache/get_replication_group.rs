@@ -71,7 +71,7 @@ pub mod get_replication_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationGroupId".into(),
-                    value: replication_group_id_binding.get_id(),
+                    value: &replication_group_id_binding.drop_type(),
                 },
             ],
         };

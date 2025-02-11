@@ -87,19 +87,19 @@ pub mod ssh_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encoding".into(),
-                    value: encoding_binding.get_id(),
+                    value: &encoding_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicKey".into(),
-                    value: public_key_binding.get_id(),
+                    value: &public_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: username_binding.get_id(),
+                    value: &username_binding.drop_type(),
                 },
             ],
         };

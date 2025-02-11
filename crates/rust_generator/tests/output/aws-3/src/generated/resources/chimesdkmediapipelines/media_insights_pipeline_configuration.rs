@@ -356,23 +356,23 @@ pub mod media_insights_pipeline_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elements".into(),
-                    value: elements_binding.get_id(),
+                    value: &elements_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "realTimeAlertConfiguration".into(),
-                    value: real_time_alert_configuration_binding.get_id(),
+                    value: &real_time_alert_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceAccessRoleArn".into(),
-                    value: resource_access_role_arn_binding.get_id(),
+                    value: &resource_access_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

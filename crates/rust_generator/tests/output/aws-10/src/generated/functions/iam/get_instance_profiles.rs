@@ -37,7 +37,7 @@ pub mod get_instance_profiles {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleName".into(),
-                    value: role_name_binding.get_id(),
+                    value: &role_name_binding.drop_type(),
                 },
             ],
         };

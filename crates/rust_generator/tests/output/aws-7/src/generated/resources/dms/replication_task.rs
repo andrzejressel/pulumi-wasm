@@ -149,51 +149,51 @@ pub mod replication_task {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdcStartPosition".into(),
-                    value: cdc_start_position_binding.get_id(),
+                    value: &cdc_start_position_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdcStartTime".into(),
-                    value: cdc_start_time_binding.get_id(),
+                    value: &cdc_start_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "migrationType".into(),
-                    value: migration_type_binding.get_id(),
+                    value: &migration_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationInstanceArn".into(),
-                    value: replication_instance_arn_binding.get_id(),
+                    value: &replication_instance_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationTaskId".into(),
-                    value: replication_task_id_binding.get_id(),
+                    value: &replication_task_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationTaskSettings".into(),
-                    value: replication_task_settings_binding.get_id(),
+                    value: &replication_task_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceIdentifier".into(),
-                    value: resource_identifier_binding.get_id(),
+                    value: &resource_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceEndpointArn".into(),
-                    value: source_endpoint_arn_binding.get_id(),
+                    value: &source_endpoint_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startReplicationTask".into(),
-                    value: start_replication_task_binding.get_id(),
+                    value: &start_replication_task_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableMappings".into(),
-                    value: table_mappings_binding.get_id(),
+                    value: &table_mappings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetEndpointArn".into(),
-                    value: target_endpoint_arn_binding.get_id(),
+                    value: &target_endpoint_arn_binding.drop_type(),
                 },
             ],
         };

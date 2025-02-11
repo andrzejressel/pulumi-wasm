@@ -213,39 +213,39 @@ pub mod alert_rule_anomaly_duplicate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "builtInRuleId".into(),
-                    value: built_in_rule_id_binding.get_id(),
+                    value: &built_in_rule_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: log_analytics_workspace_id_binding.get_id(),
+                    value: &log_analytics_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: mode_binding.get_id(),
+                    value: &mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiSelectObservations".into(),
-                    value: multi_select_observations_binding.get_id(),
+                    value: &multi_select_observations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prioritizedExcludeObservations".into(),
-                    value: prioritized_exclude_observations_binding.get_id(),
+                    value: &prioritized_exclude_observations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "singleSelectObservations".into(),
-                    value: single_select_observations_binding.get_id(),
+                    value: &single_select_observations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thresholdObservations".into(),
-                    value: threshold_observations_binding.get_id(),
+                    value: &threshold_observations_binding.drop_type(),
                 },
             ],
         };

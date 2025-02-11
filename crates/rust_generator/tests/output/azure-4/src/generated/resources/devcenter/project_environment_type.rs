@@ -167,35 +167,35 @@ pub mod project_environment_type {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "creatorRoleAssignmentRoles".into(),
-                    value: creator_role_assignment_roles_binding.get_id(),
+                    value: &creator_role_assignment_roles_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentTargetId".into(),
-                    value: deployment_target_id_binding.get_id(),
+                    value: &deployment_target_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "devCenterProjectId".into(),
-                    value: dev_center_project_id_binding.get_id(),
+                    value: &dev_center_project_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userRoleAssignments".into(),
-                    value: user_role_assignments_binding.get_id(),
+                    value: &user_role_assignments_binding.drop_type(),
                 },
             ],
         };

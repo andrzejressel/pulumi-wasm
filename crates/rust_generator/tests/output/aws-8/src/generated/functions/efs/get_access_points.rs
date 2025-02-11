@@ -35,7 +35,7 @@ pub mod get_access_points {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemId".into(),
-                    value: file_system_id_binding.get_id(),
+                    value: &file_system_id_binding.drop_type(),
                 },
             ],
         };

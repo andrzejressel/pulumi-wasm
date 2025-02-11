@@ -158,27 +158,27 @@ pub mod resolver_forwarding_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsForwardingRulesetId".into(),
-                    value: dns_forwarding_ruleset_id_binding.get_id(),
+                    value: &dns_forwarding_ruleset_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: metadata_binding.get_id(),
+                    value: &metadata_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetDnsServers".into(),
-                    value: target_dns_servers_binding.get_id(),
+                    value: &target_dns_servers_binding.drop_type(),
                 },
             ],
         };

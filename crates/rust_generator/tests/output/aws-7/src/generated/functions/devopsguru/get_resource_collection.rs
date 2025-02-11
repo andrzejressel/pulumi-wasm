@@ -59,15 +59,15 @@ pub mod get_resource_collection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudformations".into(),
-                    value: cloudformations_binding.get_id(),
+                    value: &cloudformations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

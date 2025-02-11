@@ -66,11 +66,11 @@ pub mod availability_zone_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupName".into(),
-                    value: group_name_binding.get_id(),
+                    value: &group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "optInStatus".into(),
-                    value: opt_in_status_binding.get_id(),
+                    value: &opt_in_status_binding.drop_type(),
                 },
             ],
         };

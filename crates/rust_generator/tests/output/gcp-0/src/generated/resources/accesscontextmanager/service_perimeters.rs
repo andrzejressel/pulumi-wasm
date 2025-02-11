@@ -135,11 +135,11 @@ pub mod service_perimeters {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePerimeters".into(),
-                    value: service_perimeters_binding.get_id(),
+                    value: &service_perimeters_binding.drop_type(),
                 },
             ],
         };

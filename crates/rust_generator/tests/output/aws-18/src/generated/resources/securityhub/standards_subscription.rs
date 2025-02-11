@@ -99,7 +99,7 @@ pub mod standards_subscription {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "standardsArn".into(),
-                    value: standards_arn_binding.get_id(),
+                    value: &standards_arn_binding.drop_type(),
                 },
             ],
         };

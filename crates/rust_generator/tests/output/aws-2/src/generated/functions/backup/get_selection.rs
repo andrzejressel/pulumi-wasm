@@ -42,11 +42,11 @@ pub mod get_selection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "planId".into(),
-                    value: plan_id_binding.get_id(),
+                    value: &plan_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selectionId".into(),
-                    value: selection_id_binding.get_id(),
+                    value: &selection_id_binding.drop_type(),
                 },
             ],
         };

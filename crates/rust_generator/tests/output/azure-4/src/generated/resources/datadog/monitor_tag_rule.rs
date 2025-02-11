@@ -108,19 +108,19 @@ pub mod monitor_tag_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datadogMonitorId".into(),
-                    value: datadog_monitor_id_binding.get_id(),
+                    value: &datadog_monitor_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logs".into(),
-                    value: logs_binding.get_id(),
+                    value: &logs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metrics".into(),
-                    value: metrics_binding.get_id(),
+                    value: &metrics_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

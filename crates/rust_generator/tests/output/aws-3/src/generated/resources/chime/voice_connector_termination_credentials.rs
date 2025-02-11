@@ -97,11 +97,11 @@ pub mod voice_connector_termination_credentials {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credentials".into(),
-                    value: credentials_binding.get_id(),
+                    value: &credentials_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceConnectorId".into(),
-                    value: voice_connector_id_binding.get_id(),
+                    value: &voice_connector_id_binding.drop_type(),
                 },
             ],
         };

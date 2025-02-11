@@ -63,19 +63,19 @@ pub mod get_principal_application_assignments {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationAssignments".into(),
-                    value: application_assignments_binding.get_id(),
+                    value: &application_assignments_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceArn".into(),
-                    value: instance_arn_binding.get_id(),
+                    value: &instance_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalId".into(),
-                    value: principal_id_binding.get_id(),
+                    value: &principal_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalType".into(),
-                    value: principal_type_binding.get_id(),
+                    value: &principal_type_binding.drop_type(),
                 },
             ],
         };

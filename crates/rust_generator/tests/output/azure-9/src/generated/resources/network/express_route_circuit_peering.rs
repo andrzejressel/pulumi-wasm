@@ -243,51 +243,51 @@ pub mod express_route_circuit_peering {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressRouteCircuitName".into(),
-                    value: express_route_circuit_name_binding.get_id(),
+                    value: &express_route_circuit_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv4Enabled".into(),
-                    value: ipv4_enabled_binding.get_id(),
+                    value: &ipv4_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6".into(),
-                    value: ipv6_binding.get_id(),
+                    value: &ipv6_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "microsoftPeeringConfig".into(),
-                    value: microsoft_peering_config_binding.get_id(),
+                    value: &microsoft_peering_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerAsn".into(),
-                    value: peer_asn_binding.get_id(),
+                    value: &peer_asn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeringType".into(),
-                    value: peering_type_binding.get_id(),
+                    value: &peering_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryPeerAddressPrefix".into(),
-                    value: primary_peer_address_prefix_binding.get_id(),
+                    value: &primary_peer_address_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeFilterId".into(),
-                    value: route_filter_id_binding.get_id(),
+                    value: &route_filter_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryPeerAddressPrefix".into(),
-                    value: secondary_peer_address_prefix_binding.get_id(),
+                    value: &secondary_peer_address_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedKey".into(),
-                    value: shared_key_binding.get_id(),
+                    value: &shared_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vlanId".into(),
-                    value: vlan_id_binding.get_id(),
+                    value: &vlan_id_binding.drop_type(),
                 },
             ],
         };

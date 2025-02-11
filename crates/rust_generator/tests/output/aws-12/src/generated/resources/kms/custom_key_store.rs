@@ -83,19 +83,19 @@ pub mod custom_key_store {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudHsmClusterId".into(),
-                    value: cloud_hsm_cluster_id_binding.get_id(),
+                    value: &cloud_hsm_cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customKeyStoreName".into(),
-                    value: custom_key_store_name_binding.get_id(),
+                    value: &custom_key_store_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyStorePassword".into(),
-                    value: key_store_password_binding.get_id(),
+                    value: &key_store_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustAnchorCertificate".into(),
-                    value: trust_anchor_certificate_binding.get_id(),
+                    value: &trust_anchor_certificate_binding.drop_type(),
                 },
             ],
         };

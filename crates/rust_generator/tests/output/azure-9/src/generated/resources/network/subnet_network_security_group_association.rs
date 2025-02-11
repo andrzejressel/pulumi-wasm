@@ -109,11 +109,11 @@ pub mod subnet_network_security_group_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkSecurityGroupId".into(),
-                    value: network_security_group_id_binding.get_id(),
+                    value: &network_security_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
             ],
         };

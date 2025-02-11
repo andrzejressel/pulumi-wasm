@@ -74,11 +74,11 @@ pub mod vpc_block_public_access_options {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetGatewayBlockMode".into(),
-                    value: internet_gateway_block_mode_binding.get_id(),
+                    value: &internet_gateway_block_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

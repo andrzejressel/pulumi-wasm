@@ -96,11 +96,11 @@ pub mod resource_provider_registration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "features".into(),
-                    value: features_binding.get_id(),
+                    value: &features_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

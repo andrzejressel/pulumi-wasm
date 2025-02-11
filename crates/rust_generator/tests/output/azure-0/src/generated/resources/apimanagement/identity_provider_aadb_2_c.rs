@@ -161,51 +161,51 @@ pub mod identity_provider_aadb_2_c {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedTenant".into(),
-                    value: allowed_tenant_binding.get_id(),
+                    value: &allowed_tenant_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: api_management_name_binding.get_id(),
+                    value: &api_management_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authority".into(),
-                    value: authority_binding.get_id(),
+                    value: &authority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientId".into(),
-                    value: client_id_binding.get_id(),
+                    value: &client_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientLibrary".into(),
-                    value: client_library_binding.get_id(),
+                    value: &client_library_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientSecret".into(),
-                    value: client_secret_binding.get_id(),
+                    value: &client_secret_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "passwordResetPolicy".into(),
-                    value: password_reset_policy_binding.get_id(),
+                    value: &password_reset_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileEditingPolicy".into(),
-                    value: profile_editing_policy_binding.get_id(),
+                    value: &profile_editing_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signinPolicy".into(),
-                    value: signin_policy_binding.get_id(),
+                    value: &signin_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signinTenant".into(),
-                    value: signin_tenant_binding.get_id(),
+                    value: &signin_tenant_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signupPolicy".into(),
-                    value: signup_policy_binding.get_id(),
+                    value: &signup_policy_binding.drop_type(),
                 },
             ],
         };

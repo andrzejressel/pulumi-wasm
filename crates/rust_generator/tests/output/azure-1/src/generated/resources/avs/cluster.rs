@@ -106,19 +106,19 @@ pub mod cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterNodeCount".into(),
-                    value: cluster_node_count_binding.get_id(),
+                    value: &cluster_node_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: sku_name_binding.get_id(),
+                    value: &sku_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmwareCloudId".into(),
-                    value: vmware_cloud_id_binding.get_id(),
+                    value: &vmware_cloud_id_binding.drop_type(),
                 },
             ],
         };

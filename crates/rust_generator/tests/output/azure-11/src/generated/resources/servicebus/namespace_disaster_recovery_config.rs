@@ -119,19 +119,19 @@ pub mod namespace_disaster_recovery_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aliasAuthorizationRuleId".into(),
-                    value: alias_authorization_rule_id_binding.get_id(),
+                    value: &alias_authorization_rule_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partnerNamespaceId".into(),
-                    value: partner_namespace_id_binding.get_id(),
+                    value: &partner_namespace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryNamespaceId".into(),
-                    value: primary_namespace_id_binding.get_id(),
+                    value: &primary_namespace_id_binding.drop_type(),
                 },
             ],
         };

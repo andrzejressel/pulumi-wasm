@@ -79,15 +79,15 @@ pub mod archive_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "analyzerName".into(),
-                    value: analyzer_name_binding.get_id(),
+                    value: &analyzer_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleName".into(),
-                    value: rule_name_binding.get_id(),
+                    value: &rule_name_binding.drop_type(),
                 },
             ],
         };

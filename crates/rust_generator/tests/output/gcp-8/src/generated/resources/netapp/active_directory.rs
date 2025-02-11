@@ -270,87 +270,87 @@ pub mod active_directory {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administrators".into(),
-                    value: administrators_binding.get_id(),
+                    value: &administrators_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aesEncryption".into(),
-                    value: aes_encryption_binding.get_id(),
+                    value: &aes_encryption_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupOperators".into(),
-                    value: backup_operators_binding.get_id(),
+                    value: &backup_operators_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dns".into(),
-                    value: dns_binding.get_id(),
+                    value: &dns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptDcConnections".into(),
-                    value: encrypt_dc_connections_binding.get_id(),
+                    value: &encrypt_dc_connections_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kdcHostname".into(),
-                    value: kdc_hostname_binding.get_id(),
+                    value: &kdc_hostname_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kdcIp".into(),
-                    value: kdc_ip_binding.get_id(),
+                    value: &kdc_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ldapSigning".into(),
-                    value: ldap_signing_binding.get_id(),
+                    value: &ldap_signing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "netBiosPrefix".into(),
-                    value: net_bios_prefix_binding.get_id(),
+                    value: &net_bios_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nfsUsersWithLdap".into(),
-                    value: nfs_users_with_ldap_binding.get_id(),
+                    value: &nfs_users_with_ldap_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationalUnit".into(),
-                    value: organizational_unit_binding.get_id(),
+                    value: &organizational_unit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: password_binding.get_id(),
+                    value: &password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityOperators".into(),
-                    value: security_operators_binding.get_id(),
+                    value: &security_operators_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "site".into(),
-                    value: site_binding.get_id(),
+                    value: &site_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: username_binding.get_id(),
+                    value: &username_binding.drop_type(),
                 },
             ],
         };

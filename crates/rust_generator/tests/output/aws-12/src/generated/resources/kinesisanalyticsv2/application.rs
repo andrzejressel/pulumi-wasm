@@ -378,43 +378,43 @@ pub mod application {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationConfiguration".into(),
-                    value: application_configuration_binding.get_id(),
+                    value: &application_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationMode".into(),
-                    value: application_mode_binding.get_id(),
+                    value: &application_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchLoggingOptions".into(),
-                    value: cloudwatch_logging_options_binding.get_id(),
+                    value: &cloudwatch_logging_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceStop".into(),
-                    value: force_stop_binding.get_id(),
+                    value: &force_stop_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeEnvironment".into(),
-                    value: runtime_environment_binding.get_id(),
+                    value: &runtime_environment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceExecutionRole".into(),
-                    value: service_execution_role_binding.get_id(),
+                    value: &service_execution_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startApplication".into(),
-                    value: start_application_binding.get_id(),
+                    value: &start_application_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

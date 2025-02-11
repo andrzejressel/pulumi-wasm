@@ -133,15 +133,15 @@ pub mod organization_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoEnable".into(),
-                    value: auto_enable_binding.get_id(),
+                    value: &auto_enable_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoEnableStandards".into(),
-                    value: auto_enable_standards_binding.get_id(),
+                    value: &auto_enable_standards_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organizationConfiguration".into(),
-                    value: organization_configuration_binding.get_id(),
+                    value: &organization_configuration_binding.drop_type(),
                 },
             ],
         };

@@ -106,27 +106,27 @@ pub mod video_stream {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataRetentionInHours".into(),
-                    value: data_retention_in_hours_binding.get_id(),
+                    value: &data_retention_in_hours_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceName".into(),
-                    value: device_name_binding.get_id(),
+                    value: &device_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mediaType".into(),
-                    value: media_type_binding.get_id(),
+                    value: &media_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -102,19 +102,19 @@ pub mod monitor_sso_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datadogMonitorId".into(),
-                    value: datadog_monitor_id_binding.get_id(),
+                    value: &datadog_monitor_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enterpriseApplicationId".into(),
-                    value: enterprise_application_id_binding.get_id(),
+                    value: &enterprise_application_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "singleSignOnEnabled".into(),
-                    value: single_sign_on_enabled_binding.get_id(),
+                    value: &single_sign_on_enabled_binding.drop_type(),
                 },
             ],
         };

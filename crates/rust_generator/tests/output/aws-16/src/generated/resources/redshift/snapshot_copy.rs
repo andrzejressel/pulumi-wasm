@@ -94,23 +94,23 @@ pub mod snapshot_copy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: cluster_identifier_binding.get_id(),
+                    value: &cluster_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationRegion".into(),
-                    value: destination_region_binding.get_id(),
+                    value: &destination_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manualSnapshotRetentionPeriod".into(),
-                    value: manual_snapshot_retention_period_binding.get_id(),
+                    value: &manual_snapshot_retention_period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionPeriod".into(),
-                    value: retention_period_binding.get_id(),
+                    value: &retention_period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotCopyGrantName".into(),
-                    value: snapshot_copy_grant_name_binding.get_id(),
+                    value: &snapshot_copy_grant_name_binding.drop_type(),
                 },
             ],
         };

@@ -37,7 +37,7 @@ pub mod get_folder_service_account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folderId".into(),
-                    value: folder_id_binding.get_id(),
+                    value: &folder_id_binding.drop_type(),
                 },
             ],
         };

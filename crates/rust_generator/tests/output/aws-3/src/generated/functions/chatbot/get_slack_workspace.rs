@@ -33,7 +33,7 @@ pub mod get_slack_workspace {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slackTeamName".into(),
-                    value: slack_team_name_binding.get_id(),
+                    value: &slack_team_name_binding.drop_type(),
                 },
             ],
         };

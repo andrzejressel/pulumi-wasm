@@ -248,87 +248,87 @@ pub mod service_azure_bot {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cmkKeyVaultKeyUrl".into(),
-                    value: cmk_key_vault_key_url_binding.get_id(),
+                    value: &cmk_key_vault_key_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "developerAppInsightsApiKey".into(),
-                    value: developer_app_insights_api_key_binding.get_id(),
+                    value: &developer_app_insights_api_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "developerAppInsightsApplicationId".into(),
-                    value: developer_app_insights_application_id_binding.get_id(),
+                    value: &developer_app_insights_application_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "developerAppInsightsKey".into(),
-                    value: developer_app_insights_key_binding.get_id(),
+                    value: &developer_app_insights_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoint".into(),
-                    value: endpoint_binding.get_id(),
+                    value: &endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iconUrl".into(),
-                    value: icon_url_binding.get_id(),
+                    value: &icon_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthenticationEnabled".into(),
-                    value: local_authentication_enabled_binding.get_id(),
+                    value: &local_authentication_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "luisAppIds".into(),
-                    value: luis_app_ids_binding.get_id(),
+                    value: &luis_app_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "luisKey".into(),
-                    value: luis_key_binding.get_id(),
+                    value: &luis_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "microsoftAppId".into(),
-                    value: microsoft_app_id_binding.get_id(),
+                    value: &microsoft_app_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "microsoftAppMsiId".into(),
-                    value: microsoft_app_msi_id_binding.get_id(),
+                    value: &microsoft_app_msi_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "microsoftAppTenantId".into(),
-                    value: microsoft_app_tenant_id_binding.get_id(),
+                    value: &microsoft_app_tenant_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "microsoftAppType".into(),
-                    value: microsoft_app_type_binding.get_id(),
+                    value: &microsoft_app_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: public_network_access_enabled_binding.get_id(),
+                    value: &public_network_access_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: sku_binding.get_id(),
+                    value: &sku_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamingEndpointEnabled".into(),
-                    value: streaming_endpoint_enabled_binding.get_id(),
+                    value: &streaming_endpoint_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -756,107 +756,107 @@ pub mod router_peer {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advertiseMode".into(),
-                    value: advertise_mode_binding.get_id(),
+                    value: &advertise_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advertisedGroups".into(),
-                    value: advertised_groups_binding.get_id(),
+                    value: &advertised_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advertisedIpRanges".into(),
-                    value: advertised_ip_ranges_binding.get_id(),
+                    value: &advertised_ip_ranges_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advertisedRoutePriority".into(),
-                    value: advertised_route_priority_binding.get_id(),
+                    value: &advertised_route_priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bfd".into(),
-                    value: bfd_binding.get_id(),
+                    value: &bfd_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customLearnedIpRanges".into(),
-                    value: custom_learned_ip_ranges_binding.get_id(),
+                    value: &custom_learned_ip_ranges_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customLearnedRoutePriority".into(),
-                    value: custom_learned_route_priority_binding.get_id(),
+                    value: &custom_learned_route_priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enable".into(),
-                    value: enable_binding.get_id(),
+                    value: &enable_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableIpv4".into(),
-                    value: enable_ipv4_binding.get_id(),
+                    value: &enable_ipv4_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableIpv6".into(),
-                    value: enable_ipv6_binding.get_id(),
+                    value: &enable_ipv6_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportPolicies".into(),
-                    value: export_policies_binding.get_id(),
+                    value: &export_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importPolicies".into(),
-                    value: import_policies_binding.get_id(),
+                    value: &import_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interface".into(),
-                    value: interface_binding.get_id(),
+                    value: &interface_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: ip_address_binding.get_id(),
+                    value: &ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv4NexthopAddress".into(),
-                    value: ipv4_nexthop_address_binding.get_id(),
+                    value: &ipv4_nexthop_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6NexthopAddress".into(),
-                    value: ipv6_nexthop_address_binding.get_id(),
+                    value: &ipv6_nexthop_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "md5AuthenticationKey".into(),
-                    value: md5_authentication_key_binding.get_id(),
+                    value: &md5_authentication_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerAsn".into(),
-                    value: peer_asn_binding.get_id(),
+                    value: &peer_asn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerIpAddress".into(),
-                    value: peer_ip_address_binding.get_id(),
+                    value: &peer_ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerIpv4NexthopAddress".into(),
-                    value: peer_ipv4_nexthop_address_binding.get_id(),
+                    value: &peer_ipv4_nexthop_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerIpv6NexthopAddress".into(),
-                    value: peer_ipv6_nexthop_address_binding.get_id(),
+                    value: &peer_ipv6_nexthop_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "router".into(),
-                    value: router_binding.get_id(),
+                    value: &router_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routerApplianceInstance".into(),
-                    value: router_appliance_instance_binding.get_id(),
+                    value: &router_appliance_instance_binding.drop_type(),
                 },
             ],
         };

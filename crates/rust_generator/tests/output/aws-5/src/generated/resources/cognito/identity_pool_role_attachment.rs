@@ -66,15 +66,15 @@ pub mod identity_pool_role_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityPoolId".into(),
-                    value: identity_pool_id_binding.get_id(),
+                    value: &identity_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleMappings".into(),
-                    value: role_mappings_binding.get_id(),
+                    value: &role_mappings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roles".into(),
-                    value: roles_binding.get_id(),
+                    value: &roles_binding.drop_type(),
                 },
             ],
         };

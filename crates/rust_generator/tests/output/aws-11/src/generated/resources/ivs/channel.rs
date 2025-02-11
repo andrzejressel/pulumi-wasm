@@ -105,27 +105,27 @@ pub mod channel {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorized".into(),
-                    value: authorized_binding.get_id(),
+                    value: &authorized_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "latencyMode".into(),
-                    value: latency_mode_binding.get_id(),
+                    value: &latency_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recordingConfigurationArn".into(),
-                    value: recording_configuration_arn_binding.get_id(),
+                    value: &recording_configuration_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

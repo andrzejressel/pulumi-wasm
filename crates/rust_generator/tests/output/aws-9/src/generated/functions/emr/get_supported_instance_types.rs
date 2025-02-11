@@ -50,11 +50,11 @@ pub mod get_supported_instance_types {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseLabel".into(),
-                    value: release_label_binding.get_id(),
+                    value: &release_label_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedInstanceTypes".into(),
-                    value: supported_instance_types_binding.get_id(),
+                    value: &supported_instance_types_binding.drop_type(),
                 },
             ],
         };

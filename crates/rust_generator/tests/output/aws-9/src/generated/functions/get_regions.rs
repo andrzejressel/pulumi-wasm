@@ -46,15 +46,15 @@ pub mod get_regions {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allRegions".into(),
-                    value: all_regions_binding.get_id(),
+                    value: &all_regions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: id_binding.get_id(),
+                    value: &id_binding.drop_type(),
                 },
             ],
         };

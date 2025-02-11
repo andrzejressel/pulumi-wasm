@@ -52,7 +52,7 @@ pub mod security_token_service_preferences {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalEndpointTokenVersion".into(),
-                    value: global_endpoint_token_version_binding.get_id(),
+                    value: &global_endpoint_token_version_binding.drop_type(),
                 },
             ],
         };

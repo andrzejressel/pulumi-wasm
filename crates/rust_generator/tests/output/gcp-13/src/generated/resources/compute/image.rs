@@ -360,59 +360,59 @@ pub mod image {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskSizeGb".into(),
-                    value: disk_size_gb_binding.get_id(),
+                    value: &disk_size_gb_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "family".into(),
-                    value: family_binding.get_id(),
+                    value: &family_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guestOsFeatures".into(),
-                    value: guest_os_features_binding.get_id(),
+                    value: &guest_os_features_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageEncryptionKey".into(),
-                    value: image_encryption_key_binding.get_id(),
+                    value: &image_encryption_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenses".into(),
-                    value: licenses_binding.get_id(),
+                    value: &licenses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rawDisk".into(),
-                    value: raw_disk_binding.get_id(),
+                    value: &raw_disk_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceDisk".into(),
-                    value: source_disk_binding.get_id(),
+                    value: &source_disk_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceImage".into(),
-                    value: source_image_binding.get_id(),
+                    value: &source_image_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceSnapshot".into(),
-                    value: source_snapshot_binding.get_id(),
+                    value: &source_snapshot_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageLocations".into(),
-                    value: storage_locations_binding.get_id(),
+                    value: &storage_locations_binding.drop_type(),
                 },
             ],
         };

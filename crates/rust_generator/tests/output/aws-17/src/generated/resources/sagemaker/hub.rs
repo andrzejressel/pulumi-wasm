@@ -101,27 +101,27 @@ pub mod hub {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hubDescription".into(),
-                    value: hub_description_binding.get_id(),
+                    value: &hub_description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hubDisplayName".into(),
-                    value: hub_display_name_binding.get_id(),
+                    value: &hub_display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hubName".into(),
-                    value: hub_name_binding.get_id(),
+                    value: &hub_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hubSearchKeywords".into(),
-                    value: hub_search_keywords_binding.get_id(),
+                    value: &hub_search_keywords_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3StorageConfig".into(),
-                    value: s3_storage_config_binding.get_id(),
+                    value: &s3_storage_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

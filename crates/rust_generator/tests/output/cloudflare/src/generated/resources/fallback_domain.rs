@@ -59,15 +59,15 @@ pub mod fallback_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domains".into(),
-                    value: domains_binding.get_id(),
+                    value: &domains_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyId".into(),
-                    value: policy_id_binding.get_id(),
+                    value: &policy_id_binding.drop_type(),
                 },
             ],
         };

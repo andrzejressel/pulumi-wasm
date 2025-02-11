@@ -136,15 +136,15 @@ pub mod certificate_authority_certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificate".into(),
-                    value: certificate_binding.get_id(),
+                    value: &certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthorityArn".into(),
-                    value: certificate_authority_arn_binding.get_id(),
+                    value: &certificate_authority_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateChain".into(),
-                    value: certificate_chain_binding.get_id(),
+                    value: &certificate_chain_binding.drop_type(),
                 },
             ],
         };

@@ -176,27 +176,27 @@ pub mod autoscaling_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basicAlgorithm".into(),
-                    value: basic_algorithm_binding.get_id(),
+                    value: &basic_algorithm_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyId".into(),
-                    value: policy_id_binding.get_id(),
+                    value: &policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryWorkerConfig".into(),
-                    value: secondary_worker_config_binding.get_id(),
+                    value: &secondary_worker_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerConfig".into(),
-                    value: worker_config_binding.get_id(),
+                    value: &worker_config_binding.drop_type(),
                 },
             ],
         };

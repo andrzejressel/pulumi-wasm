@@ -114,31 +114,31 @@ pub mod hsm_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hsmConfigurationIdentifier".into(),
-                    value: hsm_configuration_identifier_binding.get_id(),
+                    value: &hsm_configuration_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hsmIpAddress".into(),
-                    value: hsm_ip_address_binding.get_id(),
+                    value: &hsm_ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hsmPartitionName".into(),
-                    value: hsm_partition_name_binding.get_id(),
+                    value: &hsm_partition_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hsmPartitionPassword".into(),
-                    value: hsm_partition_password_binding.get_id(),
+                    value: &hsm_partition_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hsmServerPublicCertificate".into(),
-                    value: hsm_server_public_certificate_binding.get_id(),
+                    value: &hsm_server_public_certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

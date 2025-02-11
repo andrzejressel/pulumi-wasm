@@ -68,7 +68,7 @@ pub mod event_configurations {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventConfigurations".into(),
-                    value: event_configurations_binding.get_id(),
+                    value: &event_configurations_binding.drop_type(),
                 },
             ],
         };

@@ -138,19 +138,19 @@ pub mod network_acl {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAction".into(),
-                    value: default_action_binding.get_id(),
+                    value: &default_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateEndpoints".into(),
-                    value: private_endpoints_binding.get_id(),
+                    value: &private_endpoints_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetwork".into(),
-                    value: public_network_binding.get_id(),
+                    value: &public_network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webPubsubId".into(),
-                    value: web_pubsub_id_binding.get_id(),
+                    value: &web_pubsub_id_binding.drop_type(),
                 },
             ],
         };

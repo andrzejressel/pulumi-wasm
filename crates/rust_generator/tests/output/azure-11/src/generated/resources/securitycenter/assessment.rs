@@ -144,19 +144,19 @@ pub mod assessment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalData".into(),
-                    value: additional_data_binding.get_id(),
+                    value: &additional_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assessmentPolicyId".into(),
-                    value: assessment_policy_id_binding.get_id(),
+                    value: &assessment_policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceId".into(),
-                    value: target_resource_id_binding.get_id(),
+                    value: &target_resource_id_binding.drop_type(),
                 },
             ],
         };

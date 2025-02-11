@@ -130,31 +130,31 @@ pub mod app_authorization {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "app".into(),
-                    value: app_binding.get_id(),
+                    value: &app_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appBundleArn".into(),
-                    value: app_bundle_arn_binding.get_id(),
+                    value: &app_bundle_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authType".into(),
-                    value: auth_type_binding.get_id(),
+                    value: &auth_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credential".into(),
-                    value: credential_binding.get_id(),
+                    value: &credential_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenants".into(),
-                    value: tenants_binding.get_id(),
+                    value: &tenants_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

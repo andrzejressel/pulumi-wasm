@@ -119,27 +119,27 @@ pub mod eip_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationId".into(),
-                    value: allocation_id_binding.get_id(),
+                    value: &allocation_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowReassociation".into(),
-                    value: allow_reassociation_binding.get_id(),
+                    value: &allow_reassociation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: instance_id_binding.get_id(),
+                    value: &instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: network_interface_id_binding.get_id(),
+                    value: &network_interface_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpAddress".into(),
-                    value: private_ip_address_binding.get_id(),
+                    value: &private_ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIp".into(),
-                    value: public_ip_binding.get_id(),
+                    value: &public_ip_binding.drop_type(),
                 },
             ],
         };

@@ -341,87 +341,87 @@ pub mod standard_app_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appEngineApis".into(),
-                    value: app_engine_apis_binding.get_id(),
+                    value: &app_engine_apis_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticScaling".into(),
-                    value: automatic_scaling_binding.get_id(),
+                    value: &automatic_scaling_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basicScaling".into(),
-                    value: basic_scaling_binding.get_id(),
+                    value: &basic_scaling_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteServiceOnDestroy".into(),
-                    value: delete_service_on_destroy_binding.get_id(),
+                    value: &delete_service_on_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deployment".into(),
-                    value: deployment_binding.get_id(),
+                    value: &deployment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "entrypoint".into(),
-                    value: entrypoint_binding.get_id(),
+                    value: &entrypoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "envVariables".into(),
-                    value: env_variables_binding.get_id(),
+                    value: &env_variables_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "handlers".into(),
-                    value: handlers_binding.get_id(),
+                    value: &handlers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inboundServices".into(),
-                    value: inbound_services_binding.get_id(),
+                    value: &inbound_services_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceClass".into(),
-                    value: instance_class_binding.get_id(),
+                    value: &instance_class_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "libraries".into(),
-                    value: libraries_binding.get_id(),
+                    value: &libraries_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manualScaling".into(),
-                    value: manual_scaling_binding.get_id(),
+                    value: &manual_scaling_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "noopOnDestroy".into(),
-                    value: noop_on_destroy_binding.get_id(),
+                    value: &noop_on_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtime".into(),
-                    value: runtime_binding.get_id(),
+                    value: &runtime_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeApiVersion".into(),
-                    value: runtime_api_version_binding.get_id(),
+                    value: &runtime_api_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: service_binding.get_id(),
+                    value: &service_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccount".into(),
-                    value: service_account_binding.get_id(),
+                    value: &service_account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threadsafe".into(),
-                    value: threadsafe_binding.get_id(),
+                    value: &threadsafe_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionId".into(),
-                    value: version_id_binding.get_id(),
+                    value: &version_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcAccessConnector".into(),
-                    value: vpc_access_connector_binding.get_id(),
+                    value: &vpc_access_connector_binding.drop_type(),
                 },
             ],
         };

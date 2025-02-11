@@ -439,75 +439,75 @@ pub mod deployment_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alarmConfiguration".into(),
-                    value: alarm_configuration_binding.get_id(),
+                    value: &alarm_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appName".into(),
-                    value: app_name_binding.get_id(),
+                    value: &app_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRollbackConfiguration".into(),
-                    value: auto_rollback_configuration_binding.get_id(),
+                    value: &auto_rollback_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingGroups".into(),
-                    value: autoscaling_groups_binding.get_id(),
+                    value: &autoscaling_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blueGreenDeploymentConfig".into(),
-                    value: blue_green_deployment_config_binding.get_id(),
+                    value: &blue_green_deployment_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentConfigName".into(),
-                    value: deployment_config_name_binding.get_id(),
+                    value: &deployment_config_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentGroupName".into(),
-                    value: deployment_group_name_binding.get_id(),
+                    value: &deployment_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentStyle".into(),
-                    value: deployment_style_binding.get_id(),
+                    value: &deployment_style_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ec2TagFilters".into(),
-                    value: ec2_tag_filters_binding.get_id(),
+                    value: &ec2_tag_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ec2TagSets".into(),
-                    value: ec2_tag_sets_binding.get_id(),
+                    value: &ec2_tag_sets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ecsService".into(),
-                    value: ecs_service_binding.get_id(),
+                    value: &ecs_service_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerInfo".into(),
-                    value: load_balancer_info_binding.get_id(),
+                    value: &load_balancer_info_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onPremisesInstanceTagFilters".into(),
-                    value: on_premises_instance_tag_filters_binding.get_id(),
+                    value: &on_premises_instance_tag_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outdatedInstancesStrategy".into(),
-                    value: outdated_instances_strategy_binding.get_id(),
+                    value: &outdated_instances_strategy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRoleArn".into(),
-                    value: service_role_arn_binding.get_id(),
+                    value: &service_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "terminationHookEnabled".into(),
-                    value: termination_hook_enabled_binding.get_id(),
+                    value: &termination_hook_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggerConfigurations".into(),
-                    value: trigger_configurations_binding.get_id(),
+                    value: &trigger_configurations_binding.drop_type(),
                 },
             ],
         };

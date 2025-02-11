@@ -126,31 +126,31 @@ pub mod control {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionPlanInstructions".into(),
-                    value: action_plan_instructions_binding.get_id(),
+                    value: &action_plan_instructions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionPlanTitle".into(),
-                    value: action_plan_title_binding.get_id(),
+                    value: &action_plan_title_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlMappingSources".into(),
-                    value: control_mapping_sources_binding.get_id(),
+                    value: &control_mapping_sources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testingInformation".into(),
-                    value: testing_information_binding.get_id(),
+                    value: &testing_information_binding.drop_type(),
                 },
             ],
         };

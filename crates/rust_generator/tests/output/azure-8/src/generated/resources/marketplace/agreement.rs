@@ -74,15 +74,15 @@ pub mod agreement {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "offer".into(),
-                    value: offer_binding.get_id(),
+                    value: &offer_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plan".into(),
-                    value: plan_binding.get_id(),
+                    value: &plan_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publisher".into(),
-                    value: publisher_binding.get_id(),
+                    value: &publisher_binding.drop_type(),
                 },
             ],
         };

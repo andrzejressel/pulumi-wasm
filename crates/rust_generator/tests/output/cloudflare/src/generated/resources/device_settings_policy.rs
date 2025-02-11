@@ -186,79 +186,79 @@ pub mod device_settings_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowModeSwitch".into(),
-                    value: allow_mode_switch_binding.get_id(),
+                    value: &allow_mode_switch_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowUpdates".into(),
-                    value: allow_updates_binding.get_id(),
+                    value: &allow_updates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedToLeave".into(),
-                    value: allowed_to_leave_binding.get_id(),
+                    value: &allowed_to_leave_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoConnect".into(),
-                    value: auto_connect_binding.get_id(),
+                    value: &auto_connect_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "captivePortal".into(),
-                    value: captive_portal_binding.get_id(),
+                    value: &captive_portal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "default".into(),
-                    value: default_binding.get_id(),
+                    value: &default_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableAutoFallback".into(),
-                    value: disable_auto_fallback_binding.get_id(),
+                    value: &disable_auto_fallback_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeOfficeIps".into(),
-                    value: exclude_office_ips_binding.get_id(),
+                    value: &exclude_office_ips_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "match".into(),
-                    value: match__binding.get_id(),
+                    value: &match__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "precedence".into(),
-                    value: precedence_binding.get_id(),
+                    value: &precedence_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceModeV2Mode".into(),
-                    value: service_mode_v2_mode_binding.get_id(),
+                    value: &service_mode_v2_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceModeV2Port".into(),
-                    value: service_mode_v2_port_binding.get_id(),
+                    value: &service_mode_v2_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportUrl".into(),
-                    value: support_url_binding.get_id(),
+                    value: &support_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "switchLocked".into(),
-                    value: switch_locked_binding.get_id(),
+                    value: &switch_locked_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnelProtocol".into(),
-                    value: tunnel_protocol_binding.get_id(),
+                    value: &tunnel_protocol_binding.drop_type(),
                 },
             ],
         };

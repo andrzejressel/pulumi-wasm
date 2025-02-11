@@ -80,7 +80,7 @@ pub mod shared_directory_accepter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedDirectoryId".into(),
-                    value: shared_directory_id_binding.get_id(),
+                    value: &shared_directory_id_binding.drop_type(),
                 },
             ],
         };

@@ -104,15 +104,15 @@ pub mod gallery {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "devCenterId".into(),
-                    value: dev_center_id_binding.get_id(),
+                    value: &dev_center_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedGalleryId".into(),
-                    value: shared_gallery_id_binding.get_id(),
+                    value: &shared_gallery_id_binding.drop_type(),
                 },
             ],
         };

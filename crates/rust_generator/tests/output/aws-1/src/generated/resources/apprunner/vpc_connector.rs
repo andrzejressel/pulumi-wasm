@@ -91,19 +91,19 @@ pub mod vpc_connector {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroups".into(),
-                    value: security_groups_binding.get_id(),
+                    value: &security_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnets".into(),
-                    value: subnets_binding.get_id(),
+                    value: &subnets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConnectorName".into(),
-                    value: vpc_connector_name_binding.get_id(),
+                    value: &vpc_connector_name_binding.drop_type(),
                 },
             ],
         };

@@ -84,19 +84,19 @@ pub mod backend_environment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appId".into(),
-                    value: app_id_binding.get_id(),
+                    value: &app_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentArtifacts".into(),
-                    value: deployment_artifacts_binding.get_id(),
+                    value: &deployment_artifacts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentName".into(),
-                    value: environment_name_binding.get_id(),
+                    value: &environment_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackName".into(),
-                    value: stack_name_binding.get_id(),
+                    value: &stack_name_binding.drop_type(),
                 },
             ],
         };

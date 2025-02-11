@@ -153,43 +153,43 @@ pub mod virtual_hub {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addressPrefix".into(),
-                    value: address_prefix_binding.get_id(),
+                    value: &address_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hubRoutingPreference".into(),
-                    value: hub_routing_preference_binding.get_id(),
+                    value: &hub_routing_preference_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routes".into(),
-                    value: routes_binding.get_id(),
+                    value: &routes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: sku_binding.get_id(),
+                    value: &sku_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualRouterAutoScaleMinCapacity".into(),
-                    value: virtual_router_auto_scale_min_capacity_binding.get_id(),
+                    value: &virtual_router_auto_scale_min_capacity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualWanId".into(),
-                    value: virtual_wan_id_binding.get_id(),
+                    value: &virtual_wan_id_binding.drop_type(),
                 },
             ],
         };

@@ -102,11 +102,11 @@ pub mod protection_health_check_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheckArn".into(),
-                    value: health_check_arn_binding.get_id(),
+                    value: &health_check_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shieldProtectionId".into(),
-                    value: shield_protection_id_binding.get_id(),
+                    value: &shield_protection_id_binding.drop_type(),
                 },
             ],
         };

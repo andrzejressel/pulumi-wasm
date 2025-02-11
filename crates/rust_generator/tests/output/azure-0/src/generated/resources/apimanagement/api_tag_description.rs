@@ -120,19 +120,19 @@ pub mod api_tag_description {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiTagId".into(),
-                    value: api_tag_id_binding.get_id(),
+                    value: &api_tag_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalDocumentationDescription".into(),
-                    value: external_documentation_description_binding.get_id(),
+                    value: &external_documentation_description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalDocumentationUrl".into(),
-                    value: external_documentation_url_binding.get_id(),
+                    value: &external_documentation_url_binding.drop_type(),
                 },
             ],
         };

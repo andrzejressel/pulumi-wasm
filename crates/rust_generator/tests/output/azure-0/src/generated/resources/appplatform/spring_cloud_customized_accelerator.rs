@@ -144,35 +144,35 @@ pub mod spring_cloud_customized_accelerator {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceleratorTags".into(),
-                    value: accelerator_tags_binding.get_id(),
+                    value: &accelerator_tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceleratorType".into(),
-                    value: accelerator_type_binding.get_id(),
+                    value: &accelerator_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gitRepository".into(),
-                    value: git_repository_binding.get_id(),
+                    value: &git_repository_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iconUrl".into(),
-                    value: icon_url_binding.get_id(),
+                    value: &icon_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudAcceleratorId".into(),
-                    value: spring_cloud_accelerator_id_binding.get_id(),
+                    value: &spring_cloud_accelerator_id_binding.drop_type(),
                 },
             ],
         };

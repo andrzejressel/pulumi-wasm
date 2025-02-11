@@ -37,11 +37,11 @@ pub mod get_subscribed_rule_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricName".into(),
-                    value: metric_name_binding.get_id(),
+                    value: &metric_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

@@ -606,39 +606,39 @@ pub mod ai_feature_online_store_featureview {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bigQuerySource".into(),
-                    value: big_query_source_binding.get_id(),
+                    value: &big_query_source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featureOnlineStore".into(),
-                    value: feature_online_store_binding.get_id(),
+                    value: &feature_online_store_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featureRegistrySource".into(),
-                    value: feature_registry_source_binding.get_id(),
+                    value: &feature_registry_source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "syncConfig".into(),
-                    value: sync_config_binding.get_id(),
+                    value: &sync_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vectorSearchConfig".into(),
-                    value: vector_search_config_binding.get_id(),
+                    value: &vector_search_config_binding.drop_type(),
                 },
             ],
         };

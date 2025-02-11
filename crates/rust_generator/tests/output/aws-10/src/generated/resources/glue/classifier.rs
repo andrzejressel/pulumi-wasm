@@ -174,23 +174,23 @@ pub mod classifier {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "csvClassifier".into(),
-                    value: csv_classifier_binding.get_id(),
+                    value: &csv_classifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grokClassifier".into(),
-                    value: grok_classifier_binding.get_id(),
+                    value: &grok_classifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jsonClassifier".into(),
-                    value: json_classifier_binding.get_id(),
+                    value: &json_classifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "xmlClassifier".into(),
-                    value: xml_classifier_binding.get_id(),
+                    value: &xml_classifier_binding.drop_type(),
                 },
             ],
         };

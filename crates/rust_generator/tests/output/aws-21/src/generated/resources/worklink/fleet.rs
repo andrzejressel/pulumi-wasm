@@ -146,31 +146,31 @@ pub mod fleet {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditStreamArn".into(),
-                    value: audit_stream_arn_binding.get_id(),
+                    value: &audit_stream_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceCaCertificate".into(),
-                    value: device_ca_certificate_binding.get_id(),
+                    value: &device_ca_certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identityProvider".into(),
-                    value: identity_provider_binding.get_id(),
+                    value: &identity_provider_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: network_binding.get_id(),
+                    value: &network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "optimizeForEndUserLocation".into(),
-                    value: optimize_for_end_user_location_binding.get_id(),
+                    value: &optimize_for_end_user_location_binding.drop_type(),
                 },
             ],
         };

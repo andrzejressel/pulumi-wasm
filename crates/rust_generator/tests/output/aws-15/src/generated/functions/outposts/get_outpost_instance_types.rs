@@ -33,7 +33,7 @@ pub mod get_outpost_instance_types {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: arn_binding.get_id(),
+                    value: &arn_binding.drop_type(),
                 },
             ],
         };

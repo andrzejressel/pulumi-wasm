@@ -144,31 +144,31 @@ pub mod vpc_dhcp_options {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainNameServers".into(),
-                    value: domain_name_servers_binding.get_id(),
+                    value: &domain_name_servers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6AddressPreferredLeaseTime".into(),
-                    value: ipv6_address_preferred_lease_time_binding.get_id(),
+                    value: &ipv6_address_preferred_lease_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "netbiosNameServers".into(),
-                    value: netbios_name_servers_binding.get_id(),
+                    value: &netbios_name_servers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "netbiosNodeType".into(),
-                    value: netbios_node_type_binding.get_id(),
+                    value: &netbios_node_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ntpServers".into(),
-                    value: ntp_servers_binding.get_id(),
+                    value: &ntp_servers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

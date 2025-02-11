@@ -106,19 +106,19 @@ pub mod macsec_key_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cak".into(),
-                    value: cak_binding.get_id(),
+                    value: &cak_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ckn".into(),
-                    value: ckn_binding.get_id(),
+                    value: &ckn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionId".into(),
-                    value: connection_id_binding.get_id(),
+                    value: &connection_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretArn".into(),
-                    value: secret_arn_binding.get_id(),
+                    value: &secret_arn_binding.drop_type(),
                 },
             ],
         };

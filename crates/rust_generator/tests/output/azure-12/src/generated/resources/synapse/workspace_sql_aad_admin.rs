@@ -151,19 +151,19 @@ pub mod workspace_sql_aad_admin {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "login".into(),
-                    value: login_binding.get_id(),
+                    value: &login_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectId".into(),
-                    value: object_id_binding.get_id(),
+                    value: &object_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "synapseWorkspaceId".into(),
-                    value: synapse_workspace_id_binding.get_id(),
+                    value: &synapse_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: tenant_id_binding.get_id(),
+                    value: &tenant_id_binding.drop_type(),
                 },
             ],
         };

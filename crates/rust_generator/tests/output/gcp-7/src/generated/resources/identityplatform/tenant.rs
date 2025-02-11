@@ -129,23 +129,23 @@ pub mod tenant {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowPasswordSignup".into(),
-                    value: allow_password_signup_binding.get_id(),
+                    value: &allow_password_signup_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableAuth".into(),
-                    value: disable_auth_binding.get_id(),
+                    value: &disable_auth_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableEmailLinkSignin".into(),
-                    value: enable_email_link_signin_binding.get_id(),
+                    value: &enable_email_link_signin_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

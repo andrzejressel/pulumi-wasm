@@ -232,59 +232,59 @@ pub mod diagnostic {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alwaysLogErrors".into(),
-                    value: always_log_errors_binding.get_id(),
+                    value: &always_log_errors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementLoggerId".into(),
-                    value: api_management_logger_id_binding.get_id(),
+                    value: &api_management_logger_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: api_management_name_binding.get_id(),
+                    value: &api_management_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendRequest".into(),
-                    value: backend_request_binding.get_id(),
+                    value: &backend_request_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendResponse".into(),
-                    value: backend_response_binding.get_id(),
+                    value: &backend_response_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendRequest".into(),
-                    value: frontend_request_binding.get_id(),
+                    value: &frontend_request_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendResponse".into(),
-                    value: frontend_response_binding.get_id(),
+                    value: &frontend_response_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpCorrelationProtocol".into(),
-                    value: http_correlation_protocol_binding.get_id(),
+                    value: &http_correlation_protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identifier".into(),
-                    value: identifier_binding.get_id(),
+                    value: &identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logClientIp".into(),
-                    value: log_client_ip_binding.get_id(),
+                    value: &log_client_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operationNameFormat".into(),
-                    value: operation_name_format_binding.get_id(),
+                    value: &operation_name_format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "samplingPercentage".into(),
-                    value: sampling_percentage_binding.get_id(),
+                    value: &sampling_percentage_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verbosity".into(),
-                    value: verbosity_binding.get_id(),
+                    value: &verbosity_binding.drop_type(),
                 },
             ],
         };

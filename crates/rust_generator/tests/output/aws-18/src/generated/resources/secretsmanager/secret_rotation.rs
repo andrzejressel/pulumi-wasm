@@ -97,19 +97,19 @@ pub mod secret_rotation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rotateImmediately".into(),
-                    value: rotate_immediately_binding.get_id(),
+                    value: &rotate_immediately_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rotationLambdaArn".into(),
-                    value: rotation_lambda_arn_binding.get_id(),
+                    value: &rotation_lambda_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rotationRules".into(),
-                    value: rotation_rules_binding.get_id(),
+                    value: &rotation_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretId".into(),
-                    value: secret_id_binding.get_id(),
+                    value: &secret_id_binding.drop_type(),
                 },
             ],
         };

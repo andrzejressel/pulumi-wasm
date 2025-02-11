@@ -198,79 +198,79 @@ pub mod waiting_room {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalRoutes".into(),
-                    value: additional_routes_binding.get_id(),
+                    value: &additional_routes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cookieSuffix".into(),
-                    value: cookie_suffix_binding.get_id(),
+                    value: &cookie_suffix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customPageHtml".into(),
-                    value: custom_page_html_binding.get_id(),
+                    value: &custom_page_html_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTemplateLanguage".into(),
-                    value: default_template_language_binding.get_id(),
+                    value: &default_template_language_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableSessionRenewal".into(),
-                    value: disable_session_renewal_binding.get_id(),
+                    value: &disable_session_renewal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabledOriginCommands".into(),
-                    value: enabled_origin_commands_binding.get_id(),
+                    value: &enabled_origin_commands_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: host_binding.get_id(),
+                    value: &host_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jsonResponseEnabled".into(),
-                    value: json_response_enabled_binding.get_id(),
+                    value: &json_response_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "newUsersPerMinute".into(),
-                    value: new_users_per_minute_binding.get_id(),
+                    value: &new_users_per_minute_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: path_binding.get_id(),
+                    value: &path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueAll".into(),
-                    value: queue_all_binding.get_id(),
+                    value: &queue_all_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueingMethod".into(),
-                    value: queueing_method_binding.get_id(),
+                    value: &queueing_method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueingStatusCode".into(),
-                    value: queueing_status_code_binding.get_id(),
+                    value: &queueing_status_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionDuration".into(),
-                    value: session_duration_binding.get_id(),
+                    value: &session_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suspended".into(),
-                    value: suspended_binding.get_id(),
+                    value: &suspended_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "totalActiveUsers".into(),
-                    value: total_active_users_binding.get_id(),
+                    value: &total_active_users_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

@@ -89,15 +89,15 @@ pub mod sub_account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: deletion_policy_binding.get_id(),
+                    value: &deletion_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "masterBillingAccount".into(),
-                    value: master_billing_account_binding.get_id(),
+                    value: &master_billing_account_binding.drop_type(),
                 },
             ],
         };

@@ -77,11 +77,11 @@ pub mod vpc_endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainArn".into(),
-                    value: domain_arn_binding.get_id(),
+                    value: &domain_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcOptions".into(),
-                    value: vpc_options_binding.get_id(),
+                    value: &vpc_options_binding.drop_type(),
                 },
             ],
         };

@@ -65,11 +65,11 @@ pub mod get_security_group_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupRuleId".into(),
-                    value: security_group_rule_id_binding.get_id(),
+                    value: &security_group_rule_id_binding.drop_type(),
                 },
             ],
         };

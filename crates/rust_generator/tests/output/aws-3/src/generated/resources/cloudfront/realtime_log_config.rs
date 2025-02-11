@@ -127,19 +127,19 @@ pub mod realtime_log_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoint".into(),
-                    value: endpoint_binding.get_id(),
+                    value: &endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fields".into(),
-                    value: fields_binding.get_id(),
+                    value: &fields_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "samplingRate".into(),
-                    value: sampling_rate_binding.get_id(),
+                    value: &sampling_rate_binding.drop_type(),
                 },
             ],
         };

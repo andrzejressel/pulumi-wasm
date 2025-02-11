@@ -34,11 +34,11 @@ pub mod func_with_secrets {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoKey".into(),
-                    value: crypto_key_binding.get_id(),
+                    value: &crypto_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plaintext".into(),
-                    value: plaintext_binding.get_id(),
+                    value: &plaintext_binding.drop_type(),
                 },
             ],
         };

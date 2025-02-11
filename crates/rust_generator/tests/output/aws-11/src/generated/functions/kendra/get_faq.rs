@@ -68,15 +68,15 @@ pub mod get_faq {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "faqId".into(),
-                    value: faq_id_binding.get_id(),
+                    value: &faq_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexId".into(),
-                    value: index_id_binding.get_id(),
+                    value: &index_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -175,19 +175,19 @@ pub mod bucket_versioning_v_2 {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expectedBucketOwner".into(),
-                    value: expected_bucket_owner_binding.get_id(),
+                    value: &expected_bucket_owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mfa".into(),
-                    value: mfa_binding.get_id(),
+                    value: &mfa_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versioningConfiguration".into(),
-                    value: versioning_configuration_binding.get_id(),
+                    value: &versioning_configuration_binding.drop_type(),
                 },
             ],
         };

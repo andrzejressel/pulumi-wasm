@@ -43,15 +43,15 @@ pub mod get_active_folder {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiMethod".into(),
-                    value: api_method_binding.get_id(),
+                    value: &api_method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
             ],
         };

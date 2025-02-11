@@ -106,43 +106,43 @@ pub mod certificate_pack {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthority".into(),
-                    value: certificate_authority_binding.get_id(),
+                    value: &certificate_authority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudflareBranding".into(),
-                    value: cloudflare_branding_binding.get_id(),
+                    value: &cloudflare_branding_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hosts".into(),
-                    value: hosts_binding.get_id(),
+                    value: &hosts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationErrors".into(),
-                    value: validation_errors_binding.get_id(),
+                    value: &validation_errors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationMethod".into(),
-                    value: validation_method_binding.get_id(),
+                    value: &validation_method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationRecords".into(),
-                    value: validation_records_binding.get_id(),
+                    value: &validation_records_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validityDays".into(),
-                    value: validity_days_binding.get_id(),
+                    value: &validity_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForActiveStatus".into(),
-                    value: wait_for_active_status_binding.get_id(),
+                    value: &wait_for_active_status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

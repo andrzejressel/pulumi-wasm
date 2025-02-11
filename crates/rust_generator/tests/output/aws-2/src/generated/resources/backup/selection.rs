@@ -231,31 +231,31 @@ pub mod selection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conditions".into(),
-                    value: conditions_binding.get_id(),
+                    value: &conditions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: iam_role_arn_binding.get_id(),
+                    value: &iam_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notResources".into(),
-                    value: not_resources_binding.get_id(),
+                    value: &not_resources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "planId".into(),
-                    value: plan_id_binding.get_id(),
+                    value: &plan_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resources".into(),
-                    value: resources_binding.get_id(),
+                    value: &resources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selectionTags".into(),
-                    value: selection_tags_binding.get_id(),
+                    value: &selection_tags_binding.drop_type(),
                 },
             ],
         };

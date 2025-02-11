@@ -121,27 +121,27 @@ pub mod flexible_server_active_directory_administrator {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectId".into(),
-                    value: object_id_binding.get_id(),
+                    value: &object_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalName".into(),
-                    value: principal_name_binding.get_id(),
+                    value: &principal_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalType".into(),
-                    value: principal_type_binding.get_id(),
+                    value: &principal_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverName".into(),
-                    value: server_name_binding.get_id(),
+                    value: &server_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: tenant_id_binding.get_id(),
+                    value: &tenant_id_binding.drop_type(),
                 },
             ],
         };

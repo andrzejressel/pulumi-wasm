@@ -73,11 +73,11 @@ pub mod trigger {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryName".into(),
-                    value: repository_name_binding.get_id(),
+                    value: &repository_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggers".into(),
-                    value: triggers_binding.get_id(),
+                    value: &triggers_binding.drop_type(),
                 },
             ],
         };

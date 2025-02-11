@@ -95,19 +95,19 @@ pub mod trust_store_revocation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "revocationsS3Bucket".into(),
-                    value: revocations_s3_bucket_binding.get_id(),
+                    value: &revocations_s3_bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "revocationsS3Key".into(),
-                    value: revocations_s3_key_binding.get_id(),
+                    value: &revocations_s3_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "revocationsS3ObjectVersion".into(),
-                    value: revocations_s3_object_version_binding.get_id(),
+                    value: &revocations_s3_object_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustStoreArn".into(),
-                    value: trust_store_arn_binding.get_id(),
+                    value: &trust_store_arn_binding.drop_type(),
                 },
             ],
         };

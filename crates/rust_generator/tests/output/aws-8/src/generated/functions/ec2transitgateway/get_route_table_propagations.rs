@@ -58,11 +58,11 @@ pub mod get_route_table_propagations {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayRouteTableId".into(),
-                    value: transit_gateway_route_table_id_binding.get_id(),
+                    value: &transit_gateway_route_table_id_binding.drop_type(),
                 },
             ],
         };

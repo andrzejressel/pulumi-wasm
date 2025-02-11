@@ -174,43 +174,43 @@ pub mod stream_input_event_hub_v_2 {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationMode".into(),
-                    value: authentication_mode_binding.get_id(),
+                    value: &authentication_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubConsumerGroupName".into(),
-                    value: eventhub_consumer_group_name_binding.get_id(),
+                    value: &eventhub_consumer_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubName".into(),
-                    value: eventhub_name_binding.get_id(),
+                    value: &eventhub_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitionKey".into(),
-                    value: partition_key_binding.get_id(),
+                    value: &partition_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serialization".into(),
-                    value: serialization_binding.get_id(),
+                    value: &serialization_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicebusNamespace".into(),
-                    value: servicebus_namespace_binding.get_id(),
+                    value: &servicebus_namespace_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccessPolicyKey".into(),
-                    value: shared_access_policy_key_binding.get_id(),
+                    value: &shared_access_policy_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccessPolicyName".into(),
-                    value: shared_access_policy_name_binding.get_id(),
+                    value: &shared_access_policy_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobId".into(),
-                    value: stream_analytics_job_id_binding.get_id(),
+                    value: &stream_analytics_job_id_binding.drop_type(),
                 },
             ],
         };

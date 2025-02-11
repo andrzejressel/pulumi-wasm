@@ -139,51 +139,51 @@ pub mod random_password {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepers".into(),
-                    value: keepers_binding.get_id(),
+                    value: &keepers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "length".into(),
-                    value: length_binding.get_id(),
+                    value: &length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lower".into(),
-                    value: lower_binding.get_id(),
+                    value: &lower_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minLower".into(),
-                    value: min_lower_binding.get_id(),
+                    value: &min_lower_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minNumeric".into(),
-                    value: min_numeric_binding.get_id(),
+                    value: &min_numeric_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minSpecial".into(),
-                    value: min_special_binding.get_id(),
+                    value: &min_special_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minUpper".into(),
-                    value: min_upper_binding.get_id(),
+                    value: &min_upper_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "number".into(),
-                    value: number_binding.get_id(),
+                    value: &number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numeric".into(),
-                    value: numeric_binding.get_id(),
+                    value: &numeric_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrideSpecial".into(),
-                    value: override_special_binding.get_id(),
+                    value: &override_special_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "special".into(),
-                    value: special_binding.get_id(),
+                    value: &special_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upper".into(),
-                    value: upper_binding.get_id(),
+                    value: &upper_binding.drop_type(),
                 },
             ],
         };

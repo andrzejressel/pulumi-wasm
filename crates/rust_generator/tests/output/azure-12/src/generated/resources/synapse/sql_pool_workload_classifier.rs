@@ -156,35 +156,35 @@ pub mod sql_pool_workload_classifier {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "context".into(),
-                    value: context_binding.get_id(),
+                    value: &context_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endTime".into(),
-                    value: end_time_binding.get_id(),
+                    value: &end_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importance".into(),
-                    value: importance_binding.get_id(),
+                    value: &importance_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "label".into(),
-                    value: label_binding.get_id(),
+                    value: &label_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memberName".into(),
-                    value: member_name_binding.get_id(),
+                    value: &member_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startTime".into(),
-                    value: start_time_binding.get_id(),
+                    value: &start_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadGroupId".into(),
-                    value: workload_group_id_binding.get_id(),
+                    value: &workload_group_id_binding.drop_type(),
                 },
             ],
         };

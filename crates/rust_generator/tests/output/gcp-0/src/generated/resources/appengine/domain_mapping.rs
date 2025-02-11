@@ -135,19 +135,19 @@ pub mod domain_mapping {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrideStrategy".into(),
-                    value: override_strategy_binding.get_id(),
+                    value: &override_strategy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslSettings".into(),
-                    value: ssl_settings_binding.get_id(),
+                    value: &ssl_settings_binding.drop_type(),
                 },
             ],
         };

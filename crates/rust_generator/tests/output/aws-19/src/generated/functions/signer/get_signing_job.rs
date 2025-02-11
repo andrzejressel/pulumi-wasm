@@ -67,7 +67,7 @@ pub mod get_signing_job {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobId".into(),
-                    value: job_id_binding.get_id(),
+                    value: &job_id_binding.drop_type(),
                 },
             ],
         };

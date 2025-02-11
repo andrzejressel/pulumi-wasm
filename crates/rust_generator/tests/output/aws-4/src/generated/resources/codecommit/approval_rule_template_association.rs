@@ -69,11 +69,11 @@ pub mod approval_rule_template_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "approvalRuleTemplateName".into(),
-                    value: approval_rule_template_name_binding.get_id(),
+                    value: &approval_rule_template_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryName".into(),
-                    value: repository_name_binding.get_id(),
+                    value: &repository_name_binding.drop_type(),
                 },
             ],
         };

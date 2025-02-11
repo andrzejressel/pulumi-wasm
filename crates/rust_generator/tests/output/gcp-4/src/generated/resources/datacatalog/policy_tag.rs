@@ -169,19 +169,19 @@ pub mod policy_tag {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentPolicyTag".into(),
-                    value: parent_policy_tag_binding.get_id(),
+                    value: &parent_policy_tag_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taxonomy".into(),
-                    value: taxonomy_binding.get_id(),
+                    value: &taxonomy_binding.drop_type(),
                 },
             ],
         };

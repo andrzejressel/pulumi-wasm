@@ -47,15 +47,15 @@ pub mod get_cipher_text {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "context".into(),
-                    value: context_binding.get_id(),
+                    value: &context_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyId".into(),
-                    value: key_id_binding.get_id(),
+                    value: &key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plaintext".into(),
-                    value: plaintext_binding.get_id(),
+                    value: &plaintext_binding.drop_type(),
                 },
             ],
         };

@@ -158,23 +158,23 @@ pub mod generic_service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basicService".into(),
-                    value: basic_service_binding.get_id(),
+                    value: &basic_service_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceId".into(),
-                    value: service_id_binding.get_id(),
+                    value: &service_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userLabels".into(),
-                    value: user_labels_binding.get_id(),
+                    value: &user_labels_binding.drop_type(),
                 },
             ],
         };

@@ -87,15 +87,15 @@ pub mod endpoint_service_private_dns_verification {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceId".into(),
-                    value: service_id_binding.get_id(),
+                    value: &service_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForVerification".into(),
-                    value: wait_for_verification_binding.get_id(),
+                    value: &wait_for_verification_binding.drop_type(),
                 },
             ],
         };

@@ -551,75 +551,75 @@ pub mod subnetwork {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowSubnetCidrRoutesOverlap".into(),
-                    value: allow_subnet_cidr_routes_overlap_binding.get_id(),
+                    value: &allow_subnet_cidr_routes_overlap_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalIpv6Prefix".into(),
-                    value: external_ipv6_prefix_binding.get_id(),
+                    value: &external_ipv6_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipCidrRange".into(),
-                    value: ip_cidr_range_binding.get_id(),
+                    value: &ip_cidr_range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6AccessType".into(),
-                    value: ipv6_access_type_binding.get_id(),
+                    value: &ipv6_access_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfig".into(),
-                    value: log_config_binding.get_id(),
+                    value: &log_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: network_binding.get_id(),
+                    value: &network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpGoogleAccess".into(),
-                    value: private_ip_google_access_binding.get_id(),
+                    value: &private_ip_google_access_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpv6GoogleAccess".into(),
-                    value: private_ipv6_google_access_binding.get_id(),
+                    value: &private_ipv6_google_access_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "purpose".into(),
-                    value: purpose_binding.get_id(),
+                    value: &purpose_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservedInternalRange".into(),
-                    value: reserved_internal_range_binding.get_id(),
+                    value: &reserved_internal_range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: role_binding.get_id(),
+                    value: &role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryIpRanges".into(),
-                    value: secondary_ip_ranges_binding.get_id(),
+                    value: &secondary_ip_ranges_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sendSecondaryIpRangeIfEmpty".into(),
-                    value: send_secondary_ip_range_if_empty_binding.get_id(),
+                    value: &send_secondary_ip_range_if_empty_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackType".into(),
-                    value: stack_type_binding.get_id(),
+                    value: &stack_type_binding.drop_type(),
                 },
             ],
         };

@@ -57,7 +57,7 @@ pub mod active_receipt_rule_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleSetName".into(),
-                    value: rule_set_name_binding.get_id(),
+                    value: &rule_set_name_binding.drop_type(),
                 },
             ],
         };

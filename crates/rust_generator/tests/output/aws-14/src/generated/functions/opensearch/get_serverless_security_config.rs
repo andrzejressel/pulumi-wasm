@@ -54,11 +54,11 @@ pub mod get_serverless_security_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: id_binding.get_id(),
+                    value: &id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "samlOptions".into(),
-                    value: saml_options_binding.get_id(),
+                    value: &saml_options_binding.drop_type(),
                 },
             ],
         };

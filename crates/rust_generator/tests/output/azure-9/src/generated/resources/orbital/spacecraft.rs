@@ -125,35 +125,35 @@ pub mod spacecraft {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "links".into(),
-                    value: links_binding.get_id(),
+                    value: &links_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "noradId".into(),
-                    value: norad_id_binding.get_id(),
+                    value: &norad_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "titleLine".into(),
-                    value: title_line_binding.get_id(),
+                    value: &title_line_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "twoLineElements".into(),
-                    value: two_line_elements_binding.get_id(),
+                    value: &two_line_elements_binding.drop_type(),
                 },
             ],
         };

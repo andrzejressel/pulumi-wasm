@@ -43,11 +43,11 @@ pub mod get_web_backend_service_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webBackendService".into(),
-                    value: web_backend_service_binding.get_id(),
+                    value: &web_backend_service_binding.drop_type(),
                 },
             ],
         };

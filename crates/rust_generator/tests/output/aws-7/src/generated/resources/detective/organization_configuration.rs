@@ -62,11 +62,11 @@ pub mod organization_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoEnable".into(),
-                    value: auto_enable_binding.get_id(),
+                    value: &auto_enable_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "graphArn".into(),
-                    value: graph_arn_binding.get_id(),
+                    value: &graph_arn_binding.drop_type(),
                 },
             ],
         };

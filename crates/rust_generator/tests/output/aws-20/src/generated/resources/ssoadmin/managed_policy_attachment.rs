@@ -129,15 +129,15 @@ pub mod managed_policy_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceArn".into(),
-                    value: instance_arn_binding.get_id(),
+                    value: &instance_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedPolicyArn".into(),
-                    value: managed_policy_arn_binding.get_id(),
+                    value: &managed_policy_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionSetArn".into(),
-                    value: permission_set_arn_binding.get_id(),
+                    value: &permission_set_arn_binding.drop_type(),
                 },
             ],
         };

@@ -93,23 +93,23 @@ pub mod response {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseParameters".into(),
-                    value: response_parameters_binding.get_id(),
+                    value: &response_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseTemplates".into(),
-                    value: response_templates_binding.get_id(),
+                    value: &response_templates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseType".into(),
-                    value: response_type_binding.get_id(),
+                    value: &response_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApiId".into(),
-                    value: rest_api_id_binding.get_id(),
+                    value: &rest_api_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statusCode".into(),
-                    value: status_code_binding.get_id(),
+                    value: &status_code_binding.drop_type(),
                 },
             ],
         };

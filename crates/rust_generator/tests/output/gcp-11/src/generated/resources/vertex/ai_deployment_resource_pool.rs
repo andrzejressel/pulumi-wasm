@@ -148,19 +148,19 @@ pub mod ai_deployment_resource_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dedicatedResources".into(),
-                    value: dedicated_resources_binding.get_id(),
+                    value: &dedicated_resources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
             ],
         };

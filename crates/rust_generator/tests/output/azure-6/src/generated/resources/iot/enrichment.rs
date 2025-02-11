@@ -141,23 +141,23 @@ pub mod enrichment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointNames".into(),
-                    value: endpoint_names_binding.get_id(),
+                    value: &endpoint_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubName".into(),
-                    value: iothub_name_binding.get_id(),
+                    value: &iothub_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: key_binding.get_id(),
+                    value: &key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "value".into(),
-                    value: value_binding.get_id(),
+                    value: &value_binding.drop_type(),
                 },
             ],
         };

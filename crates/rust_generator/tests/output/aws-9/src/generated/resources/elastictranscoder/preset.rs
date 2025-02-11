@@ -175,43 +175,43 @@ pub mod preset {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "audio".into(),
-                    value: audio_binding.get_id(),
+                    value: &audio_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "audioCodecOptions".into(),
-                    value: audio_codec_options_binding.get_id(),
+                    value: &audio_codec_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "container".into(),
-                    value: container_binding.get_id(),
+                    value: &container_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thumbnails".into(),
-                    value: thumbnails_binding.get_id(),
+                    value: &thumbnails_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "video".into(),
-                    value: video_binding.get_id(),
+                    value: &video_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "videoCodecOptions".into(),
-                    value: video_codec_options_binding.get_id(),
+                    value: &video_codec_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "videoWatermarks".into(),
-                    value: video_watermarks_binding.get_id(),
+                    value: &video_watermarks_binding.drop_type(),
                 },
             ],
         };

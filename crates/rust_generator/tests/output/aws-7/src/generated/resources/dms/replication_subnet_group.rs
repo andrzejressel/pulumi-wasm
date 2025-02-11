@@ -137,19 +137,19 @@ pub mod replication_subnet_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationSubnetGroupDescription".into(),
-                    value: replication_subnet_group_description_binding.get_id(),
+                    value: &replication_subnet_group_description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationSubnetGroupId".into(),
-                    value: replication_subnet_group_id_binding.get_id(),
+                    value: &replication_subnet_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: subnet_ids_binding.get_id(),
+                    value: &subnet_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

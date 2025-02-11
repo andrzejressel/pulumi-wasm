@@ -80,11 +80,11 @@ pub mod listener_certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateArn".into(),
-                    value: certificate_arn_binding.get_id(),
+                    value: &certificate_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listenerArn".into(),
-                    value: listener_arn_binding.get_id(),
+                    value: &listener_arn_binding.drop_type(),
                 },
             ],
         };

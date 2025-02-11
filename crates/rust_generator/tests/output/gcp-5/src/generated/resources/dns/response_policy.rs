@@ -168,23 +168,23 @@ pub mod response_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gkeClusters".into(),
-                    value: gke_clusters_binding.get_id(),
+                    value: &gke_clusters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networks".into(),
-                    value: networks_binding.get_id(),
+                    value: &networks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responsePolicyName".into(),
-                    value: response_policy_name_binding.get_id(),
+                    value: &response_policy_name_binding.drop_type(),
                 },
             ],
         };

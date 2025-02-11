@@ -120,19 +120,19 @@ pub mod cluster_activity_stream {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineNativeAuditFieldsIncluded".into(),
-                    value: engine_native_audit_fields_included_binding.get_id(),
+                    value: &engine_native_audit_fields_included_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: mode_binding.get_id(),
+                    value: &mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: resource_arn_binding.get_id(),
+                    value: &resource_arn_binding.drop_type(),
                 },
             ],
         };

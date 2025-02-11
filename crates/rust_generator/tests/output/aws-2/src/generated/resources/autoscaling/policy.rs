@@ -454,55 +454,55 @@ pub mod policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adjustmentType".into(),
-                    value: adjustment_type_binding.get_id(),
+                    value: &adjustment_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingGroupName".into(),
-                    value: autoscaling_group_name_binding.get_id(),
+                    value: &autoscaling_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cooldown".into(),
-                    value: cooldown_binding.get_id(),
+                    value: &cooldown_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "estimatedInstanceWarmup".into(),
-                    value: estimated_instance_warmup_binding.get_id(),
+                    value: &estimated_instance_warmup_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricAggregationType".into(),
-                    value: metric_aggregation_type_binding.get_id(),
+                    value: &metric_aggregation_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minAdjustmentMagnitude".into(),
-                    value: min_adjustment_magnitude_binding.get_id(),
+                    value: &min_adjustment_magnitude_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyType".into(),
-                    value: policy_type_binding.get_id(),
+                    value: &policy_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "predictiveScalingConfiguration".into(),
-                    value: predictive_scaling_configuration_binding.get_id(),
+                    value: &predictive_scaling_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingAdjustment".into(),
-                    value: scaling_adjustment_binding.get_id(),
+                    value: &scaling_adjustment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stepAdjustments".into(),
-                    value: step_adjustments_binding.get_id(),
+                    value: &step_adjustments_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetTrackingConfiguration".into(),
-                    value: target_tracking_configuration_binding.get_id(),
+                    value: &target_tracking_configuration_binding.drop_type(),
                 },
             ],
         };

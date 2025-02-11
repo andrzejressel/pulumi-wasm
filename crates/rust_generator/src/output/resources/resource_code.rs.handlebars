@@ -61,7 +61,7 @@ pub fn create(
         version: {{resource.get_version}},
         object: &[
             {{#each resource.input_properties}}
-                pulumi_gestalt_rust::ResourceRequestObjectField { name: "{{name}}".into(), value: {{arg_name}}_binding.get_id() },
+                pulumi_gestalt_rust::ResourceRequestObjectField { name: "{{name}}".into(), value: &{{arg_name}}_binding.drop_type() },
             {{/each}}
         ]
     };

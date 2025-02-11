@@ -56,23 +56,23 @@ pub mod get_namespace_disaster_recovery_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aliasAuthorizationRuleId".into(),
-                    value: alias_authorization_rule_id_binding.get_id(),
+                    value: &alias_authorization_rule_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceId".into(),
-                    value: namespace_id_binding.get_id(),
+                    value: &namespace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceName".into(),
-                    value: namespace_name_binding.get_id(),
+                    value: &namespace_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

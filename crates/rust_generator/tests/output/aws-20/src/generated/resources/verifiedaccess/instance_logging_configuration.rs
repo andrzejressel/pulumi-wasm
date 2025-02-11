@@ -219,11 +219,11 @@ pub mod instance_logging_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessLogs".into(),
-                    value: access_logs_binding.get_id(),
+                    value: &access_logs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verifiedaccessInstanceId".into(),
-                    value: verifiedaccess_instance_id_binding.get_id(),
+                    value: &verifiedaccess_instance_id_binding.drop_type(),
                 },
             ],
         };

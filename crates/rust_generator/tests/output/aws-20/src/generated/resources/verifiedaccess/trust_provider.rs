@@ -128,35 +128,35 @@ pub mod trust_provider {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceOptions".into(),
-                    value: device_options_binding.get_id(),
+                    value: &device_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceTrustProviderType".into(),
-                    value: device_trust_provider_type_binding.get_id(),
+                    value: &device_trust_provider_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oidcOptions".into(),
-                    value: oidc_options_binding.get_id(),
+                    value: &oidc_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyReferenceName".into(),
-                    value: policy_reference_name_binding.get_id(),
+                    value: &policy_reference_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustProviderType".into(),
-                    value: trust_provider_type_binding.get_id(),
+                    value: &trust_provider_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userTrustProviderType".into(),
-                    value: user_trust_provider_type_binding.get_id(),
+                    value: &user_trust_provider_type_binding.drop_type(),
                 },
             ],
         };

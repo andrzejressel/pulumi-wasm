@@ -208,71 +208,71 @@ pub mod ami {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "architecture".into(),
-                    value: architecture_binding.get_id(),
+                    value: &architecture_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bootMode".into(),
-                    value: boot_mode_binding.get_id(),
+                    value: &boot_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deprecationTime".into(),
-                    value: deprecation_time_binding.get_id(),
+                    value: &deprecation_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsBlockDevices".into(),
-                    value: ebs_block_devices_binding.get_id(),
+                    value: &ebs_block_devices_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enaSupport".into(),
-                    value: ena_support_binding.get_id(),
+                    value: &ena_support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ephemeralBlockDevices".into(),
-                    value: ephemeral_block_devices_binding.get_id(),
+                    value: &ephemeral_block_devices_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageLocation".into(),
-                    value: image_location_binding.get_id(),
+                    value: &image_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imdsSupport".into(),
-                    value: imds_support_binding.get_id(),
+                    value: &imds_support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kernelId".into(),
-                    value: kernel_id_binding.get_id(),
+                    value: &kernel_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ramdiskId".into(),
-                    value: ramdisk_id_binding.get_id(),
+                    value: &ramdisk_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rootDeviceName".into(),
-                    value: root_device_name_binding.get_id(),
+                    value: &root_device_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sriovNetSupport".into(),
-                    value: sriov_net_support_binding.get_id(),
+                    value: &sriov_net_support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tpmSupport".into(),
-                    value: tpm_support_binding.get_id(),
+                    value: &tpm_support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualizationType".into(),
-                    value: virtualization_type_binding.get_id(),
+                    value: &virtualization_type_binding.drop_type(),
                 },
             ],
         };

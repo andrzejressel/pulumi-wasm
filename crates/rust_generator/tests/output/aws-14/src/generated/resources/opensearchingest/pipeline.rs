@@ -204,43 +204,43 @@ pub mod pipeline {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bufferOptions".into(),
-                    value: buffer_options_binding.get_id(),
+                    value: &buffer_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionAtRestOptions".into(),
-                    value: encryption_at_rest_options_binding.get_id(),
+                    value: &encryption_at_rest_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logPublishingOptions".into(),
-                    value: log_publishing_options_binding.get_id(),
+                    value: &log_publishing_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxUnits".into(),
-                    value: max_units_binding.get_id(),
+                    value: &max_units_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minUnits".into(),
-                    value: min_units_binding.get_id(),
+                    value: &min_units_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineConfigurationBody".into(),
-                    value: pipeline_configuration_body_binding.get_id(),
+                    value: &pipeline_configuration_body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineName".into(),
-                    value: pipeline_name_binding.get_id(),
+                    value: &pipeline_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcOptions".into(),
-                    value: vpc_options_binding.get_id(),
+                    value: &vpc_options_binding.drop_type(),
                 },
             ],
         };

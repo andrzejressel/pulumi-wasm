@@ -51,15 +51,15 @@ pub mod get_secret_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretId".into(),
-                    value: secret_id_binding.get_id(),
+                    value: &secret_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionId".into(),
-                    value: version_id_binding.get_id(),
+                    value: &version_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "versionStage".into(),
-                    value: version_stage_binding.get_id(),
+                    value: &version_stage_binding.drop_type(),
                 },
             ],
         };

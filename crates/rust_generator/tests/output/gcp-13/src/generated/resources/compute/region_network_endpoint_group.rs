@@ -588,55 +588,55 @@ pub mod region_network_endpoint_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appEngine".into(),
-                    value: app_engine_binding.get_id(),
+                    value: &app_engine_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudFunction".into(),
-                    value: cloud_function_binding.get_id(),
+                    value: &cloud_function_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudRun".into(),
-                    value: cloud_run_binding.get_id(),
+                    value: &cloud_run_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: network_binding.get_id(),
+                    value: &network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkEndpointType".into(),
-                    value: network_endpoint_type_binding.get_id(),
+                    value: &network_endpoint_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pscData".into(),
-                    value: psc_data_binding.get_id(),
+                    value: &psc_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pscTargetService".into(),
-                    value: psc_target_service_binding.get_id(),
+                    value: &psc_target_service_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverlessDeployment".into(),
-                    value: serverless_deployment_binding.get_id(),
+                    value: &serverless_deployment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetwork".into(),
-                    value: subnetwork_binding.get_id(),
+                    value: &subnetwork_binding.drop_type(),
                 },
             ],
         };

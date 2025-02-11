@@ -91,11 +91,11 @@ pub mod document_ai_processor_default_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "processor".into(),
-                    value: processor_binding.get_id(),
+                    value: &processor_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

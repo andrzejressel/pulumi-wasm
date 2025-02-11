@@ -107,23 +107,23 @@ pub mod registry_cache_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRegistryId".into(),
-                    value: container_registry_id_binding.get_id(),
+                    value: &container_registry_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credentialSetId".into(),
-                    value: credential_set_id_binding.get_id(),
+                    value: &credential_set_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceRepo".into(),
-                    value: source_repo_binding.get_id(),
+                    value: &source_repo_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetRepo".into(),
-                    value: target_repo_binding.get_id(),
+                    value: &target_repo_binding.drop_type(),
                 },
             ],
         };

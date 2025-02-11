@@ -255,15 +255,15 @@ pub mod assignment_virtual_machine_scale_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceConfigurationId".into(),
-                    value: maintenance_configuration_id_binding.get_id(),
+                    value: &maintenance_configuration_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineScaleSetId".into(),
-                    value: virtual_machine_scale_set_id_binding.get_id(),
+                    value: &virtual_machine_scale_set_id_binding.drop_type(),
                 },
             ],
         };

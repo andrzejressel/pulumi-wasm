@@ -124,11 +124,11 @@ pub mod network_interface_security_group_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: network_interface_id_binding.get_id(),
+                    value: &network_interface_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupId".into(),
-                    value: security_group_id_binding.get_id(),
+                    value: &security_group_id_binding.drop_type(),
                 },
             ],
         };

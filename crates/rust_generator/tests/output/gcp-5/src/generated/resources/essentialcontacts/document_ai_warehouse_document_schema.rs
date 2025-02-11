@@ -131,23 +131,23 @@ pub mod document_ai_warehouse_document_schema {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentIsFolder".into(),
-                    value: document_is_folder_binding.get_id(),
+                    value: &document_is_folder_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectNumber".into(),
-                    value: project_number_binding.get_id(),
+                    value: &project_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "propertyDefinitions".into(),
-                    value: property_definitions_binding.get_id(),
+                    value: &property_definitions_binding.drop_type(),
                 },
             ],
         };

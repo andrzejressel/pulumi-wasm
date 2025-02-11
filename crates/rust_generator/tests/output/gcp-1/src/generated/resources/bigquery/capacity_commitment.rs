@@ -164,35 +164,35 @@ pub mod capacity_commitment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityCommitmentId".into(),
-                    value: capacity_commitment_id_binding.get_id(),
+                    value: &capacity_commitment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edition".into(),
-                    value: edition_binding.get_id(),
+                    value: &edition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enforceSingleAdminProjectPerOrg".into(),
-                    value: enforce_single_admin_project_per_org_binding.get_id(),
+                    value: &enforce_single_admin_project_per_org_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plan".into(),
-                    value: plan_binding.get_id(),
+                    value: &plan_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "renewalPlan".into(),
-                    value: renewal_plan_binding.get_id(),
+                    value: &renewal_plan_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slotCount".into(),
-                    value: slot_count_binding.get_id(),
+                    value: &slot_count_binding.drop_type(),
                 },
             ],
         };

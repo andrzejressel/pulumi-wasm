@@ -118,29 +118,29 @@ pub mod connect {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayDefaultRouteTableAssociation".into(),
-                    value: transit_gateway_default_route_table_association_binding
-                        .get_id(),
+                    value: &transit_gateway_default_route_table_association_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayDefaultRouteTablePropagation".into(),
-                    value: transit_gateway_default_route_table_propagation_binding
-                        .get_id(),
+                    value: &transit_gateway_default_route_table_propagation_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayId".into(),
-                    value: transit_gateway_id_binding.get_id(),
+                    value: &transit_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transportAttachmentId".into(),
-                    value: transport_attachment_id_binding.get_id(),
+                    value: &transport_attachment_id_binding.drop_type(),
                 },
             ],
         };

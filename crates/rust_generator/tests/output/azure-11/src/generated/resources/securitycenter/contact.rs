@@ -88,23 +88,23 @@ pub mod contact {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertNotifications".into(),
-                    value: alert_notifications_binding.get_id(),
+                    value: &alert_notifications_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertsToAdmins".into(),
-                    value: alerts_to_admins_binding.get_id(),
+                    value: &alerts_to_admins_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "email".into(),
-                    value: email_binding.get_id(),
+                    value: &email_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "phone".into(),
-                    value: phone_binding.get_id(),
+                    value: &phone_binding.drop_type(),
                 },
             ],
         };

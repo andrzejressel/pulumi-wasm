@@ -114,27 +114,27 @@ pub mod restore_testing_plan {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryPointSelection".into(),
-                    value: recovery_point_selection_binding.get_id(),
+                    value: &recovery_point_selection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleExpression".into(),
-                    value: schedule_expression_binding.get_id(),
+                    value: &schedule_expression_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleExpressionTimezone".into(),
-                    value: schedule_expression_timezone_binding.get_id(),
+                    value: &schedule_expression_timezone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startWindowHours".into(),
-                    value: start_window_hours_binding.get_id(),
+                    value: &start_window_hours_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

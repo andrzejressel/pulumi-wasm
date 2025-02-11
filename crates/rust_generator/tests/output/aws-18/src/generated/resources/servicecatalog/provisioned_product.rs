@@ -214,59 +214,59 @@ pub mod provisioned_product {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptLanguage".into(),
-                    value: accept_language_binding.get_id(),
+                    value: &accept_language_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreErrors".into(),
-                    value: ignore_errors_binding.get_id(),
+                    value: &ignore_errors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationArns".into(),
-                    value: notification_arns_binding.get_id(),
+                    value: &notification_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pathId".into(),
-                    value: path_id_binding.get_id(),
+                    value: &path_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pathName".into(),
-                    value: path_name_binding.get_id(),
+                    value: &path_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productId".into(),
-                    value: product_id_binding.get_id(),
+                    value: &product_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productName".into(),
-                    value: product_name_binding.get_id(),
+                    value: &product_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisioningArtifactId".into(),
-                    value: provisioning_artifact_id_binding.get_id(),
+                    value: &provisioning_artifact_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisioningArtifactName".into(),
-                    value: provisioning_artifact_name_binding.get_id(),
+                    value: &provisioning_artifact_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisioningParameters".into(),
-                    value: provisioning_parameters_binding.get_id(),
+                    value: &provisioning_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retainPhysicalResources".into(),
-                    value: retain_physical_resources_binding.get_id(),
+                    value: &retain_physical_resources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackSetProvisioningPreferences".into(),
-                    value: stack_set_provisioning_preferences_binding.get_id(),
+                    value: &stack_set_provisioning_preferences_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

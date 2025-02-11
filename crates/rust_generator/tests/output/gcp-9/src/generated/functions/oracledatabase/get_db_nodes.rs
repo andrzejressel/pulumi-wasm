@@ -45,15 +45,15 @@ pub mod get_db_nodes {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudVmCluster".into(),
-                    value: cloud_vm_cluster_binding.get_id(),
+                    value: &cloud_vm_cluster_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

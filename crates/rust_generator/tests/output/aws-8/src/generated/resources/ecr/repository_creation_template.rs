@@ -174,39 +174,39 @@ pub mod repository_creation_template {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appliedFors".into(),
-                    value: applied_fors_binding.get_id(),
+                    value: &applied_fors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customRoleArn".into(),
-                    value: custom_role_arn_binding.get_id(),
+                    value: &custom_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionConfigurations".into(),
-                    value: encryption_configurations_binding.get_id(),
+                    value: &encryption_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageTagMutability".into(),
-                    value: image_tag_mutability_binding.get_id(),
+                    value: &image_tag_mutability_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifecyclePolicy".into(),
-                    value: lifecycle_policy_binding.get_id(),
+                    value: &lifecycle_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefix".into(),
-                    value: prefix_binding.get_id(),
+                    value: &prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repositoryPolicy".into(),
-                    value: repository_policy_binding.get_id(),
+                    value: &repository_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTags".into(),
-                    value: resource_tags_binding.get_id(),
+                    value: &resource_tags_binding.drop_type(),
                 },
             ],
         };

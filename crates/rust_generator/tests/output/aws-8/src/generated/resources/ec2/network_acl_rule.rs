@@ -157,47 +157,47 @@ pub mod network_acl_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrBlock".into(),
-                    value: cidr_block_binding.get_id(),
+                    value: &cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "egress".into(),
-                    value: egress_binding.get_id(),
+                    value: &egress_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fromPort".into(),
-                    value: from_port_binding.get_id(),
+                    value: &from_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "icmpCode".into(),
-                    value: icmp_code_binding.get_id(),
+                    value: &icmp_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "icmpType".into(),
-                    value: icmp_type_binding.get_id(),
+                    value: &icmp_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6CidrBlock".into(),
-                    value: ipv6_cidr_block_binding.get_id(),
+                    value: &ipv6_cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkAclId".into(),
-                    value: network_acl_id_binding.get_id(),
+                    value: &network_acl_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleAction".into(),
-                    value: rule_action_binding.get_id(),
+                    value: &rule_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleNumber".into(),
-                    value: rule_number_binding.get_id(),
+                    value: &rule_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "toPort".into(),
-                    value: to_port_binding.get_id(),
+                    value: &to_port_binding.drop_type(),
                 },
             ],
         };

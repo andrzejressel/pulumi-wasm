@@ -52,11 +52,11 @@ pub mod get_function {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stage".into(),
-                    value: stage_binding.get_id(),
+                    value: &stage_binding.drop_type(),
                 },
             ],
         };

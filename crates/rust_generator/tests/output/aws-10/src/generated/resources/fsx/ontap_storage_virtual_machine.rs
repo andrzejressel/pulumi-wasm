@@ -158,27 +158,27 @@ pub mod ontap_storage_virtual_machine {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activeDirectoryConfiguration".into(),
-                    value: active_directory_configuration_binding.get_id(),
+                    value: &active_directory_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemId".into(),
-                    value: file_system_id_binding.get_id(),
+                    value: &file_system_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rootVolumeSecurityStyle".into(),
-                    value: root_volume_security_style_binding.get_id(),
+                    value: &root_volume_security_style_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "svmAdminPassword".into(),
-                    value: svm_admin_password_binding.get_id(),
+                    value: &svm_admin_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

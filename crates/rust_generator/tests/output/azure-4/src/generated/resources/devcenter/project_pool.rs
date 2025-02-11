@@ -184,35 +184,35 @@ pub mod project_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "devBoxDefinitionName".into(),
-                    value: dev_box_definition_name_binding.get_id(),
+                    value: &dev_box_definition_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "devCenterAttachedNetworkName".into(),
-                    value: dev_center_attached_network_name_binding.get_id(),
+                    value: &dev_center_attached_network_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "devCenterProjectId".into(),
-                    value: dev_center_project_id_binding.get_id(),
+                    value: &dev_center_project_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAdministratorEnabled".into(),
-                    value: local_administrator_enabled_binding.get_id(),
+                    value: &local_administrator_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stopOnDisconnectGracePeriodMinutes".into(),
-                    value: stop_on_disconnect_grace_period_minutes_binding.get_id(),
+                    value: &stop_on_disconnect_grace_period_minutes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

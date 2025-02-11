@@ -66,11 +66,11 @@ pub mod authentication_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationProfileContent".into(),
-                    value: authentication_profile_content_binding.get_id(),
+                    value: &authentication_profile_content_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationProfileName".into(),
-                    value: authentication_profile_name_binding.get_id(),
+                    value: &authentication_profile_name_binding.drop_type(),
                 },
             ],
         };

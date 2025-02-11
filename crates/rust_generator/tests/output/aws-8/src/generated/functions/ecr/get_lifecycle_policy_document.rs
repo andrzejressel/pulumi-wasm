@@ -37,7 +37,7 @@ pub mod get_lifecycle_policy_document {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: rules_binding.get_id(),
+                    value: &rules_binding.drop_type(),
                 },
             ],
         };

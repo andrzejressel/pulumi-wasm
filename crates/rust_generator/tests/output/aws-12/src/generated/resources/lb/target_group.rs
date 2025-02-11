@@ -358,95 +358,95 @@ pub mod target_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionTermination".into(),
-                    value: connection_termination_binding.get_id(),
+                    value: &connection_termination_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deregistrationDelay".into(),
-                    value: deregistration_delay_binding.get_id(),
+                    value: &deregistration_delay_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthCheck".into(),
-                    value: health_check_binding.get_id(),
+                    value: &health_check_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddressType".into(),
-                    value: ip_address_type_binding.get_id(),
+                    value: &ip_address_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaMultiValueHeadersEnabled".into(),
-                    value: lambda_multi_value_headers_enabled_binding.get_id(),
+                    value: &lambda_multi_value_headers_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancingAlgorithmType".into(),
-                    value: load_balancing_algorithm_type_binding.get_id(),
+                    value: &load_balancing_algorithm_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancingAnomalyMitigation".into(),
-                    value: load_balancing_anomaly_mitigation_binding.get_id(),
+                    value: &load_balancing_anomaly_mitigation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancingCrossZoneEnabled".into(),
-                    value: load_balancing_cross_zone_enabled_binding.get_id(),
+                    value: &load_balancing_cross_zone_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preserveClientIp".into(),
-                    value: preserve_client_ip_binding.get_id(),
+                    value: &preserve_client_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocolVersion".into(),
-                    value: protocol_version_binding.get_id(),
+                    value: &protocol_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxyProtocolV2".into(),
-                    value: proxy_protocol_v2_binding.get_id(),
+                    value: &proxy_protocol_v2_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slowStart".into(),
-                    value: slow_start_binding.get_id(),
+                    value: &slow_start_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stickiness".into(),
-                    value: stickiness_binding.get_id(),
+                    value: &stickiness_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetFailovers".into(),
-                    value: target_failovers_binding.get_id(),
+                    value: &target_failovers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetGroupHealth".into(),
-                    value: target_group_health_binding.get_id(),
+                    value: &target_group_health_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetHealthStates".into(),
-                    value: target_health_states_binding.get_id(),
+                    value: &target_health_states_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetType".into(),
-                    value: target_type_binding.get_id(),
+                    value: &target_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: vpc_id_binding.get_id(),
+                    value: &vpc_id_binding.drop_type(),
                 },
             ],
         };

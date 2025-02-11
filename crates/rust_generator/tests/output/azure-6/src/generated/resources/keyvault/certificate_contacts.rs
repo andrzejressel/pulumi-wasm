@@ -110,11 +110,11 @@ pub mod certificate_contacts {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contacts".into(),
-                    value: contacts_binding.get_id(),
+                    value: &contacts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultId".into(),
-                    value: key_vault_id_binding.get_id(),
+                    value: &key_vault_id_binding.drop_type(),
                 },
             ],
         };

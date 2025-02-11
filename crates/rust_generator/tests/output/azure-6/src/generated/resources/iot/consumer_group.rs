@@ -93,19 +93,19 @@ pub mod consumer_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventhubEndpointName".into(),
-                    value: eventhub_endpoint_name_binding.get_id(),
+                    value: &eventhub_endpoint_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubName".into(),
-                    value: iothub_name_binding.get_id(),
+                    value: &iothub_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

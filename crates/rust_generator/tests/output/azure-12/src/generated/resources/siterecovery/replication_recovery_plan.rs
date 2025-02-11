@@ -134,35 +134,35 @@ pub mod replication_recovery_plan {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureToAzureSettings".into(),
-                    value: azure_to_azure_settings_binding.get_id(),
+                    value: &azure_to_azure_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bootRecoveryGroups".into(),
-                    value: boot_recovery_groups_binding.get_id(),
+                    value: &boot_recovery_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failoverRecoveryGroup".into(),
-                    value: failover_recovery_group_binding.get_id(),
+                    value: &failover_recovery_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultId".into(),
-                    value: recovery_vault_id_binding.get_id(),
+                    value: &recovery_vault_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shutdownRecoveryGroup".into(),
-                    value: shutdown_recovery_group_binding.get_id(),
+                    value: &shutdown_recovery_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceRecoveryFabricId".into(),
-                    value: source_recovery_fabric_id_binding.get_id(),
+                    value: &source_recovery_fabric_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetRecoveryFabricId".into(),
-                    value: target_recovery_fabric_id_binding.get_id(),
+                    value: &target_recovery_fabric_id_binding.drop_type(),
                 },
             ],
         };

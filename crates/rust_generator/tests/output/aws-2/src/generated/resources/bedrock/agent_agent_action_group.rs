@@ -272,51 +272,51 @@ pub mod agent_agent_action_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionGroupExecutor".into(),
-                    value: action_group_executor_binding.get_id(),
+                    value: &action_group_executor_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionGroupName".into(),
-                    value: action_group_name_binding.get_id(),
+                    value: &action_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionGroupState".into(),
-                    value: action_group_state_binding.get_id(),
+                    value: &action_group_state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentId".into(),
-                    value: agent_id_binding.get_id(),
+                    value: &agent_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentVersion".into(),
-                    value: agent_version_binding.get_id(),
+                    value: &agent_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiSchema".into(),
-                    value: api_schema_binding.get_id(),
+                    value: &api_schema_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionSchema".into(),
-                    value: function_schema_binding.get_id(),
+                    value: &function_schema_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentActionGroupSignature".into(),
-                    value: parent_action_group_signature_binding.get_id(),
+                    value: &parent_action_group_signature_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prepareAgent".into(),
-                    value: prepare_agent_binding.get_id(),
+                    value: &prepare_agent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipResourceInUseCheck".into(),
-                    value: skip_resource_in_use_check_binding.get_id(),
+                    value: &skip_resource_in_use_check_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

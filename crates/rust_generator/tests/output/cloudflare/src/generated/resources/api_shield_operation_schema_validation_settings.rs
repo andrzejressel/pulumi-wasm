@@ -73,15 +73,15 @@ pub mod api_shield_operation_schema_validation_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mitigationAction".into(),
-                    value: mitigation_action_binding.get_id(),
+                    value: &mitigation_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operationId".into(),
-                    value: operation_id_binding.get_id(),
+                    value: &operation_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

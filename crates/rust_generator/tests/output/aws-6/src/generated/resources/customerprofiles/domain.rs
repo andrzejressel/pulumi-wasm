@@ -180,31 +180,31 @@ pub mod domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deadLetterQueueUrl".into(),
-                    value: dead_letter_queue_url_binding.get_id(),
+                    value: &dead_letter_queue_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultEncryptionKey".into(),
-                    value: default_encryption_key_binding.get_id(),
+                    value: &default_encryption_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultExpirationDays".into(),
-                    value: default_expiration_days_binding.get_id(),
+                    value: &default_expiration_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "matching".into(),
-                    value: matching_binding.get_id(),
+                    value: &matching_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleBasedMatching".into(),
-                    value: rule_based_matching_binding.get_id(),
+                    value: &rule_based_matching_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

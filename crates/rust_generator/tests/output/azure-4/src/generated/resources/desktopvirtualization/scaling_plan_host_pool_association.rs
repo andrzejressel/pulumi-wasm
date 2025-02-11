@@ -137,15 +137,15 @@ pub mod scaling_plan_host_pool_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostPoolId".into(),
-                    value: host_pool_id_binding.get_id(),
+                    value: &host_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingPlanId".into(),
-                    value: scaling_plan_id_binding.get_id(),
+                    value: &scaling_plan_id_binding.drop_type(),
                 },
             ],
         };

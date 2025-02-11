@@ -367,91 +367,92 @@ pub mod vmware_replicated_vm {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applianceName".into(),
-                    value: appliance_name_binding.get_id(),
+                    value: &appliance_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultLogStorageAccountId".into(),
-                    value: default_log_storage_account_id_binding.get_id(),
+                    value: &default_log_storage_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRecoveryDiskType".into(),
-                    value: default_recovery_disk_type_binding.get_id(),
+                    value: &default_recovery_disk_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTargetDiskEncryptionSetId".into(),
-                    value: default_target_disk_encryption_set_id_binding.get_id(),
+                    value: &default_target_disk_encryption_set_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseType".into(),
-                    value: license_type_binding.get_id(),
+                    value: &license_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedDisks".into(),
-                    value: managed_disks_binding.get_id(),
+                    value: &managed_disks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiVmGroupName".into(),
-                    value: multi_vm_group_name_binding.get_id(),
+                    value: &multi_vm_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaces".into(),
-                    value: network_interfaces_binding.get_id(),
+                    value: &network_interfaces_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "physicalServerCredentialName".into(),
-                    value: physical_server_credential_name_binding.get_id(),
+                    value: &physical_server_credential_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryReplicationPolicyId".into(),
-                    value: recovery_replication_policy_id_binding.get_id(),
+                    value: &recovery_replication_policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultId".into(),
-                    value: recovery_vault_id_binding.get_id(),
+                    value: &recovery_vault_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceVmName".into(),
-                    value: source_vm_name_binding.get_id(),
+                    value: &source_vm_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetAvailabilitySetId".into(),
-                    value: target_availability_set_id_binding.get_id(),
+                    value: &target_availability_set_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetBootDiagnosticsStorageAccountId".into(),
-                    value: target_boot_diagnostics_storage_account_id_binding.get_id(),
+                    value: &target_boot_diagnostics_storage_account_id_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetNetworkId".into(),
-                    value: target_network_id_binding.get_id(),
+                    value: &target_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetProximityPlacementGroupId".into(),
-                    value: target_proximity_placement_group_id_binding.get_id(),
+                    value: &target_proximity_placement_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceGroupId".into(),
-                    value: target_resource_group_id_binding.get_id(),
+                    value: &target_resource_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetVmName".into(),
-                    value: target_vm_name_binding.get_id(),
+                    value: &target_vm_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetVmSize".into(),
-                    value: target_vm_size_binding.get_id(),
+                    value: &target_vm_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetZone".into(),
-                    value: target_zone_binding.get_id(),
+                    value: &target_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "testNetworkId".into(),
-                    value: test_network_id_binding.get_id(),
+                    value: &test_network_id_binding.drop_type(),
                 },
             ],
         };

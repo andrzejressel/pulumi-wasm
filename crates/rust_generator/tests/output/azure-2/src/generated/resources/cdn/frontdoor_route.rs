@@ -303,59 +303,59 @@ pub mod frontdoor_route {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cache".into(),
-                    value: cache_binding.get_id(),
+                    value: &cache_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorCustomDomainIds".into(),
-                    value: cdn_frontdoor_custom_domain_ids_binding.get_id(),
+                    value: &cdn_frontdoor_custom_domain_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorEndpointId".into(),
-                    value: cdn_frontdoor_endpoint_id_binding.get_id(),
+                    value: &cdn_frontdoor_endpoint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorOriginGroupId".into(),
-                    value: cdn_frontdoor_origin_group_id_binding.get_id(),
+                    value: &cdn_frontdoor_origin_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorOriginIds".into(),
-                    value: cdn_frontdoor_origin_ids_binding.get_id(),
+                    value: &cdn_frontdoor_origin_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorOriginPath".into(),
-                    value: cdn_frontdoor_origin_path_binding.get_id(),
+                    value: &cdn_frontdoor_origin_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdnFrontdoorRuleSetIds".into(),
-                    value: cdn_frontdoor_rule_set_ids_binding.get_id(),
+                    value: &cdn_frontdoor_rule_set_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forwardingProtocol".into(),
-                    value: forwarding_protocol_binding.get_id(),
+                    value: &forwarding_protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsRedirectEnabled".into(),
-                    value: https_redirect_enabled_binding.get_id(),
+                    value: &https_redirect_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkToDefaultDomain".into(),
-                    value: link_to_default_domain_binding.get_id(),
+                    value: &link_to_default_domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "patternsToMatches".into(),
-                    value: patterns_to_matches_binding.get_id(),
+                    value: &patterns_to_matches_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedProtocols".into(),
-                    value: supported_protocols_binding.get_id(),
+                    value: &supported_protocols_binding.drop_type(),
                 },
             ],
         };

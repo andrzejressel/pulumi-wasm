@@ -54,19 +54,19 @@ pub mod foo {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "argument".into(),
-                    value: argument_binding.get_id(),
+                    value: &argument_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupKubeClientSettings".into(),
-                    value: backup_kube_client_settings_binding.get_id(),
+                    value: &backup_kube_client_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubeClientSettings".into(),
-                    value: kube_client_settings_binding.get_id(),
+                    value: &kube_client_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: settings_binding.get_id(),
+                    value: &settings_binding.drop_type(),
                 },
             ],
         };

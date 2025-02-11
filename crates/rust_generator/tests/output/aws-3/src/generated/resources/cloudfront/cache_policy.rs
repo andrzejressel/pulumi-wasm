@@ -133,28 +133,28 @@ pub mod cache_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: comment_binding.get_id(),
+                    value: &comment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTtl".into(),
-                    value: default_ttl_binding.get_id(),
+                    value: &default_ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxTtl".into(),
-                    value: max_ttl_binding.get_id(),
+                    value: &max_ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minTtl".into(),
-                    value: min_ttl_binding.get_id(),
+                    value: &min_ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parametersInCacheKeyAndForwardedToOrigin".into(),
-                    value: parameters_in_cache_key_and_forwarded_to_origin_binding
-                        .get_id(),
+                    value: &parameters_in_cache_key_and_forwarded_to_origin_binding
+                        .drop_type(),
                 },
             ],
         };

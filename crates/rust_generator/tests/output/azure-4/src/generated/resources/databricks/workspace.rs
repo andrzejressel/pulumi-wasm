@@ -254,84 +254,84 @@ pub mod workspace {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessConnectorId".into(),
-                    value: access_connector_id_binding.get_id(),
+                    value: &access_connector_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customParameters".into(),
-                    value: custom_parameters_binding.get_id(),
+                    value: &custom_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKeyEnabled".into(),
-                    value: customer_managed_key_enabled_binding.get_id(),
+                    value: &customer_managed_key_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultStorageFirewallEnabled".into(),
-                    value: default_storage_firewall_enabled_binding.get_id(),
+                    value: &default_storage_firewall_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enhancedSecurityCompliance".into(),
-                    value: enhanced_security_compliance_binding.get_id(),
+                    value: &enhanced_security_compliance_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "infrastructureEncryptionEnabled".into(),
-                    value: infrastructure_encryption_enabled_binding.get_id(),
+                    value: &infrastructure_encryption_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerBackendAddressPoolId".into(),
-                    value: load_balancer_backend_address_pool_id_binding.get_id(),
+                    value: &load_balancer_backend_address_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedDiskCmkKeyVaultId".into(),
-                    value: managed_disk_cmk_key_vault_id_binding.get_id(),
+                    value: &managed_disk_cmk_key_vault_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedDiskCmkKeyVaultKeyId".into(),
-                    value: managed_disk_cmk_key_vault_key_id_binding.get_id(),
+                    value: &managed_disk_cmk_key_vault_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedDiskCmkRotationToLatestVersionEnabled".into(),
-                    value: managed_disk_cmk_rotation_to_latest_version_enabled_binding
-                        .get_id(),
+                    value: &managed_disk_cmk_rotation_to_latest_version_enabled_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedResourceGroupName".into(),
-                    value: managed_resource_group_name_binding.get_id(),
+                    value: &managed_resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedServicesCmkKeyVaultId".into(),
-                    value: managed_services_cmk_key_vault_id_binding.get_id(),
+                    value: &managed_services_cmk_key_vault_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedServicesCmkKeyVaultKeyId".into(),
-                    value: managed_services_cmk_key_vault_key_id_binding.get_id(),
+                    value: &managed_services_cmk_key_vault_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkSecurityGroupRulesRequired".into(),
-                    value: network_security_group_rules_required_binding.get_id(),
+                    value: &network_security_group_rules_required_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: public_network_access_enabled_binding.get_id(),
+                    value: &public_network_access_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: sku_binding.get_id(),
+                    value: &sku_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

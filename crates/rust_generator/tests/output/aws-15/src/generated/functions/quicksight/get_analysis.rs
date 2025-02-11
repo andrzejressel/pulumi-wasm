@@ -54,15 +54,15 @@ pub mod get_analysis {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "analysisId".into(),
-                    value: analysis_id_binding.get_id(),
+                    value: &analysis_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: aws_account_id_binding.get_id(),
+                    value: &aws_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

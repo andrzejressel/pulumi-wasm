@@ -52,19 +52,19 @@ pub mod get_models {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "byCustomizationType".into(),
-                    value: by_customization_type_binding.get_id(),
+                    value: &by_customization_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "byInferenceType".into(),
-                    value: by_inference_type_binding.get_id(),
+                    value: &by_inference_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "byOutputModality".into(),
-                    value: by_output_modality_binding.get_id(),
+                    value: &by_output_modality_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "byProvider".into(),
-                    value: by_provider_binding.get_id(),
+                    value: &by_provider_binding.drop_type(),
                 },
             ],
         };

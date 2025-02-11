@@ -80,7 +80,7 @@ pub mod get_received_license {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseArn".into(),
-                    value: license_arn_binding.get_id(),
+                    value: &license_arn_binding.drop_type(),
                 },
             ],
         };

@@ -45,15 +45,15 @@ pub mod get_environment_blueprint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainId".into(),
-                    value: domain_id_binding.get_id(),
+                    value: &domain_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managed".into(),
-                    value: managed_binding.get_id(),
+                    value: &managed_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

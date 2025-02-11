@@ -108,23 +108,23 @@ pub mod connect_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreNetworkId".into(),
-                    value: core_network_id_binding.get_id(),
+                    value: &core_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeLocation".into(),
-                    value: edge_location_binding.get_id(),
+                    value: &edge_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "options".into(),
-                    value: options_binding.get_id(),
+                    value: &options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transportAttachmentId".into(),
-                    value: transport_attachment_id_binding.get_id(),
+                    value: &transport_attachment_id_binding.drop_type(),
                 },
             ],
         };

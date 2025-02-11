@@ -136,39 +136,39 @@ pub mod domain_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizerConfig".into(),
-                    value: authorizer_config_binding.get_id(),
+                    value: &authorizer_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverCertificateArns".into(),
-                    value: server_certificate_arns_binding.get_id(),
+                    value: &server_certificate_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceType".into(),
-                    value: service_type_binding.get_id(),
+                    value: &service_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsConfig".into(),
-                    value: tls_config_binding.get_id(),
+                    value: &tls_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationCertificateArn".into(),
-                    value: validation_certificate_arn_binding.get_id(),
+                    value: &validation_certificate_arn_binding.drop_type(),
                 },
             ],
         };

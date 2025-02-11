@@ -93,19 +93,19 @@ pub mod namespace_schema_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceId".into(),
-                    value: namespace_id_binding.get_id(),
+                    value: &namespace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaCompatibility".into(),
-                    value: schema_compatibility_binding.get_id(),
+                    value: &schema_compatibility_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaType".into(),
-                    value: schema_type_binding.get_id(),
+                    value: &schema_type_binding.drop_type(),
                 },
             ],
         };

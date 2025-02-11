@@ -105,27 +105,27 @@ pub mod identity_provider {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributeMapping".into(),
-                    value: attribute_mapping_binding.get_id(),
+                    value: &attribute_mapping_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idpIdentifiers".into(),
-                    value: idp_identifiers_binding.get_id(),
+                    value: &idp_identifiers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerDetails".into(),
-                    value: provider_details_binding.get_id(),
+                    value: &provider_details_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerName".into(),
-                    value: provider_name_binding.get_id(),
+                    value: &provider_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerType".into(),
-                    value: provider_type_binding.get_id(),
+                    value: &provider_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userPoolId".into(),
-                    value: user_pool_id_binding.get_id(),
+                    value: &user_pool_id_binding.drop_type(),
                 },
             ],
         };

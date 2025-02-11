@@ -34,7 +34,7 @@ pub mod get_account_encryption {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "netappAccountId".into(),
-                    value: netapp_account_id_binding.get_id(),
+                    value: &netapp_account_id_binding.drop_type(),
                 },
             ],
         };

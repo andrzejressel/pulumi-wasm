@@ -173,47 +173,47 @@ pub mod output_service_bus_queue {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authenticationMode".into(),
-                    value: authentication_mode_binding.get_id(),
+                    value: &authentication_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "propertyColumns".into(),
-                    value: property_columns_binding.get_id(),
+                    value: &property_columns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueName".into(),
-                    value: queue_name_binding.get_id(),
+                    value: &queue_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serialization".into(),
-                    value: serialization_binding.get_id(),
+                    value: &serialization_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicebusNamespace".into(),
-                    value: servicebus_namespace_binding.get_id(),
+                    value: &servicebus_namespace_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccessPolicyKey".into(),
-                    value: shared_access_policy_key_binding.get_id(),
+                    value: &shared_access_policy_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccessPolicyName".into(),
-                    value: shared_access_policy_name_binding.get_id(),
+                    value: &shared_access_policy_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobName".into(),
-                    value: stream_analytics_job_name_binding.get_id(),
+                    value: &stream_analytics_job_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "systemPropertyColumns".into(),
-                    value: system_property_columns_binding.get_id(),
+                    value: &system_property_columns_binding.drop_type(),
                 },
             ],
         };

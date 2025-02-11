@@ -331,47 +331,47 @@ pub mod permission {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: action_binding.get_id(),
+                    value: &action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventSourceToken".into(),
-                    value: event_source_token_binding.get_id(),
+                    value: &event_source_token_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "function".into(),
-                    value: function_binding.get_id(),
+                    value: &function_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionUrlAuthType".into(),
-                    value: function_url_auth_type_binding.get_id(),
+                    value: &function_url_auth_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: principal_binding.get_id(),
+                    value: &principal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalOrgId".into(),
-                    value: principal_org_id_binding.get_id(),
+                    value: &principal_org_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qualifier".into(),
-                    value: qualifier_binding.get_id(),
+                    value: &qualifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceAccount".into(),
-                    value: source_account_binding.get_id(),
+                    value: &source_account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceArn".into(),
-                    value: source_arn_binding.get_id(),
+                    value: &source_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statementId".into(),
-                    value: statement_id_binding.get_id(),
+                    value: &statement_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statementIdPrefix".into(),
-                    value: statement_id_prefix_binding.get_id(),
+                    value: &statement_id_prefix_binding.drop_type(),
                 },
             ],
         };

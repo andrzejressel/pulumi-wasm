@@ -87,15 +87,15 @@ pub mod shared_vpc_service_project {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: deletion_policy_binding.get_id(),
+                    value: &deletion_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostProject".into(),
-                    value: host_project_binding.get_id(),
+                    value: &host_project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceProject".into(),
-                    value: service_project_binding.get_id(),
+                    value: &service_project_binding.drop_type(),
                 },
             ],
         };

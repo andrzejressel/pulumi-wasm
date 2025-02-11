@@ -46,7 +46,7 @@ pub mod get_application_providers {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationProviders".into(),
-                    value: application_providers_binding.get_id(),
+                    value: &application_providers_binding.drop_type(),
                 },
             ],
         };

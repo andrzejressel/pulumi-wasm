@@ -139,27 +139,27 @@ pub mod environment_storage {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessKey".into(),
-                    value: access_key_binding.get_id(),
+                    value: &access_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessMode".into(),
-                    value: access_mode_binding.get_id(),
+                    value: &access_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: account_name_binding.get_id(),
+                    value: &account_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerAppEnvironmentId".into(),
-                    value: container_app_environment_id_binding.get_id(),
+                    value: &container_app_environment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareName".into(),
-                    value: share_name_binding.get_id(),
+                    value: &share_name_binding.drop_type(),
                 },
             ],
         };

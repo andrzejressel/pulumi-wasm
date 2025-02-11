@@ -50,11 +50,11 @@ pub mod get_hosting_channel {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "channelId".into(),
-                    value: channel_id_binding.get_id(),
+                    value: &channel_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteId".into(),
-                    value: site_id_binding.get_id(),
+                    value: &site_id_binding.drop_type(),
                 },
             ],
         };

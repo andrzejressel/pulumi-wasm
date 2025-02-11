@@ -83,15 +83,15 @@ pub mod custom_domain_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableWwwSubdomain".into(),
-                    value: enable_www_subdomain_binding.get_id(),
+                    value: &enable_www_subdomain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceArn".into(),
-                    value: service_arn_binding.get_id(),
+                    value: &service_arn_binding.drop_type(),
                 },
             ],
         };

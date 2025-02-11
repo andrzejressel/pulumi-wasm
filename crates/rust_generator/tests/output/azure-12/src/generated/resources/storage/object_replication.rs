@@ -152,15 +152,15 @@ pub mod object_replication {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationStorageAccountId".into(),
-                    value: destination_storage_account_id_binding.get_id(),
+                    value: &destination_storage_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: rules_binding.get_id(),
+                    value: &rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceStorageAccountId".into(),
-                    value: source_storage_account_id_binding.get_id(),
+                    value: &source_storage_account_id_binding.drop_type(),
                 },
             ],
         };

@@ -351,63 +351,63 @@ pub mod cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorization".into(),
-                    value: authorization_binding.get_id(),
+                    value: &authorization_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlane".into(),
-                    value: control_plane_binding.get_id(),
+                    value: &control_plane_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlaneEncryption".into(),
-                    value: control_plane_encryption_binding.get_id(),
+                    value: &control_plane_encryption_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultMaxPodsPerNode".into(),
-                    value: default_max_pods_per_node_binding.get_id(),
+                    value: &default_max_pods_per_node_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalLoadBalancerIpv4AddressPools".into(),
-                    value: external_load_balancer_ipv4_address_pools_binding.get_id(),
+                    value: &external_load_balancer_ipv4_address_pools_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleet".into(),
-                    value: fleet_binding.get_id(),
+                    value: &fleet_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenancePolicy".into(),
-                    value: maintenance_policy_binding.get_id(),
+                    value: &maintenance_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networking".into(),
-                    value: networking_binding.get_id(),
+                    value: &networking_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "releaseChannel".into(),
-                    value: release_channel_binding.get_id(),
+                    value: &release_channel_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "systemAddonsConfig".into(),
-                    value: system_addons_config_binding.get_id(),
+                    value: &system_addons_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetVersion".into(),
-                    value: target_version_binding.get_id(),
+                    value: &target_version_binding.drop_type(),
                 },
             ],
         };

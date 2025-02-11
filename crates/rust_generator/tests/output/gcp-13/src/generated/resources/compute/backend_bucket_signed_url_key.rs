@@ -112,19 +112,19 @@ pub mod backend_bucket_signed_url_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendBucket".into(),
-                    value: backend_bucket_binding.get_id(),
+                    value: &backend_bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyValue".into(),
-                    value: key_value_binding.get_id(),
+                    value: &key_value_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

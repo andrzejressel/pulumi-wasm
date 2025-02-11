@@ -476,83 +476,83 @@ pub mod v_mware_cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminClusterMembership".into(),
-                    value: admin_cluster_membership_binding.get_id(),
+                    value: &admin_cluster_membership_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: annotations_binding.get_id(),
+                    value: &annotations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "antiAffinityGroups".into(),
-                    value: anti_affinity_groups_binding.get_id(),
+                    value: &anti_affinity_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorization".into(),
-                    value: authorization_binding.get_id(),
+                    value: &authorization_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoRepairConfig".into(),
-                    value: auto_repair_config_binding.get_id(),
+                    value: &auto_repair_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlPlaneNode".into(),
-                    value: control_plane_node_binding.get_id(),
+                    value: &control_plane_node_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataplaneV2".into(),
-                    value: dataplane_v2_binding.get_id(),
+                    value: &dataplane_v2_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableBundledIngress".into(),
-                    value: disable_bundled_ingress_binding.get_id(),
+                    value: &disable_bundled_ingress_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableControlPlaneV2".into(),
-                    value: enable_control_plane_v2_binding.get_id(),
+                    value: &enable_control_plane_v2_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancer".into(),
-                    value: load_balancer_binding.get_id(),
+                    value: &load_balancer_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfig".into(),
-                    value: network_config_binding.get_id(),
+                    value: &network_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onPremVersion".into(),
-                    value: on_prem_version_binding.get_id(),
+                    value: &on_prem_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storage".into(),
-                    value: storage_binding.get_id(),
+                    value: &storage_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "upgradePolicy".into(),
-                    value: upgrade_policy_binding.get_id(),
+                    value: &upgrade_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vcenter".into(),
-                    value: vcenter_binding.get_id(),
+                    value: &vcenter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmTrackingEnabled".into(),
-                    value: vm_tracking_enabled_binding.get_id(),
+                    value: &vm_tracking_enabled_binding.drop_type(),
                 },
             ],
         };

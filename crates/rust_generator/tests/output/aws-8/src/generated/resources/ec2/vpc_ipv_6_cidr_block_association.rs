@@ -103,27 +103,27 @@ pub mod vpc_ipv_6_cidr_block_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignGeneratedIpv6CidrBlock".into(),
-                    value: assign_generated_ipv6_cidr_block_binding.get_id(),
+                    value: &assign_generated_ipv6_cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6CidrBlock".into(),
-                    value: ipv6_cidr_block_binding.get_id(),
+                    value: &ipv6_cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6IpamPoolId".into(),
-                    value: ipv6_ipam_pool_id_binding.get_id(),
+                    value: &ipv6_ipam_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6NetmaskLength".into(),
-                    value: ipv6_netmask_length_binding.get_id(),
+                    value: &ipv6_netmask_length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6Pool".into(),
-                    value: ipv6_pool_binding.get_id(),
+                    value: &ipv6_pool_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: vpc_id_binding.get_id(),
+                    value: &vpc_id_binding.drop_type(),
                 },
             ],
         };

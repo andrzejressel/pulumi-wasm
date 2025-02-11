@@ -74,23 +74,23 @@ pub mod api_token {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: condition_binding.get_id(),
+                    value: &condition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiresOn".into(),
-                    value: expires_on_binding.get_id(),
+                    value: &expires_on_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notBefore".into(),
-                    value: not_before_binding.get_id(),
+                    value: &not_before_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policies".into(),
-                    value: policies_binding.get_id(),
+                    value: &policies_binding.drop_type(),
                 },
             ],
         };

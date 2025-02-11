@@ -80,15 +80,15 @@ pub mod managed_prefix_list_entry {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidr".into(),
-                    value: cidr_binding.get_id(),
+                    value: &cidr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefixListId".into(),
-                    value: prefix_list_id_binding.get_id(),
+                    value: &prefix_list_id_binding.drop_type(),
                 },
             ],
         };

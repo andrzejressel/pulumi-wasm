@@ -70,11 +70,11 @@ pub mod service_setting {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settingId".into(),
-                    value: setting_id_binding.get_id(),
+                    value: &setting_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settingValue".into(),
-                    value: setting_value_binding.get_id(),
+                    value: &setting_value_binding.drop_type(),
                 },
             ],
         };

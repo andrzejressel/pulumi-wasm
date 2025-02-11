@@ -210,23 +210,23 @@ pub mod regional_secret_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: deletion_policy_binding.get_id(),
+                    value: &deletion_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isSecretDataBase64".into(),
-                    value: is_secret_data_base64_binding.get_id(),
+                    value: &is_secret_data_base64_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secret".into(),
-                    value: secret_binding.get_id(),
+                    value: &secret_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretData".into(),
-                    value: secret_data_binding.get_id(),
+                    value: &secret_data_binding.drop_type(),
                 },
             ],
         };

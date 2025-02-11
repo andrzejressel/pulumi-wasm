@@ -180,43 +180,43 @@ pub mod target_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupPool".into(),
-                    value: backup_pool_binding.get_id(),
+                    value: &backup_pool_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failoverRatio".into(),
-                    value: failover_ratio_binding.get_id(),
+                    value: &failover_ratio_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthChecks".into(),
-                    value: health_checks_binding.get_id(),
+                    value: &health_checks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instances".into(),
-                    value: instances_binding.get_id(),
+                    value: &instances_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityPolicy".into(),
-                    value: security_policy_binding.get_id(),
+                    value: &security_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionAffinity".into(),
-                    value: session_affinity_binding.get_id(),
+                    value: &session_affinity_binding.drop_type(),
                 },
             ],
         };

@@ -147,31 +147,31 @@ pub mod remote_image {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "build".into(),
-                    value: build_binding.get_id(),
+                    value: &build_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceRemove".into(),
-                    value: force_remove_binding.get_id(),
+                    value: &force_remove_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepLocally".into(),
-                    value: keep_locally_binding.get_id(),
+                    value: &keep_locally_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platform".into(),
-                    value: platform_binding.get_id(),
+                    value: &platform_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pullTriggers".into(),
-                    value: pull_triggers_binding.get_id(),
+                    value: &pull_triggers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggers".into(),
-                    value: triggers_binding.get_id(),
+                    value: &triggers_binding.drop_type(),
                 },
             ],
         };
