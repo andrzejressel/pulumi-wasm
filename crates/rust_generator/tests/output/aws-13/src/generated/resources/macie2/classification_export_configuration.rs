@@ -73,7 +73,7 @@ pub mod classification_export_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Destination".into(),
-                    value: s3_destination_binding.get_id(),
+                    value: &s3_destination_binding.drop_type(),
                 },
             ],
         };

@@ -492,51 +492,51 @@ pub mod edge_cache_service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableHttp2".into(),
-                    value: disable_http2_binding.get_id(),
+                    value: &disable_http2_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableQuic".into(),
-                    value: disable_quic_binding.get_id(),
+                    value: &disable_quic_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeSecurityPolicy".into(),
-                    value: edge_security_policy_binding.get_id(),
+                    value: &edge_security_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeSslCertificates".into(),
-                    value: edge_ssl_certificates_binding.get_id(),
+                    value: &edge_ssl_certificates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfig".into(),
-                    value: log_config_binding.get_id(),
+                    value: &log_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireTls".into(),
-                    value: require_tls_binding.get_id(),
+                    value: &require_tls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routing".into(),
-                    value: routing_binding.get_id(),
+                    value: &routing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslPolicy".into(),
-                    value: ssl_policy_binding.get_id(),
+                    value: &ssl_policy_binding.drop_type(),
                 },
             ],
         };

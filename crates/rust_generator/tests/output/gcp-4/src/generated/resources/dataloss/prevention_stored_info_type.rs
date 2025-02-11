@@ -249,31 +249,31 @@ pub mod prevention_stored_info_type {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dictionary".into(),
-                    value: dictionary_binding.get_id(),
+                    value: &dictionary_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "largeCustomDictionary".into(),
-                    value: large_custom_dictionary_binding.get_id(),
+                    value: &large_custom_dictionary_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regex".into(),
-                    value: regex_binding.get_id(),
+                    value: &regex_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storedInfoTypeId".into(),
-                    value: stored_info_type_id_binding.get_id(),
+                    value: &stored_info_type_id_binding.drop_type(),
                 },
             ],
         };

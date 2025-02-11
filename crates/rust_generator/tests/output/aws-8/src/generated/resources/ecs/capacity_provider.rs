@@ -97,15 +97,15 @@ pub mod capacity_provider {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScalingGroupProvider".into(),
-                    value: auto_scaling_group_provider_binding.get_id(),
+                    value: &auto_scaling_group_provider_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

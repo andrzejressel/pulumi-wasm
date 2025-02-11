@@ -33,7 +33,7 @@ pub mod get_controls {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetIdentifier".into(),
-                    value: target_identifier_binding.get_id(),
+                    value: &target_identifier_binding.drop_type(),
                 },
             ],
         };

@@ -113,23 +113,23 @@ pub mod alert_rule_fusion {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alertRuleTemplateGuid".into(),
-                    value: alert_rule_template_guid_binding.get_id(),
+                    value: &alert_rule_template_guid_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: log_analytics_workspace_id_binding.get_id(),
+                    value: &log_analytics_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sources".into(),
-                    value: sources_binding.get_id(),
+                    value: &sources_binding.drop_type(),
                 },
             ],
         };

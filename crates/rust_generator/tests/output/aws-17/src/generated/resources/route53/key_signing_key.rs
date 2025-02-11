@@ -155,19 +155,19 @@ pub mod key_signing_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostedZoneId".into(),
-                    value: hosted_zone_id_binding.get_id(),
+                    value: &hosted_zone_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyManagementServiceArn".into(),
-                    value: key_management_service_arn_binding.get_id(),
+                    value: &key_management_service_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
             ],
         };

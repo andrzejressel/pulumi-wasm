@@ -335,95 +335,95 @@ pub mod virtual_network_gateway {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activeActive".into(),
-                    value: active_active_binding.get_id(),
+                    value: &active_active_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpRouteTranslationForNatEnabled".into(),
-                    value: bgp_route_translation_for_nat_enabled_binding.get_id(),
+                    value: &bgp_route_translation_for_nat_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpSettings".into(),
-                    value: bgp_settings_binding.get_id(),
+                    value: &bgp_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customRoute".into(),
-                    value: custom_route_binding.get_id(),
+                    value: &custom_route_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultLocalNetworkGatewayId".into(),
-                    value: default_local_network_gateway_id_binding.get_id(),
+                    value: &default_local_network_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsForwardingEnabled".into(),
-                    value: dns_forwarding_enabled_binding.get_id(),
+                    value: &dns_forwarding_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeZone".into(),
-                    value: edge_zone_binding.get_id(),
+                    value: &edge_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableBgp".into(),
-                    value: enable_bgp_binding.get_id(),
+                    value: &enable_bgp_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "generation".into(),
-                    value: generation_binding.get_id(),
+                    value: &generation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipConfigurations".into(),
-                    value: ip_configurations_binding.get_id(),
+                    value: &ip_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipSecReplayProtectionEnabled".into(),
-                    value: ip_sec_replay_protection_enabled_binding.get_id(),
+                    value: &ip_sec_replay_protection_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyGroups".into(),
-                    value: policy_groups_binding.get_id(),
+                    value: &policy_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIpAddressEnabled".into(),
-                    value: private_ip_address_enabled_binding.get_id(),
+                    value: &private_ip_address_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteVnetTrafficEnabled".into(),
-                    value: remote_vnet_traffic_enabled_binding.get_id(),
+                    value: &remote_vnet_traffic_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: sku_binding.get_id(),
+                    value: &sku_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualWanTrafficEnabled".into(),
-                    value: virtual_wan_traffic_enabled_binding.get_id(),
+                    value: &virtual_wan_traffic_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnClientConfiguration".into(),
-                    value: vpn_client_configuration_binding.get_id(),
+                    value: &vpn_client_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnType".into(),
-                    value: vpn_type_binding.get_id(),
+                    value: &vpn_type_binding.drop_type(),
                 },
             ],
         };

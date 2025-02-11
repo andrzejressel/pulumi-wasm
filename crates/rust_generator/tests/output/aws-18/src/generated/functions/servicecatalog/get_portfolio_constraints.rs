@@ -52,15 +52,15 @@ pub mod get_portfolio_constraints {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptLanguage".into(),
-                    value: accept_language_binding.get_id(),
+                    value: &accept_language_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portfolioId".into(),
-                    value: portfolio_id_binding.get_id(),
+                    value: &portfolio_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productId".into(),
-                    value: product_id_binding.get_id(),
+                    value: &product_id_binding.drop_type(),
                 },
             ],
         };

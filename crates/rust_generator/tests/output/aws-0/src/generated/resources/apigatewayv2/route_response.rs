@@ -100,23 +100,23 @@ pub mod route_response {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: api_id_binding.get_id(),
+                    value: &api_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "modelSelectionExpression".into(),
-                    value: model_selection_expression_binding.get_id(),
+                    value: &model_selection_expression_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseModels".into(),
-                    value: response_models_binding.get_id(),
+                    value: &response_models_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeId".into(),
-                    value: route_id_binding.get_id(),
+                    value: &route_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeResponseKey".into(),
-                    value: route_response_key_binding.get_id(),
+                    value: &route_response_key_binding.drop_type(),
                 },
             ],
         };

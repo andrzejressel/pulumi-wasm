@@ -162,27 +162,27 @@ pub mod cache_blob_target {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessPolicyName".into(),
-                    value: access_policy_name_binding.get_id(),
+                    value: &access_policy_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheName".into(),
-                    value: cache_name_binding.get_id(),
+                    value: &cache_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespacePath".into(),
-                    value: namespace_path_binding.get_id(),
+                    value: &namespace_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageContainerId".into(),
-                    value: storage_container_id_binding.get_id(),
+                    value: &storage_container_id_binding.drop_type(),
                 },
             ],
         };

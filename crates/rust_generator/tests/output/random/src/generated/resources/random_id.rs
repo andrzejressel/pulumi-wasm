@@ -108,15 +108,15 @@ pub mod random_id {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "byteLength".into(),
-                    value: byte_length_binding.get_id(),
+                    value: &byte_length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keepers".into(),
-                    value: keepers_binding.get_id(),
+                    value: &keepers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prefix".into(),
-                    value: prefix_binding.get_id(),
+                    value: &prefix_binding.drop_type(),
                 },
             ],
         };

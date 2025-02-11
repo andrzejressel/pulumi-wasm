@@ -117,31 +117,31 @@ pub mod data_source_windows_performance_counter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "counterName".into(),
-                    value: counter_name_binding.get_id(),
+                    value: &counter_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceName".into(),
-                    value: instance_name_binding.get_id(),
+                    value: &instance_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "intervalSeconds".into(),
-                    value: interval_seconds_binding.get_id(),
+                    value: &interval_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectName".into(),
-                    value: object_name_binding.get_id(),
+                    value: &object_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceName".into(),
-                    value: workspace_name_binding.get_id(),
+                    value: &workspace_name_binding.drop_type(),
                 },
             ],
         };

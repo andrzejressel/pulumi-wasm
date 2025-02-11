@@ -89,19 +89,19 @@ pub mod managed_hardware_security_module_key_rotation_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expireAfter".into(),
-                    value: expire_after_binding.get_id(),
+                    value: &expire_after_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedHsmKeyId".into(),
-                    value: managed_hsm_key_id_binding.get_id(),
+                    value: &managed_hsm_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeAfterCreation".into(),
-                    value: time_after_creation_binding.get_id(),
+                    value: &time_after_creation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeBeforeExpiry".into(),
-                    value: time_before_expiry_binding.get_id(),
+                    value: &time_before_expiry_binding.drop_type(),
                 },
             ],
         };

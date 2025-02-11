@@ -116,31 +116,31 @@ pub mod identity_provider_aad {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedTenants".into(),
-                    value: allowed_tenants_binding.get_id(),
+                    value: &allowed_tenants_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementName".into(),
-                    value: api_management_name_binding.get_id(),
+                    value: &api_management_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientId".into(),
-                    value: client_id_binding.get_id(),
+                    value: &client_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientLibrary".into(),
-                    value: client_library_binding.get_id(),
+                    value: &client_library_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientSecret".into(),
-                    value: client_secret_binding.get_id(),
+                    value: &client_secret_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signinTenant".into(),
-                    value: signin_tenant_binding.get_id(),
+                    value: &signin_tenant_binding.drop_type(),
                 },
             ],
         };

@@ -360,63 +360,63 @@ pub mod budget {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoAdjustData".into(),
-                    value: auto_adjust_data_binding.get_id(),
+                    value: &auto_adjust_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "budgetType".into(),
-                    value: budget_type_binding.get_id(),
+                    value: &budget_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "costFilters".into(),
-                    value: cost_filters_binding.get_id(),
+                    value: &cost_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "costTypes".into(),
-                    value: cost_types_binding.get_id(),
+                    value: &cost_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "limitAmount".into(),
-                    value: limit_amount_binding.get_id(),
+                    value: &limit_amount_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "limitUnit".into(),
-                    value: limit_unit_binding.get_id(),
+                    value: &limit_unit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notifications".into(),
-                    value: notifications_binding.get_id(),
+                    value: &notifications_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "plannedLimits".into(),
-                    value: planned_limits_binding.get_id(),
+                    value: &planned_limits_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timePeriodEnd".into(),
-                    value: time_period_end_binding.get_id(),
+                    value: &time_period_end_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timePeriodStart".into(),
-                    value: time_period_start_binding.get_id(),
+                    value: &time_period_start_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeUnit".into(),
-                    value: time_unit_binding.get_id(),
+                    value: &time_unit_binding.drop_type(),
                 },
             ],
         };

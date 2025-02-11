@@ -154,35 +154,35 @@ pub mod reservation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscale".into(),
-                    value: autoscale_binding.get_id(),
+                    value: &autoscale_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "concurrency".into(),
-                    value: concurrency_binding.get_id(),
+                    value: &concurrency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edition".into(),
-                    value: edition_binding.get_id(),
+                    value: &edition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreIdleSlots".into(),
-                    value: ignore_idle_slots_binding.get_id(),
+                    value: &ignore_idle_slots_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slotCapacity".into(),
-                    value: slot_capacity_binding.get_id(),
+                    value: &slot_capacity_binding.drop_type(),
                 },
             ],
         };

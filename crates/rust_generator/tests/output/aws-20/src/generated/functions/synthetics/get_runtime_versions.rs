@@ -44,7 +44,7 @@ pub mod get_runtime_versions {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeVersions".into(),
-                    value: runtime_versions_binding.get_id(),
+                    value: &runtime_versions_binding.drop_type(),
                 },
             ],
         };

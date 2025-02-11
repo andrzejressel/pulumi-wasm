@@ -465,67 +465,67 @@ pub mod trail {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advancedEventSelectors".into(),
-                    value: advanced_event_selectors_binding.get_id(),
+                    value: &advanced_event_selectors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudWatchLogsGroupArn".into(),
-                    value: cloud_watch_logs_group_arn_binding.get_id(),
+                    value: &cloud_watch_logs_group_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudWatchLogsRoleArn".into(),
-                    value: cloud_watch_logs_role_arn_binding.get_id(),
+                    value: &cloud_watch_logs_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableLogFileValidation".into(),
-                    value: enable_log_file_validation_binding.get_id(),
+                    value: &enable_log_file_validation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableLogging".into(),
-                    value: enable_logging_binding.get_id(),
+                    value: &enable_logging_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventSelectors".into(),
-                    value: event_selectors_binding.get_id(),
+                    value: &event_selectors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeGlobalServiceEvents".into(),
-                    value: include_global_service_events_binding.get_id(),
+                    value: &include_global_service_events_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insightSelectors".into(),
-                    value: insight_selectors_binding.get_id(),
+                    value: &insight_selectors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isMultiRegionTrail".into(),
-                    value: is_multi_region_trail_binding.get_id(),
+                    value: &is_multi_region_trail_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isOrganizationTrail".into(),
-                    value: is_organization_trail_binding.get_id(),
+                    value: &is_organization_trail_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3BucketName".into(),
-                    value: s3_bucket_name_binding.get_id(),
+                    value: &s3_bucket_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3KeyPrefix".into(),
-                    value: s3_key_prefix_binding.get_id(),
+                    value: &s3_key_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snsTopicName".into(),
-                    value: sns_topic_name_binding.get_id(),
+                    value: &sns_topic_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

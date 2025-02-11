@@ -143,27 +143,27 @@ pub mod dataset_data_lake_gen_2 {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filePath".into(),
-                    value: file_path_binding.get_id(),
+                    value: &file_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemName".into(),
-                    value: file_system_name_binding.get_id(),
+                    value: &file_system_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folderPath".into(),
-                    value: folder_path_binding.get_id(),
+                    value: &folder_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareId".into(),
-                    value: share_id_binding.get_id(),
+                    value: &share_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
             ],
         };

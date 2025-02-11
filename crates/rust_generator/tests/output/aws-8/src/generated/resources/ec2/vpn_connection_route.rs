@@ -75,11 +75,11 @@ pub mod vpn_connection_route {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationCidrBlock".into(),
-                    value: destination_cidr_block_binding.get_id(),
+                    value: &destination_cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnConnectionId".into(),
-                    value: vpn_connection_id_binding.get_id(),
+                    value: &vpn_connection_id_binding.drop_type(),
                 },
             ],
         };

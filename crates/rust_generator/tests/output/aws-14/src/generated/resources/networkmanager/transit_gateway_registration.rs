@@ -75,11 +75,11 @@ pub mod transit_gateway_registration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalNetworkId".into(),
-                    value: global_network_id_binding.get_id(),
+                    value: &global_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayArn".into(),
-                    value: transit_gateway_arn_binding.get_id(),
+                    value: &transit_gateway_arn_binding.drop_type(),
                 },
             ],
         };

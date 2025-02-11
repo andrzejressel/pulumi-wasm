@@ -83,19 +83,19 @@ pub mod access_policy_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessScope".into(),
-                    value: access_scope_binding.get_id(),
+                    value: &access_scope_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: cluster_name_binding.get_id(),
+                    value: &cluster_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyArn".into(),
-                    value: policy_arn_binding.get_id(),
+                    value: &policy_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalArn".into(),
-                    value: principal_arn_binding.get_id(),
+                    value: &principal_arn_binding.drop_type(),
                 },
             ],
         };

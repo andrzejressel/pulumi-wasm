@@ -152,27 +152,27 @@ pub mod notification {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customAttributes".into(),
-                    value: custom_attributes_binding.get_id(),
+                    value: &custom_attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventTypes".into(),
-                    value: event_types_binding.get_id(),
+                    value: &event_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectNamePrefix".into(),
-                    value: object_name_prefix_binding.get_id(),
+                    value: &object_name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "payloadFormat".into(),
-                    value: payload_format_binding.get_id(),
+                    value: &payload_format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topic".into(),
-                    value: topic_binding.get_id(),
+                    value: &topic_binding.drop_type(),
                 },
             ],
         };

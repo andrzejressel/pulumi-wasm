@@ -143,35 +143,35 @@ pub mod network_peering {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportCustomRoutes".into(),
-                    value: export_custom_routes_binding.get_id(),
+                    value: &export_custom_routes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "exportSubnetRoutesWithPublicIp".into(),
-                    value: export_subnet_routes_with_public_ip_binding.get_id(),
+                    value: &export_subnet_routes_with_public_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importCustomRoutes".into(),
-                    value: import_custom_routes_binding.get_id(),
+                    value: &import_custom_routes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importSubnetRoutesWithPublicIp".into(),
-                    value: import_subnet_routes_with_public_ip_binding.get_id(),
+                    value: &import_subnet_routes_with_public_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "network".into(),
-                    value: network_binding.get_id(),
+                    value: &network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerNetwork".into(),
-                    value: peer_network_binding.get_id(),
+                    value: &peer_network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackType".into(),
-                    value: stack_type_binding.get_id(),
+                    value: &stack_type_binding.drop_type(),
                 },
             ],
         };

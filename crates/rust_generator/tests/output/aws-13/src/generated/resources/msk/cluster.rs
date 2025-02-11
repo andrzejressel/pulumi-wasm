@@ -355,51 +355,51 @@ pub mod cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "brokerNodeGroupInfo".into(),
-                    value: broker_node_group_info_binding.get_id(),
+                    value: &broker_node_group_info_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientAuthentication".into(),
-                    value: client_authentication_binding.get_id(),
+                    value: &client_authentication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: cluster_name_binding.get_id(),
+                    value: &cluster_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationInfo".into(),
-                    value: configuration_info_binding.get_id(),
+                    value: &configuration_info_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionInfo".into(),
-                    value: encryption_info_binding.get_id(),
+                    value: &encryption_info_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enhancedMonitoring".into(),
-                    value: enhanced_monitoring_binding.get_id(),
+                    value: &enhanced_monitoring_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kafkaVersion".into(),
-                    value: kafka_version_binding.get_id(),
+                    value: &kafka_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingInfo".into(),
-                    value: logging_info_binding.get_id(),
+                    value: &logging_info_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberOfBrokerNodes".into(),
-                    value: number_of_broker_nodes_binding.get_id(),
+                    value: &number_of_broker_nodes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "openMonitoring".into(),
-                    value: open_monitoring_binding.get_id(),
+                    value: &open_monitoring_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageMode".into(),
-                    value: storage_mode_binding.get_id(),
+                    value: &storage_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

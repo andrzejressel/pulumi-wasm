@@ -127,43 +127,43 @@ pub mod location_object_storage {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessKey".into(),
-                    value: access_key_binding.get_id(),
+                    value: &access_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentArns".into(),
-                    value: agent_arns_binding.get_id(),
+                    value: &agent_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucketName".into(),
-                    value: bucket_name_binding.get_id(),
+                    value: &bucket_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretKey".into(),
-                    value: secret_key_binding.get_id(),
+                    value: &secret_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverCertificate".into(),
-                    value: server_certificate_binding.get_id(),
+                    value: &server_certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverHostname".into(),
-                    value: server_hostname_binding.get_id(),
+                    value: &server_hostname_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverPort".into(),
-                    value: server_port_binding.get_id(),
+                    value: &server_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverProtocol".into(),
-                    value: server_protocol_binding.get_id(),
+                    value: &server_protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subdirectory".into(),
-                    value: subdirectory_binding.get_id(),
+                    value: &subdirectory_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

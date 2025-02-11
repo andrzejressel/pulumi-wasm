@@ -286,27 +286,27 @@ pub mod api_config_iam_member {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "api".into(),
-                    value: api_binding.get_id(),
+                    value: &api_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiConfig".into(),
-                    value: api_config_binding.get_id(),
+                    value: &api_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "condition".into(),
-                    value: condition_binding.get_id(),
+                    value: &condition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "member".into(),
-                    value: member_binding.get_id(),
+                    value: &member_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: role_binding.get_id(),
+                    value: &role_binding.drop_type(),
                 },
             ],
         };

@@ -152,31 +152,31 @@ pub mod backup_policy_blob_storage {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupRepeatingTimeIntervals".into(),
-                    value: backup_repeating_time_intervals_binding.get_id(),
+                    value: &backup_repeating_time_intervals_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operationalDefaultRetentionDuration".into(),
-                    value: operational_default_retention_duration_binding.get_id(),
+                    value: &operational_default_retention_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionRules".into(),
-                    value: retention_rules_binding.get_id(),
+                    value: &retention_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZone".into(),
-                    value: time_zone_binding.get_id(),
+                    value: &time_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vaultDefaultRetentionDuration".into(),
-                    value: vault_default_retention_duration_binding.get_id(),
+                    value: &vault_default_retention_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vaultId".into(),
-                    value: vault_id_binding.get_id(),
+                    value: &vault_id_binding.drop_type(),
                 },
             ],
         };

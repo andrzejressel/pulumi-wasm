@@ -166,47 +166,47 @@ pub mod kx_dataview {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoUpdate".into(),
-                    value: auto_update_binding.get_id(),
+                    value: &auto_update_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneId".into(),
-                    value: availability_zone_id_binding.get_id(),
+                    value: &availability_zone_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azMode".into(),
-                    value: az_mode_binding.get_id(),
+                    value: &az_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "changesetId".into(),
-                    value: changeset_id_binding.get_id(),
+                    value: &changeset_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: database_name_binding.get_id(),
+                    value: &database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentId".into(),
-                    value: environment_id_binding.get_id(),
+                    value: &environment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readWrite".into(),
-                    value: read_write_binding.get_id(),
+                    value: &read_write_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "segmentConfigurations".into(),
-                    value: segment_configurations_binding.get_id(),
+                    value: &segment_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

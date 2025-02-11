@@ -142,47 +142,47 @@ pub mod bot_management {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aiBotsProtection".into(),
-                    value: ai_bots_protection_binding.get_id(),
+                    value: &ai_bots_protection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoUpdateModel".into(),
-                    value: auto_update_model_binding.get_id(),
+                    value: &auto_update_model_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableJs".into(),
-                    value: enable_js_binding.get_id(),
+                    value: &enable_js_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fightMode".into(),
-                    value: fight_mode_binding.get_id(),
+                    value: &fight_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "optimizeWordpress".into(),
-                    value: optimize_wordpress_binding.get_id(),
+                    value: &optimize_wordpress_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sbfmDefinitelyAutomated".into(),
-                    value: sbfm_definitely_automated_binding.get_id(),
+                    value: &sbfm_definitely_automated_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sbfmLikelyAutomated".into(),
-                    value: sbfm_likely_automated_binding.get_id(),
+                    value: &sbfm_likely_automated_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sbfmStaticResourceProtection".into(),
-                    value: sbfm_static_resource_protection_binding.get_id(),
+                    value: &sbfm_static_resource_protection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sbfmVerifiedBots".into(),
-                    value: sbfm_verified_bots_binding.get_id(),
+                    value: &sbfm_verified_bots_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suppressSessionScore".into(),
-                    value: suppress_session_score_binding.get_id(),
+                    value: &suppress_session_score_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

@@ -129,39 +129,39 @@ pub mod composite_alarm {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionsEnabled".into(),
-                    value: actions_enabled_binding.get_id(),
+                    value: &actions_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionsSuppressor".into(),
-                    value: actions_suppressor_binding.get_id(),
+                    value: &actions_suppressor_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alarmActions".into(),
-                    value: alarm_actions_binding.get_id(),
+                    value: &alarm_actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alarmDescription".into(),
-                    value: alarm_description_binding.get_id(),
+                    value: &alarm_description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alarmName".into(),
-                    value: alarm_name_binding.get_id(),
+                    value: &alarm_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alarmRule".into(),
-                    value: alarm_rule_binding.get_id(),
+                    value: &alarm_rule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insufficientDataActions".into(),
-                    value: insufficient_data_actions_binding.get_id(),
+                    value: &insufficient_data_actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "okActions".into(),
-                    value: ok_actions_binding.get_id(),
+                    value: &ok_actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

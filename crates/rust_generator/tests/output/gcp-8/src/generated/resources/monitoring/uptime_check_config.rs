@@ -381,55 +381,55 @@ pub mod uptime_check_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "checkerType".into(),
-                    value: checker_type_binding.get_id(),
+                    value: &checker_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentMatchers".into(),
-                    value: content_matchers_binding.get_id(),
+                    value: &content_matchers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpCheck".into(),
-                    value: http_check_binding.get_id(),
+                    value: &http_check_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitoredResource".into(),
-                    value: monitored_resource_binding.get_id(),
+                    value: &monitored_resource_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "period".into(),
-                    value: period_binding.get_id(),
+                    value: &period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroup".into(),
-                    value: resource_group_binding.get_id(),
+                    value: &resource_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selectedRegions".into(),
-                    value: selected_regions_binding.get_id(),
+                    value: &selected_regions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "syntheticMonitor".into(),
-                    value: synthetic_monitor_binding.get_id(),
+                    value: &synthetic_monitor_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tcpCheck".into(),
-                    value: tcp_check_binding.get_id(),
+                    value: &tcp_check_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeout".into(),
-                    value: timeout_binding.get_id(),
+                    value: &timeout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userLabels".into(),
-                    value: user_labels_binding.get_id(),
+                    value: &user_labels_binding.drop_type(),
                 },
             ],
         };

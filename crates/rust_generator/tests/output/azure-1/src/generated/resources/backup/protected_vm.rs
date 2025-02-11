@@ -132,31 +132,31 @@ pub mod protected_vm {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupPolicyId".into(),
-                    value: backup_policy_id_binding.get_id(),
+                    value: &backup_policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeDiskLuns".into(),
-                    value: exclude_disk_luns_binding.get_id(),
+                    value: &exclude_disk_luns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeDiskLuns".into(),
-                    value: include_disk_luns_binding.get_id(),
+                    value: &include_disk_luns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protectionState".into(),
-                    value: protection_state_binding.get_id(),
+                    value: &protection_state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultName".into(),
-                    value: recovery_vault_name_binding.get_id(),
+                    value: &recovery_vault_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceVmId".into(),
-                    value: source_vm_id_binding.get_id(),
+                    value: &source_vm_id_binding.drop_type(),
                 },
             ],
         };

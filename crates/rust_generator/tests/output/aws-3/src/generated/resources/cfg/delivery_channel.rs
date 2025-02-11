@@ -140,27 +140,27 @@ pub mod delivery_channel {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3BucketName".into(),
-                    value: s3_bucket_name_binding.get_id(),
+                    value: &s3_bucket_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3KeyPrefix".into(),
-                    value: s3_key_prefix_binding.get_id(),
+                    value: &s3_key_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3KmsKeyArn".into(),
-                    value: s3_kms_key_arn_binding.get_id(),
+                    value: &s3_kms_key_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotDeliveryProperties".into(),
-                    value: snapshot_delivery_properties_binding.get_id(),
+                    value: &snapshot_delivery_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snsTopicArn".into(),
-                    value: sns_topic_arn_binding.get_id(),
+                    value: &sns_topic_arn_binding.drop_type(),
                 },
             ],
         };

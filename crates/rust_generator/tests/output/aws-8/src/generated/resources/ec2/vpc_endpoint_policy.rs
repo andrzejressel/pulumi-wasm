@@ -86,11 +86,11 @@ pub mod vpc_endpoint_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: policy_binding.get_id(),
+                    value: &policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointId".into(),
-                    value: vpc_endpoint_id_binding.get_id(),
+                    value: &vpc_endpoint_id_binding.drop_type(),
                 },
             ],
         };

@@ -50,19 +50,19 @@ pub mod get_account_id_token {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "delegates".into(),
-                    value: delegates_binding.get_id(),
+                    value: &delegates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeEmail".into(),
-                    value: include_email_binding.get_id(),
+                    value: &include_email_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetAudience".into(),
-                    value: target_audience_binding.get_id(),
+                    value: &target_audience_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetServiceAccount".into(),
-                    value: target_service_account_binding.get_id(),
+                    value: &target_service_account_binding.drop_type(),
                 },
             ],
         };

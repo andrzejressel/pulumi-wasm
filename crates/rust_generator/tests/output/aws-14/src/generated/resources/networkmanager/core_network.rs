@@ -224,31 +224,31 @@ pub mod core_network {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basePolicyDocument".into(),
-                    value: base_policy_document_binding.get_id(),
+                    value: &base_policy_document_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basePolicyRegion".into(),
-                    value: base_policy_region_binding.get_id(),
+                    value: &base_policy_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basePolicyRegions".into(),
-                    value: base_policy_regions_binding.get_id(),
+                    value: &base_policy_regions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createBasePolicy".into(),
-                    value: create_base_policy_binding.get_id(),
+                    value: &create_base_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalNetworkId".into(),
-                    value: global_network_id_binding.get_id(),
+                    value: &global_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

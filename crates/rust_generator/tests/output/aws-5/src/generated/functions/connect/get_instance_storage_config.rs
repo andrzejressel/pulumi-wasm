@@ -48,15 +48,15 @@ pub mod get_instance_storage_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associationId".into(),
-                    value: association_id_binding.get_id(),
+                    value: &association_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: instance_id_binding.get_id(),
+                    value: &instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceType".into(),
-                    value: resource_type_binding.get_id(),
+                    value: &resource_type_binding.drop_type(),
                 },
             ],
         };

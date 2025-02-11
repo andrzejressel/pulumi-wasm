@@ -199,55 +199,55 @@ pub mod elastic_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enclaveType".into(),
-                    value: enclave_type_binding.get_id(),
+                    value: &enclave_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseType".into(),
-                    value: license_type_binding.get_id(),
+                    value: &license_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceConfigurationName".into(),
-                    value: maintenance_configuration_name_binding.get_id(),
+                    value: &maintenance_configuration_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxSizeBytes".into(),
-                    value: max_size_bytes_binding.get_id(),
+                    value: &max_size_bytes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxSizeGb".into(),
-                    value: max_size_gb_binding.get_id(),
+                    value: &max_size_gb_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "perDatabaseSettings".into(),
-                    value: per_database_settings_binding.get_id(),
+                    value: &per_database_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverName".into(),
-                    value: server_name_binding.get_id(),
+                    value: &server_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: sku_binding.get_id(),
+                    value: &sku_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneRedundant".into(),
-                    value: zone_redundant_binding.get_id(),
+                    value: &zone_redundant_binding.drop_type(),
                 },
             ],
         };

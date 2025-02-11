@@ -116,19 +116,19 @@ pub mod custom_routing_endpoint_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationConfigurations".into(),
-                    value: destination_configurations_binding.get_id(),
+                    value: &destination_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointConfigurations".into(),
-                    value: endpoint_configurations_binding.get_id(),
+                    value: &endpoint_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointGroupRegion".into(),
-                    value: endpoint_group_region_binding.get_id(),
+                    value: &endpoint_group_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listenerArn".into(),
-                    value: listener_arn_binding.get_id(),
+                    value: &listener_arn_binding.drop_type(),
                 },
             ],
         };

@@ -122,27 +122,27 @@ pub mod assessment_template {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "duration".into(),
-                    value: duration_binding.get_id(),
+                    value: &duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventSubscriptions".into(),
-                    value: event_subscriptions_binding.get_id(),
+                    value: &event_subscriptions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rulesPackageArns".into(),
-                    value: rules_package_arns_binding.get_id(),
+                    value: &rules_package_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetArn".into(),
-                    value: target_arn_binding.get_id(),
+                    value: &target_arn_binding.drop_type(),
                 },
             ],
         };

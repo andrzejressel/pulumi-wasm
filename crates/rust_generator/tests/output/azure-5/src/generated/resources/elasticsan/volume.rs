@@ -187,19 +187,19 @@ pub mod volume {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createSource".into(),
-                    value: create_source_binding.get_id(),
+                    value: &create_source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sizeInGib".into(),
-                    value: size_in_gib_binding.get_id(),
+                    value: &size_in_gib_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeGroupId".into(),
-                    value: volume_group_id_binding.get_id(),
+                    value: &volume_group_id_binding.drop_type(),
                 },
             ],
         };

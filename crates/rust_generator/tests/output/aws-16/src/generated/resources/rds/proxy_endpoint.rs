@@ -95,27 +95,27 @@ pub mod proxy_endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbProxyEndpointName".into(),
-                    value: db_proxy_endpoint_name_binding.get_id(),
+                    value: &db_proxy_endpoint_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbProxyName".into(),
-                    value: db_proxy_name_binding.get_id(),
+                    value: &db_proxy_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetRole".into(),
-                    value: target_role_binding.get_id(),
+                    value: &target_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSecurityGroupIds".into(),
-                    value: vpc_security_group_ids_binding.get_id(),
+                    value: &vpc_security_group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSubnetIds".into(),
-                    value: vpc_subnet_ids_binding.get_id(),
+                    value: &vpc_subnet_ids_binding.drop_type(),
                 },
             ],
         };

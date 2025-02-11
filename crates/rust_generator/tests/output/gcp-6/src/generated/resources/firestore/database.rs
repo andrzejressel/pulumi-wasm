@@ -396,43 +396,43 @@ pub mod database {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appEngineIntegrationMode".into(),
-                    value: app_engine_integration_mode_binding.get_id(),
+                    value: &app_engine_integration_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cmekConfig".into(),
-                    value: cmek_config_binding.get_id(),
+                    value: &cmek_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "concurrencyMode".into(),
-                    value: concurrency_mode_binding.get_id(),
+                    value: &concurrency_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteProtectionState".into(),
-                    value: delete_protection_state_binding.get_id(),
+                    value: &delete_protection_state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: deletion_policy_binding.get_id(),
+                    value: &deletion_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationId".into(),
-                    value: location_id_binding.get_id(),
+                    value: &location_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pointInTimeRecoveryEnablement".into(),
-                    value: point_in_time_recovery_enablement_binding.get_id(),
+                    value: &point_in_time_recovery_enablement_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

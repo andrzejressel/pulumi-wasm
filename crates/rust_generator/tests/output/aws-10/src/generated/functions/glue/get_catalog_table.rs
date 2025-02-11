@@ -88,23 +88,23 @@ pub mod get_catalog_table {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: catalog_id_binding.get_id(),
+                    value: &catalog_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: database_name_binding.get_id(),
+                    value: &database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queryAsOfTime".into(),
-                    value: query_as_of_time_binding.get_id(),
+                    value: &query_as_of_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transactionId".into(),
-                    value: transaction_id_binding.get_id(),
+                    value: &transaction_id_binding.drop_type(),
                 },
             ],
         };

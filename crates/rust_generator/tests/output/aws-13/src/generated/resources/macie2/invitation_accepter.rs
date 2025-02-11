@@ -72,7 +72,7 @@ pub mod invitation_accepter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "administratorAccountId".into(),
-                    value: administrator_account_id_binding.get_id(),
+                    value: &administrator_account_id_binding.drop_type(),
                 },
             ],
         };

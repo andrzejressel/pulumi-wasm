@@ -44,11 +44,11 @@ pub mod get_volume_quota_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeId".into(),
-                    value: volume_id_binding.get_id(),
+                    value: &volume_id_binding.drop_type(),
                 },
             ],
         };

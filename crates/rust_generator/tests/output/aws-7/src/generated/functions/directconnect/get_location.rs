@@ -39,7 +39,7 @@ pub mod get_location {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationCode".into(),
-                    value: location_code_binding.get_id(),
+                    value: &location_code_binding.drop_type(),
                 },
             ],
         };

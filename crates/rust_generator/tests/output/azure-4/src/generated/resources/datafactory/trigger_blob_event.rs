@@ -182,51 +182,51 @@ pub mod trigger_blob_event {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activated".into(),
-                    value: activated_binding.get_id(),
+                    value: &activated_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalProperties".into(),
-                    value: additional_properties_binding.get_id(),
+                    value: &additional_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: annotations_binding.get_id(),
+                    value: &annotations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blobPathBeginsWith".into(),
-                    value: blob_path_begins_with_binding.get_id(),
+                    value: &blob_path_begins_with_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blobPathEndsWith".into(),
-                    value: blob_path_ends_with_binding.get_id(),
+                    value: &blob_path_ends_with_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: data_factory_id_binding.get_id(),
+                    value: &data_factory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "events".into(),
-                    value: events_binding.get_id(),
+                    value: &events_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreEmptyBlobs".into(),
-                    value: ignore_empty_blobs_binding.get_id(),
+                    value: &ignore_empty_blobs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelines".into(),
-                    value: pipelines_binding.get_id(),
+                    value: &pipelines_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
             ],
         };

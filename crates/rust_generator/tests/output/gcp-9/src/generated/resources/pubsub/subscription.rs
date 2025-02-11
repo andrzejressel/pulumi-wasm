@@ -755,67 +755,67 @@ pub mod subscription {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ackDeadlineSeconds".into(),
-                    value: ack_deadline_seconds_binding.get_id(),
+                    value: &ack_deadline_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bigqueryConfig".into(),
-                    value: bigquery_config_binding.get_id(),
+                    value: &bigquery_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudStorageConfig".into(),
-                    value: cloud_storage_config_binding.get_id(),
+                    value: &cloud_storage_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deadLetterPolicy".into(),
-                    value: dead_letter_policy_binding.get_id(),
+                    value: &dead_letter_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableExactlyOnceDelivery".into(),
-                    value: enable_exactly_once_delivery_binding.get_id(),
+                    value: &enable_exactly_once_delivery_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableMessageOrdering".into(),
-                    value: enable_message_ordering_binding.get_id(),
+                    value: &enable_message_ordering_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expirationPolicy".into(),
-                    value: expiration_policy_binding.get_id(),
+                    value: &expiration_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: filter_binding.get_id(),
+                    value: &filter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messageRetentionDuration".into(),
-                    value: message_retention_duration_binding.get_id(),
+                    value: &message_retention_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pushConfig".into(),
-                    value: push_config_binding.get_id(),
+                    value: &push_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retainAckedMessages".into(),
-                    value: retain_acked_messages_binding.get_id(),
+                    value: &retain_acked_messages_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retryPolicy".into(),
-                    value: retry_policy_binding.get_id(),
+                    value: &retry_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topic".into(),
-                    value: topic_binding.get_id(),
+                    value: &topic_binding.drop_type(),
                 },
             ],
         };

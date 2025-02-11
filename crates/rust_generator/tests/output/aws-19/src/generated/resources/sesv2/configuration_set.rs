@@ -163,35 +163,35 @@ pub mod configuration_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationSetName".into(),
-                    value: configuration_set_name_binding.get_id(),
+                    value: &configuration_set_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryOptions".into(),
-                    value: delivery_options_binding.get_id(),
+                    value: &delivery_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reputationOptions".into(),
-                    value: reputation_options_binding.get_id(),
+                    value: &reputation_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sendingOptions".into(),
-                    value: sending_options_binding.get_id(),
+                    value: &sending_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suppressionOptions".into(),
-                    value: suppression_options_binding.get_id(),
+                    value: &suppression_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trackingOptions".into(),
-                    value: tracking_options_binding.get_id(),
+                    value: &tracking_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vdmOptions".into(),
-                    value: vdm_options_binding.get_id(),
+                    value: &vdm_options_binding.drop_type(),
                 },
             ],
         };

@@ -116,43 +116,43 @@ pub mod get_permissions {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: catalog_id_binding.get_id(),
+                    value: &catalog_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogResource".into(),
-                    value: catalog_resource_binding.get_id(),
+                    value: &catalog_resource_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCellsFilter".into(),
-                    value: data_cells_filter_binding.get_id(),
+                    value: &data_cells_filter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataLocation".into(),
-                    value: data_location_binding.get_id(),
+                    value: &data_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "database".into(),
-                    value: database_binding.get_id(),
+                    value: &database_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lfTag".into(),
-                    value: lf_tag_binding.get_id(),
+                    value: &lf_tag_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lfTagPolicy".into(),
-                    value: lf_tag_policy_binding.get_id(),
+                    value: &lf_tag_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principal".into(),
-                    value: principal_binding.get_id(),
+                    value: &principal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "table".into(),
-                    value: table_binding.get_id(),
+                    value: &table_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tableWithColumns".into(),
-                    value: table_with_columns_binding.get_id(),
+                    value: &table_with_columns_binding.drop_type(),
                 },
             ],
         };

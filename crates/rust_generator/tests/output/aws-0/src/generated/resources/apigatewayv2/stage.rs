@@ -168,47 +168,47 @@ pub mod stage {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessLogSettings".into(),
-                    value: access_log_settings_binding.get_id(),
+                    value: &access_log_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: api_id_binding.get_id(),
+                    value: &api_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoDeploy".into(),
-                    value: auto_deploy_binding.get_id(),
+                    value: &auto_deploy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificateId".into(),
-                    value: client_certificate_id_binding.get_id(),
+                    value: &client_certificate_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRouteSettings".into(),
-                    value: default_route_settings_binding.get_id(),
+                    value: &default_route_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentId".into(),
-                    value: deployment_id_binding.get_id(),
+                    value: &deployment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeSettings".into(),
-                    value: route_settings_binding.get_id(),
+                    value: &route_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stageVariables".into(),
-                    value: stage_variables_binding.get_id(),
+                    value: &stage_variables_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

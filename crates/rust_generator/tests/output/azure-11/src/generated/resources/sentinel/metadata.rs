@@ -256,87 +256,87 @@ pub mod metadata {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "author".into(),
-                    value: author_binding.get_id(),
+                    value: &author_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "category".into(),
-                    value: category_binding.get_id(),
+                    value: &category_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentId".into(),
-                    value: content_id_binding.get_id(),
+                    value: &content_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentSchemaVersion".into(),
-                    value: content_schema_version_binding.get_id(),
+                    value: &content_schema_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customVersion".into(),
-                    value: custom_version_binding.get_id(),
+                    value: &custom_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dependency".into(),
-                    value: dependency_binding.get_id(),
+                    value: &dependency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firstPublishDate".into(),
-                    value: first_publish_date_binding.get_id(),
+                    value: &first_publish_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iconId".into(),
-                    value: icon_id_binding.get_id(),
+                    value: &icon_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kind".into(),
-                    value: kind_binding.get_id(),
+                    value: &kind_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lastPublishDate".into(),
-                    value: last_publish_date_binding.get_id(),
+                    value: &last_publish_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentId".into(),
-                    value: parent_id_binding.get_id(),
+                    value: &parent_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "previewImages".into(),
-                    value: preview_images_binding.get_id(),
+                    value: &preview_images_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "previewImagesDarks".into(),
-                    value: preview_images_darks_binding.get_id(),
+                    value: &preview_images_darks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providers".into(),
-                    value: providers_binding.get_id(),
+                    value: &providers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: source_binding.get_id(),
+                    value: &source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "support".into(),
-                    value: support_binding.get_id(),
+                    value: &support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threatAnalysisTactics".into(),
-                    value: threat_analysis_tactics_binding.get_id(),
+                    value: &threat_analysis_tactics_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "threatAnalysisTechniques".into(),
-                    value: threat_analysis_techniques_binding.get_id(),
+                    value: &threat_analysis_techniques_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: workspace_id_binding.get_id(),
+                    value: &workspace_id_binding.drop_type(),
                 },
             ],
         };

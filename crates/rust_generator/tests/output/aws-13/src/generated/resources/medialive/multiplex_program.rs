@@ -107,15 +107,15 @@ pub mod multiplex_program {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiplexId".into(),
-                    value: multiplex_id_binding.get_id(),
+                    value: &multiplex_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiplexProgramSettings".into(),
-                    value: multiplex_program_settings_binding.get_id(),
+                    value: &multiplex_program_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "programName".into(),
-                    value: program_name_binding.get_id(),
+                    value: &program_name_binding.drop_type(),
                 },
             ],
         };

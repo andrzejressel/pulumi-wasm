@@ -128,19 +128,19 @@ pub mod detector {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datasources".into(),
-                    value: datasources_binding.get_id(),
+                    value: &datasources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enable".into(),
-                    value: enable_binding.get_id(),
+                    value: &enable_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "findingPublishingFrequency".into(),
-                    value: finding_publishing_frequency_binding.get_id(),
+                    value: &finding_publishing_frequency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

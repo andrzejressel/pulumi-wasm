@@ -58,7 +58,7 @@ pub mod account_suppression_attributes {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suppressedReasons".into(),
-                    value: suppressed_reasons_binding.get_id(),
+                    value: &suppressed_reasons_binding.drop_type(),
                 },
             ],
         };

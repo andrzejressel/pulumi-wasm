@@ -85,19 +85,19 @@ pub mod profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "as2Id".into(),
-                    value: as2_id_binding.get_id(),
+                    value: &as2_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateIds".into(),
-                    value: certificate_ids_binding.get_id(),
+                    value: &certificate_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileType".into(),
-                    value: profile_type_binding.get_id(),
+                    value: &profile_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

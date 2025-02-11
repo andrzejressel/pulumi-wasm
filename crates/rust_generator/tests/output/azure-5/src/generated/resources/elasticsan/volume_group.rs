@@ -230,31 +230,31 @@ pub mod volume_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticSanId".into(),
-                    value: elastic_san_id_binding.get_id(),
+                    value: &elastic_san_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryption".into(),
-                    value: encryption_binding.get_id(),
+                    value: &encryption_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionType".into(),
-                    value: encryption_type_binding.get_id(),
+                    value: &encryption_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkRules".into(),
-                    value: network_rules_binding.get_id(),
+                    value: &network_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocolType".into(),
-                    value: protocol_type_binding.get_id(),
+                    value: &protocol_type_binding.drop_type(),
                 },
             ],
         };

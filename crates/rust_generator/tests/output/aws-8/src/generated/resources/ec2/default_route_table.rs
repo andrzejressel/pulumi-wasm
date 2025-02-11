@@ -119,19 +119,19 @@ pub mod default_route_table {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRouteTableId".into(),
-                    value: default_route_table_id_binding.get_id(),
+                    value: &default_route_table_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "propagatingVgws".into(),
-                    value: propagating_vgws_binding.get_id(),
+                    value: &propagating_vgws_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routes".into(),
-                    value: routes_binding.get_id(),
+                    value: &routes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

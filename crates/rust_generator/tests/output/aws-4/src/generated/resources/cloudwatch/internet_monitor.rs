@@ -133,35 +133,35 @@ pub mod internet_monitor {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "healthEventsConfig".into(),
-                    value: health_events_config_binding.get_id(),
+                    value: &health_events_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetMeasurementsLogDelivery".into(),
-                    value: internet_measurements_log_delivery_binding.get_id(),
+                    value: &internet_measurements_log_delivery_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxCityNetworksToMonitor".into(),
-                    value: max_city_networks_to_monitor_binding.get_id(),
+                    value: &max_city_networks_to_monitor_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitorName".into(),
-                    value: monitor_name_binding.get_id(),
+                    value: &monitor_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resources".into(),
-                    value: resources_binding.get_id(),
+                    value: &resources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficPercentageToMonitor".into(),
-                    value: traffic_percentage_to_monitor_binding.get_id(),
+                    value: &traffic_percentage_to_monitor_binding.drop_type(),
                 },
             ],
         };

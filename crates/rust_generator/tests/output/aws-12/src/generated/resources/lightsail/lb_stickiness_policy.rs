@@ -74,15 +74,15 @@ pub mod lb_stickiness_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cookieDuration".into(),
-                    value: cookie_duration_binding.get_id(),
+                    value: &cookie_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lbName".into(),
-                    value: lb_name_binding.get_id(),
+                    value: &lb_name_binding.drop_type(),
                 },
             ],
         };

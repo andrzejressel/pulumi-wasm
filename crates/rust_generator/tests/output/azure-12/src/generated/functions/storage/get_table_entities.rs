@@ -45,15 +45,15 @@ pub mod get_table_entities {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filter".into(),
-                    value: filter_binding.get_id(),
+                    value: &filter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selects".into(),
-                    value: selects_binding.get_id(),
+                    value: &selects_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageTableId".into(),
-                    value: storage_table_id_binding.get_id(),
+                    value: &storage_table_id_binding.drop_type(),
                 },
             ],
         };

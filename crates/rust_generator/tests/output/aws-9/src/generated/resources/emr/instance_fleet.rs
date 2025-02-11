@@ -141,27 +141,27 @@ pub mod instance_fleet {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: cluster_id_binding.get_id(),
+                    value: &cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceTypeConfigs".into(),
-                    value: instance_type_configs_binding.get_id(),
+                    value: &instance_type_configs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchSpecifications".into(),
-                    value: launch_specifications_binding.get_id(),
+                    value: &launch_specifications_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetOnDemandCapacity".into(),
-                    value: target_on_demand_capacity_binding.get_id(),
+                    value: &target_on_demand_capacity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetSpotCapacity".into(),
-                    value: target_spot_capacity_binding.get_id(),
+                    value: &target_spot_capacity_binding.drop_type(),
                 },
             ],
         };

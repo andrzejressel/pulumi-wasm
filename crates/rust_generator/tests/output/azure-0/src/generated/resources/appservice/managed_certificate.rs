@@ -157,11 +157,11 @@ pub mod managed_certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customHostnameBindingId".into(),
-                    value: custom_hostname_binding_id_binding.get_id(),
+                    value: &custom_hostname_binding_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

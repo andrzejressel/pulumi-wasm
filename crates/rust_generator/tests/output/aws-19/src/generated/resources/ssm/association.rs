@@ -270,67 +270,67 @@ pub mod association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applyOnlyAtCronInterval".into(),
-                    value: apply_only_at_cron_interval_binding.get_id(),
+                    value: &apply_only_at_cron_interval_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associationName".into(),
-                    value: association_name_binding.get_id(),
+                    value: &association_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationTargetParameterName".into(),
-                    value: automation_target_parameter_name_binding.get_id(),
+                    value: &automation_target_parameter_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "complianceSeverity".into(),
-                    value: compliance_severity_binding.get_id(),
+                    value: &compliance_severity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentVersion".into(),
-                    value: document_version_binding.get_id(),
+                    value: &document_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: instance_id_binding.get_id(),
+                    value: &instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxConcurrency".into(),
-                    value: max_concurrency_binding.get_id(),
+                    value: &max_concurrency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxErrors".into(),
-                    value: max_errors_binding.get_id(),
+                    value: &max_errors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputLocation".into(),
-                    value: output_location_binding.get_id(),
+                    value: &output_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduleExpression".into(),
-                    value: schedule_expression_binding.get_id(),
+                    value: &schedule_expression_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "syncCompliance".into(),
-                    value: sync_compliance_binding.get_id(),
+                    value: &sync_compliance_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targets".into(),
-                    value: targets_binding.get_id(),
+                    value: &targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForSuccessTimeoutSeconds".into(),
-                    value: wait_for_success_timeout_seconds_binding.get_id(),
+                    value: &wait_for_success_timeout_seconds_binding.drop_type(),
                 },
             ],
         };

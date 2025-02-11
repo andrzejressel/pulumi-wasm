@@ -48,7 +48,7 @@ pub mod example_server {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mapArrayEnum".into(),
-                    value: map_array_enum_binding.get_id(),
+                    value: &map_array_enum_binding.drop_type(),
                 },
             ],
         };

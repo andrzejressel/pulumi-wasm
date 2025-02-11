@@ -171,27 +171,27 @@ pub mod custom_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementId".into(),
-                    value: api_management_id_binding.get_id(),
+                    value: &api_management_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "developerPortals".into(),
-                    value: developer_portals_binding.get_id(),
+                    value: &developer_portals_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gateways".into(),
-                    value: gateways_binding.get_id(),
+                    value: &gateways_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managements".into(),
-                    value: managements_binding.get_id(),
+                    value: &managements_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portals".into(),
-                    value: portals_binding.get_id(),
+                    value: &portals_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scms".into(),
-                    value: scms_binding.get_id(),
+                    value: &scms_binding.drop_type(),
                 },
             ],
         };

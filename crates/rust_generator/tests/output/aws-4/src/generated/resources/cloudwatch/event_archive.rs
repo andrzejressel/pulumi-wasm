@@ -112,23 +112,23 @@ pub mod event_archive {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventPattern".into(),
-                    value: event_pattern_binding.get_id(),
+                    value: &event_pattern_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventSourceArn".into(),
-                    value: event_source_arn_binding.get_id(),
+                    value: &event_source_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionDays".into(),
-                    value: retention_days_binding.get_id(),
+                    value: &retention_days_binding.drop_type(),
                 },
             ],
         };

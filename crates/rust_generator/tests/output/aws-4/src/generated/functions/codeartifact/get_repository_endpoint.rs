@@ -48,19 +48,19 @@ pub mod get_repository_endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainOwner".into(),
-                    value: domain_owner_binding.get_id(),
+                    value: &domain_owner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "format".into(),
-                    value: format_binding.get_id(),
+                    value: &format_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repository".into(),
-                    value: repository_binding.get_id(),
+                    value: &repository_binding.drop_type(),
                 },
             ],
         };

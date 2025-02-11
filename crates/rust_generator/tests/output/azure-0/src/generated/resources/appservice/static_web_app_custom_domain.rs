@@ -147,15 +147,15 @@ pub mod static_web_app_custom_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "staticWebAppId".into(),
-                    value: static_web_app_id_binding.get_id(),
+                    value: &static_web_app_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationType".into(),
-                    value: validation_type_binding.get_id(),
+                    value: &validation_type_binding.drop_type(),
                 },
             ],
         };

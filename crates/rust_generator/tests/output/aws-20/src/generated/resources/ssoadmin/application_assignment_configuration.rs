@@ -72,11 +72,11 @@ pub mod application_assignment_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationArn".into(),
-                    value: application_arn_binding.get_id(),
+                    value: &application_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignmentRequired".into(),
-                    value: assignment_required_binding.get_id(),
+                    value: &assignment_required_binding.drop_type(),
                 },
             ],
         };

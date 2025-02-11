@@ -108,11 +108,11 @@ pub mod dashboard {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dashboardJson".into(),
-                    value: dashboard_json_binding.get_id(),
+                    value: &dashboard_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

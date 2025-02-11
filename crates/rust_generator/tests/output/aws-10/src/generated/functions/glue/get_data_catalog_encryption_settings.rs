@@ -38,7 +38,7 @@ pub mod get_data_catalog_encryption_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: catalog_id_binding.get_id(),
+                    value: &catalog_id_binding.drop_type(),
                 },
             ],
         };

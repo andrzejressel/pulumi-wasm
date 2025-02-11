@@ -187,31 +187,31 @@ pub mod integration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalEncryptionContext".into(),
-                    value: additional_encryption_context_binding.get_id(),
+                    value: &additional_encryption_context_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationName".into(),
-                    value: integration_name_binding.get_id(),
+                    value: &integration_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceArn".into(),
-                    value: source_arn_binding.get_id(),
+                    value: &source_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetArn".into(),
-                    value: target_arn_binding.get_id(),
+                    value: &target_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

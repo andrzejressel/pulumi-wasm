@@ -81,11 +81,11 @@ pub mod instance_trust_provider_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verifiedaccessInstanceId".into(),
-                    value: verifiedaccess_instance_id_binding.get_id(),
+                    value: &verifiedaccess_instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verifiedaccessTrustProviderId".into(),
-                    value: verifiedaccess_trust_provider_id_binding.get_id(),
+                    value: &verifiedaccess_trust_provider_id_binding.drop_type(),
                 },
             ],
         };

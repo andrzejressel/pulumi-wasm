@@ -89,15 +89,15 @@ pub mod email_template {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailTemplates".into(),
-                    value: email_templates_binding.get_id(),
+                    value: &email_templates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateName".into(),
-                    value: template_name_binding.get_id(),
+                    value: &template_name_binding.drop_type(),
                 },
             ],
         };

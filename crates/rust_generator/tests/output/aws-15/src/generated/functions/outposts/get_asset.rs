@@ -44,11 +44,11 @@ pub mod get_asset {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: arn_binding.get_id(),
+                    value: &arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assetId".into(),
-                    value: asset_id_binding.get_id(),
+                    value: &asset_id_binding.drop_type(),
                 },
             ],
         };

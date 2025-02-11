@@ -71,19 +71,19 @@ pub mod vpc_network_performance_metric_subscription {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destination".into(),
-                    value: destination_binding.get_id(),
+                    value: &destination_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metric".into(),
-                    value: metric_binding.get_id(),
+                    value: &metric_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: source_binding.get_id(),
+                    value: &source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statistic".into(),
-                    value: statistic_binding.get_id(),
+                    value: &statistic_binding.drop_type(),
                 },
             ],
         };

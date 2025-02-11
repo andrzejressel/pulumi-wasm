@@ -49,11 +49,11 @@ pub mod get_kms_crypto_key_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cryptoKey".into(),
-                    value: crypto_key_binding.get_id(),
+                    value: &crypto_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

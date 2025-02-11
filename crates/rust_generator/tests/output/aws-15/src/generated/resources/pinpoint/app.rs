@@ -115,27 +115,27 @@ pub mod app {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "campaignHook".into(),
-                    value: campaign_hook_binding.get_id(),
+                    value: &campaign_hook_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "limits".into(),
-                    value: limits_binding.get_id(),
+                    value: &limits_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quietTime".into(),
-                    value: quiet_time_binding.get_id(),
+                    value: &quiet_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

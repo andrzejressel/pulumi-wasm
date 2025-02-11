@@ -152,23 +152,23 @@ pub mod vpc_ipam_pool_cidr_allocation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidr".into(),
-                    value: cidr_binding.get_id(),
+                    value: &cidr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disallowedCidrs".into(),
-                    value: disallowed_cidrs_binding.get_id(),
+                    value: &disallowed_cidrs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamPoolId".into(),
-                    value: ipam_pool_id_binding.get_id(),
+                    value: &ipam_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "netmaskLength".into(),
-                    value: netmask_length_binding.get_id(),
+                    value: &netmask_length_binding.drop_type(),
                 },
             ],
         };

@@ -179,31 +179,31 @@ pub mod file_system_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditDestinationArn".into(),
-                    value: audit_destination_arn_binding.get_id(),
+                    value: &audit_destination_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheAttributes".into(),
-                    value: cache_attributes_binding.get_id(),
+                    value: &cache_attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayArn".into(),
-                    value: gateway_arn_binding.get_id(),
+                    value: &gateway_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationArn".into(),
-                    value: location_arn_binding.get_id(),
+                    value: &location_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: password_binding.get_id(),
+                    value: &password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "username".into(),
-                    value: username_binding.get_id(),
+                    value: &username_binding.drop_type(),
                 },
             ],
         };

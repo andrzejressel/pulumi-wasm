@@ -183,43 +183,43 @@ pub mod api_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "api".into(),
-                    value: api_binding.get_id(),
+                    value: &api_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiConfigId".into(),
-                    value: api_config_id_binding.get_id(),
+                    value: &api_config_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiConfigIdPrefix".into(),
-                    value: api_config_id_prefix_binding.get_id(),
+                    value: &api_config_id_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayConfig".into(),
-                    value: gateway_config_binding.get_id(),
+                    value: &gateway_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grpcServices".into(),
-                    value: grpc_services_binding.get_id(),
+                    value: &grpc_services_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedServiceConfigs".into(),
-                    value: managed_service_configs_binding.get_id(),
+                    value: &managed_service_configs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "openapiDocuments".into(),
-                    value: openapi_documents_binding.get_id(),
+                    value: &openapi_documents_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

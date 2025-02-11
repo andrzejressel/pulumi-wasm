@@ -396,39 +396,39 @@ pub mod patch_deployment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "duration".into(),
-                    value: duration_binding.get_id(),
+                    value: &duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceFilter".into(),
-                    value: instance_filter_binding.get_id(),
+                    value: &instance_filter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oneTimeSchedule".into(),
-                    value: one_time_schedule_binding.get_id(),
+                    value: &one_time_schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "patchConfig".into(),
-                    value: patch_config_binding.get_id(),
+                    value: &patch_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "patchDeploymentId".into(),
-                    value: patch_deployment_id_binding.get_id(),
+                    value: &patch_deployment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recurringSchedule".into(),
-                    value: recurring_schedule_binding.get_id(),
+                    value: &recurring_schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rollout".into(),
-                    value: rollout_binding.get_id(),
+                    value: &rollout_binding.drop_type(),
                 },
             ],
         };

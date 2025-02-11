@@ -141,7 +141,7 @@ pub mod origin_access_identity {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: comment_binding.get_id(),
+                    value: &comment_binding.drop_type(),
                 },
             ],
         };

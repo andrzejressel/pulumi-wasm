@@ -94,27 +94,27 @@ pub mod sms_preferences {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultSenderId".into(),
-                    value: default_sender_id_binding.get_id(),
+                    value: &default_sender_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultSmsType".into(),
-                    value: default_sms_type_binding.get_id(),
+                    value: &default_sms_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryStatusIamRoleArn".into(),
-                    value: delivery_status_iam_role_arn_binding.get_id(),
+                    value: &delivery_status_iam_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryStatusSuccessSamplingRate".into(),
-                    value: delivery_status_success_sampling_rate_binding.get_id(),
+                    value: &delivery_status_success_sampling_rate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monthlySpendLimit".into(),
-                    value: monthly_spend_limit_binding.get_id(),
+                    value: &monthly_spend_limit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usageReportS3Bucket".into(),
-                    value: usage_report_s3_bucket_binding.get_id(),
+                    value: &usage_report_s3_bucket_binding.drop_type(),
                 },
             ],
         };

@@ -113,43 +113,43 @@ pub mod proxy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auths".into(),
-                    value: auths_binding.get_id(),
+                    value: &auths_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "debugLogging".into(),
-                    value: debug_logging_binding.get_id(),
+                    value: &debug_logging_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineFamily".into(),
-                    value: engine_family_binding.get_id(),
+                    value: &engine_family_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleClientTimeout".into(),
-                    value: idle_client_timeout_binding.get_id(),
+                    value: &idle_client_timeout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireTls".into(),
-                    value: require_tls_binding.get_id(),
+                    value: &require_tls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSecurityGroupIds".into(),
-                    value: vpc_security_group_ids_binding.get_id(),
+                    value: &vpc_security_group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSubnetIds".into(),
-                    value: vpc_subnet_ids_binding.get_id(),
+                    value: &vpc_subnet_ids_binding.drop_type(),
                 },
             ],
         };

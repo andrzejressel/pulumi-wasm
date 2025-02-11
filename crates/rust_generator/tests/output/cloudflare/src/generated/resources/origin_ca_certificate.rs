@@ -97,23 +97,23 @@ pub mod origin_ca_certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "csr".into(),
-                    value: csr_binding.get_id(),
+                    value: &csr_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostnames".into(),
-                    value: hostnames_binding.get_id(),
+                    value: &hostnames_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minDaysForRenewal".into(),
-                    value: min_days_for_renewal_binding.get_id(),
+                    value: &min_days_for_renewal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestType".into(),
-                    value: request_type_binding.get_id(),
+                    value: &request_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestedValidity".into(),
-                    value: requested_validity_binding.get_id(),
+                    value: &requested_validity_binding.drop_type(),
                 },
             ],
         };

@@ -365,83 +365,83 @@ pub mod app {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessToken".into(),
-                    value: access_token_binding.get_id(),
+                    value: &access_token_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoBranchCreationConfig".into(),
-                    value: auto_branch_creation_config_binding.get_id(),
+                    value: &auto_branch_creation_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoBranchCreationPatterns".into(),
-                    value: auto_branch_creation_patterns_binding.get_id(),
+                    value: &auto_branch_creation_patterns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basicAuthCredentials".into(),
-                    value: basic_auth_credentials_binding.get_id(),
+                    value: &basic_auth_credentials_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildSpec".into(),
-                    value: build_spec_binding.get_id(),
+                    value: &build_spec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheConfig".into(),
-                    value: cache_config_binding.get_id(),
+                    value: &cache_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customHeaders".into(),
-                    value: custom_headers_binding.get_id(),
+                    value: &custom_headers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customRules".into(),
-                    value: custom_rules_binding.get_id(),
+                    value: &custom_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableAutoBranchCreation".into(),
-                    value: enable_auto_branch_creation_binding.get_id(),
+                    value: &enable_auto_branch_creation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableBasicAuth".into(),
-                    value: enable_basic_auth_binding.get_id(),
+                    value: &enable_basic_auth_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableBranchAutoBuild".into(),
-                    value: enable_branch_auto_build_binding.get_id(),
+                    value: &enable_branch_auto_build_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableBranchAutoDeletion".into(),
-                    value: enable_branch_auto_deletion_binding.get_id(),
+                    value: &enable_branch_auto_deletion_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentVariables".into(),
-                    value: environment_variables_binding.get_id(),
+                    value: &environment_variables_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamServiceRoleArn".into(),
-                    value: iam_service_role_arn_binding.get_id(),
+                    value: &iam_service_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "oauthToken".into(),
-                    value: oauth_token_binding.get_id(),
+                    value: &oauth_token_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platform".into(),
-                    value: platform_binding.get_id(),
+                    value: &platform_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "repository".into(),
-                    value: repository_binding.get_id(),
+                    value: &repository_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

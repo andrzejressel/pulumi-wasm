@@ -193,71 +193,71 @@ pub mod v_2_models_intent {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botId".into(),
-                    value: bot_id_binding.get_id(),
+                    value: &bot_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botVersion".into(),
-                    value: bot_version_binding.get_id(),
+                    value: &bot_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "closingSetting".into(),
-                    value: closing_setting_binding.get_id(),
+                    value: &closing_setting_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confirmationSetting".into(),
-                    value: confirmation_setting_binding.get_id(),
+                    value: &confirmation_setting_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dialogCodeHook".into(),
-                    value: dialog_code_hook_binding.get_id(),
+                    value: &dialog_code_hook_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fulfillmentCodeHook".into(),
-                    value: fulfillment_code_hook_binding.get_id(),
+                    value: &fulfillment_code_hook_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialResponseSetting".into(),
-                    value: initial_response_setting_binding.get_id(),
+                    value: &initial_response_setting_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputContexts".into(),
-                    value: input_contexts_binding.get_id(),
+                    value: &input_contexts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kendraConfiguration".into(),
-                    value: kendra_configuration_binding.get_id(),
+                    value: &kendra_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localeId".into(),
-                    value: locale_id_binding.get_id(),
+                    value: &locale_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputContexts".into(),
-                    value: output_contexts_binding.get_id(),
+                    value: &output_contexts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentIntentSignature".into(),
-                    value: parent_intent_signature_binding.get_id(),
+                    value: &parent_intent_signature_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sampleUtterances".into(),
-                    value: sample_utterances_binding.get_id(),
+                    value: &sample_utterances_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slotPriorities".into(),
-                    value: slot_priorities_binding.get_id(),
+                    value: &slot_priorities_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

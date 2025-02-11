@@ -143,23 +143,23 @@ pub mod configuration_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryOptions".into(),
-                    value: delivery_options_binding.get_id(),
+                    value: &delivery_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reputationMetricsEnabled".into(),
-                    value: reputation_metrics_enabled_binding.get_id(),
+                    value: &reputation_metrics_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sendingEnabled".into(),
-                    value: sending_enabled_binding.get_id(),
+                    value: &sending_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trackingOptions".into(),
-                    value: tracking_options_binding.get_id(),
+                    value: &tracking_options_binding.drop_type(),
                 },
             ],
         };

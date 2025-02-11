@@ -74,11 +74,11 @@ pub mod account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "findingPublishingFrequency".into(),
-                    value: finding_publishing_frequency_binding.get_id(),
+                    value: &finding_publishing_frequency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
             ],
         };

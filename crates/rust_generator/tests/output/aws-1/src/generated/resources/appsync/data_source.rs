@@ -210,51 +210,51 @@ pub mod data_source {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: api_id_binding.get_id(),
+                    value: &api_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamodbConfig".into(),
-                    value: dynamodb_config_binding.get_id(),
+                    value: &dynamodb_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticsearchConfig".into(),
-                    value: elasticsearch_config_binding.get_id(),
+                    value: &elasticsearch_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventBridgeConfig".into(),
-                    value: event_bridge_config_binding.get_id(),
+                    value: &event_bridge_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpConfig".into(),
-                    value: http_config_binding.get_id(),
+                    value: &http_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaConfig".into(),
-                    value: lambda_config_binding.get_id(),
+                    value: &lambda_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "opensearchserviceConfig".into(),
-                    value: opensearchservice_config_binding.get_id(),
+                    value: &opensearchservice_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "relationalDatabaseConfig".into(),
-                    value: relational_database_config_binding.get_id(),
+                    value: &relational_database_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRoleArn".into(),
-                    value: service_role_arn_binding.get_id(),
+                    value: &service_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

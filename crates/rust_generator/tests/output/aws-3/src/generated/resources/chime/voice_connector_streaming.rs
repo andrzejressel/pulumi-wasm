@@ -168,23 +168,23 @@ pub mod voice_connector_streaming {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataRetention".into(),
-                    value: data_retention_binding.get_id(),
+                    value: &data_retention_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: disabled_binding.get_id(),
+                    value: &disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mediaInsightsConfiguration".into(),
-                    value: media_insights_configuration_binding.get_id(),
+                    value: &media_insights_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamingNotificationTargets".into(),
-                    value: streaming_notification_targets_binding.get_id(),
+                    value: &streaming_notification_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceConnectorId".into(),
-                    value: voice_connector_id_binding.get_id(),
+                    value: &voice_connector_id_binding.drop_type(),
                 },
             ],
         };

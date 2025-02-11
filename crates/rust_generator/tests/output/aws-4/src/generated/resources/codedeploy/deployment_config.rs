@@ -159,23 +159,23 @@ pub mod deployment_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computePlatform".into(),
-                    value: compute_platform_binding.get_id(),
+                    value: &compute_platform_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentConfigName".into(),
-                    value: deployment_config_name_binding.get_id(),
+                    value: &deployment_config_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumHealthyHosts".into(),
-                    value: minimum_healthy_hosts_binding.get_id(),
+                    value: &minimum_healthy_hosts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficRoutingConfig".into(),
-                    value: traffic_routing_config_binding.get_id(),
+                    value: &traffic_routing_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zonalConfig".into(),
-                    value: zonal_config_binding.get_id(),
+                    value: &zonal_config_binding.drop_type(),
                 },
             ],
         };

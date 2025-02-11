@@ -93,15 +93,15 @@ pub mod account_vdm_attributes {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dashboardAttributes".into(),
-                    value: dashboard_attributes_binding.get_id(),
+                    value: &dashboard_attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guardianAttributes".into(),
-                    value: guardian_attributes_binding.get_id(),
+                    value: &guardian_attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vdmEnabled".into(),
-                    value: vdm_enabled_binding.get_id(),
+                    value: &vdm_enabled_binding.drop_type(),
                 },
             ],
         };

@@ -231,23 +231,23 @@ pub mod user {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cluster".into(),
-                    value: cluster_binding.get_id(),
+                    value: &cluster_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseRoles".into(),
-                    value: database_roles_binding.get_id(),
+                    value: &database_roles_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password".into(),
-                    value: password_binding.get_id(),
+                    value: &password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userId".into(),
-                    value: user_id_binding.get_id(),
+                    value: &user_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userType".into(),
-                    value: user_type_binding.get_id(),
+                    value: &user_type_binding.drop_type(),
                 },
             ],
         };

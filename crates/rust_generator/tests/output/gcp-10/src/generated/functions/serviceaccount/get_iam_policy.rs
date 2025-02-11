@@ -35,7 +35,7 @@ pub mod get_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountId".into(),
-                    value: service_account_id_binding.get_id(),
+                    value: &service_account_id_binding.drop_type(),
                 },
             ],
         };

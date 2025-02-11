@@ -226,43 +226,43 @@ pub mod registration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactNotices".into(),
-                    value: contact_notices_binding.get_id(),
+                    value: &contact_notices_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactSettings".into(),
-                    value: contact_settings_binding.get_id(),
+                    value: &contact_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsSettings".into(),
-                    value: dns_settings_binding.get_id(),
+                    value: &dns_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainNotices".into(),
-                    value: domain_notices_binding.get_id(),
+                    value: &domain_notices_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managementSettings".into(),
-                    value: management_settings_binding.get_id(),
+                    value: &management_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "yearlyPrice".into(),
-                    value: yearly_price_binding.get_id(),
+                    value: &yearly_price_binding.drop_type(),
                 },
             ],
         };

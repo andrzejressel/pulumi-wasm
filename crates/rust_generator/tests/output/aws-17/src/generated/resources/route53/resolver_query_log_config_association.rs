@@ -69,11 +69,11 @@ pub mod resolver_query_log_config_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolverQueryLogConfigId".into(),
-                    value: resolver_query_log_config_id_binding.get_id(),
+                    value: &resolver_query_log_config_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: resource_id_binding.get_id(),
+                    value: &resource_id_binding.drop_type(),
                 },
             ],
         };

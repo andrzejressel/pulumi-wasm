@@ -100,19 +100,19 @@ pub mod application_network_rule_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applyToDevice".into(),
-                    value: apply_to_device_binding.get_id(),
+                    value: &apply_to_device_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAction".into(),
-                    value: default_action_binding.get_id(),
+                    value: &default_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iotcentralApplicationId".into(),
-                    value: iotcentral_application_id_binding.get_id(),
+                    value: &iotcentral_application_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipRules".into(),
-                    value: ip_rules_binding.get_id(),
+                    value: &ip_rules_binding.drop_type(),
                 },
             ],
         };

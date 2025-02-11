@@ -248,27 +248,27 @@ pub mod server_microsoft_support_auditing_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blobStorageEndpoint".into(),
-                    value: blob_storage_endpoint_binding.get_id(),
+                    value: &blob_storage_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logMonitoringEnabled".into(),
-                    value: log_monitoring_enabled_binding.get_id(),
+                    value: &log_monitoring_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: server_id_binding.get_id(),
+                    value: &server_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountAccessKey".into(),
-                    value: storage_account_access_key_binding.get_id(),
+                    value: &storage_account_access_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountSubscriptionId".into(),
-                    value: storage_account_subscription_id_binding.get_id(),
+                    value: &storage_account_subscription_id_binding.drop_type(),
                 },
             ],
         };

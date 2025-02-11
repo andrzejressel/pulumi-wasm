@@ -260,87 +260,87 @@ pub mod dataset_delimited_text {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalProperties".into(),
-                    value: additional_properties_binding.get_id(),
+                    value: &additional_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: annotations_binding.get_id(),
+                    value: &annotations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureBlobFsLocation".into(),
-                    value: azure_blob_fs_location_binding.get_id(),
+                    value: &azure_blob_fs_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureBlobStorageLocation".into(),
-                    value: azure_blob_storage_location_binding.get_id(),
+                    value: &azure_blob_storage_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "columnDelimiter".into(),
-                    value: column_delimiter_binding.get_id(),
+                    value: &column_delimiter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compressionCodec".into(),
-                    value: compression_codec_binding.get_id(),
+                    value: &compression_codec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compressionLevel".into(),
-                    value: compression_level_binding.get_id(),
+                    value: &compression_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: data_factory_id_binding.get_id(),
+                    value: &data_factory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encoding".into(),
-                    value: encoding_binding.get_id(),
+                    value: &encoding_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "escapeCharacter".into(),
-                    value: escape_character_binding.get_id(),
+                    value: &escape_character_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firstRowAsHeader".into(),
-                    value: first_row_as_header_binding.get_id(),
+                    value: &first_row_as_header_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: folder_binding.get_id(),
+                    value: &folder_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpServerLocation".into(),
-                    value: http_server_location_binding.get_id(),
+                    value: &http_server_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedServiceName".into(),
-                    value: linked_service_name_binding.get_id(),
+                    value: &linked_service_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nullValue".into(),
-                    value: null_value_binding.get_id(),
+                    value: &null_value_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quoteCharacter".into(),
-                    value: quote_character_binding.get_id(),
+                    value: &quote_character_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rowDelimiter".into(),
-                    value: row_delimiter_binding.get_id(),
+                    value: &row_delimiter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaColumns".into(),
-                    value: schema_columns_binding.get_id(),
+                    value: &schema_columns_binding.drop_type(),
                 },
             ],
         };

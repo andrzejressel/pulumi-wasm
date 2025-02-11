@@ -93,15 +93,15 @@ pub mod vpc_ipam_resource_discovery_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamId".into(),
-                    value: ipam_id_binding.get_id(),
+                    value: &ipam_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamResourceDiscoveryId".into(),
-                    value: ipam_resource_discovery_id_binding.get_id(),
+                    value: &ipam_resource_discovery_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -122,31 +122,31 @@ pub mod efs_location {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessPointArn".into(),
-                    value: access_point_arn_binding.get_id(),
+                    value: &access_point_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ec2Config".into(),
-                    value: ec2_config_binding.get_id(),
+                    value: &ec2_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "efsFileSystemArn".into(),
-                    value: efs_file_system_arn_binding.get_id(),
+                    value: &efs_file_system_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemAccessRoleArn".into(),
-                    value: file_system_access_role_arn_binding.get_id(),
+                    value: &file_system_access_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inTransitEncryption".into(),
-                    value: in_transit_encryption_binding.get_id(),
+                    value: &in_transit_encryption_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subdirectory".into(),
-                    value: subdirectory_binding.get_id(),
+                    value: &subdirectory_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

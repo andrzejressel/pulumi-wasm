@@ -116,11 +116,11 @@ pub mod network_interface_application_security_group_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationSecurityGroupId".into(),
-                    value: application_security_group_id_binding.get_id(),
+                    value: &application_security_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: network_interface_id_binding.get_id(),
+                    value: &network_interface_id_binding.drop_type(),
                 },
             ],
         };

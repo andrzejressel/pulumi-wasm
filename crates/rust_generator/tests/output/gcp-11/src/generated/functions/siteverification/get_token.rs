@@ -50,15 +50,15 @@ pub mod get_token {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identifier".into(),
-                    value: identifier_binding.get_id(),
+                    value: &identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "verificationMethod".into(),
-                    value: verification_method_binding.get_id(),
+                    value: &verification_method_binding.drop_type(),
                 },
             ],
         };

@@ -170,51 +170,51 @@ pub mod spring_cloud_container_deployment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addonJson".into(),
-                    value: addon_json_binding.get_id(),
+                    value: &addon_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationPerformanceMonitoringIds".into(),
-                    value: application_performance_monitoring_ids_binding.get_id(),
+                    value: &application_performance_monitoring_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arguments".into(),
-                    value: arguments_binding.get_id(),
+                    value: &arguments_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "commands".into(),
-                    value: commands_binding.get_id(),
+                    value: &commands_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentVariables".into(),
-                    value: environment_variables_binding.get_id(),
+                    value: &environment_variables_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "image".into(),
-                    value: image_binding.get_id(),
+                    value: &image_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceCount".into(),
-                    value: instance_count_binding.get_id(),
+                    value: &instance_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageFramework".into(),
-                    value: language_framework_binding.get_id(),
+                    value: &language_framework_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quota".into(),
-                    value: quota_binding.get_id(),
+                    value: &quota_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "server".into(),
-                    value: server_binding.get_id(),
+                    value: &server_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudAppId".into(),
-                    value: spring_cloud_app_id_binding.get_id(),
+                    value: &spring_cloud_app_id_binding.drop_type(),
                 },
             ],
         };

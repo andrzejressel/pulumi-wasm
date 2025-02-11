@@ -72,15 +72,15 @@ pub mod total_tls {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthority".into(),
-                    value: certificate_authority_binding.get_id(),
+                    value: &certificate_authority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

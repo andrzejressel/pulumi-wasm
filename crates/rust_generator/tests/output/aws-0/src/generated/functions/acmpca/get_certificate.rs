@@ -42,11 +42,11 @@ pub mod get_certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: arn_binding.get_id(),
+                    value: &arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthorityArn".into(),
-                    value: certificate_authority_arn_binding.get_id(),
+                    value: &certificate_authority_arn_binding.drop_type(),
                 },
             ],
         };

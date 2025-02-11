@@ -199,27 +199,27 @@ pub mod managed_instance_failover_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedInstanceId".into(),
-                    value: managed_instance_id_binding.get_id(),
+                    value: &managed_instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partnerManagedInstanceId".into(),
-                    value: partner_managed_instance_id_binding.get_id(),
+                    value: &partner_managed_instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readWriteEndpointFailoverPolicy".into(),
-                    value: read_write_endpoint_failover_policy_binding.get_id(),
+                    value: &read_write_endpoint_failover_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readonlyEndpointFailoverPolicyEnabled".into(),
-                    value: readonly_endpoint_failover_policy_enabled_binding.get_id(),
+                    value: &readonly_endpoint_failover_policy_enabled_binding.drop_type(),
                 },
             ],
         };

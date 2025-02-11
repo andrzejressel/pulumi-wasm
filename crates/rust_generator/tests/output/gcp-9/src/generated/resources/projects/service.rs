@@ -116,23 +116,23 @@ pub mod service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "checkIfServiceHasUsageOnDestroy".into(),
-                    value: check_if_service_has_usage_on_destroy_binding.get_id(),
+                    value: &check_if_service_has_usage_on_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableDependentServices".into(),
-                    value: disable_dependent_services_binding.get_id(),
+                    value: &disable_dependent_services_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableOnDestroy".into(),
-                    value: disable_on_destroy_binding.get_id(),
+                    value: &disable_on_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: service_binding.get_id(),
+                    value: &service_binding.drop_type(),
                 },
             ],
         };

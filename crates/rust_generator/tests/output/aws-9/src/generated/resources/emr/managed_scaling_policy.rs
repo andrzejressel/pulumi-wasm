@@ -91,11 +91,11 @@ pub mod managed_scaling_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterId".into(),
-                    value: cluster_id_binding.get_id(),
+                    value: &cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeLimits".into(),
-                    value: compute_limits_binding.get_id(),
+                    value: &compute_limits_binding.drop_type(),
                 },
             ],
         };

@@ -81,11 +81,11 @@ pub mod input_security_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "whitelistRules".into(),
-                    value: whitelist_rules_binding.get_id(),
+                    value: &whitelist_rules_binding.drop_type(),
                 },
             ],
         };

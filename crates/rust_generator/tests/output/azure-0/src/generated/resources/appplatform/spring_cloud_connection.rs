@@ -156,31 +156,31 @@ pub mod spring_cloud_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authentication".into(),
-                    value: authentication_binding.get_id(),
+                    value: &authentication_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientType".into(),
-                    value: client_type_binding.get_id(),
+                    value: &client_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secretStore".into(),
-                    value: secret_store_binding.get_id(),
+                    value: &secret_store_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudId".into(),
-                    value: spring_cloud_id_binding.get_id(),
+                    value: &spring_cloud_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceId".into(),
-                    value: target_resource_id_binding.get_id(),
+                    value: &target_resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vnetSolution".into(),
-                    value: vnet_solution_binding.get_id(),
+                    value: &vnet_solution_binding.drop_type(),
                 },
             ],
         };

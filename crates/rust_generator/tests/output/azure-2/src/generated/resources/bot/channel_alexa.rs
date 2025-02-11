@@ -95,19 +95,19 @@ pub mod channel_alexa {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botName".into(),
-                    value: bot_name_binding.get_id(),
+                    value: &bot_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skillId".into(),
-                    value: skill_id_binding.get_id(),
+                    value: &skill_id_binding.drop_type(),
                 },
             ],
         };

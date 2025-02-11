@@ -492,51 +492,51 @@ pub mod connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aws".into(),
-                    value: aws_binding.get_id(),
+                    value: &aws_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azure".into(),
-                    value: azure_binding.get_id(),
+                    value: &azure_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudResource".into(),
-                    value: cloud_resource_binding.get_id(),
+                    value: &cloud_resource_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudSpanner".into(),
-                    value: cloud_spanner_binding.get_id(),
+                    value: &cloud_spanner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudSql".into(),
-                    value: cloud_sql_binding.get_id(),
+                    value: &cloud_sql_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionId".into(),
-                    value: connection_id_binding.get_id(),
+                    value: &connection_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "friendlyName".into(),
-                    value: friendly_name_binding.get_id(),
+                    value: &friendly_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyName".into(),
-                    value: kms_key_name_binding.get_id(),
+                    value: &kms_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spark".into(),
-                    value: spark_binding.get_id(),
+                    value: &spark_binding.drop_type(),
                 },
             ],
         };

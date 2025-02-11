@@ -419,23 +419,23 @@ pub mod bucket_notification {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bucket".into(),
-                    value: bucket_binding.get_id(),
+                    value: &bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventbridge".into(),
-                    value: eventbridge_binding.get_id(),
+                    value: &eventbridge_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lambdaFunctions".into(),
-                    value: lambda_functions_binding.get_id(),
+                    value: &lambda_functions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queues".into(),
-                    value: queues_binding.get_id(),
+                    value: &queues_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topics".into(),
-                    value: topics_binding.get_id(),
+                    value: &topics_binding.drop_type(),
                 },
             ],
         };

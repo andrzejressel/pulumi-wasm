@@ -165,27 +165,27 @@ pub mod hosting_channel {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "channelId".into(),
-                    value: channel_id_binding.get_id(),
+                    value: &channel_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expireTime".into(),
-                    value: expire_time_binding.get_id(),
+                    value: &expire_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retainedReleaseCount".into(),
-                    value: retained_release_count_binding.get_id(),
+                    value: &retained_release_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "siteId".into(),
-                    value: site_id_binding.get_id(),
+                    value: &site_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: ttl_binding.get_id(),
+                    value: &ttl_binding.drop_type(),
                 },
             ],
         };

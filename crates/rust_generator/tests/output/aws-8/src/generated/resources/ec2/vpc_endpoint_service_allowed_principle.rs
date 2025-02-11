@@ -67,11 +67,11 @@ pub mod vpc_endpoint_service_allowed_principle {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalArn".into(),
-                    value: principal_arn_binding.get_id(),
+                    value: &principal_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointServiceId".into(),
-                    value: vpc_endpoint_service_id_binding.get_id(),
+                    value: &vpc_endpoint_service_id_binding.drop_type(),
                 },
             ],
         };

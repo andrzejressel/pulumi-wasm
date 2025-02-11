@@ -84,19 +84,19 @@ pub mod template {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quotaCode".into(),
-                    value: quota_code_binding.get_id(),
+                    value: &quota_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceCode".into(),
-                    value: service_code_binding.get_id(),
+                    value: &service_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "value".into(),
-                    value: value_binding.get_id(),
+                    value: &value_binding.drop_type(),
                 },
             ],
         };

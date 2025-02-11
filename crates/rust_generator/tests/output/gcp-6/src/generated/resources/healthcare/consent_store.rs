@@ -193,23 +193,23 @@ pub mod consent_store {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: dataset_binding.get_id(),
+                    value: &dataset_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultConsentTtl".into(),
-                    value: default_consent_ttl_binding.get_id(),
+                    value: &default_consent_ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableConsentCreateOnUpdate".into(),
-                    value: enable_consent_create_on_update_binding.get_id(),
+                    value: &enable_consent_create_on_update_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

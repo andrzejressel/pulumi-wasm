@@ -164,35 +164,35 @@ pub mod vpc_endpoint_service {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptanceRequired".into(),
-                    value: acceptance_required_binding.get_id(),
+                    value: &acceptance_required_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedPrincipals".into(),
-                    value: allowed_principals_binding.get_id(),
+                    value: &allowed_principals_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayLoadBalancerArns".into(),
-                    value: gateway_load_balancer_arns_binding.get_id(),
+                    value: &gateway_load_balancer_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkLoadBalancerArns".into(),
-                    value: network_load_balancer_arns_binding.get_id(),
+                    value: &network_load_balancer_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateDnsName".into(),
-                    value: private_dns_name_binding.get_id(),
+                    value: &private_dns_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedIpAddressTypes".into(),
-                    value: supported_ip_address_types_binding.get_id(),
+                    value: &supported_ip_address_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportedRegions".into(),
-                    value: supported_regions_binding.get_id(),
+                    value: &supported_regions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

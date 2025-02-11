@@ -232,91 +232,91 @@ pub mod stack {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentVersion".into(),
-                    value: agent_version_binding.get_id(),
+                    value: &agent_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "berkshelfVersion".into(),
-                    value: berkshelf_version_binding.get_id(),
+                    value: &berkshelf_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "color".into(),
-                    value: color_binding.get_id(),
+                    value: &color_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationManagerName".into(),
-                    value: configuration_manager_name_binding.get_id(),
+                    value: &configuration_manager_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationManagerVersion".into(),
-                    value: configuration_manager_version_binding.get_id(),
+                    value: &configuration_manager_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customCookbooksSources".into(),
-                    value: custom_cookbooks_sources_binding.get_id(),
+                    value: &custom_cookbooks_sources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customJson".into(),
-                    value: custom_json_binding.get_id(),
+                    value: &custom_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultAvailabilityZone".into(),
-                    value: default_availability_zone_binding.get_id(),
+                    value: &default_availability_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultInstanceProfileArn".into(),
-                    value: default_instance_profile_arn_binding.get_id(),
+                    value: &default_instance_profile_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultOs".into(),
-                    value: default_os_binding.get_id(),
+                    value: &default_os_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRootDeviceType".into(),
-                    value: default_root_device_type_binding.get_id(),
+                    value: &default_root_device_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultSshKeyName".into(),
-                    value: default_ssh_key_name_binding.get_id(),
+                    value: &default_ssh_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultSubnetId".into(),
-                    value: default_subnet_id_binding.get_id(),
+                    value: &default_subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostnameTheme".into(),
-                    value: hostname_theme_binding.get_id(),
+                    value: &hostname_theme_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "manageBerkshelf".into(),
-                    value: manage_berkshelf_binding.get_id(),
+                    value: &manage_berkshelf_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRoleArn".into(),
-                    value: service_role_arn_binding.get_id(),
+                    value: &service_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useCustomCookbooks".into(),
-                    value: use_custom_cookbooks_binding.get_id(),
+                    value: &use_custom_cookbooks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useOpsworksSecurityGroups".into(),
-                    value: use_opsworks_security_groups_binding.get_id(),
+                    value: &use_opsworks_security_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: vpc_id_binding.get_id(),
+                    value: &vpc_id_binding.drop_type(),
                 },
             ],
         };

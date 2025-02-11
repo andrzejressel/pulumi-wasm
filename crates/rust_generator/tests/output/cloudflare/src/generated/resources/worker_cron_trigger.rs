@@ -82,15 +82,15 @@ pub mod worker_cron_trigger {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedules".into(),
-                    value: schedules_binding.get_id(),
+                    value: &schedules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scriptName".into(),
-                    value: script_name_binding.get_id(),
+                    value: &script_name_binding.drop_type(),
                 },
             ],
         };

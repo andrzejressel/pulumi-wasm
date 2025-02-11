@@ -120,31 +120,31 @@ pub mod connect_peer {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpOptions".into(),
-                    value: bgp_options_binding.get_id(),
+                    value: &bgp_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectAttachmentId".into(),
-                    value: connect_attachment_id_binding.get_id(),
+                    value: &connect_attachment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreNetworkAddress".into(),
-                    value: core_network_address_binding.get_id(),
+                    value: &core_network_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insideCidrBlocks".into(),
-                    value: inside_cidr_blocks_binding.get_id(),
+                    value: &inside_cidr_blocks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peerAddress".into(),
-                    value: peer_address_binding.get_id(),
+                    value: &peer_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetArn".into(),
-                    value: subnet_arn_binding.get_id(),
+                    value: &subnet_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

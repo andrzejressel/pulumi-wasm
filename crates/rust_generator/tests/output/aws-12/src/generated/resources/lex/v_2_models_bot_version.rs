@@ -98,23 +98,23 @@ pub mod v_2_models_bot_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botId".into(),
-                    value: bot_id_binding.get_id(),
+                    value: &bot_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botVersion".into(),
-                    value: bot_version_binding.get_id(),
+                    value: &bot_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localeSpecification".into(),
-                    value: locale_specification_binding.get_id(),
+                    value: &locale_specification_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

@@ -196,59 +196,59 @@ pub mod fleet {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildId".into(),
-                    value: build_id_binding.get_id(),
+                    value: &build_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateConfiguration".into(),
-                    value: certificate_configuration_binding.get_id(),
+                    value: &certificate_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ec2InboundPermissions".into(),
-                    value: ec2_inbound_permissions_binding.get_id(),
+                    value: &ec2_inbound_permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ec2InstanceType".into(),
-                    value: ec2_instance_type_binding.get_id(),
+                    value: &ec2_instance_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetType".into(),
-                    value: fleet_type_binding.get_id(),
+                    value: &fleet_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceRoleArn".into(),
-                    value: instance_role_arn_binding.get_id(),
+                    value: &instance_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricGroups".into(),
-                    value: metric_groups_binding.get_id(),
+                    value: &metric_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "newGameSessionProtectionPolicy".into(),
-                    value: new_game_session_protection_policy_binding.get_id(),
+                    value: &new_game_session_protection_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceCreationLimitPolicy".into(),
-                    value: resource_creation_limit_policy_binding.get_id(),
+                    value: &resource_creation_limit_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runtimeConfiguration".into(),
-                    value: runtime_configuration_binding.get_id(),
+                    value: &runtime_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scriptId".into(),
-                    value: script_id_binding.get_id(),
+                    value: &script_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -49,7 +49,7 @@ pub mod get_inference_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inferenceProfileId".into(),
-                    value: inference_profile_id_binding.get_id(),
+                    value: &inference_profile_id_binding.drop_type(),
                 },
             ],
         };

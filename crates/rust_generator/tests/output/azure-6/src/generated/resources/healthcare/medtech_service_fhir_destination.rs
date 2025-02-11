@@ -179,27 +179,27 @@ pub mod medtech_service_fhir_destination {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationFhirMappingJson".into(),
-                    value: destination_fhir_mapping_json_binding.get_id(),
+                    value: &destination_fhir_mapping_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationFhirServiceId".into(),
-                    value: destination_fhir_service_id_binding.get_id(),
+                    value: &destination_fhir_service_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationIdentityResolutionType".into(),
-                    value: destination_identity_resolution_type_binding.get_id(),
+                    value: &destination_identity_resolution_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "medtechServiceId".into(),
-                    value: medtech_service_id_binding.get_id(),
+                    value: &medtech_service_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

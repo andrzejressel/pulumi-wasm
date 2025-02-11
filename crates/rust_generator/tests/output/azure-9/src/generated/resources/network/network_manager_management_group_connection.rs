@@ -127,19 +127,19 @@ pub mod network_manager_management_group_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managementGroupId".into(),
-                    value: management_group_id_binding.get_id(),
+                    value: &management_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkManagerId".into(),
-                    value: network_manager_id_binding.get_id(),
+                    value: &network_manager_id_binding.drop_type(),
                 },
             ],
         };

@@ -129,35 +129,35 @@ pub mod pipeline {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parallelismConfiguration".into(),
-                    value: parallelism_configuration_binding.get_id(),
+                    value: &parallelism_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineDefinition".into(),
-                    value: pipeline_definition_binding.get_id(),
+                    value: &pipeline_definition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineDefinitionS3Location".into(),
-                    value: pipeline_definition_s3_location_binding.get_id(),
+                    value: &pipeline_definition_s3_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineDescription".into(),
-                    value: pipeline_description_binding.get_id(),
+                    value: &pipeline_description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineDisplayName".into(),
-                    value: pipeline_display_name_binding.get_id(),
+                    value: &pipeline_display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineName".into(),
-                    value: pipeline_name_binding.get_id(),
+                    value: &pipeline_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

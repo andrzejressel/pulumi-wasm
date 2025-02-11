@@ -120,19 +120,19 @@ pub mod organization_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableDefaultSink".into(),
-                    value: disable_default_sink_binding.get_id(),
+                    value: &disable_default_sink_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyName".into(),
-                    value: kms_key_name_binding.get_id(),
+                    value: &kms_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organization".into(),
-                    value: organization_binding.get_id(),
+                    value: &organization_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageLocation".into(),
-                    value: storage_location_binding.get_id(),
+                    value: &storage_location_binding.drop_type(),
                 },
             ],
         };

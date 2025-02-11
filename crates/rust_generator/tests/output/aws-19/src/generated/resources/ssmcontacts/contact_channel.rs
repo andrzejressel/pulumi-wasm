@@ -121,19 +121,19 @@ pub mod contact_channel {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactId".into(),
-                    value: contact_id_binding.get_id(),
+                    value: &contact_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryAddress".into(),
-                    value: delivery_address_binding.get_id(),
+                    value: &delivery_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

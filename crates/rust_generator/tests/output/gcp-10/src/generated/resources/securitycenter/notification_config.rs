@@ -132,23 +132,23 @@ pub mod notification_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configId".into(),
-                    value: config_id_binding.get_id(),
+                    value: &config_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organization".into(),
-                    value: organization_binding.get_id(),
+                    value: &organization_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pubsubTopic".into(),
-                    value: pubsub_topic_binding.get_id(),
+                    value: &pubsub_topic_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamingConfig".into(),
-                    value: streaming_config_binding.get_id(),
+                    value: &streaming_config_binding.drop_type(),
                 },
             ],
         };

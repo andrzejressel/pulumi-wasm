@@ -192,19 +192,19 @@ pub mod network_endpoint_list {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkEndpointGroup".into(),
-                    value: network_endpoint_group_binding.get_id(),
+                    value: &network_endpoint_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkEndpoints".into(),
-                    value: network_endpoints_binding.get_id(),
+                    value: &network_endpoints_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zone".into(),
-                    value: zone_binding.get_id(),
+                    value: &zone_binding.drop_type(),
                 },
             ],
         };

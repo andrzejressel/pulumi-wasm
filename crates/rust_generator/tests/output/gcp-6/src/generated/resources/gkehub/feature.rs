@@ -601,27 +601,27 @@ pub mod feature {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetDefaultMemberConfig".into(),
-                    value: fleet_default_member_config_binding.get_id(),
+                    value: &fleet_default_member_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spec".into(),
-                    value: spec_binding.get_id(),
+                    value: &spec_binding.drop_type(),
                 },
             ],
         };

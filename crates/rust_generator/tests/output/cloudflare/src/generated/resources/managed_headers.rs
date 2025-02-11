@@ -87,15 +87,15 @@ pub mod managed_headers {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedRequestHeaders".into(),
-                    value: managed_request_headers_binding.get_id(),
+                    value: &managed_request_headers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedResponseHeaders".into(),
-                    value: managed_response_headers_binding.get_id(),
+                    value: &managed_response_headers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

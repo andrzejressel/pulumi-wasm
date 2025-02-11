@@ -121,31 +121,31 @@ pub mod space {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainId".into(),
-                    value: domain_id_binding.get_id(),
+                    value: &domain_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownershipSettings".into(),
-                    value: ownership_settings_binding.get_id(),
+                    value: &ownership_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spaceDisplayName".into(),
-                    value: space_display_name_binding.get_id(),
+                    value: &space_display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spaceName".into(),
-                    value: space_name_binding.get_id(),
+                    value: &space_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spaceSettings".into(),
-                    value: space_settings_binding.get_id(),
+                    value: &space_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spaceSharingSettings".into(),
-                    value: space_sharing_settings_binding.get_id(),
+                    value: &space_sharing_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

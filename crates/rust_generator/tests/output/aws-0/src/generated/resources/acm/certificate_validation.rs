@@ -83,11 +83,11 @@ pub mod certificate_validation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateArn".into(),
-                    value: certificate_arn_binding.get_id(),
+                    value: &certificate_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationRecordFqdns".into(),
-                    value: validation_record_fqdns_binding.get_id(),
+                    value: &validation_record_fqdns_binding.drop_type(),
                 },
             ],
         };

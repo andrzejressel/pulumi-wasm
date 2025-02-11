@@ -250,47 +250,47 @@ pub mod config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedDomains".into(),
-                    value: authorized_domains_binding.get_id(),
+                    value: &authorized_domains_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autodeleteAnonymousUsers".into(),
-                    value: autodelete_anonymous_users_binding.get_id(),
+                    value: &autodelete_anonymous_users_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockingFunctions".into(),
-                    value: blocking_functions_binding.get_id(),
+                    value: &blocking_functions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "client".into(),
-                    value: client_binding.get_id(),
+                    value: &client_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mfa".into(),
-                    value: mfa_binding.get_id(),
+                    value: &mfa_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitoring".into(),
-                    value: monitoring_binding.get_id(),
+                    value: &monitoring_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multiTenant".into(),
-                    value: multi_tenant_binding.get_id(),
+                    value: &multi_tenant_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quota".into(),
-                    value: quota_binding.get_id(),
+                    value: &quota_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signIn".into(),
-                    value: sign_in_binding.get_id(),
+                    value: &sign_in_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smsRegionConfig".into(),
-                    value: sms_region_config_binding.get_id(),
+                    value: &sms_region_config_binding.drop_type(),
                 },
             ],
         };

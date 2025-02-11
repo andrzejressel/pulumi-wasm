@@ -185,39 +185,39 @@ pub mod mover_job_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentName".into(),
-                    value: agent_name_binding.get_id(),
+                    value: &agent_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyMode".into(),
-                    value: copy_mode_binding.get_id(),
+                    value: &copy_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceName".into(),
-                    value: source_name_binding.get_id(),
+                    value: &source_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceSubPath".into(),
-                    value: source_sub_path_binding.get_id(),
+                    value: &source_sub_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageMoverProjectId".into(),
-                    value: storage_mover_project_id_binding.get_id(),
+                    value: &storage_mover_project_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetName".into(),
-                    value: target_name_binding.get_id(),
+                    value: &target_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetSubPath".into(),
-                    value: target_sub_path_binding.get_id(),
+                    value: &target_sub_path_binding.drop_type(),
                 },
             ],
         };

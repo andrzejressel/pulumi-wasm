@@ -95,15 +95,15 @@ pub mod usage_plan_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyId".into(),
-                    value: key_id_binding.get_id(),
+                    value: &key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyType".into(),
-                    value: key_type_binding.get_id(),
+                    value: &key_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usagePlanId".into(),
-                    value: usage_plan_id_binding.get_id(),
+                    value: &usage_plan_id_binding.drop_type(),
                 },
             ],
         };

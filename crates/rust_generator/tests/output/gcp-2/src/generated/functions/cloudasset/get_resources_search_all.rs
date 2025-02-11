@@ -45,15 +45,15 @@ pub mod get_resources_search_all {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assetTypes".into(),
-                    value: asset_types_binding.get_id(),
+                    value: &asset_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "query".into(),
-                    value: query_binding.get_id(),
+                    value: &query_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: scope_binding.get_id(),
+                    value: &scope_binding.drop_type(),
                 },
             ],
         };

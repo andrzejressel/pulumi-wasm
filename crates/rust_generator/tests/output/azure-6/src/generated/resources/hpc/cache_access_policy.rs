@@ -117,15 +117,15 @@ pub mod cache_access_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessRules".into(),
-                    value: access_rules_binding.get_id(),
+                    value: &access_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hpcCacheId".into(),
-                    value: hpc_cache_id_binding.get_id(),
+                    value: &hpc_cache_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

@@ -143,27 +143,27 @@ pub mod connector_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionMode".into(),
-                    value: connection_mode_binding.get_id(),
+                    value: &connection_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectorLabel".into(),
-                    value: connector_label_binding.get_id(),
+                    value: &connector_label_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectorProfileConfig".into(),
-                    value: connector_profile_config_binding.get_id(),
+                    value: &connector_profile_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectorType".into(),
-                    value: connector_type_binding.get_id(),
+                    value: &connector_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsArn".into(),
-                    value: kms_arn_binding.get_id(),
+                    value: &kms_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

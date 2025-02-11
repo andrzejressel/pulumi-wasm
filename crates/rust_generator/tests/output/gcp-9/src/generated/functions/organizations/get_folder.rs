@@ -50,11 +50,11 @@ pub mod get_folder {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folder".into(),
-                    value: folder_binding.get_id(),
+                    value: &folder_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lookupOrganization".into(),
-                    value: lookup_organization_binding.get_id(),
+                    value: &lookup_organization_binding.drop_type(),
                 },
             ],
         };

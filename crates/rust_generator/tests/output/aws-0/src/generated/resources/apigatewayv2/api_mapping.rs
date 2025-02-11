@@ -80,19 +80,19 @@ pub mod api_mapping {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: api_id_binding.get_id(),
+                    value: &api_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiMappingKey".into(),
-                    value: api_mapping_key_binding.get_id(),
+                    value: &api_mapping_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stage".into(),
-                    value: stage_binding.get_id(),
+                    value: &stage_binding.drop_type(),
                 },
             ],
         };

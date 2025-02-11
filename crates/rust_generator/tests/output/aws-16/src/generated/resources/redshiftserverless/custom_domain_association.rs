@@ -91,15 +91,15 @@ pub mod custom_domain_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDomainCertificateArn".into(),
-                    value: custom_domain_certificate_arn_binding.get_id(),
+                    value: &custom_domain_certificate_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDomainName".into(),
-                    value: custom_domain_name_binding.get_id(),
+                    value: &custom_domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workgroupName".into(),
-                    value: workgroup_name_binding.get_id(),
+                    value: &workgroup_name_binding.drop_type(),
                 },
             ],
         };

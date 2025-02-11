@@ -218,67 +218,67 @@ pub mod analytics_workspace {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowResourceOnlyPermissions".into(),
-                    value: allow_resource_only_permissions_binding.get_id(),
+                    value: &allow_resource_only_permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cmkForQueryForced".into(),
-                    value: cmk_for_query_forced_binding.get_id(),
+                    value: &cmk_for_query_forced_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailyQuotaGb".into(),
-                    value: daily_quota_gb_binding.get_id(),
+                    value: &daily_quota_gb_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCollectionRuleId".into(),
-                    value: data_collection_rule_id_binding.get_id(),
+                    value: &data_collection_rule_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "immediateDataPurgeOn30DaysEnabled".into(),
-                    value: immediate_data_purge_on30_days_enabled_binding.get_id(),
+                    value: &immediate_data_purge_on30_days_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetIngestionEnabled".into(),
-                    value: internet_ingestion_enabled_binding.get_id(),
+                    value: &internet_ingestion_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internetQueryEnabled".into(),
-                    value: internet_query_enabled_binding.get_id(),
+                    value: &internet_query_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localAuthenticationDisabled".into(),
-                    value: local_authentication_disabled_binding.get_id(),
+                    value: &local_authentication_disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservationCapacityInGbPerDay".into(),
-                    value: reservation_capacity_in_gb_per_day_binding.get_id(),
+                    value: &reservation_capacity_in_gb_per_day_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionInDays".into(),
-                    value: retention_in_days_binding.get_id(),
+                    value: &retention_in_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: sku_binding.get_id(),
+                    value: &sku_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

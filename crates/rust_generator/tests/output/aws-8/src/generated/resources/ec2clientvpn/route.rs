@@ -111,19 +111,19 @@ pub mod route {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientVpnEndpointId".into(),
-                    value: client_vpn_endpoint_id_binding.get_id(),
+                    value: &client_vpn_endpoint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationCidrBlock".into(),
-                    value: destination_cidr_block_binding.get_id(),
+                    value: &destination_cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetVpcSubnetId".into(),
-                    value: target_vpc_subnet_id_binding.get_id(),
+                    value: &target_vpc_subnet_id_binding.drop_type(),
                 },
             ],
         };

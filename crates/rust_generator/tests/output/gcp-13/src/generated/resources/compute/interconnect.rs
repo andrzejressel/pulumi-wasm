@@ -322,63 +322,63 @@ pub mod interconnect {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminEnabled".into(),
-                    value: admin_enabled_binding.get_id(),
+                    value: &admin_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerName".into(),
-                    value: customer_name_binding.get_id(),
+                    value: &customer_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interconnectType".into(),
-                    value: interconnect_type_binding.get_id(),
+                    value: &interconnect_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkType".into(),
-                    value: link_type_binding.get_id(),
+                    value: &link_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "macsec".into(),
-                    value: macsec_binding.get_id(),
+                    value: &macsec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "macsecEnabled".into(),
-                    value: macsec_enabled_binding.get_id(),
+                    value: &macsec_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nocContactEmail".into(),
-                    value: noc_contact_email_binding.get_id(),
+                    value: &noc_contact_email_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteLocation".into(),
-                    value: remote_location_binding.get_id(),
+                    value: &remote_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestedFeatures".into(),
-                    value: requested_features_binding.get_id(),
+                    value: &requested_features_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestedLinkCount".into(),
-                    value: requested_link_count_binding.get_id(),
+                    value: &requested_link_count_binding.drop_type(),
                 },
             ],
         };

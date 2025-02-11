@@ -563,99 +563,99 @@ pub mod router_nat {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoNetworkTier".into(),
-                    value: auto_network_tier_binding.get_id(),
+                    value: &auto_network_tier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "drainNatIps".into(),
-                    value: drain_nat_ips_binding.get_id(),
+                    value: &drain_nat_ips_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableDynamicPortAllocation".into(),
-                    value: enable_dynamic_port_allocation_binding.get_id(),
+                    value: &enable_dynamic_port_allocation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableEndpointIndependentMapping".into(),
-                    value: enable_endpoint_independent_mapping_binding.get_id(),
+                    value: &enable_endpoint_independent_mapping_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointTypes".into(),
-                    value: endpoint_types_binding.get_id(),
+                    value: &endpoint_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "icmpIdleTimeoutSec".into(),
-                    value: icmp_idle_timeout_sec_binding.get_id(),
+                    value: &icmp_idle_timeout_sec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "initialNatIps".into(),
-                    value: initial_nat_ips_binding.get_id(),
+                    value: &initial_nat_ips_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logConfig".into(),
-                    value: log_config_binding.get_id(),
+                    value: &log_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxPortsPerVm".into(),
-                    value: max_ports_per_vm_binding.get_id(),
+                    value: &max_ports_per_vm_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minPortsPerVm".into(),
-                    value: min_ports_per_vm_binding.get_id(),
+                    value: &min_ports_per_vm_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "natIpAllocateOption".into(),
-                    value: nat_ip_allocate_option_binding.get_id(),
+                    value: &nat_ip_allocate_option_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "natIps".into(),
-                    value: nat_ips_binding.get_id(),
+                    value: &nat_ips_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "router".into(),
-                    value: router_binding.get_id(),
+                    value: &router_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: rules_binding.get_id(),
+                    value: &rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceSubnetworkIpRangesToNat".into(),
-                    value: source_subnetwork_ip_ranges_to_nat_binding.get_id(),
+                    value: &source_subnetwork_ip_ranges_to_nat_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetworks".into(),
-                    value: subnetworks_binding.get_id(),
+                    value: &subnetworks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tcpEstablishedIdleTimeoutSec".into(),
-                    value: tcp_established_idle_timeout_sec_binding.get_id(),
+                    value: &tcp_established_idle_timeout_sec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tcpTimeWaitTimeoutSec".into(),
-                    value: tcp_time_wait_timeout_sec_binding.get_id(),
+                    value: &tcp_time_wait_timeout_sec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tcpTransitoryIdleTimeoutSec".into(),
-                    value: tcp_transitory_idle_timeout_sec_binding.get_id(),
+                    value: &tcp_transitory_idle_timeout_sec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "udpIdleTimeoutSec".into(),
-                    value: udp_idle_timeout_sec_binding.get_id(),
+                    value: &udp_idle_timeout_sec_binding.drop_type(),
                 },
             ],
         };

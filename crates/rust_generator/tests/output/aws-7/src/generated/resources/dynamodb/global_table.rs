@@ -98,11 +98,11 @@ pub mod global_table {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicas".into(),
-                    value: replicas_binding.get_id(),
+                    value: &replicas_binding.drop_type(),
                 },
             ],
         };

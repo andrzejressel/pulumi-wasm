@@ -85,23 +85,23 @@ pub mod service_region {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredNumberOfDomainControllers".into(),
-                    value: desired_number_of_domain_controllers_binding.get_id(),
+                    value: &desired_number_of_domain_controllers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: directory_id_binding.get_id(),
+                    value: &directory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regionName".into(),
-                    value: region_name_binding.get_id(),
+                    value: &region_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSettings".into(),
-                    value: vpc_settings_binding.get_id(),
+                    value: &vpc_settings_binding.drop_type(),
                 },
             ],
         };

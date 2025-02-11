@@ -65,11 +65,11 @@ pub mod vpc_endpoint_route_table_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeTableId".into(),
-                    value: route_table_id_binding.get_id(),
+                    value: &route_table_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcEndpointId".into(),
-                    value: vpc_endpoint_id_binding.get_id(),
+                    value: &vpc_endpoint_id_binding.drop_type(),
                 },
             ],
         };

@@ -148,27 +148,27 @@ pub mod response_policy_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "behavior".into(),
-                    value: behavior_binding.get_id(),
+                    value: &behavior_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsName".into(),
-                    value: dns_name_binding.get_id(),
+                    value: &dns_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localData".into(),
-                    value: local_data_binding.get_id(),
+                    value: &local_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responsePolicy".into(),
-                    value: response_policy_binding.get_id(),
+                    value: &response_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleName".into(),
-                    value: rule_name_binding.get_id(),
+                    value: &rule_name_binding.drop_type(),
                 },
             ],
         };

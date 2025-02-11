@@ -135,23 +135,23 @@ pub mod protected_file_share {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupPolicyId".into(),
-                    value: backup_policy_id_binding.get_id(),
+                    value: &backup_policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recoveryVaultName".into(),
-                    value: recovery_vault_name_binding.get_id(),
+                    value: &recovery_vault_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceFileShareName".into(),
-                    value: source_file_share_name_binding.get_id(),
+                    value: &source_file_share_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceStorageAccountId".into(),
-                    value: source_storage_account_id_binding.get_id(),
+                    value: &source_storage_account_id_binding.drop_type(),
                 },
             ],
         };

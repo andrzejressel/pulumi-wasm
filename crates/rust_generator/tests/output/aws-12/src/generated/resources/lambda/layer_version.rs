@@ -155,47 +155,47 @@ pub mod layer_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "code".into(),
-                    value: code_binding.get_id(),
+                    value: &code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compatibleArchitectures".into(),
-                    value: compatible_architectures_binding.get_id(),
+                    value: &compatible_architectures_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "compatibleRuntimes".into(),
-                    value: compatible_runtimes_binding.get_id(),
+                    value: &compatible_runtimes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "layerName".into(),
-                    value: layer_name_binding.get_id(),
+                    value: &layer_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "licenseInfo".into(),
-                    value: license_info_binding.get_id(),
+                    value: &license_info_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Bucket".into(),
-                    value: s3_bucket_binding.get_id(),
+                    value: &s3_bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Key".into(),
-                    value: s3_key_binding.get_id(),
+                    value: &s3_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3ObjectVersion".into(),
-                    value: s3_object_version_binding.get_id(),
+                    value: &s3_object_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: skip_destroy_binding.get_id(),
+                    value: &skip_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceCodeHash".into(),
-                    value: source_code_hash_binding.get_id(),
+                    value: &source_code_hash_binding.drop_type(),
                 },
             ],
         };

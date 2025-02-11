@@ -51,15 +51,15 @@ pub mod get_sql_role_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountName".into(),
-                    value: account_name_binding.get_id(),
+                    value: &account_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleDefinitionId".into(),
-                    value: role_definition_id_binding.get_id(),
+                    value: &role_definition_id_binding.drop_type(),
                 },
             ],
         };

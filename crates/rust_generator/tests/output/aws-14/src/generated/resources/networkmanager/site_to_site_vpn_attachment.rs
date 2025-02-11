@@ -103,15 +103,15 @@ pub mod site_to_site_vpn_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreNetworkId".into(),
-                    value: core_network_id_binding.get_id(),
+                    value: &core_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpnConnectionArn".into(),
-                    value: vpn_connection_arn_binding.get_id(),
+                    value: &vpn_connection_arn_binding.drop_type(),
                 },
             ],
         };

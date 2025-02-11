@@ -347,31 +347,31 @@ pub mod budget {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allUpdatesRule".into(),
-                    value: all_updates_rule_binding.get_id(),
+                    value: &all_updates_rule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amount".into(),
-                    value: amount_binding.get_id(),
+                    value: &amount_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAccount".into(),
-                    value: billing_account_binding.get_id(),
+                    value: &billing_account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "budgetFilter".into(),
-                    value: budget_filter_binding.get_id(),
+                    value: &budget_filter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownershipScope".into(),
-                    value: ownership_scope_binding.get_id(),
+                    value: &ownership_scope_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thresholdRules".into(),
-                    value: threshold_rules_binding.get_id(),
+                    value: &threshold_rules_binding.drop_type(),
                 },
             ],
         };

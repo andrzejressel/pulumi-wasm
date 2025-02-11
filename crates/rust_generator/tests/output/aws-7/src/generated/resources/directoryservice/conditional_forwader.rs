@@ -71,15 +71,15 @@ pub mod conditional_forwader {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "directoryId".into(),
-                    value: directory_id_binding.get_id(),
+                    value: &directory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsIps".into(),
-                    value: dns_ips_binding.get_id(),
+                    value: &dns_ips_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteDomainName".into(),
-                    value: remote_domain_name_binding.get_id(),
+                    value: &remote_domain_name_binding.drop_type(),
                 },
             ],
         };

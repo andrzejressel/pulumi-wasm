@@ -38,7 +38,7 @@ pub mod get_adbs_national_character_sets {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
             ],
         };

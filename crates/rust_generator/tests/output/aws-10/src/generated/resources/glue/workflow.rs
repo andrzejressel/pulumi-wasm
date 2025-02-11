@@ -113,23 +113,23 @@ pub mod workflow {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRunProperties".into(),
-                    value: default_run_properties_binding.get_id(),
+                    value: &default_run_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxConcurrentRuns".into(),
-                    value: max_concurrent_runs_binding.get_id(),
+                    value: &max_concurrent_runs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

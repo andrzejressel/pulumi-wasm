@@ -29,7 +29,7 @@ pub mod pulumi_terraform_bridge_2801 {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

@@ -76,7 +76,7 @@ pub mod delegation_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "referenceName".into(),
-                    value: reference_name_binding.get_id(),
+                    value: &reference_name_binding.drop_type(),
                 },
             ],
         };

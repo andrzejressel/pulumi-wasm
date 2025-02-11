@@ -109,19 +109,19 @@ pub mod ssh_public_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expirationTimeUsec".into(),
-                    value: expiration_time_usec_binding.get_id(),
+                    value: &expiration_time_usec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "key".into(),
-                    value: key_binding.get_id(),
+                    value: &key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "user".into(),
-                    value: user_binding.get_id(),
+                    value: &user_binding.drop_type(),
                 },
             ],
         };

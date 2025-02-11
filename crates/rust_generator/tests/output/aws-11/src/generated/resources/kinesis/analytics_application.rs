@@ -314,39 +314,39 @@ pub mod analytics_application {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchLoggingOptions".into(),
-                    value: cloudwatch_logging_options_binding.get_id(),
+                    value: &cloudwatch_logging_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "code".into(),
-                    value: code_binding.get_id(),
+                    value: &code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputs".into(),
-                    value: inputs_binding.get_id(),
+                    value: &inputs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputs".into(),
-                    value: outputs_binding.get_id(),
+                    value: &outputs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "referenceDataSources".into(),
-                    value: reference_data_sources_binding.get_id(),
+                    value: &reference_data_sources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startApplication".into(),
-                    value: start_application_binding.get_id(),
+                    value: &start_application_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

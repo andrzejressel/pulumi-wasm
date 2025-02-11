@@ -44,11 +44,11 @@ pub mod get_db_servers {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudExadataInfrastructureName".into(),
-                    value: cloud_exadata_infrastructure_name_binding.get_id(),
+                    value: &cloud_exadata_infrastructure_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

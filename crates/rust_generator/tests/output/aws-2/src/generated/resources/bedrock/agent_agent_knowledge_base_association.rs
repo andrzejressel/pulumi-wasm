@@ -103,27 +103,27 @@ pub mod agent_agent_knowledge_base_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentId".into(),
-                    value: agent_id_binding.get_id(),
+                    value: &agent_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentVersion".into(),
-                    value: agent_version_binding.get_id(),
+                    value: &agent_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "knowledgeBaseId".into(),
-                    value: knowledge_base_id_binding.get_id(),
+                    value: &knowledge_base_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "knowledgeBaseState".into(),
-                    value: knowledge_base_state_binding.get_id(),
+                    value: &knowledge_base_state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

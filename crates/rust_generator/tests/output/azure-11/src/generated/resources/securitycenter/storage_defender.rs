@@ -133,27 +133,28 @@ pub mod storage_defender {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "malwareScanningOnUploadCapGbPerMonth".into(),
-                    value: malware_scanning_on_upload_cap_gb_per_month_binding.get_id(),
+                    value: &malware_scanning_on_upload_cap_gb_per_month_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "malwareScanningOnUploadEnabled".into(),
-                    value: malware_scanning_on_upload_enabled_binding.get_id(),
+                    value: &malware_scanning_on_upload_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrideSubscriptionSettingsEnabled".into(),
-                    value: override_subscription_settings_enabled_binding.get_id(),
+                    value: &override_subscription_settings_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scanResultsEventGridTopicId".into(),
-                    value: scan_results_event_grid_topic_id_binding.get_id(),
+                    value: &scan_results_event_grid_topic_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sensitiveDataDiscoveryEnabled".into(),
-                    value: sensitive_data_discovery_enabled_binding.get_id(),
+                    value: &sensitive_data_discovery_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
             ],
         };

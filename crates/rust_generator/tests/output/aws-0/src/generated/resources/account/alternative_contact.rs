@@ -102,27 +102,27 @@ pub mod alternative_contact {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alternateContactType".into(),
-                    value: alternate_contact_type_binding.get_id(),
+                    value: &alternate_contact_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddress".into(),
-                    value: email_address_binding.get_id(),
+                    value: &email_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "phoneNumber".into(),
-                    value: phone_number_binding.get_id(),
+                    value: &phone_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "title".into(),
-                    value: title_binding.get_id(),
+                    value: &title_binding.drop_type(),
                 },
             ],
         };

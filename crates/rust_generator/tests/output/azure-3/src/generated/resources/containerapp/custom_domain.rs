@@ -202,19 +202,19 @@ pub mod custom_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateBindingType".into(),
-                    value: certificate_binding_type_binding.get_id(),
+                    value: &certificate_binding_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerAppEnvironmentCertificateId".into(),
-                    value: container_app_environment_certificate_id_binding.get_id(),
+                    value: &container_app_environment_certificate_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerAppId".into(),
-                    value: container_app_id_binding.get_id(),
+                    value: &container_app_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

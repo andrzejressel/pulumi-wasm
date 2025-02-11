@@ -85,11 +85,11 @@ pub mod lb_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceName".into(),
-                    value: instance_name_binding.get_id(),
+                    value: &instance_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lbName".into(),
-                    value: lb_name_binding.get_id(),
+                    value: &lb_name_binding.drop_type(),
                 },
             ],
         };

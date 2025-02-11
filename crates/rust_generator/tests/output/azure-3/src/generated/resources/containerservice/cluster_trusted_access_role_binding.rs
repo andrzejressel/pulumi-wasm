@@ -162,19 +162,19 @@ pub mod cluster_trusted_access_role_binding {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesClusterId".into(),
-                    value: kubernetes_cluster_id_binding.get_id(),
+                    value: &kubernetes_cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roles".into(),
-                    value: roles_binding.get_id(),
+                    value: &roles_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceResourceId".into(),
-                    value: source_resource_id_binding.get_id(),
+                    value: &source_resource_id_binding.drop_type(),
                 },
             ],
         };

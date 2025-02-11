@@ -241,35 +241,35 @@ pub mod certificate_authority {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthorityConfiguration".into(),
-                    value: certificate_authority_configuration_binding.get_id(),
+                    value: &certificate_authority_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyStorageSecurityStandard".into(),
-                    value: key_storage_security_standard_binding.get_id(),
+                    value: &key_storage_security_standard_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permanentDeletionTimeInDays".into(),
-                    value: permanent_deletion_time_in_days_binding.get_id(),
+                    value: &permanent_deletion_time_in_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "revocationConfiguration".into(),
-                    value: revocation_configuration_binding.get_id(),
+                    value: &revocation_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usageMode".into(),
-                    value: usage_mode_binding.get_id(),
+                    value: &usage_mode_binding.drop_type(),
                 },
             ],
         };

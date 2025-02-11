@@ -62,11 +62,11 @@ pub mod get_policy_assignment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopeId".into(),
-                    value: scope_id_binding.get_id(),
+                    value: &scope_id_binding.drop_type(),
                 },
             ],
         };

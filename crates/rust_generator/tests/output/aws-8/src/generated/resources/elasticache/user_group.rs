@@ -103,19 +103,19 @@ pub mod user_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: engine_binding.get_id(),
+                    value: &engine_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userGroupId".into(),
-                    value: user_group_id_binding.get_id(),
+                    value: &user_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userIds".into(),
-                    value: user_ids_binding.get_id(),
+                    value: &user_ids_binding.drop_type(),
                 },
             ],
         };

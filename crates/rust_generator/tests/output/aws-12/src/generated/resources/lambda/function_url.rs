@@ -112,23 +112,23 @@ pub mod function_url {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationType".into(),
-                    value: authorization_type_binding.get_id(),
+                    value: &authorization_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cors".into(),
-                    value: cors_binding.get_id(),
+                    value: &cors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "functionName".into(),
-                    value: function_name_binding.get_id(),
+                    value: &function_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "invokeMode".into(),
-                    value: invoke_mode_binding.get_id(),
+                    value: &invoke_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "qualifier".into(),
-                    value: qualifier_binding.get_id(),
+                    value: &qualifier_binding.drop_type(),
                 },
             ],
         };

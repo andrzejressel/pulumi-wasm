@@ -60,23 +60,23 @@ pub mod zero_trust_risk_score_integration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "active".into(),
-                    value: active_binding.get_id(),
+                    value: &active_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationType".into(),
-                    value: integration_type_binding.get_id(),
+                    value: &integration_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "referenceId".into(),
-                    value: reference_id_binding.get_id(),
+                    value: &reference_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantUrl".into(),
-                    value: tenant_url_binding.get_id(),
+                    value: &tenant_url_binding.drop_type(),
                 },
             ],
         };

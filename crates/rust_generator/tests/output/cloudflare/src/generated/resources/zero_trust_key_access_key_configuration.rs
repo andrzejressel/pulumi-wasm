@@ -43,11 +43,11 @@ pub mod zero_trust_key_access_key_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyRotationIntervalDays".into(),
-                    value: key_rotation_interval_days_binding.get_id(),
+                    value: &key_rotation_interval_days_binding.drop_type(),
                 },
             ],
         };

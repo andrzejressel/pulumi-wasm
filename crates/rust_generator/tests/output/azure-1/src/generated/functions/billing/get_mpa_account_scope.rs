@@ -36,11 +36,11 @@ pub mod get_mpa_account_scope {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAccountName".into(),
-                    value: billing_account_name_binding.get_id(),
+                    value: &billing_account_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerName".into(),
-                    value: customer_name_binding.get_id(),
+                    value: &customer_name_binding.drop_type(),
                 },
             ],
         };

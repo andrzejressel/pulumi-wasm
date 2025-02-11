@@ -38,7 +38,7 @@ pub mod get_delegated_administrators {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "servicePrincipal".into(),
-                    value: service_principal_binding.get_id(),
+                    value: &service_principal_binding.drop_type(),
                 },
             ],
         };

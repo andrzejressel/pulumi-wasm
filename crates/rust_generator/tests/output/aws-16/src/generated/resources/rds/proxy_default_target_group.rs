@@ -98,11 +98,11 @@ pub mod proxy_default_target_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionPoolConfig".into(),
-                    value: connection_pool_config_binding.get_id(),
+                    value: &connection_pool_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbProxyName".into(),
-                    value: db_proxy_name_binding.get_id(),
+                    value: &db_proxy_name_binding.drop_type(),
                 },
             ],
         };

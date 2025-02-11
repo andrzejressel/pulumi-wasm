@@ -70,15 +70,15 @@ pub mod scaling_plan {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationSource".into(),
-                    value: application_source_binding.get_id(),
+                    value: &application_source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scalingInstructions".into(),
-                    value: scaling_instructions_binding.get_id(),
+                    value: &scaling_instructions_binding.drop_type(),
                 },
             ],
         };

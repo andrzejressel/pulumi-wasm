@@ -74,15 +74,15 @@ pub mod account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoEnableControls".into(),
-                    value: auto_enable_controls_binding.get_id(),
+                    value: &auto_enable_controls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controlFindingGenerator".into(),
-                    value: control_finding_generator_binding.get_id(),
+                    value: &control_finding_generator_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableDefaultStandards".into(),
-                    value: enable_default_standards_binding.get_id(),
+                    value: &enable_default_standards_binding.drop_type(),
                 },
             ],
         };

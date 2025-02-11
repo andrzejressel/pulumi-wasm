@@ -245,55 +245,55 @@ pub mod channel {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cdiInputSpecification".into(),
-                    value: cdi_input_specification_binding.get_id(),
+                    value: &cdi_input_specification_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "channelClass".into(),
-                    value: channel_class_binding.get_id(),
+                    value: &channel_class_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinations".into(),
-                    value: destinations_binding.get_id(),
+                    value: &destinations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encoderSettings".into(),
-                    value: encoder_settings_binding.get_id(),
+                    value: &encoder_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputAttachments".into(),
-                    value: input_attachments_binding.get_id(),
+                    value: &input_attachments_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputSpecification".into(),
-                    value: input_specification_binding.get_id(),
+                    value: &input_specification_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logLevel".into(),
-                    value: log_level_binding.get_id(),
+                    value: &log_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenance".into(),
-                    value: maintenance_binding.get_id(),
+                    value: &maintenance_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startChannel".into(),
-                    value: start_channel_binding.get_id(),
+                    value: &start_channel_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpc".into(),
-                    value: vpc_binding.get_id(),
+                    value: &vpc_binding.drop_type(),
                 },
             ],
         };

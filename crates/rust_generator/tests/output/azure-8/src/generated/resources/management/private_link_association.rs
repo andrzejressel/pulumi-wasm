@@ -149,19 +149,19 @@ pub mod private_link_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managementGroupId".into(),
-                    value: management_group_id_binding.get_id(),
+                    value: &management_group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: public_network_access_enabled_binding.get_id(),
+                    value: &public_network_access_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceManagementPrivateLinkId".into(),
-                    value: resource_management_private_link_id_binding.get_id(),
+                    value: &resource_management_private_link_id_binding.drop_type(),
                 },
             ],
         };

@@ -120,35 +120,35 @@ pub mod output_powerbi {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: dataset_binding.get_id(),
+                    value: &dataset_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupId".into(),
-                    value: group_id_binding.get_id(),
+                    value: &group_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupName".into(),
-                    value: group_name_binding.get_id(),
+                    value: &group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamAnalyticsJobId".into(),
-                    value: stream_analytics_job_id_binding.get_id(),
+                    value: &stream_analytics_job_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "table".into(),
-                    value: table_binding.get_id(),
+                    value: &table_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenUserDisplayName".into(),
-                    value: token_user_display_name_binding.get_id(),
+                    value: &token_user_display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tokenUserPrincipalName".into(),
-                    value: token_user_principal_name_binding.get_id(),
+                    value: &token_user_principal_name_binding.drop_type(),
                 },
             ],
         };

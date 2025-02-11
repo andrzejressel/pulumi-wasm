@@ -92,11 +92,11 @@ pub mod nat_gateway_public_ip_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "natGatewayId".into(),
-                    value: nat_gateway_id_binding.get_id(),
+                    value: &nat_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicIpAddressId".into(),
-                    value: public_ip_address_id_binding.get_id(),
+                    value: &public_ip_address_id_binding.drop_type(),
                 },
             ],
         };

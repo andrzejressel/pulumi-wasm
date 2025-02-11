@@ -205,23 +205,23 @@ pub mod image {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "build".into(),
-                    value: build_binding.get_id(),
+                    value: &build_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "buildOnPreview".into(),
-                    value: build_on_preview_binding.get_id(),
+                    value: &build_on_preview_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageName".into(),
-                    value: image_name_binding.get_id(),
+                    value: &image_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registry".into(),
-                    value: registry_binding.get_id(),
+                    value: &registry_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipPush".into(),
-                    value: skip_push_binding.get_id(),
+                    value: &skip_push_binding.drop_type(),
                 },
             ],
         };

@@ -199,71 +199,71 @@ pub mod application {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appSources".into(),
-                    value: app_sources_binding.get_id(),
+                    value: &app_sources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoBundleOnDeploy".into(),
-                    value: auto_bundle_on_deploy_binding.get_id(),
+                    value: &auto_bundle_on_deploy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsFlowRubySettings".into(),
-                    value: aws_flow_ruby_settings_binding.get_id(),
+                    value: &aws_flow_ruby_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSourceArn".into(),
-                    value: data_source_arn_binding.get_id(),
+                    value: &data_source_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSourceDatabaseName".into(),
-                    value: data_source_database_name_binding.get_id(),
+                    value: &data_source_database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataSourceType".into(),
-                    value: data_source_type_binding.get_id(),
+                    value: &data_source_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentRoot".into(),
-                    value: document_root_binding.get_id(),
+                    value: &document_root_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domains".into(),
-                    value: domains_binding.get_id(),
+                    value: &domains_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableSsl".into(),
-                    value: enable_ssl_binding.get_id(),
+                    value: &enable_ssl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environments".into(),
-                    value: environments_binding.get_id(),
+                    value: &environments_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "railsEnv".into(),
-                    value: rails_env_binding.get_id(),
+                    value: &rails_env_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shortName".into(),
-                    value: short_name_binding.get_id(),
+                    value: &short_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sslConfigurations".into(),
-                    value: ssl_configurations_binding.get_id(),
+                    value: &ssl_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackId".into(),
-                    value: stack_id_binding.get_id(),
+                    value: &stack_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

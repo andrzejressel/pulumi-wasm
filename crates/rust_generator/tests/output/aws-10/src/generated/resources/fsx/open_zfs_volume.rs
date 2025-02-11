@@ -171,59 +171,59 @@ pub mod open_zfs_volume {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "copyTagsToSnapshots".into(),
-                    value: copy_tags_to_snapshots_binding.get_id(),
+                    value: &copy_tags_to_snapshots_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCompressionType".into(),
-                    value: data_compression_type_binding.get_id(),
+                    value: &data_compression_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteVolumeOptions".into(),
-                    value: delete_volume_options_binding.get_id(),
+                    value: &delete_volume_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nfsExports".into(),
-                    value: nfs_exports_binding.get_id(),
+                    value: &nfs_exports_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "originSnapshot".into(),
-                    value: origin_snapshot_binding.get_id(),
+                    value: &origin_snapshot_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentVolumeId".into(),
-                    value: parent_volume_id_binding.get_id(),
+                    value: &parent_volume_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readOnly".into(),
-                    value: read_only_binding.get_id(),
+                    value: &read_only_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recordSizeKib".into(),
-                    value: record_size_kib_binding.get_id(),
+                    value: &record_size_kib_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageCapacityQuotaGib".into(),
-                    value: storage_capacity_quota_gib_binding.get_id(),
+                    value: &storage_capacity_quota_gib_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageCapacityReservationGib".into(),
-                    value: storage_capacity_reservation_gib_binding.get_id(),
+                    value: &storage_capacity_reservation_gib_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userAndGroupQuotas".into(),
-                    value: user_and_group_quotas_binding.get_id(),
+                    value: &user_and_group_quotas_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeType".into(),
-                    value: volume_type_binding.get_id(),
+                    value: &volume_type_binding.drop_type(),
                 },
             ],
         };

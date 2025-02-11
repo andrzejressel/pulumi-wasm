@@ -83,23 +83,23 @@ pub mod base_path_mapping {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basePath".into(),
-                    value: base_path_binding.get_id(),
+                    value: &base_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainNameId".into(),
-                    value: domain_name_id_binding.get_id(),
+                    value: &domain_name_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApi".into(),
-                    value: rest_api_binding.get_id(),
+                    value: &rest_api_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stageName".into(),
-                    value: stage_name_binding.get_id(),
+                    value: &stage_name_binding.drop_type(),
                 },
             ],
         };

@@ -86,11 +86,11 @@ pub mod get_host_pool_registration_info {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expirationDate".into(),
-                    value: expiration_date_binding.get_id(),
+                    value: &expiration_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostpoolId".into(),
-                    value: hostpool_id_binding.get_id(),
+                    value: &hostpool_id_binding.drop_type(),
                 },
             ],
         };

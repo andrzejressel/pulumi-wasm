@@ -101,19 +101,19 @@ pub mod package {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageDescription".into(),
-                    value: package_description_binding.get_id(),
+                    value: &package_description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageName".into(),
-                    value: package_name_binding.get_id(),
+                    value: &package_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageSource".into(),
-                    value: package_source_binding.get_id(),
+                    value: &package_source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "packageType".into(),
-                    value: package_type_binding.get_id(),
+                    value: &package_type_binding.drop_type(),
                 },
             ],
         };

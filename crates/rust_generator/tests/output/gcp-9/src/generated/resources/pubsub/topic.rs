@@ -357,35 +357,35 @@ pub mod topic {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingestionDataSourceSettings".into(),
-                    value: ingestion_data_source_settings_binding.get_id(),
+                    value: &ingestion_data_source_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyName".into(),
-                    value: kms_key_name_binding.get_id(),
+                    value: &kms_key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messageRetentionDuration".into(),
-                    value: message_retention_duration_binding.get_id(),
+                    value: &message_retention_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messageStoragePolicy".into(),
-                    value: message_storage_policy_binding.get_id(),
+                    value: &message_storage_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaSettings".into(),
-                    value: schema_settings_binding.get_id(),
+                    value: &schema_settings_binding.drop_type(),
                 },
             ],
         };

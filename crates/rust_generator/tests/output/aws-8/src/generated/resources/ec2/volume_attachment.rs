@@ -122,27 +122,27 @@ pub mod volume_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceName".into(),
-                    value: device_name_binding.get_id(),
+                    value: &device_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDetach".into(),
-                    value: force_detach_binding.get_id(),
+                    value: &force_detach_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: instance_id_binding.get_id(),
+                    value: &instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDestroy".into(),
-                    value: skip_destroy_binding.get_id(),
+                    value: &skip_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stopInstanceBeforeDetaching".into(),
-                    value: stop_instance_before_detaching_binding.get_id(),
+                    value: &stop_instance_before_detaching_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeId".into(),
-                    value: volume_id_binding.get_id(),
+                    value: &volume_id_binding.drop_type(),
                 },
             ],
         };

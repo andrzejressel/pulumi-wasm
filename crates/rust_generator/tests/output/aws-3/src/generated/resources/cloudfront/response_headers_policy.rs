@@ -243,35 +243,35 @@ pub mod response_headers_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: comment_binding.get_id(),
+                    value: &comment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "corsConfig".into(),
-                    value: cors_config_binding.get_id(),
+                    value: &cors_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customHeadersConfig".into(),
-                    value: custom_headers_config_binding.get_id(),
+                    value: &custom_headers_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "etag".into(),
-                    value: etag_binding.get_id(),
+                    value: &etag_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "removeHeadersConfig".into(),
-                    value: remove_headers_config_binding.get_id(),
+                    value: &remove_headers_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityHeadersConfig".into(),
-                    value: security_headers_config_binding.get_id(),
+                    value: &security_headers_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverTimingHeadersConfig".into(),
-                    value: server_timing_headers_config_binding.get_id(),
+                    value: &server_timing_headers_config_binding.drop_type(),
                 },
             ],
         };

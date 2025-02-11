@@ -176,31 +176,31 @@ pub mod event_destination {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchDestinations".into(),
-                    value: cloudwatch_destinations_binding.get_id(),
+                    value: &cloudwatch_destinations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationSetName".into(),
-                    value: configuration_set_name_binding.get_id(),
+                    value: &configuration_set_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kinesisDestination".into(),
-                    value: kinesis_destination_binding.get_id(),
+                    value: &kinesis_destination_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "matchingTypes".into(),
-                    value: matching_types_binding.get_id(),
+                    value: &matching_types_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snsDestination".into(),
-                    value: sns_destination_binding.get_id(),
+                    value: &sns_destination_binding.drop_type(),
                 },
             ],
         };

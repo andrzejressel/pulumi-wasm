@@ -75,31 +75,31 @@ pub mod get_policy_document {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrideJson".into(),
-                    value: override_json_binding.get_id(),
+                    value: &override_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overridePolicyDocuments".into(),
-                    value: override_policy_documents_binding.get_id(),
+                    value: &override_policy_documents_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyId".into(),
-                    value: policy_id_binding.get_id(),
+                    value: &policy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceJson".into(),
-                    value: source_json_binding.get_id(),
+                    value: &source_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourcePolicyDocuments".into(),
-                    value: source_policy_documents_binding.get_id(),
+                    value: &source_policy_documents_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "statements".into(),
-                    value: statements_binding.get_id(),
+                    value: &statements_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

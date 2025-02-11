@@ -94,19 +94,19 @@ pub mod studio_lifecycle_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "studioLifecycleConfigAppType".into(),
-                    value: studio_lifecycle_config_app_type_binding.get_id(),
+                    value: &studio_lifecycle_config_app_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "studioLifecycleConfigContent".into(),
-                    value: studio_lifecycle_config_content_binding.get_id(),
+                    value: &studio_lifecycle_config_content_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "studioLifecycleConfigName".into(),
-                    value: studio_lifecycle_config_name_binding.get_id(),
+                    value: &studio_lifecycle_config_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

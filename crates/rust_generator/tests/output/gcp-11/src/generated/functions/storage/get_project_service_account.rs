@@ -43,11 +43,11 @@ pub mod get_project_service_account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userProject".into(),
-                    value: user_project_binding.get_id(),
+                    value: &user_project_binding.drop_type(),
                 },
             ],
         };

@@ -132,39 +132,39 @@ pub mod account_password_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowUsersToChangePassword".into(),
-                    value: allow_users_to_change_password_binding.get_id(),
+                    value: &allow_users_to_change_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hardExpiry".into(),
-                    value: hard_expiry_binding.get_id(),
+                    value: &hard_expiry_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxPasswordAge".into(),
-                    value: max_password_age_binding.get_id(),
+                    value: &max_password_age_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumPasswordLength".into(),
-                    value: minimum_password_length_binding.get_id(),
+                    value: &minimum_password_length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "passwordReusePrevention".into(),
-                    value: password_reuse_prevention_binding.get_id(),
+                    value: &password_reuse_prevention_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireLowercaseCharacters".into(),
-                    value: require_lowercase_characters_binding.get_id(),
+                    value: &require_lowercase_characters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireNumbers".into(),
-                    value: require_numbers_binding.get_id(),
+                    value: &require_numbers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireSymbols".into(),
-                    value: require_symbols_binding.get_id(),
+                    value: &require_symbols_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requireUppercaseCharacters".into(),
-                    value: require_uppercase_characters_binding.get_id(),
+                    value: &require_uppercase_characters_binding.drop_type(),
                 },
             ],
         };

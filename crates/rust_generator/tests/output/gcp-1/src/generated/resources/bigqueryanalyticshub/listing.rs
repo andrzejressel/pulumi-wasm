@@ -341,63 +341,63 @@ pub mod listing {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bigqueryDataset".into(),
-                    value: bigquery_dataset_binding.get_id(),
+                    value: &bigquery_dataset_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "categories".into(),
-                    value: categories_binding.get_id(),
+                    value: &categories_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataExchangeId".into(),
-                    value: data_exchange_id_binding.get_id(),
+                    value: &data_exchange_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataProvider".into(),
-                    value: data_provider_binding.get_id(),
+                    value: &data_provider_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentation".into(),
-                    value: documentation_binding.get_id(),
+                    value: &documentation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "icon".into(),
-                    value: icon_binding.get_id(),
+                    value: &icon_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "listingId".into(),
-                    value: listing_id_binding.get_id(),
+                    value: &listing_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "primaryContact".into(),
-                    value: primary_contact_binding.get_id(),
+                    value: &primary_contact_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publisher".into(),
-                    value: publisher_binding.get_id(),
+                    value: &publisher_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestAccess".into(),
-                    value: request_access_binding.get_id(),
+                    value: &request_access_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restrictedExportConfig".into(),
-                    value: restricted_export_config_binding.get_id(),
+                    value: &restricted_export_config_binding.drop_type(),
                 },
             ],
         };

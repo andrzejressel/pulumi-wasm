@@ -121,11 +121,11 @@ pub mod default_patch_baseline {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baselineId".into(),
-                    value: baseline_id_binding.get_id(),
+                    value: &baseline_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "operatingSystem".into(),
-                    value: operating_system_binding.get_id(),
+                    value: &operating_system_binding.drop_type(),
                 },
             ],
         };

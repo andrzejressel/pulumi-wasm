@@ -69,11 +69,11 @@ pub mod budget_resource_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "budgetName".into(),
-                    value: budget_name_binding.get_id(),
+                    value: &budget_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: resource_id_binding.get_id(),
+                    value: &resource_id_binding.drop_type(),
                 },
             ],
         };

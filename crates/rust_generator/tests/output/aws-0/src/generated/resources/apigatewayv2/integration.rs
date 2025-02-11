@@ -284,75 +284,75 @@ pub mod integration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiId".into(),
-                    value: api_id_binding.get_id(),
+                    value: &api_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionId".into(),
-                    value: connection_id_binding.get_id(),
+                    value: &connection_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectionType".into(),
-                    value: connection_type_binding.get_id(),
+                    value: &connection_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentHandlingStrategy".into(),
-                    value: content_handling_strategy_binding.get_id(),
+                    value: &content_handling_strategy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "credentialsArn".into(),
-                    value: credentials_arn_binding.get_id(),
+                    value: &credentials_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationMethod".into(),
-                    value: integration_method_binding.get_id(),
+                    value: &integration_method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationSubtype".into(),
-                    value: integration_subtype_binding.get_id(),
+                    value: &integration_subtype_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationType".into(),
-                    value: integration_type_binding.get_id(),
+                    value: &integration_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationUri".into(),
-                    value: integration_uri_binding.get_id(),
+                    value: &integration_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "passthroughBehavior".into(),
-                    value: passthrough_behavior_binding.get_id(),
+                    value: &passthrough_behavior_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "payloadFormatVersion".into(),
-                    value: payload_format_version_binding.get_id(),
+                    value: &payload_format_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestParameters".into(),
-                    value: request_parameters_binding.get_id(),
+                    value: &request_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestTemplates".into(),
-                    value: request_templates_binding.get_id(),
+                    value: &request_templates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "responseParameters".into(),
-                    value: response_parameters_binding.get_id(),
+                    value: &response_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateSelectionExpression".into(),
-                    value: template_selection_expression_binding.get_id(),
+                    value: &template_selection_expression_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeoutMilliseconds".into(),
-                    value: timeout_milliseconds_binding.get_id(),
+                    value: &timeout_milliseconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tlsConfig".into(),
-                    value: tls_config_binding.get_id(),
+                    value: &tls_config_binding.drop_type(),
                 },
             ],
         };

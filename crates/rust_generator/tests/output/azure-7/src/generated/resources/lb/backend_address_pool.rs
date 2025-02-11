@@ -132,23 +132,23 @@ pub mod backend_address_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadbalancerId".into(),
-                    value: loadbalancer_id_binding.get_id(),
+                    value: &loadbalancer_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "synchronousMode".into(),
-                    value: synchronous_mode_binding.get_id(),
+                    value: &synchronous_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tunnelInterfaces".into(),
-                    value: tunnel_interfaces_binding.get_id(),
+                    value: &tunnel_interfaces_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkId".into(),
-                    value: virtual_network_id_binding.get_id(),
+                    value: &virtual_network_id_binding.drop_type(),
                 },
             ],
         };

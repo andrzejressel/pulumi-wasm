@@ -298,47 +298,47 @@ pub mod addon {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addonName".into(),
-                    value: addon_name_binding.get_id(),
+                    value: &addon_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "addonVersion".into(),
-                    value: addon_version_binding.get_id(),
+                    value: &addon_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterName".into(),
-                    value: cluster_name_binding.get_id(),
+                    value: &cluster_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationValues".into(),
-                    value: configuration_values_binding.get_id(),
+                    value: &configuration_values_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "podIdentityAssociations".into(),
-                    value: pod_identity_associations_binding.get_id(),
+                    value: &pod_identity_associations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preserve".into(),
-                    value: preserve_binding.get_id(),
+                    value: &preserve_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolveConflicts".into(),
-                    value: resolve_conflicts_binding.get_id(),
+                    value: &resolve_conflicts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolveConflictsOnCreate".into(),
-                    value: resolve_conflicts_on_create_binding.get_id(),
+                    value: &resolve_conflicts_on_create_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolveConflictsOnUpdate".into(),
-                    value: resolve_conflicts_on_update_binding.get_id(),
+                    value: &resolve_conflicts_on_update_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceAccountRoleArn".into(),
-                    value: service_account_role_arn_binding.get_id(),
+                    value: &service_account_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

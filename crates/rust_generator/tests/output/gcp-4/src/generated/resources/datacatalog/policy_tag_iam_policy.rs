@@ -225,11 +225,11 @@ pub mod policy_tag_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyData".into(),
-                    value: policy_data_binding.get_id(),
+                    value: &policy_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyTag".into(),
-                    value: policy_tag_binding.get_id(),
+                    value: &policy_tag_binding.drop_type(),
                 },
             ],
         };

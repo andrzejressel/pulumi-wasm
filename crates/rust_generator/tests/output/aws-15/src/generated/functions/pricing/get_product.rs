@@ -42,11 +42,11 @@ pub mod get_product {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceCode".into(),
-                    value: service_code_binding.get_id(),
+                    value: &service_code_binding.drop_type(),
                 },
             ],
         };

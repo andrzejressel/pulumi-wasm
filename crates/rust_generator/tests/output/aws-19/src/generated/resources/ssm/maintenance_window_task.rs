@@ -238,51 +238,51 @@ pub mod maintenance_window_task {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cutoffBehavior".into(),
-                    value: cutoff_behavior_binding.get_id(),
+                    value: &cutoff_behavior_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxConcurrency".into(),
-                    value: max_concurrency_binding.get_id(),
+                    value: &max_concurrency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxErrors".into(),
-                    value: max_errors_binding.get_id(),
+                    value: &max_errors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceRoleArn".into(),
-                    value: service_role_arn_binding.get_id(),
+                    value: &service_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targets".into(),
-                    value: targets_binding.get_id(),
+                    value: &targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskArn".into(),
-                    value: task_arn_binding.get_id(),
+                    value: &task_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskInvocationParameters".into(),
-                    value: task_invocation_parameters_binding.get_id(),
+                    value: &task_invocation_parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskType".into(),
-                    value: task_type_binding.get_id(),
+                    value: &task_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "windowId".into(),
-                    value: window_id_binding.get_id(),
+                    value: &window_id_binding.drop_type(),
                 },
             ],
         };

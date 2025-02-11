@@ -99,15 +99,15 @@ pub mod watchlist_item {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "properties".into(),
-                    value: properties_binding.get_id(),
+                    value: &properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "watchlistId".into(),
-                    value: watchlist_id_binding.get_id(),
+                    value: &watchlist_id_binding.drop_type(),
                 },
             ],
         };

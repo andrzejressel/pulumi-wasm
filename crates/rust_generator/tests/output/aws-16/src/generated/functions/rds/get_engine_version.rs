@@ -137,51 +137,51 @@ pub mod get_engine_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultOnly".into(),
-                    value: default_only_binding.get_id(),
+                    value: &default_only_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engine".into(),
-                    value: engine_binding.get_id(),
+                    value: &engine_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filters".into(),
-                    value: filters_binding.get_id(),
+                    value: &filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hasMajorTarget".into(),
-                    value: has_major_target_binding.get_id(),
+                    value: &has_major_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hasMinorTarget".into(),
-                    value: has_minor_target_binding.get_id(),
+                    value: &has_minor_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeAll".into(),
-                    value: include_all_binding.get_id(),
+                    value: &include_all_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "latest".into(),
-                    value: latest_binding.get_id(),
+                    value: &latest_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameterGroupFamily".into(),
-                    value: parameter_group_family_binding.get_id(),
+                    value: &parameter_group_family_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredMajorTargets".into(),
-                    value: preferred_major_targets_binding.get_id(),
+                    value: &preferred_major_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredUpgradeTargets".into(),
-                    value: preferred_upgrade_targets_binding.get_id(),
+                    value: &preferred_upgrade_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredVersions".into(),
-                    value: preferred_versions_binding.get_id(),
+                    value: &preferred_versions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

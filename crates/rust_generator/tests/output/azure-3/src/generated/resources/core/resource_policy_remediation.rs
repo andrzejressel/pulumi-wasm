@@ -152,39 +152,39 @@ pub mod resource_policy_remediation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failurePercentage".into(),
-                    value: failure_percentage_binding.get_id(),
+                    value: &failure_percentage_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationFilters".into(),
-                    value: location_filters_binding.get_id(),
+                    value: &location_filters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parallelDeployments".into(),
-                    value: parallel_deployments_binding.get_id(),
+                    value: &parallel_deployments_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyAssignmentId".into(),
-                    value: policy_assignment_id_binding.get_id(),
+                    value: &policy_assignment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyDefinitionReferenceId".into(),
-                    value: policy_definition_reference_id_binding.get_id(),
+                    value: &policy_definition_reference_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceCount".into(),
-                    value: resource_count_binding.get_id(),
+                    value: &resource_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceDiscoveryMode".into(),
-                    value: resource_discovery_mode_binding.get_id(),
+                    value: &resource_discovery_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: resource_id_binding.get_id(),
+                    value: &resource_id_binding.drop_type(),
                 },
             ],
         };

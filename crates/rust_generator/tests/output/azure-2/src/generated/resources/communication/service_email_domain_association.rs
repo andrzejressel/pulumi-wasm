@@ -101,11 +101,11 @@ pub mod service_email_domain_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "communicationServiceId".into(),
-                    value: communication_service_id_binding.get_id(),
+                    value: &communication_service_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailServiceDomainId".into(),
-                    value: email_service_domain_id_binding.get_id(),
+                    value: &email_service_domain_id_binding.drop_type(),
                 },
             ],
         };

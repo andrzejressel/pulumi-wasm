@@ -156,43 +156,43 @@ pub mod image_recipe {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blockDeviceMappings".into(),
-                    value: block_device_mappings_binding.get_id(),
+                    value: &block_device_mappings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "components".into(),
-                    value: components_binding.get_id(),
+                    value: &components_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentImage".into(),
-                    value: parent_image_binding.get_id(),
+                    value: &parent_image_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "systemsManagerAgent".into(),
-                    value: systems_manager_agent_binding.get_id(),
+                    value: &systems_manager_agent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userDataBase64".into(),
-                    value: user_data_base64_binding.get_id(),
+                    value: &user_data_base64_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workingDirectory".into(),
-                    value: working_directory_binding.get_id(),
+                    value: &working_directory_binding.drop_type(),
                 },
             ],
         };

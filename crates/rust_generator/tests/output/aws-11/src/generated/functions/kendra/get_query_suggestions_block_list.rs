@@ -73,15 +73,15 @@ pub mod get_query_suggestions_block_list {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "indexId".into(),
-                    value: index_id_binding.get_id(),
+                    value: &index_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "querySuggestionsBlockListId".into(),
-                    value: query_suggestions_block_list_id_binding.get_id(),
+                    value: &query_suggestions_block_list_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

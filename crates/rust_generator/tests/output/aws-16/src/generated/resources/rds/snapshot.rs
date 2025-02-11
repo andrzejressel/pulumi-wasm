@@ -135,19 +135,19 @@ pub mod snapshot {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbInstanceIdentifier".into(),
-                    value: db_instance_identifier_binding.get_id(),
+                    value: &db_instance_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbSnapshotIdentifier".into(),
-                    value: db_snapshot_identifier_binding.get_id(),
+                    value: &db_snapshot_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccounts".into(),
-                    value: shared_accounts_binding.get_id(),
+                    value: &shared_accounts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

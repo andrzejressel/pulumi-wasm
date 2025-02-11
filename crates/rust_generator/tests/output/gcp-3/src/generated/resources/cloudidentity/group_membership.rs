@@ -162,19 +162,19 @@ pub mod group_membership {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "group".into(),
-                    value: group_binding.get_id(),
+                    value: &group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memberKey".into(),
-                    value: member_key_binding.get_id(),
+                    value: &member_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredMemberKey".into(),
-                    value: preferred_member_key_binding.get_id(),
+                    value: &preferred_member_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roles".into(),
-                    value: roles_binding.get_id(),
+                    value: &roles_binding.drop_type(),
                 },
             ],
         };

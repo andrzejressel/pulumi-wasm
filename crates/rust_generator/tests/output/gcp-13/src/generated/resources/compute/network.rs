@@ -363,59 +363,59 @@ pub mod network {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoCreateSubnetworks".into(),
-                    value: auto_create_subnetworks_binding.get_id(),
+                    value: &auto_create_subnetworks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpAlwaysCompareMed".into(),
-                    value: bgp_always_compare_med_binding.get_id(),
+                    value: &bgp_always_compare_med_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpBestPathSelectionMode".into(),
-                    value: bgp_best_path_selection_mode_binding.get_id(),
+                    value: &bgp_best_path_selection_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bgpInterRegionCost".into(),
-                    value: bgp_inter_region_cost_binding.get_id(),
+                    value: &bgp_inter_region_cost_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteDefaultRoutesOnCreate".into(),
-                    value: delete_default_routes_on_create_binding.get_id(),
+                    value: &delete_default_routes_on_create_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableUlaInternalIpv6".into(),
-                    value: enable_ula_internal_ipv6_binding.get_id(),
+                    value: &enable_ula_internal_ipv6_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internalIpv6Range".into(),
-                    value: internal_ipv6_range_binding.get_id(),
+                    value: &internal_ipv6_range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mtu".into(),
-                    value: mtu_binding.get_id(),
+                    value: &mtu_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkFirewallPolicyEnforcementOrder".into(),
-                    value: network_firewall_policy_enforcement_order_binding.get_id(),
+                    value: &network_firewall_policy_enforcement_order_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkProfile".into(),
-                    value: network_profile_binding.get_id(),
+                    value: &network_profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingMode".into(),
-                    value: routing_mode_binding.get_id(),
+                    value: &routing_mode_binding.drop_type(),
                 },
             ],
         };

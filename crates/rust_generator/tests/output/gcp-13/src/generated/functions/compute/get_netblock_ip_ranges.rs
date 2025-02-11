@@ -55,7 +55,7 @@ pub mod get_netblock_ip_ranges {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rangeType".into(),
-                    value: range_type_binding.get_id(),
+                    value: &range_type_binding.drop_type(),
                 },
             ],
         };

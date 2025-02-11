@@ -123,15 +123,15 @@ pub mod slot_virtual_network_swift_connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appServiceId".into(),
-                    value: app_service_id_binding.get_id(),
+                    value: &app_service_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slotName".into(),
-                    value: slot_name_binding.get_id(),
+                    value: &slot_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
             ],
         };

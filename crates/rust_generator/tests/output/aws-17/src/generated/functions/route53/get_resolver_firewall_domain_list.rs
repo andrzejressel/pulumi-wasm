@@ -45,7 +45,7 @@ pub mod get_resolver_firewall_domain_list {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallDomainListId".into(),
-                    value: firewall_domain_list_id_binding.get_id(),
+                    value: &firewall_domain_list_id_binding.drop_type(),
                 },
             ],
         };

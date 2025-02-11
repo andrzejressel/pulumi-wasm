@@ -186,47 +186,47 @@ pub mod ami_copy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deprecationTime".into(),
-                    value: deprecation_time_binding.get_id(),
+                    value: &deprecation_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationOutpostArn".into(),
-                    value: destination_outpost_arn_binding.get_id(),
+                    value: &destination_outpost_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsBlockDevices".into(),
-                    value: ebs_block_devices_binding.get_id(),
+                    value: &ebs_block_devices_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encrypted".into(),
-                    value: encrypted_binding.get_id(),
+                    value: &encrypted_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ephemeralBlockDevices".into(),
-                    value: ephemeral_block_devices_binding.get_id(),
+                    value: &ephemeral_block_devices_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceAmiId".into(),
-                    value: source_ami_id_binding.get_id(),
+                    value: &source_ami_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceAmiRegion".into(),
-                    value: source_ami_region_binding.get_id(),
+                    value: &source_ami_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

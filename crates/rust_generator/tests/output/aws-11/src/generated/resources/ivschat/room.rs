@@ -125,27 +125,27 @@ pub mod room {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingConfigurationIdentifiers".into(),
-                    value: logging_configuration_identifiers_binding.get_id(),
+                    value: &logging_configuration_identifiers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumMessageLength".into(),
-                    value: maximum_message_length_binding.get_id(),
+                    value: &maximum_message_length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumMessageRatePerSecond".into(),
-                    value: maximum_message_rate_per_second_binding.get_id(),
+                    value: &maximum_message_rate_per_second_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messageReviewHandler".into(),
-                    value: message_review_handler_binding.get_id(),
+                    value: &message_review_handler_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

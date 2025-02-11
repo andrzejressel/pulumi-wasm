@@ -134,35 +134,35 @@ pub mod lifecycle_hook {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoscalingGroupName".into(),
-                    value: autoscaling_group_name_binding.get_id(),
+                    value: &autoscaling_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultResult".into(),
-                    value: default_result_binding.get_id(),
+                    value: &default_result_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "heartbeatTimeout".into(),
-                    value: heartbeat_timeout_binding.get_id(),
+                    value: &heartbeat_timeout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifecycleTransition".into(),
-                    value: lifecycle_transition_binding.get_id(),
+                    value: &lifecycle_transition_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationMetadata".into(),
-                    value: notification_metadata_binding.get_id(),
+                    value: &notification_metadata_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationTargetArn".into(),
-                    value: notification_target_arn_binding.get_id(),
+                    value: &notification_target_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
             ],
         };

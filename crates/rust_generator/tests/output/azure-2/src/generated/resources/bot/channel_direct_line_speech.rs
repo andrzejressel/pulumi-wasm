@@ -137,35 +137,35 @@ pub mod channel_direct_line_speech {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botName".into(),
-                    value: bot_name_binding.get_id(),
+                    value: &bot_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cognitiveAccountId".into(),
-                    value: cognitive_account_id_binding.get_id(),
+                    value: &cognitive_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cognitiveServiceAccessKey".into(),
-                    value: cognitive_service_access_key_binding.get_id(),
+                    value: &cognitive_service_access_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cognitiveServiceLocation".into(),
-                    value: cognitive_service_location_binding.get_id(),
+                    value: &cognitive_service_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSpeechModelId".into(),
-                    value: custom_speech_model_id_binding.get_id(),
+                    value: &custom_speech_model_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customVoiceDeploymentId".into(),
-                    value: custom_voice_deployment_id_binding.get_id(),
+                    value: &custom_voice_deployment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

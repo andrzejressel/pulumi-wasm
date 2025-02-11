@@ -197,63 +197,63 @@ pub mod shared_image_version {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blobUri".into(),
-                    value: blob_uri_binding.get_id(),
+                    value: &blob_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionOfReplicatedLocationsEnabled".into(),
-                    value: deletion_of_replicated_locations_enabled_binding.get_id(),
+                    value: &deletion_of_replicated_locations_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endOfLifeDate".into(),
-                    value: end_of_life_date_binding.get_id(),
+                    value: &end_of_life_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeFromLatest".into(),
-                    value: exclude_from_latest_binding.get_id(),
+                    value: &exclude_from_latest_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "galleryName".into(),
-                    value: gallery_name_binding.get_id(),
+                    value: &gallery_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageName".into(),
-                    value: image_name_binding.get_id(),
+                    value: &image_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedImageId".into(),
-                    value: managed_image_id_binding.get_id(),
+                    value: &managed_image_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "osDiskSnapshotId".into(),
-                    value: os_disk_snapshot_id_binding.get_id(),
+                    value: &os_disk_snapshot_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicationMode".into(),
-                    value: replication_mode_binding.get_id(),
+                    value: &replication_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetRegions".into(),
-                    value: target_regions_binding.get_id(),
+                    value: &target_regions_binding.drop_type(),
                 },
             ],
         };

@@ -80,19 +80,19 @@ pub mod vault_lock_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupVaultName".into(),
-                    value: backup_vault_name_binding.get_id(),
+                    value: &backup_vault_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "changeableForDays".into(),
-                    value: changeable_for_days_binding.get_id(),
+                    value: &changeable_for_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxRetentionDays".into(),
-                    value: max_retention_days_binding.get_id(),
+                    value: &max_retention_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minRetentionDays".into(),
-                    value: min_retention_days_binding.get_id(),
+                    value: &min_retention_days_binding.drop_type(),
                 },
             ],
         };

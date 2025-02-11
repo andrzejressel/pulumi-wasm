@@ -167,55 +167,55 @@ pub mod stack {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capabilities".into(),
-                    value: capabilities_binding.get_id(),
+                    value: &capabilities_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableRollback".into(),
-                    value: disable_rollback_binding.get_id(),
+                    value: &disable_rollback_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: iam_role_arn_binding.get_id(),
+                    value: &iam_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationArns".into(),
-                    value: notification_arns_binding.get_id(),
+                    value: &notification_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onFailure".into(),
-                    value: on_failure_binding.get_id(),
+                    value: &on_failure_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyBody".into(),
-                    value: policy_body_binding.get_id(),
+                    value: &policy_body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyUrl".into(),
-                    value: policy_url_binding.get_id(),
+                    value: &policy_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateBody".into(),
-                    value: template_body_binding.get_id(),
+                    value: &template_body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateUrl".into(),
-                    value: template_url_binding.get_id(),
+                    value: &template_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeoutInMinutes".into(),
-                    value: timeout_in_minutes_binding.get_id(),
+                    value: &timeout_in_minutes_binding.drop_type(),
                 },
             ],
         };

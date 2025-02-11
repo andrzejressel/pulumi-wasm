@@ -38,7 +38,7 @@ pub mod get_endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointType".into(),
-                    value: endpoint_type_binding.get_id(),
+                    value: &endpoint_type_binding.drop_type(),
                 },
             ],
         };

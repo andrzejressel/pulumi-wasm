@@ -218,91 +218,91 @@ pub mod profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountNumber".into(),
-                    value: account_number_binding.get_id(),
+                    value: &account_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalInformation".into(),
-                    value: additional_information_binding.get_id(),
+                    value: &additional_information_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "address".into(),
-                    value: address_binding.get_id(),
+                    value: &address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attributes".into(),
-                    value: attributes_binding.get_id(),
+                    value: &attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAddress".into(),
-                    value: billing_address_binding.get_id(),
+                    value: &billing_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "birthDate".into(),
-                    value: birth_date_binding.get_id(),
+                    value: &birth_date_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "businessEmailAddress".into(),
-                    value: business_email_address_binding.get_id(),
+                    value: &business_email_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "businessName".into(),
-                    value: business_name_binding.get_id(),
+                    value: &business_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "businessPhoneNumber".into(),
-                    value: business_phone_number_binding.get_id(),
+                    value: &business_phone_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainName".into(),
-                    value: domain_name_binding.get_id(),
+                    value: &domain_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "emailAddress".into(),
-                    value: email_address_binding.get_id(),
+                    value: &email_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firstName".into(),
-                    value: first_name_binding.get_id(),
+                    value: &first_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "genderString".into(),
-                    value: gender_string_binding.get_id(),
+                    value: &gender_string_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "homePhoneNumber".into(),
-                    value: home_phone_number_binding.get_id(),
+                    value: &home_phone_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lastName".into(),
-                    value: last_name_binding.get_id(),
+                    value: &last_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mailingAddress".into(),
-                    value: mailing_address_binding.get_id(),
+                    value: &mailing_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "middleName".into(),
-                    value: middle_name_binding.get_id(),
+                    value: &middle_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mobilePhoneNumber".into(),
-                    value: mobile_phone_number_binding.get_id(),
+                    value: &mobile_phone_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partyTypeString".into(),
-                    value: party_type_string_binding.get_id(),
+                    value: &party_type_string_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "personalEmailAddress".into(),
-                    value: personal_email_address_binding.get_id(),
+                    value: &personal_email_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "phoneNumber".into(),
-                    value: phone_number_binding.get_id(),
+                    value: &phone_number_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shippingAddress".into(),
-                    value: shipping_address_binding.get_id(),
+                    value: &shipping_address_binding.drop_type(),
                 },
             ],
         };

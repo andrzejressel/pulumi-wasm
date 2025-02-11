@@ -219,23 +219,23 @@ pub mod document {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "collection".into(),
-                    value: collection_binding.get_id(),
+                    value: &collection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "database".into(),
-                    value: database_binding.get_id(),
+                    value: &database_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentId".into(),
-                    value: document_id_binding.get_id(),
+                    value: &document_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fields".into(),
-                    value: fields_binding.get_id(),
+                    value: &fields_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

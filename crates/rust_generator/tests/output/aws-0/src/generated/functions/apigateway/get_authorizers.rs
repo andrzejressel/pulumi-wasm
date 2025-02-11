@@ -33,7 +33,7 @@ pub mod get_authorizers {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApiId".into(),
-                    value: rest_api_id_binding.get_id(),
+                    value: &rest_api_id_binding.drop_type(),
                 },
             ],
         };

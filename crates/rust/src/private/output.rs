@@ -8,7 +8,7 @@ macro_rules! impl_combine {
             #[allow(clippy::too_many_arguments)]
             pub fn $func_name<A, $($var_upper),+>(a: crate::Output<A>, $($var_lower: crate::Output<$var_upper>),+) -> Output<(A, $($var_upper),+)>
             where A: Serialize, $($var_upper: Serialize),+ {
-                a.combine::<(A, $($var_upper),+)>(&[$($var_lower.get_id()),+])
+                a.combine::<(A, $($var_upper),+)>(&[$(&$var_lower.drop_type()),+])
             }
         )+
     };

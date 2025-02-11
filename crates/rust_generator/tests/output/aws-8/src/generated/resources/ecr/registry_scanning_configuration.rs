@@ -108,11 +108,11 @@ pub mod registry_scanning_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: rules_binding.get_id(),
+                    value: &rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scanType".into(),
-                    value: scan_type_binding.get_id(),
+                    value: &scan_type_binding.drop_type(),
                 },
             ],
         };

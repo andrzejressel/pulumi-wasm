@@ -85,19 +85,19 @@ pub mod framework_share {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "comment".into(),
-                    value: comment_binding.get_id(),
+                    value: &comment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationAccount".into(),
-                    value: destination_account_binding.get_id(),
+                    value: &destination_account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationRegion".into(),
-                    value: destination_region_binding.get_id(),
+                    value: &destination_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frameworkId".into(),
-                    value: framework_id_binding.get_id(),
+                    value: &framework_id_binding.drop_type(),
                 },
             ],
         };

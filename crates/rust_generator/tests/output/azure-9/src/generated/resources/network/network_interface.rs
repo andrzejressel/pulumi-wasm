@@ -206,51 +206,51 @@ pub mod network_interface {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceleratedNetworkingEnabled".into(),
-                    value: accelerated_networking_enabled_binding.get_id(),
+                    value: &accelerated_networking_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auxiliaryMode".into(),
-                    value: auxiliary_mode_binding.get_id(),
+                    value: &auxiliary_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auxiliarySku".into(),
-                    value: auxiliary_sku_binding.get_id(),
+                    value: &auxiliary_sku_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsServers".into(),
-                    value: dns_servers_binding.get_id(),
+                    value: &dns_servers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeZone".into(),
-                    value: edge_zone_binding.get_id(),
+                    value: &edge_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internalDnsNameLabel".into(),
-                    value: internal_dns_name_label_binding.get_id(),
+                    value: &internal_dns_name_label_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipConfigurations".into(),
-                    value: ip_configurations_binding.get_id(),
+                    value: &ip_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipForwardingEnabled".into(),
-                    value: ip_forwarding_enabled_binding.get_id(),
+                    value: &ip_forwarding_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

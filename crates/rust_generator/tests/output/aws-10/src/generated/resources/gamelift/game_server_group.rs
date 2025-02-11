@@ -245,47 +245,47 @@ pub mod game_server_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoScalingPolicy".into(),
-                    value: auto_scaling_policy_binding.get_id(),
+                    value: &auto_scaling_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "balancingStrategy".into(),
-                    value: balancing_strategy_binding.get_id(),
+                    value: &balancing_strategy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gameServerGroupName".into(),
-                    value: game_server_group_name_binding.get_id(),
+                    value: &game_server_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gameServerProtectionPolicy".into(),
-                    value: game_server_protection_policy_binding.get_id(),
+                    value: &game_server_protection_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceDefinitions".into(),
-                    value: instance_definitions_binding.get_id(),
+                    value: &instance_definitions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchTemplate".into(),
-                    value: launch_template_binding.get_id(),
+                    value: &launch_template_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxSize".into(),
-                    value: max_size_binding.get_id(),
+                    value: &max_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minSize".into(),
-                    value: min_size_binding.get_id(),
+                    value: &min_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcSubnets".into(),
-                    value: vpc_subnets_binding.get_id(),
+                    value: &vpc_subnets_binding.drop_type(),
                 },
             ],
         };

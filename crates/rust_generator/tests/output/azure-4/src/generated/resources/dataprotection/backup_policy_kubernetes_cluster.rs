@@ -144,31 +144,31 @@ pub mod backup_policy_kubernetes_cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backupRepeatingTimeIntervals".into(),
-                    value: backup_repeating_time_intervals_binding.get_id(),
+                    value: &backup_repeating_time_intervals_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultRetentionRule".into(),
-                    value: default_retention_rule_binding.get_id(),
+                    value: &default_retention_rule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionRules".into(),
-                    value: retention_rules_binding.get_id(),
+                    value: &retention_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeZone".into(),
-                    value: time_zone_binding.get_id(),
+                    value: &time_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vaultName".into(),
-                    value: vault_name_binding.get_id(),
+                    value: &vault_name_binding.drop_type(),
                 },
             ],
         };

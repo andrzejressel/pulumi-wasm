@@ -305,31 +305,31 @@ pub mod runtime {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessConfig".into(),
-                    value: access_config_binding.get_id(),
+                    value: &access_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "softwareConfig".into(),
-                    value: software_config_binding.get_id(),
+                    value: &software_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachine".into(),
-                    value: virtual_machine_binding.get_id(),
+                    value: &virtual_machine_binding.drop_type(),
                 },
             ],
         };

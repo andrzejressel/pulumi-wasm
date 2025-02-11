@@ -84,15 +84,15 @@ pub mod environment_membership {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environmentId".into(),
-                    value: environment_id_binding.get_id(),
+                    value: &environment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissions".into(),
-                    value: permissions_binding.get_id(),
+                    value: &permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userArn".into(),
-                    value: user_arn_binding.get_id(),
+                    value: &user_arn_binding.drop_type(),
                 },
             ],
         };

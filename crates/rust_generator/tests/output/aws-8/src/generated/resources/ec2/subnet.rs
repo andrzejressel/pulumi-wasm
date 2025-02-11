@@ -235,72 +235,73 @@ pub mod subnet {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignIpv6AddressOnCreation".into(),
-                    value: assign_ipv6_address_on_creation_binding.get_id(),
+                    value: &assign_ipv6_address_on_creation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZone".into(),
-                    value: availability_zone_binding.get_id(),
+                    value: &availability_zone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "availabilityZoneId".into(),
-                    value: availability_zone_id_binding.get_id(),
+                    value: &availability_zone_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cidrBlock".into(),
-                    value: cidr_block_binding.get_id(),
+                    value: &cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerOwnedIpv4Pool".into(),
-                    value: customer_owned_ipv4_pool_binding.get_id(),
+                    value: &customer_owned_ipv4_pool_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableDns64".into(),
-                    value: enable_dns64_binding.get_id(),
+                    value: &enable_dns64_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableLniAtDeviceIndex".into(),
-                    value: enable_lni_at_device_index_binding.get_id(),
+                    value: &enable_lni_at_device_index_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableResourceNameDnsARecordOnLaunch".into(),
-                    value: enable_resource_name_dns_a_record_on_launch_binding.get_id(),
+                    value: &enable_resource_name_dns_a_record_on_launch_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableResourceNameDnsAaaaRecordOnLaunch".into(),
-                    value: enable_resource_name_dns_aaaa_record_on_launch_binding
-                        .get_id(),
+                    value: &enable_resource_name_dns_aaaa_record_on_launch_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6CidrBlock".into(),
-                    value: ipv6_cidr_block_binding.get_id(),
+                    value: &ipv6_cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6Native".into(),
-                    value: ipv6_native_binding.get_id(),
+                    value: &ipv6_native_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mapCustomerOwnedIpOnLaunch".into(),
-                    value: map_customer_owned_ip_on_launch_binding.get_id(),
+                    value: &map_customer_owned_ip_on_launch_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mapPublicIpOnLaunch".into(),
-                    value: map_public_ip_on_launch_binding.get_id(),
+                    value: &map_public_ip_on_launch_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outpostArn".into(),
-                    value: outpost_arn_binding.get_id(),
+                    value: &outpost_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateDnsHostnameTypeOnLaunch".into(),
-                    value: private_dns_hostname_type_on_launch_binding.get_id(),
+                    value: &private_dns_hostname_type_on_launch_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: vpc_id_binding.get_id(),
+                    value: &vpc_id_binding.drop_type(),
                 },
             ],
         };

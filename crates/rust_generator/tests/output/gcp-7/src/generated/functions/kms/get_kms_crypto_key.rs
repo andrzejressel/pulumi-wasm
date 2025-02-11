@@ -67,11 +67,11 @@ pub mod get_kms_crypto_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyRing".into(),
-                    value: key_ring_binding.get_id(),
+                    value: &key_ring_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

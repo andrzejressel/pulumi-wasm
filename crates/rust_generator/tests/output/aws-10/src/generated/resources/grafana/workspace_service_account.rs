@@ -73,15 +73,15 @@ pub mod workspace_service_account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "grafanaRole".into(),
-                    value: grafana_role_binding.get_id(),
+                    value: &grafana_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: workspace_id_binding.get_id(),
+                    value: &workspace_id_binding.drop_type(),
                 },
             ],
         };

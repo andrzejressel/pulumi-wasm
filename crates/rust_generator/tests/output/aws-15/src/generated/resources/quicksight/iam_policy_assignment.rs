@@ -106,27 +106,27 @@ pub mod iam_policy_assignment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignmentName".into(),
-                    value: assignment_name_binding.get_id(),
+                    value: &assignment_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignmentStatus".into(),
-                    value: assignment_status_binding.get_id(),
+                    value: &assignment_status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsAccountId".into(),
-                    value: aws_account_id_binding.get_id(),
+                    value: &aws_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identities".into(),
-                    value: identities_binding.get_id(),
+                    value: &identities_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespace".into(),
-                    value: namespace_binding.get_id(),
+                    value: &namespace_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyArn".into(),
-                    value: policy_arn_binding.get_id(),
+                    value: &policy_arn_binding.drop_type(),
                 },
             ],
         };

@@ -99,15 +99,15 @@ pub mod spring_cloud_gateway_custom_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudGatewayId".into(),
-                    value: spring_cloud_gateway_id_binding.get_id(),
+                    value: &spring_cloud_gateway_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thumbprint".into(),
-                    value: thumbprint_binding.get_id(),
+                    value: &thumbprint_binding.drop_type(),
                 },
             ],
         };

@@ -112,19 +112,19 @@ pub mod connection {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostArn".into(),
-                    value: host_arn_binding.get_id(),
+                    value: &host_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerType".into(),
-                    value: provider_type_binding.get_id(),
+                    value: &provider_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

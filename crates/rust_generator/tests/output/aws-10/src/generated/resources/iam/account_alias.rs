@@ -57,7 +57,7 @@ pub mod account_alias {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountAlias".into(),
-                    value: account_alias_binding.get_id(),
+                    value: &account_alias_binding.drop_type(),
                 },
             ],
         };

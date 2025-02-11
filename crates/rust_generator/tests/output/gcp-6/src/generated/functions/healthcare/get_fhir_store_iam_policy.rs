@@ -38,7 +38,7 @@ pub mod get_fhir_store_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fhirStoreId".into(),
-                    value: fhir_store_id_binding.get_id(),
+                    value: &fhir_store_id_binding.drop_type(),
                 },
             ],
         };

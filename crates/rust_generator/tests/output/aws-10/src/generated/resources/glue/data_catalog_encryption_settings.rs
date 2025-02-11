@@ -86,11 +86,11 @@ pub mod data_catalog_encryption_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: catalog_id_binding.get_id(),
+                    value: &catalog_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataCatalogEncryptionSettings".into(),
-                    value: data_catalog_encryption_settings_binding.get_id(),
+                    value: &data_catalog_encryption_settings_binding.drop_type(),
                 },
             ],
         };

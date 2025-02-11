@@ -182,23 +182,23 @@ pub mod hybrid_runbook_worker {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automationAccountName".into(),
-                    value: automation_account_name_binding.get_id(),
+                    value: &automation_account_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmResourceId".into(),
-                    value: vm_resource_id_binding.get_id(),
+                    value: &vm_resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerGroupName".into(),
-                    value: worker_group_name_binding.get_id(),
+                    value: &worker_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workerId".into(),
-                    value: worker_id_binding.get_id(),
+                    value: &worker_id_binding.drop_type(),
                 },
             ],
         };

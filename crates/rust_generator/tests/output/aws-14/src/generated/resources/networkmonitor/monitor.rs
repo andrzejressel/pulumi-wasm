@@ -86,15 +86,15 @@ pub mod monitor {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "aggregationPeriod".into(),
-                    value: aggregation_period_binding.get_id(),
+                    value: &aggregation_period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitorName".into(),
-                    value: monitor_name_binding.get_id(),
+                    value: &monitor_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

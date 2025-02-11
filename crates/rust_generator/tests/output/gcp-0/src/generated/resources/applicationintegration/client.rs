@@ -185,23 +185,23 @@ pub mod client {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudKmsConfig".into(),
-                    value: cloud_kms_config_binding.get_id(),
+                    value: &cloud_kms_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createSampleIntegrations".into(),
-                    value: create_sample_integrations_binding.get_id(),
+                    value: &create_sample_integrations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runAsServiceAccount".into(),
-                    value: run_as_service_account_binding.get_id(),
+                    value: &run_as_service_account_binding.drop_type(),
                 },
             ],
         };

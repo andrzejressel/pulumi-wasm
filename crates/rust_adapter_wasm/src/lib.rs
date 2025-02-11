@@ -50,7 +50,6 @@ pub struct WasmContext {
 impl GestaltContext for WasmContext {
     type Output<T> = WasmOutput<T>;
     type CompositeOutput = WasmCompositeOutput;
-    type OutputId = output_interface::Output;
 
     fn new_output<T: serde::Serialize>(&self, value: &T) -> WasmOutput<T> {
         Self::new_output_priv(self, value, false)
@@ -62,13 +61,13 @@ impl GestaltContext for WasmContext {
 
     fn register_resource(
         &self,
-        request: RegisterResourceRequest<Self::OutputId>,
+        request: RegisterResourceRequest<Self::Output<()>>,
     ) -> Self::CompositeOutput {
         let mut object_fields = Vec::new();
         for object in request.object {
             object_fields.push(register_interface::ObjectField {
                 name: object.name.clone(),
-                value: object.value,
+                value: &object.value.wasm_output,
             });
         }
         let request = register_interface::RegisterResourceRequest {
@@ -91,13 +90,13 @@ impl GestaltContext for WasmContext {
 
     fn invoke_resource(
         &self,
-        request: InvokeResourceRequest<Self::OutputId>,
+        request: InvokeResourceRequest<Self::Output<()>>,
     ) -> Self::CompositeOutput {
         let mut object_fields = Vec::new();
         for object in request.object {
             object_fields.push(register_interface::ObjectField {
                 name: object.name.clone(),
-                value: object.value,
+                value: &object.value.wasm_output,
             });
         }
         let request = register_interface::ResourceInvokeRequest {
@@ -189,7 +188,6 @@ impl InnerWasmContext {
 
 impl<T> GestaltOutput<T> for WasmOutput<T> {
     type Me<A> = WasmOutput<A>;
-    type OutputId = output_interface::Output;
 
     fn map<B, F>(&self, f: F) -> Self::Me<B>
     where
@@ -214,10 +212,10 @@ impl<T> GestaltOutput<T> for WasmOutput<T> {
         add_export(key, &self.wasm_output);
     }
 
-    fn combine<RESULT>(&self, others: &[&Self::OutputId]) -> Self::Me<RESULT> {
-        let mut all_outputs = Vec::new();
+    fn combine<RESULT>(&self, others: &[&Self::Me<()>]) -> Self::Me<RESULT> {
+        let mut all_outputs = Vec::with_capacity(others.len() + 1);
         all_outputs.push(&self.wasm_output);
-        all_outputs.extend_from_slice(others);
+        all_outputs.extend(others.iter().map(|other| &other.wasm_output));
         let result = output_interface::combine(&all_outputs);
         WasmOutput {
             context: self.context.clone(),
@@ -232,10 +230,6 @@ impl<T> GestaltOutput<T> for WasmOutput<T> {
             wasm_output: self.wasm_output,
             phantom: PhantomData,
         }
-    }
-
-    fn get_id(&self) -> &Self::OutputId {
-        &self.wasm_output
     }
 }
 

@@ -94,19 +94,19 @@ pub mod access_point {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemId".into(),
-                    value: file_system_id_binding.get_id(),
+                    value: &file_system_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "posixUser".into(),
-                    value: posix_user_binding.get_id(),
+                    value: &posix_user_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rootDirectory".into(),
-                    value: root_directory_binding.get_id(),
+                    value: &root_directory_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

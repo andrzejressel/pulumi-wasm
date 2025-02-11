@@ -240,43 +240,43 @@ pub mod gc_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "columnFamily".into(),
-                    value: column_family_binding.get_id(),
+                    value: &column_family_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionPolicy".into(),
-                    value: deletion_policy_binding.get_id(),
+                    value: &deletion_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gcRules".into(),
-                    value: gc_rules_binding.get_id(),
+                    value: &gc_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreWarnings".into(),
-                    value: ignore_warnings_binding.get_id(),
+                    value: &ignore_warnings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceName".into(),
-                    value: instance_name_binding.get_id(),
+                    value: &instance_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxAge".into(),
-                    value: max_age_binding.get_id(),
+                    value: &max_age_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxVersions".into(),
-                    value: max_versions_binding.get_id(),
+                    value: &max_versions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: mode_binding.get_id(),
+                    value: &mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "table".into(),
-                    value: table_binding.get_id(),
+                    value: &table_binding.drop_type(),
                 },
             ],
         };

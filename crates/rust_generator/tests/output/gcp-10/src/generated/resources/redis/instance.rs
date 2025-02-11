@@ -585,95 +585,95 @@ pub mod instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "alternativeLocationId".into(),
-                    value: alternative_location_id_binding.get_id(),
+                    value: &alternative_location_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authEnabled".into(),
-                    value: auth_enabled_binding.get_id(),
+                    value: &auth_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedNetwork".into(),
-                    value: authorized_network_binding.get_id(),
+                    value: &authorized_network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectMode".into(),
-                    value: connect_mode_binding.get_id(),
+                    value: &connect_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customerManagedKey".into(),
-                    value: customer_managed_key_binding.get_id(),
+                    value: &customer_managed_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationId".into(),
-                    value: location_id_binding.get_id(),
+                    value: &location_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenancePolicy".into(),
-                    value: maintenance_policy_binding.get_id(),
+                    value: &maintenance_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceVersion".into(),
-                    value: maintenance_version_binding.get_id(),
+                    value: &maintenance_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "memorySizeGb".into(),
-                    value: memory_size_gb_binding.get_id(),
+                    value: &memory_size_gb_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "persistenceConfig".into(),
-                    value: persistence_config_binding.get_id(),
+                    value: &persistence_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readReplicasMode".into(),
-                    value: read_replicas_mode_binding.get_id(),
+                    value: &read_replicas_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redisConfigs".into(),
-                    value: redis_configs_binding.get_id(),
+                    value: &redis_configs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redisVersion".into(),
-                    value: redis_version_binding.get_id(),
+                    value: &redis_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaCount".into(),
-                    value: replica_count_binding.get_id(),
+                    value: &replica_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservedIpRange".into(),
-                    value: reserved_ip_range_binding.get_id(),
+                    value: &reserved_ip_range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryIpRange".into(),
-                    value: secondary_ip_range_binding.get_id(),
+                    value: &secondary_ip_range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tier".into(),
-                    value: tier_binding.get_id(),
+                    value: &tier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitEncryptionMode".into(),
-                    value: transit_encryption_mode_binding.get_id(),
+                    value: &transit_encryption_mode_binding.drop_type(),
                 },
             ],
         };

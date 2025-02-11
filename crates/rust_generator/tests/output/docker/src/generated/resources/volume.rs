@@ -107,19 +107,19 @@ pub mod volume {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "driver".into(),
-                    value: driver_binding.get_id(),
+                    value: &driver_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "driverOpts".into(),
-                    value: driver_opts_binding.get_id(),
+                    value: &driver_opts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

@@ -253,79 +253,79 @@ pub mod load_balancer {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adaptiveRoutings".into(),
-                    value: adaptive_routings_binding.get_id(),
+                    value: &adaptive_routings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "countryPools".into(),
-                    value: country_pools_binding.get_id(),
+                    value: &country_pools_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultPoolIds".into(),
-                    value: default_pool_ids_binding.get_id(),
+                    value: &default_pool_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fallbackPoolId".into(),
-                    value: fallback_pool_id_binding.get_id(),
+                    value: &fallback_pool_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "locationStrategies".into(),
-                    value: location_strategies_binding.get_id(),
+                    value: &location_strategies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "popPools".into(),
-                    value: pop_pools_binding.get_id(),
+                    value: &pop_pools_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "proxied".into(),
-                    value: proxied_binding.get_id(),
+                    value: &proxied_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "randomSteerings".into(),
-                    value: random_steerings_binding.get_id(),
+                    value: &random_steerings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regionPools".into(),
-                    value: region_pools_binding.get_id(),
+                    value: &region_pools_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: rules_binding.get_id(),
+                    value: &rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionAffinity".into(),
-                    value: session_affinity_binding.get_id(),
+                    value: &session_affinity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionAffinityAttributes".into(),
-                    value: session_affinity_attributes_binding.get_id(),
+                    value: &session_affinity_attributes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionAffinityTtl".into(),
-                    value: session_affinity_ttl_binding.get_id(),
+                    value: &session_affinity_ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "steeringPolicy".into(),
-                    value: steering_policy_binding.get_id(),
+                    value: &steering_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ttl".into(),
-                    value: ttl_binding.get_id(),
+                    value: &ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

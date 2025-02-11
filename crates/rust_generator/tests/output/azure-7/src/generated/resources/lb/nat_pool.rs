@@ -165,47 +165,47 @@ pub mod nat_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendPort".into(),
-                    value: backend_port_binding.get_id(),
+                    value: &backend_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "floatingIpEnabled".into(),
-                    value: floating_ip_enabled_binding.get_id(),
+                    value: &floating_ip_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendIpConfigurationName".into(),
-                    value: frontend_ip_configuration_name_binding.get_id(),
+                    value: &frontend_ip_configuration_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendPortEnd".into(),
-                    value: frontend_port_end_binding.get_id(),
+                    value: &frontend_port_end_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendPortStart".into(),
-                    value: frontend_port_start_binding.get_id(),
+                    value: &frontend_port_start_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleTimeoutInMinutes".into(),
-                    value: idle_timeout_in_minutes_binding.get_id(),
+                    value: &idle_timeout_in_minutes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadbalancerId".into(),
-                    value: loadbalancer_id_binding.get_id(),
+                    value: &loadbalancer_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tcpResetEnabled".into(),
-                    value: tcp_reset_enabled_binding.get_id(),
+                    value: &tcp_reset_enabled_binding.drop_type(),
                 },
             ],
         };

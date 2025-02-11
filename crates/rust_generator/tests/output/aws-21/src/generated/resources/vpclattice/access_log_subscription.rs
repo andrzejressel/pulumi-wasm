@@ -81,15 +81,15 @@ pub mod access_log_subscription {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationArn".into(),
-                    value: destination_arn_binding.get_id(),
+                    value: &destination_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceIdentifier".into(),
-                    value: resource_identifier_binding.get_id(),
+                    value: &resource_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

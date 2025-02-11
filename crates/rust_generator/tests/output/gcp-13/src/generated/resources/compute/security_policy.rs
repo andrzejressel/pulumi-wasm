@@ -272,35 +272,35 @@ pub mod security_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adaptiveProtectionConfig".into(),
-                    value: adaptive_protection_config_binding.get_id(),
+                    value: &adaptive_protection_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "advancedOptionsConfig".into(),
-                    value: advanced_options_config_binding.get_id(),
+                    value: &advanced_options_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recaptchaOptionsConfig".into(),
-                    value: recaptcha_options_config_binding.get_id(),
+                    value: &recaptcha_options_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rules".into(),
-                    value: rules_binding.get_id(),
+                    value: &rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

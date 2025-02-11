@@ -155,39 +155,39 @@ pub mod caches_iscsi_volume {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayArn".into(),
-                    value: gateway_arn_binding.get_id(),
+                    value: &gateway_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsEncrypted".into(),
-                    value: kms_encrypted_binding.get_id(),
+                    value: &kms_encrypted_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKey".into(),
-                    value: kms_key_binding.get_id(),
+                    value: &kms_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: network_interface_id_binding.get_id(),
+                    value: &network_interface_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snapshotId".into(),
-                    value: snapshot_id_binding.get_id(),
+                    value: &snapshot_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceVolumeArn".into(),
-                    value: source_volume_arn_binding.get_id(),
+                    value: &source_volume_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetName".into(),
-                    value: target_name_binding.get_id(),
+                    value: &target_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeSizeInBytes".into(),
-                    value: volume_size_in_bytes_binding.get_id(),
+                    value: &volume_size_in_bytes_binding.drop_type(),
                 },
             ],
         };

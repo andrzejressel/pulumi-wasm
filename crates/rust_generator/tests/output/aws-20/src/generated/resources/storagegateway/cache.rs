@@ -66,11 +66,11 @@ pub mod cache {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskId".into(),
-                    value: disk_id_binding.get_id(),
+                    value: &disk_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayArn".into(),
-                    value: gateway_arn_binding.get_id(),
+                    value: &gateway_arn_binding.drop_type(),
                 },
             ],
         };

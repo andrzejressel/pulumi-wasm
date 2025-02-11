@@ -55,23 +55,23 @@ pub mod get_resolver_rules {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nameRegex".into(),
-                    value: name_regex_binding.get_id(),
+                    value: &name_regex_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ownerId".into(),
-                    value: owner_id_binding.get_id(),
+                    value: &owner_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resolverEndpointId".into(),
-                    value: resolver_endpoint_id_binding.get_id(),
+                    value: &resolver_endpoint_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleType".into(),
-                    value: rule_type_binding.get_id(),
+                    value: &rule_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareStatus".into(),
-                    value: share_status_binding.get_id(),
+                    value: &share_status_binding.drop_type(),
                 },
             ],
         };

@@ -76,15 +76,15 @@ pub mod network_interface_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceIndex".into(),
-                    value: device_index_binding.get_id(),
+                    value: &device_index_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceId".into(),
-                    value: instance_id_binding.get_id(),
+                    value: &instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: network_interface_id_binding.get_id(),
+                    value: &network_interface_id_binding.drop_type(),
                 },
             ],
         };

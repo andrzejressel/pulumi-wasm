@@ -134,19 +134,19 @@ pub mod api_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationInsightsId".into(),
-                    value: application_insights_id_binding.get_id(),
+                    value: &application_insights_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readPermissions".into(),
-                    value: read_permissions_binding.get_id(),
+                    value: &read_permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "writePermissions".into(),
-                    value: write_permissions_binding.get_id(),
+                    value: &write_permissions_binding.drop_type(),
                 },
             ],
         };

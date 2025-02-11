@@ -114,27 +114,27 @@ pub mod get_core_network_policy_document {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachmentPolicies".into(),
-                    value: attachment_policies_binding.get_id(),
+                    value: &attachment_policies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreNetworkConfigurations".into(),
-                    value: core_network_configurations_binding.get_id(),
+                    value: &core_network_configurations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkFunctionGroups".into(),
-                    value: network_function_groups_binding.get_id(),
+                    value: &network_function_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "segmentActions".into(),
-                    value: segment_actions_binding.get_id(),
+                    value: &segment_actions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "segments".into(),
-                    value: segments_binding.get_id(),
+                    value: &segments_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

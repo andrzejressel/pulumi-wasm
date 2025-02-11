@@ -104,23 +104,23 @@ pub mod teams_location {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientDefault".into(),
-                    value: client_default_binding.get_id(),
+                    value: &client_default_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ecsSupport".into(),
-                    value: ecs_support_binding.get_id(),
+                    value: &ecs_support_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networks".into(),
-                    value: networks_binding.get_id(),
+                    value: &networks_binding.drop_type(),
                 },
             ],
         };

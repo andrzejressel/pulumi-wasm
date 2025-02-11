@@ -274,51 +274,51 @@ pub mod intent {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "action".into(),
-                    value: action_binding.get_id(),
+                    value: &action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultResponsePlatforms".into(),
-                    value: default_response_platforms_binding.get_id(),
+                    value: &default_response_platforms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "events".into(),
-                    value: events_binding.get_id(),
+                    value: &events_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputContextNames".into(),
-                    value: input_context_names_binding.get_id(),
+                    value: &input_context_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isFallback".into(),
-                    value: is_fallback_binding.get_id(),
+                    value: &is_fallback_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mlDisabled".into(),
-                    value: ml_disabled_binding.get_id(),
+                    value: &ml_disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentFollowupIntentName".into(),
-                    value: parent_followup_intent_name_binding.get_id(),
+                    value: &parent_followup_intent_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resetContexts".into(),
-                    value: reset_contexts_binding.get_id(),
+                    value: &reset_contexts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webhookState".into(),
-                    value: webhook_state_binding.get_id(),
+                    value: &webhook_state_binding.drop_type(),
                 },
             ],
         };

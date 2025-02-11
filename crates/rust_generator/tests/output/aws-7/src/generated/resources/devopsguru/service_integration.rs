@@ -113,15 +113,15 @@ pub mod service_integration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsServerSideEncryption".into(),
-                    value: kms_server_side_encryption_binding.get_id(),
+                    value: &kms_server_side_encryption_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logsAnomalyDetection".into(),
-                    value: logs_anomaly_detection_binding.get_id(),
+                    value: &logs_anomaly_detection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "opsCenter".into(),
-                    value: ops_center_binding.get_id(),
+                    value: &ops_center_binding.drop_type(),
                 },
             ],
         };

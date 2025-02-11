@@ -93,11 +93,11 @@ pub mod voice_connector_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectors".into(),
-                    value: connectors_binding.get_id(),
+                    value: &connectors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

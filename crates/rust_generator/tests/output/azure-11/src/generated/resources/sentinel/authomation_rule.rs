@@ -165,47 +165,47 @@ pub mod authomation_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionIncidents".into(),
-                    value: action_incidents_binding.get_id(),
+                    value: &action_incidents_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "actionPlaybooks".into(),
-                    value: action_playbooks_binding.get_id(),
+                    value: &action_playbooks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "conditionJson".into(),
-                    value: condition_json_binding.get_id(),
+                    value: &condition_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expiration".into(),
-                    value: expiration_binding.get_id(),
+                    value: &expiration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: log_analytics_workspace_id_binding.get_id(),
+                    value: &log_analytics_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "order".into(),
-                    value: order_binding.get_id(),
+                    value: &order_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggersOn".into(),
-                    value: triggers_on_binding.get_id(),
+                    value: &triggers_on_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggersWhen".into(),
-                    value: triggers_when_binding.get_id(),
+                    value: &triggers_when_binding.drop_type(),
                 },
             ],
         };

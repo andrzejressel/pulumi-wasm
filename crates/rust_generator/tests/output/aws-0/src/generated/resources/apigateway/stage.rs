@@ -175,55 +175,55 @@ pub mod stage {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessLogSettings".into(),
-                    value: access_log_settings_binding.get_id(),
+                    value: &access_log_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheClusterEnabled".into(),
-                    value: cache_cluster_enabled_binding.get_id(),
+                    value: &cache_cluster_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cacheClusterSize".into(),
-                    value: cache_cluster_size_binding.get_id(),
+                    value: &cache_cluster_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "canarySettings".into(),
-                    value: canary_settings_binding.get_id(),
+                    value: &canary_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientCertificateId".into(),
-                    value: client_certificate_id_binding.get_id(),
+                    value: &client_certificate_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deployment".into(),
-                    value: deployment_binding.get_id(),
+                    value: &deployment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentationVersion".into(),
-                    value: documentation_version_binding.get_id(),
+                    value: &documentation_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApi".into(),
-                    value: rest_api_binding.get_id(),
+                    value: &rest_api_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stageName".into(),
-                    value: stage_name_binding.get_id(),
+                    value: &stage_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "variables".into(),
-                    value: variables_binding.get_id(),
+                    value: &variables_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "xrayTracingEnabled".into(),
-                    value: xray_tracing_enabled_binding.get_id(),
+                    value: &xray_tracing_enabled_binding.drop_type(),
                 },
             ],
         };

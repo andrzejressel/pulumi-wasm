@@ -111,31 +111,31 @@ pub mod portfolio_share {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptLanguage".into(),
-                    value: accept_language_binding.get_id(),
+                    value: &accept_language_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portfolioId".into(),
-                    value: portfolio_id_binding.get_id(),
+                    value: &portfolio_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalId".into(),
-                    value: principal_id_binding.get_id(),
+                    value: &principal_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharePrincipals".into(),
-                    value: share_principals_binding.get_id(),
+                    value: &share_principals_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareTagOptions".into(),
-                    value: share_tag_options_binding.get_id(),
+                    value: &share_tag_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitForAcceptance".into(),
-                    value: wait_for_acceptance_binding.get_id(),
+                    value: &wait_for_acceptance_binding.drop_type(),
                 },
             ],
         };

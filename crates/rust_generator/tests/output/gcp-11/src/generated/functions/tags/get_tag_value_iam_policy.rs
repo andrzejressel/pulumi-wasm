@@ -36,7 +36,7 @@ pub mod get_tag_value_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagValue".into(),
-                    value: tag_value_binding.get_id(),
+                    value: &tag_value_binding.drop_type(),
                 },
             ],
         };

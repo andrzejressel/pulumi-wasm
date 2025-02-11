@@ -100,19 +100,19 @@ pub mod project {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectDescription".into(),
-                    value: project_description_binding.get_id(),
+                    value: &project_description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectName".into(),
-                    value: project_name_binding.get_id(),
+                    value: &project_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceCatalogProvisioningDetails".into(),
-                    value: service_catalog_provisioning_details_binding.get_id(),
+                    value: &service_catalog_provisioning_details_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

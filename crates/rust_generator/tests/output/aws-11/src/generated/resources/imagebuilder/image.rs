@@ -171,43 +171,43 @@ pub mod image {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRecipeArn".into(),
-                    value: container_recipe_arn_binding.get_id(),
+                    value: &container_recipe_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "distributionConfigurationArn".into(),
-                    value: distribution_configuration_arn_binding.get_id(),
+                    value: &distribution_configuration_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enhancedImageMetadataEnabled".into(),
-                    value: enhanced_image_metadata_enabled_binding.get_id(),
+                    value: &enhanced_image_metadata_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "executionRole".into(),
-                    value: execution_role_binding.get_id(),
+                    value: &execution_role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageRecipeArn".into(),
-                    value: image_recipe_arn_binding.get_id(),
+                    value: &image_recipe_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageScanningConfiguration".into(),
-                    value: image_scanning_configuration_binding.get_id(),
+                    value: &image_scanning_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageTestsConfiguration".into(),
-                    value: image_tests_configuration_binding.get_id(),
+                    value: &image_tests_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "infrastructureConfigurationArn".into(),
-                    value: infrastructure_configuration_arn_binding.get_id(),
+                    value: &infrastructure_configuration_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workflows".into(),
-                    value: workflows_binding.get_id(),
+                    value: &workflows_binding.drop_type(),
                 },
             ],
         };

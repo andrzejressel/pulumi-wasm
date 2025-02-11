@@ -322,19 +322,19 @@ pub mod tag {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "column".into(),
-                    value: column_binding.get_id(),
+                    value: &column_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fields".into(),
-                    value: fields_binding.get_id(),
+                    value: &fields_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "template".into(),
-                    value: template_binding.get_id(),
+                    value: &template_binding.drop_type(),
                 },
             ],
         };

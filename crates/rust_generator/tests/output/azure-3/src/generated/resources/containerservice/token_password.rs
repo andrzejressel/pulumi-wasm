@@ -112,15 +112,15 @@ pub mod token_password {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRegistryTokenId".into(),
-                    value: container_registry_token_id_binding.get_id(),
+                    value: &container_registry_token_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password1".into(),
-                    value: password1_binding.get_id(),
+                    value: &password1_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "password2".into(),
-                    value: password2_binding.get_id(),
+                    value: &password2_binding.drop_type(),
                 },
             ],
         };

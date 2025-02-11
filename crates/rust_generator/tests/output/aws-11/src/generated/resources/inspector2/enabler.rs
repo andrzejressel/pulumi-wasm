@@ -85,11 +85,11 @@ pub mod enabler {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountIds".into(),
-                    value: account_ids_binding.get_id(),
+                    value: &account_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTypes".into(),
-                    value: resource_types_binding.get_id(),
+                    value: &resource_types_binding.drop_type(),
                 },
             ],
         };

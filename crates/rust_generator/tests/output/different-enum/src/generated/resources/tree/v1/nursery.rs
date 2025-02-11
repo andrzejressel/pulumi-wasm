@@ -40,11 +40,11 @@ pub mod nursery {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sizes".into(),
-                    value: sizes_binding.get_id(),
+                    value: &sizes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "varieties".into(),
-                    value: varieties_binding.get_id(),
+                    value: &varieties_binding.drop_type(),
                 },
             ],
         };

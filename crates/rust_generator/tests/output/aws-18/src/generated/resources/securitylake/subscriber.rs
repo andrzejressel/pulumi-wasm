@@ -146,31 +146,31 @@ pub mod subscriber {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessType".into(),
-                    value: access_type_binding.get_id(),
+                    value: &access_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "source".into(),
-                    value: source_binding.get_id(),
+                    value: &source_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriberDescription".into(),
-                    value: subscriber_description_binding.get_id(),
+                    value: &subscriber_description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriberIdentity".into(),
-                    value: subscriber_identity_binding.get_id(),
+                    value: &subscriber_identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriberName".into(),
-                    value: subscriber_name_binding.get_id(),
+                    value: &subscriber_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

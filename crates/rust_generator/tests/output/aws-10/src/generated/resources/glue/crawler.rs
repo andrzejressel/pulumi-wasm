@@ -384,91 +384,91 @@ pub mod crawler {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogTargets".into(),
-                    value: catalog_targets_binding.get_id(),
+                    value: &catalog_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "classifiers".into(),
-                    value: classifiers_binding.get_id(),
+                    value: &classifiers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configuration".into(),
-                    value: configuration_binding.get_id(),
+                    value: &configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databaseName".into(),
-                    value: database_name_binding.get_id(),
+                    value: &database_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deltaTargets".into(),
-                    value: delta_targets_binding.get_id(),
+                    value: &delta_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dynamodbTargets".into(),
-                    value: dynamodb_targets_binding.get_id(),
+                    value: &dynamodb_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hudiTargets".into(),
-                    value: hudi_targets_binding.get_id(),
+                    value: &hudi_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "icebergTargets".into(),
-                    value: iceberg_targets_binding.get_id(),
+                    value: &iceberg_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jdbcTargets".into(),
-                    value: jdbc_targets_binding.get_id(),
+                    value: &jdbc_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lakeFormationConfiguration".into(),
-                    value: lake_formation_configuration_binding.get_id(),
+                    value: &lake_formation_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lineageConfiguration".into(),
-                    value: lineage_configuration_binding.get_id(),
+                    value: &lineage_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mongodbTargets".into(),
-                    value: mongodb_targets_binding.get_id(),
+                    value: &mongodb_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recrawlPolicy".into(),
-                    value: recrawl_policy_binding.get_id(),
+                    value: &recrawl_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: role_binding.get_id(),
+                    value: &role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3Targets".into(),
-                    value: s3_targets_binding.get_id(),
+                    value: &s3_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: schedule_binding.get_id(),
+                    value: &schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schemaChangePolicy".into(),
-                    value: schema_change_policy_binding.get_id(),
+                    value: &schema_change_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityConfiguration".into(),
-                    value: security_configuration_binding.get_id(),
+                    value: &security_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tablePrefix".into(),
-                    value: table_prefix_binding.get_id(),
+                    value: &table_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

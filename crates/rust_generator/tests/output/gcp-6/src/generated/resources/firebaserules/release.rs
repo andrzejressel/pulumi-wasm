@@ -140,15 +140,15 @@ pub mod release {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rulesetName".into(),
-                    value: ruleset_name_binding.get_id(),
+                    value: &ruleset_name_binding.drop_type(),
                 },
             ],
         };

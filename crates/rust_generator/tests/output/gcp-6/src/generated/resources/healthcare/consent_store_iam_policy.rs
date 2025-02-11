@@ -243,15 +243,15 @@ pub mod consent_store_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "consentStoreId".into(),
-                    value: consent_store_id_binding.get_id(),
+                    value: &consent_store_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: dataset_binding.get_id(),
+                    value: &dataset_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyData".into(),
-                    value: policy_data_binding.get_id(),
+                    value: &policy_data_binding.drop_type(),
                 },
             ],
         };

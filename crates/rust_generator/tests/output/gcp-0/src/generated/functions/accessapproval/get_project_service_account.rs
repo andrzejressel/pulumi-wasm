@@ -37,7 +37,7 @@ pub mod get_project_service_account {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectId".into(),
-                    value: project_id_binding.get_id(),
+                    value: &project_id_binding.drop_type(),
                 },
             ],
         };

@@ -360,67 +360,67 @@ pub mod authority {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthorityId".into(),
-                    value: certificate_authority_id_binding.get_id(),
+                    value: &certificate_authority_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "config".into(),
-                    value: config_binding.get_id(),
+                    value: &config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtection".into(),
-                    value: deletion_protection_binding.get_id(),
+                    value: &deletion_protection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredState".into(),
-                    value: desired_state_binding.get_id(),
+                    value: &desired_state_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gcsBucket".into(),
-                    value: gcs_bucket_binding.get_id(),
+                    value: &gcs_bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreActiveCertificatesOnDeletion".into(),
-                    value: ignore_active_certificates_on_deletion_binding.get_id(),
+                    value: &ignore_active_certificates_on_deletion_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keySpec".into(),
-                    value: key_spec_binding.get_id(),
+                    value: &key_spec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifetime".into(),
-                    value: lifetime_binding.get_id(),
+                    value: &lifetime_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pemCaCertificate".into(),
-                    value: pem_ca_certificate_binding.get_id(),
+                    value: &pem_ca_certificate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pool".into(),
-                    value: pool_binding.get_id(),
+                    value: &pool_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipGracePeriod".into(),
-                    value: skip_grace_period_binding.get_id(),
+                    value: &skip_grace_period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subordinateConfig".into(),
-                    value: subordinate_config_binding.get_id(),
+                    value: &subordinate_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

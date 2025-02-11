@@ -96,15 +96,15 @@ pub mod managed_disk_sas_token {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accessLevel".into(),
-                    value: access_level_binding.get_id(),
+                    value: &access_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "durationInSeconds".into(),
-                    value: duration_in_seconds_binding.get_id(),
+                    value: &duration_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedDiskId".into(),
-                    value: managed_disk_id_binding.get_id(),
+                    value: &managed_disk_id_binding.drop_type(),
                 },
             ],
         };

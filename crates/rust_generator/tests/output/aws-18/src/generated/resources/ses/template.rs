@@ -82,19 +82,19 @@ pub mod template {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "html".into(),
-                    value: html_binding.get_id(),
+                    value: &html_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subject".into(),
-                    value: subject_binding.get_id(),
+                    value: &subject_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "text".into(),
-                    value: text_binding.get_id(),
+                    value: &text_binding.drop_type(),
                 },
             ],
         };

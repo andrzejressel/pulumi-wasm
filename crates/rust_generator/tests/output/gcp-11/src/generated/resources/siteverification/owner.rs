@@ -141,11 +141,11 @@ pub mod owner {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "email".into(),
-                    value: email_binding.get_id(),
+                    value: &email_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "webResourceId".into(),
-                    value: web_resource_id_binding.get_id(),
+                    value: &web_resource_id_binding.drop_type(),
                 },
             ],
         };

@@ -70,11 +70,11 @@ pub mod group_policy_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "group".into(),
-                    value: group_binding.get_id(),
+                    value: &group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policyArn".into(),
-                    value: policy_arn_binding.get_id(),
+                    value: &policy_arn_binding.drop_type(),
                 },
             ],
         };

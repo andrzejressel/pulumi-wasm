@@ -70,11 +70,11 @@ pub mod dedicated_ip_assignment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationPoolName".into(),
-                    value: destination_pool_name_binding.get_id(),
+                    value: &destination_pool_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ip".into(),
-                    value: ip_binding.get_id(),
+                    value: &ip_binding.drop_type(),
                 },
             ],
         };

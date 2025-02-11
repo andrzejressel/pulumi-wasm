@@ -181,43 +181,43 @@ pub mod pipeline {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsKmsKeyArn".into(),
-                    value: aws_kms_key_arn_binding.get_id(),
+                    value: &aws_kms_key_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentConfig".into(),
-                    value: content_config_binding.get_id(),
+                    value: &content_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentConfigPermissions".into(),
-                    value: content_config_permissions_binding.get_id(),
+                    value: &content_config_permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputBucket".into(),
-                    value: input_bucket_binding.get_id(),
+                    value: &input_bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notifications".into(),
-                    value: notifications_binding.get_id(),
+                    value: &notifications_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputBucket".into(),
-                    value: output_bucket_binding.get_id(),
+                    value: &output_bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: role_binding.get_id(),
+                    value: &role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thumbnailConfig".into(),
-                    value: thumbnail_config_binding.get_id(),
+                    value: &thumbnail_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "thumbnailConfigPermissions".into(),
-                    value: thumbnail_config_permissions_binding.get_id(),
+                    value: &thumbnail_config_permissions_binding.drop_type(),
                 },
             ],
         };

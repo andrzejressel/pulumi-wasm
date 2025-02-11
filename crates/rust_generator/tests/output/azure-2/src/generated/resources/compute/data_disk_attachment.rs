@@ -166,27 +166,27 @@ pub mod data_disk_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caching".into(),
-                    value: caching_binding.get_id(),
+                    value: &caching_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createOption".into(),
-                    value: create_option_binding.get_id(),
+                    value: &create_option_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lun".into(),
-                    value: lun_binding.get_id(),
+                    value: &lun_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedDiskId".into(),
-                    value: managed_disk_id_binding.get_id(),
+                    value: &managed_disk_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineId".into(),
-                    value: virtual_machine_id_binding.get_id(),
+                    value: &virtual_machine_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "writeAcceleratorEnabled".into(),
-                    value: write_accelerator_enabled_binding.get_id(),
+                    value: &write_accelerator_enabled_binding.drop_type(),
                 },
             ],
         };

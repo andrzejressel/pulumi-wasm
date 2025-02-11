@@ -141,43 +141,43 @@ pub mod slack_channel_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationName".into(),
-                    value: configuration_name_binding.get_id(),
+                    value: &configuration_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guardrailPolicyArns".into(),
-                    value: guardrail_policy_arns_binding.get_id(),
+                    value: &guardrail_policy_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArn".into(),
-                    value: iam_role_arn_binding.get_id(),
+                    value: &iam_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loggingLevel".into(),
-                    value: logging_level_binding.get_id(),
+                    value: &logging_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slackChannelId".into(),
-                    value: slack_channel_id_binding.get_id(),
+                    value: &slack_channel_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slackTeamId".into(),
-                    value: slack_team_id_binding.get_id(),
+                    value: &slack_team_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "snsTopicArns".into(),
-                    value: sns_topic_arns_binding.get_id(),
+                    value: &sns_topic_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userAuthorizationRequired".into(),
-                    value: user_authorization_required_binding.get_id(),
+                    value: &user_authorization_required_binding.drop_type(),
                 },
             ],
         };

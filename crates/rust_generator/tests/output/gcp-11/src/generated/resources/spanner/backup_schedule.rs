@@ -216,35 +216,35 @@ pub mod backup_schedule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "database".into(),
-                    value: database_binding.get_id(),
+                    value: &database_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fullBackupSpec".into(),
-                    value: full_backup_spec_binding.get_id(),
+                    value: &full_backup_spec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "incrementalBackupSpec".into(),
-                    value: incremental_backup_spec_binding.get_id(),
+                    value: &incremental_backup_spec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instance".into(),
-                    value: instance_binding.get_id(),
+                    value: &instance_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionDuration".into(),
-                    value: retention_duration_binding.get_id(),
+                    value: &retention_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spec".into(),
-                    value: spec_binding.get_id(),
+                    value: &spec_binding.drop_type(),
                 },
             ],
         };

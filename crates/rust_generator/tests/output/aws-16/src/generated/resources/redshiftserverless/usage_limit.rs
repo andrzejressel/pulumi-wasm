@@ -92,23 +92,23 @@ pub mod usage_limit {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "amount".into(),
-                    value: amount_binding.get_id(),
+                    value: &amount_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "breachAction".into(),
-                    value: breach_action_binding.get_id(),
+                    value: &breach_action_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "period".into(),
-                    value: period_binding.get_id(),
+                    value: &period_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceArn".into(),
-                    value: resource_arn_binding.get_id(),
+                    value: &resource_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "usageType".into(),
-                    value: usage_type_binding.get_id(),
+                    value: &usage_type_binding.drop_type(),
                 },
             ],
         };

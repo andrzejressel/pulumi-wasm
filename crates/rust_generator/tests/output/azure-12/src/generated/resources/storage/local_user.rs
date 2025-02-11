@@ -153,31 +153,31 @@ pub mod local_user {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "homeDirectory".into(),
-                    value: home_directory_binding.get_id(),
+                    value: &home_directory_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionScopes".into(),
-                    value: permission_scopes_binding.get_id(),
+                    value: &permission_scopes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshAuthorizedKeys".into(),
-                    value: ssh_authorized_keys_binding.get_id(),
+                    value: &ssh_authorized_keys_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshKeyEnabled".into(),
-                    value: ssh_key_enabled_binding.get_id(),
+                    value: &ssh_key_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sshPasswordEnabled".into(),
-                    value: ssh_password_enabled_binding.get_id(),
+                    value: &ssh_password_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccountId".into(),
-                    value: storage_account_id_binding.get_id(),
+                    value: &storage_account_id_binding.drop_type(),
                 },
             ],
         };

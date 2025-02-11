@@ -137,23 +137,23 @@ pub mod fleet_update_run {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fleetUpdateStrategyId".into(),
-                    value: fleet_update_strategy_id_binding.get_id(),
+                    value: &fleet_update_strategy_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesFleetManagerId".into(),
-                    value: kubernetes_fleet_manager_id_binding.get_id(),
+                    value: &kubernetes_fleet_manager_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedClusterUpdate".into(),
-                    value: managed_cluster_update_binding.get_id(),
+                    value: &managed_cluster_update_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stages".into(),
-                    value: stages_binding.get_id(),
+                    value: &stages_binding.drop_type(),
                 },
             ],
         };

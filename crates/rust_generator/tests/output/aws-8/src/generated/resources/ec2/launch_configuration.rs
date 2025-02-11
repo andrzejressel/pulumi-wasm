@@ -207,75 +207,75 @@ pub mod launch_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associatePublicIpAddress".into(),
-                    value: associate_public_ip_address_binding.get_id(),
+                    value: &associate_public_ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsBlockDevices".into(),
-                    value: ebs_block_devices_binding.get_id(),
+                    value: &ebs_block_devices_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsOptimized".into(),
-                    value: ebs_optimized_binding.get_id(),
+                    value: &ebs_optimized_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableMonitoring".into(),
-                    value: enable_monitoring_binding.get_id(),
+                    value: &enable_monitoring_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ephemeralBlockDevices".into(),
-                    value: ephemeral_block_devices_binding.get_id(),
+                    value: &ephemeral_block_devices_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamInstanceProfile".into(),
-                    value: iam_instance_profile_binding.get_id(),
+                    value: &iam_instance_profile_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageId".into(),
-                    value: image_id_binding.get_id(),
+                    value: &image_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceType".into(),
-                    value: instance_type_binding.get_id(),
+                    value: &instance_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyName".into(),
-                    value: key_name_binding.get_id(),
+                    value: &key_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadataOptions".into(),
-                    value: metadata_options_binding.get_id(),
+                    value: &metadata_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namePrefix".into(),
-                    value: name_prefix_binding.get_id(),
+                    value: &name_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementTenancy".into(),
-                    value: placement_tenancy_binding.get_id(),
+                    value: &placement_tenancy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rootBlockDevice".into(),
-                    value: root_block_device_binding.get_id(),
+                    value: &root_block_device_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroups".into(),
-                    value: security_groups_binding.get_id(),
+                    value: &security_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spotPrice".into(),
-                    value: spot_price_binding.get_id(),
+                    value: &spot_price_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userData".into(),
-                    value: user_data_binding.get_id(),
+                    value: &user_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userDataBase64".into(),
-                    value: user_data_base64_binding.get_id(),
+                    value: &user_data_base64_binding.drop_type(),
                 },
             ],
         };

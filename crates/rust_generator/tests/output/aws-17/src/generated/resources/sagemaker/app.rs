@@ -112,31 +112,31 @@ pub mod app {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appName".into(),
-                    value: app_name_binding.get_id(),
+                    value: &app_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appType".into(),
-                    value: app_type_binding.get_id(),
+                    value: &app_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domainId".into(),
-                    value: domain_id_binding.get_id(),
+                    value: &domain_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceSpec".into(),
-                    value: resource_spec_binding.get_id(),
+                    value: &resource_spec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "spaceName".into(),
-                    value: space_name_binding.get_id(),
+                    value: &space_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userProfileName".into(),
-                    value: user_profile_name_binding.get_id(),
+                    value: &user_profile_name_binding.drop_type(),
                 },
             ],
         };

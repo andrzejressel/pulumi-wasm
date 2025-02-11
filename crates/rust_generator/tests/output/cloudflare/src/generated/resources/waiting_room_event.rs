@@ -154,63 +154,63 @@ pub mod waiting_room_event {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customPageHtml".into(),
-                    value: custom_page_html_binding.get_id(),
+                    value: &custom_page_html_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableSessionRenewal".into(),
-                    value: disable_session_renewal_binding.get_id(),
+                    value: &disable_session_renewal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventEndTime".into(),
-                    value: event_end_time_binding.get_id(),
+                    value: &event_end_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventStartTime".into(),
-                    value: event_start_time_binding.get_id(),
+                    value: &event_start_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "newUsersPerMinute".into(),
-                    value: new_users_per_minute_binding.get_id(),
+                    value: &new_users_per_minute_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "prequeueStartTime".into(),
-                    value: prequeue_start_time_binding.get_id(),
+                    value: &prequeue_start_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueingMethod".into(),
-                    value: queueing_method_binding.get_id(),
+                    value: &queueing_method_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sessionDuration".into(),
-                    value: session_duration_binding.get_id(),
+                    value: &session_duration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shuffleAtEventStart".into(),
-                    value: shuffle_at_event_start_binding.get_id(),
+                    value: &shuffle_at_event_start_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "suspended".into(),
-                    value: suspended_binding.get_id(),
+                    value: &suspended_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "totalActiveUsers".into(),
-                    value: total_active_users_binding.get_id(),
+                    value: &total_active_users_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "waitingRoomId".into(),
-                    value: waiting_room_id_binding.get_id(),
+                    value: &waiting_room_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

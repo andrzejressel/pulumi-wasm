@@ -117,35 +117,35 @@ pub mod log_anomaly_detector {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "anomalyVisibilityTime".into(),
-                    value: anomaly_visibility_time_binding.get_id(),
+                    value: &anomaly_visibility_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectorName".into(),
-                    value: detector_name_binding.get_id(),
+                    value: &detector_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "evaluationFrequency".into(),
-                    value: evaluation_frequency_binding.get_id(),
+                    value: &evaluation_frequency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterPattern".into(),
-                    value: filter_pattern_binding.get_id(),
+                    value: &filter_pattern_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logGroupArnLists".into(),
-                    value: log_group_arn_lists_binding.get_id(),
+                    value: &log_group_arn_lists_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

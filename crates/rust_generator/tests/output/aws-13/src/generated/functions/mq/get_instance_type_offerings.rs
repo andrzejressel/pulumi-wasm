@@ -50,15 +50,15 @@ pub mod get_instance_type_offerings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "engineType".into(),
-                    value: engine_type_binding.get_id(),
+                    value: &engine_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostInstanceType".into(),
-                    value: host_instance_type_binding.get_id(),
+                    value: &host_instance_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageType".into(),
-                    value: storage_type_binding.get_id(),
+                    value: &storage_type_binding.drop_type(),
                 },
             ],
         };

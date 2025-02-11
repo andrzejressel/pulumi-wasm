@@ -190,23 +190,23 @@ pub mod access_approval_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activeKeyVersion".into(),
-                    value: active_key_version_binding.get_id(),
+                    value: &active_key_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enrolledServices".into(),
-                    value: enrolled_services_binding.get_id(),
+                    value: &enrolled_services_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationEmails".into(),
-                    value: notification_emails_binding.get_id(),
+                    value: &notification_emails_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "projectId".into(),
-                    value: project_id_binding.get_id(),
+                    value: &project_id_binding.drop_type(),
                 },
             ],
         };

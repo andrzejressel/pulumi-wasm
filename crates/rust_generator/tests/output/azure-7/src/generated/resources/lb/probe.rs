@@ -136,35 +136,35 @@ pub mod probe {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "intervalInSeconds".into(),
-                    value: interval_in_seconds_binding.get_id(),
+                    value: &interval_in_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadbalancerId".into(),
-                    value: loadbalancer_id_binding.get_id(),
+                    value: &loadbalancer_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberOfProbes".into(),
-                    value: number_of_probes_binding.get_id(),
+                    value: &number_of_probes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "probeThreshold".into(),
-                    value: probe_threshold_binding.get_id(),
+                    value: &probe_threshold_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestPath".into(),
-                    value: request_path_binding.get_id(),
+                    value: &request_path_binding.drop_type(),
                 },
             ],
         };

@@ -60,15 +60,15 @@ pub mod role_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbInstanceIdentifier".into(),
-                    value: db_instance_identifier_binding.get_id(),
+                    value: &db_instance_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featureName".into(),
-                    value: feature_name_binding.get_id(),
+                    value: &feature_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
             ],
         };

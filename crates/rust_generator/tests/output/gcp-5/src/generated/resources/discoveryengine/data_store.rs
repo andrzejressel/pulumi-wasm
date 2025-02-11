@@ -252,43 +252,43 @@ pub mod data_store {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contentConfig".into(),
-                    value: content_config_binding.get_id(),
+                    value: &content_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createAdvancedSiteSearch".into(),
-                    value: create_advanced_site_search_binding.get_id(),
+                    value: &create_advanced_site_search_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataStoreId".into(),
-                    value: data_store_id_binding.get_id(),
+                    value: &data_store_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "documentProcessingConfig".into(),
-                    value: document_processing_config_binding.get_id(),
+                    value: &document_processing_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "industryVertical".into(),
-                    value: industry_vertical_binding.get_id(),
+                    value: &industry_vertical_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skipDefaultSchemaCreation".into(),
-                    value: skip_default_schema_creation_binding.get_id(),
+                    value: &skip_default_schema_creation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "solutionTypes".into(),
-                    value: solution_types_binding.get_id(),
+                    value: &solution_types_binding.drop_type(),
                 },
             ],
         };

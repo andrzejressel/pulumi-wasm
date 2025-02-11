@@ -40,15 +40,15 @@ pub mod get_bastion_shareable_link {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bastionHostName".into(),
-                    value: bastion_host_name_binding.get_id(),
+                    value: &bastion_host_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vms".into(),
-                    value: vms_binding.get_id(),
+                    value: &vms_binding.drop_type(),
                 },
             ],
         };

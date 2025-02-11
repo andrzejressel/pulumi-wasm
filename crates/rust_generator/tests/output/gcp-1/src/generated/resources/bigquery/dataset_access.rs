@@ -325,47 +325,47 @@ pub mod dataset_access {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedDataset".into(),
-                    value: authorized_dataset_binding.get_id(),
+                    value: &authorized_dataset_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datasetId".into(),
-                    value: dataset_id_binding.get_id(),
+                    value: &dataset_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "domain".into(),
-                    value: domain_binding.get_id(),
+                    value: &domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupByEmail".into(),
-                    value: group_by_email_binding.get_id(),
+                    value: &group_by_email_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamMember".into(),
-                    value: iam_member_binding.get_id(),
+                    value: &iam_member_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "role".into(),
-                    value: role_binding.get_id(),
+                    value: &role_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routine".into(),
-                    value: routine_binding.get_id(),
+                    value: &routine_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "specialGroup".into(),
-                    value: special_group_binding.get_id(),
+                    value: &special_group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "userByEmail".into(),
-                    value: user_by_email_binding.get_id(),
+                    value: &user_by_email_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "view".into(),
-                    value: view_binding.get_id(),
+                    value: &view_binding.drop_type(),
                 },
             ],
         };

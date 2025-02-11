@@ -159,35 +159,35 @@ pub mod data_repository_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchImportMetaDataOnCreate".into(),
-                    value: batch_import_meta_data_on_create_binding.get_id(),
+                    value: &batch_import_meta_data_on_create_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataRepositoryPath".into(),
-                    value: data_repository_path_binding.get_id(),
+                    value: &data_repository_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteDataInFilesystem".into(),
-                    value: delete_data_in_filesystem_binding.get_id(),
+                    value: &delete_data_in_filesystem_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemId".into(),
-                    value: file_system_id_binding.get_id(),
+                    value: &file_system_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fileSystemPath".into(),
-                    value: file_system_path_binding.get_id(),
+                    value: &file_system_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "importedFileChunkSize".into(),
-                    value: imported_file_chunk_size_binding.get_id(),
+                    value: &imported_file_chunk_size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "s3".into(),
-                    value: s3_binding.get_id(),
+                    value: &s3_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

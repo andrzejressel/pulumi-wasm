@@ -67,11 +67,11 @@ pub mod waiting_room_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "searchEngineCrawlerBypass".into(),
-                    value: search_engine_crawler_bypass_binding.get_id(),
+                    value: &search_engine_crawler_bypass_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneId".into(),
-                    value: zone_id_binding.get_id(),
+                    value: &zone_id_binding.drop_type(),
                 },
             ],
         };

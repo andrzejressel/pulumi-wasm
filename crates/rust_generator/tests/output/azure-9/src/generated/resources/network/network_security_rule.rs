@@ -225,75 +225,76 @@ pub mod network_security_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "access".into(),
-                    value: access_binding.get_id(),
+                    value: &access_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationAddressPrefix".into(),
-                    value: destination_address_prefix_binding.get_id(),
+                    value: &destination_address_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationAddressPrefixes".into(),
-                    value: destination_address_prefixes_binding.get_id(),
+                    value: &destination_address_prefixes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationApplicationSecurityGroupIds".into(),
-                    value: destination_application_security_group_ids_binding.get_id(),
+                    value: &destination_application_security_group_ids_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationPortRange".into(),
-                    value: destination_port_range_binding.get_id(),
+                    value: &destination_port_range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationPortRanges".into(),
-                    value: destination_port_ranges_binding.get_id(),
+                    value: &destination_port_ranges_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "direction".into(),
-                    value: direction_binding.get_id(),
+                    value: &direction_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkSecurityGroupName".into(),
-                    value: network_security_group_name_binding.get_id(),
+                    value: &network_security_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceAddressPrefix".into(),
-                    value: source_address_prefix_binding.get_id(),
+                    value: &source_address_prefix_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceAddressPrefixes".into(),
-                    value: source_address_prefixes_binding.get_id(),
+                    value: &source_address_prefixes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceApplicationSecurityGroupIds".into(),
-                    value: source_application_security_group_ids_binding.get_id(),
+                    value: &source_application_security_group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourcePortRange".into(),
-                    value: source_port_range_binding.get_id(),
+                    value: &source_port_range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourcePortRanges".into(),
-                    value: source_port_ranges_binding.get_id(),
+                    value: &source_port_ranges_binding.drop_type(),
                 },
             ],
         };

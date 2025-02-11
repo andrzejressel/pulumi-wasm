@@ -86,15 +86,15 @@ pub mod drt_access_log_bucket_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logBucket".into(),
-                    value: log_bucket_binding.get_id(),
+                    value: &log_bucket_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArnAssociationId".into(),
-                    value: role_arn_association_id_binding.get_id(),
+                    value: &role_arn_association_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
             ],
         };

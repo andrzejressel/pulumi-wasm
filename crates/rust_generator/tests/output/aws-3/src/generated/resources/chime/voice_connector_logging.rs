@@ -80,15 +80,15 @@ pub mod voice_connector_logging {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableMediaMetricLogs".into(),
-                    value: enable_media_metric_logs_binding.get_id(),
+                    value: &enable_media_metric_logs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableSipLogs".into(),
-                    value: enable_sip_logs_binding.get_id(),
+                    value: &enable_sip_logs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "voiceConnectorId".into(),
-                    value: voice_connector_id_binding.get_id(),
+                    value: &voice_connector_id_binding.drop_type(),
                 },
             ],
         };

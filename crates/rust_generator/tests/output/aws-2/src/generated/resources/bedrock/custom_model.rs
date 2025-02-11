@@ -190,55 +190,55 @@ pub mod custom_model {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "baseModelIdentifier".into(),
-                    value: base_model_identifier_binding.get_id(),
+                    value: &base_model_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customModelKmsKeyId".into(),
-                    value: custom_model_kms_key_id_binding.get_id(),
+                    value: &custom_model_kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customModelName".into(),
-                    value: custom_model_name_binding.get_id(),
+                    value: &custom_model_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customizationType".into(),
-                    value: customization_type_binding.get_id(),
+                    value: &customization_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hyperparameters".into(),
-                    value: hyperparameters_binding.get_id(),
+                    value: &hyperparameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobName".into(),
-                    value: job_name_binding.get_id(),
+                    value: &job_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputDataConfig".into(),
-                    value: output_data_config_binding.get_id(),
+                    value: &output_data_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trainingDataConfig".into(),
-                    value: training_data_config_binding.get_id(),
+                    value: &training_data_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validationDataConfig".into(),
-                    value: validation_data_config_binding.get_id(),
+                    value: &validation_data_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfig".into(),
-                    value: vpc_config_binding.get_id(),
+                    value: &vpc_config_binding.drop_type(),
                 },
             ],
         };

@@ -227,31 +227,31 @@ pub mod consumer_quota_override {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dimensions".into(),
-                    value: dimensions_binding.get_id(),
+                    value: &dimensions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "force".into(),
-                    value: force_binding.get_id(),
+                    value: &force_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "limit".into(),
-                    value: limit_binding.get_id(),
+                    value: &limit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metric".into(),
-                    value: metric_binding.get_id(),
+                    value: &metric_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrideValue".into(),
-                    value: override_value_binding.get_id(),
+                    value: &override_value_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: service_binding.get_id(),
+                    value: &service_binding.drop_type(),
                 },
             ],
         };

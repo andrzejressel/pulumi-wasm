@@ -122,23 +122,23 @@ pub mod anomaly_monitor {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitorDimension".into(),
-                    value: monitor_dimension_binding.get_id(),
+                    value: &monitor_dimension_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitorSpecification".into(),
-                    value: monitor_specification_binding.get_id(),
+                    value: &monitor_specification_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "monitorType".into(),
-                    value: monitor_type_binding.get_id(),
+                    value: &monitor_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

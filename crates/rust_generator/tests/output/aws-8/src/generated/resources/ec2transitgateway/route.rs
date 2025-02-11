@@ -111,19 +111,19 @@ pub mod route {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "blackhole".into(),
-                    value: blackhole_binding.get_id(),
+                    value: &blackhole_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationCidrBlock".into(),
-                    value: destination_cidr_block_binding.get_id(),
+                    value: &destination_cidr_block_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayAttachmentId".into(),
-                    value: transit_gateway_attachment_id_binding.get_id(),
+                    value: &transit_gateway_attachment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayRouteTableId".into(),
-                    value: transit_gateway_route_table_id_binding.get_id(),
+                    value: &transit_gateway_route_table_id_binding.drop_type(),
                 },
             ],
         };

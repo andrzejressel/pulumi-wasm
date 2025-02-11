@@ -150,27 +150,27 @@ pub mod dataset_blob_storage {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerName".into(),
-                    value: container_name_binding.get_id(),
+                    value: &container_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataShareId".into(),
-                    value: data_share_id_binding.get_id(),
+                    value: &data_share_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filePath".into(),
-                    value: file_path_binding.get_id(),
+                    value: &file_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "folderPath".into(),
-                    value: folder_path_binding.get_id(),
+                    value: &folder_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageAccount".into(),
-                    value: storage_account_binding.get_id(),
+                    value: &storage_account_binding.drop_type(),
                 },
             ],
         };

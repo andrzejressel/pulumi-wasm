@@ -162,39 +162,39 @@ pub mod s_quota_preference {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "contactEmail".into(),
-                    value: contact_email_binding.get_id(),
+                    value: &contact_email_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dimensions".into(),
-                    value: dimensions_binding.get_id(),
+                    value: &dimensions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ignoreSafetyChecks".into(),
-                    value: ignore_safety_checks_binding.get_id(),
+                    value: &ignore_safety_checks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "justification".into(),
-                    value: justification_binding.get_id(),
+                    value: &justification_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quotaConfig".into(),
-                    value: quota_config_binding.get_id(),
+                    value: &quota_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quotaId".into(),
-                    value: quota_id_binding.get_id(),
+                    value: &quota_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "service".into(),
-                    value: service_binding.get_id(),
+                    value: &service_binding.drop_type(),
                 },
             ],
         };

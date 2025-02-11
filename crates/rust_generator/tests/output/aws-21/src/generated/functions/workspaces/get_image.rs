@@ -40,7 +40,7 @@ pub mod get_image {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "imageId".into(),
-                    value: image_id_binding.get_id(),
+                    value: &image_id_binding.drop_type(),
                 },
             ],
         };

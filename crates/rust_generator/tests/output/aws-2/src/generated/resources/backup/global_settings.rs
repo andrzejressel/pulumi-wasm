@@ -56,7 +56,7 @@ pub mod global_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalSettings".into(),
-                    value: global_settings_binding.get_id(),
+                    value: &global_settings_binding.drop_type(),
                 },
             ],
         };

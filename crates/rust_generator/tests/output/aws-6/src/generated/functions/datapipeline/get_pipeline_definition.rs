@@ -61,11 +61,11 @@ pub mod get_pipeline_definition {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameterValues".into(),
-                    value: parameter_values_binding.get_id(),
+                    value: &parameter_values_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pipelineId".into(),
-                    value: pipeline_id_binding.get_id(),
+                    value: &pipeline_id_binding.drop_type(),
                 },
             ],
         };

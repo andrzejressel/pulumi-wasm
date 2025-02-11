@@ -74,11 +74,11 @@ pub mod resolver_firewall_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "firewallFailOpen".into(),
-                    value: firewall_fail_open_binding.get_id(),
+                    value: &firewall_fail_open_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceId".into(),
-                    value: resource_id_binding.get_id(),
+                    value: &resource_id_binding.drop_type(),
                 },
             ],
         };

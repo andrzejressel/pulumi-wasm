@@ -92,19 +92,19 @@ pub mod user_login_profile {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "passwordLength".into(),
-                    value: password_length_binding.get_id(),
+                    value: &password_length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "passwordResetRequired".into(),
-                    value: password_reset_required_binding.get_id(),
+                    value: &password_reset_required_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pgpKey".into(),
-                    value: pgp_key_binding.get_id(),
+                    value: &pgp_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "user".into(),
-                    value: user_binding.get_id(),
+                    value: &user_binding.drop_type(),
                 },
             ],
         };

@@ -85,19 +85,19 @@ pub mod standards_control_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "associationStatus".into(),
-                    value: association_status_binding.get_id(),
+                    value: &association_status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityControlId".into(),
-                    value: security_control_id_binding.get_id(),
+                    value: &security_control_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "standardsArn".into(),
-                    value: standards_arn_binding.get_id(),
+                    value: &standards_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "updatedReason".into(),
-                    value: updated_reason_binding.get_id(),
+                    value: &updated_reason_binding.drop_type(),
                 },
             ],
         };

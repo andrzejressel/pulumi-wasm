@@ -112,15 +112,15 @@ pub mod dataset_kusto_cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kustoClusterId".into(),
-                    value: kusto_cluster_id_binding.get_id(),
+                    value: &kusto_cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shareId".into(),
-                    value: share_id_binding.get_id(),
+                    value: &share_id_binding.drop_type(),
                 },
             ],
         };

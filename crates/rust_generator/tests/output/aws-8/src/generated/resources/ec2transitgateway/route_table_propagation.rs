@@ -77,11 +77,11 @@ pub mod route_table_propagation {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayAttachmentId".into(),
-                    value: transit_gateway_attachment_id_binding.get_id(),
+                    value: &transit_gateway_attachment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayRouteTableId".into(),
-                    value: transit_gateway_route_table_id_binding.get_id(),
+                    value: &transit_gateway_route_table_id_binding.drop_type(),
                 },
             ],
         };

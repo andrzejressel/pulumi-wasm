@@ -150,31 +150,31 @@ pub mod failover_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "databases".into(),
-                    value: databases_binding.get_id(),
+                    value: &databases_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partnerServers".into(),
-                    value: partner_servers_binding.get_id(),
+                    value: &partner_servers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readWriteEndpointFailoverPolicy".into(),
-                    value: read_write_endpoint_failover_policy_binding.get_id(),
+                    value: &read_write_endpoint_failover_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readonlyEndpointFailoverPolicyEnabled".into(),
-                    value: readonly_endpoint_failover_policy_enabled_binding.get_id(),
+                    value: &readonly_endpoint_failover_policy_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serverId".into(),
-                    value: server_id_binding.get_id(),
+                    value: &server_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

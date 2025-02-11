@@ -115,19 +115,19 @@ pub mod gateway_certificate_authority {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementId".into(),
-                    value: api_management_id_binding.get_id(),
+                    value: &api_management_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateName".into(),
-                    value: certificate_name_binding.get_id(),
+                    value: &certificate_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayName".into(),
-                    value: gateway_name_binding.get_id(),
+                    value: &gateway_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isTrusted".into(),
-                    value: is_trusted_binding.get_id(),
+                    value: &is_trusted_binding.drop_type(),
                 },
             ],
         };

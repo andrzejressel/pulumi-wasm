@@ -155,43 +155,43 @@ pub mod feature_group {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventTimeFeatureName".into(),
-                    value: event_time_feature_name_binding.get_id(),
+                    value: &event_time_feature_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featureDefinitions".into(),
-                    value: feature_definitions_binding.get_id(),
+                    value: &feature_definitions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "featureGroupName".into(),
-                    value: feature_group_name_binding.get_id(),
+                    value: &feature_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "offlineStoreConfig".into(),
-                    value: offline_store_config_binding.get_id(),
+                    value: &offline_store_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "onlineStoreConfig".into(),
-                    value: online_store_config_binding.get_id(),
+                    value: &online_store_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "recordIdentifierFeatureName".into(),
-                    value: record_identifier_feature_name_binding.get_id(),
+                    value: &record_identifier_feature_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throughputConfig".into(),
-                    value: throughput_config_binding.get_id(),
+                    value: &throughput_config_binding.drop_type(),
                 },
             ],
         };

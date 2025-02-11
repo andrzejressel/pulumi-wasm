@@ -165,35 +165,35 @@ pub mod datastore_fileshare {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountKey".into(),
-                    value: account_key_binding.get_id(),
+                    value: &account_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceDataIdentity".into(),
-                    value: service_data_identity_binding.get_id(),
+                    value: &service_data_identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sharedAccessSignature".into(),
-                    value: shared_access_signature_binding.get_id(),
+                    value: &shared_access_signature_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageFileshareId".into(),
-                    value: storage_fileshare_id_binding.get_id(),
+                    value: &storage_fileshare_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: workspace_id_binding.get_id(),
+                    value: &workspace_id_binding.drop_type(),
                 },
             ],
         };

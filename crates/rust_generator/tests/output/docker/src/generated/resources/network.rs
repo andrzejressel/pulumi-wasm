@@ -164,51 +164,51 @@ pub mod network {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "attachable".into(),
-                    value: attachable_binding.get_id(),
+                    value: &attachable_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "checkDuplicate".into(),
-                    value: check_duplicate_binding.get_id(),
+                    value: &check_duplicate_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "driver".into(),
-                    value: driver_binding.get_id(),
+                    value: &driver_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ingress".into(),
-                    value: ingress_binding.get_id(),
+                    value: &ingress_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "internal".into(),
-                    value: internal_binding.get_id(),
+                    value: &internal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamConfigs".into(),
-                    value: ipam_configs_binding.get_id(),
+                    value: &ipam_configs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamDriver".into(),
-                    value: ipam_driver_binding.get_id(),
+                    value: &ipam_driver_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipamOptions".into(),
-                    value: ipam_options_binding.get_id(),
+                    value: &ipam_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipv6".into(),
-                    value: ipv6_binding.get_id(),
+                    value: &ipv6_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "options".into(),
-                    value: options_binding.get_id(),
+                    value: &options_binding.drop_type(),
                 },
             ],
         };

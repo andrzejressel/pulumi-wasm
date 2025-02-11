@@ -164,39 +164,39 @@ pub mod virtual_network_peering {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowForwardedTraffic".into(),
-                    value: allow_forwarded_traffic_binding.get_id(),
+                    value: &allow_forwarded_traffic_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowGatewayTransit".into(),
-                    value: allow_gateway_transit_binding.get_id(),
+                    value: &allow_gateway_transit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowVirtualNetworkAccess".into(),
-                    value: allow_virtual_network_access_binding.get_id(),
+                    value: &allow_virtual_network_access_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteAddressSpacePrefixes".into(),
-                    value: remote_address_space_prefixes_binding.get_id(),
+                    value: &remote_address_space_prefixes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remoteVirtualNetworkId".into(),
-                    value: remote_virtual_network_id_binding.get_id(),
+                    value: &remote_virtual_network_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useRemoteGateways".into(),
-                    value: use_remote_gateways_binding.get_id(),
+                    value: &use_remote_gateways_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workspaceId".into(),
-                    value: workspace_id_binding.get_id(),
+                    value: &workspace_id_binding.drop_type(),
                 },
             ],
         };

@@ -86,11 +86,11 @@ pub mod sink_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policy".into(),
-                    value: policy_binding.get_id(),
+                    value: &policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sinkIdentifier".into(),
-                    value: sink_identifier_binding.get_id(),
+                    value: &sink_identifier_binding.drop_type(),
                 },
             ],
         };

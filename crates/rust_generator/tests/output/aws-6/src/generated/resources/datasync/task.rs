@@ -203,43 +203,43 @@ pub mod task {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchLogGroupArn".into(),
-                    value: cloudwatch_log_group_arn_binding.get_id(),
+                    value: &cloudwatch_log_group_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationLocationArn".into(),
-                    value: destination_location_arn_binding.get_id(),
+                    value: &destination_location_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludes".into(),
-                    value: excludes_binding.get_id(),
+                    value: &excludes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includes".into(),
-                    value: includes_binding.get_id(),
+                    value: &includes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "options".into(),
-                    value: options_binding.get_id(),
+                    value: &options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "schedule".into(),
-                    value: schedule_binding.get_id(),
+                    value: &schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceLocationArn".into(),
-                    value: source_location_arn_binding.get_id(),
+                    value: &source_location_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskReportConfig".into(),
-                    value: task_report_config_binding.get_id(),
+                    value: &task_report_config_binding.drop_type(),
                 },
             ],
         };

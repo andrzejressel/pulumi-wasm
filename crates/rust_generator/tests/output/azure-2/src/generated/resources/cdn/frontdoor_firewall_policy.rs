@@ -230,51 +230,51 @@ pub mod frontdoor_firewall_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customBlockResponseBody".into(),
-                    value: custom_block_response_body_binding.get_id(),
+                    value: &custom_block_response_body_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customBlockResponseStatusCode".into(),
-                    value: custom_block_response_status_code_binding.get_id(),
+                    value: &custom_block_response_status_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customRules".into(),
-                    value: custom_rules_binding.get_id(),
+                    value: &custom_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedRules".into(),
-                    value: managed_rules_binding.get_id(),
+                    value: &managed_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: mode_binding.get_id(),
+                    value: &mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redirectUrl".into(),
-                    value: redirect_url_binding.get_id(),
+                    value: &redirect_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestBodyCheckEnabled".into(),
-                    value: request_body_check_enabled_binding.get_id(),
+                    value: &request_body_check_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "skuName".into(),
-                    value: sku_name_binding.get_id(),
+                    value: &sku_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

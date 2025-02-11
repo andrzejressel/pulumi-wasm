@@ -185,51 +185,51 @@ pub mod connected_registry {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditLogEnabled".into(),
-                    value: audit_log_enabled_binding.get_id(),
+                    value: &audit_log_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientTokenIds".into(),
-                    value: client_token_ids_binding.get_id(),
+                    value: &client_token_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerRegistryId".into(),
-                    value: container_registry_id_binding.get_id(),
+                    value: &container_registry_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logLevel".into(),
-                    value: log_level_binding.get_id(),
+                    value: &log_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mode".into(),
-                    value: mode_binding.get_id(),
+                    value: &mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notifications".into(),
-                    value: notifications_binding.get_id(),
+                    value: &notifications_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parentRegistryId".into(),
-                    value: parent_registry_id_binding.get_id(),
+                    value: &parent_registry_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "syncMessageTtl".into(),
-                    value: sync_message_ttl_binding.get_id(),
+                    value: &sync_message_ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "syncSchedule".into(),
-                    value: sync_schedule_binding.get_id(),
+                    value: &sync_schedule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "syncTokenId".into(),
-                    value: sync_token_id_binding.get_id(),
+                    value: &sync_token_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "syncWindow".into(),
-                    value: sync_window_binding.get_id(),
+                    value: &sync_window_binding.drop_type(),
                 },
             ],
         };

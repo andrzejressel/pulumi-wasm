@@ -40,11 +40,11 @@ pub mod get_resource {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "path".into(),
-                    value: path_binding.get_id(),
+                    value: &path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "restApiId".into(),
-                    value: rest_api_id_binding.get_id(),
+                    value: &rest_api_id_binding.drop_type(),
                 },
             ],
         };

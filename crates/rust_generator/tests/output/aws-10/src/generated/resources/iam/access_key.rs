@@ -120,15 +120,15 @@ pub mod access_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "pgpKey".into(),
-                    value: pgp_key_binding.get_id(),
+                    value: &pgp_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "user".into(),
-                    value: user_binding.get_id(),
+                    value: &user_binding.drop_type(),
                 },
             ],
         };

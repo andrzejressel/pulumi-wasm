@@ -245,47 +245,47 @@ pub mod frontdoor {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendPoolHealthProbes".into(),
-                    value: backend_pool_health_probes_binding.get_id(),
+                    value: &backend_pool_health_probes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendPoolLoadBalancings".into(),
-                    value: backend_pool_load_balancings_binding.get_id(),
+                    value: &backend_pool_load_balancings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendPoolSettings".into(),
-                    value: backend_pool_settings_binding.get_id(),
+                    value: &backend_pool_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backendPools".into(),
-                    value: backend_pools_binding.get_id(),
+                    value: &backend_pools_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "friendlyName".into(),
-                    value: friendly_name_binding.get_id(),
+                    value: &friendly_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frontendEndpoints".into(),
-                    value: frontend_endpoints_binding.get_id(),
+                    value: &frontend_endpoints_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerEnabled".into(),
-                    value: load_balancer_enabled_binding.get_id(),
+                    value: &load_balancer_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingRules".into(),
-                    value: routing_rules_binding.get_id(),
+                    value: &routing_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

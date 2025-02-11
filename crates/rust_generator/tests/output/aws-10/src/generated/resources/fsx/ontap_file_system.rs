@@ -271,75 +271,75 @@ pub mod ontap_file_system {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "automaticBackupRetentionDays".into(),
-                    value: automatic_backup_retention_days_binding.get_id(),
+                    value: &automatic_backup_retention_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dailyAutomaticBackupStartTime".into(),
-                    value: daily_automatic_backup_start_time_binding.get_id(),
+                    value: &daily_automatic_backup_start_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deploymentType".into(),
-                    value: deployment_type_binding.get_id(),
+                    value: &deployment_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskIopsConfiguration".into(),
-                    value: disk_iops_configuration_binding.get_id(),
+                    value: &disk_iops_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointIpAddressRange".into(),
-                    value: endpoint_ip_address_range_binding.get_id(),
+                    value: &endpoint_ip_address_range_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fsxAdminPassword".into(),
-                    value: fsx_admin_password_binding.get_id(),
+                    value: &fsx_admin_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "haPairs".into(),
-                    value: ha_pairs_binding.get_id(),
+                    value: &ha_pairs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyId".into(),
-                    value: kms_key_id_binding.get_id(),
+                    value: &kms_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredSubnetId".into(),
-                    value: preferred_subnet_id_binding.get_id(),
+                    value: &preferred_subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routeTableIds".into(),
-                    value: route_table_ids_binding.get_id(),
+                    value: &route_table_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityGroupIds".into(),
-                    value: security_group_ids_binding.get_id(),
+                    value: &security_group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageCapacity".into(),
-                    value: storage_capacity_binding.get_id(),
+                    value: &storage_capacity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageType".into(),
-                    value: storage_type_binding.get_id(),
+                    value: &storage_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetIds".into(),
-                    value: subnet_ids_binding.get_id(),
+                    value: &subnet_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throughputCapacity".into(),
-                    value: throughput_capacity_binding.get_id(),
+                    value: &throughput_capacity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throughputCapacityPerHaPair".into(),
-                    value: throughput_capacity_per_ha_pair_binding.get_id(),
+                    value: &throughput_capacity_per_ha_pair_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weeklyMaintenanceStartTime".into(),
-                    value: weekly_maintenance_start_time_binding.get_id(),
+                    value: &weekly_maintenance_start_time_binding.drop_type(),
                 },
             ],
         };

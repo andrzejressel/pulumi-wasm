@@ -146,27 +146,27 @@ pub mod access_level {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "basic".into(),
-                    value: basic_binding.get_id(),
+                    value: &basic_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "custom".into(),
-                    value: custom_binding.get_id(),
+                    value: &custom_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parent".into(),
-                    value: parent_binding.get_id(),
+                    value: &parent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "title".into(),
-                    value: title_binding.get_id(),
+                    value: &title_binding.drop_type(),
                 },
             ],
         };

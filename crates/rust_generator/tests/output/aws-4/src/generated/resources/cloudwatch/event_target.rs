@@ -753,83 +753,83 @@ pub mod event_target {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appsyncTarget".into(),
-                    value: appsync_target_binding.get_id(),
+                    value: &appsync_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "arn".into(),
-                    value: arn_binding.get_id(),
+                    value: &arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchTarget".into(),
-                    value: batch_target_binding.get_id(),
+                    value: &batch_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deadLetterConfig".into(),
-                    value: dead_letter_config_binding.get_id(),
+                    value: &dead_letter_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ecsTarget".into(),
-                    value: ecs_target_binding.get_id(),
+                    value: &ecs_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventBusName".into(),
-                    value: event_bus_name_binding.get_id(),
+                    value: &event_bus_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "forceDestroy".into(),
-                    value: force_destroy_binding.get_id(),
+                    value: &force_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpTarget".into(),
-                    value: http_target_binding.get_id(),
+                    value: &http_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "input".into(),
-                    value: input_binding.get_id(),
+                    value: &input_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputPath".into(),
-                    value: input_path_binding.get_id(),
+                    value: &input_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputTransformer".into(),
-                    value: input_transformer_binding.get_id(),
+                    value: &input_transformer_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kinesisTarget".into(),
-                    value: kinesis_target_binding.get_id(),
+                    value: &kinesis_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redshiftTarget".into(),
-                    value: redshift_target_binding.get_id(),
+                    value: &redshift_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retryPolicy".into(),
-                    value: retry_policy_binding.get_id(),
+                    value: &retry_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleArn".into(),
-                    value: role_arn_binding.get_id(),
+                    value: &role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rule".into(),
-                    value: rule_binding.get_id(),
+                    value: &rule_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runCommandTargets".into(),
-                    value: run_command_targets_binding.get_id(),
+                    value: &run_command_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sagemakerPipelineTarget".into(),
-                    value: sagemaker_pipeline_target_binding.get_id(),
+                    value: &sagemaker_pipeline_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqsTarget".into(),
-                    value: sqs_target_binding.get_id(),
+                    value: &sqs_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetId".into(),
-                    value: target_id_binding.get_id(),
+                    value: &target_id_binding.drop_type(),
                 },
             ],
         };

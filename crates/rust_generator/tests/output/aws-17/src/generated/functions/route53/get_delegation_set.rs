@@ -34,7 +34,7 @@ pub mod get_delegation_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "id".into(),
-                    value: id_binding.get_id(),
+                    value: &id_binding.drop_type(),
                 },
             ],
         };

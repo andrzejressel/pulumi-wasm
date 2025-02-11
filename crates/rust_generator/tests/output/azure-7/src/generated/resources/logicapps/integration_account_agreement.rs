@@ -169,43 +169,43 @@ pub mod integration_account_agreement {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agreementType".into(),
-                    value: agreement_type_binding.get_id(),
+                    value: &agreement_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "content".into(),
-                    value: content_binding.get_id(),
+                    value: &content_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guestIdentity".into(),
-                    value: guest_identity_binding.get_id(),
+                    value: &guest_identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "guestPartnerName".into(),
-                    value: guest_partner_name_binding.get_id(),
+                    value: &guest_partner_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostIdentity".into(),
-                    value: host_identity_binding.get_id(),
+                    value: &host_identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostPartnerName".into(),
-                    value: host_partner_name_binding.get_id(),
+                    value: &host_partner_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "integrationAccountName".into(),
-                    value: integration_account_name_binding.get_id(),
+                    value: &integration_account_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metadata".into(),
-                    value: metadata_binding.get_id(),
+                    value: &metadata_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

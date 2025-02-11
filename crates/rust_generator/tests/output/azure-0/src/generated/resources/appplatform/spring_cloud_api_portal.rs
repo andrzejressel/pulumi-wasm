@@ -151,35 +151,35 @@ pub mod spring_cloud_api_portal {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiTryOutEnabled".into(),
-                    value: api_try_out_enabled_binding.get_id(),
+                    value: &api_try_out_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayIds".into(),
-                    value: gateway_ids_binding.get_id(),
+                    value: &gateway_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpsOnlyEnabled".into(),
-                    value: https_only_enabled_binding.get_id(),
+                    value: &https_only_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceCount".into(),
-                    value: instance_count_binding.get_id(),
+                    value: &instance_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccessEnabled".into(),
-                    value: public_network_access_enabled_binding.get_id(),
+                    value: &public_network_access_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: spring_cloud_service_id_binding.get_id(),
+                    value: &spring_cloud_service_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sso".into(),
-                    value: sso_binding.get_id(),
+                    value: &sso_binding.drop_type(),
                 },
             ],
         };

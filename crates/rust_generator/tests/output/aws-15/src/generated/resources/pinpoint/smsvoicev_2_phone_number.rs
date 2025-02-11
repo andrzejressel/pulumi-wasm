@@ -150,51 +150,51 @@ pub mod smsvoicev_2_phone_number {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deletionProtectionEnabled".into(),
-                    value: deletion_protection_enabled_binding.get_id(),
+                    value: &deletion_protection_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isoCountryCode".into(),
-                    value: iso_country_code_binding.get_id(),
+                    value: &iso_country_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "messageType".into(),
-                    value: message_type_binding.get_id(),
+                    value: &message_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberCapabilities".into(),
-                    value: number_capabilities_binding.get_id(),
+                    value: &number_capabilities_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "numberType".into(),
-                    value: number_type_binding.get_id(),
+                    value: &number_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "optOutListName".into(),
-                    value: opt_out_list_name_binding.get_id(),
+                    value: &opt_out_list_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "registrationId".into(),
-                    value: registration_id_binding.get_id(),
+                    value: &registration_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfManagedOptOutsEnabled".into(),
-                    value: self_managed_opt_outs_enabled_binding.get_id(),
+                    value: &self_managed_opt_outs_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "twoWayChannelArn".into(),
-                    value: two_way_channel_arn_binding.get_id(),
+                    value: &two_way_channel_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "twoWayChannelEnabled".into(),
-                    value: two_way_channel_enabled_binding.get_id(),
+                    value: &two_way_channel_enabled_binding.drop_type(),
                 },
             ],
         };

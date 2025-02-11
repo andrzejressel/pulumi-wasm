@@ -77,11 +77,11 @@ pub mod env_group_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "envgroupId".into(),
-                    value: envgroup_id_binding.get_id(),
+                    value: &envgroup_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "environment".into(),
-                    value: environment_binding.get_id(),
+                    value: &environment_binding.drop_type(),
                 },
             ],
         };

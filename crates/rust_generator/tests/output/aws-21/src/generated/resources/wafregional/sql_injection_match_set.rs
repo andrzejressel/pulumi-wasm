@@ -85,11 +85,11 @@ pub mod sql_injection_match_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqlInjectionMatchTuples".into(),
-                    value: sql_injection_match_tuples_binding.get_id(),
+                    value: &sql_injection_match_tuples_binding.drop_type(),
                 },
             ],
         };

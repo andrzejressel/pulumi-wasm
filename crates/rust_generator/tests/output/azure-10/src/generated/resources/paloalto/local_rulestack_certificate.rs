@@ -112,27 +112,27 @@ pub mod local_rulestack_certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditComment".into(),
-                    value: audit_comment_binding.get_id(),
+                    value: &audit_comment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultCertificateId".into(),
-                    value: key_vault_certificate_id_binding.get_id(),
+                    value: &key_vault_certificate_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rulestackId".into(),
-                    value: rulestack_id_binding.get_id(),
+                    value: &rulestack_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "selfSigned".into(),
-                    value: self_signed_binding.get_id(),
+                    value: &self_signed_binding.drop_type(),
                 },
             ],
         };

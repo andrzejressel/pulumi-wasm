@@ -168,55 +168,55 @@ pub mod topic {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoDeleteOnIdle".into(),
-                    value: auto_delete_on_idle_binding.get_id(),
+                    value: &auto_delete_on_idle_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "batchedOperationsEnabled".into(),
-                    value: batched_operations_enabled_binding.get_id(),
+                    value: &batched_operations_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultMessageTtl".into(),
-                    value: default_message_ttl_binding.get_id(),
+                    value: &default_message_ttl_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "duplicateDetectionHistoryTimeWindow".into(),
-                    value: duplicate_detection_history_time_window_binding.get_id(),
+                    value: &duplicate_detection_history_time_window_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressEnabled".into(),
-                    value: express_enabled_binding.get_id(),
+                    value: &express_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxMessageSizeInKilobytes".into(),
-                    value: max_message_size_in_kilobytes_binding.get_id(),
+                    value: &max_message_size_in_kilobytes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxSizeInMegabytes".into(),
-                    value: max_size_in_megabytes_binding.get_id(),
+                    value: &max_size_in_megabytes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "namespaceId".into(),
-                    value: namespace_id_binding.get_id(),
+                    value: &namespace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partitioningEnabled".into(),
-                    value: partitioning_enabled_binding.get_id(),
+                    value: &partitioning_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requiresDuplicateDetection".into(),
-                    value: requires_duplicate_detection_binding.get_id(),
+                    value: &requires_duplicate_detection_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "supportOrdering".into(),
-                    value: support_ordering_binding.get_id(),
+                    value: &support_ordering_binding.drop_type(),
                 },
             ],
         };

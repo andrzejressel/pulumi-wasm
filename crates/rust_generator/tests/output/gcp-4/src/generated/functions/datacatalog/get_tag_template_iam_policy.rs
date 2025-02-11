@@ -47,15 +47,15 @@ pub mod get_tag_template_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tagTemplate".into(),
-                    value: tag_template_binding.get_id(),
+                    value: &tag_template_binding.drop_type(),
                 },
             ],
         };

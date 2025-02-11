@@ -133,23 +133,23 @@ pub mod reservation_assignment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "assignee".into(),
-                    value: assignee_binding.get_id(),
+                    value: &assignee_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "jobType".into(),
-                    value: job_type_binding.get_id(),
+                    value: &job_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "reservation".into(),
-                    value: reservation_binding.get_id(),
+                    value: &reservation_binding.drop_type(),
                 },
             ],
         };

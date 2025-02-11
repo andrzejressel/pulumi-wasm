@@ -54,11 +54,11 @@ pub mod topic_rule_destination {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcConfiguration".into(),
-                    value: vpc_configuration_binding.get_id(),
+                    value: &vpc_configuration_binding.drop_type(),
                 },
             ],
         };

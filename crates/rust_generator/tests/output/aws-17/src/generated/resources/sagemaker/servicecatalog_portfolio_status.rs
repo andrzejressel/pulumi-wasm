@@ -58,7 +58,7 @@ pub mod servicecatalog_portfolio_status {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "status".into(),
-                    value: status_binding.get_id(),
+                    value: &status_binding.drop_type(),
                 },
             ],
         };

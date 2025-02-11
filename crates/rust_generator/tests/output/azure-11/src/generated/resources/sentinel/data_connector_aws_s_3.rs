@@ -112,23 +112,23 @@ pub mod data_connector_aws_s_3 {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "awsRoleArn".into(),
-                    value: aws_role_arn_binding.get_id(),
+                    value: &aws_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationTable".into(),
-                    value: destination_table_binding.get_id(),
+                    value: &destination_table_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsWorkspaceId".into(),
-                    value: log_analytics_workspace_id_binding.get_id(),
+                    value: &log_analytics_workspace_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sqsUrls".into(),
-                    value: sqs_urls_binding.get_id(),
+                    value: &sqs_urls_binding.drop_type(),
                 },
             ],
         };

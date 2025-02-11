@@ -402,59 +402,59 @@ pub mod fhir_store {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "complexDataTypeReferenceParsing".into(),
-                    value: complex_data_type_reference_parsing_binding.get_id(),
+                    value: &complex_data_type_reference_parsing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataset".into(),
-                    value: dataset_binding.get_id(),
+                    value: &dataset_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultSearchHandlingStrict".into(),
-                    value: default_search_handling_strict_binding.get_id(),
+                    value: &default_search_handling_strict_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableReferentialIntegrity".into(),
-                    value: disable_referential_integrity_binding.get_id(),
+                    value: &disable_referential_integrity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableResourceVersioning".into(),
-                    value: disable_resource_versioning_binding.get_id(),
+                    value: &disable_resource_versioning_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableHistoryImport".into(),
-                    value: enable_history_import_binding.get_id(),
+                    value: &enable_history_import_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableHistoryModifications".into(),
-                    value: enable_history_modifications_binding.get_id(),
+                    value: &enable_history_modifications_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableUpdateCreate".into(),
-                    value: enable_update_create_binding.get_id(),
+                    value: &enable_update_create_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationConfig".into(),
-                    value: notification_config_binding.get_id(),
+                    value: &notification_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationConfigs".into(),
-                    value: notification_configs_binding.get_id(),
+                    value: &notification_configs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "streamConfigs".into(),
-                    value: stream_configs_binding.get_id(),
+                    value: &stream_configs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

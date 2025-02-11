@@ -222,39 +222,39 @@ pub mod certificate_issuance_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthorityConfig".into(),
-                    value: certificate_authority_config_binding.get_id(),
+                    value: &certificate_authority_config_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyAlgorithm".into(),
-                    value: key_algorithm_binding.get_id(),
+                    value: &key_algorithm_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lifetime".into(),
-                    value: lifetime_binding.get_id(),
+                    value: &lifetime_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rotationWindowPercentage".into(),
-                    value: rotation_window_percentage_binding.get_id(),
+                    value: &rotation_window_percentage_binding.drop_type(),
                 },
             ],
         };

@@ -153,43 +153,43 @@ pub mod backup_vault {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "crossRegionRestoreEnabled".into(),
-                    value: cross_region_restore_enabled_binding.get_id(),
+                    value: &cross_region_restore_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datastoreType".into(),
-                    value: datastore_type_binding.get_id(),
+                    value: &datastore_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "identity".into(),
-                    value: identity_binding.get_id(),
+                    value: &identity_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redundancy".into(),
-                    value: redundancy_binding.get_id(),
+                    value: &redundancy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "retentionDurationInDays".into(),
-                    value: retention_duration_in_days_binding.get_id(),
+                    value: &retention_duration_in_days_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "softDelete".into(),
-                    value: soft_delete_binding.get_id(),
+                    value: &soft_delete_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

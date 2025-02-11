@@ -147,15 +147,15 @@ pub mod continuous_deployment_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stagingDistributionDnsNames".into(),
-                    value: staging_distribution_dns_names_binding.get_id(),
+                    value: &staging_distribution_dns_names_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trafficConfig".into(),
-                    value: traffic_config_binding.get_id(),
+                    value: &traffic_config_binding.drop_type(),
                 },
             ],
         };

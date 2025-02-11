@@ -126,39 +126,39 @@ pub mod integration_runtime_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cleanupEnabled".into(),
-                    value: cleanup_enabled_binding.get_id(),
+                    value: &cleanup_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "computeType".into(),
-                    value: compute_type_binding.get_id(),
+                    value: &compute_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "coreCount".into(),
-                    value: core_count_binding.get_id(),
+                    value: &core_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dataFactoryId".into(),
-                    value: data_factory_id_binding.get_id(),
+                    value: &data_factory_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeToLiveMin".into(),
-                    value: time_to_live_min_binding.get_id(),
+                    value: &time_to_live_min_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualNetworkEnabled".into(),
-                    value: virtual_network_enabled_binding.get_id(),
+                    value: &virtual_network_enabled_binding.drop_type(),
                 },
             ],
         };

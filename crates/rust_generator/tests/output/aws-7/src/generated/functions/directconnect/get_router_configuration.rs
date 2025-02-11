@@ -64,11 +64,11 @@ pub mod get_router_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routerTypeIdentifier".into(),
-                    value: router_type_identifier_binding.get_id(),
+                    value: &router_type_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualInterfaceId".into(),
-                    value: virtual_interface_id_binding.get_id(),
+                    value: &virtual_interface_id_binding.drop_type(),
                 },
             ],
         };

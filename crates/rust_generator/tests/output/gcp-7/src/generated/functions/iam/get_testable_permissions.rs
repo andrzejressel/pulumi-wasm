@@ -46,15 +46,15 @@ pub mod get_testable_permissions {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSupportLevel".into(),
-                    value: custom_support_level_binding.get_id(),
+                    value: &custom_support_level_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fullResourceName".into(),
-                    value: full_resource_name_binding.get_id(),
+                    value: &full_resource_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stages".into(),
-                    value: stages_binding.get_id(),
+                    value: &stages_binding.drop_type(),
                 },
             ],
         };

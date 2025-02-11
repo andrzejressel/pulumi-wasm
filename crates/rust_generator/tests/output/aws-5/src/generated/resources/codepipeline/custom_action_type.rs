@@ -143,35 +143,35 @@ pub mod custom_action_type {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "category".into(),
-                    value: category_binding.get_id(),
+                    value: &category_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationProperties".into(),
-                    value: configuration_properties_binding.get_id(),
+                    value: &configuration_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inputArtifactDetails".into(),
-                    value: input_artifact_details_binding.get_id(),
+                    value: &input_artifact_details_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "outputArtifactDetails".into(),
-                    value: output_artifact_details_binding.get_id(),
+                    value: &output_artifact_details_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "providerName".into(),
-                    value: provider_name_binding.get_id(),
+                    value: &provider_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "settings".into(),
-                    value: settings_binding.get_id(),
+                    value: &settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "version".into(),
-                    value: version_binding.get_id(),
+                    value: &version_binding.drop_type(),
                 },
             ],
         };

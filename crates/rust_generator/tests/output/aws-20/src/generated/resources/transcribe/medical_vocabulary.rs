@@ -107,19 +107,19 @@ pub mod medical_vocabulary {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "languageCode".into(),
-                    value: language_code_binding.get_id(),
+                    value: &language_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vocabularyFileUri".into(),
-                    value: vocabulary_file_uri_binding.get_id(),
+                    value: &vocabulary_file_uri_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vocabularyName".into(),
-                    value: vocabulary_name_binding.get_id(),
+                    value: &vocabulary_name_binding.drop_type(),
                 },
             ],
         };

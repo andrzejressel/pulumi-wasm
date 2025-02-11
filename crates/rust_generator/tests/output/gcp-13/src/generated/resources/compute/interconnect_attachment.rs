@@ -415,71 +415,71 @@ pub mod interconnect_attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "adminEnabled".into(),
-                    value: admin_enabled_binding.get_id(),
+                    value: &admin_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bandwidth".into(),
-                    value: bandwidth_binding.get_id(),
+                    value: &bandwidth_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "candidateSubnets".into(),
-                    value: candidate_subnets_binding.get_id(),
+                    value: &candidate_subnets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "edgeAvailabilityDomain".into(),
-                    value: edge_availability_domain_binding.get_id(),
+                    value: &edge_availability_domain_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryption".into(),
-                    value: encryption_binding.get_id(),
+                    value: &encryption_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "interconnect".into(),
-                    value: interconnect_binding.get_id(),
+                    value: &interconnect_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipsecInternalAddresses".into(),
-                    value: ipsec_internal_addresses_binding.get_id(),
+                    value: &ipsec_internal_addresses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mtu".into(),
-                    value: mtu_binding.get_id(),
+                    value: &mtu_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "region".into(),
-                    value: region_binding.get_id(),
+                    value: &region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "router".into(),
-                    value: router_binding.get_id(),
+                    value: &router_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackType".into(),
-                    value: stack_type_binding.get_id(),
+                    value: &stack_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetLength".into(),
-                    value: subnet_length_binding.get_id(),
+                    value: &subnet_length_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vlanTag8021q".into(),
-                    value: vlan_tag8021q_binding.get_id(),
+                    value: &vlan_tag8021q_binding.drop_type(),
                 },
             ],
         };

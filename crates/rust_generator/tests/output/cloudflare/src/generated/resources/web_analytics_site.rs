@@ -84,19 +84,19 @@ pub mod web_analytics_site {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accountId".into(),
-                    value: account_id_binding.get_id(),
+                    value: &account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoInstall".into(),
-                    value: auto_install_binding.get_id(),
+                    value: &auto_install_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: host_binding.get_id(),
+                    value: &host_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "zoneTag".into(),
-                    value: zone_tag_binding.get_id(),
+                    value: &zone_tag_binding.drop_type(),
                 },
             ],
         };

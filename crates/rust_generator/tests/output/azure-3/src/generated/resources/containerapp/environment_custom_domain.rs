@@ -106,19 +106,19 @@ pub mod environment_custom_domain {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateBlobBase64".into(),
-                    value: certificate_blob_base64_binding.get_id(),
+                    value: &certificate_blob_base64_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificatePassword".into(),
-                    value: certificate_password_binding.get_id(),
+                    value: &certificate_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "containerAppEnvironmentId".into(),
-                    value: container_app_environment_id_binding.get_id(),
+                    value: &container_app_environment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dnsSuffix".into(),
-                    value: dns_suffix_binding.get_id(),
+                    value: &dns_suffix_binding.drop_type(),
                 },
             ],
         };

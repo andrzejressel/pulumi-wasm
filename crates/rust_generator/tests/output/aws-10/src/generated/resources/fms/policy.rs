@@ -193,59 +193,59 @@ pub mod policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteAllPolicyResources".into(),
-                    value: delete_all_policy_resources_binding.get_id(),
+                    value: &delete_all_policy_resources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteUnusedFmManagedResources".into(),
-                    value: delete_unused_fm_managed_resources_binding.get_id(),
+                    value: &delete_unused_fm_managed_resources_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeMap".into(),
-                    value: exclude_map_binding.get_id(),
+                    value: &exclude_map_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "excludeResourceTags".into(),
-                    value: exclude_resource_tags_binding.get_id(),
+                    value: &exclude_resource_tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "includeMap".into(),
-                    value: include_map_binding.get_id(),
+                    value: &include_map_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "remediationEnabled".into(),
-                    value: remediation_enabled_binding.get_id(),
+                    value: &remediation_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceSetIds".into(),
-                    value: resource_set_ids_binding.get_id(),
+                    value: &resource_set_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTags".into(),
-                    value: resource_tags_binding.get_id(),
+                    value: &resource_tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceType".into(),
-                    value: resource_type_binding.get_id(),
+                    value: &resource_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTypeLists".into(),
-                    value: resource_type_lists_binding.get_id(),
+                    value: &resource_type_lists_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityServicePolicyData".into(),
-                    value: security_service_policy_data_binding.get_id(),
+                    value: &security_service_policy_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

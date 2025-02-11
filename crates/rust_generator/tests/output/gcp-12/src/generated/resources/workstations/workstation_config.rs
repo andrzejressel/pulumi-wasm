@@ -804,83 +804,83 @@ pub mod workstation_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowedPorts".into(),
-                    value: allowed_ports_binding.get_id(),
+                    value: &allowed_ports_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "annotations".into(),
-                    value: annotations_binding.get_id(),
+                    value: &annotations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "container".into(),
-                    value: container_binding.get_id(),
+                    value: &container_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disableTcpConnections".into(),
-                    value: disable_tcp_connections_binding.get_id(),
+                    value: &disable_tcp_connections_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableAuditAgent".into(),
-                    value: enable_audit_agent_binding.get_id(),
+                    value: &enable_audit_agent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "encryptionKey".into(),
-                    value: encryption_key_binding.get_id(),
+                    value: &encryption_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ephemeralDirectories".into(),
-                    value: ephemeral_directories_binding.get_id(),
+                    value: &ephemeral_directories_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "host".into(),
-                    value: host_binding.get_id(),
+                    value: &host_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "idleTimeout".into(),
-                    value: idle_timeout_binding.get_id(),
+                    value: &idle_timeout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxUsableWorkstations".into(),
-                    value: max_usable_workstations_binding.get_id(),
+                    value: &max_usable_workstations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "persistentDirectories".into(),
-                    value: persistent_directories_binding.get_id(),
+                    value: &persistent_directories_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readinessChecks".into(),
-                    value: readiness_checks_binding.get_id(),
+                    value: &readiness_checks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replicaZones".into(),
-                    value: replica_zones_binding.get_id(),
+                    value: &replica_zones_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "runningTimeout".into(),
-                    value: running_timeout_binding.get_id(),
+                    value: &running_timeout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workstationClusterId".into(),
-                    value: workstation_cluster_id_binding.get_id(),
+                    value: &workstation_cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workstationConfigId".into(),
-                    value: workstation_config_id_binding.get_id(),
+                    value: &workstation_config_id_binding.drop_type(),
                 },
             ],
         };

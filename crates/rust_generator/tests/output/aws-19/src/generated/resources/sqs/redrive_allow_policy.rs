@@ -75,11 +75,11 @@ pub mod redrive_allow_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "queueUrl".into(),
-                    value: queue_url_binding.get_id(),
+                    value: &queue_url_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redriveAllowPolicy".into(),
-                    value: redrive_allow_policy_binding.get_id(),
+                    value: &redrive_allow_policy_binding.drop_type(),
                 },
             ],
         };

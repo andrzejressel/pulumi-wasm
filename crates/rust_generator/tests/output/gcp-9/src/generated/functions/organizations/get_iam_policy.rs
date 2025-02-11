@@ -56,11 +56,11 @@ pub mod get_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "auditConfigs".into(),
-                    value: audit_configs_binding.get_id(),
+                    value: &audit_configs_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bindings".into(),
-                    value: bindings_binding.get_id(),
+                    value: &bindings_binding.drop_type(),
                 },
             ],
         };

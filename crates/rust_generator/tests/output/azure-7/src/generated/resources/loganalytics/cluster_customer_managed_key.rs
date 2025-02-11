@@ -123,11 +123,11 @@ pub mod cluster_customer_managed_key {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "keyVaultKeyId".into(),
-                    value: key_vault_key_id_binding.get_id(),
+                    value: &key_vault_key_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "logAnalyticsClusterId".into(),
-                    value: log_analytics_cluster_id_binding.get_id(),
+                    value: &log_analytics_cluster_id_binding.drop_type(),
                 },
             ],
         };

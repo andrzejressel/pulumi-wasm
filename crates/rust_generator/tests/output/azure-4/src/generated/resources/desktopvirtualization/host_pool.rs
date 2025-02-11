@@ -222,71 +222,71 @@ pub mod host_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customRdpProperties".into(),
-                    value: custom_rdp_properties_binding.get_id(),
+                    value: &custom_rdp_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "friendlyName".into(),
-                    value: friendly_name_binding.get_id(),
+                    value: &friendly_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBalancerType".into(),
-                    value: load_balancer_type_binding.get_id(),
+                    value: &load_balancer_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maximumSessionsAllowed".into(),
-                    value: maximum_sessions_allowed_binding.get_id(),
+                    value: &maximum_sessions_allowed_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "personalDesktopAssignmentType".into(),
-                    value: personal_desktop_assignment_type_binding.get_id(),
+                    value: &personal_desktop_assignment_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredAppGroupType".into(),
-                    value: preferred_app_group_type_binding.get_id(),
+                    value: &preferred_app_group_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "publicNetworkAccess".into(),
-                    value: public_network_access_binding.get_id(),
+                    value: &public_network_access_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scheduledAgentUpdates".into(),
-                    value: scheduled_agent_updates_binding.get_id(),
+                    value: &scheduled_agent_updates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startVmOnConnect".into(),
-                    value: start_vm_on_connect_binding.get_id(),
+                    value: &start_vm_on_connect_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validateEnvironment".into(),
-                    value: validate_environment_binding.get_id(),
+                    value: &validate_environment_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vmTemplate".into(),
-                    value: vm_template_binding.get_id(),
+                    value: &vm_template_binding.drop_type(),
                 },
             ],
         };

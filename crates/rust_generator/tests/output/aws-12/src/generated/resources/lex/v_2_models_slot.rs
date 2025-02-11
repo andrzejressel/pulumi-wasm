@@ -135,51 +135,51 @@ pub mod v_2_models_slot {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botId".into(),
-                    value: bot_id_binding.get_id(),
+                    value: &bot_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "botVersion".into(),
-                    value: bot_version_binding.get_id(),
+                    value: &bot_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "intentId".into(),
-                    value: intent_id_binding.get_id(),
+                    value: &intent_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "localeId".into(),
-                    value: locale_id_binding.get_id(),
+                    value: &locale_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "multipleValuesSettings".into(),
-                    value: multiple_values_settings_binding.get_id(),
+                    value: &multiple_values_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "obfuscationSettings".into(),
-                    value: obfuscation_settings_binding.get_id(),
+                    value: &obfuscation_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "slotTypeId".into(),
-                    value: slot_type_id_binding.get_id(),
+                    value: &slot_type_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subSlotSettings".into(),
-                    value: sub_slot_settings_binding.get_id(),
+                    value: &sub_slot_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "timeouts".into(),
-                    value: timeouts_binding.get_id(),
+                    value: &timeouts_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "valueElicitationSetting".into(),
-                    value: value_elicitation_setting_binding.get_id(),
+                    value: &value_elicitation_setting_binding.drop_type(),
                 },
             ],
         };

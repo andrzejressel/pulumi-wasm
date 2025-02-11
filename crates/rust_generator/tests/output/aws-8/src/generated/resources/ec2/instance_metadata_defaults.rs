@@ -72,19 +72,19 @@ pub mod instance_metadata_defaults {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpEndpoint".into(),
-                    value: http_endpoint_binding.get_id(),
+                    value: &http_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpPutResponseHopLimit".into(),
-                    value: http_put_response_hop_limit_binding.get_id(),
+                    value: &http_put_response_hop_limit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "httpTokens".into(),
-                    value: http_tokens_binding.get_id(),
+                    value: &http_tokens_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceMetadataTags".into(),
-                    value: instance_metadata_tags_binding.get_id(),
+                    value: &instance_metadata_tags_binding.drop_type(),
                 },
             ],
         };

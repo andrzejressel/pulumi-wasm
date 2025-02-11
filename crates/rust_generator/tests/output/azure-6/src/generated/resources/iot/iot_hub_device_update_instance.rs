@@ -139,27 +139,27 @@ pub mod iot_hub_device_update_instance {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deviceUpdateAccountId".into(),
-                    value: device_update_account_id_binding.get_id(),
+                    value: &device_update_account_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diagnosticEnabled".into(),
-                    value: diagnostic_enabled_binding.get_id(),
+                    value: &diagnostic_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diagnosticStorageAccount".into(),
-                    value: diagnostic_storage_account_binding.get_id(),
+                    value: &diagnostic_storage_account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iothubId".into(),
-                    value: iothub_id_binding.get_id(),
+                    value: &iothub_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

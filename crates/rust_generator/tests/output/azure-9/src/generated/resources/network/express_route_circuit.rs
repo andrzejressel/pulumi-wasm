@@ -164,51 +164,51 @@ pub mod express_route_circuit {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowClassicOperations".into(),
-                    value: allow_classic_operations_binding.get_id(),
+                    value: &allow_classic_operations_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizationKey".into(),
-                    value: authorization_key_binding.get_id(),
+                    value: &authorization_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bandwidthInGbps".into(),
-                    value: bandwidth_in_gbps_binding.get_id(),
+                    value: &bandwidth_in_gbps_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "bandwidthInMbps".into(),
-                    value: bandwidth_in_mbps_binding.get_id(),
+                    value: &bandwidth_in_mbps_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "expressRoutePortId".into(),
-                    value: express_route_port_id_binding.get_id(),
+                    value: &express_route_port_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "peeringLocation".into(),
-                    value: peering_location_binding.get_id(),
+                    value: &peering_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "serviceProviderName".into(),
-                    value: service_provider_name_binding.get_id(),
+                    value: &service_provider_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sku".into(),
-                    value: sku_binding.get_id(),
+                    value: &sku_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

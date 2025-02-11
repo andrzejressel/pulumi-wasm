@@ -129,27 +129,27 @@ pub mod certificate {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiPassthrough".into(),
-                    value: api_passthrough_binding.get_id(),
+                    value: &api_passthrough_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateAuthorityArn".into(),
-                    value: certificate_authority_arn_binding.get_id(),
+                    value: &certificate_authority_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateSigningRequest".into(),
-                    value: certificate_signing_request_binding.get_id(),
+                    value: &certificate_signing_request_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "signingAlgorithm".into(),
-                    value: signing_algorithm_binding.get_id(),
+                    value: &signing_algorithm_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "templateArn".into(),
-                    value: template_arn_binding.get_id(),
+                    value: &template_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "validity".into(),
-                    value: validity_binding.get_id(),
+                    value: &validity_binding.drop_type(),
                 },
             ],
         };

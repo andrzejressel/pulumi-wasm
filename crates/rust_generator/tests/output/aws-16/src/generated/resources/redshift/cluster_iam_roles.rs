@@ -72,15 +72,15 @@ pub mod cluster_iam_roles {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterIdentifier".into(),
-                    value: cluster_identifier_binding.get_id(),
+                    value: &cluster_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultIamRoleArn".into(),
-                    value: default_iam_role_arn_binding.get_id(),
+                    value: &default_iam_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "iamRoleArns".into(),
-                    value: iam_role_arns_binding.get_id(),
+                    value: &iam_role_arns_binding.drop_type(),
                 },
             ],
         };

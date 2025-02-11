@@ -97,31 +97,31 @@ pub mod usage_plan {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiStages".into(),
-                    value: api_stages_binding.get_id(),
+                    value: &api_stages_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "productCode".into(),
-                    value: product_code_binding.get_id(),
+                    value: &product_code_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "quotaSettings".into(),
-                    value: quota_settings_binding.get_id(),
+                    value: &quota_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "throttleSettings".into(),
-                    value: throttle_settings_binding.get_id(),
+                    value: &throttle_settings_binding.drop_type(),
                 },
             ],
         };

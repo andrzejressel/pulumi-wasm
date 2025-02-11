@@ -122,27 +122,27 @@ pub mod rate_based_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "metricName".into(),
-                    value: metric_name_binding.get_id(),
+                    value: &metric_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "predicates".into(),
-                    value: predicates_binding.get_id(),
+                    value: &predicates_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rateKey".into(),
-                    value: rate_key_binding.get_id(),
+                    value: &rate_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rateLimit".into(),
-                    value: rate_limit_binding.get_id(),
+                    value: &rate_limit_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

@@ -268,87 +268,87 @@ pub mod health_check {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "childHealthThreshold".into(),
-                    value: child_health_threshold_binding.get_id(),
+                    value: &child_health_threshold_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "childHealthchecks".into(),
-                    value: child_healthchecks_binding.get_id(),
+                    value: &child_healthchecks_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchAlarmName".into(),
-                    value: cloudwatch_alarm_name_binding.get_id(),
+                    value: &cloudwatch_alarm_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchAlarmRegion".into(),
-                    value: cloudwatch_alarm_region_binding.get_id(),
+                    value: &cloudwatch_alarm_region_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "disabled".into(),
-                    value: disabled_binding.get_id(),
+                    value: &disabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableSni".into(),
-                    value: enable_sni_binding.get_id(),
+                    value: &enable_sni_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failureThreshold".into(),
-                    value: failure_threshold_binding.get_id(),
+                    value: &failure_threshold_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "fqdn".into(),
-                    value: fqdn_binding.get_id(),
+                    value: &fqdn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "insufficientDataHealthStatus".into(),
-                    value: insufficient_data_health_status_binding.get_id(),
+                    value: &insufficient_data_health_status_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "invertHealthcheck".into(),
-                    value: invert_healthcheck_binding.get_id(),
+                    value: &invert_healthcheck_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipAddress".into(),
-                    value: ip_address_binding.get_id(),
+                    value: &ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "measureLatency".into(),
-                    value: measure_latency_binding.get_id(),
+                    value: &measure_latency_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "port".into(),
-                    value: port_binding.get_id(),
+                    value: &port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "referenceName".into(),
-                    value: reference_name_binding.get_id(),
+                    value: &reference_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "regions".into(),
-                    value: regions_binding.get_id(),
+                    value: &regions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestInterval".into(),
-                    value: request_interval_binding.get_id(),
+                    value: &request_interval_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourcePath".into(),
-                    value: resource_path_binding.get_id(),
+                    value: &resource_path_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "routingControlArn".into(),
-                    value: routing_control_arn_binding.get_id(),
+                    value: &routing_control_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "searchString".into(),
-                    value: search_string_binding.get_id(),
+                    value: &search_string_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

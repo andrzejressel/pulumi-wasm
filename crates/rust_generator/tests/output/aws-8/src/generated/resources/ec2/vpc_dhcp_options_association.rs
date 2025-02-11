@@ -69,11 +69,11 @@ pub mod vpc_dhcp_options_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dhcpOptionsId".into(),
-                    value: dhcp_options_id_binding.get_id(),
+                    value: &dhcp_options_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "vpcId".into(),
-                    value: vpc_id_binding.get_id(),
+                    value: &vpc_id_binding.drop_type(),
                 },
             ],
         };

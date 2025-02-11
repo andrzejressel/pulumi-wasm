@@ -116,21 +116,21 @@ pub mod vpc_attachment_accepter {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayAttachmentId".into(),
-                    value: transit_gateway_attachment_id_binding.get_id(),
+                    value: &transit_gateway_attachment_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayDefaultRouteTableAssociation".into(),
-                    value: transit_gateway_default_route_table_association_binding
-                        .get_id(),
+                    value: &transit_gateway_default_route_table_association_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayDefaultRouteTablePropagation".into(),
-                    value: transit_gateway_default_route_table_propagation_binding
-                        .get_id(),
+                    value: &transit_gateway_default_route_table_propagation_binding
+                        .drop_type(),
                 },
             ],
         };

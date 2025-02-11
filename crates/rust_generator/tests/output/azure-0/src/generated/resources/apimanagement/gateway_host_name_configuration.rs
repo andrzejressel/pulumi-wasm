@@ -156,39 +156,39 @@ pub mod gateway_host_name_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "apiManagementId".into(),
-                    value: api_management_id_binding.get_id(),
+                    value: &api_management_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "certificateId".into(),
-                    value: certificate_id_binding.get_id(),
+                    value: &certificate_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayName".into(),
-                    value: gateway_name_binding.get_id(),
+                    value: &gateway_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hostName".into(),
-                    value: host_name_binding.get_id(),
+                    value: &host_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "http2Enabled".into(),
-                    value: http2_enabled_binding.get_id(),
+                    value: &http2_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestClientCertificateEnabled".into(),
-                    value: request_client_certificate_enabled_binding.get_id(),
+                    value: &request_client_certificate_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tls10Enabled".into(),
-                    value: tls10_enabled_binding.get_id(),
+                    value: &tls10_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tls11Enabled".into(),
-                    value: tls11_enabled_binding.get_id(),
+                    value: &tls11_enabled_binding.drop_type(),
                 },
             ],
         };

@@ -41,7 +41,7 @@ pub mod example_server {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "propertiesCollection".into(),
-                    value: properties_collection_binding.get_id(),
+                    value: &properties_collection_binding.drop_type(),
                 },
             ],
         };

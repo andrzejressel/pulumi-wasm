@@ -170,75 +170,75 @@ pub mod get_task_execution {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "capacityProviderStrategies".into(),
-                    value: capacity_provider_strategies_binding.get_id(),
+                    value: &capacity_provider_strategies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clientToken".into(),
-                    value: client_token_binding.get_id(),
+                    value: &client_token_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cluster".into(),
-                    value: cluster_binding.get_id(),
+                    value: &cluster_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "desiredCount".into(),
-                    value: desired_count_binding.get_id(),
+                    value: &desired_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableEcsManagedTags".into(),
-                    value: enable_ecs_managed_tags_binding.get_id(),
+                    value: &enable_ecs_managed_tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableExecuteCommand".into(),
-                    value: enable_execute_command_binding.get_id(),
+                    value: &enable_execute_command_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "group".into(),
-                    value: group_binding.get_id(),
+                    value: &group_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "launchType".into(),
-                    value: launch_type_binding.get_id(),
+                    value: &launch_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkConfiguration".into(),
-                    value: network_configuration_binding.get_id(),
+                    value: &network_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "overrides".into(),
-                    value: overrides_binding.get_id(),
+                    value: &overrides_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementConstraints".into(),
-                    value: placement_constraints_binding.get_id(),
+                    value: &placement_constraints_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "placementStrategies".into(),
-                    value: placement_strategies_binding.get_id(),
+                    value: &placement_strategies_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformVersion".into(),
-                    value: platform_version_binding.get_id(),
+                    value: &platform_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "propagateTags".into(),
-                    value: propagate_tags_binding.get_id(),
+                    value: &propagate_tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "referenceId".into(),
-                    value: reference_id_binding.get_id(),
+                    value: &reference_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startedBy".into(),
-                    value: started_by_binding.get_id(),
+                    value: &started_by_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "taskDefinition".into(),
-                    value: task_definition_binding.get_id(),
+                    value: &task_definition_binding.drop_type(),
                 },
             ],
         };

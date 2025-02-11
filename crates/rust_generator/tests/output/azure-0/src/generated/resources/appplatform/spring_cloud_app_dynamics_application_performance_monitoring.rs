@@ -162,51 +162,51 @@ pub mod spring_cloud_app_dynamics_application_performance_monitoring {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentAccountAccessKey".into(),
-                    value: agent_account_access_key_binding.get_id(),
+                    value: &agent_account_access_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentAccountName".into(),
-                    value: agent_account_name_binding.get_id(),
+                    value: &agent_account_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentApplicationName".into(),
-                    value: agent_application_name_binding.get_id(),
+                    value: &agent_application_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentNodeName".into(),
-                    value: agent_node_name_binding.get_id(),
+                    value: &agent_node_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentTierName".into(),
-                    value: agent_tier_name_binding.get_id(),
+                    value: &agent_tier_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "agentUniqueHostId".into(),
-                    value: agent_unique_host_id_binding.get_id(),
+                    value: &agent_unique_host_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controllerHostName".into(),
-                    value: controller_host_name_binding.get_id(),
+                    value: &controller_host_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controllerPort".into(),
-                    value: controller_port_binding.get_id(),
+                    value: &controller_port_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "controllerSslEnabled".into(),
-                    value: controller_ssl_enabled_binding.get_id(),
+                    value: &controller_ssl_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globallyEnabled".into(),
-                    value: globally_enabled_binding.get_id(),
+                    value: &globally_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "springCloudServiceId".into(),
-                    value: spring_cloud_service_id_binding.get_id(),
+                    value: &spring_cloud_service_id_binding.drop_type(),
                 },
             ],
         };

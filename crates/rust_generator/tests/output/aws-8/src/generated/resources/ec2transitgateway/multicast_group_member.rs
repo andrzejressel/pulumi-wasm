@@ -71,15 +71,15 @@ pub mod multicast_group_member {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "groupIpAddress".into(),
-                    value: group_ip_address_binding.get_id(),
+                    value: &group_ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkInterfaceId".into(),
-                    value: network_interface_id_binding.get_id(),
+                    value: &network_interface_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "transitGatewayMulticastDomainId".into(),
-                    value: transit_gateway_multicast_domain_id_binding.get_id(),
+                    value: &transit_gateway_multicast_domain_id_binding.drop_type(),
                 },
             ],
         };

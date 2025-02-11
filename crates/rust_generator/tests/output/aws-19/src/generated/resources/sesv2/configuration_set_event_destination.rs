@@ -224,15 +224,15 @@ pub mod configuration_set_event_destination {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationSetName".into(),
-                    value: configuration_set_name_binding.get_id(),
+                    value: &configuration_set_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventDestination".into(),
-                    value: event_destination_binding.get_id(),
+                    value: &event_destination_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventDestinationName".into(),
-                    value: event_destination_name_binding.get_id(),
+                    value: &event_destination_name_binding.drop_type(),
                 },
             ],
         };

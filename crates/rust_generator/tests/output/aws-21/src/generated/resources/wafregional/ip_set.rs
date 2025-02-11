@@ -76,11 +76,11 @@ pub mod ip_set {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ipSetDescriptors".into(),
-                    value: ip_set_descriptors_binding.get_id(),
+                    value: &ip_set_descriptors_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
             ],
         };

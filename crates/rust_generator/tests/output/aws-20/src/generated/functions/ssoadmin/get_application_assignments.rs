@@ -52,11 +52,11 @@ pub mod get_application_assignments {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationArn".into(),
-                    value: application_arn_binding.get_id(),
+                    value: &application_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationAssignments".into(),
-                    value: application_assignments_binding.get_id(),
+                    value: &application_assignments_binding.drop_type(),
                 },
             ],
         };

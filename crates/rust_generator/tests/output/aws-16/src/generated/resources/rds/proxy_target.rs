@@ -134,19 +134,19 @@ pub mod proxy_target {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbClusterIdentifier".into(),
-                    value: db_cluster_identifier_binding.get_id(),
+                    value: &db_cluster_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbInstanceIdentifier".into(),
-                    value: db_instance_identifier_binding.get_id(),
+                    value: &db_instance_identifier_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "dbProxyName".into(),
-                    value: db_proxy_name_binding.get_id(),
+                    value: &db_proxy_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetGroupName".into(),
-                    value: target_group_name_binding.get_id(),
+                    value: &target_group_name_binding.drop_type(),
                 },
             ],
         };

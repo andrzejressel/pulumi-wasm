@@ -87,15 +87,15 @@ pub mod permission_set_inline_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "inlinePolicy".into(),
-                    value: inline_policy_binding.get_id(),
+                    value: &inline_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceArn".into(),
-                    value: instance_arn_binding.get_id(),
+                    value: &instance_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "permissionSetArn".into(),
-                    value: permission_set_arn_binding.get_id(),
+                    value: &permission_set_arn_binding.drop_type(),
                 },
             ],
         };

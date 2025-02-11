@@ -39,7 +39,7 @@ pub mod get_standards_control_associations {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "securityControlId".into(),
-                    value: security_control_id_binding.get_id(),
+                    value: &security_control_id_binding.drop_type(),
                 },
             ],
         };

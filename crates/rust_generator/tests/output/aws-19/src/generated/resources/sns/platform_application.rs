@@ -219,55 +219,55 @@ pub mod platform_application {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applePlatformBundleId".into(),
-                    value: apple_platform_bundle_id_binding.get_id(),
+                    value: &apple_platform_bundle_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applePlatformTeamId".into(),
-                    value: apple_platform_team_id_binding.get_id(),
+                    value: &apple_platform_team_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventDeliveryFailureTopicArn".into(),
-                    value: event_delivery_failure_topic_arn_binding.get_id(),
+                    value: &event_delivery_failure_topic_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventEndpointCreatedTopicArn".into(),
-                    value: event_endpoint_created_topic_arn_binding.get_id(),
+                    value: &event_endpoint_created_topic_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventEndpointDeletedTopicArn".into(),
-                    value: event_endpoint_deleted_topic_arn_binding.get_id(),
+                    value: &event_endpoint_deleted_topic_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eventEndpointUpdatedTopicArn".into(),
-                    value: event_endpoint_updated_topic_arn_binding.get_id(),
+                    value: &event_endpoint_updated_topic_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "failureFeedbackRoleArn".into(),
-                    value: failure_feedback_role_arn_binding.get_id(),
+                    value: &failure_feedback_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platform".into(),
-                    value: platform_binding.get_id(),
+                    value: &platform_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformCredential".into(),
-                    value: platform_credential_binding.get_id(),
+                    value: &platform_credential_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "platformPrincipal".into(),
-                    value: platform_principal_binding.get_id(),
+                    value: &platform_principal_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "successFeedbackRoleArn".into(),
-                    value: success_feedback_role_arn_binding.get_id(),
+                    value: &success_feedback_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "successFeedbackSampleRate".into(),
-                    value: success_feedback_sample_rate_binding.get_id(),
+                    value: &success_feedback_sample_rate_binding.drop_type(),
                 },
             ],
         };

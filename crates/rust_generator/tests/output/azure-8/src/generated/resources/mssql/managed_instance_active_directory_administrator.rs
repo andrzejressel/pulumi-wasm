@@ -146,23 +146,23 @@ pub mod managed_instance_active_directory_administrator {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "azureadAuthenticationOnly".into(),
-                    value: azuread_authentication_only_binding.get_id(),
+                    value: &azuread_authentication_only_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loginUsername".into(),
-                    value: login_username_binding.get_id(),
+                    value: &login_username_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "managedInstanceId".into(),
-                    value: managed_instance_id_binding.get_id(),
+                    value: &managed_instance_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectId".into(),
-                    value: object_id_binding.get_id(),
+                    value: &object_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tenantId".into(),
-                    value: tenant_id_binding.get_id(),
+                    value: &tenant_id_binding.drop_type(),
                 },
             ],
         };

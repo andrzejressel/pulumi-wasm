@@ -289,51 +289,51 @@ pub mod topic_subscription {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "confirmationTimeoutInMinutes".into(),
-                    value: confirmation_timeout_in_minutes_binding.get_id(),
+                    value: &confirmation_timeout_in_minutes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deliveryPolicy".into(),
-                    value: delivery_policy_binding.get_id(),
+                    value: &delivery_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpoint".into(),
-                    value: endpoint_binding.get_id(),
+                    value: &endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointAutoConfirms".into(),
-                    value: endpoint_auto_confirms_binding.get_id(),
+                    value: &endpoint_auto_confirms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterPolicy".into(),
-                    value: filter_policy_binding.get_id(),
+                    value: &filter_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "filterPolicyScope".into(),
-                    value: filter_policy_scope_binding.get_id(),
+                    value: &filter_policy_scope_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "protocol".into(),
-                    value: protocol_binding.get_id(),
+                    value: &protocol_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "rawMessageDelivery".into(),
-                    value: raw_message_delivery_binding.get_id(),
+                    value: &raw_message_delivery_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redrivePolicy".into(),
-                    value: redrive_policy_binding.get_id(),
+                    value: &redrive_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "replayPolicy".into(),
-                    value: replay_policy_binding.get_id(),
+                    value: &replay_policy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subscriptionRoleArn".into(),
-                    value: subscription_role_arn_binding.get_id(),
+                    value: &subscription_role_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "topic".into(),
-                    value: topic_binding.get_id(),
+                    value: &topic_binding.drop_type(),
                 },
             ],
         };

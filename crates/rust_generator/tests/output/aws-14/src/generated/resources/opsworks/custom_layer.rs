@@ -263,99 +263,99 @@ pub mod custom_layer {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoAssignElasticIps".into(),
-                    value: auto_assign_elastic_ips_binding.get_id(),
+                    value: &auto_assign_elastic_ips_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoAssignPublicIps".into(),
-                    value: auto_assign_public_ips_binding.get_id(),
+                    value: &auto_assign_public_ips_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "autoHealing".into(),
-                    value: auto_healing_binding.get_id(),
+                    value: &auto_healing_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchConfiguration".into(),
-                    value: cloudwatch_configuration_binding.get_id(),
+                    value: &cloudwatch_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customConfigureRecipes".into(),
-                    value: custom_configure_recipes_binding.get_id(),
+                    value: &custom_configure_recipes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customDeployRecipes".into(),
-                    value: custom_deploy_recipes_binding.get_id(),
+                    value: &custom_deploy_recipes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customInstanceProfileArn".into(),
-                    value: custom_instance_profile_arn_binding.get_id(),
+                    value: &custom_instance_profile_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customJson".into(),
-                    value: custom_json_binding.get_id(),
+                    value: &custom_json_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSecurityGroupIds".into(),
-                    value: custom_security_group_ids_binding.get_id(),
+                    value: &custom_security_group_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customSetupRecipes".into(),
-                    value: custom_setup_recipes_binding.get_id(),
+                    value: &custom_setup_recipes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customShutdownRecipes".into(),
-                    value: custom_shutdown_recipes_binding.get_id(),
+                    value: &custom_shutdown_recipes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customUndeployRecipes".into(),
-                    value: custom_undeploy_recipes_binding.get_id(),
+                    value: &custom_undeploy_recipes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "drainElbOnShutdown".into(),
-                    value: drain_elb_on_shutdown_binding.get_id(),
+                    value: &drain_elb_on_shutdown_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ebsVolumes".into(),
-                    value: ebs_volumes_binding.get_id(),
+                    value: &ebs_volumes_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elasticLoadBalancer".into(),
-                    value: elastic_load_balancer_binding.get_id(),
+                    value: &elastic_load_balancer_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "installUpdatesOnBoot".into(),
-                    value: install_updates_on_boot_binding.get_id(),
+                    value: &install_updates_on_boot_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instanceShutdownTimeout".into(),
-                    value: instance_shutdown_timeout_binding.get_id(),
+                    value: &instance_shutdown_timeout_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "loadBasedAutoScaling".into(),
-                    value: load_based_auto_scaling_binding.get_id(),
+                    value: &load_based_auto_scaling_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "shortName".into(),
-                    value: short_name_binding.get_id(),
+                    value: &short_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "stackId".into(),
-                    value: stack_id_binding.get_id(),
+                    value: &stack_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "systemPackages".into(),
-                    value: system_packages_binding.get_id(),
+                    value: &system_packages_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "useEbsOptimizedInstances".into(),
-                    value: use_ebs_optimized_instances_binding.get_id(),
+                    value: &use_ebs_optimized_instances_binding.drop_type(),
                 },
             ],
         };

@@ -42,11 +42,11 @@ pub mod get_volume_snapshot {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "volumeGroupId".into(),
-                    value: volume_group_id_binding.get_id(),
+                    value: &volume_group_id_binding.drop_type(),
                 },
             ],
         };

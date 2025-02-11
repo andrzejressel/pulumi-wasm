@@ -550,75 +550,75 @@ pub mod dataset {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "accesses".into(),
-                    value: accesses_binding.get_id(),
+                    value: &accesses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "datasetId".into(),
-                    value: dataset_id_binding.get_id(),
+                    value: &dataset_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultCollation".into(),
-                    value: default_collation_binding.get_id(),
+                    value: &default_collation_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultEncryptionConfiguration".into(),
-                    value: default_encryption_configuration_binding.get_id(),
+                    value: &default_encryption_configuration_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultPartitionExpirationMs".into(),
-                    value: default_partition_expiration_ms_binding.get_id(),
+                    value: &default_partition_expiration_ms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "defaultTableExpirationMs".into(),
-                    value: default_table_expiration_ms_binding.get_id(),
+                    value: &default_table_expiration_ms_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteContentsOnDestroy".into(),
-                    value: delete_contents_on_destroy_binding.get_id(),
+                    value: &delete_contents_on_destroy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalCatalogDatasetOptions".into(),
-                    value: external_catalog_dataset_options_binding.get_id(),
+                    value: &external_catalog_dataset_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalDatasetReference".into(),
-                    value: external_dataset_reference_binding.get_id(),
+                    value: &external_dataset_reference_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "friendlyName".into(),
-                    value: friendly_name_binding.get_id(),
+                    value: &friendly_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "isCaseInsensitive".into(),
-                    value: is_case_insensitive_binding.get_id(),
+                    value: &is_case_insensitive_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maxTimeTravelHours".into(),
-                    value: max_time_travel_hours_binding.get_id(),
+                    value: &max_time_travel_hours_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceTags".into(),
-                    value: resource_tags_binding.get_id(),
+                    value: &resource_tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "storageBillingModel".into(),
-                    value: storage_billing_model_binding.get_id(),
+                    value: &storage_billing_model_binding.drop_type(),
                 },
             ],
         };

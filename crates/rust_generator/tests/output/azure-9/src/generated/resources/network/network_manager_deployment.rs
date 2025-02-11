@@ -243,23 +243,23 @@ pub mod network_manager_deployment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configurationIds".into(),
-                    value: configuration_ids_binding.get_id(),
+                    value: &configuration_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkManagerId".into(),
-                    value: network_manager_id_binding.get_id(),
+                    value: &network_manager_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scopeAccess".into(),
-                    value: scope_access_binding.get_id(),
+                    value: &scope_access_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "triggers".into(),
-                    value: triggers_binding.get_id(),
+                    value: &triggers_binding.drop_type(),
                 },
             ],
         };

@@ -60,11 +60,11 @@ pub mod attachment {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "elb".into(),
-                    value: elb_binding.get_id(),
+                    value: &elb_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "instance".into(),
-                    value: instance_binding.get_id(),
+                    value: &instance_binding.drop_type(),
                 },
             ],
         };

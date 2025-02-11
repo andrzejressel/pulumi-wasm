@@ -165,19 +165,19 @@ pub mod publishing_destination {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationArn".into(),
-                    value: destination_arn_binding.get_id(),
+                    value: &destination_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "destinationType".into(),
-                    value: destination_type_binding.get_id(),
+                    value: &destination_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "detectorId".into(),
-                    value: detector_id_binding.get_id(),
+                    value: &detector_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsKeyArn".into(),
-                    value: kms_key_arn_binding.get_id(),
+                    value: &kms_key_arn_binding.drop_type(),
                 },
             ],
         };

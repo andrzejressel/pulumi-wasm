@@ -107,23 +107,23 @@ pub mod firewall_rule {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endIp".into(),
-                    value: end_ip_binding.get_id(),
+                    value: &end_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "redisCacheName".into(),
-                    value: redis_cache_name_binding.get_id(),
+                    value: &redis_cache_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "startIp".into(),
-                    value: start_ip_binding.get_id(),
+                    value: &start_ip_binding.drop_type(),
                 },
             ],
         };

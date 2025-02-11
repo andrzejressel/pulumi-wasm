@@ -50,19 +50,19 @@ pub mod get_orderable_cluster {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterType".into(),
-                    value: cluster_type_binding.get_id(),
+                    value: &cluster_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "clusterVersion".into(),
-                    value: cluster_version_binding.get_id(),
+                    value: &cluster_version_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "nodeType".into(),
-                    value: node_type_binding.get_id(),
+                    value: &node_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "preferredNodeTypes".into(),
-                    value: preferred_node_types_binding.get_id(),
+                    value: &preferred_node_types_binding.drop_type(),
                 },
             ],
         };

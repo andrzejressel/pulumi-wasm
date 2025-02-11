@@ -189,35 +189,35 @@ pub mod implicit_data_disk_from_source {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "caching".into(),
-                    value: caching_binding.get_id(),
+                    value: &caching_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createOption".into(),
-                    value: create_option_binding.get_id(),
+                    value: &create_option_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diskSizeGb".into(),
-                    value: disk_size_gb_binding.get_id(),
+                    value: &disk_size_gb_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "lun".into(),
-                    value: lun_binding.get_id(),
+                    value: &lun_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "sourceResourceId".into(),
-                    value: source_resource_id_binding.get_id(),
+                    value: &source_resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "virtualMachineId".into(),
-                    value: virtual_machine_id_binding.get_id(),
+                    value: &virtual_machine_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "writeAcceleratorEnabled".into(),
-                    value: write_accelerator_enabled_binding.get_id(),
+                    value: &write_accelerator_enabled_binding.drop_type(),
                 },
             ],
         };

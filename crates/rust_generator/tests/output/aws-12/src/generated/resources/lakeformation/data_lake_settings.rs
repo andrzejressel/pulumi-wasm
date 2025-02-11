@@ -246,47 +246,47 @@ pub mod data_lake_settings {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "admins".into(),
-                    value: admins_binding.get_id(),
+                    value: &admins_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowExternalDataFiltering".into(),
-                    value: allow_external_data_filtering_binding.get_id(),
+                    value: &allow_external_data_filtering_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allowFullTableExternalDataAccess".into(),
-                    value: allow_full_table_external_data_access_binding.get_id(),
+                    value: &allow_full_table_external_data_access_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedSessionTagValueLists".into(),
-                    value: authorized_session_tag_value_lists_binding.get_id(),
+                    value: &authorized_session_tag_value_lists_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "catalogId".into(),
-                    value: catalog_id_binding.get_id(),
+                    value: &catalog_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createDatabaseDefaultPermissions".into(),
-                    value: create_database_default_permissions_binding.get_id(),
+                    value: &create_database_default_permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "createTableDefaultPermissions".into(),
-                    value: create_table_default_permissions_binding.get_id(),
+                    value: &create_table_default_permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "externalDataFilteringAllowLists".into(),
-                    value: external_data_filtering_allow_lists_binding.get_id(),
+                    value: &external_data_filtering_allow_lists_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "parameters".into(),
-                    value: parameters_binding.get_id(),
+                    value: &parameters_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "readOnlyAdmins".into(),
-                    value: read_only_admins_binding.get_id(),
+                    value: &read_only_admins_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "trustedResourceOwners".into(),
-                    value: trusted_resource_owners_binding.get_id(),
+                    value: &trusted_resource_owners_binding.drop_type(),
                 },
             ],
         };

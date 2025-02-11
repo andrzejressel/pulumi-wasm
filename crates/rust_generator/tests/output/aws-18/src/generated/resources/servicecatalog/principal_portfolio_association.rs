@@ -83,19 +83,19 @@ pub mod principal_portfolio_association {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptLanguage".into(),
-                    value: accept_language_binding.get_id(),
+                    value: &accept_language_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "portfolioId".into(),
-                    value: portfolio_id_binding.get_id(),
+                    value: &portfolio_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalArn".into(),
-                    value: principal_arn_binding.get_id(),
+                    value: &principal_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "principalType".into(),
-                    value: principal_type_binding.get_id(),
+                    value: &principal_type_binding.drop_type(),
                 },
             ],
         };

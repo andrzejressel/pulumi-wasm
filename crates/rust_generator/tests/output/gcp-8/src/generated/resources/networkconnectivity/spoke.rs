@@ -554,47 +554,47 @@ pub mod spoke {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hub".into(),
-                    value: hub_binding.get_id(),
+                    value: &hub_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedInterconnectAttachments".into(),
-                    value: linked_interconnect_attachments_binding.get_id(),
+                    value: &linked_interconnect_attachments_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedProducerVpcNetwork".into(),
-                    value: linked_producer_vpc_network_binding.get_id(),
+                    value: &linked_producer_vpc_network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedRouterApplianceInstances".into(),
-                    value: linked_router_appliance_instances_binding.get_id(),
+                    value: &linked_router_appliance_instances_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedVpcNetwork".into(),
-                    value: linked_vpc_network_binding.get_id(),
+                    value: &linked_vpc_network_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "linkedVpnTunnels".into(),
-                    value: linked_vpn_tunnels_binding.get_id(),
+                    value: &linked_vpn_tunnels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

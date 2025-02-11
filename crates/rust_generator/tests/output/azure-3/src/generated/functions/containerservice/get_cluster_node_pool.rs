@@ -95,15 +95,15 @@ pub mod get_cluster_node_pool {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kubernetesClusterName".into(),
-                    value: kubernetes_cluster_name_binding.get_id(),
+                    value: &kubernetes_cluster_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceGroupName".into(),
-                    value: resource_group_name_binding.get_id(),
+                    value: &resource_group_name_binding.drop_type(),
                 },
             ],
         };

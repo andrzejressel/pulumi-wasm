@@ -210,55 +210,55 @@ pub mod traffic_manager_nested_endpoint {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customHeaders".into(),
-                    value: custom_headers_binding.get_id(),
+                    value: &custom_headers_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enabled".into(),
-                    value: enabled_binding.get_id(),
+                    value: &enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "endpointLocation".into(),
-                    value: endpoint_location_binding.get_id(),
+                    value: &endpoint_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "geoMappings".into(),
-                    value: geo_mappings_binding.get_id(),
+                    value: &geo_mappings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumChildEndpoints".into(),
-                    value: minimum_child_endpoints_binding.get_id(),
+                    value: &minimum_child_endpoints_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumRequiredChildEndpointsIpv4".into(),
-                    value: minimum_required_child_endpoints_ipv4_binding.get_id(),
+                    value: &minimum_required_child_endpoints_ipv4_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "minimumRequiredChildEndpointsIpv6".into(),
-                    value: minimum_required_child_endpoints_ipv6_binding.get_id(),
+                    value: &minimum_required_child_endpoints_ipv6_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "priority".into(),
-                    value: priority_binding.get_id(),
+                    value: &priority_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "profileId".into(),
-                    value: profile_id_binding.get_id(),
+                    value: &profile_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnets".into(),
-                    value: subnets_binding.get_id(),
+                    value: &subnets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "targetResourceId".into(),
-                    value: target_resource_id_binding.get_id(),
+                    value: &target_resource_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "weight".into(),
-                    value: weight_binding.get_id(),
+                    value: &weight_binding.drop_type(),
                 },
             ],
         };

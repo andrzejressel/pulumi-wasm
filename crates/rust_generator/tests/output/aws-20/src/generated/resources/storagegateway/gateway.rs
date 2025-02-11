@@ -329,71 +329,72 @@ pub mod gateway {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activationKey".into(),
-                    value: activation_key_binding.get_id(),
+                    value: &activation_key_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "averageDownloadRateLimitInBitsPerSec".into(),
-                    value: average_download_rate_limit_in_bits_per_sec_binding.get_id(),
+                    value: &average_download_rate_limit_in_bits_per_sec_binding
+                        .drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "averageUploadRateLimitInBitsPerSec".into(),
-                    value: average_upload_rate_limit_in_bits_per_sec_binding.get_id(),
+                    value: &average_upload_rate_limit_in_bits_per_sec_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "cloudwatchLogGroupArn".into(),
-                    value: cloudwatch_log_group_arn_binding.get_id(),
+                    value: &cloudwatch_log_group_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayIpAddress".into(),
-                    value: gateway_ip_address_binding.get_id(),
+                    value: &gateway_ip_address_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayName".into(),
-                    value: gateway_name_binding.get_id(),
+                    value: &gateway_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayTimezone".into(),
-                    value: gateway_timezone_binding.get_id(),
+                    value: &gateway_timezone_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayType".into(),
-                    value: gateway_type_binding.get_id(),
+                    value: &gateway_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gatewayVpcEndpoint".into(),
-                    value: gateway_vpc_endpoint_binding.get_id(),
+                    value: &gateway_vpc_endpoint_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "maintenanceStartTime".into(),
-                    value: maintenance_start_time_binding.get_id(),
+                    value: &maintenance_start_time_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mediumChangerType".into(),
-                    value: medium_changer_type_binding.get_id(),
+                    value: &medium_changer_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smbActiveDirectorySettings".into(),
-                    value: smb_active_directory_settings_binding.get_id(),
+                    value: &smb_active_directory_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smbFileShareVisibility".into(),
-                    value: smb_file_share_visibility_binding.get_id(),
+                    value: &smb_file_share_visibility_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smbGuestPassword".into(),
-                    value: smb_guest_password_binding.get_id(),
+                    value: &smb_guest_password_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "smbSecurityStrategy".into(),
-                    value: smb_security_strategy_binding.get_id(),
+                    value: &smb_security_strategy_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tapeDriveType".into(),
-                    value: tape_drive_type_binding.get_id(),
+                    value: &tape_drive_type_binding.drop_type(),
                 },
             ],
         };

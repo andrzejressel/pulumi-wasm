@@ -300,63 +300,63 @@ pub mod workload {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "billingAccount".into(),
-                    value: billing_account_binding.get_id(),
+                    value: &billing_account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "complianceRegime".into(),
-                    value: compliance_regime_binding.get_id(),
+                    value: &compliance_regime_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "enableSovereignControls".into(),
-                    value: enable_sovereign_controls_binding.get_id(),
+                    value: &enable_sovereign_controls_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "kmsSettings".into(),
-                    value: kms_settings_binding.get_id(),
+                    value: &kms_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "labels".into(),
-                    value: labels_binding.get_id(),
+                    value: &labels_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "organization".into(),
-                    value: organization_binding.get_id(),
+                    value: &organization_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partner".into(),
-                    value: partner_binding.get_id(),
+                    value: &partner_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partnerPermissions".into(),
-                    value: partner_permissions_binding.get_id(),
+                    value: &partner_permissions_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "partnerServicesBillingAccount".into(),
-                    value: partner_services_billing_account_binding.get_id(),
+                    value: &partner_services_billing_account_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "provisionedResourcesParent".into(),
-                    value: provisioned_resources_parent_binding.get_id(),
+                    value: &provisioned_resources_parent_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "resourceSettings".into(),
-                    value: resource_settings_binding.get_id(),
+                    value: &resource_settings_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "violationNotificationsEnabled".into(),
-                    value: violation_notifications_enabled_binding.get_id(),
+                    value: &violation_notifications_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workloadOptions".into(),
-                    value: workload_options_binding.get_id(),
+                    value: &workload_options_binding.drop_type(),
                 },
             ],
         };

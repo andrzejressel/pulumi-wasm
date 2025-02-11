@@ -175,35 +175,35 @@ pub mod network_manager_connectivity_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "appliesToGroups".into(),
-                    value: applies_to_groups_binding.get_id(),
+                    value: &applies_to_groups_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectivityTopology".into(),
-                    value: connectivity_topology_binding.get_id(),
+                    value: &connectivity_topology_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "deleteExistingPeeringEnabled".into(),
-                    value: delete_existing_peering_enabled_binding.get_id(),
+                    value: &delete_existing_peering_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "globalMeshEnabled".into(),
-                    value: global_mesh_enabled_binding.get_id(),
+                    value: &global_mesh_enabled_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "hub".into(),
-                    value: hub_binding.get_id(),
+                    value: &hub_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "networkManagerId".into(),
-                    value: network_manager_id_binding.get_id(),
+                    value: &network_manager_id_binding.drop_type(),
                 },
             ],
         };

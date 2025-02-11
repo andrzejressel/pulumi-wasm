@@ -188,27 +188,27 @@ pub mod role_management_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activationRules".into(),
-                    value: activation_rules_binding.get_id(),
+                    value: &activation_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "activeAssignmentRules".into(),
-                    value: active_assignment_rules_binding.get_id(),
+                    value: &active_assignment_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "eligibleAssignmentRules".into(),
-                    value: eligible_assignment_rules_binding.get_id(),
+                    value: &eligible_assignment_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationRules".into(),
-                    value: notification_rules_binding.get_id(),
+                    value: &notification_rules_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "roleDefinitionId".into(),
-                    value: role_definition_id_binding.get_id(),
+                    value: &role_definition_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: scope_binding.get_id(),
+                    value: &scope_binding.drop_type(),
                 },
             ],
         };

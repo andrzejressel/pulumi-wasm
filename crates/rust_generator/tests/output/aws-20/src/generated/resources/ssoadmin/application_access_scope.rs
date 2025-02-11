@@ -85,15 +85,15 @@ pub mod application_access_scope {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "applicationArn".into(),
-                    value: application_arn_binding.get_id(),
+                    value: &application_arn_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "authorizedTargets".into(),
-                    value: authorized_targets_binding.get_id(),
+                    value: &authorized_targets_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "scope".into(),
-                    value: scope_binding.get_id(),
+                    value: &scope_binding.drop_type(),
                 },
             ],
         };

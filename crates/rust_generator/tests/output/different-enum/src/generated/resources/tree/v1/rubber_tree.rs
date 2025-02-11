@@ -76,23 +76,23 @@ pub mod rubber_tree {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "container".into(),
-                    value: container_binding.get_id(),
+                    value: &container_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "diameter".into(),
-                    value: diameter_binding.get_id(),
+                    value: &diameter_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "farm".into(),
-                    value: farm_binding.get_id(),
+                    value: &farm_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "size".into(),
-                    value: size_binding.get_id(),
+                    value: &size_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "type".into(),
-                    value: type__binding.get_id(),
+                    value: &type__binding.drop_type(),
                 },
             ],
         };

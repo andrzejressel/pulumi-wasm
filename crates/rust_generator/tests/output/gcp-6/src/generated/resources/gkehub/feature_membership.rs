@@ -463,35 +463,35 @@ pub mod feature_membership {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "configmanagement".into(),
-                    value: configmanagement_binding.get_id(),
+                    value: &configmanagement_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "feature".into(),
-                    value: feature_binding.get_id(),
+                    value: &feature_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "membership".into(),
-                    value: membership_binding.get_id(),
+                    value: &membership_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "membershipLocation".into(),
-                    value: membership_location_binding.get_id(),
+                    value: &membership_location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "mesh".into(),
-                    value: mesh_binding.get_id(),
+                    value: &mesh_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "policycontroller".into(),
-                    value: policycontroller_binding.get_id(),
+                    value: &policycontroller_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

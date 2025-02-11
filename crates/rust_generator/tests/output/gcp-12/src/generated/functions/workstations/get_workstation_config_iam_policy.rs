@@ -58,19 +58,19 @@ pub mod get_workstation_config_iam_policy {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workstationClusterId".into(),
-                    value: workstation_cluster_id_binding.get_id(),
+                    value: &workstation_cluster_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "workstationConfigId".into(),
-                    value: workstation_config_id_binding.get_id(),
+                    value: &workstation_config_id_binding.drop_type(),
                 },
             ],
         };

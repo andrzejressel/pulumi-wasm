@@ -181,35 +181,35 @@ pub mod nat_gateway {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "allocationId".into(),
-                    value: allocation_id_binding.get_id(),
+                    value: &allocation_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "connectivityType".into(),
-                    value: connectivity_type_binding.get_id(),
+                    value: &connectivity_type_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "privateIp".into(),
-                    value: private_ip_binding.get_id(),
+                    value: &private_ip_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryAllocationIds".into(),
-                    value: secondary_allocation_ids_binding.get_id(),
+                    value: &secondary_allocation_ids_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryPrivateIpAddressCount".into(),
-                    value: secondary_private_ip_address_count_binding.get_id(),
+                    value: &secondary_private_ip_address_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "secondaryPrivateIpAddresses".into(),
-                    value: secondary_private_ip_addresses_binding.get_id(),
+                    value: &secondary_private_ip_addresses_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "subnetId".into(),
-                    value: subnet_id_binding.get_id(),
+                    value: &subnet_id_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };

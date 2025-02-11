@@ -177,27 +177,27 @@ pub mod insights_report_config {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "csvOptions".into(),
-                    value: csv_options_binding.get_id(),
+                    value: &csv_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "displayName".into(),
-                    value: display_name_binding.get_id(),
+                    value: &display_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "frequencyOptions".into(),
-                    value: frequency_options_binding.get_id(),
+                    value: &frequency_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "location".into(),
-                    value: location_binding.get_id(),
+                    value: &location_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "objectMetadataReportOptions".into(),
-                    value: object_metadata_report_options_binding.get_id(),
+                    value: &object_metadata_report_options_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "project".into(),
-                    value: project_binding.get_id(),
+                    value: &project_binding.drop_type(),
                 },
             ],
         };

@@ -157,63 +157,63 @@ pub mod matchmaking_configuration {
             object: &[
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptanceRequired".into(),
-                    value: acceptance_required_binding.get_id(),
+                    value: &acceptance_required_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "acceptanceTimeoutSeconds".into(),
-                    value: acceptance_timeout_seconds_binding.get_id(),
+                    value: &acceptance_timeout_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "additionalPlayerCount".into(),
-                    value: additional_player_count_binding.get_id(),
+                    value: &additional_player_count_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "backfillMode".into(),
-                    value: backfill_mode_binding.get_id(),
+                    value: &backfill_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "customEventData".into(),
-                    value: custom_event_data_binding.get_id(),
+                    value: &custom_event_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "description".into(),
-                    value: description_binding.get_id(),
+                    value: &description_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "flexMatchMode".into(),
-                    value: flex_match_mode_binding.get_id(),
+                    value: &flex_match_mode_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gameProperties".into(),
-                    value: game_properties_binding.get_id(),
+                    value: &game_properties_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gameSessionData".into(),
-                    value: game_session_data_binding.get_id(),
+                    value: &game_session_data_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "gameSessionQueueArns".into(),
-                    value: game_session_queue_arns_binding.get_id(),
+                    value: &game_session_queue_arns_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "name".into(),
-                    value: name_binding.get_id(),
+                    value: &name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "notificationTarget".into(),
-                    value: notification_target_binding.get_id(),
+                    value: &notification_target_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "requestTimeoutSeconds".into(),
-                    value: request_timeout_seconds_binding.get_id(),
+                    value: &request_timeout_seconds_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "ruleSetName".into(),
-                    value: rule_set_name_binding.get_id(),
+                    value: &rule_set_name_binding.drop_type(),
                 },
                 pulumi_gestalt_rust::ResourceRequestObjectField {
                     name: "tags".into(),
-                    value: tags_binding.get_id(),
+                    value: &tags_binding.drop_type(),
                 },
             ],
         };
