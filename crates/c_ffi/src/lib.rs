@@ -148,7 +148,7 @@ extern "C" fn pulumi_map(
         v
     };
 
-    let second_output = inner_engine.engine.map(&output.native, Box::new(f));
+    let second_output = output.native.map(Box::new(f));
 
     let output = CustomOutputId {
         native: second_output,
