@@ -1,0 +1,16 @@
+[package]
+name = "pulumi_gestalt_rust_adapter_native"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+pulumi_gestalt_core.workspace = true
+serde_json.workspace = true
+pulumi_gestalt_grpc_connection.workspace = true
+pulumi_gestalt_proto.workspace = true
+uuid.workspace = true
+pulumi_gestalt_rust_adapter_native_simple.workspace = true
+
+[lints]
+workspace = true
